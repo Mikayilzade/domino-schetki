@@ -9,7 +9,7 @@ const MODES = {
 };
 
 const uid = () => crypto.randomUUID();
-const emptyStats = () => ({ games: 0, wins: 0, points: 0, instant35: 0, minus: { events: 0, sum: 0, byAmount: {10:0,20:0,30:0,40:0}, daily: {} } });
+const emptyStats = () => ({ games: 0, wins: 0, points: 0, instant35: 0, rating: { total: 0, daily: {} }, minus: { events: 0, sum: 0, byAmount: {10:0,20:0,30:0,40:0}, daily: {} } });
 const newPlayer = (name, team) => ({ id: uid(), name, active: true, team, stats: emptyStats() });
 const defaultState = () => ({ screen: 'setup', mode: 'classic', players: [newPlayer('Микаил', 1), newPlayer('Игрок 2', 2)], game: null, archive: [], modal: null, selectedId: null, phoneEntry: 'play', savedAt: null });
 
@@ -19,7 +19,7 @@ const app = document.getElementById('app');
 function normalizeStats(s) {
   const base = emptyStats();
   if (!s) return base;
-  return { ...base, ...s, minus: { ...base.minus, ...(s.minus || {}), byAmount: { ...base.minus.byAmount, ...(s.minus?.byAmount || {}) }, daily: { ...(s.minus?.daily || {}) } } };
+  return { ...base, ...s, rating: { ...base.rating, ...(s.rating || {}), daily: { ...(s.rating?.daily || {}) } }, minus: { ...base.minus, ...(s.minus || {}), byAmount: { ...base.minus.byAmount, ...(s.minus?.byAmount || {}) }, daily: { ...(s.minus?.daily || {}) } } };
 }
 function normalizeState(raw) {
   const base = defaultState();
@@ -36,10 +36,12 @@ function loadState() {
   return defaultState();
 }
 function save() { state.savedAt = new Date().toISOString(); localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
-function esc(v) { return String(v).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
+function esc(v) { return String(v).replace(/[&<>'\"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
 function nowTime() { return new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}); }
-function dayKey() { return new Date().toISOString().slice(0,10); }
+function dayKey() { const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
 function activePlayers() { return state.players.filter(p => p.active); }
+function todayRating(p) { return normalizeStats(p.stats).rating.daily[dayKey()] || { points:0, games:0, first:0, second:0, bonus3:0 }; }
+function dailyLeaders() { return [...state.players].sort((a,b) => todayRating(b).points - todayRating(a).points || todayRating(b).first - todayRating(a).first || a.name.localeCompare(b.name)); }
 
 function entitiesFromSetup() {
   const groups = new Map();
@@ -99,11 +101,18 @@ function renderModal() {
     const e = selectedEntity(), value = state.modal.value || '';
     return `<div class="modal-backdrop"><div class="modal keypad-modal"><h2>${esc(e.name)}</h2><div class="keypad-display">${value || '0'}</div><div class="keypad">${[1,2,3,4,5,6,7,8,9].map(n=>`<button data-digit="${n}">${n}</button>`).join('')}<button id="keypad-clear">⌫</button><button data-digit="0">0</button><button id="keypad-reset">C</button></div><div class="actions"><button class="secondary" id="close-modal">Закрыть</button><button class="primary" id="apply-keypad" ${value?'':'disabled'}>Записать</button></div></div></div>`;
   }
-  if (state.modal.type === 'stats') {
-    const p = state.players.find(x=>x.id===state.modal.playerId), s=p.stats, d=s.minus.daily[dayKey()]||{events:0,sum:0};
-    return `<div class="modal-backdrop"><div class="modal"><h2>${esc(p.name)}</h2><div class="stat-grid"><div><b>${s.games}</b><span>партий</span></div><div><b>${s.wins}</b><span>побед</span></div><div><b>${s.points}</b><span>очков</span></div><div><b>${s.instant35}</b><span>побед +35</span></div></div><h3>Минусы</h3><div class="stat-lines"><p>Сегодня: ${d.events} раз, сумма −${d.sum}</p><p>Всего: ${s.minus.events} раз, сумма −${s.minus.sum}</p><p>−10: ${s.minus.byAmount[10]} · −20: ${s.minus.byAmount[20]} · −30: ${s.minus.byAmount[30]} · −40+: ${s.minus.byAmount[40]}</p></div><button class="secondary wide" id="close-modal">Закрыть</button></div></div>`;
+  if (state.modal.type === 'finish') {
+    const g=state.game,winner=g.entities.find(e=>e.id===g.winnerId),ordered=[...g.entities].sort((a,b)=>(b.id===g.winnerId)-(a.id===g.winnerId)||b.score-a.score),second=ordered.find(e=>e.id!==g.winnerId),exploded=state.modal.exploded||0;
+    return `<div class="modal-backdrop"><div class="modal"><h2>Итог партии</h2><div class="stat-lines"><p><b>1-е:</b> ${winner?esc(winner.name):'не определено'} — ${exploded>=2?'3':'2'} балла дня</p><p><b>2-е:</b> ${second?esc(second.name):'—'} — ${second?'1':'0'} балл</p></div><h3>Сколько соперников взорвались?</h3><div class="entry-toggle"><button data-exploded="0" class="${exploded===0?'active':''}">0</button><button data-exploded="1" class="${exploded===1?'active':''}">1</button><button data-exploded="2" class="${exploded>=2?'active':''}">2+</button></div><p class="small">При двух и более взорвавшихся победитель получает 3 балла вместо 2.</p><div class="actions"><button class="secondary" id="close-modal">Назад</button><button class="primary" id="confirm-finish">Сохранить итог</button></div></div></div>`;
   }
-  if (state.modal.type === 'progress') return `<div class="modal-backdrop"><div class="modal"><h2>Прогресс</h2><div class="list">${state.players.map(p=>`<button class="progress-row" data-stats="${p.id}"><span>${esc(p.name)}</span><b>${p.stats.wins}/${p.stats.games}</b></button>`).join('')}</div><p class="small">Победы / сыгранные партии. Нажми игрока для подробностей.</p><button class="secondary wide" id="close-modal">Закрыть</button></div></div>`;
+  if (state.modal.type === 'stats') {
+    const p = state.players.find(x=>x.id===state.modal.playerId), s=normalizeStats(p.stats), d=s.minus.daily[dayKey()]||{events:0,sum:0}, r=todayRating(p);
+    return `<div class="modal-backdrop"><div class="modal"><h2>${esc(p.name)}</h2><div class="stat-grid"><div><b>${s.games}</b><span>партий</span></div><div><b>${s.wins}</b><span>побед</span></div><div><b>${r.points}</b><span>баллов сегодня</span></div><div><b>${s.rating.total}</b><span>баллов всего</span></div><div><b>${s.points}</b><span>игровых очков</span></div><div><b>${s.instant35}</b><span>побед +35</span></div></div><h3>Минусы</h3><div class="stat-lines"><p>Сегодня: ${d.events} раз, сумма −${d.sum}</p><p>Всего: ${s.minus.events} раз, сумма −${s.minus.sum}</p><p>−10: ${s.minus.byAmount[10]} · −20: ${s.minus.byAmount[20]} · −30: ${s.minus.byAmount[30]} · −40+: ${s.minus.byAmount[40]}</p></div><button class="secondary wide" id="close-modal">Закрыть</button></div></div>`;
+  }
+  if (state.modal.type === 'progress') {
+    const leaders=dailyLeaders();
+    return `<div class="modal-backdrop"><div class="modal"><h2>Лучший игрок дня</h2><div class="list">${leaders.map((p,i)=>{const r=todayRating(p);return `<button class="progress-row" data-stats="${p.id}"><span>${i+1}. ${esc(p.name)}</span><b>${r.points} бал.</b></button>`;}).join('')}</div><p class="small">1-е место: 2 балла, 2-е: 1 балл, остальные: 0. При двух взорвавшихся победитель получает 3 балла.</p><h3>Общий прогресс</h3><div class="list">${state.players.map(p=>`<button class="progress-row" data-stats="${p.id}"><span>${esc(p.name)}</span><b>${p.stats.wins}/${p.stats.games}</b></button>`).join('')}</div><p class="small">Победы / сыгранные партии. Нажми игрока для подробностей.</p><button class="secondary wide" id="close-modal">Закрыть</button></div></div>`;
+  }
   return '';
 }
 function bind() {
@@ -128,6 +137,8 @@ function bind() {
   document.getElementById('keypad-reset')?.addEventListener('click',()=>{state.modal.value='';render();});
   document.getElementById('apply-keypad')?.addEventListener('click',applyKeypad);
   document.getElementById('close-modal')?.addEventListener('click',()=>{state.modal=null;render();});
+  document.querySelectorAll('[data-exploded]').forEach(b=>b.onclick=()=>{state.modal.exploded=Number(b.dataset.exploded);render();});
+  document.getElementById('confirm-finish')?.addEventListener('click',()=>completeFinish(state.modal.exploded||0));
   document.getElementById('undo')?.addEventListener('click',undo);
   document.getElementById('finish-game')?.addEventListener('click',finishGame);
   document.getElementById('reset-stats')?.addEventListener('click',resetStats);
@@ -148,8 +159,10 @@ function applyScore(entityId, raw, isHand) {
 function applyMinus(entityId, amount){const g=state.game,e=g.entities.find(x=>x.id===entityId);if(!e)return;const before=snapshot(),applied=Math.min(e.score,amount);e.score-=applied;const text=applied<amount?`${e.name}: −${amount}, счёт остался 0`:`${e.name}: −${amount}`;g.history.push({text,time:nowTime(),before,kind:'minus',amount,entityId,memberIds:e.memberIds});render();}
 function checkWinner(e,amount,isHand){const g=state.game;if(g.winnerId)return;if(g.mode==='classic'&&e.score>=101)g.winnerId=e.id;if(g.mode==='phone'){const nobodyAt300Before=g.entities.every(x=>x.id===e.id?x.score-amount<300:x.score<300);if(!isHand&&amount===35&&nobodyAt300Before){g.winnerId=e.id;g.instant35=true;}else if(e.score>=365)g.winnerId=e.id;}}
 function undo(){const last=state.game.history.pop();if(!last)return;const old=JSON.parse(last.before);state.game.entities=old.entities;state.game.winnerId=old.winnerId;render();}
-function finishGame(){const g=state.game;if(!g)return;if(!g.winnerId&&!confirm('Победитель не определён. Всё равно завершить партию?'))return;if(!g.recorded)recordGame(g);state.archive.unshift({id:g.id,mode:g.mode,winnerId:g.winnerId,endedAt:new Date().toISOString(),entities:g.entities.map(e=>({name:e.name,score:e.score}))});state.archive=state.archive.slice(0,100);state.game=null;state.screen='setup';state.modal=null;render();}
-function recordGame(g){const winner=g.entities.find(e=>e.id===g.winnerId),participantIds=new Set(g.entities.flatMap(e=>e.memberIds));state.players.forEach(p=>{if(!participantIds.has(p.id))return;p.stats=normalizeStats(p.stats);p.stats.games++;const entity=g.entities.find(e=>e.memberIds.includes(p.id));p.stats.points+=entity?.score||0;if(winner?.memberIds.includes(p.id)){p.stats.wins++;if(g.instant35)p.stats.instant35++;}});for(const h of g.history.filter(x=>x.kind==='minus'))for(const id of h.memberIds||[]){const p=state.players.find(x=>x.id===id);if(!p)continue;const m=p.stats.minus;m.events++;m.sum+=h.amount;const bucket=h.amount>=40?40:h.amount;m.byAmount[bucket]=(m.byAmount[bucket]||0)+1;const day=dayKey();m.daily[day]=m.daily[day]||{events:0,sum:0};m.daily[day].events++;m.daily[day].sum+=h.amount;}g.recorded=true;}
+function finishGame(){const g=state.game;if(!g)return;if(!g.winnerId){if(!confirm('Победитель не определён. Всё равно завершить партию без рейтинговых баллов?'))return;completeFinish(0);return;}state.modal={type:'finish',exploded:0};render();}
+function completeFinish(exploded){const g=state.game;if(!g)return;g.explodedCount=exploded;if(!g.recorded)recordGame(g);state.archive.unshift({id:g.id,mode:g.mode,winnerId:g.winnerId,endedAt:new Date().toISOString(),explodedCount:exploded,entities:g.entities.map(e=>({name:e.name,score:e.score}))});state.archive=state.archive.slice(0,100);state.game=null;state.screen='setup';state.modal=null;render();}
+function addRating(memberIds, points, place, bonus3){const day=dayKey();for(const id of memberIds||[]){const p=state.players.find(x=>x.id===id);if(!p)continue;p.stats=normalizeStats(p.stats);const r=p.stats.rating;r.total+=points;r.daily[day]=r.daily[day]||{points:0,games:0,first:0,second:0,bonus3:0};r.daily[day].points+=points;r.daily[day].games++;if(place===1)r.daily[day].first++;if(place===2)r.daily[day].second++;if(bonus3)r.daily[day].bonus3++;}}
+function recordGame(g){const winner=g.entities.find(e=>e.id===g.winnerId),participantIds=new Set(g.entities.flatMap(e=>e.memberIds));state.players.forEach(p=>{if(!participantIds.has(p.id))return;p.stats=normalizeStats(p.stats);p.stats.games++;const entity=g.entities.find(e=>e.memberIds.includes(p.id));p.stats.points+=entity?.score||0;if(winner?.memberIds.includes(p.id)){p.stats.wins++;if(g.instant35)p.stats.instant35++;}});if(winner){const winnerPoints=g.explodedCount>=2?3:2;addRating(winner.memberIds,winnerPoints,1,g.explodedCount>=2);const second=[...g.entities].filter(e=>e.id!==winner.id).sort((a,b)=>b.score-a.score)[0];if(second)addRating(second.memberIds,1,2,false);for(const other of g.entities.filter(e=>e.id!==winner.id&&e.id!==second?.id))addRating(other.memberIds,0,0,false);}for(const h of g.history.filter(x=>x.kind==='minus'))for(const id of h.memberIds||[]){const p=state.players.find(x=>x.id===id);if(!p)continue;const m=p.stats.minus;m.events++;m.sum+=h.amount;const bucket=h.amount>=40?40:h.amount;m.byAmount[bucket]=(m.byAmount[bucket]||0)+1;const day=dayKey();m.daily[day]=m.daily[day]||{events:0,sum:0};m.daily[day].events++;m.daily[day].sum+=h.amount;}g.recorded=true;}
 function resetStats(){if(!confirm('Стереть всю статистику и архив? Список игроков останется.'))return;state.players.forEach(p=>p.stats=emptyStats());state.archive=[];render();}
 function resetAll(){if(!confirm('Удалить игроков, текущую партию и всю статистику?'))return;localStorage.removeItem(STORAGE_KEY);localStorage.removeItem(LEGACY_KEY);state=defaultState();render();}
 if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
