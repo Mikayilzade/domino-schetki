@@ -1,0 +1,33 @@
+/* iPhone Safari / installed PWA layout fixes */
+.score-screen{padding-bottom:max(12px,env(safe-area-inset-bottom));}
+.score-screen .calc-hint{padding-bottom:4px;}
+.achievement-head-v18{display:flex;align-items:center;justify-content:space-between;gap:10px}.achievement-head-v18 span{color:var(--muted);font-size:12px;font-weight:800}
+
+/* Qoşa gained two quick-action buttons, so tighten only that calculator enough to fit
+   without re-enabling whole-page scrolling. */
+.qosha-fast-row-v17{margin-bottom:8px}
+.score-screen .qosha-fast-row-v17 button{min-height:48px}
+@media (max-height:820px){
+  .score-screen{padding-top:max(8px,env(safe-area-inset-top));padding-bottom:max(8px,env(safe-area-inset-bottom))}
+  .score-screen .score-header .mode-icon{height:64px}
+  .score-screen .players-grid{margin:8px 0}
+  .score-screen .player-main{height:122px;padding:8px 6px}
+  .score-screen .player-main strong{font-size:46px;margin:5px 0}
+  .score-screen .calculator{padding:9px 12px}
+  .score-screen .panel-tabs button{padding:8px}
+  .score-screen .key-grid{gap:6px}
+  .score-screen .key-grid button{height:48px}
+  .score-screen .calc-display{margin-bottom:7px}
+  .score-screen .calc-display button,.score-screen .calc-display output{height:51px}
+  .score-screen .target-row{padding-top:7px}
+  .score-screen .target-row button{height:44px}
+  .score-screen .calc-hint{margin-top:6px;font-size:12px}
+  .score-screen .qosha-fast-row-v17{gap:7px;margin-bottom:6px}
+  .score-screen .qosha-fast-row-v17 button{min-height:42px;padding:8px}
+}
+
+/* Standalone iOS has no Safari toolbar, but needs a little visual breathing room under
+   the status area so the app does not look pulled upward. */
+@media (display-mode: standalone){
+  .score-screen{padding-top:max(20px,calc(env(safe-area-inset-top) + 6px));padding-bottom:max(14px,env(safe-area-inset-bottom))}
+}
