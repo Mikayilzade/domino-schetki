@@ -22,10 +22,14 @@ function makeBackupPayloadV20(){
   return {format:BACKUP_FORMAT_V20,version:BACKUP_VERSION_V20,exportedAt:new Date().toISOString(),summary:backupSummaryV20(snapshot),state:snapshot,nicks:nickMap};
 }
 function safeFileStampV20(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}_${String(d.getHours()).padStart(2,'0')}-${String(d.getMinutes()).padStart(2,'0')}`;}
-function downloadBackupV20(){
+async function downloadBackupV20(){
   try{
-    const payload=makeBackupPayloadV20(),blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
-    a.href=url;a.download=`domino-schetki-backup_${safeFileStampV20()}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+    const payload=makeBackupPayloadV20(),text=JSON.stringify(payload,null,2),name=`domino-schetki-backup_${safeFileStampV20()}.json`,file=new File([text],name,{type:'application/json'});
+    if(navigator.share&&navigator.canShare?.({files:[file]})){
+      try{await navigator.share({files:[file],title:'Резервная копия Счёток'});return;}catch(err){if(err?.name==='AbortError')return;console.warn('share fallback',err);}
+    }
+    const blob=new Blob([text],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+    a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
   }catch(err){console.error('backup export',err);alert('Не удалось создать резервную копию. Данные не изменены.');}
 }
 function validateBackupV20(data){
@@ -38,16 +42,27 @@ function importSummaryTextV20(data){
   return `Найдена резервная копия:\n\nИгроков: ${s.players}\nЗавершённых партий: ${s.archive}\nЗаписей лога: ${s.logEntries}\nПериод: ${period}\nСоздана: ${new Date(data.exportedAt||Date.now()).toLocaleString()}\n\nТекущие данные на этом телефоне будут заменены. Продолжить?`;
 }
 function saveEmergencySnapshotV20(){try{localStorage.setItem(PREIMPORT_KEY_V20,JSON.stringify(makeBackupPayloadV20()));}catch(err){console.warn('preimport snapshot',err);}}
+function applyBackupV20(data,keepCurrent=true){
+  validateBackupV20(data);if(keepCurrent)saveEmergencySnapshotV20();
+  const imported=JSON.parse(JSON.stringify(data.state));state=typeof migrate==='function'?migrate(imported):imported;state.screen='menu';state.modal=null;
+  const nicks=data.nicks&&typeof data.nicks==='object'?data.nicks:{};
+  (state.players||[]).forEach(p=>{const n=String(nicks[p.id]||p.nick||'').trim().slice(0,8);if(n)p.nick=n;});
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+  if(typeof NICK_STORAGE_KEY_V12!=='undefined')localStorage.setItem(NICK_STORAGE_KEY_V12,JSON.stringify(nicks));
+  if(typeof writeNickMapV12==='function')writeNickMapV12();save();render();
+}
 function restoreBackupV20(data){
-  validateBackupV20(data);if(!confirm(importSummaryTextV20(data)))return;saveEmergencySnapshotV20();
+  validateBackupV20(data);if(!confirm(importSummaryTextV20(data)))return;
+  try{applyBackupV20(data,true);alert(`Готово. Восстановлено партий: ${(state.archive||[]).length}.`);}
+  catch(err){console.error('backup import',err);alert('Не удалось восстановить копию. Текущая база сохранена в аварийном локальном слоте.');}
+}
+function restoreEmergencyV20(){
   try{
-    const imported=JSON.parse(JSON.stringify(data.state));state=typeof migrate==='function'?migrate(imported):imported;state.screen='menu';state.modal=null;
-    const nicks=data.nicks&&typeof data.nicks==='object'?data.nicks:{};
-    (state.players||[]).forEach(p=>{const n=String(nicks[p.id]||p.nick||'').trim().slice(0,8);if(n)p.nick=n;});
-    localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
-    if(typeof NICK_STORAGE_KEY_V12!=='undefined')localStorage.setItem(NICK_STORAGE_KEY_V12,JSON.stringify(nicks));
-    if(typeof writeNickMapV12==='function')writeNickMapV12();save();alert(`Готово. Восстановлено партий: ${(state.archive||[]).length}.`);render();
-  }catch(err){console.error('backup import',err);alert('Не удалось восстановить копию. Текущая база сохранена в аварийном локальном слоте.');}
+    const raw=localStorage.getItem(PREIMPORT_KEY_V20);if(!raw)return;
+    const data=validateBackupV20(JSON.parse(raw));
+    if(!confirm('Вернуть состояние, которое было на телефоне непосредственно перед последним восстановлением из файла?'))return;
+    applyBackupV20(data,true);alert('Предыдущее состояние восстановлено.');
+  }catch(err){console.error('emergency restore',err);alert('Аварийную копию прочитать не удалось.');}
 }
 function readBackupFileV20(file){
   if(!file)return;const reader=new FileReader();
@@ -59,13 +74,15 @@ const renderMenuV20Base=renderMenu;
 renderMenu=function(){
   let html=renderMenuV20Base();
   const marker='<p class="note">Сброс дня удаляет только данные сегодняшнего дня. Полный сброс удаляет вообще всё.</p>';
-  const backup=`<div class="backup-v20"><h3>Резервная копия</h3><p class="note">Сохрани JSON-файл в Файлы, iCloud или Google Drive. В нём игроки, партии, логи, статистика, достижения, рейтинги и текущие игры.</p><div class="backup-actions-v20"><button type="button" id="backup-download">Скачать резервную копию</button><button type="button" id="backup-restore">Восстановить из копии</button></div><input id="backup-file" type="file" accept="application/json,.json" hidden><p class="note">Перед восстановлением текущая база автоматически сохраняется локально как аварийная копия.</p></div>`;
+  const emergency=localStorage.getItem(PREIMPORT_KEY_V20)?'<button type="button" id="backup-emergency">Вернуть данные до последнего восстановления</button>':'';
+  const backup=`<div class="backup-v20"><h3>Резервная копия</h3><p class="note">Сохрани JSON-файл в Файлы, iCloud или Google Drive. В нём игроки, партии, логи, статистика, достижения, рейтинги и текущие игры.</p><div class="backup-actions-v20"><button type="button" id="backup-download">Скачать резервную копию</button><button type="button" id="backup-restore">Восстановить из копии</button>${emergency}</div><input id="backup-file" type="file" accept="application/json,.json" hidden><p class="note">Перед восстановлением текущая база автоматически сохраняется локально как аварийная копия.</p></div>`;
   if(html.includes(marker))html=html.replace(marker,backup+marker);return html;
 };
 
 document.addEventListener('click',event=>{
   const download=event.target?.closest?.('#backup-download');if(download){event.preventDefault();event.stopImmediatePropagation();downloadBackupV20();return;}
-  const restore=event.target?.closest?.('#backup-restore');if(restore){event.preventDefault();event.stopImmediatePropagation();document.getElementById('backup-file')?.click();}
+  const restore=event.target?.closest?.('#backup-restore');if(restore){event.preventDefault();event.stopImmediatePropagation();document.getElementById('backup-file')?.click();return;}
+  const emergency=event.target?.closest?.('#backup-emergency');if(emergency){event.preventDefault();event.stopImmediatePropagation();restoreEmergencyV20();}
 },true);
 document.addEventListener('change',event=>{const input=event.target;if(!input?.matches?.('#backup-file'))return;const file=input.files?.[0];input.value='';readBackupFileV20(file);},true);
 
