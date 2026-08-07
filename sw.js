@@ -1,4 +1,4 @@
-const CACHE='domino-schetki-v8';
+const CACHE='domino-schetki-v9';
 const ASSETS=['./','./index.html','./scoreboard.css','./scoreboard-extra.css','./scoreboard-v8.css','./scoreboard.js','./scoreboard-extra.js','./scoreboard-v8.js','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',event=>{self.skipWaiting();event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)));});
 self.addEventListener('activate',event=>{event.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))),self.clients.claim()]));});
