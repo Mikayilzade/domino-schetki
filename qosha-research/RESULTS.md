@@ -23,19 +23,16 @@
 - players: 3;
 - handSize: 9.
 
-Для позиции было рассмотрено около 2 000 возможных скрытых раскладов. Большая часть ходов пользователя оказалась вынужденной; существенные развилки были найдены примерно на ходах №20 и №23. Это подтверждает полезность Monte Carlo разбора реальных партий.
+Для позиции было рассмотрено около 2 000 возможных скрытых раскладов. Большая часть ходов пользователя оказалась вынужденной; существенные развилки были найдены примерно на ходах №20 и №23.
 
 ## Новые почасовые прогоны
 
-Новые записи добавлять ниже в формате:
-
-### YYYY-MM-DD HH:MM (+04)
-- engine:
-- rules version:
-- deals:
-- seeds:
-- strategies:
-- key metrics:
-- new finding:
-- confidence:
-- follow-up:
+### 2026-09-30 23:54 (+04)
+- engine: `qosa-research-0.1.0` (local validation prototype)
+- deals: 0 strategy deals; 4 deterministic deal fixtures used for invariant validation
+- seeds: 0, 1, 1898414179, 4294967295
+- strategies: none yet; intentionally blocked until branch/legal-move semantics are validated
+- key metrics: 28 unique tiles; each 3×9 fixture produced 27 unique hand tiles + 1 stock tile; deterministic replay, pip counting, minus classification and score-floor checks passed
+- new finding: reproducible deal infrastructure is feasible, but strategy statistics are still premature
+- confidence: high for these basic invariants; no claim for branch legality or historical seed compatibility
+- follow-up: add branch-state/legal-move fixtures from confirmed rules and real positions before the first strategy batch
