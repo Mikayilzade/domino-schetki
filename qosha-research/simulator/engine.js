@@ -11,7 +11,13 @@ function finishMinus(ts){if(!Array.isArray(ts)||ts.length<1||ts.length>4||!ts.ev
 function applyScoreDelta(score,delta){return Math.max(0,score+delta);}
 function createBranchState(centerDouble,activeSides=SIDES){if(!Array.isArray(centerDouble)||centerDouble.length!==2||centerDouble[0]!==centerDouble[1])throw new Error('centre must be double');const pip=centerDouble[0],active=new Set(activeSides);for(const side of active)if(!SIDES.includes(side))throw new Error('unknown side');return{center:[pip,pip],branches:Object.fromEntries(SIDES.map(side=>[side,{active:active.has(side),end:pip}]))};}
 function cloneBranchState(s){return{center:[...s.center],branches:Object.fromEntries(SIDES.map(side=>[side,{...s.branches[side]}]))};}
+
+function createOpeningState(openedNumbers=[]){const opened=new Set();for(const n of openedNumbers){if(!Number.isInteger(n)||n<0||n>6)throw new Error('opened number must be 0..6');opened.add(n);}return{openedNumbers:opened};}
+function cloneOpeningState(s){return{openedNumbers:new Set(s.openedNumbers)};}
+function isNumberOpened(s,n){return s.openedNumbers.has(n);}
+function openNumber(s,n){if(!Number.isInteger(n)||n<0||n>6)throw new Error('opened number must be 0..6');const next=cloneOpeningState(s);next.openedNumbers.add(n);return next;}
+function sidesEndingIn(s,n){return SIDES.filter(side=>s.branches[side].active&&s.branches[side].end===n);}
 function legalSinglePlacements(s,tile){const [a,b]=canonicalTile(tile[0],tile[1]),out=[];for(const side of SIDES){const br=s.branches[side];if(!br.active)continue;if(a===br.end||b===br.end){const to=a===b?a:(a===br.end?b:a);out.push({side,tile:[a,b],from:br.end,to});}}return out;}
 function applySinglePlacement(s,p){const m=legalSinglePlacements(s,p.tile).find(x=>x.side===p.side&&x.to===p.to);if(!m)throw new Error('illegal placement');const n=cloneBranchState(s);n.branches[p.side].end=m.to;return n;}
 function legalSinglesForHand(s,h){return h.flatMap((tile,handIndex)=>legalSinglePlacements(s,tile).map(p=>({handIndex,...p})));}
-module.exports={SIDES,canonicalTile,tileKey,createDoubleSixDeck,shuffledDeck,dealThreeByNine,pipSum,finishMinus,applyScoreDelta,createBranchState,cloneBranchState,legalSinglePlacements,applySinglePlacement,legalSinglesForHand};
+module.exports={SIDES,canonicalTile,tileKey,createDoubleSixDeck,shuffledDeck,dealThreeByNine,pipSum,finishMinus,applyScoreDelta,createBranchState,cloneBranchState,createOpeningState,cloneOpeningState,isNumberOpened,openNumber,sidesEndingIn,legalSinglePlacements,applySinglePlacement,legalSinglesForHand};
