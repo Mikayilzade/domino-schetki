@@ -104,3 +104,17 @@
 - confidence: high for the evidence audit; no gameplay-strategy claim
 - limitation: old simulator source or additional complete historical logs are not discoverable on the default branch
 - follow-up: continue with initialization-invariant validation: explicit −10/−20/−30/−40 finish fixtures and a documented maximal-vs-prefix multi-double assumption matrix
+
+
+### 2026-10-01 20:00 (+04)
+- engine: `qosa-research-0.5.0` rule-confirmation checkpoint
+- deals: 0 strategy deals; deterministic rule/integration fixtures only
+- seeds: historical fixture `1898414179` plus constructed start/finish fixtures
+- strategies: none yet
+- key metrics: user confirmed mandatory `1-1` opening, clockwise continuation, first-round redeal if `1-1` is stock, previous-winner start on later stock `1-1`; non-finishing multi-double prefixes are voluntary; finishing doubles are all played; mixed finish is valid
+- validated example: hand `1-5, 5-5, 2-2` with 5 and 2 available after `1-5` ends the round in the same turn with −20
+- historical opening fixture: player 2 owns `1-1`, draws stock `1-5`, plays `1-5` as the second opening move, then turn passes clockwise to player 0
+- new finding: the three largest rule blockers (start centre, mixed finish, maximal-vs-prefix multi-double behavior) are now resolved by direct user confirmation
+- confidence: high for these rules; they are user-confirmed rather than inferred
+- limitation: a rare opening edge remains unresolved when starter has no other 1 after the required opening draw; engine explicitly gates it
+- follow-up: quantify that edge-case frequency, resolve it, then run complete initialized-round smoke batches before matched strategy simulations

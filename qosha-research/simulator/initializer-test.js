@@ -1,0 +1,10 @@
+'use strict';
+const assert=require('assert');
+const init=require('./initializer');
+const fixture=require('../fixtures/seed-1898414179.json');
+let st=init.initializeThreePlayerRoundFromDeal({hands:fixture.initialHands,stock:fixture.initialStock,isFirstRound:false,previousWinnerIndex:1,chooseFollowup:(choices)=>choices.find(x=>x.tile[0]===1&&x.tile[1]===5)});
+assert.equal(st.kind,'ready');assert.equal(st.starter,2);assert.equal(st.currentPlayer,0);assert.deepStrictEqual(st.openingDraw,[1,5]);assert.deepStrictEqual(st.openingFollowup.tile,[1,5]);assert.equal(st.hands[2].length,8);
+const stockOne={hands:[[[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[2,3],[2,4]],[[1,2],[1,3],[2,2],[2,5],[2,6],[3,3],[3,4],[3,5],[3,6]],[[1,4],[1,5],[1,6],[4,4],[4,5],[4,6],[5,5],[5,6],[6,6]]],stock:[[1,1]]};
+st=init.initializeThreePlayerRoundFromDeal({...stockOne,isFirstRound:true});assert.equal(st.kind,'redeal');
+st=init.initializeThreePlayerRoundFromDeal({...stockOne,isFirstRound:false,previousWinnerIndex:1,chooseFollowup:c=>c[0]});assert.equal(st.kind,'ready');assert.equal(st.starter,1);assert.equal(st.currentPlayer,2);
+console.log('qosa initializer invariants: OK');

@@ -2,53 +2,16 @@
 const e=require('./engine');
 const t=require('./turn-kernel');
 function isDouble(tile){return tile[0]===tile[1];}
-function ordinaryActions(branchState,hand){return e.legalSinglesForHand(branchState,hand).filter(x=>!isDouble(x.tile)).map(x=>({type:'single',...x}));}
-function doubleActions(branchState,openingState,hand){return e.enumerateDoubleOpeningSequences(branchState,openingState,hand).map(sequence=>({type:'double-sequence',sequence,tiles:sequence.map(x=>x.tile),numbers:sequence.map(x=>x.number)}));}
-function actionsForHand(branchState,openingState,hand){return[...ordinaryActions(branchState,hand),...doubleActions(branchState,openingState,hand)];}
-function turnOptions(branchState,openingState,hand,stock){
-  let workingHand=[...hand],workingStock=[...stock],drawn=false,drawnTile=null;
-  let actions=actionsForHand(branchState,openingState,workingHand);
-  if(actions.length)return{phase:'play',drawn,drawnTile,hand:workingHand,stock:workingStock,actions};
-  if(workingStock.length){drawnTile=workingStock[0];workingHand=[...workingHand,drawnTile];workingStock=workingStock.slice(1);drawn=true;actions=actionsForHand(branchState,openingState,workingHand);if(actions.length)return{phase:'play',drawn,drawnTile:[...drawnTile],hand:workingHand,stock:workingStock,actions};}
-  return{phase:'pass',drawn,drawnTile:drawnTile?[...drawnTile]:null,hand:workingHand,stock:workingStock,actions:[]};
-}
+function samePlacement(a,b){return a.handIndex===b.handIndex&&a.side===b.side&&a.to===b.to&&e.tileKey(a.tile)===e.tileKey(b.tile);}
+function mixedFinishActions(branchState,openingState,hand){const out=[];for(let handIndex=0;handIndex<hand.length;handIndex++){const tile=hand[handIndex];if(isDouble(tile))continue;const remaining=hand.filter((_,i)=>i!==handIndex);if(!remaining.length||!remaining.every(isDouble))continue;for(const placement of e.legalSinglePlacements(branchState,tile)){const nextBranch=e.applySinglePlacement(branchState,placement);const seqs=e.enumerateDoubleOpeningSequences(nextBranch,openingState,remaining).filter(seq=>seq.length===remaining.length);for(const sequence of seqs)out.push({type:'mixed-finish',handIndex,...placement,sequence,tiles:[tile,...sequence.map(x=>x.tile)],numbers:sequence.map(x=>x.number),finishDoubles:sequence.map(x=>x.tile)});}}return out;}
+function ordinaryActions(branchState,openingState,hand){const mixed=mixedFinishActions(branchState,openingState,hand);return e.legalSinglesForHand(branchState,hand).filter(x=>!isDouble(x.tile)&&!mixed.some(m=>samePlacement(m,x))).map(x=>({type:'single',...x}));}
+function doubleActions(branchState,openingState,hand){const seqs=e.enumerateDoubleOpeningSequences(branchState,openingState,hand);const allDoubles=hand.length>0&&hand.every(isDouble);const full=allDoubles?seqs.filter(seq=>seq.length===hand.length):[];const allowed=full.length?full:seqs;return allowed.map(sequence=>({type:'double-sequence',sequence,tiles:sequence.map(x=>x.tile),numbers:sequence.map(x=>x.number)}));}
+function actionsForHand(branchState,openingState,hand){return[...mixedFinishActions(branchState,openingState,hand),...ordinaryActions(branchState,openingState,hand),...doubleActions(branchState,openingState,hand)];}
+function turnOptions(branchState,openingState,hand,stock){let workingHand=[...hand],workingStock=[...stock],drawn=false,drawnTile=null;let actions=actionsForHand(branchState,openingState,workingHand);if(actions.length)return{phase:'play',drawn,drawnTile,hand:workingHand,stock:workingStock,actions};if(workingStock.length){drawnTile=workingStock[0];workingHand=[...workingHand,drawnTile];workingStock=workingStock.slice(1);drawn=true;actions=actionsForHand(branchState,openingState,workingHand);if(actions.length)return{phase:'play',drawn,drawnTile:[...drawnTile],hand:workingHand,stock:workingStock,actions};}return{phase:'pass',drawn,drawnTile:drawnTile?[...drawnTile]:null,hand:workingHand,stock:workingStock,actions:[]};}
 function removeTileOnce(hand,tile){const key=e.tileKey(tile);const i=hand.findIndex(x=>e.tileKey(x)===key);if(i<0)throw new Error('played tile missing from hand');return hand.filter((_,idx)=>idx!==i);}
-function sameSingle(a,b){return a&&b&&a.type==='single'&&b.type==='single'&&a.handIndex===b.handIndex&&a.side===b.side&&a.to===b.to&&e.tileKey(a.tile)===e.tileKey(b.tile);}
+function sameSingle(a,b){return a&&b&&a.type==='single'&&b.type==='single'&&samePlacement(a,b);}
 function sameDoubleAction(a,b){return a&&b&&a.type==='double-sequence'&&b.type==='double-sequence'&&a.numbers.join(',')===b.numbers.join(',');}
-function applyTurn(branchState,openingState,hand,stock,choice=null){
-  const options=turnOptions(branchState,openingState,hand,stock);
-  if(options.phase==='pass'){
-    if(choice!==null)throw new Error('cannot choose action on pass');
-    return{branchState:e.cloneBranchState(branchState),openingState:e.cloneOpeningState(openingState),hand:options.hand,stock:options.stock,passed:true,drawn:options.drawn,drawnTile:options.drawnTile,playedTiles:[],action:null};
-  }
-  if(!choice)throw new Error('turn action required');
-  const legal=options.actions.find(a=>sameSingle(a,choice)||sameDoubleAction(a,choice));
-  if(!legal)throw new Error('illegal turn action');
-  if(legal.type==='single'){
-    const nextBranch=e.applySinglePlacement(branchState,legal);
-    const nextHand=options.hand.filter((_,i)=>i!==legal.handIndex);
-    return{branchState:nextBranch,openingState:e.cloneOpeningState(openingState),hand:nextHand,stock:options.stock,passed:false,drawn:options.drawn,drawnTile:options.drawnTile,playedTiles:[legal.tile],action:legal};
-  }
-  const opened=e.applyDoubleOpeningSequence(branchState,openingState,legal.sequence);
-  let nextHand=options.hand;
-  for(const tile of legal.tiles)nextHand=removeTileOnce(nextHand,tile);
-  return{branchState:opened.branchState,openingState:opened.openingState,hand:nextHand,stock:options.stock,passed:false,drawn:options.drawn,drawnTile:options.drawnTile,playedTiles:legal.tiles.map(x=>[...x]),action:legal};
-}
-function detectMixedFinishAmbiguity(branchState,openingState,hand){
-  const doubles=hand.filter(isDouble),ordinary=hand.filter(x=>!isDouble(x));
-  if(ordinary.length!==1||!doubles.length)return null;
-  const placements=e.legalSinglePlacements(branchState,ordinary[0]);
-  for(const placement of placements){
-    const nextBranch=e.applySinglePlacement(branchState,placement);
-    const seqs=e.enumerateDoubleOpeningSequences(nextBranch,openingState,doubles);
-    const full=seqs.find(seq=>seq.length===doubles.length);
-    if(full)return{ordinaryTile:[...ordinary[0]],placement,doubleTiles:doubles.map(x=>[...x]),doubleSequence:full};
-  }
-  return null;
-}
-function roundOutcome({hands,stock,consecutivePasses,lastPlayerIndex,lastTurnResult,players=3}){
-  if(lastTurnResult&&!lastTurnResult.passed&&hands[lastPlayerIndex].length===0){return{kind:'finish',playerIndex:lastPlayerIndex,minus:e.finishMinus(lastTurnResult.playedTiles),remainders:hands.map(e.pipSum)};}
-  if(t.isBlocked({stock,consecutivePasses,players}))return{kind:'block',playerIndex:null,minus:0,remainders:t.blockRemainders(hands)};
-  return null;
-}
-module.exports={isDouble,ordinaryActions,doubleActions,actionsForHand,turnOptions,applyTurn,detectMixedFinishAmbiguity,roundOutcome};
+function sameMixed(a,b){return a&&b&&a.type==='mixed-finish'&&b.type==='mixed-finish'&&samePlacement(a,b)&&a.numbers.join(',')===b.numbers.join(',');}
+function applyTurn(branchState,openingState,hand,stock,choice=null){const options=turnOptions(branchState,openingState,hand,stock);if(options.phase==='pass'){if(choice!==null)throw new Error('cannot choose action on pass');return{branchState:e.cloneBranchState(branchState),openingState:e.cloneOpeningState(openingState),hand:options.hand,stock:options.stock,passed:true,drawn:options.drawn,drawnTile:options.drawnTile,playedTiles:[],finishDoubles:[],action:null};}if(!choice)throw new Error('turn action required');const legal=options.actions.find(a=>sameSingle(a,choice)||sameDoubleAction(a,choice)||sameMixed(a,choice));if(!legal)throw new Error('illegal turn action');if(legal.type==='single'){const nextBranch=e.applySinglePlacement(branchState,legal);const nextHand=options.hand.filter((_,i)=>i!==legal.handIndex);return{branchState:nextBranch,openingState:e.cloneOpeningState(openingState),hand:nextHand,stock:options.stock,passed:false,drawn:options.drawn,drawnTile:options.drawnTile,playedTiles:[legal.tile],finishDoubles:[],action:legal};}if(legal.type==='mixed-finish'){const nextBranch=e.applySinglePlacement(branchState,legal);let nextHand=options.hand.filter((_,i)=>i!==legal.handIndex);const opened=e.applyDoubleOpeningSequence(nextBranch,openingState,legal.sequence);for(const tile of legal.finishDoubles)nextHand=removeTileOnce(nextHand,tile);return{branchState:opened.branchState,openingState:opened.openingState,hand:nextHand,stock:options.stock,passed:false,drawn:options.drawn,drawnTile:options.drawnTile,playedTiles:legal.tiles.map(x=>[...x]),finishDoubles:legal.finishDoubles.map(x=>[...x]),action:legal};}const opened=e.applyDoubleOpeningSequence(branchState,openingState,legal.sequence);let nextHand=options.hand;for(const tile of legal.tiles)nextHand=removeTileOnce(nextHand,tile);return{branchState:opened.branchState,openingState:opened.openingState,hand:nextHand,stock:options.stock,passed:false,drawn:options.drawn,drawnTile:options.drawnTile,playedTiles:legal.tiles.map(x=>[...x]),finishDoubles:legal.tiles.map(x=>[...x]),action:legal};}
+function roundOutcome({hands,stock,consecutivePasses,lastPlayerIndex,lastTurnResult,players=3}){if(lastTurnResult&&!lastTurnResult.passed&&hands[lastPlayerIndex].length===0)return{kind:'finish',playerIndex:lastPlayerIndex,minus:e.finishMinus(lastTurnResult.finishDoubles||[]),remainders:hands.map(e.pipSum)};if(t.isBlocked({stock,consecutivePasses,players}))return{kind:'block',playerIndex:null,minus:0,remainders:t.blockRemainders(hands)};return null;}
+module.exports={isDouble,mixedFinishActions,ordinaryActions,doubleActions,actionsForHand,turnOptions,applyTurn,roundOutcome};
