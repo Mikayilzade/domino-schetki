@@ -82,3 +82,13 @@
 - confidence: high for the isolated dispatcher and initialized-board termination fixtures; no claim yet about complete real-round initialization or exact mixed-finish semantics
 - limitation: exact starter/opening initialization and mixed finish are still unresolved; current multi-double sequence enumeration remains assumption-labelled
 - follow-up: implement a deterministic 3-player round initializer with explicit unresolved gates, then connect it to the driver before the first strategy batch
+
+
+### 2026-10-01 17:00 (+04)
+- engine: `qosa-research-0.4.0`
+- compatibility fixture: historical round `seed=1898414179`, engine `qosa-1.0.0`
+- key metric: current `dealThreeByNine(1898414179)` does **not** reproduce the historical initial hands or stock; current stock is `2-6`, historical stock is `1-5`
+- new finding: the new xorshift-based deal generator is internally deterministic but not seed-compatible with `qosa-1.0.0`
+- implication: new matched-seed strategy experiments may compare strategies within the new engine, but numeric seeds must not be interpreted as recreating old-engine rounds unless an old-RNG compatibility layer is implemented
+- confidence: high; exact historical hands/stock are preserved as a repository fixture
+- follow-up: keep historical fixtures separate, then validate round initialization semantics before mass strategy runs
