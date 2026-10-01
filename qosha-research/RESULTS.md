@@ -58,3 +58,15 @@
 - confidence: high for the assumption-labelled opening-state kernel and existing deterministic invariants; this is not yet a claim that all real-game multi-double semantics are fully validated
 - limitation: draw/pass turn loop, block termination, and mixed-finish integration are not yet implemented
 - follow-up: implement and test draw-one-then-play-or-pass turn flow and block termination before the first strategy batch
+
+
+### 2026-10-01 16:50 (+04)
+- engine: `qosa-research-0.3.0` turn-kernel layer
+- deals: 0 strategy deals; deterministic turn/block invariants only
+- seeds: none beyond existing deal fixtures
+- strategies: none; validation gate remains active
+- key metrics: local invariant suites are green; an ordinary legal tile in hand prevents drawing; when hand is dead, exactly one stock tile is drawn; if the drawn tile is legal it may be played immediately, otherwise it remains in hand and the player passes; block is detected only after a full 3-player pass cycle with empty stock; block remainder pip sums are deterministic
+- new finding: the draw-one-then-play-or-pass flow and block termination can be modelled cleanly as a separate layer without disturbing the validated multi-double/opening kernel
+- confidence: high for the isolated ordinary-turn invariants; the block rule is assumption-labelled to the documented 3-player configuration
+- limitation: double-opening actions are not yet integrated into the same turn dispatcher; mixed-finish and complete-round termination are still pending
+- follow-up: integrate ordinary play and double-opening into one turn action set, then validate complete round termination before starting strategy batches
