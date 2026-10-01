@@ -1,9 +1,9 @@
 # Qoşa research status
 
-Updated: 2026-10-01 21:34 (+04)
+Updated: 2026-10-02 01:53 (+04)
 
 ## Current engine state
-- version target: `qosa-research-0.5.1`
+- version target: `qosa-research-0.5.2`
 - primary mode: 3 players × 9 stones + 1 stock
 - new strategy deals: 0
 - historical baseline: kept separate in `RESULTS.md`
@@ -36,4 +36,4 @@ Updated: 2026-10-01 21:34 (+04)
 3. 5-player bazaar/pass semantics and `loneZero=10` remain secondary.
 
 ## NEXT ACTION
-Run complete initialized-round smoke batches under simple deterministic policies and measure unresolved/turn-limit rates. If clean, move to matched-seed strategy comparisons while continuing stronger branch fixtures.
+Run deterministic complete initialized-round smoke batches from deal/`1-1` initialization to finish/block, record unresolved/turn-limit rate, and inspect any failing seed before strategy comparisons.

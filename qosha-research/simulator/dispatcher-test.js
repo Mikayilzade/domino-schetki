@@ -21,4 +21,16 @@ const tr=d.applyTurn(m,e.createOpeningState([1]),[[1,5],[5,5],[2,2]],[],chosen);
 assert.equal(tr.hand.length,0);
 const out=d.roundOutcome({hands:[tr.hand,[[0,1]],[[3,3]]],stock:[],consecutivePasses:0,lastPlayerIndex:0,lastTurnResult:tr,players:3});
 assert.equal(out.minus,-20);
+
+// Regression: ordinary tiles cannot use a closed number; its double opens that number.
+let locked=e.createBranchState([1,1],['up','left']);
+locked=e.applySinglePlacement(locked,{side:'up',tile:[1,5],to:5});
+let lockedOpen=e.createOpeningState([1]);
+assert.equal(d.ordinaryActions(locked,lockedOpen,[[5,6]]).length,0);
+let open5=d.doubleActions(locked,lockedOpen,[[5,5]]).find(a=>a.numbers.join(',')==='5');
+assert(open5);
+let openedTurn=d.applyTurn(locked,lockedOpen,[[5,5]],[],open5);
+assert(e.isNumberOpened(openedTurn.openingState,5));
+assert(d.ordinaryActions(openedTurn.branchState,openedTurn.openingState,[[5,6]]).some(a=>e.tileKey(a.tile)==='5-6'));
+
 console.log('qosa dispatcher invariants: OK');

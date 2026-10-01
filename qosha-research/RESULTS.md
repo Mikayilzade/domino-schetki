@@ -130,3 +130,15 @@
 - confidence: high; directly confirmed by user
 - limitation: branch locking/opening semantics still need stronger integration fixtures before large strategic claims
 - follow-up: run complete initialized-round smoke batches and measure unresolved/turn-limit rate
+
+
+### 2026-10-02 01:53 (+04)
+- engine: `qosa-research-0.5.2` locked-branch regression checkpoint
+- deals: 0 strategy deals; deterministic branch legality fixture only
+- seeds: constructed branch state
+- strategies: none
+- key metrics: ordinary `5-6` is illegal while number 5 is closed; `5-5` remains a legal opening action; after playing `5-5`, ordinary `5-6` becomes legal on the same branch end
+- new finding: the locked/open branch fix is now protected by a regression test rather than existing only in implementation code
+- confidence: high for this isolated transition
+- limitation: complete initialized-round smoke batches have not yet been run; no new strategy claim
+- follow-up: run deterministic full rounds from initializer to finish/block and quantify unresolved/turn-limit rate before strategy batches
