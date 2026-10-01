@@ -1,29 +1,32 @@
-# Simulator status
+# Qoşa research status
 
-Current engine: `qosa-research-0.1.0`
+Updated: 2026-10-01 16:57 (+04)
 
-## Validated in code
+## Current engine state
+- version target: `qosa-research-0.4.0`
+- primary mode: 3 players × 9 stones + 1 stock
+- new strategy deals: 0
+- historical baseline: kept separate in `RESULTS.md`
 
-- canonical double-six deck has 28 unique tiles;
-- deterministic seeded shuffle/deal;
-- primary 3×9 deal leaves exactly one stock tile;
-- pip counting;
-- finish-minus classification for all-double final plays of length 1..4;
-- a mixed double/non-double final list does not receive minus;
-- score floor at zero.
+## Green validation layers
+- deterministic double-six deck/deal invariants;
+- pip counting, minus classification, score floor;
+- basic four-branch geometry and ordinary placements;
+- assumption-labelled global double opening and multi-double sequences;
+- draw-one-then-play-or-pass kernel;
+- full-pass block detection with empty stock;
+- unified turn dispatcher separating ordinary non-doubles from double sequences;
+- round driver from an already initialized board: ordinary finish, double finish/minus, block.
 
-Run locally with:
+## Safety gate
+Mass strategy simulations are still blocked. Potential mixed-finish positions are now detected and returned as `unresolved/mixed-finish` instead of being silently simulated under an invented rule.
 
-```
-node qosha-research/simulator/test.js
-```
+## Remaining rule/engine gaps
+1. exact mixed-finish transition;
+2. exact round initialization/starter/opening-draw semantics;
+3. re-check whether all legal multi-double sequences must be maximal or whether shorter voluntary prefixes are legal;
+4. integrate a validated initializer with the round driver;
+5. only then start matched-seed strategy batches.
 
-## Intentionally NOT implemented yet
-
-No branch/legal-move simulator is claimed valid yet. The exact branch-opening and multi-double legality rules in `RULES.md` are still ambiguous. This engine therefore cannot yet produce trustworthy strategy win rates.
-
-The PRNG is new research infrastructure and is not claimed to reproduce historical `qosa-1.0.0` hands from the same numeric seed.
-
-## Next
-
-Implement a branch-state model only for rule portions that can be expressed without guessing, then add fixtures for known real positions before any large simulation.
+## NEXT ACTION
+Build a deterministic round initializer from the documented 3-player opening rule without guessing unresolved behavior. Add fixtures for known historical seed/position where possible. If initialization semantics remain ambiguous, add an explicit unresolved gate and quantify it rather than inventing a rule.

@@ -70,3 +70,15 @@
 - confidence: high for the isolated ordinary-turn invariants; the block rule is assumption-labelled to the documented 3-player configuration
 - limitation: double-opening actions are not yet integrated into the same turn dispatcher; mixed-finish and complete-round termination are still pending
 - follow-up: integrate ordinary play and double-opening into one turn action set, then validate complete round termination before starting strategy batches
+
+
+### 2026-10-01 16:57 (+04)
+- engine: `qosa-research-0.4.0` unified dispatcher + initialized-board round driver
+- deals: 0 strategy deals; deterministic dispatcher/round fixtures only
+- seeds: no new strategy seed set
+- strategies: none; mass-simulation gate remains active
+- key metrics: local dispatcher and round-driver invariants are green; doubles are excluded from ordinary single actions and routed through the opening sequence path; draw/pass works through the same dispatcher; ordinary empty-hand finish, double empty-hand finish with −10, and 3-pass empty-stock block all terminate correctly
+- new finding: mixed-finish positions can now be detected before an incorrect transition is simulated; the driver returns `unresolved/mixed-finish` instead of silently choosing a rule
+- confidence: high for the isolated dispatcher and initialized-board termination fixtures; no claim yet about complete real-round initialization or exact mixed-finish semantics
+- limitation: exact starter/opening initialization and mixed finish are still unresolved; current multi-double sequence enumeration remains assumption-labelled
+- follow-up: implement a deterministic 3-player round initializer with explicit unresolved gates, then connect it to the driver before the first strategy batch

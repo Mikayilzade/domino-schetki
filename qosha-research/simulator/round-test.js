@@ -1,0 +1,12 @@
+'use strict';
+const assert=require('assert');
+const e=require('./engine');
+const r=require('./round-driver');
+const first=(opts)=>opts.actions[0];
+let s=e.createBranchState([2,2],['up','left']);s=e.applySinglePlacement(s,{side:'up',tile:[2,5],to:5});
+let base={branchState:s,openingState:e.createOpeningState(),hands:[[[5,6]],[[0,0]],[[1,1]]],stock:[],currentPlayer:0,consecutivePasses:0,turns:0};
+let out=r.runRound(base,first);assert.equal(out.outcome.kind,'finish');assert.equal(out.outcome.playerIndex,0);assert.equal(out.outcome.minus,0);assert.equal(out.turns,1);
+base={branchState:s,openingState:e.createOpeningState(),hands:[[[5,5]],[[0,0]],[[1,1]]],stock:[],currentPlayer:0,consecutivePasses:0,turns:0};out=r.runRound(base,first);assert.equal(out.outcome.kind,'finish');assert.equal(out.outcome.minus,-10);assert.equal(out.turns,1);
+base={branchState:s,openingState:e.createOpeningState(),hands:[[[0,0]],[[1,1]],[[3,3]]],stock:[],currentPlayer:0,consecutivePasses:0,turns:0};out=r.runRound(base,first);assert.equal(out.outcome.kind,'block');assert.equal(out.turns,3);assert.deepStrictEqual(out.outcome.remainders,[0,2,6]);
+base={branchState:s,openingState:e.createOpeningState(),hands:[[[5,6],[6,6]],[[0,0]],[[1,1]]],stock:[],currentPlayer:0,consecutivePasses:0,turns:0};out=r.runRound(base,first);assert.equal(out.outcome.kind,'unresolved');assert.equal(out.outcome.reason,'mixed-finish');assert.equal(out.turns,0);
+console.log('qosa round-driver invariants: OK');
