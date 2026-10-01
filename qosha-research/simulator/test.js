@@ -31,4 +31,18 @@ assert(legal.some(x=>x.handIndex===0&&x.side==='up'));
 assert(legal.some(x=>x.handIndex===1&&x.side==='left'));
 assert(!legal.some(x=>x.handIndex===2));
 
+// Assumption-labelled double-opening transition: opening state is separate from geometry.
+let o=e.createOpeningState();
+const before=JSON.parse(JSON.stringify(s));
+const opens=e.candidateDoubleOpenings(s,o,[[2,2],[5,5],[3,3],[1,2]]);
+assert.deepStrictEqual(opens.map(x=>x.number),[2,5]);
+let tr=e.applyCandidateDoubleOpening(s,o,opens[0]);
+assert(e.isNumberOpened(tr.openingState,2));
+assert.deepStrictEqual(tr.branchState,before);
+assert.deepStrictEqual(s,before); // input geometry is not mutated
+o=e.openNumber(o,2);
+assert.deepStrictEqual(e.candidateDoubleOpenings(s,o,[[2,2],[5,5]]).map(x=>x.number),[5]);
+assert.deepStrictEqual(e.candidateDoubleOpenings(s,o,[[3,3]]),[]);
+assert.throws(()=>e.applyCandidateDoubleOpening(s,o,{tile:[3,3],number:3}),/illegal/);
+
 console.log('qosa research invariants: OK');
