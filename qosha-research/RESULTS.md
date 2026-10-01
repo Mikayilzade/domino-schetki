@@ -47,3 +47,14 @@
 - confidence: high for repository-state diagnosis; multi-double semantics remain assumption-labelled
 - limitation: attempted engine write was blocked by connector safety checks, so no code mutation was persisted
 - follow-up: implement the missing multi-double API, run invariants, then proceed to draw/pass turn-loop validation
+
+### 2026-10-01 16:45 (+04)
+- engine: `qosa-research-0.2.0` multi-double opening kernel
+- deals: 0 strategy deals; deterministic invariant suite only
+- seeds: 0, 1, 1898414179, 4294967295 for deal invariants; no strategy seeds yet
+- strategies: none; validation gate remains active
+- key metrics: local invariant suite is green; for branch ends {5,2}, hand {2-2,5-5,3-3} enumerates exactly the two maximal opening orders `2→5` and `5→2`; applying either opens 2 and 5, rejects 3, and leaves branch geometry unchanged
+- new finding: the previously missing multi-double API is now implemented and persisted in GitHub commit `dee39ecc6b06c6c2b6bb37054a0cf68117b51621`
+- confidence: high for the assumption-labelled opening-state kernel and existing deterministic invariants; this is not yet a claim that all real-game multi-double semantics are fully validated
+- limitation: draw/pass turn loop, block termination, and mixed-finish integration are not yet implemented
+- follow-up: implement and test draw-one-then-play-or-pass turn flow and block termination before the first strategy batch
