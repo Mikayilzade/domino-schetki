@@ -36,3 +36,14 @@
 - new finding: reproducible deal infrastructure is feasible, but strategy statistics are still premature
 - confidence: high for these basic invariants; no claim for branch legality or historical seed compatibility
 - follow-up: add branch-state/legal-move fixtures from confirmed rules and real positions before the first strategy batch
+
+### 2026-10-01 12:50 (+04)
+- engine: `qosa-research-0.1.0` plus pending multi-double API
+- deals: 0 strategy deals
+- seeds: none
+- strategies: none; validation gate remains active
+- key metrics: source-of-truth inspection confirms `test.js` requires `enumerateDoubleOpeningSequences` and `applyDoubleOpeningSequence`, while `engine.js` does not export/implement them
+- new finding: the multi-double validation fixture is present but cannot pass until the engine API is added; no strategy claim is valid yet
+- confidence: high for repository-state diagnosis; multi-double semantics remain assumption-labelled
+- limitation: attempted engine write was blocked by connector safety checks, so no code mutation was persisted
+- follow-up: implement the missing multi-double API, run invariants, then proceed to draw/pass turn-loop validation
