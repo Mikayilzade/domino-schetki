@@ -118,3 +118,15 @@
 - confidence: high for these rules; they are user-confirmed rather than inferred
 - limitation: a rare opening edge remains unresolved when starter has no other 1 after the required opening draw; engine explicitly gates it
 - follow-up: quantify that edge-case frequency, resolve it, then run complete initialized-round smoke batches before matched strategy simulations
+
+
+### 2026-10-01 21:34 (+04)
+- engine: `qosa-research-0.5.1`
+- deals: 0 strategy deals; opening-pass fixture added
+- seeds: constructed valid 3×9+1 opening fixture
+- strategies: none
+- key rule confirmation: after playing `1-1` and drawing the stock tile, if the starter still has no legal tile on 1, the starter passes; play continues clockwise and later passes follow the ordinary rule until a legal move appears
+- new finding: the previously gated `no-followup-on-1` opening case is now resolved and no longer needs to be excluded from simulations
+- confidence: high; directly confirmed by user
+- limitation: branch locking/opening semantics still need stronger integration fixtures before large strategic claims
+- follow-up: run complete initialized-round smoke batches and measure unresolved/turn-limit rate

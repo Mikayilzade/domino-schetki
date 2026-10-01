@@ -1,9 +1,9 @@
 # Qoşa research status
 
-Updated: 2026-10-01 20:00 (+04)
+Updated: 2026-10-01 21:34 (+04)
 
 ## Current engine state
-- version target: `qosa-research-0.5.0`
+- version target: `qosa-research-0.5.1`
 - primary mode: 3 players × 9 stones + 1 stock
 - new strategy deals: 0
 - historical baseline: kept separate in `RESULTS.md`
@@ -14,6 +14,7 @@ Updated: 2026-10-01 20:00 (+04)
 - play then continues clockwise;
 - first-round stock `1-1` causes redeal;
 - later-round stock `1-1` is taken/played by the previous-round winner, who then plays again on 1;
+- if the starter cannot make that second move on 1 after the draw/opening, the starter passes and play continues clockwise; future turns use the normal pass rule until a legal move appears;
 - non-finishing multi-double play is voluntary: any legal prefix may be chosen;
 - if the remaining hand can finish with multiple doubles, all finishing doubles are played in that turn;
 - mixed finish is valid: ordinary tile + all remaining playable doubles in one turn, with minus determined by the number of finishing doubles.
@@ -30,10 +31,9 @@ Updated: 2026-10-01 20:00 (+04)
 - first-round stock `1-1` => redeal; later-round stock `1-1` => previous winner starts.
 
 ## Remaining safety gates
-1. What happens if the starter has no second tile containing 1 after the opening draw / after taking stock `1-1`? The initializer returns `unresolved/no-followup-on-1`.
-2. Formal locked/open branch semantics still need stronger real-position fixtures.
-3. Historical RNG remains incompatible with new numeric seeds.
-4. 5-player bazaar/pass semantics and `loneZero=10` remain secondary.
+1. Formal locked/open branch semantics still need stronger real-position fixtures.
+2. Historical RNG remains incompatible with new numeric seeds.
+3. 5-player bazaar/pass semantics and `loneZero=10` remain secondary.
 
 ## NEXT ACTION
-Quantify the `no-followup-on-1` rate, resolve that edge rule, then run complete initialized-round smoke batches and measure unresolved-rate before strategy comparisons.
+Run complete initialized-round smoke batches under simple deterministic policies and measure unresolved/turn-limit rates. If clean, move to matched-seed strategy comparisons while continuing stronger branch fixtures.
