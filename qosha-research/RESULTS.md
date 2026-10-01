@@ -92,3 +92,15 @@
 - implication: new matched-seed strategy experiments may compare strategies within the new engine, but numeric seeds must not be interpreted as recreating old-engine rounds unless an old-RNG compatibility layer is implemented
 - confidence: high; exact historical hands/stock are preserved as a repository fixture
 - follow-up: keep historical fixtures separate, then validate round initialization semantics before mass strategy runs
+
+
+### 2026-10-01 18:49 (+04)
+- engine: `qosa-research-0.4.0`; no engine mutation this pass
+- deals: 0 strategy deals
+- seeds: historical fixture `1898414179` inspected only
+- strategies: none; validation gate remains active
+- key metrics: repository searches for old simulator field names returned no implementation evidence; the historical fixture has starter 2 with doubles 5-5, 1-1, 2-2 and `openingDraw=1-5`, insufficient to uniquely recover the centre/opening transition
+- new finding: current GitHub evidence cannot resolve exact `qosa-1.0.0` round initialization; inferring the centre would invent a rule
+- confidence: high for the evidence audit; no gameplay-strategy claim
+- limitation: old simulator source or additional complete historical logs are not discoverable on the default branch
+- follow-up: continue with initialization-invariant validation: explicit −10/−20/−30/−40 finish fixtures and a documented maximal-vs-prefix multi-double assumption matrix
