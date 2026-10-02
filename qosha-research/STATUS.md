@@ -1,9 +1,9 @@
 # Qoşa research status
 
-Updated: 2026-10-02 01:53 (+04)
+Updated: 2026-10-02 04:48 (+04)
 
 ## Current engine state
-- version target: `qosa-research-0.5.2`
+- version target: `qosa-research-0.5.3`
 - primary mode: 3 players × 9 stones + 1 stock
 - new strategy deals: 0
 - historical baseline: kept separate in `RESULTS.md`
@@ -20,6 +20,7 @@ Updated: 2026-10-02 01:53 (+04)
 - mixed finish is valid: ordinary tile + all remaining playable doubles in one turn, with minus determined by the number of finishing doubles.
 
 ## Green validation layers
+- sequential-seed deal generation now pre-mixes seed values before xorshift; 10,000-seed stock-distribution regression added;
 - deterministic deck/deal invariants;
 - four-branch geometry and ordinary placements;
 - voluntary multi-double prefixes;
@@ -31,9 +32,10 @@ Updated: 2026-10-02 01:53 (+04)
 - first-round stock `1-1` => redeal; later-round stock `1-1` => previous winner starts.
 
 ## Remaining safety gates
-1. Formal locked/open branch semantics still need stronger real-position fixtures.
-2. Historical RNG remains incompatible with new numeric seeds.
-3. 5-player bazaar/pass semantics and `loneZero=10` remain secondary.
+1. Complete initialized-round smoke batches have not yet established a zero-unresolved/zero-turn-limit baseline.
+2. Formal locked/open branch semantics are regression-tested in isolation but still need full-round stress.
+3. Historical RNG remains intentionally incompatible with new numeric seeds; preserved historical fixtures are the compatibility path.
+4. 5-player bazaar/pass semantics and `loneZero=10` remain secondary.
 
 ## NEXT ACTION
-Run deterministic complete initialized-round smoke batches from deal/`1-1` initialization to finish/block, record unresolved/turn-limit rate, and inspect any failing seed before strategy comparisons.
+Run deterministic complete initialized-round smoke batches from deal/`1-1` initialization to finish/block using the corrected seed generator. Record finish/block/minus/turn-length distributions only as engine-validation diagnostics, not strategy findings, until unresolved rate is zero and failing seeds are inspected.

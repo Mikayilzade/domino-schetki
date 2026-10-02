@@ -142,3 +142,15 @@
 - confidence: high for this isolated transition
 - limitation: complete initialized-round smoke batches have not yet been run; no new strategy claim
 - follow-up: run deterministic full rounds from initializer to finish/block and quantify unresolved/turn-limit rate before strategy batches
+
+
+### 2026-10-02 04:48 (+04)
+- engine: `qosa-research-0.5.3` RNG checkpoint
+- deals: 10,000 deterministic deal-generation checks; 0 strategy rounds
+- seeds: sequential `0..9999`
+- strategies: none; validation gate remains active
+- key metrics: previous direct-xorshift seeding was unsuitable for sequential experimental seeds (earlier audit: only 18/28 stock tiles appeared over 10,000 seeds and `1-1` was absent over `0..4095`); seed pre-mixing is now applied before xorshift and protected by a 10,000-seed stock-distribution regression requiring all 28 tiles and a broad sanity band around the expected 357.1 occurrences/tile
+- new finding: deterministic seed identity can be preserved without letting adjacent integer seeds feed highly correlated initial xorshift states
+- confidence: high that the specific sequential-seed pathology is addressed; this is a distribution sanity check, not a proof of perfect RNG quality
+- limitation: RNG remains intentionally incompatible with historical `qosa-1.0.0` numeric seeds; historical fixtures stay separate
+- follow-up: run complete initialized-round smoke batches under the corrected deal generator; inspect every unresolved/turn-limit seed before strategy statistics
