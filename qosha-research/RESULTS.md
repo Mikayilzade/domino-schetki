@@ -196,3 +196,17 @@
 - run data: `runs/2026-10-03-baseline-0000-9999.json`
 - runner: `simulator/strategy-runner.js`
 - follow-up: add moderate-double-hold and branch-control policies on the same `0..9999` seed set; add block winner semantics once user confirms them
+
+
+### 2026-10-03 18:16 (+04)
+- engine: `qosa-research-0.5.3`
+- run type: matched-seed candidate strategy extension, exact same `0..9999` seed set, 3 seat rotations per seed
+- tournament A (30,000 rounds): random legal / min-hand-pips / moderate-double-hold. Finish rates: 30.50% / 30.91% / **35.16%**. Mean final pips: 7.22 / 4.32 / **3.94**. 0 unresolved.
+- tournament B (30,000 rounds): random legal / min-hand-pips / closed-branch-control. Finish rates: 28.37% / 27.16% / **41.04%**. Mean final pips: 7.71 / 5.30 / **3.67**. 0 unresolved.
+- strong-control tournament (30,000 rounds): min-hand-pips / moderate-double-hold / closed-branch-control. Finish rates: 26.50% / 30.23% / **39.90%**. Mean final pips: 5.61 / 4.88 / **3.87**. 0 unresolved.
+- new finding: preserving closed numbers and opening as few new double-numbers as possible is the strongest provisional heuristic tested so far; importantly, it keeps its advantage when random-legal is removed and it faces the two stronger simple baselines
+- secondary finding: moderate double holding improves on pure immediate pip minimization in the matched environments tested
+- confidence: medium. The signal repeats across 10,000 matched seeds and stronger-opponent control, but these remain handcrafted bots rather than a proof of optimal play
+- limitation: block winners remain unassigned; opening follow-up uses the common initializer policy; no rollout-based decision regret yet
+- run data: `runs/2026-10-03-candidate-strategies-0000-9999.json`
+- follow-up: stress-test branch control against variants that deliberately trade branch closure for tempo, then build paired decision-regret rollouts for positions with multiple legal moves

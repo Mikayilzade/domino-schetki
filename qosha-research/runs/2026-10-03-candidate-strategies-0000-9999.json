@@ -1,0 +1,172 @@
+{
+  "timestamp": "2026-10-03T18:16:58+04:00",
+  "engine": "qosa-research-0.5.3",
+  "seeds": "0..9999",
+  "note": "All tournaments use three seat rotations per seed; block winners are not assigned.",
+  "tournaments": {
+    "moderate_vs_refs": {
+      "strategies": [
+        "random-legal",
+        "min-hand-pips",
+        "moderate-double-hold"
+      ],
+      "rounds": 30000,
+      "finishes": 28971,
+      "blocks": 1029,
+      "unresolved": 0,
+      "meanTurns": 24.3469,
+      "byStrategy": {
+        "random-legal": {
+          "finishWinRate": 0.3050333333333333,
+          "meanFinalPips": 7.223333333333334,
+          "medianFinalPips": 6,
+          "finishWins": 9151,
+          "minusWins": {
+            "0": 8606,
+            "-10": 534,
+            "-20": 11,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "min-hand-pips": {
+          "finishWinRate": 0.30906666666666666,
+          "meanFinalPips": 4.318866666666667,
+          "medianFinalPips": 3,
+          "finishWins": 9272,
+          "minusWins": {
+            "0": 8251,
+            "-10": 1004,
+            "-20": 17,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "moderate-double-hold": {
+          "finishWinRate": 0.3516,
+          "meanFinalPips": 3.9441333333333333,
+          "medianFinalPips": 3,
+          "finishWins": 10548,
+          "minusWins": {
+            "0": 9138,
+            "-10": 1385,
+            "-20": 25,
+            "-30": 0,
+            "-40": 0
+          }
+        }
+      }
+    },
+    "branch_vs_refs": {
+      "strategies": [
+        "random-legal",
+        "min-hand-pips",
+        "closed-branch-control"
+      ],
+      "rounds": 30000,
+      "finishes": 28972,
+      "blocks": 1028,
+      "unresolved": 0,
+      "meanTurns": 25.350533333333335,
+      "byStrategy": {
+        "random-legal": {
+          "finishWinRate": 0.2837,
+          "meanFinalPips": 7.7066333333333334,
+          "medianFinalPips": 6,
+          "finishWins": 8511,
+          "minusWins": {
+            "0": 8067,
+            "-10": 440,
+            "-20": 4,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "min-hand-pips": {
+          "finishWinRate": 0.27163333333333334,
+          "meanFinalPips": 5.303533333333333,
+          "medianFinalPips": 4,
+          "finishWins": 8149,
+          "minusWins": {
+            "0": 7390,
+            "-10": 741,
+            "-20": 17,
+            "-30": 1,
+            "-40": 0
+          }
+        },
+        "closed-branch-control": {
+          "finishWinRate": 0.4104,
+          "meanFinalPips": 3.665,
+          "medianFinalPips": 2,
+          "finishWins": 12312,
+          "minusWins": {
+            "0": 9327,
+            "-10": 2869,
+            "-20": 113,
+            "-30": 3,
+            "-40": 0
+          }
+        }
+      }
+    },
+    "strong_control": {
+      "strategies": [
+        "min-hand-pips",
+        "moderate-double-hold",
+        "closed-branch-control"
+      ],
+      "rounds": 30000,
+      "finishes": 28990,
+      "blocks": 1010,
+      "unresolved": 0,
+      "meanTurns": 25.210633333333334,
+      "byStrategy": {
+        "min-hand-pips": {
+          "finishWinRate": 0.2649666666666667,
+          "meanFinalPips": 5.612566666666667,
+          "medianFinalPips": 4,
+          "finishWins": 7949,
+          "minusWins": {
+            "0": 6828,
+            "-10": 1096,
+            "-20": 25,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "moderate-double-hold": {
+          "finishWinRate": 0.30233333333333334,
+          "meanFinalPips": 4.876433333333333,
+          "medianFinalPips": 3,
+          "finishWins": 9070,
+          "minusWins": {
+            "0": 7725,
+            "-10": 1313,
+            "-20": 32,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "closed-branch-control": {
+          "finishWinRate": 0.39903333333333335,
+          "meanFinalPips": 3.8716666666666666,
+          "medianFinalPips": 2,
+          "finishWins": 11971,
+          "minusWins": {
+            "0": 8640,
+            "-10": 3167,
+            "-20": 158,
+            "-30": 6,
+            "-40": 0
+          }
+        }
+      }
+    }
+  },
+  "interpretation": [
+    "Provisional strategy evidence only; these are simple deterministic heuristics.",
+    "Closed-branch-control remains strongest in the stronger control tournament, so its signal is not explained only by playing against random-legal.",
+    "Higher minus frequency for closed-branch-control is partly a consequence of finishing more often and retaining doubles; minus rate should be normalized per finish in later analysis."
+  ]
+}
