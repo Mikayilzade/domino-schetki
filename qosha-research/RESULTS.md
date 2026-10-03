@@ -154,3 +154,16 @@
 - confidence: high that the specific sequential-seed pathology is addressed; this is a distribution sanity check, not a proof of perfect RNG quality
 - limitation: RNG remains intentionally incompatible with historical `qosa-1.0.0` numeric seeds; historical fixtures stay separate
 - follow-up: run complete initialized-round smoke batches under the corrected deal generator; inspect every unresolved/turn-limit seed before strategy statistics
+
+
+### 2026-10-03 17:53 (+04)
+- engine: `qosa-research-0.5.3`
+- run type: complete-round smoke validation; deterministic policy = first legal action
+- later-round seeds: `0..999`; 1,000/1,000 initialized, 961 finishes, 39 blocks, 0 init-unresolved, 0 round-unresolved/turn-limit
+- later-round finish diagnostics: −10 = 169, −20 = 5, −30 = 0, −40 = 0; mean turns = 26.775, range 19..37
+- first-round seeds: `0..999`; 45 correct redeals because `1-1` was in stock, 955 initialized; among initialized rounds 919 finishes, 36 blocks, 0 unresolved/turn-limit
+- first-round finish diagnostics: −10 = 163, −20 = 3, −30 = 0, −40 = 0; mean turns = 26.788, range 19..37
+- new finding: the initialized 3-player engine now completes the first 1,000 sequential-seed smoke set with zero unresolved states and zero turn-limit failures under both later-round and first-round initialization paths
+- confidence: high as a smoke/integration result; these distributions are not strategy findings because only a trivial first-legal policy was used
+- run data: `runs/2026-10-03-smoke-0000-0999.json`
+- follow-up: expand smoke coverage to at least 10,000 sequential seeds and inspect any failures; if unresolved remains zero, begin matched-seed baseline strategy comparisons

@@ -1,9 +1,9 @@
 # Qoşa research status
 
-Updated: 2026-10-02 04:48 (+04)
+Updated: 2026-10-03 17:53 (+04)
 
 ## Current engine state
-- version target: `qosa-research-0.5.3`
+- version target: `qosa-research-0.5.4`
 - primary mode: 3 players × 9 stones + 1 stock
 - new strategy deals: 0
 - historical baseline: kept separate in `RESULTS.md`
@@ -32,10 +32,10 @@ Updated: 2026-10-02 04:48 (+04)
 - first-round stock `1-1` => redeal; later-round stock `1-1` => previous winner starts.
 
 ## Remaining safety gates
-1. Complete initialized-round smoke batches have not yet established a zero-unresolved/zero-turn-limit baseline.
-2. Formal locked/open branch semantics are regression-tested in isolation but still need full-round stress.
+1. The first 1,000-seed complete-round smoke baseline is clean (0 unresolved / 0 turn-limit); broader stress is still required.
+2. Formal locked/open branch semantics are regression-tested and survived the 1,000-seed smoke run, but should be stressed over a larger seed range.
 3. Historical RNG remains intentionally incompatible with new numeric seeds; preserved historical fixtures are the compatibility path.
 4. 5-player bazaar/pass semantics and `loneZero=10` remain secondary.
 
 ## NEXT ACTION
-Run deterministic complete initialized-round smoke batches from deal/`1-1` initialization to finish/block using the corrected seed generator. Record finish/block/minus/turn-length distributions only as engine-validation diagnostics, not strategy findings, until unresolved rate is zero and failing seeds are inspected.
+Run at least 10,000 complete initialized rounds under the validation policy and inspect every failure seed. If unresolved/turn-limit remains zero, start matched-seed baseline strategy comparisons and record them separately from validation diagnostics.
