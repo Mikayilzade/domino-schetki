@@ -180,3 +180,19 @@
 - confidence: high as integration/stability evidence; outcome frequencies remain validation diagnostics, not strategy conclusions
 - run data: `runs/2026-10-03-smoke-0000-9999.json`
 - follow-up: begin matched-seed strategy baselines; do not assign block winners until block winner/tie semantics are explicitly documented
+
+
+### 2026-10-03 18:12 (+04)
+- engine: `qosa-research-0.5.3`
+- run type: first matched-seed strategy baseline
+- seeds: `0..9999`; 3 seat rotations per seed; 30,000 complete rounds; 28,722 finishes; 1,278 blocks; 0 unresolved
+- strategies: `random-legal`, `min-hand-pips`, `fast-doubles`; each strategy has 30,000 appearances and occupies every seat once per seed across the three rotations
+- finish rate per appearance: random legal 38.17%; min-hand-pips 35.24%; fast-doubles 22.33%
+- mean / median final pips: random 5.56 / 5; min-hand-pips 3.57 / 2; fast-doubles 5.11 / 4
+- winner minus counts: random −10=576, −20=12; min-hand-pips −10=1,163, −20=10; fast-doubles −10=131, −20=1; no −30/−40 in this baseline
+- new finding: the first simple policies expose a real objective tradeoff: immediate pip minimization substantially lowers end-of-round residue but does not maximize first-to-finish frequency; blindly prioritizing doubles is clearly weak in this three-policy environment
+- confidence: medium as a reproducible baseline; the 1,000-seed pilot showed the same ordering, but this is still one bot mix with simplistic policies and fixed opening choice
+- limitation: blocks are included in final-pip averages but no block winner is assigned; therefore finish rate is not an overall game-win rate
+- run data: `runs/2026-10-03-baseline-0000-9999.json`
+- runner: `simulator/strategy-runner.js`
+- follow-up: add moderate-double-hold and branch-control policies on the same `0..9999` seed set; add block winner semantics once user confirms them

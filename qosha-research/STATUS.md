@@ -1,9 +1,9 @@
 # Qoşa research status
 
-Updated: 2026-10-03 18:05 (+04)
+Updated: 2026-10-03 18:12 (+04)
 
 ## Current engine state
-- version target: `qosa-research-0.5.5`
+- version target: `qosa-research-0.6.0`
 - primary mode: 3 players × 9 stones + 1 stock
 - new strategy deals: 0
 - historical baseline: kept separate in `RESULTS.md`
@@ -38,4 +38,4 @@ Updated: 2026-10-03 18:05 (+04)
 4. 5-player bazaar/pass semantics and `loneZero=10` remain secondary.
 
 ## NEXT ACTION
-Begin matched-seed baseline strategy comparisons with seat rotation. Record finish winners, remainder/pip metrics, round length, blocks and minus frequencies. Do not assign a block winner until the exact block winner/tie rule is confirmed.
+Extend the matched-seed baseline on the exact same `0..9999` set with moderate-double-hold and closed-branch-control policies. Keep block winners unassigned until the block winner/tie rule is explicitly confirmed. Begin decision-regret infrastructure only after these policy baselines are stable.
