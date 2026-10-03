@@ -167,3 +167,16 @@
 - confidence: high as a smoke/integration result; these distributions are not strategy findings because only a trivial first-legal policy was used
 - run data: `runs/2026-10-03-smoke-0000-0999.json`
 - follow-up: expand smoke coverage to at least 10,000 sequential seeds and inspect any failures; if unresolved remains zero, begin matched-seed baseline strategy comparisons
+
+
+### 2026-10-03 18:05 (+04)
+- engine: `qosa-research-0.5.3`
+- run type: 10,000-seed complete-round smoke validation; deterministic first-legal policy
+- later-round seeds `0..9999`: 10,000/10,000 initialized; 9,637 finishes; 363 blocks; 0 init-unresolved; 0 round-unresolved/turn-limit; mean turns 26.620, range 19..41
+- later-round finish diagnostics: −10 = 1,684; −20 = 63; −30 = 0; −40 = 0
+- first-round seeds `0..9999`: 363 correct redeals with `1-1` in stock; 9,637 initialized; 9,284 finishes; 353 blocks; 0 unresolved/turn-limit; mean turns 26.627, range 19..41
+- first-round finish diagnostics: −10 = 1,617; −20 = 58; −30 = 0; −40 = 0
+- new finding: the complete initialized 3-player engine survives 10,000 sequential seeds in both opening modes with zero unresolved states and zero turn-limit failures
+- confidence: high as integration/stability evidence; outcome frequencies remain validation diagnostics, not strategy conclusions
+- run data: `runs/2026-10-03-smoke-0000-9999.json`
+- follow-up: begin matched-seed strategy baselines; do not assign block winners until block winner/tie semantics are explicitly documented
