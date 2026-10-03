@@ -210,3 +210,17 @@
 - limitation: block winners remain unassigned; opening follow-up uses the common initializer policy; no rollout-based decision regret yet
 - run data: `runs/2026-10-03-candidate-strategies-0000-9999.json`
 - follow-up: stress-test branch control against variants that deliberately trade branch closure for tempo, then build paired decision-regret rollouts for positions with multiple legal moves
+
+
+### 2026-10-03 18:50 (+04)
+- engine: `qosa-research-0.5.3`
+- run type: out-of-sample tempo stress test; fresh seeds `10000..19999`; 3 seat rotations; 30,000 rounds
+- strategies: closed-branch-control / tempo (maximize stones shed, then pips) / tempo-open (maximize stones shed, then newly opened double numbers)
+- finish rates: **46.83%** / 29.21% / 19.82%; mean final pips: **2.84** / 5.20 / 6.10; medians: **1** / 4 / 5
+- blocks: 1,242 (4.14%); unresolved: 0; mean round length: 25.23 turns
+- normalized minus per finish: branch-control −10 26.60%, −20 1.40%, −30 0.064%; tempo −10 14.31%, −20 0.23%; tempo-open −10 2.77%, −20 0.034%
+- new finding: the closed-branch-control signal survives a fresh 10,000-seed out-of-sample set and two explicit tempo challengers. Aggressively opening numbers for tempo is especially weak in this model.
+- interpretation: preserving closed numbers appears to buy both finish probability and lower remainder, while also increasing opportunities to finish on retained doubles; this remains a bot-policy hypothesis, not proof of optimal human play.
+- confidence: medium-high for direction of this heuristic within the validated 3-player model; limitations are simple deterministic policies, default opening follow-up, and no assigned winner on blocks.
+- run data: `runs/2026-10-03-tempo-stress-10000-19999.json`
+- next: instrument starting/ending doubles and specific-double ownership, then add paired decision-regret rollouts at multi-choice states to learn when branch preservation should be overridden.

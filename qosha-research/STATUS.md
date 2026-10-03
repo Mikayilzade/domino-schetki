@@ -1,11 +1,11 @@
 # Qoşa research status
 
-Updated: 2026-10-03 18:16 (+04)
+Updated: 2026-10-03 18:50 (+04)
 
 ## Current engine state
 - version target: `qosa-research-0.6.1`
 - primary mode: 3 players × 9 stones + 1 stock
-- new strategy rounds: 120,000 matched-seat rounds across current 10,000-seed baselines (historical 4,000 kept separate)
+- new strategy rounds: 150,000 matched-seat rounds across validated baselines/stress tests (historical 4,000 kept separate)
 - historical baseline: kept separate in `RESULTS.md`
 
 ## Newly confirmed by user
@@ -38,4 +38,4 @@ Updated: 2026-10-03 18:16 (+04)
 4. 5-player bazaar/pass semantics and `loneZero=10` remain secondary.
 
 ## NEXT ACTION
-Stress-test the closed-branch-control signal against tempo-oriented variants on the same `0..9999` seeds. Normalize minus frequency per finish, then add paired rollout/decision-regret infrastructure for multi-choice positions. Keep block winner unassigned until its rule is explicitly confirmed.
+Instrument starting/ending double counts and specific-double ownership on matched seeds. Then add paired decision-regret rollouts at multi-choice states, using closed-branch-control as the current reference policy and testing when tempo should override branch preservation. Keep block winner unassigned until explicitly confirmed.
