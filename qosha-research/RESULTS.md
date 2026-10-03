@@ -224,3 +224,18 @@
 - confidence: medium-high for direction of this heuristic within the validated 3-player model; limitations are simple deterministic policies, default opening follow-up, and no assigned winner on blocks.
 - run data: `runs/2026-10-03-tempo-stress-10000-19999.json`
 - next: instrument starting/ending doubles and specific-double ownership, then add paired decision-regret rollouts at multi-choice states to learn when branch preservation should be overridden.
+
+
+### 2026-10-03 19:47 (+04)
+- engine: `qosa-research-0.5.3`
+- run type: fresh-seed double-ownership instrumentation; seeds `20000..29999`; 3 seat rotations; 30,000 rounds
+- strategies: min-hand-pips / moderate-double-hold / closed-branch-control; finishes 28,962; blocks 1,038; unresolved 0
+- starting doubles are measured from the raw 9-tile deal before mandatory `1-1` opening/draw; mean = 2.250 for every strategy by matched-seat construction
+- strongest new signal: starting with more doubles is strongly associated with finishing first in all three policies. For closed-branch-control, finish rate rises from 4.1% with 0 starting doubles to 21.1% with 1, 36.1% with 2, 53.2% with 3, 64.9% with 4 and 76.2% with 5 (6+ sample is too small for inference)
+- the same monotonic pattern appears for min-hand-pips and moderate-double-hold, so this is not unique to the current branch-control heuristic
+- specific-double ownership is much weaker than double count: under branch-control, conditional finish rates for owning 1-1 through 6-6 cluster around 47.0–48.7%, while 0-0 is 49.3%; these raw conditionals are confounded by total double count and starter status and are not yet interpreted as causal value
+- ending doubles are rare among non-finish states: mean 0.0125 / 0.0107 / 0.0202 per appearance respectively
+- confidence: high that starting-double count is a strong predictive feature in this simulator; low for causal value of any particular double until matched/controlled analysis removes hand-strength and starter confounding
+- limitation: block winners remain unassigned; no decision-regret rollouts yet
+- run data: `runs/2026-10-03-double-ownership-20000-29999.json`
+- next: control specific-double value for total starting-double count/starter, then instrument multi-choice states for paired rollout regret
