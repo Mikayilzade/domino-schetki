@@ -3,7 +3,7 @@ const assert=require('assert');
 const e=require('./engine');
 const d=require('./turn-dispatcher');
 const {cloneRoundState}=require('./round-driver');
-const {actionKey,evaluateDecisionInWorld}=require('./decision-regret');
+const {actionKey,evaluateDecisionInWorld,aggregateWorlds}=require('./decision-regret');
 
 function snapshot(s){
   return JSON.stringify({
@@ -45,4 +45,20 @@ assert.strictEqual(a.candidates.length,opts.actions.length,'every legal candidat
 assert.deepStrictEqual(a.candidates.map(x=>x.actionKey).sort(),keys.sort(),'candidate set must match legal actions');
 assert.strictEqual(snapshot(state),before,'evaluation must not mutate source world');
 
-console.log('decision-regret evaluator regression: ok; candidates='+a.candidates.length);
+// Aggregation regression: repeat the exact same hidden world twice.
+// Each candidate must therefore have n=2 and its aggregate metrics must
+// exactly equal the deterministic single-world observation.
+const agg=aggregateWorlds([a,b]);
+assert.strictEqual(agg.worlds,2);
+assert.deepStrictEqual(Object.keys(agg.byAction).sort(),keys.sort());
+for(const row of a.candidates){
+  const m=agg.byAction[row.actionKey];
+  assert.strictEqual(m.n,2);
+  assert.strictEqual(m.finishFirstRate,row.focalFinishedFirst?1:0);
+  assert.strictEqual(m.meanRemainder,row.focalRemainder);
+  assert.strictEqual(m.minusFinishRate,row.focalMinus<0?1:0);
+  assert.strictEqual(m.meanMinusWhenMinus,row.focalMinus<0?row.focalMinus:null);
+}
+assert.strictEqual(snapshot(state),before,'aggregation must not mutate source world');
+
+console.log('decision-regret evaluator+aggregation regression: ok; candidates='+a.candidates.length);
