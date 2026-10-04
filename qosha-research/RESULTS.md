@@ -239,3 +239,14 @@
 - limitation: block winners remain unassigned; no decision-regret rollouts yet
 - run data: `runs/2026-10-03-double-ownership-20000-29999.json`
 - next: control specific-double value for total starting-double count/starter, then instrument multi-choice states for paired rollout regret
+
+
+### 2026-10-04 17:09 (+04) — write recovery / source-of-truth reconciliation
+- engine: `qosa-research-0.5.3`; status target remains `0.6.1`
+- deals: 0 new strategy rounds in this checkpoint
+- verified cumulative scale: **180,000 matched-seat strategy rounds**; historical 4,000 remains separate
+- repository audit: persisted run-data/checkpoints exist through fresh seeds `20000..29999`; the previously reported `30000..39999` specific-double-control run was not persisted and is therefore **not counted or reconstructed from chat claims**
+- write recovery: GitHub contents write/read/delete probe succeeded on 2026-10-04; research writes are available again
+- confidence: high for persisted cumulative count; no new strategy finding claimed
+- limitation: any earlier chat-only claim beyond the 180,000 persisted rounds is treated as unverified until reproduced
+- exact next action: reproduce the controlled specific-double experiment on fresh deterministic seeds, controlling total starting-double count and starter status; then implement clone-safe paired continuation/decision-regret rollouts using identical hidden worlds and continuation policy
