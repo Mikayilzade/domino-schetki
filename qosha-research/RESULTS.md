@@ -261,3 +261,12 @@
 - confidence: high for the identifiability statement and analysis design; no new gameplay-strength claim until the fresh `30000..39999` run is executed and persisted
 - limitation: this environment can write repository code but cannot execute Node against the repository checkout; no run-data is fabricated
 - exact next action: execute `specific-double-control.js 10000 30000`, pipe its JSON through `specific-double-adjust.js`, persist both raw run data and adjusted summary, then interpret 0-0/2-2..6-6 only where matched strata have adequate support; after that continue clone-safe paired decision-regret infrastructure.
+
+
+### 2026-10-05 02:48 (+04) — actual-starter gate remains blocked
+- engine: `qosa-research-0.5.3`; 0 new strategy rounds credited; cumulative persisted scale remains **180,000**
+- source audit: `specific-double-control.js` still stratifies `starter` as raw ownership of `1-1`; `initializer.js` correctly sets `base.starter=previousWinnerIndex` when `1-1` is the stock tile on a later round
+- attempted fix: replace the controlled runner stratum with `seat === base.starter`; GitHub mutation was blocked by connector safety checks, so the repository code is intentionally left unchanged
+- consequence: do not execute or credit `30000..39999` until this gate is fixed; doing so would contaminate the controlled specific-double estimate
+- confidence: high; mismatch is directly visible in persisted source
+- exact next action: persist the actual-starter fix, add an executable stock-`1-1` regression, then reproduce `30000..39999` and save raw + adjusted JSON before interpretation
