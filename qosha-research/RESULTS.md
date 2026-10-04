@@ -250,3 +250,14 @@
 - confidence: high for persisted cumulative count; no new strategy finding claimed
 - limitation: any earlier chat-only claim beyond the 180,000 persisted rounds is treated as unverified until reproduced
 - exact next action: reproduce the controlled specific-double experiment on fresh deterministic seeds, controlling total starting-double count and starter status; then implement clone-safe paired continuation/decision-regret rollouts using identical hidden worlds and continuation policy
+
+
+### 2026-10-04 18:47 (+04) — controlled-double analysis checkpoint
+- engine: `qosa-research-0.5.3`; no gameplay-rule mutation
+- deals: 0 new rounds credited in this checkpoint; persisted cumulative scale remains **180,000 matched-seat rounds**
+- code: added `simulator/specific-double-adjust.js`, a postprocessor for the existing fresh-seed controlled runner
+- method: compare owning vs not owning each double only inside the same `(total starting doubles, starter status)` stratum; ignore cells below 25 observations and pool stratum differences with matched-cell weights
+- important identifiability finding: the independent effect of `1-1` cannot be estimated while starter status is controlled, because in a raw 3×9 deal owning `1-1` exactly determines starter status. This must be reported as non-identifiable rather than assigned a causal value.
+- confidence: high for the identifiability statement and analysis design; no new gameplay-strength claim until the fresh `30000..39999` run is executed and persisted
+- limitation: this environment can write repository code but cannot execute Node against the repository checkout; no run-data is fabricated
+- exact next action: execute `specific-double-control.js 10000 30000`, pipe its JSON through `specific-double-adjust.js`, persist both raw run data and adjusted summary, then interpret 0-0/2-2..6-6 only where matched strata have adequate support; after that continue clone-safe paired decision-regret infrastructure.
