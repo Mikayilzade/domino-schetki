@@ -1,11 +1,11 @@
 # Qoşa research status
 
-Updated: 2026-10-03 19:47 (+04)
+Updated: 2026-10-04 17:09 (+04)
 
 ## Current engine state
 - version target: `qosa-research-0.6.1`
 - primary mode: 3 players × 9 stones + 1 stock
-- new strategy rounds: 180,000 matched-seat rounds across validated baselines/stress/instrumentation runs (historical 4,000 kept separate)
+- new strategy rounds: 180,000 matched-seat rounds persisted across validated baselines/stress/instrumentation runs (historical 4,000 kept separate)
 - historical baseline: kept separate in `RESULTS.md`
 
 ## Newly confirmed by user
@@ -38,4 +38,4 @@ Updated: 2026-10-03 19:47 (+04)
 4. 5-player bazaar/pass semantics and `loneZero=10` remain secondary.
 
 ## NEXT ACTION
-Control specific-double value for total starting-double count and starter status on fresh matched seeds; raw ownership rates are confounded. Then add paired rollout/decision-regret infrastructure at multi-choice states using closed-branch-control as reference. Keep block winner unassigned until explicitly confirmed.
+Reproduce the missing controlled specific-double experiment on fresh deterministic seeds; do not count the earlier chat-only 30000..39999 claim. Control total starting-double count and starter status. Then implement clone-safe paired rollout/decision-regret infrastructure using identical hidden worlds and continuation policy. GitHub write access was re-verified 2026-10-04.
