@@ -1,0 +1,48 @@
+'use strict';
+const assert=require('assert');
+const e=require('./engine');
+const d=require('./turn-dispatcher');
+const {cloneRoundState}=require('./round-driver');
+const {actionKey,evaluateDecisionInWorld}=require('./decision-regret');
+
+function snapshot(s){
+  return JSON.stringify({
+    branchState:s.branchState,
+    opened:[...s.openingState.openedNumbers].sort((a,b)=>a-b),
+    hands:s.hands,stock:s.stock,currentPlayer:s.currentPlayer,
+    consecutivePasses:s.consecutivePasses,turns:s.turns,outcome:s.outcome
+  });
+}
+
+// Construct a deterministic mid-round choice with two legal ordinary moves.
+// This is an evaluator regression fixture, not a claim about how this state arose.
+const state={
+  branchState:e.createBranchState([1,1]),
+  openingState:e.createOpeningState([1]),
+  hands:[
+    [[1,2],[1,3]],
+    [[0,0],[0,1]],
+    [[2,2],[2,3]]
+  ],
+  stock:[],
+  currentPlayer:0,
+  consecutivePasses:0,
+  turns:7,
+  outcome:null
+};
+const before=snapshot(state);
+const opts=d.turnOptions(state.branchState,state.openingState,state.hands[0],state.stock);
+assert.strictEqual(opts.phase,'play');
+assert.ok(opts.actions.length>=2,'fixture must expose a real choice');
+const keys=opts.actions.map(actionKey);
+assert.strictEqual(new Set(keys).size,keys.length,'candidate keys must be unique');
+
+const a=evaluateDecisionInWorld(state,{focalPlayer:0,continuationStrategy:'closed-branch-control',seed:424242,maxTurns:50});
+const b=evaluateDecisionInWorld(state,{focalPlayer:0,continuationStrategy:'closed-branch-control',seed:424242,maxTurns:50});
+assert.strictEqual(a.kind,'paired-world');
+assert.deepStrictEqual(a,b,'paired evaluator must be deterministic');
+assert.strictEqual(a.candidates.length,opts.actions.length,'every legal candidate must be evaluated exactly once');
+assert.deepStrictEqual(a.candidates.map(x=>x.actionKey).sort(),keys.sort(),'candidate set must match legal actions');
+assert.strictEqual(snapshot(state),before,'evaluation must not mutate source world');
+
+console.log('decision-regret evaluator regression: ok; candidates='+a.candidates.length);
