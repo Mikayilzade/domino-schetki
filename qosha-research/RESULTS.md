@@ -270,3 +270,13 @@
 - consequence: do not execute or credit `30000..39999` until this gate is fixed; doing so would contaminate the controlled specific-double estimate
 - confidence: high; mismatch is directly visible in persisted source
 - exact next action: persist the actual-starter fix, add an executable stock-`1-1` regression, then reproduce `30000..39999` and save raw + adjusted JSON before interpretation
+
+
+### 2026-10-05 18:49 (+04) — actual-starter source-of-truth reconciliation
+- engine: `qosa-research-0.5.3`; 0 new strategy rounds credited; cumulative persisted scale remains **180,000**
+- source audit: `specific-double-control.js` now initializes the round first and passes `base.starter` into `rawFeaturesFromDeal`; per-seat starter strata are therefore based on `seat === actualStarter`
+- persisted guard: `simulator/specific-double-starter-regression.md` now records the stock-`1-1` regression requirement; `initializer-test.js` already asserts that with stock `1-1` on a later round, `previousWinnerIndex=1` yields `starter=1`
+- attempted executable guard: creation of a dedicated `specific-double-starter-test.js` was rejected by the GitHub connector in this pass, so no claim is made that the cross-module regression is executable yet
+- new finding: the previously documented contamination gate in the runner itself is resolved in GitHub source of truth; the remaining blocker is test coverage/execution, not the analysis implementation
+- confidence: high for persisted source inspection; no new gameplay-strength claim
+- exact next action: persist an executable cross-module regression proving `rawFeaturesFromDeal(deal, base.starter)` marks the previous winner as starter when `1-1` is stock; then reproduce fresh seeds `30000..39999` and persist raw + adjusted controlled-double outputs
