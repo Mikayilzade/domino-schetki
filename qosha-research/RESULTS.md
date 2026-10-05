@@ -280,3 +280,14 @@
 - new finding: the previously documented contamination gate in the runner itself is resolved in GitHub source of truth; the remaining blocker is test coverage/execution, not the analysis implementation
 - confidence: high for persisted source inspection; no new gameplay-strength claim
 - exact next action: persist an executable cross-module regression proving `rawFeaturesFromDeal(deal, base.starter)` marks the previous winner as starter when `1-1` is stock; then reproduce fresh seeds `30000..39999` and persist raw + adjusted controlled-double outputs
+
+
+### 2026-10-05 22:50 (+04) — executable actual-starter regression
+- engine: `qosa-research-0.5.3`; 0 new strategy rounds credited; cumulative persisted validated scale remains **180,000**
+- validation: added `simulator/specific-double-starter-test.js`, a cross-module regression for a later-round deal with `1-1` in stock
+- invariant: initializer assigns `previousWinnerIndex=1` as the actual starter; `rawFeaturesFromDeal(deal, base.starter)` marks seat 1 as starter even though no raw hand owns `1-1`
+- stale artifact: `runs/2026-10-03-specific-double-controlled-30000-39999.json` predates the actual-starter correction and remains quarantined; its 30,000 rounds are not added to the validated cumulative scale
+- new finding: the runner's starter-stratification gate now has an executable source-level regression rather than documentation-only coverage
+- confidence: high for the cross-module invariant; no new gameplay-strength claim
+- limitation: this connector runtime cannot execute Node, so the test is persisted but not runtime-executed in this pass
+- exact next action: reproduce fresh seeds `30000..39999` with the corrected runner in an executable checkout, persist raw + adjusted outputs, then resume paired decision-regret rollouts
