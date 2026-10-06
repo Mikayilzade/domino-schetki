@@ -59,11 +59,11 @@ function regretSummary(byAction){
   if(!rows.length)return {};
   const bestFinish=Math.max(...rows.map(([,m])=>m.finishFirstRate??-Infinity));
   const bestRemainder=Math.min(...rows.map(([,m])=>m.meanRemainder??Infinity));
-  const bestMinusRisk=Math.min(...rows.map(([,m])=>m.minusFinishRate??Infinity));
+  const bestMinusFinish=Math.max(...rows.map(([,m])=>m.minusFinishRate??-Infinity));
   return Object.fromEntries(rows.map(([key,m])=>[key,{
     finishRateRegret:m.finishFirstRate==null?null:bestFinish-m.finishFirstRate,
     remainderRegret:m.meanRemainder==null?null:m.meanRemainder-bestRemainder,
-    minusRiskRegret:m.minusFinishRate==null?null:m.minusFinishRate-bestMinusRisk
+    minusFinishRegret:m.minusFinishRate==null?null:bestMinusFinish-m.minusFinishRate
   }]));
 }
 
