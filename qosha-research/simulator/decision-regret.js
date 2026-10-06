@@ -54,6 +54,19 @@ function evaluateDecisionInWorld(state,options={}){
   return {kind:'paired-world',focalPlayer:focal,continuationStrategy:strategy,candidates:rows};
 }
 
+function regretSummary(byAction){
+  const rows=Object.entries(byAction);
+  if(!rows.length)return {};
+  const bestFinish=Math.max(...rows.map(([,m])=>m.finishFirstRate??-Infinity));
+  const bestRemainder=Math.min(...rows.map(([,m])=>m.meanRemainder??Infinity));
+  const bestMinusRisk=Math.min(...rows.map(([,m])=>m.minusFinishRate??Infinity));
+  return Object.fromEntries(rows.map(([key,m])=>[key,{
+    finishRateRegret:m.finishFirstRate==null?null:bestFinish-m.finishFirstRate,
+    remainderRegret:m.meanRemainder==null?null:m.meanRemainder-bestRemainder,
+    minusRiskRegret:m.minusFinishRate==null?null:m.minusFinishRate-bestMinusRisk
+  }]));
+}
+
 function aggregateWorlds(results){
   const byAction={};
   for(const result of results){
@@ -70,7 +83,7 @@ function aggregateWorlds(results){
     b.minusFinishRate=b.n?b.minusFinishes/b.n:null;
     b.meanMinusWhenMinus=b.minusFinishes?b.minusSum/b.minusFinishes:null;
   }
-  return {worlds:results.filter(x=>x&&x.kind==='paired-world').length,byAction};
+  return {worlds:results.filter(x=>x&&x.kind==='paired-world').length,byAction,regret:regretSummary(byAction)};
 }
 
-module.exports={actionKey,evaluateDecisionInWorld,aggregateWorlds};
+module.exports={actionKey,evaluateDecisionInWorld,aggregateWorlds,regretSummary};
