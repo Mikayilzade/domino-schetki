@@ -2,7 +2,6 @@
 const assert=require('assert');
 const e=require('./engine');
 const d=require('./turn-dispatcher');
-const {cloneRoundState}=require('./round-driver');
 const {actionKey,evaluateDecisionInWorld,aggregateWorlds}=require('./decision-regret');
 
 function snapshot(s){
@@ -64,11 +63,11 @@ for(const key of keys){
   assert(g,'every candidate must receive regret metrics');
   assert(g.finishRateRegret>=0);
   assert(g.remainderRegret>=0);
-  assert(g.minusRiskRegret>=0);
+  assert(g.minusFinishRegret>=0);
 }
 assert(Math.min(...Object.values(agg.regret).map(x=>x.finishRateRegret))===0,'best finish-rate candidate must have zero regret');
 assert(Math.min(...Object.values(agg.regret).map(x=>x.remainderRegret))===0,'best remainder candidate must have zero regret');
-assert(Math.min(...Object.values(agg.regret).map(x=>x.minusRiskRegret))===0,'best minus-risk candidate must have zero regret');
+assert(Math.min(...Object.values(agg.regret).map(x=>x.minusFinishRegret))===0,'best minus-finish candidate must have zero regret');
 assert.strictEqual(snapshot(state),before,'aggregation must not mutate source world');
 
 console.log('decision-regret evaluator+aggregation regression: ok; candidates='+a.candidates.length);
