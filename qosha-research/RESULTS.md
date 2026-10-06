@@ -315,3 +315,12 @@
 - confidence: high for repository reconciliation and methodology; **no new gameplay finding claimed**
 - exact next action: execute persisted regressions; reproduce corrected seeds `30000..39999` with raw + adjusted output; then implement a fixed-visible hidden-world sampler and validate 25 deterministic worlds before scaling paired regret
 - linked checkpoint: `runs/2026-10-06-recovery-checkpoint.md`
+
+
+### 2026-10-07 03:52 (+04) — hidden-world pre-mix audit
+- engine: `qosa-research-0.5.3`; 0 new strategy rounds credited; cumulative persisted validated scale remains **180,000**
+- source audit: `hidden-world.js` now pre-mixes each world seed before xorshift; `hidden-world-test.js` verifies 25 distinct mixed states for seeds `700..724`, deterministic replay, changed allocation for 700 vs 701, full 28-tile integrity, fixed focal candidate set, and 25 observations per candidate
+- validation gap: the current diversity assertion proves 25 distinct pre-mixed integers, but does not yet require all 25 sampled hidden allocations themselves to be distinct; a strengthening patch was attempted in this pass but rejected by connector safety checks
+- new finding: no gameplay-strength claim; the Monte Carlo sampler is structurally safer than the earlier direct-seed version, but runtime regression execution is still required before crediting numerical regret data
+- confidence: high for source inspection; no Node execution available in this connector runtime
+- exact next action: persist the 25-allocation fingerprint regression, execute `decision-regret-test.js` and `hidden-world-test.js` in an executable checkout, then persist the first numerical 25-world paired-regret sample
