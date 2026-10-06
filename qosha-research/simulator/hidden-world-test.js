@@ -2,6 +2,8 @@
 const assert=require('assert');
 const e=require('./engine');
 const {sampleWorld,candidateKeys,runHiddenWorlds}=require('./hidden-world');
+const {actionKey}=require('./decision-regret');
+const d=require('./turn-dispatcher');
 
 // Synthetic mid-round fixture. knownTiles is the COMPLETE played/known history,
 // not merely branch ends. Counts: focal 2 + known 10 + opponents 8+7 + stock 1 = 28.
@@ -14,6 +16,10 @@ const visibleState={
 };
 const spec={focalPlayer:0,focalHand,knownTiles,hiddenHandSizes:[2,8,7],stockSize:1,visibleState};
 const snap=JSON.stringify(visibleState);
+// Fail-fast input guards: real-position analysis must not silently replace
+// a mismatched current player or focal hand.
+assert.throws(()=>sampleWorld({...spec,focalPlayer:1},700),/currentPlayer must equal focalPlayer/);
+assert.throws(()=>sampleWorld({...spec,focalHand:[[1,2],[1,4]]},700),/focal hand must equal focalHand/);
 const a=sampleWorld(spec,700),b=sampleWorld(spec,700),c=sampleWorld(spec,701);
 assert.deepStrictEqual(a,b,'same seed must reproduce hidden allocation');
 assert.notDeepStrictEqual(a.hands.slice(1),c.hands.slice(1),'different seed should change hidden allocation');
@@ -22,6 +28,9 @@ const all=[...knownTiles,...a.hands.flat(),...a.stock].map(e.tileKey);
 assert.strictEqual(all.length,28);
 assert.strictEqual(new Set(all).size,28,'world must contain every tile exactly once');
 const before=candidateKeys(a);
+const visibleOptions=d.turnOptions(visibleState.branchState,visibleState.openingState,focalHand,[]);
+const visibleKeys=visibleOptions.phase==='play'?visibleOptions.actions.map(actionKey).sort():[];
+assert.deepStrictEqual(before,visibleKeys,'hidden allocation must not change focal legal candidates');
 const run=runHiddenWorlds(spec,{count:25,startSeed:700,maxTurns:100});
 assert.strictEqual(run.worldCount,25);
 assert.deepStrictEqual(run.candidateKeys,before);
