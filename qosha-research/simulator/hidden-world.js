@@ -28,7 +28,11 @@ function hiddenPool({focalHand,knownTiles}){
 }
 function sampleWorld(spec,seed){
   const focal=spec.focalPlayer??0;
+  if(!spec.visibleState)throw new Error('visibleState required');
+  if(spec.visibleState.currentPlayer!==focal)throw new Error('visibleState currentPlayer must equal focalPlayer');
   if(!Array.isArray(spec.focalHand)||!Array.isArray(spec.knownTiles))throw new Error('focalHand and knownTiles required');
+  const visibleFocal=(spec.visibleState.hands&&spec.visibleState.hands[focal])||[];
+  if(JSON.stringify(keys(visibleFocal).sort())!==JSON.stringify(keys(spec.focalHand).sort()))throw new Error('visibleState focal hand must equal focalHand');
   if(!Array.isArray(spec.hiddenHandSizes)||spec.hiddenHandSizes.length!==3)throw new Error('hiddenHandSizes[3] required');
   if(spec.hiddenHandSizes[focal]!==spec.focalHand.length)throw new Error('focal size mismatch');
   const pool=shuffle(hiddenPool(spec),seed), need=spec.hiddenHandSizes.reduce((n,x,i)=>n+(i===focal?0:x),0)+(spec.stockSize??0);
