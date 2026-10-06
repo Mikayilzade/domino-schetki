@@ -301,3 +301,17 @@
 - new finding: no gameplay-strength claim this pass; the paired evaluator is structurally ready for a fixed-visible-state multi-world runner, but that runner and empirical regret sample are not yet persisted
 - confidence: high for source-level audit; executable Node tests were not run in this connector runtime
 - exact next action: add a fixed-visible-state hidden-world sampler/runner that preserves candidate keys across worlds, then persist the first deterministic paired-regret sample; separately reproduce the quarantined corrected `30000..39999` specific-double run in an executable checkout.
+
+
+### 2026-10-06 08:55 (+04) — write recovery and backlog reconciliation
+- engine/rules: current persisted research stack; primary mode 3×9, recovered `qosa-1.0.0` rules
+- deals: **0 new strategy rounds** in this recovery checkpoint
+- verified cumulative scale: **180,000 matched-seat strategy rounds**; historical 4,000 remains separate
+- write status: GitHub create/read/delete probe succeeded; blocked research notes were reconciled against repository contents before recovery
+- recovered/persisted validation: actual-starter correction is present in `specific-double-control.js`; stock-`1-1` starter regressions are persisted; paired decision-regret evaluator and mutation/aggregation regression are persisted
+- quarantine: `runs/2026-10-03-specific-double-controlled-30000-39999.json` predates the actual-starter correction. Its 30,000 rounds are not counted in the verified cumulative scale and its nominal-double finding is not treated as validated
+- recovered real-position method: Monte Carlo must hold the focal player's visible hand/table/branch/open state and known stones fixed, sample only hidden opponent/stock allocations, and compare the same legal candidates under identical continuation policy/world seeds
+- metrics remain separate: finish-first probability, expected remainder, minus probability/severity and regret; no invented composite score
+- confidence: high for repository reconciliation and methodology; **no new gameplay finding claimed**
+- exact next action: execute persisted regressions; reproduce corrected seeds `30000..39999` with raw + adjusted output; then implement a fixed-visible hidden-world sampler and validate 25 deterministic worlds before scaling paired regret
+- linked checkpoint: `runs/2026-10-06-recovery-checkpoint.md`
