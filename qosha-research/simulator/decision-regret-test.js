@@ -59,6 +59,16 @@ for(const row of a.candidates){
   assert.strictEqual(m.minusFinishRate,row.focalMinus<0?1:0);
   assert.strictEqual(m.meanMinusWhenMinus,row.focalMinus<0?row.focalMinus:null);
 }
+for(const key of keys){
+  const g=agg.regret[key];
+  assert(g,'every candidate must receive regret metrics');
+  assert(g.finishRateRegret>=0);
+  assert(g.remainderRegret>=0);
+  assert(g.minusRiskRegret>=0);
+}
+assert(Math.min(...Object.values(agg.regret).map(x=>x.finishRateRegret))===0,'best finish-rate candidate must have zero regret');
+assert(Math.min(...Object.values(agg.regret).map(x=>x.remainderRegret))===0,'best remainder candidate must have zero regret');
+assert(Math.min(...Object.values(agg.regret).map(x=>x.minusRiskRegret))===0,'best minus-risk candidate must have zero regret');
 assert.strictEqual(snapshot(state),before,'aggregation must not mutate source world');
 
 console.log('decision-regret evaluator+aggregation regression: ok; candidates='+a.candidates.length);
