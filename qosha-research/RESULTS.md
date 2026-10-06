@@ -291,3 +291,13 @@
 - confidence: high for the cross-module invariant; no new gameplay-strength claim
 - limitation: this connector runtime cannot execute Node, so the test is persisted but not runtime-executed in this pass
 - exact next action: reproduce fresh seeds `30000..39999` with the corrected runner in an executable checkout, persist raw + adjusted outputs, then resume paired decision-regret rollouts
+
+
+### 2026-10-06 06:51 (+04) — decision-regret infrastructure audit
+- engine: `qosa-research-0.5.3`; 0 new strategy rounds credited; cumulative persisted validated scale remains **180,000**
+- source audit: `simulator/decision-regret.js` now contains a clone-safe paired evaluator plus `aggregateWorlds`; `decision-regret-test.js` checks deterministic replay, complete candidate coverage, aggregation, and source-state immutability
+- methodology: every legal candidate is forced from the same round state and then continued with one deterministic policy; finish-first, remainder and minus metrics remain separate rather than being collapsed into an invented utility score
+- important limitation: current aggregation is only meaningful when compared worlds expose the same candidate action keys. A real hidden-world Monte Carlo runner must therefore fix the visible focal position/hand and vary only hidden opponent/stock allocations; arbitrary unrelated choice states must not be pooled.
+- new finding: no gameplay-strength claim this pass; the paired evaluator is structurally ready for a fixed-visible-state multi-world runner, but that runner and empirical regret sample are not yet persisted
+- confidence: high for source-level audit; executable Node tests were not run in this connector runtime
+- exact next action: add a fixed-visible-state hidden-world sampler/runner that preserves candidate keys across worlds, then persist the first deterministic paired-regret sample; separately reproduce the quarantined corrected `30000..39999` specific-double run in an executable checkout.
