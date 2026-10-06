@@ -1,6 +1,6 @@
 # Qoşa research status
 
-Updated: 2026-10-04 17:09 (+04)
+Updated: 2026-10-06 08:55 (+04)
 
 ## Current engine state
 - version target: `qosa-research-0.6.1`
@@ -37,5 +37,11 @@ Updated: 2026-10-04 17:09 (+04)
 3. Historical RNG remains intentionally incompatible with new numeric seeds; preserved historical fixtures are the compatibility path.
 4. 5-player bazaar/pass semantics and `loneZero=10` remain secondary.
 
+## Recovered after write outage
+- actual-starter correction and stock-`1-1` executable regressions are persisted;
+- paired single-world decision-regret evaluator + mutation/aggregation regression are persisted;
+- old `runs/2026-10-03-specific-double-controlled-30000-39999.json` is quarantined because it predates the actual-starter correction; its 30,000 rounds are not counted;
+- fixed-visible hidden-world Monte Carlo protocol is documented in `runs/2026-10-06-recovery-checkpoint.md`.
+
 ## NEXT ACTION
-Reproduce the missing controlled specific-double experiment on fresh deterministic seeds; do not count the earlier chat-only 30000..39999 claim. Control total starting-double count and starter status. Then implement clone-safe paired rollout/decision-regret infrastructure using identical hidden worlds and continuation policy. GitHub write access was re-verified 2026-10-04.
+Execute the persisted regressions, reproduce corrected `30000..39999` with raw + adjusted output, then implement/validate the fixed-visible hidden-world sampler on 25 deterministic worlds before scaling paired decision-regret.
