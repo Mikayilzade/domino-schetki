@@ -6,8 +6,15 @@ const e=require('./engine');
 const {cloneRoundState}=require('./round-driver');
 const {actionKey,evaluateDecisionInWorld,aggregateWorlds}=require('./decision-regret');
 
+function mixSeed(seed){
+  let x=Number(seed)>>>0;
+  x=(x+0x9e3779b9)>>>0;
+  x=Math.imul(x^(x>>>16),0x21f0aaad)>>>0;
+  x=Math.imul(x^(x>>>15),0x735a2d97)>>>0;
+  return (x^(x>>>15))>>>0;
+}
 function rng(seed){
-  let x=(Number(seed)>>>0)||0x9e3779b9;
+  let x=mixSeed(seed)||0x9e3779b9;
   return ()=>{x^=x<<13;x^=x>>>17;x^=x<<5;return (x>>>0)/4294967296;};
 }
 function shuffle(xs,seed){
@@ -59,4 +66,4 @@ function runHiddenWorlds(spec,{count=25,startSeed=0,continuationStrategy='closed
   }
   return {worldCount:count,startSeed,candidateKeys:expected,aggregate:aggregateWorlds(results),results};
 }
-module.exports={allTiles,hiddenPool,sampleWorld,candidateKeys,runHiddenWorlds};
+module.exports={mixSeed,allTiles,hiddenPool,sampleWorld,candidateKeys,runHiddenWorlds};
