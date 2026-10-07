@@ -22,6 +22,9 @@ assert.throws(()=>sampleWorld({...spec,focalPlayer:1},700),/currentPlayer must e
 assert.throws(()=>sampleWorld({...spec,focalHand:[[1,2],[1,4]]},700),/focal hand must equal focalHand/);
 const mixed=new Set(Array.from({length:25},(_,i)=>mixSeed(700+i)));
 assert.strictEqual(mixed.size,25,'adjacent world seeds must pre-mix to 25 distinct states');
+const allocationFingerprint=world=>JSON.stringify({opponents:world.hands.slice(1).map(h=>h.map(e.tileKey).sort()),stock:world.stock.map(e.tileKey).sort()});
+const allocations=new Set(Array.from({length:25},(_,i)=>allocationFingerprint(sampleWorld(spec,700+i))));
+assert.strictEqual(allocations.size,25,'seeds 700..724 must produce 25 distinct hidden allocations');
 const a=sampleWorld(spec,700),b=sampleWorld(spec,700),c=sampleWorld(spec,701);
 assert.deepStrictEqual(a,b,'same seed must reproduce hidden allocation');
 assert.notDeepStrictEqual(a.hands.slice(1),c.hands.slice(1),'different seed should change hidden allocation');
