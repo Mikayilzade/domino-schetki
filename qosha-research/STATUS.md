@@ -1,6 +1,6 @@
 # Qoşa research status
 
-Updated: 2026-10-06 08:55 (+04)
+Updated: 2026-10-07 10:56 (+04)
 
 ## Current engine state
 - version target: `qosa-research-0.6.1`
@@ -43,5 +43,13 @@ Updated: 2026-10-06 08:55 (+04)
 - old `runs/2026-10-03-specific-double-controlled-30000-39999.json` is quarantined because it predates the actual-starter correction; its 30,000 rounds are not counted;
 - fixed-visible hidden-world Monte Carlo protocol is documented in `runs/2026-10-06-recovery-checkpoint.md`.
 
+## Fixed-visible Monte Carlo / regret status
+- `hidden-world.js` is persisted with focal-player/hand fail-fast guards, exact hidden-pool accounting and sequential-seed pre-mix;
+- `hidden-world-test.js` now requires **25/25 distinct actual hidden allocations** for seeds `700..724`, deterministic replay, 28-tile integrity, immutable visible state and identical focal candidate keys;
+- paired decision-regret is persisted and keeps finish-first, remainder and minus-finish metrics separate;
+- minus finish is a beneficial outcome: `minusFinishRegret` is measured against the **maximum** minus-finish rate;
+- source/tests are persisted, but the latest hidden-world/regret regressions have not been runtime-executed in this connector environment, so they are not yet labelled green;
+- verified cumulative strategy scale remains **180,000**; quarantined pre-fix `30000..39999` remains excluded.
+
 ## NEXT ACTION
-Execute the persisted regressions, reproduce corrected `30000..39999` with raw + adjusted output, then implement/validate the fixed-visible hidden-world sampler on 25 deterministic worlds before scaling paired decision-regret.
+Execute `decision-regret-test.js` and `hidden-world-test.js`. If both are green, persist the first numerical 25-world paired-regret JSON; then reproduce corrected controlled specific-double seeds `30000..39999`.
