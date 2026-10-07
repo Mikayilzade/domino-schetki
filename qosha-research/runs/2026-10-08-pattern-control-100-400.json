@@ -1,0 +1,1857 @@
+{
+  "schema": "qosa-pattern-control/v1",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "startSeed": 100,
+  "endSeed": 400,
+  "limit": 12,
+  "worldsPerPosition": 40,
+  "seedFormula": "980000 + 1000*dealSeed + worldIndex",
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips"
+  ],
+  "selection": "first reachable eligible state per kind per seed, stock empty, hand 4..8, rollout closed-branch-control",
+  "comparison": "one legal X-X opening vs equally weighted legal singles preserving X-X plus X-Y; pattern has >=3 X tiles, control exactly 2 X tiles",
+  "outcomes": "paired identical hidden worlds for each candidate and policy, equal position weights, position-level approximate CI",
+  "newCompletedStrategyRounds": 0,
+  "hiddenWorldCount": 1920,
+  "groupContrastPatternMinusControl": {
+    "closed-branch-control": {
+      "finishFirst": 0.0971180555555555,
+      "remainderPips": -2.0516666666666667,
+      "minusFinish": -0.021076388888888867
+    },
+    "min-hand-pips": {
+      "finishFirst": -0.09430555555555556,
+      "remainderPips": -0.06447916666666664,
+      "minusFinish": -0.021736111111111116
+    }
+  },
+  "groups": {
+    "pattern3plus": {
+      "closed-branch-control": {
+        "positionCount": 12,
+        "hiddenWorlds": 480,
+        "metrics": {
+          "finishFirst": {
+            "n": 12,
+            "mean": 0.2644097222222222,
+            "ci95NormalApprox": [
+              0.17294402456058316,
+              0.35587541988386123
+            ]
+          },
+          "remainderPips": {
+            "n": 12,
+            "mean": -3.518923611111111,
+            "ci95NormalApprox": [
+              -4.624702297136601,
+              -2.413144925085621
+            ]
+          },
+          "minusFinish": {
+            "n": 12,
+            "mean": 0.05364583333333334,
+            "ci95NormalApprox": [
+              0.011508931078055055,
+              0.09578273558861161
+            ]
+          }
+        },
+        "positions": [
+          {
+            "seed": 100,
+            "turn": 4,
+            "seat": 2,
+            "target": 5,
+            "xTiles": 4,
+            "connectorCount": 3,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              7,
+              null
+            ],
+            "branchEnds": [
+              2,
+              6,
+              1,
+              5
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||5|5-5"
+            ],
+            "preserveKeys": [
+              "single|left|4||4-6",
+              "single|left|5||5-6",
+              "single|left|2||2-6",
+              "single|right|4||1-4"
+            ],
+            "hiddenWorldStart": 1080000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.06875,
+              "remainderPips": -6.63125,
+              "minusFinish": 0.00625
+            }
+          },
+          {
+            "seed": 101,
+            "turn": 3,
+            "seat": 0,
+            "target": 6,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 8,
+            "opponentHandSizes": [
+              null,
+              8,
+              8
+            ],
+            "branchEnds": [
+              6,
+              5,
+              1,
+              2
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||6|6-6"
+            ],
+            "preserveKeys": [
+              "single|right|4||1-4",
+              "single|right|3||1-3"
+            ],
+            "hiddenWorldStart": 1081000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.1,
+              "remainderPips": -2.7375,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 102,
+            "turn": 5,
+            "seat": 2,
+            "target": 6,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 8,
+            "opponentHandSizes": [
+              7,
+              7,
+              null
+            ],
+            "branchEnds": [
+              5,
+              3,
+              1,
+              6
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||6|6-6"
+            ],
+            "preserveKeys": [
+              "single|right|0||0-1"
+            ],
+            "hiddenWorldStart": 1082000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.45,
+              "remainderPips": -2.55,
+              "minusFinish": 0.2
+            }
+          },
+          {
+            "seed": 103,
+            "turn": 3,
+            "seat": 0,
+            "target": 5,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 8,
+            "opponentHandSizes": [
+              null,
+              8,
+              8
+            ],
+            "branchEnds": [
+              0,
+              4,
+              1,
+              5
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||5|5-5"
+            ],
+            "preserveKeys": [
+              "single|right|6||1-6"
+            ],
+            "hiddenWorldStart": 1083000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.35,
+              "remainderPips": -4,
+              "minusFinish": 0.15
+            }
+          },
+          {
+            "seed": 104,
+            "turn": 5,
+            "seat": 1,
+            "target": 2,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 8,
+            "opponentHandSizes": [
+              7,
+              null,
+              7
+            ],
+            "branchEnds": [
+              6,
+              5,
+              3,
+              2
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||2|2-2"
+            ],
+            "preserveKeys": [
+              "single|up|2||2-6",
+              "single|up|4||4-6",
+              "single|up|3||3-6"
+            ],
+            "hiddenWorldStart": 1084000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.27499999999999997,
+              "remainderPips": -4.15,
+              "minusFinish": 0.041666666666666664
+            }
+          },
+          {
+            "seed": 106,
+            "turn": 7,
+            "seat": 1,
+            "target": 5,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 7,
+            "opponentHandSizes": [
+              6,
+              null,
+              7
+            ],
+            "branchEnds": [
+              4,
+              2,
+              5,
+              3
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||5|5-5"
+            ],
+            "preserveKeys": [
+              "single|up|2||2-4"
+            ],
+            "hiddenWorldStart": 1086000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.425,
+              "remainderPips": -2.425,
+              "minusFinish": 0.05
+            }
+          },
+          {
+            "seed": 107,
+            "turn": 4,
+            "seat": 2,
+            "target": 6,
+            "xTiles": 4,
+            "connectorCount": 3,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              7,
+              null
+            ],
+            "branchEnds": [
+              5,
+              6,
+              1,
+              3
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||6|6-6"
+            ],
+            "preserveKeys": [
+              "single|up|6||5-6",
+              "single|up|4||4-5",
+              "single|up|0||0-5"
+            ],
+            "hiddenWorldStart": 1087000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.16666666666666666,
+              "remainderPips": -4.8583333333333325,
+              "minusFinish": 0.033333333333333326
+            }
+          },
+          {
+            "seed": 109,
+            "turn": 22,
+            "seat": 2,
+            "target": 0,
+            "xTiles": 4,
+            "connectorCount": 3,
+            "handSize": 4,
+            "opponentHandSizes": [
+              2,
+              2,
+              null
+            ],
+            "branchEnds": [
+              0,
+              3,
+              3,
+              6
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||0|0-0"
+            ],
+            "preserveKeys": [
+              "single|down|0||0-6"
+            ],
+            "hiddenWorldStart": 1089000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0,
+              "remainderPips": 0,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 110,
+            "turn": 3,
+            "seat": 2,
+            "target": 4,
+            "xTiles": 5,
+            "connectorCount": 4,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              8,
+              null
+            ],
+            "branchEnds": [
+              4,
+              6,
+              1,
+              3
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||4|4-4"
+            ],
+            "preserveKeys": [
+              "single|right|5||1-5"
+            ],
+            "hiddenWorldStart": 1090000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.425,
+              "remainderPips": -6.775,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 111,
+            "turn": 3,
+            "seat": 1,
+            "target": 3,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              null,
+              8
+            ],
+            "branchEnds": [
+              4,
+              2,
+              1,
+              3
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||3|3-3"
+            ],
+            "preserveKeys": [
+              "single|right|6||1-6",
+              "single|right|5||1-5"
+            ],
+            "hiddenWorldStart": 1091000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.2,
+              "remainderPips": -2.775,
+              "minusFinish": -0.025
+            }
+          },
+          {
+            "seed": 112,
+            "turn": 5,
+            "seat": 0,
+            "target": 5,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 8,
+            "opponentHandSizes": [
+              null,
+              7,
+              8
+            ],
+            "branchEnds": [
+              2,
+              5,
+              1,
+              6
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||5|5-5"
+            ],
+            "preserveKeys": [
+              "single|down|3||3-6",
+              "single|right|3||1-3"
+            ],
+            "hiddenWorldStart": 1092000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.2375,
+              "remainderPips": -1.625,
+              "minusFinish": 0.1625
+            }
+          },
+          {
+            "seed": 113,
+            "turn": 3,
+            "seat": 2,
+            "target": 5,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              8,
+              null
+            ],
+            "branchEnds": [
+              6,
+              5,
+              1,
+              4
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||5|5-5"
+            ],
+            "preserveKeys": [
+              "single|right|3||1-3"
+            ],
+            "hiddenWorldStart": 1093000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.475,
+              "remainderPips": -3.7,
+              "minusFinish": 0.025
+            }
+          }
+        ]
+      },
+      "min-hand-pips": {
+        "positionCount": 12,
+        "hiddenWorlds": 480,
+        "metrics": {
+          "finishFirst": {
+            "n": 12,
+            "mean": 0.19409722222222223,
+            "ci95NormalApprox": [
+              0.0763568197197107,
+              0.31183762472473375
+            ]
+          },
+          "remainderPips": {
+            "n": 12,
+            "mean": -1.2262152777777777,
+            "ci95NormalApprox": [
+              -2.2877168443361136,
+              -0.1647137112194419
+            ]
+          },
+          "minusFinish": {
+            "n": 12,
+            "mean": 0.034027777777777775,
+            "ci95NormalApprox": [
+              -0.061263256653512836,
+              0.12931881220906838
+            ]
+          }
+        },
+        "positions": [
+          {
+            "seed": 100,
+            "turn": 4,
+            "seat": 2,
+            "target": 5,
+            "xTiles": 4,
+            "connectorCount": 3,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              7,
+              null
+            ],
+            "branchEnds": [
+              2,
+              6,
+              1,
+              5
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||5|5-5"
+            ],
+            "preserveKeys": [
+              "single|left|4||4-6",
+              "single|left|5||5-6",
+              "single|left|2||2-6",
+              "single|right|4||1-4"
+            ],
+            "hiddenWorldStart": 1080000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": -0.1125,
+              "remainderPips": 2.78125,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 101,
+            "turn": 3,
+            "seat": 0,
+            "target": 6,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 8,
+            "opponentHandSizes": [
+              null,
+              8,
+              8
+            ],
+            "branchEnds": [
+              6,
+              5,
+              1,
+              2
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||6|6-6"
+            ],
+            "preserveKeys": [
+              "single|right|4||1-4",
+              "single|right|3||1-3"
+            ],
+            "hiddenWorldStart": 1081000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.05,
+              "remainderPips": 1.4,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 102,
+            "turn": 5,
+            "seat": 2,
+            "target": 6,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 8,
+            "opponentHandSizes": [
+              7,
+              7,
+              null
+            ],
+            "branchEnds": [
+              5,
+              3,
+              1,
+              6
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||6|6-6"
+            ],
+            "preserveKeys": [
+              "single|right|0||0-1"
+            ],
+            "hiddenWorldStart": 1082000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.475,
+              "remainderPips": -1.875,
+              "minusFinish": 0.5
+            }
+          },
+          {
+            "seed": 103,
+            "turn": 3,
+            "seat": 0,
+            "target": 5,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 8,
+            "opponentHandSizes": [
+              null,
+              8,
+              8
+            ],
+            "branchEnds": [
+              0,
+              4,
+              1,
+              5
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||5|5-5"
+            ],
+            "preserveKeys": [
+              "single|right|6||1-6"
+            ],
+            "hiddenWorldStart": 1083000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": -0.025,
+              "remainderPips": -0.125,
+              "minusFinish": -0.25
+            }
+          },
+          {
+            "seed": 104,
+            "turn": 5,
+            "seat": 1,
+            "target": 2,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 8,
+            "opponentHandSizes": [
+              7,
+              null,
+              7
+            ],
+            "branchEnds": [
+              6,
+              5,
+              3,
+              2
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||2|2-2"
+            ],
+            "preserveKeys": [
+              "single|up|2||2-6",
+              "single|up|4||4-6",
+              "single|up|3||3-6"
+            ],
+            "hiddenWorldStart": 1084000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.3333333333333333,
+              "remainderPips": -2.658333333333334,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 106,
+            "turn": 7,
+            "seat": 1,
+            "target": 5,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 7,
+            "opponentHandSizes": [
+              6,
+              null,
+              7
+            ],
+            "branchEnds": [
+              4,
+              2,
+              5,
+              3
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||5|5-5"
+            ],
+            "preserveKeys": [
+              "single|up|2||2-4"
+            ],
+            "hiddenWorldStart": 1086000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.325,
+              "remainderPips": -2.1,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 107,
+            "turn": 4,
+            "seat": 2,
+            "target": 6,
+            "xTiles": 4,
+            "connectorCount": 3,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              7,
+              null
+            ],
+            "branchEnds": [
+              5,
+              6,
+              1,
+              3
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||6|6-6"
+            ],
+            "preserveKeys": [
+              "single|up|6||5-6",
+              "single|up|4||4-5",
+              "single|up|0||0-5"
+            ],
+            "hiddenWorldStart": 1087000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": -0.016666666666666698,
+              "remainderPips": -1.7,
+              "minusFinish": 0.05833333333333333
+            }
+          },
+          {
+            "seed": 109,
+            "turn": 22,
+            "seat": 2,
+            "target": 0,
+            "xTiles": 4,
+            "connectorCount": 3,
+            "handSize": 4,
+            "opponentHandSizes": [
+              2,
+              2,
+              null
+            ],
+            "branchEnds": [
+              0,
+              3,
+              3,
+              6
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||0|0-0"
+            ],
+            "preserveKeys": [
+              "single|down|0||0-6"
+            ],
+            "hiddenWorldStart": 1089000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0,
+              "remainderPips": 0,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 110,
+            "turn": 3,
+            "seat": 2,
+            "target": 4,
+            "xTiles": 5,
+            "connectorCount": 4,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              8,
+              null
+            ],
+            "branchEnds": [
+              4,
+              6,
+              1,
+              3
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||4|4-4"
+            ],
+            "preserveKeys": [
+              "single|right|5||1-5"
+            ],
+            "hiddenWorldStart": 1090000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.2,
+              "remainderPips": -2.75,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 111,
+            "turn": 3,
+            "seat": 1,
+            "target": 3,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              null,
+              8
+            ],
+            "branchEnds": [
+              4,
+              2,
+              1,
+              3
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||3|3-3"
+            ],
+            "preserveKeys": [
+              "single|right|6||1-6",
+              "single|right|5||1-5"
+            ],
+            "hiddenWorldStart": 1091000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.3,
+              "remainderPips": -2.425,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 112,
+            "turn": 5,
+            "seat": 0,
+            "target": 5,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 8,
+            "opponentHandSizes": [
+              null,
+              7,
+              8
+            ],
+            "branchEnds": [
+              2,
+              5,
+              1,
+              6
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||5|5-5"
+            ],
+            "preserveKeys": [
+              "single|down|3||3-6",
+              "single|right|3||1-3"
+            ],
+            "hiddenWorldStart": 1092000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.3,
+              "remainderPips": -1.6625,
+              "minusFinish": 0.1
+            }
+          },
+          {
+            "seed": 113,
+            "turn": 3,
+            "seat": 2,
+            "target": 5,
+            "xTiles": 3,
+            "connectorCount": 2,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              8,
+              null
+            ],
+            "branchEnds": [
+              6,
+              5,
+              1,
+              4
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||5|5-5"
+            ],
+            "preserveKeys": [
+              "single|right|3||1-3"
+            ],
+            "hiddenWorldStart": 1093000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.5,
+              "remainderPips": -3.6,
+              "minusFinish": 0
+            }
+          }
+        ]
+      }
+    },
+    "control2": {
+      "closed-branch-control": {
+        "positionCount": 12,
+        "hiddenWorlds": 480,
+        "metrics": {
+          "finishFirst": {
+            "n": 12,
+            "mean": 0.1672916666666667,
+            "ci95NormalApprox": [
+              0.09336610781681677,
+              0.24121722551651664
+            ]
+          },
+          "remainderPips": {
+            "n": 12,
+            "mean": -1.4672569444444443,
+            "ci95NormalApprox": [
+              -2.3600483232885123,
+              -0.5744655656003761
+            ]
+          },
+          "minusFinish": {
+            "n": 12,
+            "mean": 0.0747222222222222,
+            "ci95NormalApprox": [
+              0.034930514472847174,
+              0.11451392997159723
+            ]
+          }
+        },
+        "positions": [
+          {
+            "seed": 100,
+            "turn": 5,
+            "seat": 0,
+            "target": 2,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              null,
+              7,
+              7
+            ],
+            "branchEnds": [
+              2,
+              5,
+              1,
+              5
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||2|2-2"
+            ],
+            "preserveKeys": [
+              "single|right|0||0-1",
+              "single|right|3||1-3"
+            ],
+            "hiddenWorldStart": 1080000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.25,
+              "remainderPips": -0.325,
+              "minusFinish": -0.05
+            }
+          },
+          {
+            "seed": 101,
+            "turn": 10,
+            "seat": 1,
+            "target": 3,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 6,
+            "opponentHandSizes": [
+              5,
+              null,
+              6
+            ],
+            "branchEnds": [
+              3,
+              5,
+              4,
+              5
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||3|3-3"
+            ],
+            "preserveKeys": [
+              "single|right|2||2-4"
+            ],
+            "hiddenWorldStart": 1081000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.4,
+              "remainderPips": -0.675,
+              "minusFinish": 0.225
+            }
+          },
+          {
+            "seed": 102,
+            "turn": 5,
+            "seat": 2,
+            "target": 3,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              7,
+              7,
+              null
+            ],
+            "branchEnds": [
+              5,
+              3,
+              1,
+              6
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||3|3-3"
+            ],
+            "preserveKeys": [
+              "single|right|0||0-1"
+            ],
+            "hiddenWorldStart": 1082000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.175,
+              "remainderPips": -0.725,
+              "minusFinish": 0.125
+            }
+          },
+          {
+            "seed": 103,
+            "turn": 7,
+            "seat": 1,
+            "target": 2,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 7,
+            "opponentHandSizes": [
+              6,
+              null,
+              7
+            ],
+            "branchEnds": [
+              0,
+              4,
+              2,
+              5
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||2|2-2"
+            ],
+            "preserveKeys": [
+              "single|down|6||5-6"
+            ],
+            "hiddenWorldStart": 1083000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.05,
+              "remainderPips": -1.075,
+              "minusFinish": 0.075
+            }
+          },
+          {
+            "seed": 104,
+            "turn": 5,
+            "seat": 1,
+            "target": 3,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              7,
+              null,
+              7
+            ],
+            "branchEnds": [
+              6,
+              5,
+              3,
+              2
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||3|3-3"
+            ],
+            "preserveKeys": [
+              "single|up|2||2-6",
+              "single|up|4||4-6"
+            ],
+            "hiddenWorldStart": 1084000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.1625,
+              "remainderPips": -4.925,
+              "minusFinish": 0.05
+            }
+          },
+          {
+            "seed": 105,
+            "turn": 4,
+            "seat": 2,
+            "target": 5,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              8,
+              null
+            ],
+            "branchEnds": [
+              5,
+              4,
+              1,
+              6
+            ],
+            "recentPasses": 1,
+            "spendKeys": [
+              "double-sequence|||5|5-5"
+            ],
+            "preserveKeys": [
+              "single|right|3||1-3",
+              "single|right|2||1-2"
+            ],
+            "hiddenWorldStart": 1085000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.025,
+              "remainderPips": -4.075,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 106,
+            "turn": 4,
+            "seat": 1,
+            "target": 3,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              7,
+              null,
+              8
+            ],
+            "branchEnds": [
+              4,
+              6,
+              1,
+              3
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||3|3-3"
+            ],
+            "preserveKeys": [
+              "single|right|0||0-1",
+              "single|left|2||2-6"
+            ],
+            "hiddenWorldStart": 1086000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": -0.0375,
+              "remainderPips": 0.1375,
+              "minusFinish": 0.0875
+            }
+          },
+          {
+            "seed": 107,
+            "turn": 13,
+            "seat": 2,
+            "target": 2,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 5,
+            "opponentHandSizes": [
+              5,
+              4,
+              null
+            ],
+            "branchEnds": [
+              6,
+              6,
+              2,
+              0
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||2|2-2"
+            ],
+            "preserveKeys": [
+              "single|down|6||0-6"
+            ],
+            "hiddenWorldStart": 1087000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.225,
+              "remainderPips": -0.45,
+              "minusFinish": 0.125
+            }
+          },
+          {
+            "seed": 108,
+            "turn": 4,
+            "seat": 2,
+            "target": 6,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              7,
+              null
+            ],
+            "branchEnds": [
+              6,
+              5,
+              1,
+              4
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||6|6-6"
+            ],
+            "preserveKeys": [
+              "single|right|0||0-1",
+              "single|right|3||1-3",
+              "single|left|0||0-5",
+              "single|left|4||4-5"
+            ],
+            "hiddenWorldStart": 1088000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.1625,
+              "remainderPips": -1.05625,
+              "minusFinish": 0.0125
+            }
+          },
+          {
+            "seed": 109,
+            "turn": 5,
+            "seat": 0,
+            "target": 4,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              null,
+              7,
+              8
+            ],
+            "branchEnds": [
+              4,
+              2,
+              1,
+              6
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||4|4-4"
+            ],
+            "preserveKeys": [
+              "single|right|3||1-3",
+              "single|right|0||0-1",
+              "single|down|2||2-6",
+              "single|right|5||1-5",
+              "single|down|3||3-6"
+            ],
+            "hiddenWorldStart": 1089000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.37,
+              "remainderPips": -2.6549999999999994,
+              "minusFinish": 0.10500000000000002
+            }
+          },
+          {
+            "seed": 110,
+            "turn": 5,
+            "seat": 1,
+            "target": 6,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              7,
+              null,
+              7
+            ],
+            "branchEnds": [
+              4,
+              6,
+              5,
+              3
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||6|6-6"
+            ],
+            "preserveKeys": [
+              "single|down|0||0-3",
+              "single|down|2||2-3"
+            ],
+            "hiddenWorldStart": 1090000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.1,
+              "remainderPips": -0.625,
+              "minusFinish": 0.075
+            }
+          },
+          {
+            "seed": 112,
+            "turn": 3,
+            "seat": 1,
+            "target": 2,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              null,
+              9
+            ],
+            "branchEnds": [
+              2,
+              1,
+              1,
+              6
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||2|2-2"
+            ],
+            "preserveKeys": [
+              "single|left|0||0-1",
+              "single|right|0||0-1",
+              "single|left|5||1-5",
+              "single|right|5||1-5",
+              "single|left|4||1-4",
+              "single|right|4||1-4"
+            ],
+            "hiddenWorldStart": 1092000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.12500000000000003,
+              "remainderPips": -1.1583333333333328,
+              "minusFinish": 0.06666666666666667
+            }
+          }
+        ]
+      },
+      "min-hand-pips": {
+        "positionCount": 12,
+        "hiddenWorlds": 480,
+        "metrics": {
+          "finishFirst": {
+            "n": 12,
+            "mean": 0.2884027777777778,
+            "ci95NormalApprox": [
+              0.14376835924418296,
+              0.4330371963113726
+            ]
+          },
+          "remainderPips": {
+            "n": 12,
+            "mean": -1.161736111111111,
+            "ci95NormalApprox": [
+              -1.951910919962336,
+              -0.3715613022598864
+            ]
+          },
+          "minusFinish": {
+            "n": 12,
+            "mean": 0.05576388888888889,
+            "ci95NormalApprox": [
+              -0.03095986537238947,
+              0.14248764315016726
+            ]
+          }
+        },
+        "positions": [
+          {
+            "seed": 100,
+            "turn": 5,
+            "seat": 0,
+            "target": 2,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              null,
+              7,
+              7
+            ],
+            "branchEnds": [
+              2,
+              5,
+              1,
+              5
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||2|2-2"
+            ],
+            "preserveKeys": [
+              "single|right|0||0-1",
+              "single|right|3||1-3"
+            ],
+            "hiddenWorldStart": 1080000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.2125,
+              "remainderPips": -0.4375,
+              "minusFinish": -0.15
+            }
+          },
+          {
+            "seed": 101,
+            "turn": 10,
+            "seat": 1,
+            "target": 3,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 6,
+            "opponentHandSizes": [
+              5,
+              null,
+              6
+            ],
+            "branchEnds": [
+              3,
+              5,
+              4,
+              5
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||3|3-3"
+            ],
+            "preserveKeys": [
+              "single|right|2||2-4"
+            ],
+            "hiddenWorldStart": 1081000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.275,
+              "remainderPips": -0.55,
+              "minusFinish": 0.2
+            }
+          },
+          {
+            "seed": 102,
+            "turn": 5,
+            "seat": 2,
+            "target": 3,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              7,
+              7,
+              null
+            ],
+            "branchEnds": [
+              5,
+              3,
+              1,
+              6
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||3|3-3"
+            ],
+            "preserveKeys": [
+              "single|right|0||0-1"
+            ],
+            "hiddenWorldStart": 1082000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.35,
+              "remainderPips": -1.4,
+              "minusFinish": 0.45
+            }
+          },
+          {
+            "seed": 103,
+            "turn": 7,
+            "seat": 1,
+            "target": 2,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 7,
+            "opponentHandSizes": [
+              6,
+              null,
+              7
+            ],
+            "branchEnds": [
+              0,
+              4,
+              2,
+              5
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||2|2-2"
+            ],
+            "preserveKeys": [
+              "single|down|6||5-6"
+            ],
+            "hiddenWorldStart": 1083000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.5,
+              "remainderPips": -2.925,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 104,
+            "turn": 5,
+            "seat": 1,
+            "target": 3,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              7,
+              null,
+              7
+            ],
+            "branchEnds": [
+              6,
+              5,
+              3,
+              2
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||3|3-3"
+            ],
+            "preserveKeys": [
+              "single|up|2||2-6",
+              "single|up|4||4-6"
+            ],
+            "hiddenWorldStart": 1084000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.275,
+              "remainderPips": -2.425,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 105,
+            "turn": 4,
+            "seat": 2,
+            "target": 5,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              8,
+              null
+            ],
+            "branchEnds": [
+              5,
+              4,
+              1,
+              6
+            ],
+            "recentPasses": 1,
+            "spendKeys": [
+              "double-sequence|||5|5-5"
+            ],
+            "preserveKeys": [
+              "single|right|3||1-3",
+              "single|right|2||1-2"
+            ],
+            "hiddenWorldStart": 1085000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": -0.0125,
+              "remainderPips": 0.3875,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 106,
+            "turn": 4,
+            "seat": 1,
+            "target": 3,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              7,
+              null,
+              8
+            ],
+            "branchEnds": [
+              4,
+              6,
+              1,
+              3
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||3|3-3"
+            ],
+            "preserveKeys": [
+              "single|right|0||0-1",
+              "single|left|2||2-6"
+            ],
+            "hiddenWorldStart": 1086000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.2375,
+              "remainderPips": -2.0375,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 107,
+            "turn": 13,
+            "seat": 2,
+            "target": 2,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 5,
+            "opponentHandSizes": [
+              5,
+              4,
+              null
+            ],
+            "branchEnds": [
+              6,
+              6,
+              2,
+              0
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||2|2-2"
+            ],
+            "preserveKeys": [
+              "single|down|6||0-6"
+            ],
+            "hiddenWorldStart": 1087000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.675,
+              "remainderPips": -1.35,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 108,
+            "turn": 4,
+            "seat": 2,
+            "target": 6,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              7,
+              null
+            ],
+            "branchEnds": [
+              6,
+              5,
+              1,
+              4
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||6|6-6"
+            ],
+            "preserveKeys": [
+              "single|right|0||0-1",
+              "single|right|3||1-3",
+              "single|left|0||0-5",
+              "single|left|4||4-5"
+            ],
+            "hiddenWorldStart": 1088000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": -0.0125,
+              "remainderPips": 1.2,
+              "minusFinish": 0
+            }
+          },
+          {
+            "seed": 109,
+            "turn": 5,
+            "seat": 0,
+            "target": 4,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              null,
+              7,
+              8
+            ],
+            "branchEnds": [
+              4,
+              2,
+              1,
+              6
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||4|4-4"
+            ],
+            "preserveKeys": [
+              "single|right|3||1-3",
+              "single|right|0||0-1",
+              "single|down|2||2-6",
+              "single|right|5||1-5",
+              "single|down|3||3-6"
+            ],
+            "hiddenWorldStart": 1089000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.265,
+              "remainderPips": -0.97,
+              "minusFinish": -0.010000000000000002
+            }
+          },
+          {
+            "seed": 110,
+            "turn": 5,
+            "seat": 1,
+            "target": 6,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              7,
+              null,
+              7
+            ],
+            "branchEnds": [
+              4,
+              6,
+              5,
+              3
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||6|6-6"
+            ],
+            "preserveKeys": [
+              "single|down|0||0-3",
+              "single|down|2||2-3"
+            ],
+            "hiddenWorldStart": 1090000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": 0.75,
+              "remainderPips": -3.5,
+              "minusFinish": 0.175
+            }
+          },
+          {
+            "seed": 112,
+            "turn": 3,
+            "seat": 1,
+            "target": 2,
+            "xTiles": 2,
+            "connectorCount": 1,
+            "handSize": 8,
+            "opponentHandSizes": [
+              8,
+              null,
+              9
+            ],
+            "branchEnds": [
+              2,
+              1,
+              1,
+              6
+            ],
+            "recentPasses": 0,
+            "spendKeys": [
+              "double-sequence|||2|2-2"
+            ],
+            "preserveKeys": [
+              "single|left|0||0-1",
+              "single|right|0||0-1",
+              "single|left|5||1-5",
+              "single|right|5||1-5",
+              "single|left|4||1-4",
+              "single|right|4||1-4"
+            ],
+            "hiddenWorldStart": 1092000,
+            "worlds": 40,
+            "deltaPreserveMinusSpend": {
+              "finishFirst": -0.05416666666666668,
+              "remainderPips": 0.06666666666666662,
+              "minusFinish": 0.004166666666666667
+            }
+          }
+        ]
+      }
+    }
+  },
+  "limitations": "not random treatment; control and pattern are different states; first-eligible selection; one deterministic discovery policy; small position samples; branch semantics assumption-labelled; cannot infer causality",
+  "runAtAsiaBaku": "2026-10-08 03:47 (+04)",
+  "execution": "V8 CommonJS harness, fetched from GitHub source, not Node CLI",
+  "elapsedMs": 10311,
+  "confidence": "provisional; compare position-level CI; groups not randomly assigned"
+}
