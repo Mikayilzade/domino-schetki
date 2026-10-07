@@ -324,3 +324,13 @@
 - new finding: no gameplay-strength claim; the Monte Carlo sampler is structurally safer than the earlier direct-seed version, but runtime regression execution is still required before crediting numerical regret data
 - confidence: high for source inspection; no Node execution available in this connector runtime
 - exact next action: persist the 25-allocation fingerprint regression, execute `decision-regret-test.js` and `hidden-world-test.js` in an executable checkout, then persist the first numerical 25-world paired-regret sample
+
+
+### 2026-10-07 10:56 (+04) — documentation sync to persisted hidden-world/regret code
+- engine/research state: current persisted 3×9 stack; **0 new strategy rounds**; verified cumulative scale remains **180,000** matched-seat rounds, historical 4,000 separate
+- fixed-visible sampler: `simulator/hidden-world.js` requires a visible state, exact focal player/hand agreement, removes all known tiles from the hidden pool, preserves hidden hand/stock counts, and pre-mixes sequential world seeds before xorshift
+- diversity regression now persisted: `hidden-world-test.js` fingerprints the actual opponent hands + stock and requires seeds `700..724` to produce **25/25 distinct hidden allocations**; it also checks deterministic replay, 28 unique tiles, unchanged visible source state, identical focal legal candidates and 25 observations per candidate
+- paired regret: `decision-regret.js` keeps metrics separate and computes regret against the best candidate for finish-first rate, mean remainder and **minus-finish rate**; minus finishes (−10/−20/−30/−40) are beneficial outcomes, so their rate is maximized rather than treated as a risk to minimize
+- validation status: these source/test assertions are persisted, but this connector pass did **not** execute Node; do not label the current hidden-world/regret suite runtime-green until executed in an executable checkout
+- gameplay finding: none claimed from this documentation sync
+- exact next action: execute `decision-regret-test.js` and `hidden-world-test.js`; if green, persist the first numerical 25-world paired-regret JSON, then reproduce corrected controlled specific-double seeds `30000..39999`
