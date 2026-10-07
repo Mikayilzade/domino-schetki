@@ -1,0 +1,245 @@
+{
+  "schema": "qosa-pattern-control/v1",
+  "runAtAsiaBaku": "2026-10-08 03:47 (+04)",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "startSeed": 400,
+  "endSeed": 800,
+  "limit": 20,
+  "worldsPerPosition": 60,
+  "hiddenWorldCount": 4800,
+  "newCompletedStrategyRounds": 0,
+  "seedFormula": "980000 + 1000*dealSeed + worldIndex",
+  "selection": "first reachable eligible state per kind per seed, stock empty, hand 4..8, rollout closed-branch-control",
+  "comparison": "one legal X-X opening vs equally weighted legal singles preserving X-X plus X-Y; pattern has >=3 X tiles, control exactly 2 X tiles",
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips"
+  ],
+  "groupContrastPatternMinusControl": {
+    "closed-branch-control": {
+      "finishFirst": 0.0822698412698413,
+      "remainderPips": -1.2086071428571425,
+      "minusFinish": 0.024499999999999994
+    },
+    "min-hand-pips": {
+      "finishFirst": -0.052253968253968275,
+      "remainderPips": 0.4863531746031744,
+      "minusFinish": 0.002638888888888885
+    }
+  },
+  "groups": {
+    "pattern3plus": {
+      "closed-branch-control": {
+        "positionCount": 20,
+        "selectedSeeds": [
+          400,
+          401,
+          403,
+          404,
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          413,
+          414,
+          415,
+          416,
+          419,
+          420,
+          421,
+          422,
+          423,
+          424
+        ],
+        "metrics": {
+          "finishFirst": {
+            "n": 20,
+            "mean": 0.2354166666666667,
+            "ci95NormalApprox": [
+              0.1729635128781777,
+              0.2978698204551557
+            ]
+          },
+          "remainderPips": {
+            "n": 20,
+            "mean": -2.45625,
+            "ci95NormalApprox": [
+              -3.3352918860064635,
+              -1.5772081139935359
+            ]
+          },
+          "minusFinish": {
+            "n": 20,
+            "mean": 0.07749999999999999,
+            "ci95NormalApprox": [
+              0.014073913256987355,
+              0.1409260867430126
+            ]
+          }
+        }
+      },
+      "min-hand-pips": {
+        "positionCount": 20,
+        "selectedSeeds": [
+          400,
+          401,
+          403,
+          404,
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          413,
+          414,
+          415,
+          416,
+          419,
+          420,
+          421,
+          422,
+          423,
+          424
+        ],
+        "metrics": {
+          "finishFirst": {
+            "n": 20,
+            "mean": 0.17333333333333334,
+            "ci95NormalApprox": [
+              0.07512866401448991,
+              0.27153800265217676
+            ]
+          },
+          "remainderPips": {
+            "n": 20,
+            "mean": -1.169166666666667,
+            "ci95NormalApprox": [
+              -1.993142969731079,
+              -0.34519036360225486
+            ]
+          },
+          "minusFinish": {
+            "n": 20,
+            "mean": 0.022083333333333333,
+            "ci95NormalApprox": [
+              -0.02349122658440921,
+              0.06765789325107588
+            ]
+          }
+        }
+      }
+    },
+    "control2": {
+      "closed-branch-control": {
+        "positionCount": 20,
+        "selectedSeeds": [
+          400,
+          401,
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          409,
+          410,
+          411,
+          412,
+          413,
+          414,
+          415,
+          416,
+          417,
+          418,
+          419,
+          420
+        ],
+        "metrics": {
+          "finishFirst": {
+            "n": 20,
+            "mean": 0.1531468253968254,
+            "ci95NormalApprox": [
+              0.08956596938342296,
+              0.21672768141022783
+            ]
+          },
+          "remainderPips": {
+            "n": 20,
+            "mean": -1.2476428571428573,
+            "ci95NormalApprox": [
+              -1.9280266560164936,
+              -0.5672590582692211
+            ]
+          },
+          "minusFinish": {
+            "n": 20,
+            "mean": 0.05299999999999999,
+            "ci95NormalApprox": [
+              0.0021408330009598173,
+              0.10385916699904016
+            ]
+          }
+        }
+      },
+      "min-hand-pips": {
+        "positionCount": 20,
+        "selectedSeeds": [
+          400,
+          401,
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          409,
+          410,
+          411,
+          412,
+          413,
+          414,
+          415,
+          416,
+          417,
+          418,
+          419,
+          420
+        ],
+        "metrics": {
+          "finishFirst": {
+            "n": 20,
+            "mean": 0.22558730158730161,
+            "ci95NormalApprox": [
+              0.13980758240798669,
+              0.31136702076661654
+            ]
+          },
+          "remainderPips": {
+            "n": 20,
+            "mean": -1.6555198412698413,
+            "ci95NormalApprox": [
+              -2.231267470186751,
+              -1.0797722123529314
+            ]
+          },
+          "minusFinish": {
+            "n": 20,
+            "mean": 0.019444444444444448,
+            "ci95NormalApprox": [
+              -0.00942165205240739,
+              0.04831054094129629
+            ]
+          }
+        }
+      }
+    }
+  },
+  "limitations": "not random treatment; control and pattern are different states; first-eligible selection; one deterministic discovery policy; small position samples; branch semantics assumption-labelled; cannot infer causality",
+  "execution": "V8 CommonJS harness; Node CLI not run",
+  "nextAction": "stratify same-seed paired pattern/control states by hand size and branch ends; rerun with third continuation policy"
+}
