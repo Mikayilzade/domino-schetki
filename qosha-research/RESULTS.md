@@ -334,3 +334,15 @@
 - validation status: these source/test assertions are persisted, but this connector pass did **not** execute Node; do not label the current hidden-world/regret suite runtime-green until executed in an executable checkout
 - gameplay finding: none claimed from this documentation sync
 - exact next action: execute `decision-regret-test.js` and `hidden-world-test.js`; if green, persist the first numerical 25-world paired-regret JSON, then reproduce corrected controlled specific-double seeds `30000..39999`
+
+
+### 2026-10-08 01:54 (+04) — first reachable-position paired pattern experiment
+- engine/rules: `qosa-research-0.5.3` / recovered `qosa-1.0.0`, 3×9; no gameplay-rule changes
+- validation: decision-regret-test and hidden-world-test passed in a JavaScript V8 CommonJS evaluation harness (not Node CLI); discovered a wrong expected `keepsPair=true` for spending the only X-X in pattern-choice-test and corrected it
+- sample: **20 distinct reachable deal-seed positions** (discovery seeds 0..9; independent holdout seeds 30,31,32,33,35,36,37,40,42,44), 100 hidden worlds per position = **2,000 matched hidden worlds**; 0 unresolved continuations; 0 new complete strategy rounds; verified prior total **180,000** strategy rounds unchanged
+- comparison: for first eligible hand with 3+ X, X-X and connector, force one X-X double versus legal ordinary single moves retaining the pair; compare identical hidden worlds and closed-branch-control continuation, equal weight per position and within each action class
+- discovery preserve-minus-spend: finish-first **+24.39 percentage points**, mean remainder **−2.01 pips**; holdout: **+24.78 percentage points**, **−3.82 pips**. Minus-finish difference +3.31/+4.57 points respectively, but its uncertainty includes zero across positions.
+- finding: **provisional** evidence for preserving the X-X + X-Y structure instead of opening X-X immediately in this specific model/bot setup; not proof that the pattern itself causes the effect (could be general closed-branch advantage)
+- confidence/limitations: direction replicated on disjoint seed/world sets, but 10 positions per split, first-eligible selection, one continuation policy, equal-action-class averages, assumption-labelled branch rules; no human-play generalization. The 25-world original regression fixture was non-discriminative (all candidates 25/25), so it is only a correctness check.
+- reproducibility: `simulator/pattern-paired-runner.js` with `0 30 10 100` and `30 80 10 100`; `runs/2026-10-08-pattern-paired-20positions.json` records seeds, world formula and per-position deltas
+- exact next hypothesis/action: run the new runner and pattern-choice regression in Node; compare this pattern against **non-pattern matched double-vs-single controls** on fresh seeds and alternate continuation policies to isolate branch-control from pair preservation.

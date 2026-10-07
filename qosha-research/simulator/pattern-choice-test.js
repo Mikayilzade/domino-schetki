@@ -8,8 +8,14 @@ assert.deepStrictEqual(ts,[{number:2,tileCount:3,connectorCount:2}]);
 
 const spend={tiles:[[2,2]]};
 const preserve={tile:[4,6]};
-assert.deepStrictEqual(classify(hand,spend,2),{usesDouble:true,usesConnector:false,keepsPair:true});
+assert.deepStrictEqual(classify(hand,spend,2),{usesDouble:true,usesConnector:false,keepsPair:false});
 assert.deepStrictEqual(classify(hand,preserve,2),{usesDouble:false,usesConnector:false,keepsPair:true});
+
+// A single connector can be spent while another still preserves the pair.
+assert.deepStrictEqual(classify(hand,{tile:[1,2]},2),{usesDouble:false,usesConnector:true,keepsPair:true});
+// Spending both the double and a connector never preserves the pair.
+assert.deepStrictEqual(classify(hand,{tiles:[[2,2],[1,2]]},2),
+  {usesDouble:true,usesConnector:true,keepsPair:false});
 
 const choices=comparableChoices(hand,[spend,preserve]);
 assert.strictEqual(choices.length,1);
