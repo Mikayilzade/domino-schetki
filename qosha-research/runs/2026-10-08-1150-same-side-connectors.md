@@ -9,3 +9,16 @@ When both destinations were already opened, keeping LOW rather than HIGH gave �
 Observed eligible-seed strata across 2,000 scanned seeds: 1,644 both-unopened, 303 one-opened, 52 both-opened; quotas intentionally oversample rare late states, not population-weighted. Test checked same-side/from X legal actions, deterministic 2-world continuations and state immutability (fixtures 22000, 22004, 22060).
 
 **Next:** persist executable runner, independent seeds ≥24000, compare other available branch ends and opponent hand sizes; test alternate discovery policies and Node CLI regressions. Locked/open semantics assumption-labelled; block winner unassigned. Do not promote a human-use rule yet.
+
+## Exact reproducibility notes
+
+Source of truth: existing `simulator/engine.js`, `initializer.js`, `round-driver.js`, `turn-dispatcher.js`, `strategy-runner.js`, `hidden-world.js` and `decision-regret.js`. No live PWA files changed. A standalone `.js` runner could not be committed in this pass (connector write safety rejection), so this experiment is **method-documented but not yet code-persisted**.
+
+For each seed, initialize `initializeThreePlayerRound({seed,isFirstRound:false,previousWinnerIndex:seed%3})`. Advance via `stepRound` and `chooseBy('closed-branch-control', ...)` until the **first** eligible position or terminal state. Require empty stock, focal hand length 3–8, phase `play`, no draw. Iterate sides in `['up','left','right','down']` order. Choose first active side ending in an **opened** number X, with exactly two non-double X-connectors X-low and X-high in focal hand. Both must have distinct legal `single` actions on that exact side with `from=X`. Classify low/high `to` numbers by membership in `openingState.openedNumbers`. Take first 20 positions in each stratum, scan the entire seed range for prevalence.
+
+Selected deal seeds:
+- bothClosed: `22000,22001,22002,22003,22005,22006,22008,22010,22012,22013,22014,22015,22017,22018,22019,22020,22021,22022,22023,22025`
+- oneOpen: `22004,22007,22009,22011,22016,22024,22039,22043,22051,22054,22058,22063,22065,22069,22070,22071,22081,22095,22099,22102`
+- bothOpen: `22060,22108,22111,22124,22171,22183,22254,22257,22281,22336,22430,22467,22507,22518,22569,22612,22617,22778,22781,22792`
+
+For each selected state, derive `knownTiles` as all 28 tiles minus all currently hidden hand/stock tiles; pass `focalHand`, `focalPlayer`, `hiddenHandSizes`, `stockSize`, and the fixed visible state to `runHiddenWorlds({count:40,startSeed:3100000+1000*dealSeed,continuationStrategy:policy,maxTurns:200})`. In each world force the two matched action keys, continue under the same policy, and calculate `(spendHigh - spendLow)` for finish-first, focal remainder and minus-finish. This is equivalent to `keepLow - keepHigh`. In `oneOpen`, multiply by +1 if low is opened and high is unopened, otherwise −1, yielding `close - keepOpen`. Average worlds within each position, then positions within each deliberately selected stratum. Approximate CI uses 1.96 × position-level sample SD / sqrt(20). No multiple-testing correction.
