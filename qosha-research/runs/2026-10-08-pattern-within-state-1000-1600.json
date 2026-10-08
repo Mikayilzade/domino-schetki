@@ -1,0 +1,4242 @@
+{
+  "runAtAsiaBaku": "2026-10-08 04:50 (+04)",
+  "schema": "qosa-pattern-within-state/v1",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "startSeed": 1000,
+  "endSeed": 1600,
+  "limit": 20,
+  "worldsPerPosition": 40,
+  "selectedSeeds": [
+    1010,
+    1018,
+    1026,
+    1028,
+    1037,
+    1038,
+    1040,
+    1042,
+    1053,
+    1055,
+    1059,
+    1065,
+    1088,
+    1089,
+    1094,
+    1103,
+    1106,
+    1110,
+    1113,
+    1121
+  ],
+  "positionCount": 20,
+  "uniqueHiddenAllocations": 800,
+  "policyWorldEvaluations": 2400,
+  "candidateContinuations": 15840,
+  "newCompletedStrategyRounds": 0,
+  "seedFormula": "1300000 + 1000*dealSeed + worldIndex",
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "matching": "same exact reachable state, focal hand, opponent counts, branch ends, passes, and equal number of active ends for target doubles",
+  "comparison": "difference of preserve-X-X+connector minus spend-X-X between 3+ X and exactly-2 Y targets in the same state; equal-weight legal single actions",
+  "limitations": "targets X and Y differ in pip value and connector structure; observational target comparison, first eligible per seed, assumption-labelled branch semantics, position-level normal CI, no proof of universal causal effect",
+  "summary": {
+    "closed-branch-control": {
+      "pattern": {
+        "finishFirst": {
+          "n": 20,
+          "mean": 0.28625,
+          "ci95NormalApprox": [
+            0.20061346688419968,
+            0.37188653311580033
+          ],
+          "positive": 19,
+          "negative": 1,
+          "zero": 0
+        },
+        "remainderPips": {
+          "n": 20,
+          "mean": -2.0932500000000003,
+          "ci95NormalApprox": [
+            -2.8796254881901624,
+            -1.3068745118098382
+          ],
+          "positive": 3,
+          "negative": 17,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 20,
+          "mean": 0.089,
+          "ci95NormalApprox": [
+            0.013491915904701363,
+            0.16450808409529863
+          ],
+          "positive": 16,
+          "negative": 4,
+          "zero": 0
+        }
+      },
+      "control": {
+        "finishFirst": {
+          "n": 20,
+          "mean": 0.205625,
+          "ci95NormalApprox": [
+            0.13552455069030547,
+            0.27572544930969456
+          ],
+          "positive": 18,
+          "negative": 2,
+          "zero": 0
+        },
+        "remainderPips": {
+          "n": 20,
+          "mean": -1.0774999999999997,
+          "ci95NormalApprox": [
+            -1.717272781005717,
+            -0.43772721899428235
+          ],
+          "positive": 5,
+          "negative": 14,
+          "zero": 1
+        },
+        "minusFinish": {
+          "n": 20,
+          "mean": 0.09729166666666669,
+          "ci95NormalApprox": [
+            0.026687277861385972,
+            0.16789605547194741
+          ],
+          "positive": 15,
+          "negative": 3,
+          "zero": 2
+        }
+      },
+      "extraPattern": {
+        "finishFirst": {
+          "n": 20,
+          "mean": 0.08062499999999999,
+          "ci95NormalApprox": [
+            -0.00816735277629324,
+            0.16941735277629322
+          ],
+          "positive": 15,
+          "negative": 4,
+          "zero": 1
+        },
+        "remainderPips": {
+          "n": 20,
+          "mean": -1.01575,
+          "ci95NormalApprox": [
+            -1.7222204041217861,
+            -0.30927959587821374
+          ],
+          "positive": 5,
+          "negative": 15,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 20,
+          "mean": -0.00829166666666668,
+          "ci95NormalApprox": [
+            -0.09311503217471001,
+            0.07653169884137664
+          ],
+          "positive": 9,
+          "negative": 7,
+          "zero": 4
+        }
+      },
+      "pipValueStrata": {
+        "patternTargetHigher": {
+          "n": 11,
+          "extraFinishFirst": {
+            "n": 11,
+            "mean": 0.060606060606060594,
+            "ci95NormalApprox": [
+              -0.08513618643015812,
+              0.2063483076422793
+            ],
+            "positive": 8,
+            "negative": 2,
+            "zero": 1
+          }
+        },
+        "patternTargetLower": {
+          "n": 9,
+          "extraFinishFirst": {
+            "n": 9,
+            "mean": 0.10509259259259258,
+            "ci95NormalApprox": [
+              0.012159719714078587,
+              0.19802546547110658
+            ],
+            "positive": 7,
+            "negative": 2,
+            "zero": 0
+          }
+        }
+      }
+    },
+    "min-hand-pips": {
+      "pattern": {
+        "finishFirst": {
+          "n": 20,
+          "mean": 0.3105,
+          "ci95NormalApprox": [
+            0.23483042128642412,
+            0.3861695787135759
+          ],
+          "positive": 19,
+          "negative": 1,
+          "zero": 0
+        },
+        "remainderPips": {
+          "n": 20,
+          "mean": -1.7487916666666667,
+          "ci95NormalApprox": [
+            -2.3346471637616943,
+            -1.1629361695716391
+          ],
+          "positive": 1,
+          "negative": 19,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 20,
+          "mean": -0.060625000000000005,
+          "ci95NormalApprox": [
+            -0.1319717374221798,
+            0.010721737422179793
+          ],
+          "positive": 1,
+          "negative": 6,
+          "zero": 13
+        }
+      },
+      "control": {
+        "finishFirst": {
+          "n": 20,
+          "mean": 0.30302083333333335,
+          "ci95NormalApprox": [
+            0.20338086128135513,
+            0.40266080538531157
+          ],
+          "positive": 18,
+          "negative": 1,
+          "zero": 1
+        },
+        "remainderPips": {
+          "n": 20,
+          "mean": -1.57875,
+          "ci95NormalApprox": [
+            -2.212037150197494,
+            -0.9454628498025063
+          ],
+          "positive": 2,
+          "negative": 18,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 20,
+          "mean": -0.044375000000000005,
+          "ci95NormalApprox": [
+            -0.08373886392231761,
+            -0.0050111360776824085
+          ],
+          "positive": 1,
+          "negative": 7,
+          "zero": 12
+        }
+      },
+      "extraPattern": {
+        "finishFirst": {
+          "n": 20,
+          "mean": 0.007479166666666676,
+          "ci95NormalApprox": [
+            -0.11274466179724059,
+            0.12770299513057393
+          ],
+          "positive": 10,
+          "negative": 9,
+          "zero": 1
+        },
+        "remainderPips": {
+          "n": 20,
+          "mean": -0.1700416666666667,
+          "ci95NormalApprox": [
+            -0.8420124902573667,
+            0.5019291569240334
+          ],
+          "positive": 9,
+          "negative": 11,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 20,
+          "mean": -0.016249999999999997,
+          "ci95NormalApprox": [
+            -0.09151473539936775,
+            0.059014735399367746
+          ],
+          "positive": 7,
+          "negative": 2,
+          "zero": 11
+        }
+      },
+      "pipValueStrata": {
+        "patternTargetHigher": {
+          "n": 11,
+          "extraFinishFirst": {
+            "n": 11,
+            "mean": -0.11515151515151514,
+            "ci95NormalApprox": [
+              -0.2867090353494227,
+              0.0564060050463924
+            ],
+            "positive": 3,
+            "negative": 7,
+            "zero": 1
+          }
+        },
+        "patternTargetLower": {
+          "n": 9,
+          "extraFinishFirst": {
+            "n": 9,
+            "mean": 0.1573611111111111,
+            "ci95NormalApprox": [
+              0.04917323918123141,
+              0.2655489830409908
+            ],
+            "positive": 7,
+            "negative": 2,
+            "zero": 0
+          }
+        }
+      }
+    },
+    "fast-doubles": {
+      "pattern": {
+        "finishFirst": {
+          "n": 20,
+          "mean": 0.4694375,
+          "ci95NormalApprox": [
+            0.3875597983368377,
+            0.5513152016631624
+          ],
+          "positive": 20,
+          "negative": 0,
+          "zero": 0
+        },
+        "remainderPips": {
+          "n": 20,
+          "mean": -1.768541666666667,
+          "ci95NormalApprox": [
+            -2.413253994336583,
+            -1.1238293389967506
+          ],
+          "positive": 0,
+          "negative": 20,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 20,
+          "mean": 0.00625,
+          "ci95NormalApprox": [
+            -0.005999999999999997,
+            0.018499999999999996
+          ],
+          "positive": 1,
+          "negative": 0,
+          "zero": 19
+        }
+      },
+      "control": {
+        "finishFirst": {
+          "n": 20,
+          "mean": 0.5034375,
+          "ci95NormalApprox": [
+            0.40639528273057757,
+            0.6004797172694224
+          ],
+          "positive": 19,
+          "negative": 0,
+          "zero": 1
+        },
+        "remainderPips": {
+          "n": 20,
+          "mean": -1.9364583333333332,
+          "ci95NormalApprox": [
+            -2.6223024722427954,
+            -1.250614194423871
+          ],
+          "positive": 1,
+          "negative": 19,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 20,
+          "mean": 0.01,
+          "ci95NormalApprox": [
+            -0.009600000000000003,
+            0.0296
+          ],
+          "positive": 1,
+          "negative": 0,
+          "zero": 19
+        }
+      },
+      "extraPattern": {
+        "finishFirst": {
+          "n": 20,
+          "mean": -0.03400000000000001,
+          "ci95NormalApprox": [
+            -0.07971131487501032,
+            0.0117113148750103
+          ],
+          "positive": 7,
+          "negative": 11,
+          "zero": 2
+        },
+        "remainderPips": {
+          "n": 20,
+          "mean": 0.1679166666666667,
+          "ci95NormalApprox": [
+            -0.13340490998936952,
+            0.4692382433227029
+          ],
+          "positive": 11,
+          "negative": 9,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 20,
+          "mean": -0.00375,
+          "ci95NormalApprox": [
+            -0.0111,
+            0.0036000000000000008
+          ],
+          "positive": 0,
+          "negative": 1,
+          "zero": 19
+        }
+      },
+      "pipValueStrata": {
+        "patternTargetHigher": {
+          "n": 11,
+          "extraFinishFirst": {
+            "n": 11,
+            "mean": -0.00151515151515152,
+            "ci95NormalApprox": [
+              -0.06507291104977896,
+              0.06204260801947591
+            ],
+            "positive": 6,
+            "negative": 4,
+            "zero": 1
+          }
+        },
+        "patternTargetLower": {
+          "n": 9,
+          "extraFinishFirst": {
+            "n": 9,
+            "mean": -0.0737037037037037,
+            "ci95NormalApprox": [
+              -0.1326962824318212,
+              -0.014711124975586201
+            ],
+            "positive": 1,
+            "negative": 7,
+            "zero": 1
+          }
+        }
+      }
+    }
+  },
+  "rows": {
+    "closed-branch-control": [
+      {
+        "seed": 1010,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          3,
+          6,
+          4,
+          2
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 5,
+          "connectors": 4,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|up|2||2-3"
+          ]
+        },
+        "control": {
+          "target": 4,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|up|2||2-3"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2310000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.325,
+            "remainderPips": -4,
+            "minusFinish": 0.075
+          },
+          "control": {
+            "finishFirst": 0.5,
+            "remainderPips": -2.85,
+            "minusFinish": 0.3
+          },
+          "extraPattern": {
+            "finishFirst": -0.175,
+            "remainderPips": -1.15,
+            "minusFinish": -0.225
+          }
+        }
+      },
+      {
+        "seed": 1018,
+        "turn": 8,
+        "focal": 2,
+        "handSize": 7,
+        "opponentHandSizes": [
+          6,
+          6,
+          null
+        ],
+        "branchEnds": [
+          0,
+          3,
+          4,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 4,
+          "connectors": 3,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|down|0||0-6",
+            "single|left|0||0-3",
+            "single|left|6||3-6",
+            "single|down|3||3-6",
+            "single|left|4||3-4"
+          ]
+        },
+        "control": {
+          "target": 4,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|down|0||0-6",
+            "single|left|0||0-3",
+            "single|left|6||3-6",
+            "single|down|3||3-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 4,
+        "hiddenWorldStart": 2318000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 360,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.27499999999999997,
+            "remainderPips": -1.739999999999999,
+            "minusFinish": 0.03
+          },
+          "control": {
+            "finishFirst": 0.1,
+            "remainderPips": 0.325,
+            "minusFinish": -0.05
+          },
+          "extraPattern": {
+            "finishFirst": 0.175,
+            "remainderPips": -2.064999999999999,
+            "minusFinish": 0.08
+          }
+        }
+      },
+      {
+        "seed": 1026,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          2,
+          0,
+          6,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|up|4||2-4",
+            "single|up|5||2-5",
+            "single|up|0||0-2"
+          ]
+        },
+        "control": {
+          "target": 6,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|up|4||2-4",
+            "single|up|5||2-5",
+            "single|up|0||0-2"
+          ]
+        },
+        "sharedPreserveActionKeys": 3,
+        "hiddenWorldStart": 2326000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.3750000000000001,
+            "remainderPips": -5.675000000000001,
+            "minusFinish": 0.08333333333333334
+          },
+          "control": {
+            "finishFirst": 0.17499999999999996,
+            "remainderPips": -1.725,
+            "minusFinish": 0.008333333333333321
+          },
+          "extraPattern": {
+            "finishFirst": 0.2,
+            "remainderPips": -3.95,
+            "minusFinish": 0.075
+          }
+        }
+      },
+      {
+        "seed": 1028,
+        "turn": 11,
+        "focal": 0,
+        "handSize": 6,
+        "opponentHandSizes": [
+          null,
+          5,
+          5
+        ],
+        "branchEnds": [
+          6,
+          0,
+          2,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|up|0||0-6",
+            "single|up|2||2-6",
+            "single|up|5||5-6"
+          ]
+        },
+        "control": {
+          "target": 2,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|up|0||0-6",
+            "single|up|5||5-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2328000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": -0.1833333333333334,
+            "remainderPips": 0.6249999999999998,
+            "minusFinish": -0.4083333333333333
+          },
+          "control": {
+            "finishFirst": 0.3,
+            "remainderPips": -1.975,
+            "minusFinish": 0.2875
+          },
+          "extraPattern": {
+            "finishFirst": -0.4833333333333335,
+            "remainderPips": 2.6000000000000005,
+            "minusFinish": -0.6958333333333335
+          }
+        }
+      },
+      {
+        "seed": 1037,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          5,
+          0,
+          4,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|left|2||0-2",
+            "single|left|5||0-5"
+          ]
+        },
+        "control": {
+          "target": 4,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|left|2||0-2",
+            "single|left|5||0-5"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2337000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.4125,
+            "remainderPips": -2.0375,
+            "minusFinish": 0.3125
+          },
+          "control": {
+            "finishFirst": 0.2375,
+            "remainderPips": -1.4125,
+            "minusFinish": 0.2625
+          },
+          "extraPattern": {
+            "finishFirst": 0.175,
+            "remainderPips": -0.625,
+            "minusFinish": 0.05
+          }
+        }
+      },
+      {
+        "seed": 1038,
+        "turn": 4,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          9
+        ],
+        "branchEnds": [
+          2,
+          4,
+          1,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 4,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|right|5||1-5",
+            "single|right|0||0-1"
+          ]
+        },
+        "control": {
+          "target": 6,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|5||1-5",
+            "single|right|0||0-1"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2338000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.2875,
+            "remainderPips": -1.7125,
+            "minusFinish": 0.1125
+          },
+          "control": {
+            "finishFirst": 0.0875,
+            "remainderPips": -0.9125,
+            "minusFinish": -0.0875
+          },
+          "extraPattern": {
+            "finishFirst": 0.2,
+            "remainderPips": -0.8,
+            "minusFinish": 0.2
+          }
+        }
+      },
+      {
+        "seed": 1040,
+        "turn": 4,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          8,
+          null
+        ],
+        "branchEnds": [
+          6,
+          5,
+          1,
+          3
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|2||1-2"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|right|2||1-2"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2340000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.5,
+            "remainderPips": -1.375,
+            "minusFinish": 0.15
+          },
+          "control": {
+            "finishFirst": 0.5,
+            "remainderPips": -1.575,
+            "minusFinish": 0.1
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": 0.2,
+            "minusFinish": 0.05
+          }
+        }
+      },
+      {
+        "seed": 1042,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "branchEnds": [
+          0,
+          6,
+          4,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|6||4-6"
+          ]
+        },
+        "control": {
+          "target": 0,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|right|6||4-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2342000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.475,
+            "remainderPips": -3.925,
+            "minusFinish": 0.375
+          },
+          "control": {
+            "finishFirst": 0.175,
+            "remainderPips": -1.325,
+            "minusFinish": 0.425
+          },
+          "extraPattern": {
+            "finishFirst": 0.3,
+            "remainderPips": -2.6,
+            "minusFinish": -0.05
+          }
+        }
+      },
+      {
+        "seed": 1053,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          9,
+          7
+        ],
+        "branchEnds": [
+          1,
+          5,
+          4,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 4,
+          "connectors": 3,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|up|0||0-1"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|up|0||0-1"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2353000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.175,
+            "remainderPips": 0.65,
+            "minusFinish": 0.125
+          },
+          "control": {
+            "finishFirst": 0.075,
+            "remainderPips": 1.75,
+            "minusFinish": 0.125
+          },
+          "extraPattern": {
+            "finishFirst": 0.1,
+            "remainderPips": -1.1,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1055,
+        "turn": 6,
+        "focal": 2,
+        "handSize": 7,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          5,
+          2,
+          1,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|down|0||0-6",
+            "single|down|4||4-6"
+          ]
+        },
+        "control": {
+          "target": 2,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|down|0||0-6",
+            "single|down|4||4-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2355000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1375,
+            "remainderPips": -0.8,
+            "minusFinish": 0.0625
+          },
+          "control": {
+            "finishFirst": 0.0875,
+            "remainderPips": -0.95,
+            "minusFinish": 0.0625
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": 0.15,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1059,
+        "turn": 11,
+        "focal": 0,
+        "handSize": 6,
+        "opponentHandSizes": [
+          null,
+          5,
+          5
+        ],
+        "branchEnds": [
+          0,
+          2,
+          4,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|right|3||3-4",
+            "single|down|2||2-5",
+            "single|down|0||0-5"
+          ]
+        },
+        "control": {
+          "target": 2,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|right|3||3-4",
+            "single|down|0||0-5"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2359000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.05833333333333333,
+            "remainderPips": -0.5999999999999999,
+            "minusFinish": -0.05
+          },
+          "control": {
+            "finishFirst": 0.0625,
+            "remainderPips": 0.7125,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.004166666666666702,
+            "remainderPips": -1.3125,
+            "minusFinish": -0.05000000000000001
+          }
+        }
+      },
+      {
+        "seed": 1065,
+        "turn": 5,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          7
+        ],
+        "branchEnds": [
+          3,
+          5,
+          6,
+          4
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|up|5||3-5",
+            "single|up|4||3-4"
+          ]
+        },
+        "control": {
+          "target": 4,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|up|5||3-5"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2365000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 680,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.475,
+            "remainderPips": -3.6875,
+            "minusFinish": -0.025
+          },
+          "control": {
+            "finishFirst": 0.45,
+            "remainderPips": -4.25,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.025,
+            "remainderPips": 0.5625,
+            "minusFinish": -0.025
+          }
+        }
+      },
+      {
+        "seed": 1088,
+        "turn": 4,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          9
+        ],
+        "branchEnds": [
+          3,
+          6,
+          1,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|0||0-1",
+            "single|right|2||1-2"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|right|0||0-1",
+            "single|right|2||1-2"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2388000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.0875,
+            "remainderPips": -0.6125,
+            "minusFinish": 0.0375
+          },
+          "control": {
+            "finishFirst": -0.0625,
+            "remainderPips": 0.5125,
+            "minusFinish": 0.0375
+          },
+          "extraPattern": {
+            "finishFirst": 0.15,
+            "remainderPips": -1.125,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1089,
+        "turn": 7,
+        "focal": 1,
+        "handSize": 7,
+        "opponentHandSizes": [
+          6,
+          null,
+          7
+        ],
+        "branchEnds": [
+          2,
+          6,
+          5,
+          3
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 2,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|left|4||4-6"
+          ]
+        },
+        "control": {
+          "target": 3,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||3|3-3"
+          ],
+          "preserve": [
+            "single|left|4||4-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2389000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.2,
+            "remainderPips": -2.5,
+            "minusFinish": 0.175
+          },
+          "control": {
+            "finishFirst": 0.15,
+            "remainderPips": 0,
+            "minusFinish": 0.125
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -2.5,
+            "minusFinish": 0.05
+          }
+        }
+      },
+      {
+        "seed": 1094,
+        "turn": 3,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          8,
+          null
+        ],
+        "branchEnds": [
+          4,
+          3,
+          1,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 3,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||3|3-3"
+          ],
+          "preserve": [
+            "single|right|5||1-5"
+          ]
+        },
+        "control": {
+          "target": 6,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|5||1-5"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2394000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.275,
+            "remainderPips": -1.45,
+            "minusFinish": 0.4
+          },
+          "control": {
+            "finishFirst": 0.2,
+            "remainderPips": -1.075,
+            "minusFinish": 0.275
+          },
+          "extraPattern": {
+            "finishFirst": 0.075,
+            "remainderPips": -0.375,
+            "minusFinish": 0.125
+          }
+        }
+      },
+      {
+        "seed": 1103,
+        "turn": 12,
+        "focal": 1,
+        "handSize": 6,
+        "opponentHandSizes": [
+          5,
+          null,
+          6
+        ],
+        "branchEnds": [
+          4,
+          0,
+          3,
+          4
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 4,
+          "connectors": 3,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|up|5||4-5",
+            "single|down|5||4-5",
+            "single|up|0||0-4",
+            "single|down|0||0-4"
+          ]
+        },
+        "control": {
+          "target": 3,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||3|3-3"
+          ],
+          "preserve": [
+            "single|up|5||4-5",
+            "single|down|5||4-5",
+            "single|up|0||0-4",
+            "single|down|0||0-4"
+          ]
+        },
+        "sharedPreserveActionKeys": 4,
+        "hiddenWorldStart": 2403000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 320,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.05,
+            "remainderPips": 0.525,
+            "minusFinish": -0.0375
+          },
+          "control": {
+            "finishFirst": 0.25,
+            "remainderPips": -0.3,
+            "minusFinish": 0.0125
+          },
+          "extraPattern": {
+            "finishFirst": -0.2,
+            "remainderPips": 0.825,
+            "minusFinish": -0.05
+          }
+        }
+      },
+      {
+        "seed": 1106,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          2,
+          5,
+          3,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 2,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|down|3||3-6",
+            "single|down|4||4-6"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|down|3||3-6",
+            "single|down|4||4-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2406000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.4375,
+            "remainderPips": -4.2625,
+            "minusFinish": 0.0125
+          },
+          "control": {
+            "finishFirst": 0.2375,
+            "remainderPips": -3.3375,
+            "minusFinish": 0.0125
+          },
+          "extraPattern": {
+            "finishFirst": 0.2,
+            "remainderPips": -0.925,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1110,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          4,
+          5,
+          6,
+          0
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|up|6||4-6",
+            "single|up|0||0-4"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|up|6||4-6",
+            "single|up|0||0-4"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2410000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.6375,
+            "remainderPips": -2.7875,
+            "minusFinish": 0.1
+          },
+          "control": {
+            "finishFirst": 0.3875,
+            "remainderPips": -1.9375,
+            "minusFinish": 0.05
+          },
+          "extraPattern": {
+            "finishFirst": 0.25,
+            "remainderPips": -0.85,
+            "minusFinish": 0.05
+          }
+        }
+      },
+      {
+        "seed": 1113,
+        "turn": 8,
+        "focal": 0,
+        "handSize": 7,
+        "opponentHandSizes": [
+          null,
+          6,
+          6
+        ],
+        "branchEnds": [
+          0,
+          6,
+          3,
+          2
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 3,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||3|3-3"
+          ],
+          "preserve": [
+            "single|up|6||0-6",
+            "single|up|3||0-3"
+          ]
+        },
+        "control": {
+          "target": 2,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|up|6||0-6",
+            "single|up|3||0-3"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2413000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.275,
+            "remainderPips": -2.325,
+            "minusFinish": 0.2
+          },
+          "control": {
+            "finishFirst": 0.225,
+            "remainderPips": -1.575,
+            "minusFinish": 0.25
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -0.75,
+            "minusFinish": -0.05
+          }
+        }
+      },
+      {
+        "seed": 1121,
+        "turn": 14,
+        "focal": 0,
+        "handSize": 5,
+        "opponentHandSizes": [
+          null,
+          5,
+          5
+        ],
+        "branchEnds": [
+          5,
+          2,
+          6,
+          0
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|right|5||5-6"
+          ]
+        },
+        "control": {
+          "target": 0,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|right|5||5-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2421000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.45,
+            "remainderPips": -4.175,
+            "minusFinish": 0.05
+          },
+          "control": {
+            "finishFirst": -0.025,
+            "remainderPips": 0.35,
+            "minusFinish": -0.25
+          },
+          "extraPattern": {
+            "finishFirst": 0.475,
+            "remainderPips": -4.525,
+            "minusFinish": 0.3
+          }
+        }
+      }
+    ],
+    "min-hand-pips": [
+      {
+        "seed": 1010,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          3,
+          6,
+          4,
+          2
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 5,
+          "connectors": 4,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|up|2||2-3"
+          ]
+        },
+        "control": {
+          "target": 4,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|up|2||2-3"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2310000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.35,
+            "remainderPips": -3.7,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.375,
+            "remainderPips": -3.375,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.025,
+            "remainderPips": -0.325,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1018,
+        "turn": 8,
+        "focal": 2,
+        "handSize": 7,
+        "opponentHandSizes": [
+          6,
+          6,
+          null
+        ],
+        "branchEnds": [
+          0,
+          3,
+          4,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 4,
+          "connectors": 3,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|down|0||0-6",
+            "single|left|0||0-3",
+            "single|left|6||3-6",
+            "single|down|3||3-6",
+            "single|left|4||3-4"
+          ]
+        },
+        "control": {
+          "target": 4,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|down|0||0-6",
+            "single|left|0||0-3",
+            "single|left|6||3-6",
+            "single|down|3||3-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 4,
+        "hiddenWorldStart": 2318000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 360,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.535,
+            "remainderPips": -2.0300000000000002,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.25625,
+            "remainderPips": -0.8375,
+            "minusFinish": -0.075
+          },
+          "extraPattern": {
+            "finishFirst": 0.27874999999999994,
+            "remainderPips": -1.1925000000000008,
+            "minusFinish": 0.075
+          }
+        }
+      },
+      {
+        "seed": 1026,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          2,
+          0,
+          6,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|up|4||2-4",
+            "single|up|5||2-5",
+            "single|up|0||0-2"
+          ]
+        },
+        "control": {
+          "target": 6,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|up|4||2-4",
+            "single|up|5||2-5",
+            "single|up|0||0-2"
+          ]
+        },
+        "sharedPreserveActionKeys": 3,
+        "hiddenWorldStart": 2326000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.4916666666666666,
+            "remainderPips": -2.725,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.19166666666666662,
+            "remainderPips": -0.9750000000000003,
+            "minusFinish": -0.2
+          },
+          "extraPattern": {
+            "finishFirst": 0.3,
+            "remainderPips": -1.75,
+            "minusFinish": 0.2
+          }
+        }
+      },
+      {
+        "seed": 1028,
+        "turn": 11,
+        "focal": 0,
+        "handSize": 6,
+        "opponentHandSizes": [
+          null,
+          5,
+          5
+        ],
+        "branchEnds": [
+          6,
+          0,
+          2,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|up|0||0-6",
+            "single|up|2||2-6",
+            "single|up|5||5-6"
+          ]
+        },
+        "control": {
+          "target": 2,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|up|0||0-6",
+            "single|up|5||5-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2328000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": -0.06666666666666672,
+            "remainderPips": -0.42499999999999993,
+            "minusFinish": -0.7
+          },
+          "control": {
+            "finishFirst": 0.725,
+            "remainderPips": -4.8,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.7916666666666665,
+            "remainderPips": 4.375,
+            "minusFinish": -0.7
+          }
+        }
+      },
+      {
+        "seed": 1037,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          5,
+          0,
+          4,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|left|2||0-2",
+            "single|left|5||0-5"
+          ]
+        },
+        "control": {
+          "target": 4,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|left|2||0-2",
+            "single|left|5||0-5"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2337000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1375,
+            "remainderPips": 0.775,
+            "minusFinish": 0.0125
+          },
+          "control": {
+            "finishFirst": 0.5125,
+            "remainderPips": -0.525,
+            "minusFinish": 0.0125
+          },
+          "extraPattern": {
+            "finishFirst": -0.375,
+            "remainderPips": 1.3,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1038,
+        "turn": 4,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          9
+        ],
+        "branchEnds": [
+          2,
+          4,
+          1,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 4,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|right|5||1-5",
+            "single|right|0||0-1"
+          ]
+        },
+        "control": {
+          "target": 6,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|5||1-5",
+            "single|right|0||0-1"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2338000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.25,
+            "remainderPips": -1.0375,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.05,
+            "remainderPips": -0.1375,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.2,
+            "remainderPips": -0.9,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1040,
+        "turn": 4,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          8,
+          null
+        ],
+        "branchEnds": [
+          6,
+          5,
+          1,
+          3
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|2||1-2"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|right|2||1-2"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2340000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.525,
+            "remainderPips": -2.025,
+            "minusFinish": -0.05
+          },
+          "control": {
+            "finishFirst": 0.575,
+            "remainderPips": -2.3,
+            "minusFinish": -0.075
+          },
+          "extraPattern": {
+            "finishFirst": -0.05,
+            "remainderPips": 0.275,
+            "minusFinish": 0.025
+          }
+        }
+      },
+      {
+        "seed": 1042,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "branchEnds": [
+          0,
+          6,
+          4,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|6||4-6"
+          ]
+        },
+        "control": {
+          "target": 0,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|right|6||4-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2342000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.075,
+            "remainderPips": -0.325,
+            "minusFinish": -0.025
+          },
+          "control": {
+            "finishFirst": 0,
+            "remainderPips": 0.075,
+            "minusFinish": -0.05
+          },
+          "extraPattern": {
+            "finishFirst": 0.075,
+            "remainderPips": -0.4,
+            "minusFinish": 0.025
+          }
+        }
+      },
+      {
+        "seed": 1053,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          9,
+          7
+        ],
+        "branchEnds": [
+          1,
+          5,
+          4,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 4,
+          "connectors": 3,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|up|0||0-1"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|up|0||0-1"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2353000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.425,
+            "remainderPips": -1.325,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.4,
+            "remainderPips": -3.05,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.025,
+            "remainderPips": 1.725,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1055,
+        "turn": 6,
+        "focal": 2,
+        "handSize": 7,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          5,
+          2,
+          1,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|down|0||0-6",
+            "single|down|4||4-6"
+          ]
+        },
+        "control": {
+          "target": 2,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|down|0||0-6",
+            "single|down|4||4-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2355000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1,
+            "remainderPips": -0.425,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.225,
+            "remainderPips": -0.55,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.125,
+            "remainderPips": 0.125,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1059,
+        "turn": 11,
+        "focal": 0,
+        "handSize": 6,
+        "opponentHandSizes": [
+          null,
+          5,
+          5
+        ],
+        "branchEnds": [
+          0,
+          2,
+          4,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|right|3||3-4",
+            "single|down|2||2-5",
+            "single|down|0||0-5"
+          ]
+        },
+        "control": {
+          "target": 2,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|right|3||3-4",
+            "single|down|0||0-5"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2359000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.35000000000000003,
+            "remainderPips": -2.1833333333333327,
+            "minusFinish": -0.25
+          },
+          "control": {
+            "finishFirst": 0.4875,
+            "remainderPips": -2.75,
+            "minusFinish": -0.35
+          },
+          "extraPattern": {
+            "finishFirst": -0.13750000000000004,
+            "remainderPips": 0.5666666666666669,
+            "minusFinish": 0.1
+          }
+        }
+      },
+      {
+        "seed": 1065,
+        "turn": 5,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          7
+        ],
+        "branchEnds": [
+          3,
+          5,
+          6,
+          4
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|up|5||3-5",
+            "single|up|4||3-4"
+          ]
+        },
+        "control": {
+          "target": 4,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|up|5||3-5"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2365000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 680,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.45,
+            "remainderPips": -3.425,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.475,
+            "remainderPips": -3.025,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.025,
+            "remainderPips": -0.4,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1088,
+        "turn": 4,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          9
+        ],
+        "branchEnds": [
+          3,
+          6,
+          1,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|0||0-1",
+            "single|right|2||1-2"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|right|0||0-1",
+            "single|right|2||1-2"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2388000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.2625,
+            "remainderPips": -1.0125,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.2625,
+            "remainderPips": -1.1625,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": 0.15,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1089,
+        "turn": 7,
+        "focal": 1,
+        "handSize": 7,
+        "opponentHandSizes": [
+          6,
+          null,
+          7
+        ],
+        "branchEnds": [
+          2,
+          6,
+          5,
+          3
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 2,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|left|4||4-6"
+          ]
+        },
+        "control": {
+          "target": 3,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||3|3-3"
+          ],
+          "preserve": [
+            "single|left|4||4-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2389000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.35,
+            "remainderPips": -2.875,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.2,
+            "remainderPips": -1.175,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.15,
+            "remainderPips": -1.7,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1094,
+        "turn": 3,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          8,
+          null
+        ],
+        "branchEnds": [
+          4,
+          3,
+          1,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 3,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||3|3-3"
+          ],
+          "preserve": [
+            "single|right|5||1-5"
+          ]
+        },
+        "control": {
+          "target": 6,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|5||1-5"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2394000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -0.15,
+            "minusFinish": -0.075
+          },
+          "control": {
+            "finishFirst": 0.075,
+            "remainderPips": -0.3,
+            "minusFinish": -0.125
+          },
+          "extraPattern": {
+            "finishFirst": -0.025,
+            "remainderPips": 0.15,
+            "minusFinish": 0.05
+          }
+        }
+      },
+      {
+        "seed": 1103,
+        "turn": 12,
+        "focal": 1,
+        "handSize": 6,
+        "opponentHandSizes": [
+          5,
+          null,
+          6
+        ],
+        "branchEnds": [
+          4,
+          0,
+          3,
+          4
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 4,
+          "connectors": 3,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|up|5||4-5",
+            "single|down|5||4-5",
+            "single|up|0||0-4",
+            "single|down|0||0-4"
+          ]
+        },
+        "control": {
+          "target": 3,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||3|3-3"
+          ],
+          "preserve": [
+            "single|up|5||4-5",
+            "single|down|5||4-5",
+            "single|up|0||0-4",
+            "single|down|0||0-4"
+          ]
+        },
+        "sharedPreserveActionKeys": 4,
+        "hiddenWorldStart": 2403000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 320,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.4375,
+            "remainderPips": -1.6,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.2875,
+            "remainderPips": -0.875,
+            "minusFinish": -0.025
+          },
+          "extraPattern": {
+            "finishFirst": 0.15,
+            "remainderPips": -0.725,
+            "minusFinish": 0.025
+          }
+        }
+      },
+      {
+        "seed": 1106,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          2,
+          5,
+          3,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 2,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|down|3||3-6",
+            "single|down|4||4-6"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|down|3||3-6",
+            "single|down|4||4-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2406000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.3625,
+            "remainderPips": -4.2375,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.2625,
+            "remainderPips": -3.5125,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.1,
+            "remainderPips": -0.725,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1110,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          4,
+          5,
+          6,
+          0
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|up|6||4-6",
+            "single|up|0||0-4"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|up|6||4-6",
+            "single|up|0||0-4"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2410000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.2625,
+            "remainderPips": -1.2,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": -0.1375,
+            "remainderPips": 0.45,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.4,
+            "remainderPips": -1.65,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1113,
+        "turn": 8,
+        "focal": 0,
+        "handSize": 7,
+        "opponentHandSizes": [
+          null,
+          6,
+          6
+        ],
+        "branchEnds": [
+          0,
+          6,
+          3,
+          2
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 3,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||3|3-3"
+          ],
+          "preserve": [
+            "single|up|6||0-6",
+            "single|up|3||0-3"
+          ]
+        },
+        "control": {
+          "target": 2,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|up|6||0-6",
+            "single|up|3||0-3"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2413000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.3875,
+            "remainderPips": -1.7,
+            "minusFinish": -0.125
+          },
+          "control": {
+            "finishFirst": 0.6875,
+            "remainderPips": -2.275,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.3,
+            "remainderPips": 0.575,
+            "minusFinish": -0.125
+          }
+        }
+      },
+      {
+        "seed": 1121,
+        "turn": 14,
+        "focal": 0,
+        "handSize": 5,
+        "opponentHandSizes": [
+          null,
+          5,
+          5
+        ],
+        "branchEnds": [
+          5,
+          2,
+          6,
+          0
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|right|5||5-6"
+          ]
+        },
+        "control": {
+          "target": 0,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|right|5||5-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2421000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.475,
+            "remainderPips": -3.35,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.15,
+            "remainderPips": -0.475,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.325,
+            "remainderPips": -2.875,
+            "minusFinish": 0
+          }
+        }
+      }
+    ],
+    "fast-doubles": [
+      {
+        "seed": 1010,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          3,
+          6,
+          4,
+          2
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 5,
+          "connectors": 4,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|up|2||2-3"
+          ]
+        },
+        "control": {
+          "target": 4,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|up|2||2-3"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2310000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.625,
+            "remainderPips": -4.125,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.625,
+            "remainderPips": -4.45,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": 0.325,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1018,
+        "turn": 8,
+        "focal": 2,
+        "handSize": 7,
+        "opponentHandSizes": [
+          6,
+          6,
+          null
+        ],
+        "branchEnds": [
+          0,
+          3,
+          4,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 4,
+          "connectors": 3,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|down|0||0-6",
+            "single|left|0||0-3",
+            "single|left|6||3-6",
+            "single|down|3||3-6",
+            "single|left|4||3-4"
+          ]
+        },
+        "control": {
+          "target": 4,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|down|0||0-6",
+            "single|left|0||0-3",
+            "single|left|6||3-6",
+            "single|down|3||3-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 4,
+        "hiddenWorldStart": 2318000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 360,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.6200000000000001,
+            "remainderPips": -1.3500000000000003,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.6625,
+            "remainderPips": -1.275,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.042499999999999996,
+            "remainderPips": -0.07499999999999996,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1026,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          2,
+          0,
+          6,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|up|4||2-4",
+            "single|up|5||2-5",
+            "single|up|0||0-2"
+          ]
+        },
+        "control": {
+          "target": 6,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|up|4||2-4",
+            "single|up|5||2-5",
+            "single|up|0||0-2"
+          ]
+        },
+        "sharedPreserveActionKeys": 3,
+        "hiddenWorldStart": 2326000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.5499999999999999,
+            "remainderPips": -3.141666666666667,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.5999999999999999,
+            "remainderPips": -3.3416666666666663,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.05,
+            "remainderPips": 0.2,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1028,
+        "turn": 11,
+        "focal": 0,
+        "handSize": 6,
+        "opponentHandSizes": [
+          null,
+          5,
+          5
+        ],
+        "branchEnds": [
+          6,
+          0,
+          2,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|up|0||0-6",
+            "single|up|2||2-6",
+            "single|up|5||5-6"
+          ]
+        },
+        "control": {
+          "target": 2,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|up|0||0-6",
+            "single|up|5||5-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2328000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.6333333333333333,
+            "remainderPips": -2.7500000000000004,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.775,
+            "remainderPips": -4.25,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.1416666666666667,
+            "remainderPips": 1.4999999999999998,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1037,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          5,
+          0,
+          4,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|left|2||0-2",
+            "single|left|5||0-5"
+          ]
+        },
+        "control": {
+          "target": 4,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|left|2||0-2",
+            "single|left|5||0-5"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2337000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.5125,
+            "remainderPips": -0.4375,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.6375,
+            "remainderPips": -0.5875,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.125,
+            "remainderPips": 0.15,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1038,
+        "turn": 4,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          9
+        ],
+        "branchEnds": [
+          2,
+          4,
+          1,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 4,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|right|5||1-5",
+            "single|right|0||0-1"
+          ]
+        },
+        "control": {
+          "target": 6,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|5||1-5",
+            "single|right|0||0-1"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2338000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.3125,
+            "remainderPips": -0.7625,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.4125,
+            "remainderPips": -1.2375,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.1,
+            "remainderPips": 0.475,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1040,
+        "turn": 4,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          8,
+          null
+        ],
+        "branchEnds": [
+          6,
+          5,
+          1,
+          3
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|2||1-2"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|right|2||1-2"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2340000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.45,
+            "remainderPips": -1.4,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.4,
+            "remainderPips": -1.275,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -0.125,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1042,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "branchEnds": [
+          0,
+          6,
+          4,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|6||4-6"
+          ]
+        },
+        "control": {
+          "target": 0,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|right|6||4-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2342000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.225,
+            "remainderPips": -0.475,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.175,
+            "remainderPips": -0.5,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": 0.025,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1053,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          9,
+          7
+        ],
+        "branchEnds": [
+          1,
+          5,
+          4,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 4,
+          "connectors": 3,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|up|0||0-1"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|up|0||0-1"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2353000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.575,
+            "remainderPips": -0.925,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.525,
+            "remainderPips": -2.4,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": 1.475,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1055,
+        "turn": 6,
+        "focal": 2,
+        "handSize": 7,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          5,
+          2,
+          1,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|down|0||0-6",
+            "single|down|4||4-6"
+          ]
+        },
+        "control": {
+          "target": 2,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|down|0||0-6",
+            "single|down|4||4-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2355000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1625,
+            "remainderPips": -0.55,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.1375,
+            "remainderPips": -0.375,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.025,
+            "remainderPips": -0.175,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1059,
+        "turn": 11,
+        "focal": 0,
+        "handSize": 6,
+        "opponentHandSizes": [
+          null,
+          5,
+          5
+        ],
+        "branchEnds": [
+          0,
+          2,
+          4,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|right|3||3-4",
+            "single|down|2||2-5",
+            "single|down|0||0-5"
+          ]
+        },
+        "control": {
+          "target": 2,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|right|3||3-4",
+            "single|down|0||0-5"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2359000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.7916666666666667,
+            "remainderPips": -6.116666666666667,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.8875,
+            "remainderPips": -5.975,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.09583333333333335,
+            "remainderPips": -0.14166666666666675,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1065,
+        "turn": 5,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          7
+        ],
+        "branchEnds": [
+          3,
+          5,
+          6,
+          4
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|up|5||3-5",
+            "single|up|4||3-4"
+          ]
+        },
+        "control": {
+          "target": 4,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||4|4-4"
+          ],
+          "preserve": [
+            "single|up|5||3-5"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2365000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 680,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.45,
+            "remainderPips": -2.475,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.275,
+            "remainderPips": -1.15,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.175,
+            "remainderPips": -1.325,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1088,
+        "turn": 4,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          9
+        ],
+        "branchEnds": [
+          3,
+          6,
+          1,
+          5
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 6,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|0||0-1",
+            "single|right|2||1-2"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|right|0||0-1",
+            "single|right|2||1-2"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2388000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.55,
+            "remainderPips": -1.1875,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.45,
+            "remainderPips": -0.7375,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.1,
+            "remainderPips": -0.45,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1089,
+        "turn": 7,
+        "focal": 1,
+        "handSize": 7,
+        "opponentHandSizes": [
+          6,
+          null,
+          7
+        ],
+        "branchEnds": [
+          2,
+          6,
+          5,
+          3
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 2,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|left|4||4-6"
+          ]
+        },
+        "control": {
+          "target": 3,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||3|3-3"
+          ],
+          "preserve": [
+            "single|left|4||4-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2389000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.5,
+            "remainderPips": -2.025,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.6,
+            "remainderPips": -2.3,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.1,
+            "remainderPips": 0.275,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1094,
+        "turn": 3,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          8,
+          null
+        ],
+        "branchEnds": [
+          4,
+          3,
+          1,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 3,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||3|3-3"
+          ],
+          "preserve": [
+            "single|right|5||1-5"
+          ]
+        },
+        "control": {
+          "target": 6,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||6|6-6"
+          ],
+          "preserve": [
+            "single|right|5||1-5"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2394000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -0.125,
+            "minusFinish": 0.125
+          },
+          "control": {
+            "finishFirst": 0,
+            "remainderPips": 0.025,
+            "minusFinish": 0.2
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -0.15,
+            "minusFinish": -0.075
+          }
+        }
+      },
+      {
+        "seed": 1103,
+        "turn": 12,
+        "focal": 1,
+        "handSize": 6,
+        "opponentHandSizes": [
+          5,
+          null,
+          6
+        ],
+        "branchEnds": [
+          4,
+          0,
+          3,
+          4
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 4,
+          "connectors": 3,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|up|5||4-5",
+            "single|down|5||4-5",
+            "single|up|0||0-4",
+            "single|down|0||0-4"
+          ]
+        },
+        "control": {
+          "target": 3,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||3|3-3"
+          ],
+          "preserve": [
+            "single|up|5||4-5",
+            "single|down|5||4-5",
+            "single|up|0||0-4",
+            "single|down|0||0-4"
+          ]
+        },
+        "sharedPreserveActionKeys": 4,
+        "hiddenWorldStart": 2403000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 320,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.60625,
+            "remainderPips": -1.4125,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.65625,
+            "remainderPips": -1.4625,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.05,
+            "remainderPips": 0.05,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1106,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          2,
+          5,
+          3,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 2,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|down|3||3-6",
+            "single|down|4||4-6"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|down|3||3-6",
+            "single|down|4||4-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2406000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.5875,
+            "remainderPips": -2.9375,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.5875,
+            "remainderPips": -2.6625,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": -0.275,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1110,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "branchEnds": [
+          4,
+          5,
+          6,
+          0
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 0,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|up|6||4-6",
+            "single|up|0||0-4"
+          ]
+        },
+        "control": {
+          "target": 5,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|up|6||4-6",
+            "single|up|0||0-4"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2410000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.3625,
+            "remainderPips": -1,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.6375,
+            "remainderPips": -2.575,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.275,
+            "remainderPips": 1.575,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1113,
+        "turn": 8,
+        "focal": 0,
+        "handSize": 7,
+        "opponentHandSizes": [
+          null,
+          6,
+          6
+        ],
+        "branchEnds": [
+          0,
+          6,
+          3,
+          2
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 3,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||3|3-3"
+          ],
+          "preserve": [
+            "single|up|6||0-6",
+            "single|up|3||0-3"
+          ]
+        },
+        "control": {
+          "target": 2,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||2|2-2"
+          ],
+          "preserve": [
+            "single|up|6||0-6",
+            "single|up|3||0-3"
+          ]
+        },
+        "sharedPreserveActionKeys": 2,
+        "hiddenWorldStart": 2413000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.575,
+            "remainderPips": -1.425,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.6,
+            "remainderPips": -1.3,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.025,
+            "remainderPips": -0.125,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1121,
+        "turn": 14,
+        "focal": 0,
+        "handSize": 5,
+        "opponentHandSizes": [
+          null,
+          5,
+          5
+        ],
+        "branchEnds": [
+          5,
+          2,
+          6,
+          0
+        ],
+        "matchedBranchEndCount": 1,
+        "pattern": {
+          "target": 5,
+          "xTiles": 3,
+          "connectors": 2,
+          "spend": [
+            "double-sequence|||5|5-5"
+          ],
+          "preserve": [
+            "single|right|5||5-6"
+          ]
+        },
+        "control": {
+          "target": 0,
+          "xTiles": 2,
+          "connectors": 1,
+          "spend": [
+            "double-sequence|||0|0-0"
+          ],
+          "preserve": [
+            "single|right|5||5-6"
+          ]
+        },
+        "sharedPreserveActionKeys": 1,
+        "hiddenWorldStart": 2421000,
+        "hiddenWorlds": 40,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.25,
+            "remainderPips": -0.75,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.425,
+            "remainderPips": -0.9,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.175,
+            "remainderPips": 0.15,
+            "minusFinish": 0
+          }
+        }
+      }
+    ]
+  }
+}
