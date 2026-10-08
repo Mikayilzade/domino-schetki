@@ -1,0 +1,3724 @@
+{
+  "runAtAsiaBaku": "2026-10-08 05:49 (+04)",
+  "schema": "qosa-pattern-within-state/v1",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "startSeed": 1600,
+  "endSeed": 2500,
+  "limit": 30,
+  "worldsPerPosition": 40,
+  "selectedSeeds": [
+    1602,
+    1613,
+    1619,
+    1621,
+    1624,
+    1626,
+    1627,
+    1630,
+    1642,
+    1655,
+    1656,
+    1657,
+    1664,
+    1690,
+    1691,
+    1700,
+    1704,
+    1711,
+    1718,
+    1729,
+    1730,
+    1739,
+    1740,
+    1742,
+    1746,
+    1750,
+    1753,
+    1755,
+    1758,
+    1759
+  ],
+  "positionCount": 30,
+  "uniqueHiddenAllocations": 1200,
+  "policyWorldEvaluations": 3600,
+  "candidateContinuations": 26280,
+  "newCompletedStrategyRounds": 0,
+  "seedFormula": "1300000 + 1000*dealSeed + worldIndex",
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "matching": "same exact reachable state, focal hand, opponent counts, branch ends, passes, and equal number of active ends for target doubles",
+  "comparison": "difference of preserve-X-X+connector minus spend-X-X between 3+ X and exactly-2 Y targets in the same state; equal-weight legal single actions",
+  "limitations": "targets X and Y differ in pip value and connector structure; observational target comparison, first eligible per seed, assumption-labelled branch semantics, position-level normal CI, no proof of universal causal effect",
+  "summary": {
+    "closed-branch-control": {
+      "pattern": {
+        "finishFirst": {
+          "n": 30,
+          "mean": 0.29993055555555553,
+          "ci95NormalApprox": [
+            0.24433759059086466,
+            0.3555235205202464
+          ],
+          "positive": 30,
+          "negative": 0,
+          "zero": 0
+        },
+        "remainderPips": {
+          "n": 30,
+          "mean": -2.925763888888889,
+          "ci95NormalApprox": [
+            -3.783817909734726,
+            -2.067709868043052
+          ],
+          "positive": 1,
+          "negative": 29,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 30,
+          "mean": 0.05965277777777778,
+          "ci95NormalApprox": [
+            0.026916672421108574,
+            0.09238888313444699
+          ],
+          "positive": 19,
+          "negative": 3,
+          "zero": 8
+        }
+      },
+      "control": {
+        "finishFirst": {
+          "n": 30,
+          "mean": 0.21013888888888888,
+          "ci95NormalApprox": [
+            0.1387589171676813,
+            0.28151886061009646
+          ],
+          "positive": 25,
+          "negative": 4,
+          "zero": 1
+        },
+        "remainderPips": {
+          "n": 30,
+          "mean": -1.830416666666667,
+          "ci95NormalApprox": [
+            -2.5561470005857077,
+            -1.1046863327476262
+          ],
+          "positive": 2,
+          "negative": 28,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 30,
+          "mean": 0.04013888888888888,
+          "ci95NormalApprox": [
+            0.011315896165440247,
+            0.0689618816123375
+          ],
+          "positive": 19,
+          "negative": 5,
+          "zero": 6
+        }
+      },
+      "extraPattern": {
+        "finishFirst": {
+          "n": 30,
+          "mean": 0.08979166666666669,
+          "ci95NormalApprox": [
+            0.05099328148521387,
+            0.1285900518481195
+          ],
+          "positive": 23,
+          "negative": 3,
+          "zero": 4
+        },
+        "remainderPips": {
+          "n": 30,
+          "mean": -1.0953472222222222,
+          "ci95NormalApprox": [
+            -1.85694714461542,
+            -0.3337472998290244
+          ],
+          "positive": 9,
+          "negative": 20,
+          "zero": 1
+        },
+        "minusFinish": {
+          "n": 30,
+          "mean": 0.01951388888888889,
+          "ci95NormalApprox": [
+            -0.012619518192028115,
+            0.0516472959698059
+          ],
+          "positive": 10,
+          "negative": 7,
+          "zero": 13
+        }
+      },
+      "pipValueStrata": {
+        "patternTargetHigher": {
+          "n": 15,
+          "extraFinishFirst": {
+            "n": 15,
+            "mean": 0.07097222222222221,
+            "ci95NormalApprox": [
+              0.02976249403177106,
+              0.11218195041267337
+            ],
+            "positive": 12,
+            "negative": 2,
+            "zero": 1
+          }
+        },
+        "patternTargetLower": {
+          "n": 15,
+          "extraFinishFirst": {
+            "n": 15,
+            "mean": 0.10861111111111109,
+            "ci95NormalApprox": [
+              0.042704414061043555,
+              0.17451780816117862
+            ],
+            "positive": 11,
+            "negative": 1,
+            "zero": 3
+          }
+        }
+      }
+    },
+    "min-hand-pips": {
+      "pattern": {
+        "finishFirst": {
+          "n": 30,
+          "mean": 0.29819444444444443,
+          "ci95NormalApprox": [
+            0.2299248083611839,
+            0.36646408052770496
+          ],
+          "positive": 29,
+          "negative": 0,
+          "zero": 1
+        },
+        "remainderPips": {
+          "n": 30,
+          "mean": -1.9297916666666666,
+          "ci95NormalApprox": [
+            -2.531430422521951,
+            -1.328152910811382
+          ],
+          "positive": 1,
+          "negative": 29,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 30,
+          "mean": -0.018194444444444447,
+          "ci95NormalApprox": [
+            -0.07913795433190621,
+            0.04274906544301732
+          ],
+          "positive": 5,
+          "negative": 8,
+          "zero": 17
+        }
+      },
+      "control": {
+        "finishFirst": {
+          "n": 30,
+          "mean": 0.2743055555555556,
+          "ci95NormalApprox": [
+            0.1962608328579023,
+            0.35235027825320886
+          ],
+          "positive": 28,
+          "negative": 1,
+          "zero": 1
+        },
+        "remainderPips": {
+          "n": 30,
+          "mean": -1.8454166666666665,
+          "ci95NormalApprox": [
+            -2.737981218222533,
+            -0.9528521151107999
+          ],
+          "positive": 2,
+          "negative": 28,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 30,
+          "mean": 0.03055555555555555,
+          "ci95NormalApprox": [
+            -0.018358843918906076,
+            0.07946995503001718
+          ],
+          "positive": 5,
+          "negative": 4,
+          "zero": 21
+        }
+      },
+      "extraPattern": {
+        "finishFirst": {
+          "n": 30,
+          "mean": 0.023888888888888894,
+          "ci95NormalApprox": [
+            -0.022374971989004528,
+            0.07015274976678232
+          ],
+          "positive": 17,
+          "negative": 9,
+          "zero": 4
+        },
+        "remainderPips": {
+          "n": 30,
+          "mean": -0.08437499999999999,
+          "ci95NormalApprox": [
+            -0.5778312482587102,
+            0.4090812482587103
+          ],
+          "positive": 12,
+          "negative": 18,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 30,
+          "mean": -0.04875,
+          "ci95NormalApprox": [
+            -0.09515154792057359,
+            -0.002348452079426404
+          ],
+          "positive": 3,
+          "negative": 8,
+          "zero": 19
+        }
+      },
+      "pipValueStrata": {
+        "patternTargetHigher": {
+          "n": 15,
+          "extraFinishFirst": {
+            "n": 15,
+            "mean": -0.03888888888888889,
+            "ci95NormalApprox": [
+              -0.107700906931964,
+              0.029923129154186226
+            ],
+            "positive": 6,
+            "negative": 7,
+            "zero": 2
+          }
+        },
+        "patternTargetLower": {
+          "n": 15,
+          "extraFinishFirst": {
+            "n": 15,
+            "mean": 0.08666666666666668,
+            "ci95NormalApprox": [
+              0.04229098513825395,
+              0.13104234819507943
+            ],
+            "positive": 11,
+            "negative": 2,
+            "zero": 2
+          }
+        }
+      }
+    },
+    "fast-doubles": {
+      "pattern": {
+        "finishFirst": {
+          "n": 30,
+          "mean": 0.3688888888888889,
+          "ci95NormalApprox": [
+            0.28035027513188976,
+            0.457427502645888
+          ],
+          "positive": 29,
+          "negative": 1,
+          "zero": 0
+        },
+        "remainderPips": {
+          "n": 30,
+          "mean": -1.8333333333333335,
+          "ci95NormalApprox": [
+            -2.5520258137126453,
+            -1.1146408529540217
+          ],
+          "positive": 1,
+          "negative": 29,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 30,
+          "mean": 0.024027777777777773,
+          "ci95NormalApprox": [
+            -0.018260311360553803,
+            0.06631586691610936
+          ],
+          "positive": 3,
+          "negative": 2,
+          "zero": 25
+        }
+      },
+      "control": {
+        "finishFirst": {
+          "n": 30,
+          "mean": 0.36444444444444446,
+          "ci95NormalApprox": [
+            0.2715817817596899,
+            0.45730710712919903
+          ],
+          "positive": 29,
+          "negative": 1,
+          "zero": 0
+        },
+        "remainderPips": {
+          "n": 30,
+          "mean": -1.7262499999999998,
+          "ci95NormalApprox": [
+            -2.460594095057434,
+            -0.9919059049425659
+          ],
+          "positive": 4,
+          "negative": 26,
+          "zero": 0
+        },
+        "minusFinish": {
+          "n": 30,
+          "mean": 0.032777777777777774,
+          "ci95NormalApprox": [
+            -0.0223417230358604,
+            0.08789727859141594
+          ],
+          "positive": 3,
+          "negative": 3,
+          "zero": 24
+        }
+      },
+      "extraPattern": {
+        "finishFirst": {
+          "n": 30,
+          "mean": 0.004444444444444444,
+          "ci95NormalApprox": [
+            -0.022869428093797613,
+            0.0317583169826865
+          ],
+          "positive": 10,
+          "negative": 9,
+          "zero": 11
+        },
+        "remainderPips": {
+          "n": 30,
+          "mean": -0.10708333333333332,
+          "ci95NormalApprox": [
+            -0.2934223362817114,
+            0.07925566961504472
+          ],
+          "positive": 9,
+          "negative": 19,
+          "zero": 2
+        },
+        "minusFinish": {
+          "n": 30,
+          "mean": -0.00875,
+          "ci95NormalApprox": [
+            -0.023845960295435974,
+            0.006345960295435972
+          ],
+          "positive": 1,
+          "negative": 3,
+          "zero": 26
+        }
+      },
+      "pipValueStrata": {
+        "patternTargetHigher": {
+          "n": 15,
+          "extraFinishFirst": {
+            "n": 15,
+            "mean": 0.0013888888888888896,
+            "ci95NormalApprox": [
+              -0.04642800078695269,
+              0.04920577856473047
+            ],
+            "positive": 6,
+            "negative": 5,
+            "zero": 4
+          }
+        },
+        "patternTargetLower": {
+          "n": 15,
+          "extraFinishFirst": {
+            "n": 15,
+            "mean": 0.007499999999999997,
+            "ci95NormalApprox": [
+              -0.020769948708832146,
+              0.03576994870883214
+            ],
+            "positive": 4,
+            "negative": 4,
+            "zero": 7
+          }
+        }
+      }
+    }
+  },
+  "validation": "V8 CommonJS harness; deterministic replay 2 positions x 3 worlds passed; complete candidate outcomes checked; Node CLI not executed",
+  "confidence": "Provisional; position-level normal-approx CI; 30 first-eligible states, fixed bot discovery, observational target comparison; no claim of human-game generalization",
+  "cumulativeVerifiedFullStrategyRounds": 180000,
+  "priorPersistedDistinctHiddenWorlds": 6160,
+  "independentHoldout": true,
+  "perPosition": {
+    "closed-branch-control": [
+      {
+        "seed": 1602,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 4,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.5875,
+            "remainderPips": -3.525,
+            "minusFinish": 0.3625
+          },
+          "control": {
+            "finishFirst": 0.5375,
+            "remainderPips": -2.675,
+            "minusFinish": 0.3625
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -0.85,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1613,
+        "turn": 4,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 3,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.2,
+            "remainderPips": -2.125,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.075,
+            "remainderPips": -0.475,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.125,
+            "remainderPips": -1.65,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1619,
+        "turn": 3,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          null,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 6,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.525,
+            "remainderPips": -6.2,
+            "minusFinish": -0.025
+          },
+          "control": {
+            "finishFirst": 0.35,
+            "remainderPips": -3.775,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.175,
+            "remainderPips": -2.425,
+            "minusFinish": -0.025
+          }
+        }
+      },
+      {
+        "seed": 1621,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.2,
+            "remainderPips": -0.75,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.2,
+            "remainderPips": -0.55,
+            "minusFinish": 0.075
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": -0.2,
+            "minusFinish": -0.075
+          }
+        }
+      },
+      {
+        "seed": 1624,
+        "turn": 3,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          8,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 2,
+        "controlTarget": 0,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.275,
+            "remainderPips": -3.975,
+            "minusFinish": 0.1
+          },
+          "control": {
+            "finishFirst": 0.3,
+            "remainderPips": -3.725,
+            "minusFinish": 0.1
+          },
+          "extraPattern": {
+            "finishFirst": -0.025,
+            "remainderPips": -0.25,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1626,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 3,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.35,
+            "remainderPips": -0.2,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.325,
+            "remainderPips": -1.425,
+            "minusFinish": 0.025
+          },
+          "extraPattern": {
+            "finishFirst": 0.025,
+            "remainderPips": 1.225,
+            "minusFinish": -0.025
+          }
+        }
+      },
+      {
+        "seed": 1627,
+        "turn": 3,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          8,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 4,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 640,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.425,
+            "remainderPips": -2.25,
+            "minusFinish": -0.025
+          },
+          "control": {
+            "finishFirst": 0.2,
+            "remainderPips": -0.175,
+            "minusFinish": -0.025
+          },
+          "extraPattern": {
+            "finishFirst": 0.225,
+            "remainderPips": -2.075,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1630,
+        "turn": 5,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 4,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.525,
+            "remainderPips": -4.325,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.475,
+            "remainderPips": -2.55,
+            "minusFinish": -0.025
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -1.775,
+            "minusFinish": 0.025
+          }
+        }
+      },
+      {
+        "seed": 1642,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 5,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.175,
+            "remainderPips": -1.425,
+            "minusFinish": 0.3
+          },
+          "control": {
+            "finishFirst": -0.175,
+            "remainderPips": 2.775,
+            "minusFinish": -0.075
+          },
+          "extraPattern": {
+            "finishFirst": 0.35,
+            "remainderPips": -4.2,
+            "minusFinish": 0.375
+          }
+        }
+      },
+      {
+        "seed": 1655,
+        "turn": 10,
+        "focal": 1,
+        "handSize": 6,
+        "opponentHandSizes": [
+          5,
+          null,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 0,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.3,
+            "remainderPips": -1.75,
+            "minusFinish": 0.125
+          },
+          "control": {
+            "finishFirst": 0.225,
+            "remainderPips": -2.625,
+            "minusFinish": 0.2
+          },
+          "extraPattern": {
+            "finishFirst": 0.075,
+            "remainderPips": 0.875,
+            "minusFinish": -0.075
+          }
+        }
+      },
+      {
+        "seed": 1656,
+        "turn": 3,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 3,
+        "controlTarget": 5,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.5,
+            "remainderPips": -5.7,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.5,
+            "remainderPips": -5.75,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": 0.05,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1657,
+        "turn": 4,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 2,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 3,
+        "candidateContinuations": 320,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.06875,
+            "remainderPips": 0.45625,
+            "minusFinish": -0.06875
+          },
+          "control": {
+            "finishFirst": -0.10833333333333339,
+            "remainderPips": -0.24166666666666653,
+            "minusFinish": 0.025
+          },
+          "extraPattern": {
+            "finishFirst": 0.17708333333333343,
+            "remainderPips": 0.6979166666666671,
+            "minusFinish": -0.09375
+          }
+        }
+      },
+      {
+        "seed": 1664,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          9,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 680,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.2125,
+            "remainderPips": -1.5125,
+            "minusFinish": 0.075
+          },
+          "control": {
+            "finishFirst": 0.1375,
+            "remainderPips": -0.5875,
+            "minusFinish": 0.025
+          },
+          "extraPattern": {
+            "finishFirst": 0.075,
+            "remainderPips": -0.925,
+            "minusFinish": 0.05
+          }
+        }
+      },
+      {
+        "seed": 1690,
+        "turn": 3,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          null,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.575,
+            "remainderPips": -1.35,
+            "minusFinish": 0.05
+          },
+          "control": {
+            "finishFirst": 0.525,
+            "remainderPips": -2.25,
+            "minusFinish": 0.05
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": 0.9,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1691,
+        "turn": 4,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 3,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1333333333333333,
+            "remainderPips": -0.8416666666666668,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.13333333333333322,
+            "remainderPips": -2.1916666666666664,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": 1.35,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1700,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 2,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 680,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.2125,
+            "remainderPips": -1.475,
+            "minusFinish": 0.075
+          },
+          "control": {
+            "finishFirst": 0.15,
+            "remainderPips": -1.175,
+            "minusFinish": 0.1
+          },
+          "extraPattern": {
+            "finishFirst": 0.0625,
+            "remainderPips": -0.3,
+            "minusFinish": -0.025
+          }
+        }
+      },
+      {
+        "seed": 1704,
+        "turn": 7,
+        "focal": 2,
+        "handSize": 7,
+        "opponentHandSizes": [
+          7,
+          6,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 3,
+        "controlTarget": 5,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.44166666666666654,
+            "remainderPips": -6.658333333333334,
+            "minusFinish": 0.04166666666666666
+          },
+          "control": {
+            "finishFirst": 0.55,
+            "remainderPips": -6.6625,
+            "minusFinish": 0.0875
+          },
+          "extraPattern": {
+            "finishFirst": -0.10833333333333335,
+            "remainderPips": 0.004166666666666674,
+            "minusFinish": -0.04583333333333335
+          }
+        }
+      },
+      {
+        "seed": 1711,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 6,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.45,
+            "remainderPips": -3.95,
+            "minusFinish": 0.075
+          },
+          "control": {
+            "finishFirst": 0.2,
+            "remainderPips": -0.65,
+            "minusFinish": 0.05
+          },
+          "extraPattern": {
+            "finishFirst": 0.25,
+            "remainderPips": -3.3,
+            "minusFinish": 0.025
+          }
+        }
+      },
+      {
+        "seed": 1718,
+        "turn": 5,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 0,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 3,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.20833333333333326,
+            "remainderPips": -4.083333333333332,
+            "minusFinish": 0.04999999999999999
+          },
+          "control": {
+            "finishFirst": 0.15833333333333327,
+            "remainderPips": -2.808333333333334,
+            "minusFinish": 0.024999999999999994
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -1.275,
+            "minusFinish": 0.025
+          }
+        }
+      },
+      {
+        "seed": 1729,
+        "turn": 6,
+        "focal": 2,
+        "handSize": 7,
+        "opponentHandSizes": [
+          8,
+          7,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 680,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.325,
+            "remainderPips": -2.7125,
+            "minusFinish": 0.2
+          },
+          "control": {
+            "finishFirst": 0,
+            "remainderPips": -1.8375,
+            "minusFinish": -0.05
+          },
+          "extraPattern": {
+            "finishFirst": 0.325,
+            "remainderPips": -0.875,
+            "minusFinish": 0.25
+          }
+        }
+      },
+      {
+        "seed": 1730,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 2,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.15,
+            "remainderPips": -2.375,
+            "minusFinish": 0.05
+          },
+          "control": {
+            "finishFirst": 0.1,
+            "remainderPips": -1.35,
+            "minusFinish": 0.05
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -1.025,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1739,
+        "turn": 3,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          9,
+          null,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 4,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 6,
+        "candidateContinuations": 400,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.06666666666666662,
+            "remainderPips": -0.21250000000000005,
+            "minusFinish": 0.07916666666666666
+          },
+          "control": {
+            "finishFirst": -0.13333333333333333,
+            "remainderPips": 1.1875000000000004,
+            "minusFinish": 0.029166666666666664
+          },
+          "extraPattern": {
+            "finishFirst": 0.2,
+            "remainderPips": -1.4,
+            "minusFinish": 0.05
+          }
+        }
+      },
+      {
+        "seed": 1740,
+        "turn": 10,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          5,
+          null,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 2,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1,
+            "remainderPips": -11.125,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.1,
+            "remainderPips": -1.525,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": -9.6,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1742,
+        "turn": 8,
+        "focal": 0,
+        "handSize": 7,
+        "opponentHandSizes": [
+          null,
+          6,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 2,
+        "controlTarget": 5,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1625,
+            "remainderPips": -1.5875,
+            "minusFinish": 0.0375
+          },
+          "control": {
+            "finishFirst": -0.0375,
+            "remainderPips": -0.6875,
+            "minusFinish": 0.0125
+          },
+          "extraPattern": {
+            "finishFirst": 0.2,
+            "remainderPips": -0.9,
+            "minusFinish": 0.025
+          }
+        }
+      },
+      {
+        "seed": 1746,
+        "turn": 5,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 3,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.4125,
+            "remainderPips": -2.275,
+            "minusFinish": 0.0375
+          },
+          "control": {
+            "finishFirst": 0.3875,
+            "remainderPips": -3.075,
+            "minusFinish": 0.0125
+          },
+          "extraPattern": {
+            "finishFirst": 0.025,
+            "remainderPips": 0.8,
+            "minusFinish": 0.025
+          }
+        }
+      },
+      {
+        "seed": 1750,
+        "turn": 7,
+        "focal": 1,
+        "handSize": 7,
+        "opponentHandSizes": [
+          8,
+          null,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 2,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 3,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.24166666666666675,
+            "remainderPips": -0.8083333333333332,
+            "minusFinish": 0.09999999999999999
+          },
+          "control": {
+            "finishFirst": 0.11666666666666663,
+            "remainderPips": -0.15833333333333335,
+            "minusFinish": -1.2490009027033011e-17
+          },
+          "extraPattern": {
+            "finishFirst": 0.125,
+            "remainderPips": -0.65,
+            "minusFinish": 0.1
+          }
+        }
+      },
+      {
+        "seed": 1753,
+        "turn": 3,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          null,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 0,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.3875,
+            "remainderPips": -2.5,
+            "minusFinish": 0.025
+          },
+          "control": {
+            "finishFirst": 0.2375,
+            "remainderPips": -0.1,
+            "minusFinish": 0.025
+          },
+          "extraPattern": {
+            "finishFirst": 0.15,
+            "remainderPips": -2.4,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1755,
+        "turn": 3,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 2,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.35,
+            "remainderPips": -3.225,
+            "minusFinish": 0.025
+          },
+          "control": {
+            "finishFirst": 0.4,
+            "remainderPips": -3.725,
+            "minusFinish": 0.025
+          },
+          "extraPattern": {
+            "finishFirst": -0.05,
+            "remainderPips": 0.5,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1758,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 2,
+        "controlTarget": 4,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1125,
+            "remainderPips": -3.8125,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.075,
+            "remainderPips": -0.625,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.0375,
+            "remainderPips": -3.1875,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1759,
+        "turn": 3,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 0,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.325,
+            "remainderPips": -5.5,
+            "minusFinish": 0.1
+          },
+          "control": {
+            "finishFirst": 0.3,
+            "remainderPips": -5.5,
+            "minusFinish": 0.1
+          },
+          "extraPattern": {
+            "finishFirst": 0.025,
+            "remainderPips": 0,
+            "minusFinish": 0
+          }
+        }
+      }
+    ],
+    "min-hand-pips": [
+      {
+        "seed": 1602,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 4,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.575,
+            "remainderPips": -3.3125,
+            "minusFinish": 0.125
+          },
+          "control": {
+            "finishFirst": 0.55,
+            "remainderPips": -2.8375,
+            "minusFinish": 0.125
+          },
+          "extraPattern": {
+            "finishFirst": 0.025,
+            "remainderPips": -0.475,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1613,
+        "turn": 4,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 3,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1,
+            "remainderPips": 0.1875,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.125,
+            "remainderPips": -0.4625,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.025,
+            "remainderPips": 0.65,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1619,
+        "turn": 3,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          null,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 6,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.4,
+            "remainderPips": -3.85,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.3,
+            "remainderPips": -2.375,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.1,
+            "remainderPips": -1.475,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1621,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.825,
+            "remainderPips": -4.15,
+            "minusFinish": 0.3
+          },
+          "control": {
+            "finishFirst": 0.725,
+            "remainderPips": -4.25,
+            "minusFinish": 0.275
+          },
+          "extraPattern": {
+            "finishFirst": 0.1,
+            "remainderPips": 0.1,
+            "minusFinish": 0.025
+          }
+        }
+      },
+      {
+        "seed": 1624,
+        "turn": 3,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          8,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 2,
+        "controlTarget": 0,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0,
+            "remainderPips": -0.075,
+            "minusFinish": -0.45
+          },
+          "control": {
+            "finishFirst": 0.05,
+            "remainderPips": -0.175,
+            "minusFinish": -0.1
+          },
+          "extraPattern": {
+            "finishFirst": -0.05,
+            "remainderPips": 0.1,
+            "minusFinish": -0.35
+          }
+        }
+      },
+      {
+        "seed": 1626,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 3,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.325,
+            "remainderPips": -1.35,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.3,
+            "remainderPips": -1.05,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.025,
+            "remainderPips": -0.3,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1627,
+        "turn": 3,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          8,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 4,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 640,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.525,
+            "remainderPips": -1.325,
+            "minusFinish": -0.025
+          },
+          "control": {
+            "finishFirst": 0.4,
+            "remainderPips": -1.025,
+            "minusFinish": -0.125
+          },
+          "extraPattern": {
+            "finishFirst": 0.125,
+            "remainderPips": -0.3,
+            "minusFinish": 0.1
+          }
+        }
+      },
+      {
+        "seed": 1630,
+        "turn": 5,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 4,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.2,
+            "remainderPips": -3.975,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.2,
+            "remainderPips": -3.6,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": -0.375,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1642,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 5,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.475,
+            "remainderPips": -3.025,
+            "minusFinish": 0.275
+          },
+          "control": {
+            "finishFirst": 0.25,
+            "remainderPips": -1.175,
+            "minusFinish": 0.15
+          },
+          "extraPattern": {
+            "finishFirst": 0.225,
+            "remainderPips": -1.85,
+            "minusFinish": 0.125
+          }
+        }
+      },
+      {
+        "seed": 1655,
+        "turn": 10,
+        "focal": 1,
+        "handSize": 6,
+        "opponentHandSizes": [
+          5,
+          null,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 0,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.525,
+            "remainderPips": -2.2,
+            "minusFinish": -0.45
+          },
+          "control": {
+            "finishFirst": 0.925,
+            "remainderPips": -3.2,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.4,
+            "remainderPips": 1,
+            "minusFinish": -0.45
+          }
+        }
+      },
+      {
+        "seed": 1656,
+        "turn": 3,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 3,
+        "controlTarget": 5,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.3,
+            "remainderPips": -1.975,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.25,
+            "remainderPips": -1.775,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -0.2,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1657,
+        "turn": 4,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 2,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 3,
+        "candidateContinuations": 320,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.4,
+            "remainderPips": -1.24375,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.4583333333333333,
+            "remainderPips": -1.8416666666666663,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.05833333333333331,
+            "remainderPips": 0.5979166666666665,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1664,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          9,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 680,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.3125,
+            "remainderPips": -1.225,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.2375,
+            "remainderPips": -0.85,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.075,
+            "remainderPips": -0.375,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1690,
+        "turn": 3,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          null,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.55,
+            "remainderPips": -1.325,
+            "minusFinish": -0.15
+          },
+          "control": {
+            "finishFirst": 0.5,
+            "remainderPips": -1.7,
+            "minusFinish": -0.075
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": 0.375,
+            "minusFinish": -0.075
+          }
+        }
+      },
+      {
+        "seed": 1691,
+        "turn": 4,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 3,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.39166666666666666,
+            "remainderPips": -2.325,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.4666666666666668,
+            "remainderPips": -2.9250000000000003,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.075,
+            "remainderPips": 0.6,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1700,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 2,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 680,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -0.25,
+            "minusFinish": 0.3125
+          },
+          "control": {
+            "finishFirst": 0.15,
+            "remainderPips": -0.875,
+            "minusFinish": 0.625
+          },
+          "extraPattern": {
+            "finishFirst": -0.1,
+            "remainderPips": 0.625,
+            "minusFinish": -0.3125
+          }
+        }
+      },
+      {
+        "seed": 1704,
+        "turn": 7,
+        "focal": 2,
+        "handSize": 7,
+        "opponentHandSizes": [
+          7,
+          6,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 3,
+        "controlTarget": 5,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.175,
+            "remainderPips": -0.8666666666666665,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": -0.0125,
+            "remainderPips": 0.175,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.18750000000000003,
+            "remainderPips": -1.0416666666666663,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1711,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 6,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.5,
+            "remainderPips": -3.05,
+            "minusFinish": 0.15
+          },
+          "control": {
+            "finishFirst": 0.375,
+            "remainderPips": -1.475,
+            "minusFinish": 0.15
+          },
+          "extraPattern": {
+            "finishFirst": 0.125,
+            "remainderPips": -1.575,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1718,
+        "turn": 5,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 0,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 3,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.11666666666666659,
+            "remainderPips": -1.0499999999999994,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.0916666666666666,
+            "remainderPips": -0.32500000000000007,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.025,
+            "remainderPips": -0.725,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1729,
+        "turn": 6,
+        "focal": 2,
+        "handSize": 7,
+        "opponentHandSizes": [
+          8,
+          7,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 680,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.2125,
+            "remainderPips": -1.5375,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.0125,
+            "remainderPips": -0.0375,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.2,
+            "remainderPips": -1.5,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1730,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 2,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.275,
+            "remainderPips": -0.25,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.325,
+            "remainderPips": -0.05,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.05,
+            "remainderPips": -0.2,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1739,
+        "turn": 3,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          9,
+          null,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 4,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 6,
+        "candidateContinuations": 400,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1625,
+            "remainderPips": -0.20833333333333334,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.012499999999999983,
+            "remainderPips": -0.08333333333333334,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.15,
+            "remainderPips": -0.125,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1740,
+        "turn": 10,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          5,
+          null,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 2,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.075,
+            "remainderPips": -8.1,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.075,
+            "remainderPips": -13.2,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": 5.1,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1742,
+        "turn": 8,
+        "focal": 0,
+        "handSize": 7,
+        "opponentHandSizes": [
+          null,
+          6,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 2,
+        "controlTarget": 5,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1875,
+            "remainderPips": -2.225,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.1875,
+            "remainderPips": -1.55,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": -0.675,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1746,
+        "turn": 5,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 3,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.3375,
+            "remainderPips": -2.4625,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.3375,
+            "remainderPips": -3.8375,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": 1.375,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1750,
+        "turn": 7,
+        "focal": 1,
+        "handSize": 7,
+        "opponentHandSizes": [
+          8,
+          null,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 2,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 3,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.2,
+            "remainderPips": -0.75,
+            "minusFinish": -0.13333333333333336
+          },
+          "control": {
+            "finishFirst": 0.07499999999999998,
+            "remainderPips": -0.225,
+            "minusFinish": -0.10833333333333335
+          },
+          "extraPattern": {
+            "finishFirst": 0.125,
+            "remainderPips": -0.525,
+            "minusFinish": -0.025
+          }
+        }
+      },
+      {
+        "seed": 1753,
+        "turn": 3,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          null,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 0,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1125,
+            "remainderPips": -0.4625,
+            "minusFinish": -0.225
+          },
+          "control": {
+            "finishFirst": 0.2125,
+            "remainderPips": -0.8875,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.1,
+            "remainderPips": 0.425,
+            "minusFinish": -0.225
+          }
+        }
+      },
+      {
+        "seed": 1755,
+        "turn": 3,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 2,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.35,
+            "remainderPips": -2.6,
+            "minusFinish": -0.05
+          },
+          "control": {
+            "finishFirst": 0.3,
+            "remainderPips": -1.875,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -0.725,
+            "minusFinish": -0.05
+          }
+        }
+      },
+      {
+        "seed": 1758,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 2,
+        "controlTarget": 4,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1625,
+            "remainderPips": -2.1875,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0,
+            "remainderPips": 0.575,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.1625,
+            "remainderPips": -2.7625,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1759,
+        "turn": 3,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 0,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.125,
+            "remainderPips": -0.725,
+            "minusFinish": -0.225
+          },
+          "control": {
+            "finishFirst": 0.35,
+            "remainderPips": -2.45,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.225,
+            "remainderPips": 1.725,
+            "minusFinish": -0.225
+          }
+        }
+      }
+    ],
+    "fast-doubles": [
+      {
+        "seed": 1602,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 4,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.6625,
+            "remainderPips": -2,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.7625,
+            "remainderPips": -2.75,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.1,
+            "remainderPips": 0.75,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1613,
+        "turn": 4,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 3,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1625,
+            "remainderPips": -0.025,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.1625,
+            "remainderPips": 0.3,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": -0.325,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1619,
+        "turn": 3,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          null,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 6,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.2,
+            "remainderPips": -1.5,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.2,
+            "remainderPips": -1.325,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": -0.175,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1621,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.85,
+            "remainderPips": -5.175,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.775,
+            "remainderPips": -4.15,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.075,
+            "remainderPips": -1.025,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1624,
+        "turn": 3,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          8,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 2,
+        "controlTarget": 0,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.375,
+            "remainderPips": -1.8,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.3,
+            "remainderPips": -1.45,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.075,
+            "remainderPips": -0.35,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1626,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 3,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.4,
+            "remainderPips": -0.2,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.375,
+            "remainderPips": -0.05,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.025,
+            "remainderPips": -0.15,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1627,
+        "turn": 3,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          8,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 4,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 640,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.25,
+            "remainderPips": -0.4,
+            "minusFinish": -0.05
+          },
+          "control": {
+            "finishFirst": 0.3,
+            "remainderPips": -0.9,
+            "minusFinish": -0.025
+          },
+          "extraPattern": {
+            "finishFirst": -0.05,
+            "remainderPips": 0.5,
+            "minusFinish": -0.025
+          }
+        }
+      },
+      {
+        "seed": 1630,
+        "turn": 5,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 4,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.65,
+            "remainderPips": -2.525,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.65,
+            "remainderPips": -2.275,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": -0.25,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1642,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 5,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.6,
+            "remainderPips": -3.3,
+            "minusFinish": 0.175
+          },
+          "control": {
+            "finishFirst": 0.6,
+            "remainderPips": -3.3,
+            "minusFinish": 0.175
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": 0,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1655,
+        "turn": 10,
+        "focal": 1,
+        "handSize": 6,
+        "opponentHandSizes": [
+          5,
+          null,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 0,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.85,
+            "remainderPips": -3.25,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.925,
+            "remainderPips": -3.525,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.075,
+            "remainderPips": 0.275,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1656,
+        "turn": 3,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 3,
+        "controlTarget": 5,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.175,
+            "remainderPips": -1.05,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.075,
+            "remainderPips": -0.25,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.1,
+            "remainderPips": -0.8,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1657,
+        "turn": 4,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 2,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 3,
+        "candidateContinuations": 320,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.475,
+            "remainderPips": -1.6375,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.5166666666666666,
+            "remainderPips": -2.083333333333333,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.041666666666666644,
+            "remainderPips": 0.4458333333333333,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1664,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          9,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 680,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1,
+            "remainderPips": -0.6,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.2,
+            "remainderPips": -0.975,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.1,
+            "remainderPips": 0.375,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1690,
+        "turn": 3,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          null,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.4,
+            "remainderPips": -1,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.45,
+            "remainderPips": -0.925,
+            "minusFinish": -0.05
+          },
+          "extraPattern": {
+            "finishFirst": -0.05,
+            "remainderPips": -0.075,
+            "minusFinish": 0.05
+          }
+        }
+      },
+      {
+        "seed": 1691,
+        "turn": 4,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 3,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.5666666666666668,
+            "remainderPips": -2.7416666666666676,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.6166666666666667,
+            "remainderPips": -2.541666666666667,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": -0.05,
+            "remainderPips": -0.2,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1700,
+        "turn": 5,
+        "focal": 2,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          7,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 2,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 680,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.0625,
+            "remainderPips": -0.25,
+            "minusFinish": 0.6125
+          },
+          "control": {
+            "finishFirst": 0.275,
+            "remainderPips": -1.475,
+            "minusFinish": 0.825
+          },
+          "extraPattern": {
+            "finishFirst": -0.2125,
+            "remainderPips": 1.225,
+            "minusFinish": -0.2125
+          }
+        }
+      },
+      {
+        "seed": 1704,
+        "turn": 7,
+        "focal": 2,
+        "handSize": 7,
+        "opponentHandSizes": [
+          7,
+          6,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 3,
+        "controlTarget": 5,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.4749999999999998,
+            "remainderPips": -1.6333333333333335,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.3875,
+            "remainderPips": -0.9375,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.08749999999999997,
+            "remainderPips": -0.6958333333333333,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1711,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 6,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.75,
+            "remainderPips": -3.975,
+            "minusFinish": 0.075
+          },
+          "control": {
+            "finishFirst": 0.75,
+            "remainderPips": -3.85,
+            "minusFinish": 0.075
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": -0.125,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1718,
+        "turn": 5,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 0,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 3,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.24999999999999994,
+            "remainderPips": -1.3666666666666667,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.04999999999999997,
+            "remainderPips": 0.00833333333333346,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.2,
+            "remainderPips": -1.375,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1729,
+        "turn": 6,
+        "focal": 2,
+        "handSize": 7,
+        "opponentHandSizes": [
+          8,
+          7,
+          null
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 4,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 680,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1,
+            "remainderPips": -0.875,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.025,
+            "remainderPips": -0.15,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.075,
+            "remainderPips": -0.725,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1730,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 2,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.625,
+            "remainderPips": -3.075,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.575,
+            "remainderPips": -2.875,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -0.2,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1739,
+        "turn": 3,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          9,
+          null,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 4,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 6,
+        "candidateContinuations": 400,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1125,
+            "remainderPips": -0.012499999999999995,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.0375,
+            "remainderPips": 0.1375,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.075,
+            "remainderPips": -0.15,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1740,
+        "turn": 10,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          5,
+          null,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 2,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.05,
+            "remainderPips": -10.025,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.05,
+            "remainderPips": -10.25,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": 0.225,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1742,
+        "turn": 8,
+        "focal": 0,
+        "handSize": 7,
+        "opponentHandSizes": [
+          null,
+          6,
+          6
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 2,
+        "controlTarget": 5,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.2875,
+            "remainderPips": -0.25,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.2875,
+            "remainderPips": -0.175,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": -0.075,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1746,
+        "turn": 5,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          7,
+          null,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 3,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.525,
+            "remainderPips": -1.8375,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.525,
+            "remainderPips": -2.1875,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": 0.35,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1750,
+        "turn": 7,
+        "focal": 1,
+        "handSize": 7,
+        "opponentHandSizes": [
+          8,
+          null,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 2,
+        "controlTarget": 6,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 3,
+        "candidateContinuations": 280,
+        "deltas": {
+          "pattern": {
+            "finishFirst": -0.075,
+            "remainderPips": 0.1916666666666667,
+            "minusFinish": -0.09166666666666673
+          },
+          "control": {
+            "finishFirst": -0.05000000000000003,
+            "remainderPips": 0.09166666666666663,
+            "minusFinish": -0.016666666666666705
+          },
+          "extraPattern": {
+            "finishFirst": -0.025,
+            "remainderPips": 0.1,
+            "minusFinish": -0.075
+          }
+        }
+      },
+      {
+        "seed": 1753,
+        "turn": 3,
+        "focal": 1,
+        "handSize": 8,
+        "opponentHandSizes": [
+          8,
+          null,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 0,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 2,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.1875,
+            "remainderPips": -0.975,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.1875,
+            "remainderPips": -0.975,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": 0,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1755,
+        "turn": 3,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 6,
+        "controlTarget": 2,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.35,
+            "remainderPips": -1.85,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.35,
+            "remainderPips": -1.725,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": -0.125,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1758,
+        "turn": 5,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          7,
+          7
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 2,
+        "controlTarget": 4,
+        "patternXTiles": 4,
+        "patternConnectors": 3,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 240,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.4,
+            "remainderPips": -0.6625,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.4,
+            "remainderPips": -0.425,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0,
+            "remainderPips": -0.2375,
+            "minusFinish": 0
+          }
+        }
+      },
+      {
+        "seed": 1759,
+        "turn": 3,
+        "focal": 0,
+        "handSize": 8,
+        "opponentHandSizes": [
+          null,
+          8,
+          8
+        ],
+        "matchedBranchEndCount": 1,
+        "patternTarget": 5,
+        "controlTarget": 0,
+        "patternXTiles": 3,
+        "patternConnectors": 2,
+        "controlConnectors": 1,
+        "sharedPreserveActionKeys": 1,
+        "candidateContinuations": 200,
+        "deltas": {
+          "pattern": {
+            "finishFirst": 0.25,
+            "remainderPips": -1.2,
+            "minusFinish": 0
+          },
+          "control": {
+            "finishFirst": 0.175,
+            "remainderPips": -0.8,
+            "minusFinish": 0
+          },
+          "extraPattern": {
+            "finishFirst": 0.075,
+            "remainderPips": -0.4,
+            "minusFinish": 0
+          }
+        }
+      }
+    ]
+  },
+  "nextHypothesis": "Replicate with disjoint seeds 2500..4000 and matched target pip-value/connector strata; isolate overlapping preserve actions and vary discovery policy; promote rule only if sign survives controls."
+}
