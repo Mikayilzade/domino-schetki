@@ -359,3 +359,16 @@
 - limitations: assumption-labelled locked/open branch rules, handcrafted bots, first eligible selection, other tiles and full opponent hand-size vector not matched, block winner unassigned, correlated worlds within positions; observational between-position comparisons, no multiple-comparison adjustment.
 - reproducibility: `simulator/endpoint-side-matched-holdout.js 32 25`, linked `runs/2026-10-09-0100-endpoint-side-matched-holdout.json`; world seed `6100000 + 1000*dealSeed + worldIndex` (index 0..24).
 - exact next hypothesis/action: match the **full two-opponent hand-size vector** and side on independent seeds 138000..141999; compare sign stability and investigate concrete counterexamples rather than promoting endpoint value alone.
+
+
+### 2026-10-09 02:55:33 +04:00 — same-state endpoint mobility, fresh-seed discovery
+- engine/rules: `qosa-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; no gameplay-rule changes.
+- sample: seed scans `142000..143999` (closed-branch-control discovery) and `144000..145999` (min-hand-pips discovery); 24 positions per discovery policy × each of 3 pre-defined mobility groups = **144 reachable positions**; 25 fixed-visible worlds per position = **3,600 new hidden worlds**, **10,800 policy-world evaluations**, **51,300 candidate continuations**; 0 new complete strategy rounds.
+- comparison: from the **same position** choose X-LOW vs X-HIGH on the **same open branch side**, with both endpoints opened; count other hand tiles touching the resulting LOW/HIGH endpoint. Positive aligned effect means choosing the endpoint with **more remaining connectors** helps finish first.
+- finish-first advantage of mobility-aligned choice, equal position weight (96 non-tie positions): closed-branch-control **7.25 pp [3.26, 11.24]**; min-hand-pips **5.88 pp [2.45, 9.30]**; fast-doubles **3.04 pp [-0.06, 6.14]**. CIs are exploratory normal approximations clustered by selected position, not by world.
+- finding: **provisional tactical signal**: keeping a playable continuation on the new endpoint correlates with a better finish-first outcome under two continuation policies; the third is borderline and not independently significant. Do not yet promote a universal rule.
+- validation: V8 CommonJS harness self-test passed (deterministic replay and source-state immutability); this was **not** a Node CLI run. No unresolved candidate continuations.
+- cumulative persisted research scale after this checkpoint: **180,000 full strategy rounds** (historical 4,000 separate) and **55,210 fixed-visible hidden worlds**.
+- limitations: branch semantics still assumption-labelled; first-eligible selection; quota stratification; correlated worlds; simple bot policies; block winner unassigned; exploratory unadjusted CIs; hand composition is not causally isolated.
+- reproducibility: `simulator/endpoint-mobility-holdout.js 24 25`, `runs/2026-10-09-0255-endpoint-mobility-holdout.json`; seed formula `6100000+1000*dealSeed+worldIndex`.
+- exact next action: independent holdout on seeds `146000..149999`, same quota/25 worlds/three continuation policies; check mobility effect by full opponent hand-size vector and alternate branch ends, document counterexamples before human advice.
