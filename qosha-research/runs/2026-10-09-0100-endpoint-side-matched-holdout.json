@@ -1,0 +1,7944 @@
+{
+  "schema": "qosa-endpoint-side-exact-match-holdout/v1",
+  "timestampAsiaBaku": "2026-10-09 01:00:45 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "newFullStrategyRounds": 0,
+  "cumulativeFullStrategyRounds": 180000,
+  "historicalFullRoundsSeparate": 4000,
+  "priorFixedVisibleWorlds": 45210,
+  "worldsPerPosition": 25,
+  "discovery": [
+    [
+      "closed-branch-control",
+      134000,
+      136000
+    ],
+    [
+      "min-hand-pips",
+      136000,
+      138000
+    ]
+  ],
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "matchKeys": [
+    "exact branch X",
+    "exact gap",
+    "hand size",
+    "opponent pressure <=3 vs >=4",
+    "exact branch side"
+  ],
+  "comparison": "high-endpoint >=5 context minus low-endpoint <=4 context, on within-position keep-HIGH minus keep-LOW deltas",
+  "worldSeedFormula": "6100000+1000*dealSeed+worldIndex",
+  "confidence": "Low for actionable endpoint rule; exploratory position-pair CIs, correlated hidden worlds, no multiple-testing correction.",
+  "limitations": [
+    "assumption-labelled branch and multi-double rules",
+    "deterministic handcrafted bots",
+    "first-eligible selection",
+    "other tiles and exact opponent hand-size vector not matched",
+    "observational not causal",
+    "block winner unassigned",
+    "hidden worlds within position correlated",
+    "residualPips mechanically subtracts gap"
+  ],
+  "scans": {
+    "closed-branch-control": {
+      "seedRange": [
+        134000,
+        135999
+      ],
+      "eligiblePositions": 966,
+      "availableMatchedPairs": 181,
+      "matchedStrata": 113,
+      "selectedSeeds": [
+        [
+          134065,
+          134379
+        ],
+        [
+          134094,
+          135031
+        ],
+        [
+          134002,
+          134584
+        ],
+        [
+          135147,
+          135935
+        ],
+        [
+          135560,
+          135181
+        ],
+        [
+          135864,
+          134320
+        ],
+        [
+          135974,
+          134182
+        ],
+        [
+          134300,
+          134870
+        ],
+        [
+          134044,
+          134031
+        ],
+        [
+          134558,
+          135400
+        ],
+        [
+          135204,
+          134128
+        ],
+        [
+          135351,
+          135337
+        ],
+        [
+          134017,
+          134381
+        ],
+        [
+          135927,
+          134053
+        ],
+        [
+          135388,
+          134111
+        ],
+        [
+          134221,
+          134208
+        ],
+        [
+          135160,
+          134284
+        ],
+        [
+          134021,
+          134205
+        ],
+        [
+          135203,
+          135700
+        ],
+        [
+          135188,
+          134143
+        ],
+        [
+          135755,
+          134373
+        ],
+        [
+          134162,
+          134144
+        ],
+        [
+          134161,
+          134661
+        ],
+        [
+          134125,
+          134034
+        ],
+        [
+          134046,
+          134887
+        ],
+        [
+          135271,
+          134603
+        ],
+        [
+          134506,
+          134060
+        ],
+        [
+          135975,
+          134444
+        ],
+        [
+          135656,
+          134238
+        ],
+        [
+          134747,
+          134510
+        ],
+        [
+          134013,
+          134397
+        ],
+        [
+          134511,
+          134141
+        ]
+      ],
+      "xCounts": {
+        "0": 9,
+        "2": 6,
+        "3": 5,
+        "4": 6,
+        "5": 3,
+        "6": 3
+      }
+    },
+    "min-hand-pips": {
+      "seedRange": [
+        136000,
+        137999
+      ],
+      "eligiblePositions": 1293,
+      "availableMatchedPairs": 256,
+      "matchedStrata": 127,
+      "selectedSeeds": [
+        [
+          136778,
+          137215
+        ],
+        [
+          136100,
+          136215
+        ],
+        [
+          136760,
+          137122
+        ],
+        [
+          137779,
+          136386
+        ],
+        [
+          136471,
+          136436
+        ],
+        [
+          137107,
+          136441
+        ],
+        [
+          136448,
+          136023
+        ],
+        [
+          136034,
+          136987
+        ],
+        [
+          136066,
+          137070
+        ],
+        [
+          137917,
+          136050
+        ],
+        [
+          137815,
+          136521
+        ],
+        [
+          137696,
+          136767
+        ],
+        [
+          136618,
+          136405
+        ],
+        [
+          137880,
+          136466
+        ],
+        [
+          136296,
+          137003
+        ],
+        [
+          137328,
+          136576
+        ],
+        [
+          136270,
+          136064
+        ],
+        [
+          136742,
+          136172
+        ],
+        [
+          136545,
+          136202
+        ],
+        [
+          136285,
+          136079
+        ],
+        [
+          136801,
+          136459
+        ],
+        [
+          137218,
+          137182
+        ],
+        [
+          136937,
+          136145
+        ],
+        [
+          136155,
+          136813
+        ],
+        [
+          136912,
+          136259
+        ],
+        [
+          136891,
+          136686
+        ],
+        [
+          136724,
+          136423
+        ],
+        [
+          137396,
+          137186
+        ],
+        [
+          136036,
+          136925
+        ],
+        [
+          136599,
+          136313
+        ],
+        [
+          136378,
+          137135
+        ],
+        [
+          136022,
+          136063
+        ]
+      ],
+      "xCounts": {
+        "0": 10,
+        "1": 2,
+        "2": 7,
+        "3": 7,
+        "4": 2,
+        "5": 2,
+        "6": 2
+      }
+    }
+  },
+  "summary": {
+    "closed-branch-control": {
+      "closed-branch-control": {
+        "finish": {
+          "high": {
+            "n": 32,
+            "mean": 0.04125,
+            "ci95NormalApprox": [
+              -0.0456573510198667,
+              0.1281573510198667
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 0.029999999999999995,
+            "ci95NormalApprox": [
+              -0.03336475055504619,
+              0.09336475055504619
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": 0.011249999999999991,
+            "ci95NormalApprox": [
+              -0.10185046312046878,
+              0.12435046312046877
+            ]
+          }
+        },
+        "pips": {
+          "high": {
+            "n": 32,
+            "mean": 1.3112500000000002,
+            "ci95NormalApprox": [
+              0.10969087042924186,
+              2.5128091295707584
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 1.7425,
+            "ci95NormalApprox": [
+              0.5428441677687506,
+              2.9421558322312493
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.4312499999999999,
+            "ci95NormalApprox": [
+              -2.234425033794556,
+              1.371925033794556
+            ]
+          }
+        },
+        "residualPips": {
+          "high": {
+            "n": 32,
+            "mean": -0.6887500000000002,
+            "ci95NormalApprox": [
+              -1.9886464052706216,
+              0.6111464052706213
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": -0.25750000000000006,
+            "ci95NormalApprox": [
+              -1.358166331760433,
+              0.843166331760433
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.4312499999999998,
+            "ci95NormalApprox": [
+              -2.234425033794556,
+              1.371925033794556
+            ]
+          }
+        },
+        "minus": {
+          "high": {
+            "n": 32,
+            "mean": 0.006250000000000002,
+            "ci95NormalApprox": [
+              -0.04073060598491335,
+              0.05323060598491336
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 0.03125,
+            "ci95NormalApprox": [
+              -0.025592657056917406,
+              0.0880926570569174
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.025,
+            "ci95NormalApprox": [
+              -0.10154044682388522,
+              0.05154044682388522
+            ]
+          }
+        }
+      },
+      "min-hand-pips": {
+        "finish": {
+          "high": {
+            "n": 32,
+            "mean": 0.055,
+            "ci95NormalApprox": [
+              -0.027538741636686827,
+              0.13753874163668683
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 0.03874999999999999,
+            "ci95NormalApprox": [
+              -0.018283096644871273,
+              0.09578309664487125
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": 0.016250000000000007,
+            "ci95NormalApprox": [
+              -0.09005144257510514,
+              0.12255144257510517
+            ]
+          }
+        },
+        "pips": {
+          "high": {
+            "n": 32,
+            "mean": 1.3662499999999997,
+            "ci95NormalApprox": [
+              0.1462710142277832,
+              2.586228985772216
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 1.8725,
+            "ci95NormalApprox": [
+              0.7480997235802087,
+              2.996900276419791
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.50625,
+            "ci95NormalApprox": [
+              -2.2710738835417414,
+              1.2585738835417413
+            ]
+          }
+        },
+        "residualPips": {
+          "high": {
+            "n": 32,
+            "mean": -0.6337500000000001,
+            "ci95NormalApprox": [
+              -1.91395102374966,
+              0.6464510237496598
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": -0.12750000000000003,
+            "ci95NormalApprox": [
+              -1.1483549141804879,
+              0.8933549141804878
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.5062500000000001,
+            "ci95NormalApprox": [
+              -2.2710738835417414,
+              1.258573883541741
+            ]
+          }
+        },
+        "minus": {
+          "high": {
+            "n": 32,
+            "mean": 0.03125000000000001,
+            "ci95NormalApprox": [
+              -0.009459592077258328,
+              0.07195959207725834
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 0.02375,
+            "ci95NormalApprox": [
+              -0.022799999999999973,
+              0.07029999999999997
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": 0.007500000000000004,
+            "ci95NormalApprox": [
+              -0.055809722537237,
+              0.07080972253723701
+            ]
+          }
+        }
+      },
+      "fast-doubles": {
+        "finish": {
+          "high": {
+            "n": 32,
+            "mean": 0.047499999999999994,
+            "ci95NormalApprox": [
+              -0.02364395900725378,
+              0.11864395900725377
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 0.04875,
+            "ci95NormalApprox": [
+              -0.005069110858025021,
+              0.10256911085802503
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.0012500000000000098,
+            "ci95NormalApprox": [
+              -0.0911708249409697,
+              0.08867082494096967
+            ]
+          }
+        },
+        "pips": {
+          "high": {
+            "n": 32,
+            "mean": 0.7650000000000001,
+            "ci95NormalApprox": [
+              -0.25483054316596787,
+              1.7848305431659681
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 1.3499999999999999,
+            "ci95NormalApprox": [
+              0.19934208553148514,
+              2.5006579144685146
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.5850000000000003,
+            "ci95NormalApprox": [
+              -2.205016697245692,
+              1.0350166972456911
+            ]
+          }
+        },
+        "residualPips": {
+          "high": {
+            "n": 32,
+            "mean": -1.235,
+            "ci95NormalApprox": [
+              -2.2852119054988913,
+              -0.18478809450110867
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": -0.65,
+            "ci95NormalApprox": [
+              -1.6828960650957687,
+              0.3828960650957688
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.5850000000000001,
+            "ci95NormalApprox": [
+              -2.2050166972456915,
+              1.0350166972456916
+            ]
+          }
+        },
+        "minus": {
+          "high": {
+            "n": 32,
+            "mean": 0.00875,
+            "ci95NormalApprox": [
+              -0.008400000000000005,
+              0.025900000000000006
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 0.0175,
+            "ci95NormalApprox": [
+              -0.01680000000000001,
+              0.05180000000000001
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.00875,
+            "ci95NormalApprox": [
+              -0.047590234169255216,
+              0.030090234169255214
+            ]
+          }
+        }
+      }
+    },
+    "min-hand-pips": {
+      "closed-branch-control": {
+        "finish": {
+          "high": {
+            "n": 32,
+            "mean": 0.008749999999999994,
+            "ci95NormalApprox": [
+              -0.060656748184512915,
+              0.0781567481845129
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 0.012499999999999997,
+            "ci95NormalApprox": [
+              -0.04128492113906541,
+              0.0662849211390654
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.003749999999999996,
+            "ci95NormalApprox": [
+              -0.07845588729661267,
+              0.07095588729661269
+            ]
+          }
+        },
+        "pips": {
+          "high": {
+            "n": 32,
+            "mean": 0.6037500000000001,
+            "ci95NormalApprox": [
+              -0.1858677134966905,
+              1.3933677134966906
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 1.5499999999999996,
+            "ci95NormalApprox": [
+              0.8686038355675707,
+              2.2313961644324287
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.94625,
+            "ci95NormalApprox": [
+              -1.9660067783624333,
+              0.07350677836243324
+            ]
+          }
+        },
+        "residualPips": {
+          "high": {
+            "n": 32,
+            "mean": -1.58375,
+            "ci95NormalApprox": [
+              -2.5449229752268585,
+              -0.6225770247731414
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": -0.6374999999999998,
+            "ci95NormalApprox": [
+              -1.3485840536042994,
+              0.07358405360429976
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.94625,
+            "ci95NormalApprox": [
+              -1.9660067783624333,
+              0.07350677836243324
+            ]
+          }
+        },
+        "minus": {
+          "high": {
+            "n": 32,
+            "mean": 0.02625,
+            "ci95NormalApprox": [
+              -0.03240327796576277,
+              0.08490327796576277
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 0.0125,
+            "ci95NormalApprox": [
+              -0.025322364948831295,
+              0.0503223649488313
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": 0.013750000000000002,
+            "ci95NormalApprox": [
+              -0.055556243609257955,
+              0.08305624360925795
+            ]
+          }
+        }
+      },
+      "min-hand-pips": {
+        "finish": {
+          "high": {
+            "n": 32,
+            "mean": 0.01749999999999999,
+            "ci95NormalApprox": [
+              -0.05412136777932021,
+              0.08912136777932018
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 0.0325,
+            "ci95NormalApprox": [
+              -0.01856658209094879,
+              0.08356658209094879
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.015000000000000001,
+            "ci95NormalApprox": [
+              -0.08511867359767135,
+              0.05511867359767135
+            ]
+          }
+        },
+        "pips": {
+          "high": {
+            "n": 32,
+            "mean": 0.6150000000000001,
+            "ci95NormalApprox": [
+              -0.182110500293039,
+              1.4121105002930392
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 1.2837499999999997,
+            "ci95NormalApprox": [
+              0.6977411974265672,
+              1.8697588025734322
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.6687500000000002,
+            "ci95NormalApprox": [
+              -1.6642893149751998,
+              0.3267893149751995
+            ]
+          }
+        },
+        "residualPips": {
+          "high": {
+            "n": 32,
+            "mean": -1.5725000000000002,
+            "ci95NormalApprox": [
+              -2.5496661527089444,
+              -0.595333847291056
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": -0.90375,
+            "ci95NormalApprox": [
+              -1.5202874126601542,
+              -0.2872125873398458
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.6687500000000002,
+            "ci95NormalApprox": [
+              -1.6642893149751998,
+              0.3267893149751995
+            ]
+          }
+        },
+        "minus": {
+          "high": {
+            "n": 32,
+            "mean": 0.028750000000000005,
+            "ci95NormalApprox": [
+              -0.020057970495309156,
+              0.07755797049530916
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 0.01375,
+            "ci95NormalApprox": [
+              -0.023936455811244747,
+              0.051436455811244744
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": 0.015000000000000006,
+            "ci95NormalApprox": [
+              -0.04604892802419405,
+              0.07604892802419407
+            ]
+          }
+        }
+      },
+      "fast-doubles": {
+        "finish": {
+          "high": {
+            "n": 32,
+            "mean": 0.0025000000000000005,
+            "ci95NormalApprox": [
+              -0.07225382178168378,
+              0.07725382178168379
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 0.0075,
+            "ci95NormalApprox": [
+              -0.045237912542637086,
+              0.060237912542637086
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.005000000000000001,
+            "ci95NormalApprox": [
+              -0.08097166704468442,
+              0.07097166704468441
+            ]
+          }
+        },
+        "pips": {
+          "high": {
+            "n": 32,
+            "mean": 0.62625,
+            "ci95NormalApprox": [
+              -0.12077297450311641,
+              1.3732729745031165
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 1.2612499999999993,
+            "ci95NormalApprox": [
+              0.7207434873269924,
+              1.8017565126730062
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.6349999999999999,
+            "ci95NormalApprox": [
+              -1.4874546409274276,
+              0.21745464092742772
+            ]
+          }
+        },
+        "residualPips": {
+          "high": {
+            "n": 32,
+            "mean": -1.5612500000000002,
+            "ci95NormalApprox": [
+              -2.4629014339291273,
+              -0.6595985660708731
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": -0.92625,
+            "ci95NormalApprox": [
+              -1.5303944630031954,
+              -0.32210553699680466
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": -0.6349999999999999,
+            "ci95NormalApprox": [
+              -1.4874546409274276,
+              0.21745464092742772
+            ]
+          }
+        },
+        "minus": {
+          "high": {
+            "n": 32,
+            "mean": 0.0024999999999999996,
+            "ci95NormalApprox": [
+              -0.005322197529693839,
+              0.010322197529693839
+            ]
+          },
+          "low": {
+            "n": 32,
+            "mean": 0.00125,
+            "ci95NormalApprox": [
+              -0.0012,
+              0.0037
+            ]
+          },
+          "matchedDifference": {
+            "n": 32,
+            "mean": 0.0012499999999999998,
+            "ci95NormalApprox": [
+              -0.006994015424693275,
+              0.009494015424693273
+            ]
+          }
+        }
+      }
+    }
+  },
+  "pairs": {
+    "closed-branch-control": {
+      "closed-branch-control": [
+        {
+          "stratum": "0:2:5:late:up",
+          "seedHigh": 134065,
+          "seedLow": 134379,
+          "x": 0,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 2,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4.16,
+            "residualPips": 2.16,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -2.16,
+            "residualPips": -2.16,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "4:3:4:late:left",
+          "seedHigh": 134094,
+          "seedLow": 135031,
+          "x": 4,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0.16,
+            "pips": 6.28,
+            "residualPips": 3.28,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4.68,
+            "residualPips": 1.68,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.16,
+            "pips": 1.6000000000000005,
+            "residualPips": 1.5999999999999999,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "2:2:4:late:up",
+          "seedHigh": 134002,
+          "seedLow": 134584,
+          "x": 2,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 2,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.08,
+            "pips": 4.04,
+            "residualPips": 2.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.08,
+            "pips": -2.04,
+            "residualPips": -2.04,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "3:4:4:late:left",
+          "seedHigh": 135147,
+          "seedLow": 135935,
+          "x": 3,
+          "gap": 4,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": 0.48,
+            "pips": -5.36,
+            "residualPips": -9.36,
+            "minus": 0.04
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3.76,
+            "residualPips": -0.24,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.48,
+            "pips": -9.120000000000001,
+            "residualPips": -9.12,
+            "minus": 0.04
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "5:4:5:late:left",
+          "seedHigh": 135560,
+          "seedLow": 135181,
+          "x": 5,
+          "gap": 4,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0.08,
+            "residualPips": -3.92,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 6.4,
+            "residualPips": 2.4,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -6.32,
+            "residualPips": -6.32,
+            "minus": 0
+          },
+          "continuations": 125
+        },
+        {
+          "stratum": "2:3:5:late:left",
+          "seedHigh": 135864,
+          "seedLow": 134320,
+          "x": 2,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 4.2,
+            "residualPips": 1.2,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 1.2000000000000002,
+            "residualPips": 1.2,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "6:1:5:late:up",
+          "seedHigh": 135974,
+          "seedLow": 134182,
+          "x": 6,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": -0.04,
+            "pips": -4.28,
+            "residualPips": -5.28,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 11.08,
+            "residualPips": 10.08,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.04,
+            "pips": -15.36,
+            "residualPips": -15.36,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "2:3:5:early:left",
+          "seedHigh": 134300,
+          "seedLow": 134870,
+          "x": 2,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0.24,
+            "pips": -1.28,
+            "residualPips": -4.28,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": 2.16,
+            "residualPips": -0.84,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.19999999999999998,
+            "pips": -3.4400000000000004,
+            "residualPips": -3.4400000000000004,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:2:4:late:left",
+          "seedHigh": 134044,
+          "seedLow": 134031,
+          "x": 0,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": -0.28,
+            "pips": 5.84,
+            "residualPips": 3.84,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": 0.36,
+            "residualPips": -1.64,
+            "minus": -0.32
+          },
+          "diff": {
+            "finish": -0.32,
+            "pips": 5.4799999999999995,
+            "residualPips": 5.4799999999999995,
+            "minus": 0.32
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "0:3:4:late:left",
+          "seedHigh": 134558,
+          "seedLow": 135400,
+          "x": 0,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 5.28,
+            "residualPips": 2.28,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 2.2800000000000002,
+            "residualPips": 2.28,
+            "minus": 0
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "3:2:5:late:up",
+          "seedHigh": 135204,
+          "seedLow": 134128,
+          "x": 3,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 5.32,
+            "residualPips": 3.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 1,
+            "residualPips": -1,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 4.32,
+            "residualPips": 4.32,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "6:1:4:late:up",
+          "seedHigh": 135351,
+          "seedLow": 135337,
+          "x": 6,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": -0.6,
+            "pips": 9.52,
+            "residualPips": 8.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.04,
+            "pips": 1.72,
+            "residualPips": 0.72,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.5599999999999999,
+            "pips": 7.8,
+            "residualPips": 7.8,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:1:4:late:left",
+          "seedHigh": 134017,
+          "seedLow": 134381,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": 0.2,
+            "pips": 0.72,
+            "residualPips": -0.28,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": -0.2,
+            "residualPips": -1.2,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.2,
+            "pips": 0.9199999999999999,
+            "residualPips": 0.9199999999999999,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "3:3:5:early:down",
+          "seedHigh": 135927,
+          "seedLow": 134053,
+          "x": 3,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": -0.32,
+            "pips": 2.6,
+            "residualPips": -0.4,
+            "minus": -0.24
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": -0.48,
+            "residualPips": -3.48,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.36,
+            "pips": 3.08,
+            "residualPips": 3.08,
+            "minus": -0.24
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "0:1:4:early:left",
+          "seedHigh": 135388,
+          "seedLow": 134111,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0.16,
+            "pips": -0.6,
+            "residualPips": -1.6,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.2,
+            "pips": -0.64,
+            "residualPips": -1.64,
+            "minus": 0.16
+          },
+          "diff": {
+            "finish": -0.04000000000000001,
+            "pips": 0.040000000000000036,
+            "residualPips": 0.039999999999999813,
+            "minus": -0.16
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "3:1:4:late:left",
+          "seedHigh": 134221,
+          "seedLow": 134208,
+          "x": 3,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            1
+          ],
+          "high": {
+            "finish": -0.2,
+            "pips": 4.48,
+            "residualPips": 3.48,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 1,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.2,
+            "pips": 3.4800000000000004,
+            "residualPips": 3.48,
+            "minus": 0
+          },
+          "continuations": 450
+        },
+        {
+          "stratum": "4:3:5:late:left",
+          "seedHigh": 135160,
+          "seedLow": 134284,
+          "x": 4,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 1.36,
+            "residualPips": -1.64,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 2.96,
+            "residualPips": -0.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -1.5999999999999999,
+            "residualPips": -1.5999999999999999,
+            "minus": 0
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "4:2:4:late:left",
+          "seedHigh": 134021,
+          "seedLow": 134205,
+          "x": 4,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": 0.08,
+            "pips": 4.24,
+            "residualPips": 2.24,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.16,
+            "pips": -0.12,
+            "residualPips": -2.12,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.24,
+            "pips": 4.36,
+            "residualPips": 4.36,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "5:4:5:late:up",
+          "seedHigh": 135203,
+          "seedLow": 135700,
+          "x": 5,
+          "gap": 4,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": 0.52,
+            "pips": -4.04,
+            "residualPips": -8.04,
+            "minus": 0.56
+          },
+          "low": {
+            "finish": 0,
+            "pips": 6.04,
+            "residualPips": 2.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.52,
+            "pips": -10.08,
+            "residualPips": -10.079999999999998,
+            "minus": 0.56
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "6:2:5:late:down",
+          "seedHigh": 135188,
+          "seedLow": 134143,
+          "x": 6,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": -0.16,
+            "pips": 2.6,
+            "residualPips": 0.6,
+            "minus": -0.16
+          },
+          "low": {
+            "finish": 0.08,
+            "pips": 0.96,
+            "residualPips": -1.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.24,
+            "pips": 1.6400000000000001,
+            "residualPips": 1.6400000000000001,
+            "minus": -0.16
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "0:1:4:late:down",
+          "seedHigh": 135755,
+          "seedLow": 134373,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -0.08,
+            "residualPips": -1.08,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": -7,
+            "residualPips": -8,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 6.92,
+            "residualPips": 6.92,
+            "minus": 0
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "4:1:4:late:up",
+          "seedHigh": 134162,
+          "seedLow": 134144,
+          "x": 4,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": -0.04,
+            "pips": 1,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.72,
+            "pips": -3.6,
+            "residualPips": -4.6,
+            "minus": 0.76
+          },
+          "diff": {
+            "finish": -0.76,
+            "pips": 4.6,
+            "residualPips": 4.6,
+            "minus": -0.76
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "3:2:5:early:left",
+          "seedHigh": 134161,
+          "seedLow": 134661,
+          "x": 3,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            2
+          ],
+          "high": {
+            "finish": -0.24,
+            "pips": 0.36,
+            "residualPips": -1.64,
+            "minus": -0.04
+          },
+          "low": {
+            "finish": 0.16,
+            "pips": -1.72,
+            "residualPips": -3.72,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.4,
+            "pips": 2.08,
+            "residualPips": 2.08,
+            "minus": -0.04
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "2:1:4:late:left",
+          "seedHigh": 134125,
+          "seedLow": 134034,
+          "x": 2,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 1.64,
+            "residualPips": 0.64,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.2,
+            "pips": -0.28,
+            "residualPips": -1.28,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.2,
+            "pips": 1.92,
+            "residualPips": 1.92,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:1:4:late:right",
+          "seedHigh": 134046,
+          "seedLow": 134887,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0,
+            "residualPips": -1,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": -0.44,
+            "residualPips": -1.44,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.04,
+            "pips": 0.44,
+            "residualPips": 0.43999999999999995,
+            "minus": 0
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "0:1:4:early:up",
+          "seedHigh": 135271,
+          "seedLow": 134603,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": 0.12,
+            "pips": -0.68,
+            "residualPips": -1.68,
+            "minus": 0.36
+          },
+          "low": {
+            "finish": -0.08,
+            "pips": -0.6,
+            "residualPips": -1.6,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.2,
+            "pips": -0.08000000000000007,
+            "residualPips": -0.07999999999999985,
+            "minus": 0.36
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "4:1:4:late:left",
+          "seedHigh": 134506,
+          "seedLow": 134060,
+          "x": 4,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            1
+          ],
+          "high": {
+            "finish": -0.04,
+            "pips": 2.84,
+            "residualPips": 1.84,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 0.76,
+            "residualPips": -0.24,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.04,
+            "pips": 2.08,
+            "residualPips": 2.08,
+            "minus": 0
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "4:2:5:early:down",
+          "seedHigh": 135975,
+          "seedLow": 134444,
+          "x": 4,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            2
+          ],
+          "high": {
+            "finish": 0.2,
+            "pips": -2.36,
+            "residualPips": -4.36,
+            "minus": -0.04
+          },
+          "low": {
+            "finish": 0,
+            "pips": -1.44,
+            "residualPips": -3.44,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.2,
+            "pips": -0.9199999999999999,
+            "residualPips": -0.9200000000000004,
+            "minus": -0.04
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "5:2:5:early:left",
+          "seedHigh": 135656,
+          "seedLow": 134238,
+          "x": 5,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0.04,
+            "pips": 5.04,
+            "residualPips": 3.04,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.36,
+            "pips": 6.52,
+            "residualPips": 4.52,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.39999999999999997,
+            "pips": -1.4799999999999995,
+            "residualPips": -1.4799999999999995,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "2:1:5:early:up",
+          "seedHigh": 134747,
+          "seedLow": 134510,
+          "x": 2,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": 0.2,
+            "pips": -1.44,
+            "residualPips": -2.44,
+            "minus": -0.16
+          },
+          "low": {
+            "finish": -0.36,
+            "pips": 5.68,
+            "residualPips": 4.68,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.56,
+            "pips": -7.119999999999999,
+            "residualPips": -7.119999999999999,
+            "minus": -0.16
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "2:3:4:late:left",
+          "seedHigh": 134013,
+          "seedLow": 134397,
+          "x": 2,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0.76,
+            "pips": -3.88,
+            "residualPips": -6.88,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4.08,
+            "residualPips": 1.08,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.76,
+            "pips": -7.96,
+            "residualPips": -7.96,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "0:1:5:early:right",
+          "seedHigh": 134511,
+          "seedLow": 134141,
+          "x": 0,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0.08,
+            "pips": -1.44,
+            "residualPips": -2.44,
+            "minus": -0.12
+          },
+          "low": {
+            "finish": 0.36,
+            "pips": -1.08,
+            "residualPips": -2.08,
+            "minus": 0.4
+          },
+          "diff": {
+            "finish": -0.27999999999999997,
+            "pips": -0.3599999999999999,
+            "residualPips": -0.3599999999999999,
+            "minus": -0.52
+          },
+          "continuations": 175
+        }
+      ],
+      "min-hand-pips": [
+        {
+          "stratum": "0:2:5:late:up",
+          "seedHigh": 134065,
+          "seedLow": 134379,
+          "x": 0,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 2,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4.16,
+            "residualPips": 2.16,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -2.16,
+            "residualPips": -2.16,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "4:3:4:late:left",
+          "seedHigh": 134094,
+          "seedLow": 135031,
+          "x": 4,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0.16,
+            "pips": 6.28,
+            "residualPips": 3.28,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4.68,
+            "residualPips": 1.68,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.16,
+            "pips": 1.6000000000000005,
+            "residualPips": 1.5999999999999999,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "2:2:4:late:up",
+          "seedHigh": 134002,
+          "seedLow": 134584,
+          "x": 2,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 2,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.08,
+            "pips": 4.04,
+            "residualPips": 2.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.08,
+            "pips": -2.04,
+            "residualPips": -2.04,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "3:4:4:late:left",
+          "seedHigh": 135147,
+          "seedLow": 135935,
+          "x": 3,
+          "gap": 4,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": 0.16,
+            "pips": 0.96,
+            "residualPips": -3.04,
+            "minus": 0.16
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3.76,
+            "residualPips": -0.24,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.16,
+            "pips": -2.8,
+            "residualPips": -2.8,
+            "minus": 0.16
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "5:4:5:late:left",
+          "seedHigh": 135560,
+          "seedLow": 135181,
+          "x": 5,
+          "gap": 4,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0.76,
+            "residualPips": -3.24,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 6.4,
+            "residualPips": 2.4,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -5.640000000000001,
+            "residualPips": -5.640000000000001,
+            "minus": 0
+          },
+          "continuations": 125
+        },
+        {
+          "stratum": "2:3:5:late:left",
+          "seedHigh": 135864,
+          "seedLow": 134320,
+          "x": 2,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 4.2,
+            "residualPips": 1.2,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 1.2000000000000002,
+            "residualPips": 1.2,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "6:1:5:late:up",
+          "seedHigh": 135974,
+          "seedLow": 134182,
+          "x": 6,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": -0.04,
+            "pips": -4.28,
+            "residualPips": -5.28,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 11.08,
+            "residualPips": 10.08,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.04,
+            "pips": -15.36,
+            "residualPips": -15.36,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "2:3:5:early:left",
+          "seedHigh": 134300,
+          "seedLow": 134870,
+          "x": 2,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0.04,
+            "pips": -0.28,
+            "residualPips": -3.28,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": 2.16,
+            "residualPips": -0.84,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -2.4400000000000004,
+            "residualPips": -2.44,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:2:4:late:left",
+          "seedHigh": 134044,
+          "seedLow": 134031,
+          "x": 0,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": -0.32,
+            "pips": 9.64,
+            "residualPips": 7.64,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.12,
+            "pips": 1,
+            "residualPips": -1,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.44,
+            "pips": 8.64,
+            "residualPips": 8.64,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "0:3:4:late:left",
+          "seedHigh": 134558,
+          "seedLow": 135400,
+          "x": 0,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 5.28,
+            "residualPips": 2.28,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 2.2800000000000002,
+            "residualPips": 2.28,
+            "minus": 0
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "3:2:5:late:up",
+          "seedHigh": 135204,
+          "seedLow": 134128,
+          "x": 3,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 4.52,
+            "residualPips": 2.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 1,
+            "residualPips": -1,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 3.5199999999999996,
+            "residualPips": 3.52,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "6:1:4:late:up",
+          "seedHigh": 135351,
+          "seedLow": 135337,
+          "x": 6,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": -0.6,
+            "pips": 9.52,
+            "residualPips": 8.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.16,
+            "pips": 0.12,
+            "residualPips": -0.88,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.76,
+            "pips": 9.4,
+            "residualPips": 9.4,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:1:4:late:left",
+          "seedHigh": 134017,
+          "seedLow": 134381,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": 0.28,
+            "pips": -0.32,
+            "residualPips": -1.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": -0.2,
+            "residualPips": -1.2,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.28,
+            "pips": -0.12,
+            "residualPips": -0.1200000000000001,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "3:3:5:early:down",
+          "seedHigh": 135927,
+          "seedLow": 134053,
+          "x": 3,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": -0.08,
+            "pips": 0.48,
+            "residualPips": -2.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": -0.48,
+            "residualPips": -3.48,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.12,
+            "pips": 0.96,
+            "residualPips": 0.96,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "0:1:4:early:left",
+          "seedHigh": 135388,
+          "seedLow": 134111,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0.2,
+            "pips": -1.32,
+            "residualPips": -2.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.24,
+            "pips": -0.28,
+            "residualPips": -1.28,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.03999999999999998,
+            "pips": -1.04,
+            "residualPips": -1.0399999999999998,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "3:1:4:late:left",
+          "seedHigh": 134221,
+          "seedLow": 134208,
+          "x": 3,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            1
+          ],
+          "high": {
+            "finish": -0.2,
+            "pips": 4.48,
+            "residualPips": 3.48,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 1,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.2,
+            "pips": 3.4800000000000004,
+            "residualPips": 3.48,
+            "minus": 0
+          },
+          "continuations": 450
+        },
+        {
+          "stratum": "4:3:5:late:left",
+          "seedHigh": 135160,
+          "seedLow": 134284,
+          "x": 4,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0.32,
+            "pips": -2.04,
+            "residualPips": -5.04,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 2.96,
+            "residualPips": -0.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.32,
+            "pips": -5,
+            "residualPips": -5,
+            "minus": 0
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "4:2:4:late:left",
+          "seedHigh": 134021,
+          "seedLow": 134205,
+          "x": 4,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": 0.08,
+            "pips": 4.24,
+            "residualPips": 2.24,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.16,
+            "pips": -0.12,
+            "residualPips": -2.12,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.24,
+            "pips": 4.36,
+            "residualPips": 4.36,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "5:4:5:late:up",
+          "seedHigh": 135203,
+          "seedLow": 135700,
+          "x": 5,
+          "gap": 4,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": 0.52,
+            "pips": -4.04,
+            "residualPips": -8.04,
+            "minus": 0.56
+          },
+          "low": {
+            "finish": 0,
+            "pips": 5.8,
+            "residualPips": 1.8,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.52,
+            "pips": -9.84,
+            "residualPips": -9.84,
+            "minus": 0.56
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "6:2:5:late:down",
+          "seedHigh": 135188,
+          "seedLow": 134143,
+          "x": 6,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": -0.12,
+            "pips": 2.76,
+            "residualPips": 0.76,
+            "minus": -0.08
+          },
+          "low": {
+            "finish": 0.08,
+            "pips": 0.96,
+            "residualPips": -1.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.2,
+            "pips": 1.7999999999999998,
+            "residualPips": 1.8,
+            "minus": -0.08
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "0:1:4:late:down",
+          "seedHigh": 135755,
+          "seedLow": 134373,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0.04,
+            "pips": -0.52,
+            "residualPips": -1.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": -7,
+            "residualPips": -8,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.04,
+            "pips": 6.48,
+            "residualPips": 6.48,
+            "minus": 0
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "4:1:4:late:up",
+          "seedHigh": 134162,
+          "seedLow": 134144,
+          "x": 4,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": -0.04,
+            "pips": 1,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.72,
+            "pips": -3.6,
+            "residualPips": -4.6,
+            "minus": 0.76
+          },
+          "diff": {
+            "finish": -0.76,
+            "pips": 4.6,
+            "residualPips": 4.6,
+            "minus": -0.76
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "3:2:5:early:left",
+          "seedHigh": 134161,
+          "seedLow": 134661,
+          "x": 3,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            2
+          ],
+          "high": {
+            "finish": -0.12,
+            "pips": -0.16,
+            "residualPips": -2.16,
+            "minus": -0.08
+          },
+          "low": {
+            "finish": 0.12,
+            "pips": 0.08,
+            "residualPips": -1.92,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.24,
+            "pips": -0.24,
+            "residualPips": -0.2400000000000002,
+            "minus": -0.08
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "2:1:4:late:left",
+          "seedHigh": 134125,
+          "seedLow": 134034,
+          "x": 2,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 1.64,
+            "residualPips": 0.64,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.2,
+            "pips": -0.28,
+            "residualPips": -1.28,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.2,
+            "pips": 1.92,
+            "residualPips": 1.92,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:1:4:late:right",
+          "seedHigh": 134046,
+          "seedLow": 134887,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0.24,
+            "pips": -0.52,
+            "residualPips": -1.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.08,
+            "pips": 1.04,
+            "residualPips": 0.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.15999999999999998,
+            "pips": -1.56,
+            "residualPips": -1.56,
+            "minus": 0
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "0:1:4:early:up",
+          "seedHigh": 135271,
+          "seedLow": 134603,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": 0.08,
+            "pips": -0.4,
+            "residualPips": -1.4,
+            "minus": 0.28
+          },
+          "low": {
+            "finish": -0.08,
+            "pips": 0.96,
+            "residualPips": -0.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.16,
+            "pips": -1.3599999999999999,
+            "residualPips": -1.3599999999999999,
+            "minus": 0.28
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "4:1:4:late:left",
+          "seedHigh": 134506,
+          "seedLow": 134060,
+          "x": 4,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            1
+          ],
+          "high": {
+            "finish": -0.04,
+            "pips": 2.84,
+            "residualPips": 1.84,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 0.76,
+            "residualPips": -0.24,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.04,
+            "pips": 2.08,
+            "residualPips": 2.08,
+            "minus": 0
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "4:2:5:early:down",
+          "seedHigh": 135975,
+          "seedLow": 134444,
+          "x": 4,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            2
+          ],
+          "high": {
+            "finish": 0.2,
+            "pips": -2.36,
+            "residualPips": -4.36,
+            "minus": -0.04
+          },
+          "low": {
+            "finish": 0,
+            "pips": 0.56,
+            "residualPips": -1.44,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.2,
+            "pips": -2.92,
+            "residualPips": -2.9200000000000004,
+            "minus": -0.04
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "5:2:5:early:left",
+          "seedHigh": 135656,
+          "seedLow": 134238,
+          "x": 5,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": -0.12,
+            "pips": 4.52,
+            "residualPips": 2.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.4,
+            "pips": 6.24,
+            "residualPips": 4.24,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.28,
+            "pips": -1.7200000000000006,
+            "residualPips": -1.7200000000000002,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "2:1:5:early:up",
+          "seedHigh": 134747,
+          "seedLow": 134510,
+          "x": 2,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": 0.2,
+            "pips": -1.44,
+            "residualPips": -2.44,
+            "minus": 0.04
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": 3.84,
+            "residualPips": 2.84,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.16,
+            "pips": -5.279999999999999,
+            "residualPips": -5.279999999999999,
+            "minus": 0.04
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "2:3:4:late:left",
+          "seedHigh": 134013,
+          "seedLow": 134397,
+          "x": 2,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0.76,
+            "pips": -3.88,
+            "residualPips": -6.88,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4.08,
+            "residualPips": 1.08,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.76,
+            "pips": -7.96,
+            "residualPips": -7.96,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "0:1:5:early:right",
+          "seedHigh": 134511,
+          "seedLow": 134141,
+          "x": 0,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0.16,
+            "pips": -1.84,
+            "residualPips": -2.84,
+            "minus": 0.16
+          },
+          "low": {
+            "finish": -0.04,
+            "pips": -0.8,
+            "residualPips": -1.8,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.2,
+            "pips": -1.04,
+            "residualPips": -1.0399999999999998,
+            "minus": 0.16
+          },
+          "continuations": 175
+        }
+      ],
+      "fast-doubles": [
+        {
+          "stratum": "0:2:5:late:up",
+          "seedHigh": 134065,
+          "seedLow": 134379,
+          "x": 0,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 2,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4.16,
+            "residualPips": 2.16,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -2.16,
+            "residualPips": -2.16,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "4:3:4:late:left",
+          "seedHigh": 134094,
+          "seedLow": 135031,
+          "x": 4,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0.16,
+            "pips": 5,
+            "residualPips": 2,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4.68,
+            "residualPips": 1.68,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.16,
+            "pips": 0.3200000000000003,
+            "residualPips": 0.32000000000000006,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "2:2:4:late:up",
+          "seedHigh": 134002,
+          "seedLow": 134584,
+          "x": 2,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 2,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.2,
+            "pips": -5.04,
+            "residualPips": -7.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.2,
+            "pips": 7.04,
+            "residualPips": 7.04,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "3:4:4:late:left",
+          "seedHigh": 135147,
+          "seedLow": 135935,
+          "x": 3,
+          "gap": 4,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": -0.16,
+            "pips": 3.84,
+            "residualPips": -0.16,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3.76,
+            "residualPips": -0.24,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.16,
+            "pips": 0.08000000000000007,
+            "residualPips": 0.07999999999999999,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "5:4:5:late:left",
+          "seedHigh": 135560,
+          "seedLow": 135181,
+          "x": 5,
+          "gap": 4,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -0.08,
+            "residualPips": -4.08,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 6.4,
+            "residualPips": 2.4,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -6.48,
+            "residualPips": -6.48,
+            "minus": 0
+          },
+          "continuations": 125
+        },
+        {
+          "stratum": "2:3:5:late:left",
+          "seedHigh": 135864,
+          "seedLow": 134320,
+          "x": 2,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 5.16,
+            "residualPips": 2.16,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 2.16,
+            "residualPips": 2.16,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "6:1:5:late:up",
+          "seedHigh": 135974,
+          "seedLow": 134182,
+          "x": 6,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -3.68,
+            "residualPips": -4.68,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 11.08,
+            "residualPips": 10.08,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -14.76,
+            "residualPips": -14.76,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "2:3:5:early:left",
+          "seedHigh": 134300,
+          "seedLow": 134870,
+          "x": 2,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0.28,
+            "pips": -2.24,
+            "residualPips": -5.24,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": 2.16,
+            "residualPips": -0.84,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.24000000000000002,
+            "pips": -4.4,
+            "residualPips": -4.4,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:2:4:late:left",
+          "seedHigh": 134044,
+          "seedLow": 134031,
+          "x": 0,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -0.32,
+            "residualPips": -2.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.12,
+            "pips": 1,
+            "residualPips": -1,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.12,
+            "pips": -1.32,
+            "residualPips": -1.3199999999999998,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "0:3:4:late:left",
+          "seedHigh": 134558,
+          "seedLow": 135400,
+          "x": 0,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 5.28,
+            "residualPips": 2.28,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 2.2800000000000002,
+            "residualPips": 2.28,
+            "minus": 0
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "3:2:5:late:up",
+          "seedHigh": 135204,
+          "seedLow": 134128,
+          "x": 3,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 1.68,
+            "residualPips": -0.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 1,
+            "residualPips": -1,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 0.6799999999999999,
+            "residualPips": 0.6799999999999999,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "6:1:4:late:up",
+          "seedHigh": 135351,
+          "seedLow": 135337,
+          "x": 6,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": -0.6,
+            "pips": 9.52,
+            "residualPips": 8.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.2,
+            "pips": -1.04,
+            "residualPips": -2.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.8,
+            "pips": 10.559999999999999,
+            "residualPips": 10.559999999999999,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:1:4:late:left",
+          "seedHigh": 134017,
+          "seedLow": 134381,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": 0.32,
+            "pips": -0.88,
+            "residualPips": -1.88,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": -0.2,
+            "residualPips": -1.2,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.32,
+            "pips": -0.6799999999999999,
+            "residualPips": -0.6799999999999999,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "3:3:5:early:down",
+          "seedHigh": 135927,
+          "seedLow": 134053,
+          "x": 3,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0.2,
+            "pips": -1.12,
+            "residualPips": -4.12,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.12,
+            "pips": -0.2,
+            "residualPips": -3.2,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.08000000000000002,
+            "pips": -0.9200000000000002,
+            "residualPips": -0.9199999999999999,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "0:1:4:early:left",
+          "seedHigh": 135388,
+          "seedLow": 134111,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0.36,
+            "pips": -3.72,
+            "residualPips": -4.72,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.32,
+            "pips": -0.44,
+            "residualPips": -1.44,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.03999999999999998,
+            "pips": -3.2800000000000002,
+            "residualPips": -3.28,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "3:1:4:late:left",
+          "seedHigh": 134221,
+          "seedLow": 134208,
+          "x": 3,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            1
+          ],
+          "high": {
+            "finish": -0.16,
+            "pips": 4.32,
+            "residualPips": 3.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 1,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.16,
+            "pips": 3.3200000000000003,
+            "residualPips": 3.32,
+            "minus": 0
+          },
+          "continuations": 450
+        },
+        {
+          "stratum": "4:3:5:late:left",
+          "seedHigh": 135160,
+          "seedLow": 134284,
+          "x": 4,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -0.2,
+            "residualPips": -3.2,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 2.96,
+            "residualPips": -0.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -3.16,
+            "residualPips": -3.16,
+            "minus": 0
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "4:2:4:late:left",
+          "seedHigh": 134021,
+          "seedLow": 134205,
+          "x": 4,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": 0.04,
+            "pips": 1.12,
+            "residualPips": -0.88,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.44,
+            "pips": 1.8,
+            "residualPips": -0.2,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.48,
+            "pips": -0.6799999999999999,
+            "residualPips": -0.6799999999999999,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "5:4:5:late:up",
+          "seedHigh": 135203,
+          "seedLow": 135700,
+          "x": 5,
+          "gap": 4,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -1.84,
+            "residualPips": -5.84,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 5.8,
+            "residualPips": 1.8,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -7.64,
+            "residualPips": -7.64,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "6:2:5:late:down",
+          "seedHigh": 135188,
+          "seedLow": 134143,
+          "x": 6,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": -0.12,
+            "pips": 2.52,
+            "residualPips": 0.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.16,
+            "pips": 1.96,
+            "residualPips": -0.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.04000000000000001,
+            "pips": 0.56,
+            "residualPips": 0.56,
+            "minus": 0
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "0:1:4:late:down",
+          "seedHigh": 135755,
+          "seedLow": 134373,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0.16,
+            "pips": -0.44,
+            "residualPips": -1.44,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": -7,
+            "residualPips": -8,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.16,
+            "pips": 6.56,
+            "residualPips": 6.5600000000000005,
+            "minus": 0
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "4:1:4:late:up",
+          "seedHigh": 134162,
+          "seedLow": 134144,
+          "x": 4,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 1.8,
+            "residualPips": 0.8,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.52,
+            "pips": -3.12,
+            "residualPips": -4.12,
+            "minus": 0.56
+          },
+          "diff": {
+            "finish": -0.52,
+            "pips": 4.92,
+            "residualPips": 4.92,
+            "minus": -0.56
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "3:2:5:early:left",
+          "seedHigh": 134161,
+          "seedLow": 134661,
+          "x": 3,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            2
+          ],
+          "high": {
+            "finish": -0.08,
+            "pips": -0.24,
+            "residualPips": -2.24,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.2,
+            "pips": -0.32,
+            "residualPips": -2.32,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.28,
+            "pips": 0.08000000000000002,
+            "residualPips": 0.07999999999999963,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "2:1:4:late:left",
+          "seedHigh": 134125,
+          "seedLow": 134034,
+          "x": 2,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -0.76,
+            "residualPips": -1.76,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.2,
+            "pips": -0.28,
+            "residualPips": -1.28,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.2,
+            "pips": -0.48,
+            "residualPips": -0.48,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:1:4:late:right",
+          "seedHigh": 134046,
+          "seedLow": 134887,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0.24,
+            "pips": -0.52,
+            "residualPips": -1.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.08,
+            "pips": 1.04,
+            "residualPips": 0.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.15999999999999998,
+            "pips": -1.56,
+            "residualPips": -1.56,
+            "minus": 0
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "0:1:4:early:up",
+          "seedHigh": 135271,
+          "seedLow": 134603,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": 0.08,
+            "pips": -0.4,
+            "residualPips": -1.4,
+            "minus": 0.28
+          },
+          "low": {
+            "finish": 0.16,
+            "pips": -0.32,
+            "residualPips": -1.32,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.08,
+            "pips": -0.08000000000000002,
+            "residualPips": -0.07999999999999985,
+            "minus": 0.28
+          },
+          "continuations": 150
+        },
+        {
+          "stratum": "4:1:4:late:left",
+          "seedHigh": 134506,
+          "seedLow": 134060,
+          "x": 4,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            1
+          ],
+          "high": {
+            "finish": -0.04,
+            "pips": 2.84,
+            "residualPips": 1.84,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 0.76,
+            "residualPips": -0.24,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.04,
+            "pips": 2.08,
+            "residualPips": 2.08,
+            "minus": 0
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "4:2:5:early:down",
+          "seedHigh": 135975,
+          "seedLow": 134444,
+          "x": 4,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            2
+          ],
+          "high": {
+            "finish": -0.12,
+            "pips": -0.32,
+            "residualPips": -2.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 0.56,
+            "residualPips": -1.44,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.12,
+            "pips": -0.8800000000000001,
+            "residualPips": -0.8799999999999999,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "5:2:5:early:left",
+          "seedHigh": 135656,
+          "seedLow": 134238,
+          "x": 5,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": -0.08,
+            "pips": 0.4,
+            "residualPips": -1.6,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.04,
+            "pips": 0.04,
+            "residualPips": -1.96,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.04,
+            "pips": 0.36000000000000004,
+            "residualPips": 0.3599999999999999,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "2:1:5:early:up",
+          "seedHigh": 134747,
+          "seedLow": 134510,
+          "x": 2,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": 0.2,
+            "pips": -2,
+            "residualPips": -3,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.08,
+            "pips": 1.72,
+            "residualPips": 0.72,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.12000000000000001,
+            "pips": -3.7199999999999998,
+            "residualPips": -3.7199999999999998,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "2:3:4:late:left",
+          "seedHigh": 134013,
+          "seedLow": 134397,
+          "x": 2,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0.6,
+            "pips": -3,
+            "residualPips": -6,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4.08,
+            "residualPips": 1.08,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.6,
+            "pips": -7.08,
+            "residualPips": -7.08,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "0:1:5:early:right",
+          "seedHigh": 134511,
+          "seedLow": 134141,
+          "x": 0,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0.24,
+            "pips": -1.24,
+            "residualPips": -2.24,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.04,
+            "pips": -0.8,
+            "residualPips": -1.8,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.27999999999999997,
+            "pips": -0.43999999999999995,
+            "residualPips": -0.44000000000000017,
+            "minus": 0
+          },
+          "continuations": 175
+        }
+      ]
+    },
+    "min-hand-pips": {
+      "closed-branch-control": [
+        {
+          "stratum": "5:4:5:early:up",
+          "seedHigh": 136778,
+          "seedLow": 137215,
+          "x": 5,
+          "gap": 4,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": 0.28,
+            "pips": -0.68,
+            "residualPips": -4.68,
+            "minus": 0.56
+          },
+          "low": {
+            "finish": -0.12,
+            "pips": 0.16,
+            "residualPips": -3.84,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.4,
+            "pips": -0.8400000000000001,
+            "residualPips": -0.8399999999999999,
+            "minus": 0.56
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "0:2:5:late:up",
+          "seedHigh": 136100,
+          "seedLow": 136215,
+          "x": 0,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0.52,
+            "pips": 0.08,
+            "residualPips": -1.92,
+            "minus": 0.52
+          },
+          "low": {
+            "finish": 0,
+            "pips": 2.24,
+            "residualPips": 0.24,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.52,
+            "pips": -2.16,
+            "residualPips": -2.16,
+            "minus": 0.52
+          },
+          "continuations": 300
+        },
+        {
+          "stratum": "1:3:5:late:right",
+          "seedHigh": 136760,
+          "seedLow": 137122,
+          "x": 1,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0.36,
+            "residualPips": -2.64,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4.56,
+            "residualPips": 1.56,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -4.199999999999999,
+            "residualPips": -4.2,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "6:1:5:early:right",
+          "seedHigh": 137779,
+          "seedLow": 136386,
+          "x": 6,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0,
+            "residualPips": -1,
+            "minus": -0.08
+          },
+          "low": {
+            "finish": -0.08,
+            "pips": 2.44,
+            "residualPips": 1.44,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.08,
+            "pips": -2.44,
+            "residualPips": -2.44,
+            "minus": -0.08
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "2:2:4:late:up",
+          "seedHigh": 136471,
+          "seedLow": 136436,
+          "x": 2,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": 0.08,
+            "pips": 0.76,
+            "residualPips": -1.24,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.04,
+            "pips": -1.04,
+            "residualPips": -3.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.12,
+            "pips": 1.8,
+            "residualPips": 1.8,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "2:3:5:late:left",
+          "seedHigh": 137107,
+          "seedLow": 136441,
+          "x": 2,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -2.08,
+            "residualPips": -5.08,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 2.76,
+            "residualPips": -0.24,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -4.84,
+            "residualPips": -4.84,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "2:3:5:early:left",
+          "seedHigh": 136448,
+          "seedLow": 136023,
+          "x": 2,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": -0.16,
+            "pips": 2.04,
+            "residualPips": -0.96,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.08,
+            "pips": 0,
+            "residualPips": -3,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.24,
+            "pips": 2.04,
+            "residualPips": 2.04,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "0:2:4:late:left",
+          "seedHigh": 136034,
+          "seedLow": 136987,
+          "x": 0,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0.16,
+            "pips": -1.12,
+            "residualPips": -3.12,
+            "minus": -0.32
+          },
+          "low": {
+            "finish": 0.32,
+            "pips": 1.28,
+            "residualPips": -0.72,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.16,
+            "pips": -2.4000000000000004,
+            "residualPips": -2.4000000000000004,
+            "minus": -0.32
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "0:3:4:late:left",
+          "seedHigh": 136066,
+          "seedLow": 137070,
+          "x": 0,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0.2,
+            "pips": 0.76,
+            "residualPips": -2.24,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.2,
+            "pips": -2.24,
+            "residualPips": -2.24,
+            "minus": 0
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "3:2:5:late:up",
+          "seedHigh": 137917,
+          "seedLow": 136050,
+          "x": 3,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 2.08,
+            "residualPips": 0.08,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3.12,
+            "residualPips": 1.12,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -1.04,
+            "residualPips": -1.04,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:1:4:late:left",
+          "seedHigh": 137815,
+          "seedLow": 136521,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -3.32,
+            "residualPips": -4.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.28,
+            "pips": -0.04,
+            "residualPips": -1.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.28,
+            "pips": -3.28,
+            "residualPips": -3.2800000000000002,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "3:3:5:early:down",
+          "seedHigh": 137696,
+          "seedLow": 136767,
+          "x": 3,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0.32,
+            "pips": -1.12,
+            "residualPips": -4.12,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.32,
+            "pips": 0.2,
+            "residualPips": -2.8,
+            "minus": 0.6
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -1.32,
+            "residualPips": -1.3200000000000003,
+            "minus": -0.6
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:1:4:early:left",
+          "seedHigh": 136618,
+          "seedLow": 136405,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -0.36,
+            "residualPips": -1.36,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.08,
+            "pips": 0.24,
+            "residualPips": -0.76,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.08,
+            "pips": -0.6,
+            "residualPips": -0.6000000000000001,
+            "minus": 0
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "3:1:4:late:left",
+          "seedHigh": 137880,
+          "seedLow": 136466,
+          "x": 3,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": -0.56,
+            "pips": 4.72,
+            "residualPips": 3.72,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.12,
+            "pips": 0.96,
+            "residualPips": -0.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.44000000000000006,
+            "pips": 3.76,
+            "residualPips": 3.7600000000000002,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "3:3:5:late:left",
+          "seedHigh": 136296,
+          "seedLow": 137003,
+          "x": 3,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -3.52,
+            "residualPips": -6.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.08,
+            "pips": 4.92,
+            "residualPips": 1.92,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.08,
+            "pips": -8.44,
+            "residualPips": -8.44,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "0:1:4:late:down",
+          "seedHigh": 137328,
+          "seedLow": 136576,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": 0.16,
+            "pips": 5.08,
+            "residualPips": 4.08,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 1,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.16,
+            "pips": 4.08,
+            "residualPips": 4.08,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "4:1:5:early:left",
+          "seedHigh": 136270,
+          "seedLow": 136064,
+          "x": 4,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": -0.32,
+            "pips": 7.12,
+            "residualPips": 6.12,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.28,
+            "pips": 4.2,
+            "residualPips": 3.2,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.03999999999999998,
+            "pips": 2.92,
+            "residualPips": 2.92,
+            "minus": 0
+          },
+          "continuations": 300
+        },
+        {
+          "stratum": "3:2:5:early:left",
+          "seedHigh": 136742,
+          "seedLow": 136172,
+          "x": 3,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0.08,
+            "pips": 1.64,
+            "residualPips": -0.36,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.2,
+            "pips": 0,
+            "residualPips": -2,
+            "minus": -0.08
+          },
+          "diff": {
+            "finish": -0.12000000000000001,
+            "pips": 1.64,
+            "residualPips": 1.6400000000000001,
+            "minus": 0.08
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "2:1:4:late:left",
+          "seedHigh": 136545,
+          "seedLow": 136202,
+          "x": 2,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": -0.04,
+            "pips": 0.64,
+            "residualPips": -0.36,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": 0.64,
+            "residualPips": -0.36,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.08,
+            "pips": 0,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "1:2:5:early:left",
+          "seedHigh": 136285,
+          "seedLow": 136079,
+          "x": 1,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0.12,
+            "pips": -0.48,
+            "residualPips": -2.48,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 0.96,
+            "residualPips": -1.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.12,
+            "pips": -1.44,
+            "residualPips": -1.44,
+            "minus": 0
+          },
+          "continuations": 300
+        },
+        {
+          "stratum": "0:1:4:late:right",
+          "seedHigh": 136801,
+          "seedLow": 136459,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 4.32,
+            "residualPips": 3.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 1,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 3.3200000000000003,
+            "residualPips": 3.32,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "0:3:5:late:right",
+          "seedHigh": 137218,
+          "seedLow": 137182,
+          "x": 0,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -0.12,
+            "residualPips": -3.12,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4.96,
+            "residualPips": 1.96,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -5.08,
+            "residualPips": -5.08,
+            "minus": 0
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "0:1:4:early:up",
+          "seedHigh": 136937,
+          "seedLow": 136145,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": -0.32,
+            "pips": -0.56,
+            "residualPips": -1.56,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.08,
+            "pips": 0.44,
+            "residualPips": -0.56,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.24,
+            "pips": -1,
+            "residualPips": -1,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "6:3:5:late:left",
+          "seedHigh": 136155,
+          "seedLow": 136813,
+          "x": 6,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0.52,
+            "residualPips": -2.48,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.12,
+            "pips": -0.88,
+            "residualPips": -3.88,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.12,
+            "pips": 1.4,
+            "residualPips": 1.4,
+            "minus": 0
+          },
+          "continuations": 300
+        },
+        {
+          "stratum": "4:2:5:early:down",
+          "seedHigh": 136912,
+          "seedLow": 136259,
+          "x": 4,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": -0.2,
+            "pips": 0.88,
+            "residualPips": -1.12,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.2,
+            "pips": 2.4,
+            "residualPips": 0.4,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -1.52,
+            "residualPips": -1.52,
+            "minus": 0
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "0:3:5:early:up",
+          "seedHigh": 136891,
+          "seedLow": 136686,
+          "x": 0,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": -0.24,
+            "pips": 1.64,
+            "residualPips": -1.36,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.08,
+            "pips": 0.84,
+            "residualPips": -2.16,
+            "minus": -0.04
+          },
+          "diff": {
+            "finish": -0.32,
+            "pips": 0.7999999999999999,
+            "residualPips": 0.8,
+            "minus": 0.04
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "2:3:4:early:left",
+          "seedHigh": 136724,
+          "seedLow": 136423,
+          "x": 2,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0.16,
+            "pips": -1.32,
+            "residualPips": -4.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.12,
+            "pips": 1.08,
+            "residualPips": -1.92,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.28,
+            "pips": -2.4000000000000004,
+            "residualPips": -2.4000000000000004,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "3:3:4:early:right",
+          "seedHigh": 137396,
+          "seedLow": 137186,
+          "x": 3,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0.24,
+            "residualPips": -2.76,
+            "minus": -0.24
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": 1.28,
+            "residualPips": -1.72,
+            "minus": -0.08
+          },
+          "diff": {
+            "finish": -0.04,
+            "pips": -1.04,
+            "residualPips": -1.0399999999999998,
+            "minus": -0.15999999999999998
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "5:2:5:early:left",
+          "seedHigh": 136036,
+          "seedLow": 136925,
+          "x": 5,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0.08,
+            "pips": -0.4,
+            "residualPips": -2.4,
+            "minus": 0.4
+          },
+          "low": {
+            "finish": -0.28,
+            "pips": 5.76,
+            "residualPips": 3.76,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.36000000000000004,
+            "pips": -6.16,
+            "residualPips": -6.16,
+            "minus": 0.4
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "3:3:5:early:up",
+          "seedHigh": 136599,
+          "seedLow": 136313,
+          "x": 3,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -1.2,
+            "residualPips": -4.2,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.36,
+            "pips": -2.32,
+            "residualPips": -5.32,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.36,
+            "pips": 1.1199999999999999,
+            "residualPips": 1.12,
+            "minus": 0
+          },
+          "continuations": 400
+        },
+        {
+          "stratum": "2:4:5:late:left",
+          "seedHigh": 136378,
+          "seedLow": 137135,
+          "x": 2,
+          "gap": 4,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            1,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 1.6,
+            "residualPips": -2.4,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -2.4,
+            "residualPips": -2.4,
+            "minus": 0
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "2:1:5:early:up",
+          "seedHigh": 136022,
+          "seedLow": 136063,
+          "x": 2,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": -0.04,
+            "pips": 1.12,
+            "residualPips": 0.12,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": -0.56,
+            "residualPips": -1.56,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.08,
+            "pips": 1.6800000000000002,
+            "residualPips": 1.6800000000000002,
+            "minus": 0
+          },
+          "continuations": 275
+        }
+      ],
+      "min-hand-pips": [
+        {
+          "stratum": "5:4:5:early:up",
+          "seedHigh": 136778,
+          "seedLow": 137215,
+          "x": 5,
+          "gap": 4,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": 0.28,
+            "pips": -0.68,
+            "residualPips": -4.68,
+            "minus": 0.56
+          },
+          "low": {
+            "finish": -0.08,
+            "pips": 0.44,
+            "residualPips": -3.56,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.36000000000000004,
+            "pips": -1.12,
+            "residualPips": -1.1199999999999997,
+            "minus": 0.56
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "0:2:5:late:up",
+          "seedHigh": 136100,
+          "seedLow": 136215,
+          "x": 0,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0.32,
+            "pips": 0.2,
+            "residualPips": -1.8,
+            "minus": 0.32
+          },
+          "low": {
+            "finish": 0,
+            "pips": 2.24,
+            "residualPips": 0.24,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.32,
+            "pips": -2.04,
+            "residualPips": -2.04,
+            "minus": 0.32
+          },
+          "continuations": 300
+        },
+        {
+          "stratum": "1:3:5:late:right",
+          "seedHigh": 136760,
+          "seedLow": 137122,
+          "x": 1,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0.36,
+            "residualPips": -2.64,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 2.24,
+            "residualPips": -0.76,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -1.8800000000000003,
+            "residualPips": -1.8800000000000001,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "6:1:5:early:right",
+          "seedHigh": 137779,
+          "seedLow": 136386,
+          "x": 6,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0,
+            "residualPips": -1,
+            "minus": -0.08
+          },
+          "low": {
+            "finish": -0.08,
+            "pips": 2.44,
+            "residualPips": 1.44,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.08,
+            "pips": -2.44,
+            "residualPips": -2.44,
+            "minus": -0.08
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "2:2:4:late:up",
+          "seedHigh": 136471,
+          "seedLow": 136436,
+          "x": 2,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": 0.08,
+            "pips": 0.76,
+            "residualPips": -1.24,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.04,
+            "pips": -1.04,
+            "residualPips": -3.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.12,
+            "pips": 1.8,
+            "residualPips": 1.8,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "2:3:5:late:left",
+          "seedHigh": 137107,
+          "seedLow": 136441,
+          "x": 2,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -2.08,
+            "residualPips": -5.08,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 2.76,
+            "residualPips": -0.24,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -4.84,
+            "residualPips": -4.84,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "2:3:5:early:left",
+          "seedHigh": 136448,
+          "seedLow": 136023,
+          "x": 2,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": -0.16,
+            "pips": 2.04,
+            "residualPips": -0.96,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.16,
+            "pips": -0.68,
+            "residualPips": -3.68,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.32,
+            "pips": 2.72,
+            "residualPips": 2.72,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "0:2:4:late:left",
+          "seedHigh": 136034,
+          "seedLow": 136987,
+          "x": 0,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0.56,
+            "pips": -2,
+            "residualPips": -4,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.32,
+            "pips": 1.28,
+            "residualPips": -0.72,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.24000000000000005,
+            "pips": -3.2800000000000002,
+            "residualPips": -3.2800000000000002,
+            "minus": 0
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "0:3:4:late:left",
+          "seedHigh": 136066,
+          "seedLow": 137070,
+          "x": 0,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0.2,
+            "pips": 0.76,
+            "residualPips": -2.24,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.2,
+            "pips": -2.24,
+            "residualPips": -2.24,
+            "minus": 0
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "3:2:5:late:up",
+          "seedHigh": 137917,
+          "seedLow": 136050,
+          "x": 3,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 2.08,
+            "residualPips": 0.08,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3.12,
+            "residualPips": 1.12,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -1.04,
+            "residualPips": -1.04,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:1:4:late:left",
+          "seedHigh": 137815,
+          "seedLow": 136521,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -3.32,
+            "residualPips": -4.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.32,
+            "pips": -0.32,
+            "residualPips": -1.32,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.32,
+            "pips": -3,
+            "residualPips": -3,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "3:3:5:early:down",
+          "seedHigh": 137696,
+          "seedLow": 136767,
+          "x": 3,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0.32,
+            "pips": -1.12,
+            "residualPips": -4.12,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.32,
+            "pips": 0.2,
+            "residualPips": -2.8,
+            "minus": 0.6
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -1.32,
+            "residualPips": -1.3200000000000003,
+            "minus": -0.6
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:1:4:early:left",
+          "seedHigh": 136618,
+          "seedLow": 136405,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0.04,
+            "pips": -0.52,
+            "residualPips": -1.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.08,
+            "pips": 0.24,
+            "residualPips": -0.76,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.12,
+            "pips": -0.76,
+            "residualPips": -0.76,
+            "minus": 0
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "3:1:4:late:left",
+          "seedHigh": 137880,
+          "seedLow": 136466,
+          "x": 3,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": -0.56,
+            "pips": 4.72,
+            "residualPips": 3.72,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.12,
+            "pips": 0.96,
+            "residualPips": -0.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.44000000000000006,
+            "pips": 3.76,
+            "residualPips": 3.7600000000000002,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "3:3:5:late:left",
+          "seedHigh": 136296,
+          "seedLow": 137003,
+          "x": 3,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -3.52,
+            "residualPips": -6.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": 3,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.04,
+            "pips": -6.52,
+            "residualPips": -6.52,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "0:1:4:late:down",
+          "seedHigh": 137328,
+          "seedLow": 136576,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": 0.16,
+            "pips": 4.76,
+            "residualPips": 3.76,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 1,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.16,
+            "pips": 3.76,
+            "residualPips": 3.76,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "4:1:5:early:left",
+          "seedHigh": 136270,
+          "seedLow": 136064,
+          "x": 4,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": -0.32,
+            "pips": 7.12,
+            "residualPips": 6.12,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.2,
+            "pips": 2.52,
+            "residualPips": 1.52,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.12,
+            "pips": 4.6,
+            "residualPips": 4.6,
+            "minus": 0
+          },
+          "continuations": 300
+        },
+        {
+          "stratum": "3:2:5:early:left",
+          "seedHigh": 136742,
+          "seedLow": 136172,
+          "x": 3,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": -0.04,
+            "pips": 1.68,
+            "residualPips": -0.32,
+            "minus": -0.04
+          },
+          "low": {
+            "finish": 0.2,
+            "pips": 0,
+            "residualPips": -2,
+            "minus": -0.08
+          },
+          "diff": {
+            "finish": -0.24000000000000002,
+            "pips": 1.68,
+            "residualPips": 1.68,
+            "minus": 0.04
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "2:1:4:late:left",
+          "seedHigh": 136545,
+          "seedLow": 136202,
+          "x": 2,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": -0.04,
+            "pips": 0.64,
+            "residualPips": -0.36,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": 0.64,
+            "residualPips": -0.36,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.08,
+            "pips": 0,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "1:2:5:early:left",
+          "seedHigh": 136285,
+          "seedLow": 136079,
+          "x": 1,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0.12,
+            "pips": -0.68,
+            "residualPips": -2.68,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.28,
+            "pips": -0.2,
+            "residualPips": -2.2,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.16000000000000003,
+            "pips": -0.48000000000000004,
+            "residualPips": -0.48,
+            "minus": 0
+          },
+          "continuations": 300
+        },
+        {
+          "stratum": "0:1:4:late:right",
+          "seedHigh": 136801,
+          "seedLow": 136459,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 4.32,
+            "residualPips": 3.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 1,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 3.3200000000000003,
+            "residualPips": 3.32,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "0:3:5:late:right",
+          "seedHigh": 137218,
+          "seedLow": 137182,
+          "x": 0,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -0.12,
+            "residualPips": -3.12,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4.96,
+            "residualPips": 1.96,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -5.08,
+            "residualPips": -5.08,
+            "minus": 0
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "0:1:4:early:up",
+          "seedHigh": 136937,
+          "seedLow": 136145,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": -0.36,
+            "pips": 2.2,
+            "residualPips": 1.2,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.08,
+            "pips": 0.44,
+            "residualPips": -0.56,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.27999999999999997,
+            "pips": 1.7600000000000002,
+            "residualPips": 1.76,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "6:3:5:late:left",
+          "seedHigh": 136155,
+          "seedLow": 136813,
+          "x": 6,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0.52,
+            "residualPips": -2.48,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.12,
+            "pips": -0.88,
+            "residualPips": -3.88,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.12,
+            "pips": 1.4,
+            "residualPips": 1.4,
+            "minus": 0
+          },
+          "continuations": 300
+        },
+        {
+          "stratum": "4:2:5:early:down",
+          "seedHigh": 136912,
+          "seedLow": 136259,
+          "x": 4,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": -0.04,
+            "pips": 0,
+            "residualPips": -2,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": 0.24,
+            "residualPips": -1.76,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.08,
+            "pips": -0.24,
+            "residualPips": -0.24,
+            "minus": 0
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "0:3:5:early:up",
+          "seedHigh": 136891,
+          "seedLow": 136686,
+          "x": 0,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": -0.2,
+            "pips": 1.52,
+            "residualPips": -1.48,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.08,
+            "pips": 0.44,
+            "residualPips": -2.56,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.12000000000000001,
+            "pips": 1.08,
+            "residualPips": 1.08,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "2:3:4:early:left",
+          "seedHigh": 136724,
+          "seedLow": 136423,
+          "x": 2,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0.16,
+            "pips": -1.32,
+            "residualPips": -4.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.12,
+            "pips": 1.08,
+            "residualPips": -1.92,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.28,
+            "pips": -2.4000000000000004,
+            "residualPips": -2.4000000000000004,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "3:3:4:early:right",
+          "seedHigh": 137396,
+          "seedLow": 137186,
+          "x": 3,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0.24,
+            "residualPips": -2.76,
+            "minus": -0.24
+          },
+          "low": {
+            "finish": 0.12,
+            "pips": 0.32,
+            "residualPips": -2.68,
+            "minus": -0.08
+          },
+          "diff": {
+            "finish": -0.12,
+            "pips": -0.08000000000000002,
+            "residualPips": -0.07999999999999963,
+            "minus": -0.15999999999999998
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "5:2:5:early:left",
+          "seedHigh": 136036,
+          "seedLow": 136925,
+          "x": 5,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0.08,
+            "pips": -0.4,
+            "residualPips": -2.4,
+            "minus": 0.4
+          },
+          "low": {
+            "finish": -0.28,
+            "pips": 5.76,
+            "residualPips": 3.76,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.36000000000000004,
+            "pips": -6.16,
+            "residualPips": -6.16,
+            "minus": 0.4
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "3:3:5:early:up",
+          "seedHigh": 136599,
+          "seedLow": 136313,
+          "x": 3,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -1.2,
+            "residualPips": -4.2,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.2,
+            "pips": 0.44,
+            "residualPips": -2.56,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.2,
+            "pips": -1.64,
+            "residualPips": -1.6400000000000001,
+            "minus": 0
+          },
+          "continuations": 400
+        },
+        {
+          "stratum": "2:4:5:late:left",
+          "seedHigh": 136378,
+          "seedLow": 137135,
+          "x": 2,
+          "gap": 4,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            1,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 1.6,
+            "residualPips": -2.4,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -2.4,
+            "residualPips": -2.4,
+            "minus": 0
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "2:1:5:early:up",
+          "seedHigh": 136022,
+          "seedLow": 136063,
+          "x": 2,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": -0.04,
+            "pips": 1.12,
+            "residualPips": 0.12,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": -0.56,
+            "residualPips": -1.56,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.08,
+            "pips": 1.6800000000000002,
+            "residualPips": 1.6800000000000002,
+            "minus": 0
+          },
+          "continuations": 275
+        }
+      ],
+      "fast-doubles": [
+        {
+          "stratum": "5:4:5:early:up",
+          "seedHigh": 136778,
+          "seedLow": 137215,
+          "x": 5,
+          "gap": 4,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            6
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": 0.2,
+            "pips": -1.72,
+            "residualPips": -5.72,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": -0.56,
+            "residualPips": -4.56,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.16,
+            "pips": -1.16,
+            "residualPips": -1.1600000000000001,
+            "minus": 0
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "0:2:5:late:up",
+          "seedHigh": 136100,
+          "seedLow": 136215,
+          "x": 0,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 2.4,
+            "residualPips": 0.4,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 2.24,
+            "residualPips": 0.24,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 0.1599999999999997,
+            "residualPips": 0.16000000000000003,
+            "minus": 0
+          },
+          "continuations": 300
+        },
+        {
+          "stratum": "1:3:5:late:right",
+          "seedHigh": 136760,
+          "seedLow": 137122,
+          "x": 1,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 1.8,
+            "residualPips": -1.2,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 2.36,
+            "residualPips": -0.64,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -0.5599999999999998,
+            "residualPips": -0.5599999999999999,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "6:1:5:early:right",
+          "seedHigh": 137779,
+          "seedLow": 136386,
+          "x": 6,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": -0.08,
+            "pips": 0.48,
+            "residualPips": -0.52,
+            "minus": -0.04
+          },
+          "low": {
+            "finish": -0.28,
+            "pips": 3.2,
+            "residualPips": 2.2,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.2,
+            "pips": -2.72,
+            "residualPips": -2.72,
+            "minus": -0.04
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "2:2:4:late:up",
+          "seedHigh": 136471,
+          "seedLow": 136436,
+          "x": 2,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": 0.24,
+            "pips": -1.8,
+            "residualPips": -3.8,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": -0.52,
+            "residualPips": -2.52,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.24,
+            "pips": -1.28,
+            "residualPips": -1.2799999999999998,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "2:3:5:late:left",
+          "seedHigh": 137107,
+          "seedLow": 136441,
+          "x": 2,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -0.24,
+            "residualPips": -3.24,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 2.24,
+            "residualPips": -0.76,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -2.4800000000000004,
+            "residualPips": -2.4800000000000004,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "2:3:5:early:left",
+          "seedHigh": 136448,
+          "seedLow": 136023,
+          "x": 2,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": -0.04,
+            "pips": 1.52,
+            "residualPips": -1.48,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 0.4,
+            "residualPips": -2.6,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.04,
+            "pips": 1.12,
+            "residualPips": 1.12,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "0:2:4:late:left",
+          "seedHigh": 136034,
+          "seedLow": 136987,
+          "x": 0,
+          "gap": 2,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0.56,
+            "pips": -2,
+            "residualPips": -4,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.32,
+            "pips": 1.28,
+            "residualPips": -0.72,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.24000000000000005,
+            "pips": -3.2800000000000002,
+            "residualPips": -3.2800000000000002,
+            "minus": 0
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "0:3:4:late:left",
+          "seedHigh": 136066,
+          "seedLow": 137070,
+          "x": 0,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0.2,
+            "pips": 0.76,
+            "residualPips": -2.24,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.2,
+            "pips": -2.24,
+            "residualPips": -2.24,
+            "minus": 0
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "3:2:5:late:up",
+          "seedHigh": 137917,
+          "seedLow": 136050,
+          "x": 3,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 2.88,
+            "residualPips": 0.88,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 2.76,
+            "residualPips": 0.76,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 0.1200000000000001,
+            "residualPips": 0.12,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:1:4:late:left",
+          "seedHigh": 137815,
+          "seedLow": 136521,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -3.32,
+            "residualPips": -4.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.32,
+            "pips": -0.32,
+            "residualPips": -1.32,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.32,
+            "pips": -3,
+            "residualPips": -3,
+            "minus": 0
+          },
+          "continuations": 200
+        },
+        {
+          "stratum": "3:3:5:early:down",
+          "seedHigh": 137696,
+          "seedLow": 136767,
+          "x": 3,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0.04,
+            "residualPips": -2.96,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 3.92,
+            "residualPips": 0.92,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -3.88,
+            "residualPips": -3.88,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "0:1:4:early:left",
+          "seedHigh": 136618,
+          "seedLow": 136405,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0.04,
+            "pips": -0.52,
+            "residualPips": -1.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.08,
+            "pips": 0.24,
+            "residualPips": -0.76,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.12,
+            "pips": -0.76,
+            "residualPips": -0.76,
+            "minus": 0
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "3:1:4:late:left",
+          "seedHigh": 137880,
+          "seedLow": 136466,
+          "x": 3,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": -0.56,
+            "pips": 4.72,
+            "residualPips": 3.72,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.08,
+            "pips": 1.24,
+            "residualPips": 0.24,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.48000000000000004,
+            "pips": 3.4799999999999995,
+            "residualPips": 3.4800000000000004,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "3:3:5:late:left",
+          "seedHigh": 136296,
+          "seedLow": 137003,
+          "x": 3,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -3.52,
+            "residualPips": -6.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.12,
+            "pips": 0.92,
+            "residualPips": -2.08,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.12,
+            "pips": -4.44,
+            "residualPips": -4.4399999999999995,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "0:1:4:late:down",
+          "seedHigh": 137328,
+          "seedLow": 136576,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": 0.32,
+            "pips": -0.52,
+            "residualPips": -1.52,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 1,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.32,
+            "pips": -1.52,
+            "residualPips": -1.52,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "4:1:5:early:left",
+          "seedHigh": 136270,
+          "seedLow": 136064,
+          "x": 4,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            2
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 5.4,
+            "residualPips": 4.4,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.04,
+            "pips": 0.72,
+            "residualPips": -0.28,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.04,
+            "pips": 4.680000000000001,
+            "residualPips": 4.680000000000001,
+            "minus": 0
+          },
+          "continuations": 300
+        },
+        {
+          "stratum": "3:2:5:early:left",
+          "seedHigh": 136742,
+          "seedLow": 136172,
+          "x": 3,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": -0.16,
+            "pips": 3.48,
+            "residualPips": 1.48,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.28,
+            "pips": -0.8,
+            "residualPips": -2.8,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.44000000000000006,
+            "pips": 4.28,
+            "residualPips": 4.279999999999999,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "2:1:4:late:left",
+          "seedHigh": 136545,
+          "seedLow": 136202,
+          "x": 2,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": -0.28,
+            "pips": 0.44,
+            "residualPips": -0.56,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.04,
+            "pips": 3.04,
+            "residualPips": 2.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.32,
+            "pips": -2.6,
+            "residualPips": -2.6,
+            "minus": 0
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "1:2:5:early:left",
+          "seedHigh": 136285,
+          "seedLow": 136079,
+          "x": 1,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0.12,
+            "pips": -1.32,
+            "residualPips": -3.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.2,
+            "pips": -0.28,
+            "residualPips": -2.28,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.08000000000000002,
+            "pips": -1.04,
+            "residualPips": -1.04,
+            "minus": 0
+          },
+          "continuations": 300
+        },
+        {
+          "stratum": "0:1:4:late:right",
+          "seedHigh": 136801,
+          "seedLow": 136459,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "late",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            2,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 4.32,
+            "residualPips": 3.32,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 1,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": 3.3200000000000003,
+            "residualPips": 3.32,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "0:3:5:late:right",
+          "seedHigh": 137218,
+          "seedLow": 137182,
+          "x": 0,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": -0.12,
+            "residualPips": -3.12,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4.96,
+            "residualPips": 1.96,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -5.08,
+            "residualPips": -5.08,
+            "minus": 0
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "0:1:4:early:up",
+          "seedHigh": 136937,
+          "seedLow": 136145,
+          "x": 0,
+          "gap": 1,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            5
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": -0.36,
+            "pips": 2.8,
+            "residualPips": 1.8,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.28,
+            "pips": 1.12,
+            "residualPips": 0.12,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.07999999999999996,
+            "pips": 1.6799999999999997,
+            "residualPips": 1.6800000000000002,
+            "minus": 0
+          },
+          "continuations": 175
+        },
+        {
+          "stratum": "6:3:5:late:left",
+          "seedHigh": 136155,
+          "seedLow": 136813,
+          "x": 6,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0.52,
+            "residualPips": -2.48,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.12,
+            "pips": -0.88,
+            "residualPips": -3.88,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.12,
+            "pips": 1.4,
+            "residualPips": 1.4,
+            "minus": 0
+          },
+          "continuations": 300
+        },
+        {
+          "stratum": "4:2:5:early:down",
+          "seedHigh": 136912,
+          "seedLow": 136259,
+          "x": 4,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            3
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0.36,
+            "residualPips": -1.64,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.16,
+            "pips": -0.04,
+            "residualPips": -2.04,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.16,
+            "pips": 0.39999999999999997,
+            "residualPips": 0.40000000000000013,
+            "minus": 0
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "0:3:5:early:up",
+          "seedHigh": 136891,
+          "seedLow": 136686,
+          "x": 0,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": -0.28,
+            "pips": 1.8,
+            "residualPips": -1.2,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.08,
+            "pips": 0.44,
+            "residualPips": -2.56,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.2,
+            "pips": 1.36,
+            "residualPips": 1.36,
+            "minus": 0
+          },
+          "continuations": 250
+        },
+        {
+          "stratum": "2:3:4:early:left",
+          "seedHigh": 136724,
+          "seedLow": 136423,
+          "x": 2,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            3,
+            6
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0.36,
+            "pips": -1.16,
+            "residualPips": -4.16,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.12,
+            "pips": 1.08,
+            "residualPips": -1.92,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.48,
+            "pips": -2.24,
+            "residualPips": -2.24,
+            "minus": 0
+          },
+          "continuations": 350
+        },
+        {
+          "stratum": "3:3:4:early:right",
+          "seedHigh": 137396,
+          "seedLow": 137186,
+          "x": 3,
+          "gap": 3,
+          "hand": 4,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": 0.16,
+            "pips": -0.68,
+            "residualPips": -3.68,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.12,
+            "pips": -0.56,
+            "residualPips": -3.56,
+            "minus": 0.04
+          },
+          "diff": {
+            "finish": 0.04000000000000001,
+            "pips": -0.12,
+            "residualPips": -0.1200000000000001,
+            "minus": -0.04
+          },
+          "continuations": 225
+        },
+        {
+          "stratum": "5:2:5:early:left",
+          "seedHigh": 136036,
+          "seedLow": 136925,
+          "x": 5,
+          "gap": 2,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            4,
+            6
+          ],
+          "endpointsLow": [
+            2,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 0.24,
+            "residualPips": -1.76,
+            "minus": 0.12
+          },
+          "low": {
+            "finish": -0.28,
+            "pips": 2.48,
+            "residualPips": 0.48,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0.28,
+            "pips": -2.24,
+            "residualPips": -2.24,
+            "minus": 0.12
+          },
+          "continuations": 275
+        },
+        {
+          "stratum": "3:3:5:early:up",
+          "seedHigh": 136599,
+          "seedLow": 136313,
+          "x": 3,
+          "gap": 3,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            2,
+            5
+          ],
+          "endpointsLow": [
+            1,
+            4
+          ],
+          "high": {
+            "finish": -0.08,
+            "pips": 0,
+            "residualPips": -3,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0.2,
+            "pips": -0.12,
+            "residualPips": -3.12,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.28,
+            "pips": 0.12,
+            "residualPips": 0.1200000000000001,
+            "minus": 0
+          },
+          "continuations": 400
+        },
+        {
+          "stratum": "2:4:5:late:left",
+          "seedHigh": 136378,
+          "seedLow": 137135,
+          "x": 2,
+          "gap": 4,
+          "hand": 5,
+          "pressure": "late",
+          "endpointsHigh": [
+            1,
+            5
+          ],
+          "endpointsLow": [
+            0,
+            4
+          ],
+          "high": {
+            "finish": 0,
+            "pips": 1.6,
+            "residualPips": -2.4,
+            "minus": 0
+          },
+          "low": {
+            "finish": 0,
+            "pips": 4,
+            "residualPips": 0,
+            "minus": 0
+          },
+          "diff": {
+            "finish": 0,
+            "pips": -2.4,
+            "residualPips": -2.4,
+            "minus": 0
+          },
+          "continuations": 325
+        },
+        {
+          "stratum": "2:1:5:early:up",
+          "seedHigh": 136022,
+          "seedLow": 136063,
+          "x": 2,
+          "gap": 1,
+          "hand": 5,
+          "pressure": "early",
+          "endpointsHigh": [
+            5,
+            6
+          ],
+          "endpointsLow": [
+            3,
+            4
+          ],
+          "high": {
+            "finish": -0.28,
+            "pips": 1.4,
+            "residualPips": 0.4,
+            "minus": 0
+          },
+          "low": {
+            "finish": -0.12,
+            "pips": 0.8,
+            "residualPips": -0.2,
+            "minus": 0
+          },
+          "diff": {
+            "finish": -0.16000000000000003,
+            "pips": 0.5999999999999999,
+            "residualPips": 0.6000000000000001,
+            "minus": 0
+          },
+          "continuations": 275
+        }
+      ]
+    }
+  },
+  "candidateContinuations": 48000,
+  "policyWorldEvaluations": 9600,
+  "newHiddenWorlds": 3200,
+  "cumulativeFixedVisibleWorlds": 48410,
+  "finding": "All six side-matched finish-first differences have unadjusted 95% position-pair CIs crossing zero; no reliable high-endpoint effect.",
+  "nextHypothesis": "Repeat on fresh seeds 138000..141999 matching the full two-opponent hand-size vector and branch side; examine counterconditions and independent policies.",
+  "validation": {
+    "sideMatchRegression": {
+      "passed": true,
+      "matchedPairs": 2,
+      "pairedWorlds": 2
+    },
+    "fullRunAllCandidatesResolved": true,
+    "execution": "V8 CommonJS module harness (not Node CLI)",
+    "noLiveScoreboardFilesChanged": true
+  },
+  "sample": {
+    "matchedPairsPerDiscovery": 32,
+    "discoveryPolicies": 2,
+    "positions": 128,
+    "hiddenWorlds": 3200,
+    "policyWorldEvaluations": 9600,
+    "candidateContinuations": 48000,
+    "newCompleteStrategyRounds": 0,
+    "priorCompleteStrategyRounds": 180000
+  }
+}
