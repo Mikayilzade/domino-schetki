@@ -372,3 +372,17 @@
 - limitations: branch semantics still assumption-labelled; first-eligible selection; quota stratification; correlated worlds; simple bot policies; block winner unassigned; exploratory unadjusted CIs; hand composition is not causally isolated.
 - reproducibility: `simulator/endpoint-mobility-holdout.js 24 25`, `runs/2026-10-09-0255-endpoint-mobility-holdout.json`; seed formula `6100000+1000*dealSeed+worldIndex`.
 - exact next action: independent holdout on seeds `146000..149999`, same quota/25 worlds/three continuation policies; check mobility effect by full opponent hand-size vector and alternate branch ends, document counterexamples before human advice.
+
+
+### 2026-10-09 03:50:22 +04:00 — independent endpoint mobility replication
+- engine/rules: qosa-research-0.5.3 / qosa-1.0.0, 3×9; no gameplay-rule changes.
+- independent holdout: 144 reachable positions, 3600 fixed-visible worlds, 10800 policy-world evaluations, 54525 candidate continuations; deal seed ranges 146000..147999 and 148000..149999; 25 worlds per position.
+- baseline: 180,000 persisted full rounds (historical 4,000 separate); cumulative fixed-visible hidden worlds **58810**.
+- continuation policies: closed-branch-control, min-hand-pips, fast-doubles; selection quotas 24 per mobility group and discovery policy; same-state candidate comparisons.
+- aligned finish-first delta (more connectors minus fewer): closed-branch-control 6.00 pp [2.76, 9.24]; min-hand-pips 4.08 pp [-0.21, 8.37]; fast-doubles 4.17 pp [1.17, 7.16]. Exploratory position-level 95% CIs, no multiplicity adjustment.
+- finding: Independent holdout does not robustly confirm the endpoint mobility effect across all continuation policies; retain as conditional hypothesis only.
+- counterexamples: seed 146510 (0-6, 3-6, 3-4, 4-4, opponents 3/4); seed 146321 (0-3, 0-5, 2-2, 4-5, opponents 4/4); seed 149493 (5-6, 0-5, 0-1, 2-2, 2-5, opponents 5/4).
+- validation: V8 CommonJS harness; deterministic replay and source-state immutability self-tests passed; not Node CLI.
+- limitations: assumption-labelled locked/open branches, first-eligible selection, simple bots, block winner unassigned, correlated worlds, exploratory subgroup splits.
+- reproducibility: `simulator/endpoint-mobility-replication.js 24 25`; `runs/2026-10-09-0348-endpoint-mobility-replication.json`; world seed `6100000+1000*dealSeed+worldIndex`.
+- exact next action: Check whether the mobility advantage survives against new opponent continuation policies and when an opponent has 1-2 tiles; seek counterexamples with multiple open sides.
