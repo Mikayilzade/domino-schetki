@@ -1,0 +1,6876 @@
+{
+  "schema": "qosa-connector-gap-pressure-independent-holdout/v1",
+  "timestampAsiaBaku": "2026-10-08 17:54 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "seedScan": [
+    62000,
+    62291
+  ],
+  "seedRangeRequested": [
+    62000,
+    67999
+  ],
+  "discoveryPolicy": "min-hand-pips",
+  "cells": {
+    "4:late:wide": 12,
+    "4:late:narrow": 12,
+    "5:early:narrow": 12,
+    "5:early:wide": 12,
+    "4:early:narrow": 12,
+    "5:late:wide": 12,
+    "5:late:narrow": 12,
+    "4:early:wide": 12
+  },
+  "observed": {
+    "4:late:wide": 18,
+    "4:late:narrow": 23,
+    "5:early:narrow": 43,
+    "5:early:wide": 28,
+    "4:early:narrow": 18,
+    "5:late:wide": 21,
+    "5:late:narrow": 20,
+    "4:early:wide": 12
+  },
+  "selectedSeeds": [
+    62000,
+    62001,
+    62002,
+    62007,
+    62008,
+    62010,
+    62011,
+    62013,
+    62014,
+    62015,
+    62016,
+    62018,
+    62019,
+    62023,
+    62024,
+    62025,
+    62026,
+    62028,
+    62031,
+    62032,
+    62033,
+    62035,
+    62036,
+    62037,
+    62038,
+    62039,
+    62042,
+    62043,
+    62044,
+    62045,
+    62047,
+    62049,
+    62050,
+    62051,
+    62053,
+    62054,
+    62055,
+    62057,
+    62059,
+    62060,
+    62062,
+    62063,
+    62064,
+    62065,
+    62066,
+    62069,
+    62070,
+    62071,
+    62072,
+    62074,
+    62075,
+    62085,
+    62088,
+    62091,
+    62093,
+    62095,
+    62096,
+    62097,
+    62099,
+    62101,
+    62104,
+    62109,
+    62111,
+    62113,
+    62115,
+    62118,
+    62121,
+    62123,
+    62126,
+    62136,
+    62138,
+    62141,
+    62144,
+    62148,
+    62149,
+    62152,
+    62153,
+    62154,
+    62161,
+    62163,
+    62164,
+    62170,
+    62174,
+    62176,
+    62178,
+    62179,
+    62185,
+    62191,
+    62193,
+    62215,
+    62218,
+    62222,
+    62227,
+    62265,
+    62267,
+    62291
+  ],
+  "selection": "first eligible both-open same-side X connectors per seed; hand 4/5; 8 handSize x opponentMinHand x connectorGap quota cells",
+  "positionCount": 96,
+  "worldsPerPosition": 25,
+  "newHiddenWorlds": 2400,
+  "policyWorldEvaluations": 7200,
+  "candidateContinuations": 36750,
+  "worldSeedFormula": "6100000 + 1000*dealSeed + worldIndex",
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "metricDirection": "keep HIGH minus keep LOW = spend LOW minus spend HIGH; positive pips is worse; residual pips subtracts immediate high-low gap",
+  "newFullStrategyRounds": 0,
+  "priorFullRounds": 180000,
+  "priorHiddenWorlds": 25810,
+  "cumulativeHiddenWorlds": 28210,
+  "confidence": "exploratory position-level normal 95% CI; no multiple-testing adjustment",
+  "limitations": "assumption-labelled branch opening; deterministic bots; first-eligible/quota selection not population-weighted; block winner unassigned; branch assumptions; selected quota cells; exploratory 95% normal CIs not multiplicity-adjusted; no causal effect of hand pressure.",
+  "summary": {
+    "closed-branch-control": {
+      "4:early:narrow": {
+        "finish": {
+          "n": 12,
+          "mean": 0.020000000000000004,
+          "ci95": [
+            -0.086373202367035,
+            0.126373202367035
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 0.23999999999999996,
+          "ci95": [
+            -0.3709532105280611,
+            0.850953210528061
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -1.0933333333333333,
+          "ci95": [
+            -1.6816368240349584,
+            -0.5050298426317081
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0.0033333333333333335,
+          "ci95": [
+            -0.0031999999999999984,
+            0.009866666666666666
+          ]
+        }
+      },
+      "4:early:wide": {
+        "finish": {
+          "n": 12,
+          "mean": 0.049999999999999996,
+          "ci95": [
+            -0.1381513381844681,
+            0.23815133818446807
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 0.8166666666666668,
+          "ci95": [
+            -0.43380936131853864,
+            2.067142694651872
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -3.266666666666666,
+          "ci95": [
+            -4.672190830583293,
+            -1.8611425027500386
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0.06,
+          "ci95": [
+            -0.04416145974865031,
+            0.16416145974865032
+          ]
+        }
+      },
+      "4:late:narrow": {
+        "finish": {
+          "n": 12,
+          "mean": -0.01333333333333333,
+          "ci95": [
+            -0.08511896257524057,
+            0.058452295908573905
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 1.1366666666666667,
+          "ci95": [
+            0.1697273136960512,
+            2.103606019637282
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -0.4466666666666666,
+          "ci95": [
+            -1.4248276887128863,
+            0.531494355379553
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": -0.013333333333333334,
+          "ci95": [
+            -0.039466666666666664,
+            0.012799999999999994
+          ]
+        }
+      },
+      "4:late:wide": {
+        "finish": {
+          "n": 12,
+          "mean": 0.03333333333333333,
+          "ci95": [
+            -0.061138510582879564,
+            0.12780517724954624
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 2.0233333333333334,
+          "ci95": [
+            1.0843932948007358,
+            2.962273371865931
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -2.2266666666666666,
+          "ci95": [
+            -3.5747285421761035,
+            -0.8786047911572299
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0.04666666666666667,
+          "ci95": [
+            -0.04480000000000001,
+            0.13813333333333336
+          ]
+        }
+      },
+      "5:early:narrow": {
+        "finish": {
+          "n": 12,
+          "mean": -0.029999999999999995,
+          "ci95": [
+            -0.10229733219437799,
+            0.04229733219437799
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 0.5266666666666666,
+          "ci95": [
+            -0.36283565701685483,
+            1.416168990350188
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -0.8899999999999998,
+          "ci95": [
+            -1.6961455617112002,
+            -0.08385443828879935
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        }
+      },
+      "5:early:wide": {
+        "finish": {
+          "n": 12,
+          "mean": 0.046666666666666655,
+          "ci95": [
+            -0.095109540537832,
+            0.18844287387116532
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 1.153333333333333,
+          "ci95": [
+            -0.1279452376908048,
+            2.434611904357471
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -2.6799999999999997,
+          "ci95": [
+            -4.263719987493963,
+            -1.0962800125060363
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0.03,
+          "ci95": [
+            -0.06110534694749943,
+            0.12110534694749943
+          ]
+        }
+      },
+      "5:late:narrow": {
+        "finish": {
+          "n": 12,
+          "mean": -0.07666666666666667,
+          "ci95": [
+            -0.1674306340644054,
+            0.014097300731072043
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 1.8733333333333333,
+          "ci95": [
+            0.9995703596720468,
+            2.74709630699462
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": 0.3733333333333333,
+          "ci95": [
+            -0.6230569581334658,
+            1.3697236248001325
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": -0.11333333333333333,
+          "ci95": [
+            -0.23798138898514756,
+            0.011314722318480908
+          ]
+        }
+      },
+      "5:late:wide": {
+        "finish": {
+          "n": 12,
+          "mean": 0.13333333333333333,
+          "ci95": [
+            0.010377836744469349,
+            0.2562888299221973
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 1.1333333333333337,
+          "ci95": [
+            -1.279382124821689,
+            3.5460487914883565
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -2.533333333333333,
+          "ci95": [
+            -4.8535674392508,
+            -0.2130992274158663
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0.06333333333333334,
+          "ci95": [
+            -0.06079999999999998,
+            0.18746666666666667
+          ]
+        }
+      },
+      "all": {
+        "finish": {
+          "n": 96,
+          "mean": 0.020416666666666663,
+          "ci95": [
+            -0.021104354818193272,
+            0.0619376881515266
+          ]
+        },
+        "pips": {
+          "n": 96,
+          "mean": 1.112916666666667,
+          "ci95": [
+            0.6679416149742661,
+            1.557891718359068
+          ]
+        },
+        "residualPips": {
+          "n": 96,
+          "mean": -1.595416666666667,
+          "ci95": [
+            -2.11341939150935,
+            -1.0774139418239836
+          ]
+        },
+        "minus": {
+          "n": 96,
+          "mean": 0.009583333333333334,
+          "ci95": [
+            -0.02160739173693968,
+            0.04077405840360635
+          ]
+        }
+      }
+    },
+    "min-hand-pips": {
+      "4:early:narrow": {
+        "finish": {
+          "n": 12,
+          "mean": 0.06333333333333334,
+          "ci95": [
+            -0.06594504924480772,
+            0.1926117159114744
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 0.03333333333333336,
+          "ci95": [
+            -0.6157454195732361,
+            0.6824120862399028
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -1.3,
+          "ci95": [
+            -1.8882375277818553,
+            -0.7117624722181447
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0.0033333333333333335,
+          "ci95": [
+            -0.0031999999999999984,
+            0.009866666666666666
+          ]
+        }
+      },
+      "4:early:wide": {
+        "finish": {
+          "n": 12,
+          "mean": 0.11333333333333333,
+          "ci95": [
+            -0.07424999172085116,
+            0.3009166583875178
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 0.2299999999999999,
+          "ci95": [
+            -1.0431590697826008,
+            1.5031590697826007
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -3.853333333333333,
+          "ci95": [
+            -5.4364161450291935,
+            -2.270250521637473
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0.05333333333333334,
+          "ci95": [
+            -0.051200000000000016,
+            0.15786666666666668
+          ]
+        }
+      },
+      "4:late:narrow": {
+        "finish": {
+          "n": 12,
+          "mean": -0.01,
+          "ci95": [
+            -0.08667341208797297,
+            0.06667341208797298
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 1.2266666666666666,
+          "ci95": [
+            0.3424411019531546,
+            2.110892231380179
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -0.35666666666666663,
+          "ci95": [
+            -1.2489196207897753,
+            0.5355862874564421
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": -0.013333333333333334,
+          "ci95": [
+            -0.039466666666666664,
+            0.012799999999999994
+          ]
+        }
+      },
+      "4:late:wide": {
+        "finish": {
+          "n": 12,
+          "mean": 0.04,
+          "ci95": [
+            -0.06393769695584395,
+            0.14393769695584394
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 2.0033333333333334,
+          "ci95": [
+            1.0428202086826273,
+            2.9638464579840393
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -2.2466666666666666,
+          "ci95": [
+            -3.613679825995346,
+            -0.879653507337987
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0.04666666666666667,
+          "ci95": [
+            -0.04480000000000001,
+            0.13813333333333336
+          ]
+        }
+      },
+      "5:early:narrow": {
+        "finish": {
+          "n": 12,
+          "mean": 0.01,
+          "ci95": [
+            -0.052634563021134624,
+            0.07263456302113462
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 0.6766666666666666,
+          "ci95": [
+            -0.0987609625037209,
+            1.4520942958370542
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -0.7399999999999999,
+          "ci95": [
+            -1.4363999547456168,
+            -0.04360004525438299
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        }
+      },
+      "5:early:wide": {
+        "finish": {
+          "n": 12,
+          "mean": 0.05000000000000001,
+          "ci95": [
+            -0.0732549464248061,
+            0.17325494642480613
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 1.2366666666666668,
+          "ci95": [
+            -0.07182064069835081,
+            2.5451539740316846
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -2.5966666666666667,
+          "ci95": [
+            -4.203807513077466,
+            -0.9895258202558674
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": -0.016666666666666666,
+          "ci95": [
+            -0.06535883101255367,
+            0.03202549767922035
+          ]
+        }
+      },
+      "5:late:narrow": {
+        "finish": {
+          "n": 12,
+          "mean": -0.07666666666666667,
+          "ci95": [
+            -0.1674306340644054,
+            0.014097300731072043
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 1.8733333333333333,
+          "ci95": [
+            0.9995703596720468,
+            2.74709630699462
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": 0.3733333333333333,
+          "ci95": [
+            -0.6230569581334658,
+            1.3697236248001325
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": -0.11333333333333333,
+          "ci95": [
+            -0.23798138898514756,
+            0.011314722318480908
+          ]
+        }
+      },
+      "5:late:wide": {
+        "finish": {
+          "n": 12,
+          "mean": 0.13,
+          "ci95": [
+            0.007123427288957457,
+            0.2528765727110426
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 1.1533333333333335,
+          "ci95": [
+            -1.2584652116148434,
+            3.5651318782815107
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -2.513333333333333,
+          "ci95": [
+            -4.831609883015895,
+            -0.1950567836507715
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0.06333333333333334,
+          "ci95": [
+            -0.06079999999999998,
+            0.18746666666666667
+          ]
+        }
+      },
+      "all": {
+        "finish": {
+          "n": 96,
+          "mean": 0.039999999999999994,
+          "ci95": [
+            -0.0020052394392756426,
+            0.08200523943927562
+          ]
+        },
+        "pips": {
+          "n": 96,
+          "mean": 1.054166666666667,
+          "ci95": [
+            0.6061846895986405,
+            1.5021486437346934
+          ]
+        },
+        "residualPips": {
+          "n": 96,
+          "mean": -1.654166666666667,
+          "ci95": [
+            -2.188021386889401,
+            -1.120311946443933
+          ]
+        },
+        "minus": {
+          "n": 96,
+          "mean": 0.002916666666666667,
+          "ci95": [
+            -0.026825087264475057,
+            0.032658420597808394
+          ]
+        }
+      }
+    },
+    "fast-doubles": {
+      "4:early:narrow": {
+        "finish": {
+          "n": 12,
+          "mean": 0.13999999999999999,
+          "ci95": [
+            0.015476530142087053,
+            0.2645234698579129
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": -0.36000000000000004,
+          "ci95": [
+            -0.8867194388597475,
+            0.16671943885974744
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -1.6933333333333334,
+          "ci95": [
+            -2.2141257303670083,
+            -1.1725409362996584
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": -0.006666666666666667,
+          "ci95": [
+            -0.019733333333333332,
+            0.006399999999999997
+          ]
+        }
+      },
+      "4:early:wide": {
+        "finish": {
+          "n": 12,
+          "mean": 0.16666666666666666,
+          "ci95": [
+            0.07318581355229943,
+            0.2601475197810339
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": -0.4000000000000001,
+          "ci95": [
+            -1.0085093878910292,
+            0.20850938789102907
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -4.483333333333333,
+          "ci95": [
+            -5.364505829545515,
+            -3.6021608371211515
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0.043333333333333335,
+          "ci95": [
+            -0.0416,
+            0.12826666666666667
+          ]
+        }
+      },
+      "4:late:narrow": {
+        "finish": {
+          "n": 12,
+          "mean": -0.023333333333333334,
+          "ci95": [
+            -0.10826666666666664,
+            0.061599999999999974
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 1.32,
+          "ci95": [
+            0.4388517243753106,
+            2.2011482756246896
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -0.26333333333333325,
+          "ci95": [
+            -1.1464061713097469,
+            0.6197395046430805
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        }
+      },
+      "4:late:wide": {
+        "finish": {
+          "n": 12,
+          "mean": -0.01,
+          "ci95": [
+            -0.0688,
+            0.0488
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 1.9966666666666668,
+          "ci95": [
+            0.9259336214395131,
+            3.0673997118938203
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -2.2533333333333334,
+          "ci95": [
+            -3.6735237749660925,
+            -0.8331428917005745
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        }
+      },
+      "5:early:narrow": {
+        "finish": {
+          "n": 12,
+          "mean": -0.08333333333333333,
+          "ci95": [
+            -0.15960079465574564,
+            -0.007065872010921015
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 1.18,
+          "ci95": [
+            0.21127847576553171,
+            2.1487215242344684
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -0.23666666666666672,
+          "ci95": [
+            -1.2314257906496915,
+            0.7580924573163581
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        }
+      },
+      "5:early:wide": {
+        "finish": {
+          "n": 12,
+          "mean": 0.0033333333333333335,
+          "ci95": [
+            -0.09529816736138859,
+            0.10196483402805524
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 1.0466666666666666,
+          "ci95": [
+            0.3768978791833525,
+            1.7164354541499809
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -2.7866666666666666,
+          "ci95": [
+            -3.7422160334307457,
+            -1.8311172999025875
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": -0.013333333333333334,
+          "ci95": [
+            -0.039466666666666664,
+            0.012799999999999994
+          ]
+        }
+      },
+      "5:late:narrow": {
+        "finish": {
+          "n": 12,
+          "mean": -0.01,
+          "ci95": [
+            -0.03750779503847569,
+            0.017507795038475688
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 1.18,
+          "ci95": [
+            0.2516311182476759,
+            2.108368881752324
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -0.32,
+          "ci95": [
+            -1.2145224180330174,
+            0.5745224180330175
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        }
+      },
+      "5:late:wide": {
+        "finish": {
+          "n": 12,
+          "mean": 0.06,
+          "ci95": [
+            0.004984409923048605,
+            0.11501559007695139
+          ]
+        },
+        "pips": {
+          "n": 12,
+          "mean": 1.426666666666667,
+          "ci95": [
+            -0.5144821124397321,
+            3.367815445773066
+          ]
+        },
+        "residualPips": {
+          "n": 12,
+          "mean": -2.2399999999999998,
+          "ci95": [
+            -4.09946934887186,
+            -0.38053065112813944
+          ]
+        },
+        "minus": {
+          "n": 12,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        }
+      },
+      "all": {
+        "finish": {
+          "n": 96,
+          "mean": 0.03041666666666667,
+          "ci95": [
+            -0.0018989891538657676,
+            0.06273232248719911
+          ]
+        },
+        "pips": {
+          "n": 96,
+          "mean": 0.92375,
+          "ci95": [
+            0.5363067006395668,
+            1.3111932993604332
+          ]
+        },
+        "residualPips": {
+          "n": 96,
+          "mean": -1.7845833333333332,
+          "ci95": [
+            -2.257394729206203,
+            -1.3117719374604635
+          ]
+        },
+        "minus": {
+          "n": 96,
+          "mean": 0.002916666666666667,
+          "ci95": [
+            -0.008354329983899601,
+            0.014187663317232934
+          ]
+        }
+      }
+    }
+  },
+  "rows": {
+    "closed-branch-control": [
+      {
+        "seed": 62000,
+        "cell": "4:late:wide",
+        "side": "down",
+        "x": 3,
+        "low": 0,
+        "high": 6,
+        "gap": 6,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68100000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.2,
+          "pips": -0.08,
+          "residualPips": -6.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62001,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 4,
+        "low": 0,
+        "high": 1,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 15,
+        "worldStart": 68101000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.28,
+          "pips": -2.16,
+          "residualPips": -3.16,
+          "minus": -0.16
+        }
+      },
+      {
+        "seed": 62002,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 1,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 12,
+        "worldStart": 68102000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -0.28,
+          "residualPips": -1.28,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62007,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 1,
+        "low": 0,
+        "high": 3,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 10,
+        "worldStart": 68107000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.32,
+          "pips": 3.2,
+          "residualPips": 0.2,
+          "minus": -0.16
+        }
+      },
+      {
+        "seed": 62008,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 10,
+        "worldStart": 68108000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.24,
+          "pips": -1.28,
+          "residualPips": -5.28,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62010,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 5,
+        "low": 0,
+        "high": 1,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68110000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.4,
+          "pips": 1.36,
+          "residualPips": 0.36,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62011,
+        "cell": "4:early:narrow",
+        "side": "left",
+        "x": 2,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68111000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 0.32,
+          "residualPips": -0.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62013,
+        "cell": "5:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 0,
+        "high": 4,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68113000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 8.56,
+          "residualPips": 4.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62014,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 5,
+        "low": 2,
+        "high": 4,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 13,
+        "worldStart": 68114000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.32,
+          "residualPips": -1.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62015,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 3,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68115000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": -0.28,
+          "pips": 1.64,
+          "residualPips": 0.64,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62016,
+        "cell": "5:early:wide",
+        "side": "down",
+        "x": 2,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68116000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.4,
+          "pips": 0.76,
+          "residualPips": -4.24,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62018,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 2,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 17,
+        "worldStart": 68118000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 3.72,
+          "residualPips": 0.72,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62019,
+        "cell": "5:late:wide",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68119000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 8.16,
+          "residualPips": 4.16,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62023,
+        "cell": "5:early:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68123000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 2.8,
+          "residualPips": 0.8,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62024,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 0,
+        "high": 4,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68124000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 3.64,
+          "residualPips": -0.36,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62025,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 3,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 6,
+        "turn": 9,
+        "worldStart": 68125000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 1.08,
+          "residualPips": 0.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62026,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 2,
+        "low": 0,
+        "high": 4,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 9,
+        "worldStart": 68126000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.24,
+          "pips": -0.32,
+          "residualPips": -4.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62028,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 1,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 16,
+        "worldStart": 68128000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.04,
+          "pips": 0.56,
+          "residualPips": -1.44,
+          "minus": 0.04
+        }
+      },
+      {
+        "seed": 62031,
+        "cell": "4:early:narrow",
+        "side": "down",
+        "x": 0,
+        "low": 1,
+        "high": 2,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68131000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 1.4,
+          "residualPips": 0.4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62032,
+        "cell": "5:early:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 11,
+        "worldStart": 68132000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.04,
+          "pips": 0.84,
+          "residualPips": -1.16,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62033,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 3,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68133000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 0.32,
+          "residualPips": -0.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62035,
+        "cell": "4:late:narrow",
+        "side": "right",
+        "x": 2,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 19,
+        "worldStart": 68135000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 1.4,
+          "residualPips": 0.4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62036,
+        "cell": "5:early:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 4,
+        "high": 6,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68136000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 0.92,
+          "residualPips": -1.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62037,
+        "cell": "5:late:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68137000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.2,
+          "pips": 0.28,
+          "residualPips": -1.72,
+          "minus": -0.24
+        }
+      },
+      {
+        "seed": 62038,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 0,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 16,
+        "worldStart": 68138000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 2,
+          "residualPips": 0,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62039,
+        "cell": "5:late:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68139000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 1.16,
+          "residualPips": -0.84,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62042,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 1,
+        "low": 0,
+        "high": 2,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68142000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.28,
+          "pips": 0.92,
+          "residualPips": -1.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62043,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 4,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68143000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": 0.08,
+          "residualPips": -1.92,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62044,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68144000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -0.32,
+          "residualPips": -1.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62045,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 1,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68145000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.24,
+          "pips": 0.52,
+          "residualPips": -0.48,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62047,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 3,
+        "low": 1,
+        "high": 2,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68147000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.04,
+          "pips": 1.32,
+          "residualPips": 0.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62049,
+        "cell": "5:late:wide",
+        "side": "right",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68149000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": 1.96,
+          "residualPips": -2.04,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62050,
+        "cell": "5:early:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 10,
+        "worldStart": 68150000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": -3.64,
+          "residualPips": -4.64,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62051,
+        "cell": "4:early:narrow",
+        "side": "left",
+        "x": 2,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68151000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.12,
+          "pips": 0.48,
+          "residualPips": -1.52,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62053,
+        "cell": "5:late:narrow",
+        "side": "up",
+        "x": 4,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68153000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 3.4,
+          "residualPips": 1.4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62054,
+        "cell": "5:late:wide",
+        "side": "right",
+        "x": 2,
+        "low": 0,
+        "high": 4,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 2,
+        "turn": 13,
+        "worldStart": 68154000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": 0.28,
+          "residualPips": -3.72,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62055,
+        "cell": "4:late:narrow",
+        "side": "right",
+        "x": 4,
+        "low": 0,
+        "high": 2,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68155000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 2.56,
+          "residualPips": 0.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62057,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 0,
+        "low": 2,
+        "high": 4,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 17,
+        "worldStart": 68157000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 3.92,
+          "residualPips": 1.92,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62059,
+        "cell": "5:early:wide",
+        "side": "up",
+        "x": 6,
+        "low": 0,
+        "high": 3,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68159000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 0.52,
+          "residualPips": -2.48,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62060,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68160000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": -1.32,
+          "residualPips": -3.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62062,
+        "cell": "5:late:narrow",
+        "side": "down",
+        "x": 2,
+        "low": 4,
+        "high": 6,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 2,
+        "turn": 13,
+        "worldStart": 68162000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 1.44,
+          "residualPips": -0.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62063,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 6,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68163000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -0.44,
+          "residualPips": -3.44,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62064,
+        "cell": "5:early:narrow",
+        "side": "up",
+        "x": 1,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68164000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.04,
+          "pips": 1.88,
+          "residualPips": -0.12,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62065,
+        "cell": "5:early:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 11,
+        "worldStart": 68165000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": 0.16,
+          "residualPips": -0.84,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62066,
+        "cell": "4:early:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 9,
+        "worldStart": 68166000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -0.6,
+          "residualPips": -1.6,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62069,
+        "cell": "5:early:wide",
+        "side": "up",
+        "x": 6,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 7,
+        "turn": 6,
+        "worldStart": 68169000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": -1.72,
+          "residualPips": -5.72,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62070,
+        "cell": "5:late:narrow",
+        "side": "right",
+        "x": 5,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68170000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.04,
+          "pips": 0.12,
+          "residualPips": -0.88,
+          "minus": -0.52
+        }
+      },
+      {
+        "seed": 62071,
+        "cell": "4:early:narrow",
+        "side": "left",
+        "x": 2,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68171000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 1.12,
+          "residualPips": 0.12,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62072,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 1,
+        "low": 3,
+        "high": 6,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68172000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.28,
+          "pips": -0.36,
+          "residualPips": -3.36,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62074,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 1,
+        "turn": 20,
+        "worldStart": 68174000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 1,
+          "residualPips": 0,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62075,
+        "cell": "4:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68175000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.2,
+          "pips": -0.32,
+          "residualPips": -4.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62085,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 4,
+        "low": 0,
+        "high": 2,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 15,
+        "worldStart": 68185000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 1.52,
+          "residualPips": -0.48,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62088,
+        "cell": "5:early:wide",
+        "side": "right",
+        "x": 1,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68188000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0.12,
+          "pips": 3.8,
+          "residualPips": 0.8,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62091,
+        "cell": "5:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 12,
+        "worldStart": 68191000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.2,
+          "pips": -0.2,
+          "residualPips": -3.2,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62093,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 4,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 17,
+        "worldStart": 68193000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.64,
+          "residualPips": -1.36,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62095,
+        "cell": "5:late:narrow",
+        "side": "right",
+        "x": 4,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 2,
+        "turn": 13,
+        "worldStart": 68195000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.68,
+          "residualPips": -1.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62096,
+        "cell": "5:early:wide",
+        "side": "up",
+        "x": 2,
+        "low": 0,
+        "high": 6,
+        "gap": 6,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 9,
+        "worldStart": 68196000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": -0.32,
+          "residualPips": -6.32,
+          "minus": 0.52
+        }
+      },
+      {
+        "seed": 62097,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 1,
+        "high": 2,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 16,
+        "worldStart": 68197000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 3.04,
+          "residualPips": 2.04,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62099,
+        "cell": "4:early:wide",
+        "side": "down",
+        "x": 4,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 6,
+        "turn": 10,
+        "worldStart": 68199000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 1.8,
+          "residualPips": -3.2,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62101,
+        "cell": "5:early:wide",
+        "side": "up",
+        "x": 0,
+        "low": 3,
+        "high": 6,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 12,
+        "worldStart": 68201000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": -0.32,
+          "pips": 5.32,
+          "residualPips": 2.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62104,
+        "cell": "5:late:wide",
+        "side": "right",
+        "x": 2,
+        "low": 3,
+        "high": 6,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 15,
+        "worldStart": 68204000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": -1.56,
+          "residualPips": -4.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62109,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 6,
+        "turn": 7,
+        "worldStart": 68209000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.28,
+          "pips": 0.6,
+          "residualPips": -3.4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62111,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 0,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 1,
+        "turn": 17,
+        "worldStart": 68211000,
+        "continuations": 250,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 4,
+          "residualPips": 0,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62113,
+        "cell": "5:late:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68213000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": 0.96,
+          "residualPips": -0.04,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62115,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68215000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.76,
+          "pips": -6.56,
+          "residualPips": -10.56,
+          "minus": 0.76
+        }
+      },
+      {
+        "seed": 62118,
+        "cell": "5:late:narrow",
+        "side": "down",
+        "x": 2,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68218000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.96,
+          "residualPips": -0.04,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62121,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 2,
+        "low": 0,
+        "high": 3,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68221000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0.24,
+          "pips": -1,
+          "residualPips": -4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62123,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 2,
+        "low": 0,
+        "high": 5,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 16,
+        "worldStart": 68223000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.4,
+          "pips": -0.8,
+          "residualPips": -5.8,
+          "minus": 0.56
+        }
+      },
+      {
+        "seed": 62126,
+        "cell": "5:late:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68226000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.52,
+          "pips": 2.68,
+          "residualPips": 1.68,
+          "minus": -0.6
+        }
+      },
+      {
+        "seed": 62136,
+        "cell": "5:late:narrow",
+        "side": "left",
+        "x": 2,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68236000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 4.84,
+          "residualPips": 3.84,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62138,
+        "cell": "4:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68238000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 3.76,
+          "residualPips": 0.76,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62141,
+        "cell": "4:late:wide",
+        "side": "down",
+        "x": 2,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68241000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 1.68,
+          "residualPips": -2.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62144,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 4,
+        "high": 6,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68244000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.2,
+          "residualPips": -1.8,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62148,
+        "cell": "5:late:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68248000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 4.12,
+          "residualPips": 3.12,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62149,
+        "cell": "4:late:wide",
+        "side": "right",
+        "x": 2,
+        "low": 0,
+        "high": 6,
+        "gap": 6,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68249000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 1.68,
+          "residualPips": -4.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62152,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 4,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 12,
+        "worldStart": 68252000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.64,
+          "residualPips": -3.36,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62153,
+        "cell": "5:late:narrow",
+        "side": "left",
+        "x": 3,
+        "low": 2,
+        "high": 4,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68253000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 1.84,
+          "residualPips": -0.16,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62154,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68254000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0.36,
+          "pips": -0.88,
+          "residualPips": -4.88,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62161,
+        "cell": "4:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 19,
+        "worldStart": 68261000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 2.8,
+          "residualPips": -1.2,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62163,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 11,
+        "worldStart": 68263000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.28,
+          "pips": -1.6,
+          "residualPips": -2.6,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62164,
+        "cell": "4:early:wide",
+        "side": "right",
+        "x": 5,
+        "low": 0,
+        "high": 6,
+        "gap": 6,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 15,
+        "worldStart": 68264000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.28,
+          "pips": 2.44,
+          "residualPips": -3.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62170,
+        "cell": "4:early:narrow",
+        "side": "down",
+        "x": 4,
+        "low": 2,
+        "high": 3,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68270000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.32,
+          "pips": -1.56,
+          "residualPips": -2.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62174,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 0,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68274000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": 0.16,
+          "residualPips": -3.84,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62176,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 3,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68276000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": -1.56,
+          "residualPips": -4.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62178,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 15,
+        "worldStart": 68278000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 2,
+          "residualPips": -1,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62179,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 15,
+        "worldStart": 68279000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": -0.64,
+          "pips": 6.44,
+          "residualPips": 3.44,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62185,
+        "cell": "5:late:wide",
+        "side": "up",
+        "x": 2,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68285000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 4.72,
+          "residualPips": 0.72,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62191,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68291000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 0.76,
+          "residualPips": -2.24,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62193,
+        "cell": "4:early:wide",
+        "side": "up",
+        "x": 5,
+        "low": 3,
+        "high": 6,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 15,
+        "worldStart": 68293000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": -0.08,
+          "residualPips": -3.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62215,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 2,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 19,
+        "worldStart": 68315000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 3.2,
+          "residualPips": -1.8,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62218,
+        "cell": "4:early:wide",
+        "side": "down",
+        "x": 2,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 10,
+        "worldStart": 68318000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": -0.28,
+          "residualPips": -5.28,
+          "minus": 0.08
+        }
+      },
+      {
+        "seed": 62222,
+        "cell": "4:early:wide",
+        "side": "up",
+        "x": 6,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68322000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0.64,
+          "pips": -1.36,
+          "residualPips": -4.36,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62227,
+        "cell": "4:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 15,
+        "worldStart": 68327000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.24,
+          "pips": 2.64,
+          "residualPips": -1.36,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62265,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68365000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.16,
+          "pips": 2.28,
+          "residualPips": -1.72,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62267,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 5,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 9,
+        "worldStart": 68367000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.36,
+          "pips": -1.44,
+          "residualPips": -6.44,
+          "minus": 0.64
+        }
+      },
+      {
+        "seed": 62291,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 13,
+        "worldStart": 68391000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.56,
+          "residualPips": -4.44,
+          "minus": 0
+        }
+      }
+    ],
+    "min-hand-pips": [
+      {
+        "seed": 62000,
+        "cell": "4:late:wide",
+        "side": "down",
+        "x": 3,
+        "low": 0,
+        "high": 6,
+        "gap": 6,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68100000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.2,
+          "pips": -0.08,
+          "residualPips": -6.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62001,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 4,
+        "low": 0,
+        "high": 1,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 15,
+        "worldStart": 68101000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.32,
+          "pips": -1.84,
+          "residualPips": -2.84,
+          "minus": -0.16
+        }
+      },
+      {
+        "seed": 62002,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 1,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 12,
+        "worldStart": 68102000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -2.48,
+          "residualPips": -3.48,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62007,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 1,
+        "low": 0,
+        "high": 3,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 10,
+        "worldStart": 68107000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.24,
+          "pips": 2.24,
+          "residualPips": -0.76,
+          "minus": -0.28
+        }
+      },
+      {
+        "seed": 62008,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 10,
+        "worldStart": 68108000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.24,
+          "pips": -1.28,
+          "residualPips": -5.28,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62010,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 5,
+        "low": 0,
+        "high": 1,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68110000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.4,
+          "pips": 1.68,
+          "residualPips": 0.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62011,
+        "cell": "4:early:narrow",
+        "side": "left",
+        "x": 2,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68111000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 0.32,
+          "residualPips": -0.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62013,
+        "cell": "5:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 0,
+        "high": 4,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68113000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 8.52,
+          "residualPips": 4.52,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62014,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 5,
+        "low": 2,
+        "high": 4,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 13,
+        "worldStart": 68114000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.32,
+          "residualPips": -1.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62015,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 3,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68115000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 0.68,
+          "residualPips": -0.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62016,
+        "cell": "5:early:wide",
+        "side": "down",
+        "x": 2,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68116000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.4,
+          "pips": 0.76,
+          "residualPips": -4.24,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62018,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 2,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 17,
+        "worldStart": 68118000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 3.72,
+          "residualPips": 0.72,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62019,
+        "cell": "5:late:wide",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68119000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 8.16,
+          "residualPips": 4.16,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62023,
+        "cell": "5:early:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68123000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 2.8,
+          "residualPips": 0.8,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62024,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 0,
+        "high": 4,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68124000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 4,
+          "residualPips": 0,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62025,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 3,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 6,
+        "turn": 9,
+        "worldStart": 68125000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 1.44,
+          "residualPips": 0.44,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62026,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 2,
+        "low": 0,
+        "high": 4,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 9,
+        "worldStart": 68126000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.2,
+          "pips": -0.04,
+          "residualPips": -4.04,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62028,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 1,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 16,
+        "worldStart": 68128000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.04,
+          "pips": 0.56,
+          "residualPips": -1.44,
+          "minus": 0.04
+        }
+      },
+      {
+        "seed": 62031,
+        "cell": "4:early:narrow",
+        "side": "down",
+        "x": 0,
+        "low": 1,
+        "high": 2,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68131000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.48,
+          "pips": -1.4,
+          "residualPips": -2.4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62032,
+        "cell": "5:early:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 11,
+        "worldStart": 68132000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.04,
+          "pips": 0.84,
+          "residualPips": -1.16,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62033,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 3,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68133000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 0.32,
+          "residualPips": -0.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62035,
+        "cell": "4:late:narrow",
+        "side": "right",
+        "x": 2,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 19,
+        "worldStart": 68135000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 1.4,
+          "residualPips": 0.4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62036,
+        "cell": "5:early:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 4,
+        "high": 6,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68136000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0.04,
+          "pips": 1.76,
+          "residualPips": -0.24,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62037,
+        "cell": "5:late:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68137000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.2,
+          "pips": 0.28,
+          "residualPips": -1.72,
+          "minus": -0.24
+        }
+      },
+      {
+        "seed": 62038,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 0,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 16,
+        "worldStart": 68138000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 2,
+          "residualPips": 0,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62039,
+        "cell": "5:late:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68139000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 1.16,
+          "residualPips": -0.84,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62042,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 1,
+        "low": 0,
+        "high": 2,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68142000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.28,
+          "pips": 0.92,
+          "residualPips": -1.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62043,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 4,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68143000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": 0.08,
+          "residualPips": -1.92,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62044,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68144000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -0.32,
+          "residualPips": -1.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62045,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 1,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68145000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.24,
+          "pips": 0.52,
+          "residualPips": -0.48,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62047,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 3,
+        "low": 1,
+        "high": 2,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68147000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.04,
+          "pips": 1.32,
+          "residualPips": 0.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62049,
+        "cell": "5:late:wide",
+        "side": "right",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68149000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": 1.96,
+          "residualPips": -2.04,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62050,
+        "cell": "5:early:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 10,
+        "worldStart": 68150000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": -0.88,
+          "residualPips": -1.88,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62051,
+        "cell": "4:early:narrow",
+        "side": "left",
+        "x": 2,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68151000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.12,
+          "pips": 0.48,
+          "residualPips": -1.52,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62053,
+        "cell": "5:late:narrow",
+        "side": "up",
+        "x": 4,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68153000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 3.4,
+          "residualPips": 1.4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62054,
+        "cell": "5:late:wide",
+        "side": "right",
+        "x": 2,
+        "low": 0,
+        "high": 4,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 2,
+        "turn": 13,
+        "worldStart": 68154000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.12,
+          "pips": -0.32,
+          "residualPips": -4.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62055,
+        "cell": "4:late:narrow",
+        "side": "right",
+        "x": 4,
+        "low": 0,
+        "high": 2,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68155000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 2.56,
+          "residualPips": 0.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62057,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 0,
+        "low": 2,
+        "high": 4,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 17,
+        "worldStart": 68157000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 3.92,
+          "residualPips": 1.92,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62059,
+        "cell": "5:early:wide",
+        "side": "up",
+        "x": 6,
+        "low": 0,
+        "high": 3,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68159000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": -0.16,
+          "residualPips": -3.16,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62060,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68160000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": -0.56,
+          "residualPips": -2.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62062,
+        "cell": "5:late:narrow",
+        "side": "down",
+        "x": 2,
+        "low": 4,
+        "high": 6,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 2,
+        "turn": 13,
+        "worldStart": 68162000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 1.44,
+          "residualPips": -0.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62063,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 6,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68163000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -0.44,
+          "residualPips": -3.44,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62064,
+        "cell": "5:early:narrow",
+        "side": "up",
+        "x": 1,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68164000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": 1.36,
+          "residualPips": -0.64,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62065,
+        "cell": "5:early:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 11,
+        "worldStart": 68165000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": 1.68,
+          "residualPips": 0.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62066,
+        "cell": "4:early:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 9,
+        "worldStart": 68166000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -0.6,
+          "residualPips": -1.6,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62069,
+        "cell": "5:early:wide",
+        "side": "up",
+        "x": 6,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 7,
+        "turn": 6,
+        "worldStart": 68169000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": -1.28,
+          "residualPips": -5.28,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62070,
+        "cell": "5:late:narrow",
+        "side": "right",
+        "x": 5,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68170000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.04,
+          "pips": 0.12,
+          "residualPips": -0.88,
+          "minus": -0.52
+        }
+      },
+      {
+        "seed": 62071,
+        "cell": "4:early:narrow",
+        "side": "left",
+        "x": 2,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68171000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 1.12,
+          "residualPips": 0.12,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62072,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 1,
+        "low": 3,
+        "high": 6,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68172000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.2,
+          "pips": 0.48,
+          "residualPips": -2.52,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62074,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 1,
+        "turn": 20,
+        "worldStart": 68174000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 1,
+          "residualPips": 0,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62075,
+        "cell": "4:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68175000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.2,
+          "pips": -0.32,
+          "residualPips": -4.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62085,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 4,
+        "low": 0,
+        "high": 2,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 15,
+        "worldStart": 68185000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 1.52,
+          "residualPips": -0.48,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62088,
+        "cell": "5:early:wide",
+        "side": "right",
+        "x": 1,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68188000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 4.72,
+          "residualPips": 1.72,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62091,
+        "cell": "5:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 12,
+        "worldStart": 68191000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.2,
+          "pips": -0.2,
+          "residualPips": -3.2,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62093,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 4,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 17,
+        "worldStart": 68193000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.64,
+          "residualPips": -1.36,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62095,
+        "cell": "5:late:narrow",
+        "side": "right",
+        "x": 4,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 2,
+        "turn": 13,
+        "worldStart": 68195000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.68,
+          "residualPips": -1.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62096,
+        "cell": "5:early:wide",
+        "side": "up",
+        "x": 2,
+        "low": 0,
+        "high": 6,
+        "gap": 6,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 9,
+        "worldStart": 68196000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": -0.32,
+          "residualPips": -6.32,
+          "minus": 0.08
+        }
+      },
+      {
+        "seed": 62097,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 1,
+        "high": 2,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 16,
+        "worldStart": 68197000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 3.04,
+          "residualPips": 2.04,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62099,
+        "cell": "4:early:wide",
+        "side": "down",
+        "x": 4,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 6,
+        "turn": 10,
+        "worldStart": 68199000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0,
+          "residualPips": -5,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62101,
+        "cell": "5:early:wide",
+        "side": "up",
+        "x": 0,
+        "low": 3,
+        "high": 6,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 12,
+        "worldStart": 68201000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": -0.36,
+          "pips": 5.44,
+          "residualPips": 2.44,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62104,
+        "cell": "5:late:wide",
+        "side": "right",
+        "x": 2,
+        "low": 3,
+        "high": 6,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 15,
+        "worldStart": 68204000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": -1.56,
+          "residualPips": -4.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62109,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 6,
+        "turn": 7,
+        "worldStart": 68209000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 0.28,
+          "residualPips": -3.72,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62111,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 0,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 1,
+        "turn": 17,
+        "worldStart": 68211000,
+        "continuations": 250,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 4,
+          "residualPips": 0,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62113,
+        "cell": "5:late:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68213000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": 0.96,
+          "residualPips": -0.04,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62115,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68215000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.76,
+          "pips": -6.56,
+          "residualPips": -10.56,
+          "minus": 0.76
+        }
+      },
+      {
+        "seed": 62118,
+        "cell": "5:late:narrow",
+        "side": "down",
+        "x": 2,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68218000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.96,
+          "residualPips": -0.04,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62121,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 2,
+        "low": 0,
+        "high": 3,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68221000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0.24,
+          "pips": -1,
+          "residualPips": -4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62123,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 2,
+        "low": 0,
+        "high": 5,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 16,
+        "worldStart": 68223000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.48,
+          "pips": -1.04,
+          "residualPips": -6.04,
+          "minus": 0.56
+        }
+      },
+      {
+        "seed": 62126,
+        "cell": "5:late:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68226000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.52,
+          "pips": 2.68,
+          "residualPips": 1.68,
+          "minus": -0.6
+        }
+      },
+      {
+        "seed": 62136,
+        "cell": "5:late:narrow",
+        "side": "left",
+        "x": 2,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68236000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 4.84,
+          "residualPips": 3.84,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62138,
+        "cell": "4:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68238000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 3.76,
+          "residualPips": 0.76,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62141,
+        "cell": "4:late:wide",
+        "side": "down",
+        "x": 2,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68241000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 1.68,
+          "residualPips": -2.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62144,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 4,
+        "high": 6,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68244000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.2,
+          "residualPips": -1.8,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62148,
+        "cell": "5:late:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68248000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 4.12,
+          "residualPips": 3.12,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62149,
+        "cell": "4:late:wide",
+        "side": "right",
+        "x": 2,
+        "low": 0,
+        "high": 6,
+        "gap": 6,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68249000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 1.68,
+          "residualPips": -4.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62152,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 4,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 12,
+        "worldStart": 68252000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.64,
+          "residualPips": -3.36,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62153,
+        "cell": "5:late:narrow",
+        "side": "left",
+        "x": 3,
+        "low": 2,
+        "high": 4,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68253000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 1.84,
+          "residualPips": -0.16,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62154,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68254000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0.52,
+          "pips": -2.08,
+          "residualPips": -6.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62161,
+        "cell": "4:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 19,
+        "worldStart": 68261000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 2.8,
+          "residualPips": -1.2,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62163,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 11,
+        "worldStart": 68263000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.28,
+          "pips": -1.6,
+          "residualPips": -2.6,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62164,
+        "cell": "4:early:wide",
+        "side": "right",
+        "x": 5,
+        "low": 0,
+        "high": 6,
+        "gap": 6,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 15,
+        "worldStart": 68264000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.2,
+          "pips": -0.44,
+          "residualPips": -6.44,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62170,
+        "cell": "4:early:narrow",
+        "side": "down",
+        "x": 4,
+        "low": 2,
+        "high": 3,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68270000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.32,
+          "pips": -1.56,
+          "residualPips": -2.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62174,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 0,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68274000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": 1.04,
+          "residualPips": -2.96,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62176,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 3,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68276000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": -1.56,
+          "residualPips": -4.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62178,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 15,
+        "worldStart": 68278000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 2,
+          "residualPips": -1,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62179,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 15,
+        "worldStart": 68279000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": -0.64,
+          "pips": 6.44,
+          "residualPips": 3.44,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62185,
+        "cell": "5:late:wide",
+        "side": "up",
+        "x": 2,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68285000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 4.72,
+          "residualPips": 0.72,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62191,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68291000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 0.76,
+          "residualPips": -2.24,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62193,
+        "cell": "4:early:wide",
+        "side": "up",
+        "x": 5,
+        "low": 3,
+        "high": 6,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 15,
+        "worldStart": 68293000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": -0.08,
+          "residualPips": -3.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62215,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 2,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 19,
+        "worldStart": 68315000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 3.2,
+          "residualPips": -1.8,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62218,
+        "cell": "4:early:wide",
+        "side": "down",
+        "x": 2,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 10,
+        "worldStart": 68318000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": -0.28,
+          "residualPips": -5.28,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62222,
+        "cell": "4:early:wide",
+        "side": "up",
+        "x": 6,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68322000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0.64,
+          "pips": -1.36,
+          "residualPips": -4.36,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62227,
+        "cell": "4:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 15,
+        "worldStart": 68327000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.24,
+          "pips": 2.64,
+          "residualPips": -1.36,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62265,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68365000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.16,
+          "pips": 2.28,
+          "residualPips": -1.72,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62267,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 5,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 9,
+        "worldStart": 68367000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.36,
+          "pips": -1.44,
+          "residualPips": -6.44,
+          "minus": 0.64
+        }
+      },
+      {
+        "seed": 62291,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 13,
+        "worldStart": 68391000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.12,
+          "pips": -0.6,
+          "residualPips": -5.6,
+          "minus": 0
+        }
+      }
+    ],
+    "fast-doubles": [
+      {
+        "seed": 62000,
+        "cell": "4:late:wide",
+        "side": "down",
+        "x": 3,
+        "low": 0,
+        "high": 6,
+        "gap": 6,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68100000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.2,
+          "pips": -0.08,
+          "residualPips": -6.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62001,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 4,
+        "low": 0,
+        "high": 1,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 15,
+        "worldStart": 68101000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.36,
+          "pips": -2.12,
+          "residualPips": -3.12,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62002,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 1,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 12,
+        "worldStart": 68102000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.28,
+          "pips": 1,
+          "residualPips": 0,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62007,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 1,
+        "low": 0,
+        "high": 3,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 10,
+        "worldStart": 68107000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.4,
+          "pips": 2.76,
+          "residualPips": -0.24,
+          "minus": -0.16
+        }
+      },
+      {
+        "seed": 62008,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 10,
+        "worldStart": 68108000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -0.52,
+          "residualPips": -4.52,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62010,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 5,
+        "low": 0,
+        "high": 1,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68110000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 0.4,
+          "residualPips": -0.6,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62011,
+        "cell": "4:early:narrow",
+        "side": "left",
+        "x": 2,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68111000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0,
+          "residualPips": -1,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62013,
+        "cell": "5:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 0,
+        "high": 4,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68113000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 7.8,
+          "residualPips": 3.8,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62014,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 5,
+        "low": 2,
+        "high": 4,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 13,
+        "worldStart": 68114000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.32,
+          "residualPips": -1.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62015,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 3,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68115000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -0.08,
+          "residualPips": -1.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62016,
+        "cell": "5:early:wide",
+        "side": "down",
+        "x": 2,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68116000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.24,
+          "pips": 0.72,
+          "residualPips": -4.28,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62018,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 2,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 17,
+        "worldStart": 68118000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 3,
+          "residualPips": 0,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62019,
+        "cell": "5:late:wide",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68119000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 6.8,
+          "residualPips": 2.8,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62023,
+        "cell": "5:early:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68123000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 2.24,
+          "residualPips": 0.24,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62024,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 0,
+        "high": 4,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68124000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 3.04,
+          "residualPips": -0.96,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62025,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 3,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 6,
+        "turn": 9,
+        "worldStart": 68125000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 0.6,
+          "residualPips": -0.4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62026,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 2,
+        "low": 0,
+        "high": 4,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 9,
+        "worldStart": 68126000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.2,
+          "pips": -0.04,
+          "residualPips": -4.04,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62028,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 1,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 16,
+        "worldStart": 68128000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": 0.08,
+          "residualPips": -1.92,
+          "minus": -0.08
+        }
+      },
+      {
+        "seed": 62031,
+        "cell": "4:early:narrow",
+        "side": "down",
+        "x": 0,
+        "low": 1,
+        "high": 2,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68131000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.48,
+          "pips": -1.4,
+          "residualPips": -2.4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62032,
+        "cell": "5:early:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 11,
+        "worldStart": 68132000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": 1.12,
+          "residualPips": -0.88,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62033,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 3,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68133000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": -0.08,
+          "residualPips": -1.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62035,
+        "cell": "4:late:narrow",
+        "side": "right",
+        "x": 2,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 19,
+        "worldStart": 68135000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 1.4,
+          "residualPips": 0.4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62036,
+        "cell": "5:early:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 4,
+        "high": 6,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68136000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": -0.16,
+          "residualPips": -2.16,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62037,
+        "cell": "5:late:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68137000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 2.08,
+          "residualPips": 0.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62038,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 0,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 16,
+        "worldStart": 68138000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 2,
+          "residualPips": 0,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62039,
+        "cell": "5:late:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68139000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": -0.24,
+          "residualPips": -2.24,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62042,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 1,
+        "low": 0,
+        "high": 2,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68142000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.28,
+          "pips": 0.92,
+          "residualPips": -1.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62043,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 4,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68143000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.32,
+          "residualPips": -1.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62044,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68144000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -0.32,
+          "residualPips": -1.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62045,
+        "cell": "5:early:narrow",
+        "side": "left",
+        "x": 1,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68145000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.24,
+          "pips": 0.28,
+          "residualPips": -0.72,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62047,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 3,
+        "low": 1,
+        "high": 2,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68147000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.16,
+          "pips": 1.88,
+          "residualPips": 0.88,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62049,
+        "cell": "5:late:wide",
+        "side": "right",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68149000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.48,
+          "residualPips": -3.52,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62050,
+        "cell": "5:early:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 10,
+        "worldStart": 68150000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 0.28,
+          "residualPips": -0.72,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62051,
+        "cell": "4:early:narrow",
+        "side": "left",
+        "x": 2,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68151000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.6,
+          "pips": -1.8,
+          "residualPips": -3.8,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62053,
+        "cell": "5:late:narrow",
+        "side": "up",
+        "x": 4,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68153000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 3.4,
+          "residualPips": 1.4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62054,
+        "cell": "5:late:wide",
+        "side": "right",
+        "x": 2,
+        "low": 0,
+        "high": 4,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 2,
+        "turn": 13,
+        "worldStart": 68154000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.2,
+          "pips": -0.84,
+          "residualPips": -4.84,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62055,
+        "cell": "4:late:narrow",
+        "side": "right",
+        "x": 4,
+        "low": 0,
+        "high": 2,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68155000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 2.56,
+          "residualPips": 0.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62057,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 0,
+        "low": 2,
+        "high": 4,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 17,
+        "worldStart": 68157000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 3.92,
+          "residualPips": 1.92,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62059,
+        "cell": "5:early:wide",
+        "side": "up",
+        "x": 6,
+        "low": 0,
+        "high": 3,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68159000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 0.08,
+          "residualPips": -2.92,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62060,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 1,
+        "high": 3,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68160000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.28,
+          "residualPips": -1.72,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62062,
+        "cell": "5:late:narrow",
+        "side": "down",
+        "x": 2,
+        "low": 4,
+        "high": 6,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 2,
+        "turn": 13,
+        "worldStart": 68162000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 1.44,
+          "residualPips": -0.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62063,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 6,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68163000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -0.44,
+          "residualPips": -3.44,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62064,
+        "cell": "5:early:narrow",
+        "side": "up",
+        "x": 1,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68164000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.24,
+          "pips": 2.96,
+          "residualPips": 0.96,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62065,
+        "cell": "5:early:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 11,
+        "worldStart": 68165000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": -0.2,
+          "pips": 5.68,
+          "residualPips": 4.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62066,
+        "cell": "4:early:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 9,
+        "worldStart": 68166000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -0.6,
+          "residualPips": -1.6,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62069,
+        "cell": "5:early:wide",
+        "side": "up",
+        "x": 6,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 7,
+        "turn": 6,
+        "worldStart": 68169000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 1.44,
+          "residualPips": -2.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62070,
+        "cell": "5:late:narrow",
+        "side": "right",
+        "x": 5,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68170000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": -0.68,
+          "residualPips": -1.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62071,
+        "cell": "4:early:narrow",
+        "side": "left",
+        "x": 2,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68171000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": -0.52,
+          "residualPips": -1.52,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62072,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 1,
+        "low": 3,
+        "high": 6,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68172000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 0.44,
+          "residualPips": -2.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62074,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 1,
+        "turn": 20,
+        "worldStart": 68174000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 1,
+          "residualPips": 0,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62075,
+        "cell": "4:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68175000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": -0.76,
+          "residualPips": -4.76,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62085,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 4,
+        "low": 0,
+        "high": 2,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 15,
+        "worldStart": 68185000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 1.52,
+          "residualPips": -0.48,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62088,
+        "cell": "5:early:wide",
+        "side": "right",
+        "x": 1,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 4,
+        "turn": 14,
+        "worldStart": 68188000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": 1.96,
+          "residualPips": -1.04,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62091,
+        "cell": "5:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 12,
+        "worldStart": 68191000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.2,
+          "pips": -0.2,
+          "residualPips": -3.2,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62093,
+        "cell": "4:late:narrow",
+        "side": "left",
+        "x": 4,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 17,
+        "worldStart": 68193000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.64,
+          "residualPips": -1.36,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62095,
+        "cell": "5:late:narrow",
+        "side": "right",
+        "x": 4,
+        "low": 3,
+        "high": 5,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 2,
+        "turn": 13,
+        "worldStart": 68195000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": -0.32,
+          "residualPips": -2.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62096,
+        "cell": "5:early:wide",
+        "side": "up",
+        "x": 2,
+        "low": 0,
+        "high": 6,
+        "gap": 6,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 9,
+        "worldStart": 68196000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": 0.68,
+          "residualPips": -5.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62097,
+        "cell": "4:late:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 1,
+        "high": 2,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 16,
+        "worldStart": 68197000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 3.04,
+          "residualPips": 2.04,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62099,
+        "cell": "4:early:wide",
+        "side": "down",
+        "x": 4,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 6,
+        "turn": 10,
+        "worldStart": 68199000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0,
+          "residualPips": -5,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62101,
+        "cell": "5:early:wide",
+        "side": "up",
+        "x": 0,
+        "low": 3,
+        "high": 6,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 5,
+        "turn": 12,
+        "worldStart": 68201000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 2.08,
+          "residualPips": -0.92,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62104,
+        "cell": "5:late:wide",
+        "side": "right",
+        "x": 2,
+        "low": 3,
+        "high": 6,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 15,
+        "worldStart": 68204000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": -1.56,
+          "residualPips": -4.56,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62109,
+        "cell": "5:early:wide",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 6,
+        "turn": 7,
+        "worldStart": 68209000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0.04,
+          "pips": -0.08,
+          "residualPips": -4.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62111,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 0,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 1,
+        "turn": 17,
+        "worldStart": 68211000,
+        "continuations": 250,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 4,
+          "residualPips": 0,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62113,
+        "cell": "5:late:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68213000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": 0.96,
+          "residualPips": -0.04,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62115,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68215000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -3.68,
+          "residualPips": -7.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62118,
+        "cell": "5:late:narrow",
+        "side": "down",
+        "x": 2,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68218000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": -0.32,
+          "residualPips": -1.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62121,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 2,
+        "low": 0,
+        "high": 3,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68221000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0.24,
+          "pips": -1,
+          "residualPips": -4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62123,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 2,
+        "low": 0,
+        "high": 5,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 16,
+        "worldStart": 68223000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": 1.92,
+          "residualPips": -3.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62126,
+        "cell": "5:late:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68226000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.52,
+          "residualPips": -0.48,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62136,
+        "cell": "5:late:narrow",
+        "side": "left",
+        "x": 2,
+        "low": 5,
+        "high": 6,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68236000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.08,
+          "residualPips": -0.92,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62138,
+        "cell": "4:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68238000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 2.04,
+          "residualPips": -0.96,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62141,
+        "cell": "4:late:wide",
+        "side": "down",
+        "x": 2,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68241000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 1.32,
+          "residualPips": -2.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62144,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 2,
+        "low": 4,
+        "high": 6,
+        "gap": 2,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68244000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.2,
+          "residualPips": -1.8,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62148,
+        "cell": "5:late:narrow",
+        "side": "right",
+        "x": 1,
+        "low": 3,
+        "high": 4,
+        "gap": 1,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68248000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 3.96,
+          "residualPips": 2.96,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62149,
+        "cell": "4:late:wide",
+        "side": "right",
+        "x": 2,
+        "low": 0,
+        "high": 6,
+        "gap": 6,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68249000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.12,
+          "pips": 1.68,
+          "residualPips": -4.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62152,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 4,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 12,
+        "worldStart": 68252000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 0.64,
+          "residualPips": -3.36,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62153,
+        "cell": "5:late:narrow",
+        "side": "left",
+        "x": 3,
+        "low": 2,
+        "high": 4,
+        "gap": 2,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 17,
+        "worldStart": 68253000,
+        "continuations": 200,
+        "keepHighMinusLow": {
+          "finish": -0.08,
+          "pips": 3.28,
+          "residualPips": 1.28,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62154,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68254000,
+        "continuations": 50,
+        "keepHighMinusLow": {
+          "finish": 0.4,
+          "pips": -2.04,
+          "residualPips": -6.04,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62161,
+        "cell": "4:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 19,
+        "worldStart": 68261000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": 1.2,
+          "residualPips": -2.8,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62163,
+        "cell": "4:early:narrow",
+        "side": "up",
+        "x": 0,
+        "low": 4,
+        "high": 5,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 11,
+        "worldStart": 68263000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.28,
+          "pips": -1.6,
+          "residualPips": -2.6,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62164,
+        "cell": "4:early:wide",
+        "side": "right",
+        "x": 5,
+        "low": 0,
+        "high": 6,
+        "gap": 6,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 15,
+        "worldStart": 68264000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.12,
+          "pips": -0.28,
+          "residualPips": -6.28,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62170,
+        "cell": "4:early:narrow",
+        "side": "down",
+        "x": 4,
+        "low": 2,
+        "high": 3,
+        "gap": 1,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 13,
+        "worldStart": 68270000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.08,
+          "pips": -0.28,
+          "residualPips": -1.28,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62174,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 0,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 13,
+        "worldStart": 68274000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.04,
+          "pips": 2.56,
+          "residualPips": -1.44,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62176,
+        "cell": "5:late:wide",
+        "side": "down",
+        "x": 3,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 16,
+        "worldStart": 68276000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 1.8,
+          "residualPips": -1.2,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62178,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 15,
+        "worldStart": 68278000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": -0.16,
+          "pips": 6.12,
+          "residualPips": 3.12,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62179,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 4,
+        "low": 2,
+        "high": 5,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 15,
+        "worldStart": 68279000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.2,
+          "pips": -0.6,
+          "residualPips": -3.6,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62185,
+        "cell": "5:late:wide",
+        "side": "up",
+        "x": 2,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 5,
+        "opponentMinHand": 3,
+        "turn": 14,
+        "worldStart": 68285000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": -0.04,
+          "pips": 4.32,
+          "residualPips": 0.32,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62191,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68291000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": -0.68,
+          "residualPips": -3.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62193,
+        "cell": "4:early:wide",
+        "side": "up",
+        "x": 5,
+        "low": 3,
+        "high": 6,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 15,
+        "worldStart": 68293000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.32,
+          "pips": -0.4,
+          "residualPips": -3.4,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62215,
+        "cell": "4:late:wide",
+        "side": "left",
+        "x": 2,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 2,
+        "turn": 19,
+        "worldStart": 68315000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0,
+          "pips": 3.2,
+          "residualPips": -1.8,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62218,
+        "cell": "4:early:wide",
+        "side": "down",
+        "x": 2,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 10,
+        "worldStart": 68318000,
+        "continuations": 100,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": -0.28,
+          "residualPips": -5.28,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62222,
+        "cell": "4:early:wide",
+        "side": "up",
+        "x": 6,
+        "low": 1,
+        "high": 4,
+        "gap": 3,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 11,
+        "worldStart": 68322000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": 0.12,
+          "pips": -0.08,
+          "residualPips": -3.08,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62227,
+        "cell": "4:late:wide",
+        "side": "up",
+        "x": 3,
+        "low": 2,
+        "high": 6,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 3,
+        "turn": 15,
+        "worldStart": 68327000,
+        "continuations": 150,
+        "keepHighMinusLow": {
+          "finish": 0.04,
+          "pips": 0.32,
+          "residualPips": -3.68,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62265,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 5,
+        "gap": 4,
+        "handSize": 4,
+        "opponentMinHand": 4,
+        "turn": 12,
+        "worldStart": 68365000,
+        "continuations": 175,
+        "keepHighMinusLow": {
+          "finish": -0.16,
+          "pips": 2.28,
+          "residualPips": -1.72,
+          "minus": 0
+        }
+      },
+      {
+        "seed": 62267,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 5,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 9,
+        "worldStart": 68367000,
+        "continuations": 75,
+        "keepHighMinusLow": {
+          "finish": 0.44,
+          "pips": -1.96,
+          "residualPips": -6.96,
+          "minus": 0.52
+        }
+      },
+      {
+        "seed": 62291,
+        "cell": "4:early:wide",
+        "side": "left",
+        "x": 3,
+        "low": 1,
+        "high": 6,
+        "gap": 5,
+        "handSize": 4,
+        "opponentMinHand": 5,
+        "turn": 13,
+        "worldStart": 68391000,
+        "continuations": 125,
+        "keepHighMinusLow": {
+          "finish": 0.16,
+          "pips": -0.32,
+          "residualPips": -5.32,
+          "minus": 0
+        }
+      }
+    ]
+  },
+  "validation": {
+    "execution": "V8 CommonJS harness (not Node CLI)",
+    "selfTest": {
+      "passed": true,
+      "fixtureSeeds": [
+        51000,
+        51001,
+        51002,
+        51004,
+        51005,
+        51008,
+        51010,
+        51011,
+        51018,
+        51022,
+        51026,
+        51030,
+        51043,
+        51044,
+        51052,
+        51059
+      ],
+      "pairedWorlds": 2
+    },
+    "zeroUnresolved": true
+  },
+  "hypothesis": "Does keeping the higher connector have any advantage beyond immediate pip gap, and does nearest opponent hand size <=3 or connector nominal gap alter the result? Independent disjoint seeds 62000+, matched worlds, 3 continuation policies.",
+  "finding": "Independent holdout; evaluate residual pips and finish effects at position level. Positive keepHighMinusLow.pips is worse; negative residualPips indicates relative downstream advantage after subtracting immediate pip gap. No human recommendation from unadjusted nominal gap.",
+  "nextAction": "Compare new holdout with 51000..51289 using position-level heterogeneity and independent discovery policies; build direct paired opponent-pressure policy intervention, avoid conditioning on post-action state."
+}
