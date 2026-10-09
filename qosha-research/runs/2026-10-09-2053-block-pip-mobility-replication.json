@@ -1,0 +1,3878 @@
+{
+  "schema": "qosa-block-pip-mobility-replication/v1",
+  "timestampAsiaBaku": "2026-10-09 20:56:15 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "seedSets": {
+    "closed-branch-control": {
+      "urgent/highMore": [
+        300169,
+        301290,
+        302070,
+        302753
+      ],
+      "urgent/highNotMore": [
+        300153,
+        300377,
+        300990,
+        301114
+      ],
+      "normal/highMore": [
+        300037,
+        300119,
+        300324,
+        300425
+      ],
+      "normal/highNotMore": [
+        300005,
+        300011,
+        300075,
+        300080
+      ]
+    },
+    "min-hand-pips": {
+      "urgent/highMore": [
+        313510,
+        317812
+      ],
+      "urgent/highNotMore": [
+        310864,
+        311305,
+        311728,
+        312114
+      ],
+      "normal/highMore": [
+        310081,
+        310101,
+        310256,
+        310280
+      ],
+      "normal/highNotMore": [
+        310000,
+        310008,
+        310010,
+        310063
+      ]
+    }
+  },
+  "seedScans": [
+    {
+      "policy": "closed-branch-control",
+      "range": [
+        300000,
+        309999
+      ],
+      "screened": 2754
+    },
+    {
+      "policy": "min-hand-pips",
+      "range": [
+        310000,
+        319999
+      ],
+      "screened": 10000
+    }
+  ],
+  "selection": "first eligible position per seed; distinct ordinary low/high pips gap >=3; 4 screening hidden worlds with >=1 BOTH-block under closed-control; quota by opponent min <=2 vs 3..4 and high-move future distinct playable tiles > low-move vs not",
+  "selectedPositions": 30,
+  "trainingWorldsPerPosition": 4,
+  "evaluationWorldsPerPosition": 60,
+  "newHiddenWorlds": 1920,
+  "candidateContinuations": 10800,
+  "worldSeedFormula": "22000000+1000*dealSeed+worldIndex; 0..3 screening, 4..(3+worlds) evaluation",
+  "strategies": [
+    "low-pip single",
+    "high-pip single"
+  ],
+  "continuationPolicies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "random-legal"
+  ],
+  "summary": {
+    "all": {
+      "positions": 30,
+      "policies": {
+        "closed-branch-control": {
+          "evaluatedWorlds": 1800,
+          "finishFirstHighMinusLow": {
+            "n": 30,
+            "mean": 0.04666666666666667,
+            "ci95": [
+              -0.01799486016623999,
+              0.11132819349957332
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 30,
+            "mean": -0.9499999999999998,
+            "ci95": [
+              -2.0485901026031845,
+              0.14859010260318473
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 30,
+            "mean": 3.7007434154171884e-18,
+            "ci95": [
+              -0.08978297090553,
+              0.08978297090553
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 30,
+            "mean": 0.0005555555555555556,
+            "ci95": [
+              -0.001912629403977609,
+              0.0030237405150887204
+            ]
+          },
+          "bothBlockWorlds": 346,
+          "distinctBothBlockPositions": 29,
+          "meanPipsHighMinusLowBothBlock": 0.9826589595375722,
+          "bothBlockHighLower": 55,
+          "bothBlockHighHigher": 136,
+          "bothBlockEqual": 155,
+          "strictMinProxyGain": 22,
+          "strictMinProxyLoss": 36
+        },
+        "min-hand-pips": {
+          "evaluatedWorlds": 1800,
+          "finishFirstHighMinusLow": {
+            "n": 30,
+            "mean": 0.06777777777777777,
+            "ci95": [
+              0.01564426283621862,
+              0.11991129271933693
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 30,
+            "mean": -0.93,
+            "ci95": [
+              -2.009563816369511,
+              0.1495638163695111
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 30,
+            "mean": -0.0011111111111111183,
+            "ci95": [
+              -0.09212788462499134,
+              0.08990566240276911
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 30,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 358,
+          "distinctBothBlockPositions": 28,
+          "meanPipsHighMinusLowBothBlock": 0.9106145251396648,
+          "bothBlockHighLower": 66,
+          "bothBlockHighHigher": 138,
+          "bothBlockEqual": 154,
+          "strictMinProxyGain": 17,
+          "strictMinProxyLoss": 38
+        },
+        "random-legal": {
+          "evaluatedWorlds": 1800,
+          "finishFirstHighMinusLow": {
+            "n": 30,
+            "mean": 0.04277777777777778,
+            "ci95": [
+              0.003133372635450646,
+              0.08242218292010492
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 30,
+            "mean": -2.2561111111111107,
+            "ci95": [
+              -2.9626524543563395,
+              -1.549569767865882
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 30,
+            "mean": -0.05500000000000001,
+            "ci95": [
+              -0.11474672084174159,
+              0.004746720841741568
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 30,
+            "mean": 0.0011111111111111111,
+            "ci95": [
+              -0.0010666666666666665,
+              0.003288888888888889
+            ]
+          },
+          "bothBlockWorlds": 55,
+          "distinctBothBlockPositions": 17,
+          "meanPipsHighMinusLowBothBlock": -1.7272727272727273,
+          "bothBlockHighLower": 25,
+          "bothBlockHighHigher": 10,
+          "bothBlockEqual": 20,
+          "strictMinProxyGain": 1,
+          "strictMinProxyLoss": 5
+        }
+      }
+    },
+    "urgent": {
+      "positions": 14,
+      "policies": {
+        "closed-branch-control": {
+          "evaluatedWorlds": 840,
+          "finishFirstHighMinusLow": {
+            "n": 14,
+            "mean": 0.0773809523809524,
+            "ci95": [
+              -0.018294469357267945,
+              0.17305637411917274
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 14,
+            "mean": -0.7523809523809524,
+            "ci95": [
+              -2.6199488758359326,
+              1.115186971074028
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 14,
+            "mean": -0.041666666666666664,
+            "ci95": [
+              -0.2144800139273832,
+              0.13114668059404988
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 14,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 230,
+          "distinctBothBlockPositions": 14,
+          "meanPipsHighMinusLowBothBlock": 1.6304347826086956,
+          "bothBlockHighLower": 29,
+          "bothBlockHighHigher": 121,
+          "bothBlockEqual": 80,
+          "strictMinProxyGain": 0,
+          "strictMinProxyLoss": 30
+        },
+        "min-hand-pips": {
+          "evaluatedWorlds": 840,
+          "finishFirstHighMinusLow": {
+            "n": 14,
+            "mean": 0.0773809523809524,
+            "ci95": [
+              -0.018294469357267945,
+              0.17305637411917274
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 14,
+            "mean": -0.6785714285714286,
+            "ci95": [
+              -2.5708767652387134,
+              1.2137339080958565
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 14,
+            "mean": -0.02619047619047618,
+            "ci95": [
+              -0.20229621365871078,
+              0.14991526127775842
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 14,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 220,
+          "distinctBothBlockPositions": 13,
+          "meanPipsHighMinusLowBothBlock": 1.7045454545454546,
+          "bothBlockHighLower": 29,
+          "bothBlockHighHigher": 121,
+          "bothBlockEqual": 70,
+          "strictMinProxyGain": 0,
+          "strictMinProxyLoss": 30
+        },
+        "random-legal": {
+          "evaluatedWorlds": 840,
+          "finishFirstHighMinusLow": {
+            "n": 14,
+            "mean": 0.040476190476190464,
+            "ci95": [
+              -0.03334433570366065,
+              0.11429671665604157
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 14,
+            "mean": -2.544047619047619,
+            "ci95": [
+              -3.860333526342683,
+              -1.2277617117525548
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 14,
+            "mean": -0.11071428571428574,
+            "ci95": [
+              -0.230107802983072,
+              0.008679231554500538
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 14,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 40,
+          "distinctBothBlockPositions": 11,
+          "meanPipsHighMinusLowBothBlock": -2,
+          "bothBlockHighLower": 19,
+          "bothBlockHighHigher": 8,
+          "bothBlockEqual": 13,
+          "strictMinProxyGain": 0,
+          "strictMinProxyLoss": 4
+        }
+      }
+    },
+    "normal": {
+      "positions": 16,
+      "policies": {
+        "closed-branch-control": {
+          "evaluatedWorlds": 960,
+          "finishFirstHighMinusLow": {
+            "n": 16,
+            "mean": 0.019791666666666666,
+            "ci95": [
+              -0.06863080866352593,
+              0.10821414199685926
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 16,
+            "mean": -1.1229166666666666,
+            "ci95": [
+              -2.4319932550876233,
+              0.18615992175429041
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 16,
+            "mean": 0.03645833333333334,
+            "ci95": [
+              -0.03999020221812745,
+              0.11290686888479413
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 16,
+            "mean": 0.0010416666666666667,
+            "ci95": [
+              -0.0036437989412492593,
+              0.005727132274582592
+            ]
+          },
+          "bothBlockWorlds": 116,
+          "distinctBothBlockPositions": 15,
+          "meanPipsHighMinusLowBothBlock": -0.3017241379310345,
+          "bothBlockHighLower": 26,
+          "bothBlockHighHigher": 15,
+          "bothBlockEqual": 75,
+          "strictMinProxyGain": 22,
+          "strictMinProxyLoss": 6
+        },
+        "min-hand-pips": {
+          "evaluatedWorlds": 960,
+          "finishFirstHighMinusLow": {
+            "n": 16,
+            "mean": 0.05937499999999998,
+            "ci95": [
+              0.0057836806106726715,
+              0.1129663193893273
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 16,
+            "mean": -1.15,
+            "ci95": [
+              -2.3676898924086025,
+              0.06768989240860246
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 16,
+            "mean": 0.02083333333333333,
+            "ci95": [
+              -0.0582049251007712,
+              0.09987159176743786
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 16,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 138,
+          "distinctBothBlockPositions": 15,
+          "meanPipsHighMinusLowBothBlock": -0.35507246376811596,
+          "bothBlockHighLower": 37,
+          "bothBlockHighHigher": 17,
+          "bothBlockEqual": 84,
+          "strictMinProxyGain": 17,
+          "strictMinProxyLoss": 8
+        },
+        "random-legal": {
+          "evaluatedWorlds": 960,
+          "finishFirstHighMinusLow": {
+            "n": 16,
+            "mean": 0.04479166666666667,
+            "ci95": [
+              0.005261991046575508,
+              0.08432134228675783
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 16,
+            "mean": -2.0041666666666664,
+            "ci95": [
+              -2.6830421707172984,
+              -1.3252911626160342
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 16,
+            "mean": -0.006250000000000002,
+            "ci95": [
+              -0.03498846789648044,
+              0.02248846789648044
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 16,
+            "mean": 0.0020833333333333333,
+            "ci95": [
+              -0.0019999999999999996,
+              0.006166666666666666
+            ]
+          },
+          "bothBlockWorlds": 15,
+          "distinctBothBlockPositions": 6,
+          "meanPipsHighMinusLowBothBlock": -1,
+          "bothBlockHighLower": 6,
+          "bothBlockHighHigher": 2,
+          "bothBlockEqual": 7,
+          "strictMinProxyGain": 1,
+          "strictMinProxyLoss": 1
+        }
+      }
+    },
+    "highMore": {
+      "positions": 14,
+      "policies": {
+        "closed-branch-control": {
+          "evaluatedWorlds": 840,
+          "finishFirstHighMinusLow": {
+            "n": 14,
+            "mean": 0.04166666666666667,
+            "ci95": [
+              -0.0625245201909722,
+              0.14585785352430553
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 14,
+            "mean": -0.8738095238095239,
+            "ci95": [
+              -3.0544964696033383,
+              1.3068774219842907
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 14,
+            "mean": -0.055952380952380955,
+            "ci95": [
+              -0.212788541312743,
+              0.1008837794079811
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 14,
+            "mean": -0.0011904761904761904,
+            "ci95": [
+              -0.0035238095238095237,
+              0.0011428571428571427
+            ]
+          },
+          "bothBlockWorlds": 139,
+          "distinctBothBlockPositions": 13,
+          "meanPipsHighMinusLowBothBlock": 3.129496402877698,
+          "bothBlockHighLower": 12,
+          "bothBlockHighHigher": 102,
+          "bothBlockEqual": 25,
+          "strictMinProxyGain": 5,
+          "strictMinProxyLoss": 36
+        },
+        "min-hand-pips": {
+          "evaluatedWorlds": 840,
+          "finishFirstHighMinusLow": {
+            "n": 14,
+            "mean": 0.06666666666666667,
+            "ci95": [
+              -0.035205550929441054,
+              0.16853888426277439
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 14,
+            "mean": -0.9714285714285715,
+            "ci95": [
+              -3.0798241537669364,
+              1.1369670109097934
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 14,
+            "mean": -0.05595238095238094,
+            "ci95": [
+              -0.21782922028127044,
+              0.10592445837650855
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 14,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 141,
+          "distinctBothBlockPositions": 13,
+          "meanPipsHighMinusLowBothBlock": 3.0567375886524824,
+          "bothBlockHighLower": 11,
+          "bothBlockHighHigher": 102,
+          "bothBlockEqual": 28,
+          "strictMinProxyGain": 0,
+          "strictMinProxyLoss": 37
+        },
+        "random-legal": {
+          "evaluatedWorlds": 840,
+          "finishFirstHighMinusLow": {
+            "n": 14,
+            "mean": 0.03809523809523809,
+            "ci95": [
+              -0.03633547884294292,
+              0.11252595503341911
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 14,
+            "mean": -2.9940476190476195,
+            "ci95": [
+              -4.249898789526496,
+              -1.7381964485687438
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 14,
+            "mean": -0.09166666666666667,
+            "ci95": [
+              -0.21383416412772394,
+              0.0305008307943906
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 14,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 20,
+          "distinctBothBlockPositions": 8,
+          "meanPipsHighMinusLowBothBlock": -1.9,
+          "bothBlockHighLower": 11,
+          "bothBlockHighHigher": 4,
+          "bothBlockEqual": 5,
+          "strictMinProxyGain": 0,
+          "strictMinProxyLoss": 5
+        }
+      }
+    },
+    "highNotMore": {
+      "positions": 16,
+      "policies": {
+        "closed-branch-control": {
+          "evaluatedWorlds": 960,
+          "finishFirstHighMinusLow": {
+            "n": 16,
+            "mean": 0.051041666666666666,
+            "ci95": [
+              -0.032107072633591055,
+              0.1341904059669244
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 16,
+            "mean": -1.0166666666666666,
+            "ci95": [
+              -1.8921089548844565,
+              -0.1412243784488767
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 16,
+            "mean": 0.048958333333333326,
+            "ci95": [
+              -0.047231399481942105,
+              0.14514806614860876
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 16,
+            "mean": 0.0020833333333333333,
+            "ci95": [
+              -0.0019999999999999996,
+              0.006166666666666666
+            ]
+          },
+          "bothBlockWorlds": 207,
+          "distinctBothBlockPositions": 16,
+          "meanPipsHighMinusLowBothBlock": -0.45893719806763283,
+          "bothBlockHighLower": 43,
+          "bothBlockHighHigher": 34,
+          "bothBlockEqual": 130,
+          "strictMinProxyGain": 17,
+          "strictMinProxyLoss": 0
+        },
+        "min-hand-pips": {
+          "evaluatedWorlds": 960,
+          "finishFirstHighMinusLow": {
+            "n": 16,
+            "mean": 0.06874999999999999,
+            "ci95": [
+              0.02423105376276214,
+              0.11326894623723785
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 16,
+            "mean": -0.8937500000000002,
+            "ci95": [
+              -1.8173412693775157,
+              0.0298412693775153
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 16,
+            "mean": 0.046875,
+            "ci95": [
+              -0.0474358575256435,
+              0.1411858575256435
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 16,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 217,
+          "distinctBothBlockPositions": 15,
+          "meanPipsHighMinusLowBothBlock": -0.4838709677419355,
+          "bothBlockHighLower": 55,
+          "bothBlockHighHigher": 36,
+          "bothBlockEqual": 126,
+          "strictMinProxyGain": 17,
+          "strictMinProxyLoss": 1
+        },
+        "random-legal": {
+          "evaluatedWorlds": 960,
+          "finishFirstHighMinusLow": {
+            "n": 16,
+            "mean": 0.046875,
+            "ci95": [
+              0.008313254479437884,
+              0.08543674552056212
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 16,
+            "mean": -1.6104166666666666,
+            "ci95": [
+              -2.2307241467984213,
+              -0.9901091865349118
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 16,
+            "mean": -0.022916666666666672,
+            "ci95": [
+              -0.05542984775441083,
+              0.00959651442107749
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 16,
+            "mean": 0.0020833333333333333,
+            "ci95": [
+              -0.0019999999999999996,
+              0.006166666666666666
+            ]
+          },
+          "bothBlockWorlds": 35,
+          "distinctBothBlockPositions": 9,
+          "meanPipsHighMinusLowBothBlock": -1.6285714285714286,
+          "bothBlockHighLower": 14,
+          "bothBlockHighHigher": 6,
+          "bothBlockEqual": 15,
+          "strictMinProxyGain": 1,
+          "strictMinProxyLoss": 0
+        }
+      }
+    },
+    "urgent/highMore": {
+      "positions": 6,
+      "policies": {
+        "closed-branch-control": {
+          "evaluatedWorlds": 360,
+          "finishFirstHighMinusLow": {
+            "n": 6,
+            "mean": 0.10833333333333334,
+            "ci95": [
+              -0.10400000000000004,
+              0.3206666666666667
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 6,
+            "mean": -0.7916666666666665,
+            "ci95": [
+              -5.17795183329263,
+              3.594618499959297
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 6,
+            "mean": -0.21388888888888888,
+            "ci95": [
+              -0.5215361335709985,
+              0.09375835579322075
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 6,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 97,
+          "distinctBothBlockPositions": 6,
+          "meanPipsHighMinusLowBothBlock": 3.731958762886598,
+          "bothBlockHighLower": 7,
+          "bothBlockHighHigher": 90,
+          "bothBlockEqual": 0,
+          "strictMinProxyGain": 0,
+          "strictMinProxyLoss": 30
+        },
+        "min-hand-pips": {
+          "evaluatedWorlds": 360,
+          "finishFirstHighMinusLow": {
+            "n": 6,
+            "mean": 0.10833333333333334,
+            "ci95": [
+              -0.10400000000000004,
+              0.3206666666666667
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 6,
+            "mean": -0.7916666666666665,
+            "ci95": [
+              -5.17795183329263,
+              3.594618499959297
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 6,
+            "mean": -0.21388888888888888,
+            "ci95": [
+              -0.5215361335709985,
+              0.09375835579322075
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 6,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 97,
+          "distinctBothBlockPositions": 6,
+          "meanPipsHighMinusLowBothBlock": 3.731958762886598,
+          "bothBlockHighLower": 7,
+          "bothBlockHighHigher": 90,
+          "bothBlockEqual": 0,
+          "strictMinProxyGain": 0,
+          "strictMinProxyLoss": 30
+        },
+        "random-legal": {
+          "evaluatedWorlds": 360,
+          "finishFirstHighMinusLow": {
+            "n": 6,
+            "mean": 0.06944444444444443,
+            "ci95": [
+              -0.10308518085201958,
+              0.24197406974090846
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 6,
+            "mean": -4.016666666666667,
+            "ci95": [
+              -6.488708258070345,
+              -1.5446250752629886
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 6,
+            "mean": -0.20555555555555557,
+            "ci95": [
+              -0.47369651719447037,
+              0.06258540608335919
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 6,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 13,
+          "distinctBothBlockPositions": 5,
+          "meanPipsHighMinusLowBothBlock": -3.230769230769231,
+          "bothBlockHighLower": 10,
+          "bothBlockHighHigher": 3,
+          "bothBlockEqual": 0,
+          "strictMinProxyGain": 0,
+          "strictMinProxyLoss": 4
+        }
+      }
+    },
+    "urgent/highNotMore": {
+      "positions": 8,
+      "policies": {
+        "closed-branch-control": {
+          "evaluatedWorlds": 480,
+          "finishFirstHighMinusLow": {
+            "n": 8,
+            "mean": 0.05416666666666667,
+            "ci95": [
+              -0.015881927577297686,
+              0.12421526091063102
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 8,
+            "mean": -0.7229166666666665,
+            "ci95": [
+              -1.7365225818964904,
+              0.29068924856315725
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 8,
+            "mean": 0.08750000000000001,
+            "ci95": [
+              -0.07058656208264859,
+              0.24558656208264862
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 8,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 133,
+          "distinctBothBlockPositions": 8,
+          "meanPipsHighMinusLowBothBlock": 0.09774436090225563,
+          "bothBlockHighLower": 22,
+          "bothBlockHighHigher": 31,
+          "bothBlockEqual": 80,
+          "strictMinProxyGain": 0,
+          "strictMinProxyLoss": 0
+        },
+        "min-hand-pips": {
+          "evaluatedWorlds": 480,
+          "finishFirstHighMinusLow": {
+            "n": 8,
+            "mean": 0.05416666666666667,
+            "ci95": [
+              -0.015881927577297686,
+              0.12421526091063102
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 8,
+            "mean": -0.59375,
+            "ci95": [
+              -1.7433484594872923,
+              0.5558484594872923
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 8,
+            "mean": 0.11458333333333334,
+            "ci95": [
+              -0.042619318079138435,
+              0.2717859847458051
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 8,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 123,
+          "distinctBothBlockPositions": 7,
+          "meanPipsHighMinusLowBothBlock": 0.10569105691056911,
+          "bothBlockHighLower": 22,
+          "bothBlockHighHigher": 31,
+          "bothBlockEqual": 70,
+          "strictMinProxyGain": 0,
+          "strictMinProxyLoss": 0
+        },
+        "random-legal": {
+          "evaluatedWorlds": 480,
+          "finishFirstHighMinusLow": {
+            "n": 8,
+            "mean": 0.018750000000000003,
+            "ci95": [
+              -0.015308874679654999,
+              0.052808874679655005
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 8,
+            "mean": -1.4395833333333337,
+            "ci95": [
+              -2.3313153286037114,
+              -0.5478513380629559
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 8,
+            "mean": -0.03958333333333334,
+            "ci95": [
+              -0.07607315307041129,
+              -0.0030935135962553775
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 8,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 27,
+          "distinctBothBlockPositions": 6,
+          "meanPipsHighMinusLowBothBlock": -1.4074074074074074,
+          "bothBlockHighLower": 9,
+          "bothBlockHighHigher": 5,
+          "bothBlockEqual": 13,
+          "strictMinProxyGain": 0,
+          "strictMinProxyLoss": 0
+        }
+      }
+    },
+    "normal/highMore": {
+      "positions": 8,
+      "policies": {
+        "closed-branch-control": {
+          "evaluatedWorlds": 480,
+          "finishFirstHighMinusLow": {
+            "n": 8,
+            "mean": -0.008333333333333333,
+            "ci95": [
+              -0.09736765879891492,
+              0.08070099213224825
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 8,
+            "mean": -0.9354166666666667,
+            "ci95": [
+              -3.2033015124229745,
+              1.3324681790896409
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 8,
+            "mean": 0.06250000000000001,
+            "ci95": [
+              -0.043666666666666645,
+              0.1686666666666667
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 8,
+            "mean": -0.0020833333333333333,
+            "ci95": [
+              -0.006166666666666666,
+              0.0019999999999999996
+            ]
+          },
+          "bothBlockWorlds": 42,
+          "distinctBothBlockPositions": 7,
+          "meanPipsHighMinusLowBothBlock": 1.7380952380952381,
+          "bothBlockHighLower": 5,
+          "bothBlockHighHigher": 12,
+          "bothBlockEqual": 25,
+          "strictMinProxyGain": 5,
+          "strictMinProxyLoss": 6
+        },
+        "min-hand-pips": {
+          "evaluatedWorlds": 480,
+          "finishFirstHighMinusLow": {
+            "n": 8,
+            "mean": 0.035416666666666666,
+            "ci95": [
+              -0.055824200456203954,
+              0.12665753378953729
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 8,
+            "mean": -1.10625,
+            "ci95": [
+              -3.1353333059537007,
+              0.9228333059537006
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 8,
+            "mean": 0.0625,
+            "ci95": [
+              -0.0659234532059208,
+              0.1909234532059208
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 8,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 44,
+          "distinctBothBlockPositions": 7,
+          "meanPipsHighMinusLowBothBlock": 1.5681818181818181,
+          "bothBlockHighLower": 4,
+          "bothBlockHighHigher": 12,
+          "bothBlockEqual": 28,
+          "strictMinProxyGain": 0,
+          "strictMinProxyLoss": 7
+        },
+        "random-legal": {
+          "evaluatedWorlds": 480,
+          "finishFirstHighMinusLow": {
+            "n": 8,
+            "mean": 0.014583333333333335,
+            "ci95": [
+              -0.02216666666666666,
+              0.051333333333333335
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 8,
+            "mean": -2.2270833333333333,
+            "ci95": [
+              -3.2753099607856226,
+              -1.1788567058810442
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 8,
+            "mean": -0.00625,
+            "ci95": [
+              -0.031656828697113,
+              0.019156828697112993
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 8,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 7,
+          "distinctBothBlockPositions": 3,
+          "meanPipsHighMinusLowBothBlock": 0.5714285714285714,
+          "bothBlockHighLower": 1,
+          "bothBlockHighHigher": 1,
+          "bothBlockEqual": 5,
+          "strictMinProxyGain": 0,
+          "strictMinProxyLoss": 1
+        }
+      }
+    },
+    "normal/highNotMore": {
+      "positions": 8,
+      "policies": {
+        "closed-branch-control": {
+          "evaluatedWorlds": 480,
+          "finishFirstHighMinusLow": {
+            "n": 8,
+            "mean": 0.04791666666666665,
+            "ci95": [
+              -0.10928598474580513,
+              0.2051193180791384
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 8,
+            "mean": -1.3104166666666666,
+            "ci95": [
+              -2.7809472422111234,
+              0.1601139088777901
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 8,
+            "mean": 0.010416666666666671,
+            "ci95": [
+              -0.10373944598419209,
+              0.12457277931752543
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 8,
+            "mean": 0.004166666666666667,
+            "ci95": [
+              -0.003999999999999999,
+              0.012333333333333332
+            ]
+          },
+          "bothBlockWorlds": 74,
+          "distinctBothBlockPositions": 8,
+          "meanPipsHighMinusLowBothBlock": -1.4594594594594594,
+          "bothBlockHighLower": 21,
+          "bothBlockHighHigher": 3,
+          "bothBlockEqual": 50,
+          "strictMinProxyGain": 17,
+          "strictMinProxyLoss": 0
+        },
+        "min-hand-pips": {
+          "evaluatedWorlds": 480,
+          "finishFirstHighMinusLow": {
+            "n": 8,
+            "mean": 0.08333333333333333,
+            "ci95": [
+              0.025421522985376005,
+              0.14124514368129065
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 8,
+            "mean": -1.1937500000000003,
+            "ci95": [
+              -2.6888897765389324,
+              0.30138977653893195
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 8,
+            "mean": -0.020833333333333343,
+            "ci95": [
+              -0.11234790412217913,
+              0.07068123745551244
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 8,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "bothBlockWorlds": 94,
+          "distinctBothBlockPositions": 8,
+          "meanPipsHighMinusLowBothBlock": -1.2553191489361701,
+          "bothBlockHighLower": 33,
+          "bothBlockHighHigher": 5,
+          "bothBlockEqual": 56,
+          "strictMinProxyGain": 17,
+          "strictMinProxyLoss": 1
+        },
+        "random-legal": {
+          "evaluatedWorlds": 480,
+          "finishFirstHighMinusLow": {
+            "n": 8,
+            "mean": 0.075,
+            "ci95": [
+              0.009085914504814177,
+              0.1409140854951858
+            ]
+          },
+          "remainderHighMinusLow": {
+            "n": 8,
+            "mean": -1.78125,
+            "ci95": [
+              -2.6878064922337224,
+              -0.8746935077662777
+            ]
+          },
+          "blockHighMinusLow": {
+            "n": 8,
+            "mean": -0.006250000000000001,
+            "ci95": [
+              -0.06004649152128789,
+              0.04754649152128789
+            ]
+          },
+          "minusHighMinusLow": {
+            "n": 8,
+            "mean": 0.004166666666666667,
+            "ci95": [
+              -0.003999999999999999,
+              0.012333333333333332
+            ]
+          },
+          "bothBlockWorlds": 8,
+          "distinctBothBlockPositions": 3,
+          "meanPipsHighMinusLowBothBlock": -2.375,
+          "bothBlockHighLower": 5,
+          "bothBlockHighHigher": 1,
+          "bothBlockEqual": 2,
+          "strictMinProxyGain": 1,
+          "strictMinProxyLoss": 0
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "seed": 300169,
+      "policy": "closed-branch-control",
+      "turn": 21,
+      "focal": 0,
+      "hand": [
+        "0-5",
+        "2-4",
+        "0-4",
+        "0-2",
+        "4-5"
+      ],
+      "opponentSizes": [
+        4,
+        2
+      ],
+      "tiles": [
+        "0-2",
+        "4-5"
+      ],
+      "keys": [
+        "single|left|2||0-2",
+        "single|down|4||4-5"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 322169000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 11,
+          "lowOnly": 3,
+          "highOnly": 6,
+          "neither": 40,
+          "highLower": 3,
+          "highHigher": 8,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": -8,
+          "firstDiff": 0,
+          "blockDiff": 3,
+          "pipsDiff": -312,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 11,
+          "lowOnly": 3,
+          "highOnly": 6,
+          "neither": 40,
+          "highLower": 3,
+          "highHigher": 8,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": -8,
+          "firstDiff": 0,
+          "blockDiff": 3,
+          "pipsDiff": -312,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "lowOnly": 5,
+          "highOnly": 5,
+          "neither": 50,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": -1,
+          "blockDiff": 0,
+          "pipsDiff": -320,
+          "minusDiff": 0
+        }
+      },
+      "group": "urgent/highMore",
+      "mobilityLow": 3,
+      "mobilityHigh": 4
+    },
+    {
+      "seed": 301290,
+      "policy": "closed-branch-control",
+      "turn": 20,
+      "focal": 0,
+      "hand": [
+        "2-6",
+        "0-6",
+        "0-3",
+        "0-2",
+        "1-2"
+      ],
+      "opponentSizes": [
+        2,
+        3
+      ],
+      "tiles": [
+        "0-2",
+        "2-6"
+      ],
+      "keys": [
+        "single|left|0||0-2",
+        "single|left|6||2-6"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 323290000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 16,
+          "lowOnly": 15,
+          "highOnly": 15,
+          "neither": 14,
+          "highLower": 0,
+          "highHigher": 16,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 32,
+          "firstDiff": 0,
+          "blockDiff": 0,
+          "pipsDiff": 81,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 16,
+          "lowOnly": 15,
+          "highOnly": 15,
+          "neither": 14,
+          "highLower": 0,
+          "highHigher": 16,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 32,
+          "firstDiff": 0,
+          "blockDiff": 0,
+          "pipsDiff": 81,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 2,
+          "lowOnly": 3,
+          "highOnly": 6,
+          "neither": 49,
+          "highLower": 2,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": -14,
+          "firstDiff": 0,
+          "blockDiff": 3,
+          "pipsDiff": -202,
+          "minusDiff": 0
+        }
+      },
+      "group": "urgent/highMore",
+      "mobilityLow": 0,
+      "mobilityHigh": 1
+    },
+    {
+      "seed": 302070,
+      "policy": "closed-branch-control",
+      "turn": 21,
+      "focal": 1,
+      "hand": [
+        "3-4",
+        "4-6",
+        "3-6",
+        "1-2",
+        "0-4"
+      ],
+      "opponentSizes": [
+        2,
+        3
+      ],
+      "tiles": [
+        "0-4",
+        "4-6"
+      ],
+      "keys": [
+        "single|down|0||0-4",
+        "single|down|6||4-6"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 324070000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 14,
+          "lowOnly": 24,
+          "highOnly": 6,
+          "neither": 16,
+          "highLower": 0,
+          "highHigher": 14,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 154,
+          "firstDiff": 0,
+          "blockDiff": -18,
+          "pipsDiff": 338,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 14,
+          "lowOnly": 24,
+          "highOnly": 6,
+          "neither": 16,
+          "highLower": 0,
+          "highHigher": 14,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 154,
+          "firstDiff": 0,
+          "blockDiff": -18,
+          "pipsDiff": 338,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 1,
+          "lowOnly": 13,
+          "highOnly": 5,
+          "neither": 41,
+          "highLower": 0,
+          "highHigher": 1,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 11,
+          "firstDiff": 2,
+          "blockDiff": -8,
+          "pipsDiff": -303,
+          "minusDiff": 0
+        }
+      },
+      "group": "urgent/highMore",
+      "mobilityLow": 2,
+      "mobilityHigh": 3
+    },
+    {
+      "seed": 302753,
+      "policy": "closed-branch-control",
+      "turn": 21,
+      "focal": 1,
+      "hand": [
+        "0-4",
+        "1-2",
+        "2-5"
+      ],
+      "opponentSizes": [
+        2,
+        2
+      ],
+      "tiles": [
+        "0-4",
+        "2-5"
+      ],
+      "keys": [
+        "single|left|4||0-4",
+        "single|down|2||2-5"
+      ],
+      "trainHits": 3,
+      "worldSeedStart": 324753000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 26,
+          "lowOnly": 8,
+          "highOnly": 14,
+          "neither": 12,
+          "highLower": 0,
+          "highHigher": 26,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 26,
+          "strictLow": 26,
+          "strictHigh": 0,
+          "bothPipsDiff": 104,
+          "firstDiff": 0,
+          "blockDiff": 6,
+          "pipsDiff": 168,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 26,
+          "lowOnly": 8,
+          "highOnly": 14,
+          "neither": 12,
+          "highLower": 0,
+          "highHigher": 26,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 26,
+          "strictLow": 26,
+          "strictHigh": 0,
+          "bothPipsDiff": 104,
+          "firstDiff": 0,
+          "blockDiff": 6,
+          "pipsDiff": 168,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 1,
+          "lowOnly": 14,
+          "highOnly": 3,
+          "neither": 42,
+          "highLower": 0,
+          "highHigher": 1,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 1,
+          "strictLow": 1,
+          "strictHigh": 0,
+          "bothPipsDiff": 4,
+          "firstDiff": -6,
+          "blockDiff": -11,
+          "pipsDiff": 42,
+          "minusDiff": 0
+        }
+      },
+      "group": "urgent/highMore",
+      "mobilityLow": 1,
+      "mobilityHigh": 2
+    },
+    {
+      "seed": 300153,
+      "policy": "closed-branch-control",
+      "turn": 22,
+      "focal": 1,
+      "hand": [
+        "3-6",
+        "0-3",
+        "0-4",
+        "0-6"
+      ],
+      "opponentSizes": [
+        4,
+        2
+      ],
+      "tiles": [
+        "0-6",
+        "3-6"
+      ],
+      "keys": [
+        "single|up|0||0-6",
+        "single|up|3||3-6"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 322153000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 10,
+          "lowOnly": 3,
+          "highOnly": 2,
+          "neither": 45,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 10,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 0,
+          "blockDiff": -1,
+          "pipsDiff": 54,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "lowOnly": 0,
+          "highOnly": 12,
+          "neither": 48,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 0,
+          "blockDiff": 12,
+          "pipsDiff": 116,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "lowOnly": 6,
+          "highOnly": 1,
+          "neither": 53,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 4,
+          "blockDiff": -5,
+          "pipsDiff": -15,
+          "minusDiff": 0
+        }
+      },
+      "group": "urgent/highNotMore",
+      "mobilityLow": 2,
+      "mobilityHigh": 1
+    },
+    {
+      "seed": 300377,
+      "policy": "closed-branch-control",
+      "turn": 27,
+      "focal": 0,
+      "hand": [
+        "2-4",
+        "2-6",
+        "1-2"
+      ],
+      "opponentSizes": [
+        2,
+        2
+      ],
+      "tiles": [
+        "1-2",
+        "2-6"
+      ],
+      "keys": [
+        "single|down|1||1-2",
+        "single|down|6||2-6"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 322377000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 13,
+          "lowOnly": 0,
+          "highOnly": 37,
+          "neither": 10,
+          "highLower": 13,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": -39,
+          "firstDiff": 0,
+          "blockDiff": 37,
+          "pipsDiff": -196,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 13,
+          "lowOnly": 0,
+          "highOnly": 37,
+          "neither": 10,
+          "highLower": 13,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": -39,
+          "firstDiff": 0,
+          "blockDiff": 37,
+          "pipsDiff": -196,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 1,
+          "lowOnly": 8,
+          "highOnly": 6,
+          "neither": 45,
+          "highLower": 1,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": -8,
+          "firstDiff": 1,
+          "blockDiff": -2,
+          "pipsDiff": -215,
+          "minusDiff": 0
+        }
+      },
+      "group": "urgent/highNotMore",
+      "mobilityLow": 2,
+      "mobilityHigh": 2
+    },
+    {
+      "seed": 300990,
+      "policy": "closed-branch-control",
+      "turn": 19,
+      "focal": 0,
+      "hand": [
+        "0-6",
+        "0-2",
+        "3-4"
+      ],
+      "opponentSizes": [
+        3,
+        2
+      ],
+      "tiles": [
+        "0-2",
+        "0-6"
+      ],
+      "keys": [
+        "single|left|0||0-2",
+        "single|down|0||0-6"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 322990000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 22,
+          "lowOnly": 0,
+          "highOnly": 0,
+          "neither": 38,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 22,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 0,
+          "blockDiff": 0,
+          "pipsDiff": -56,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 22,
+          "lowOnly": 0,
+          "highOnly": 0,
+          "neither": 38,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 22,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 0,
+          "blockDiff": 0,
+          "pipsDiff": -56,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 4,
+          "lowOnly": 0,
+          "highOnly": 0,
+          "neither": 56,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 4,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 0,
+          "blockDiff": 0,
+          "pipsDiff": -60,
+          "minusDiff": 0
+        }
+      },
+      "group": "urgent/highNotMore",
+      "mobilityLow": 1,
+      "mobilityHigh": 1
+    },
+    {
+      "seed": 301114,
+      "policy": "closed-branch-control",
+      "turn": 21,
+      "focal": 0,
+      "hand": [
+        "0-6",
+        "1-3",
+        "3-5"
+      ],
+      "opponentSizes": [
+        3,
+        2
+      ],
+      "tiles": [
+        "1-3",
+        "3-5"
+      ],
+      "keys": [
+        "single|down|1||1-3",
+        "single|down|5||3-5"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 323114000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 31,
+          "lowOnly": 9,
+          "highOnly": 13,
+          "neither": 7,
+          "highLower": 0,
+          "highHigher": 31,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 124,
+          "firstDiff": 7,
+          "blockDiff": 4,
+          "pipsDiff": 60,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 31,
+          "lowOnly": 9,
+          "highOnly": 13,
+          "neither": 7,
+          "highLower": 0,
+          "highHigher": 31,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 124,
+          "firstDiff": 7,
+          "blockDiff": 4,
+          "pipsDiff": 60,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 15,
+          "lowOnly": 11,
+          "highOnly": 14,
+          "neither": 20,
+          "highLower": 7,
+          "highHigher": 5,
+          "equal": 3,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": -22,
+          "firstDiff": 2,
+          "blockDiff": 3,
+          "pipsDiff": -142,
+          "minusDiff": 0
+        }
+      },
+      "group": "urgent/highNotMore",
+      "mobilityLow": 1,
+      "mobilityHigh": 1
+    },
+    {
+      "seed": 300037,
+      "policy": "closed-branch-control",
+      "turn": 14,
+      "focal": 1,
+      "hand": [
+        "4-5",
+        "3-5",
+        "2-5",
+        "0-2",
+        "2-3",
+        "3-4"
+      ],
+      "opponentSizes": [
+        4,
+        5
+      ],
+      "tiles": [
+        "2-3",
+        "3-5"
+      ],
+      "keys": [
+        "single|right|2||2-3",
+        "single|right|5||3-5"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 322037000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 3,
+          "lowOnly": 5,
+          "highOnly": 9,
+          "neither": 43,
+          "highLower": 0,
+          "highHigher": 2,
+          "equal": 1,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 24,
+          "firstDiff": 0,
+          "blockDiff": 4,
+          "pipsDiff": 130,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 4,
+          "lowOnly": 13,
+          "highOnly": 7,
+          "neither": 36,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 4,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 1,
+          "blockDiff": -6,
+          "pipsDiff": 22,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "lowOnly": 1,
+          "highOnly": 3,
+          "neither": 56,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 3,
+          "blockDiff": 2,
+          "pipsDiff": -214,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highMore",
+      "mobilityLow": 0,
+      "mobilityHigh": 2
+    },
+    {
+      "seed": 300119,
+      "policy": "closed-branch-control",
+      "turn": 15,
+      "focal": 0,
+      "hand": [
+        "0-2",
+        "3-4",
+        "0-3",
+        "4-6",
+        "0-4",
+        "0-5"
+      ],
+      "opponentSizes": [
+        4,
+        4
+      ],
+      "tiles": [
+        "0-2",
+        "4-6"
+      ],
+      "keys": [
+        "single|up|2||0-2",
+        "single|down|4||4-6"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 322119000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 3,
+          "lowOnly": 0,
+          "highOnly": 9,
+          "neither": 48,
+          "highLower": 3,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": -6,
+          "firstDiff": 0,
+          "blockDiff": 9,
+          "pipsDiff": -302,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 3,
+          "lowOnly": 0,
+          "highOnly": 12,
+          "neither": 45,
+          "highLower": 3,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": -6,
+          "firstDiff": 0,
+          "blockDiff": 12,
+          "pipsDiff": -256,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "lowOnly": 1,
+          "highOnly": 3,
+          "neither": 56,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": -1,
+          "blockDiff": 2,
+          "pipsDiff": -308,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highMore",
+      "mobilityLow": 1,
+      "mobilityHigh": 5
+    },
+    {
+      "seed": 300324,
+      "policy": "closed-branch-control",
+      "turn": 19,
+      "focal": 1,
+      "hand": [
+        "4-6",
+        "2-6",
+        "1-2",
+        "2-4"
+      ],
+      "opponentSizes": [
+        3,
+        5
+      ],
+      "tiles": [
+        "2-4",
+        "4-6"
+      ],
+      "keys": [
+        "single|left|2||2-4",
+        "single|left|6||4-6"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 322324000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 9,
+          "lowOnly": 6,
+          "highOnly": 8,
+          "neither": 37,
+          "highLower": 0,
+          "highHigher": 6,
+          "equal": 3,
+          "strictGain": 0,
+          "strictLoss": 2,
+          "strictLow": 4,
+          "strictHigh": 2,
+          "bothPipsDiff": 36,
+          "firstDiff": -14,
+          "blockDiff": 2,
+          "pipsDiff": 151,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 11,
+          "lowOnly": 4,
+          "highOnly": 16,
+          "neither": 29,
+          "highLower": 0,
+          "highHigher": 8,
+          "equal": 3,
+          "strictGain": 0,
+          "strictLoss": 2,
+          "strictLow": 4,
+          "strictHigh": 2,
+          "bothPipsDiff": 48,
+          "firstDiff": -13,
+          "blockDiff": 12,
+          "pipsDiff": 142,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 1,
+          "lowOnly": 10,
+          "highOnly": 7,
+          "neither": 42,
+          "highLower": 1,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": -4,
+          "firstDiff": 3,
+          "blockDiff": -3,
+          "pipsDiff": -121,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highMore",
+      "mobilityLow": 0,
+      "mobilityHigh": 1
+    },
+    {
+      "seed": 300425,
+      "policy": "closed-branch-control",
+      "turn": 14,
+      "focal": 2,
+      "hand": [
+        "0-1",
+        "3-6",
+        "3-5",
+        "2-6",
+        "0-6"
+      ],
+      "opponentSizes": [
+        4,
+        4
+      ],
+      "tiles": [
+        "0-6",
+        "3-6"
+      ],
+      "keys": [
+        "single|up|0||0-6",
+        "single|up|3||3-6"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 322425000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 8,
+          "lowOnly": 5,
+          "highOnly": 23,
+          "neither": 24,
+          "highLower": 1,
+          "highHigher": 4,
+          "equal": 3,
+          "strictGain": 1,
+          "strictLoss": 4,
+          "strictLow": 7,
+          "strictHigh": 4,
+          "bothPipsDiff": 24,
+          "firstDiff": 0,
+          "blockDiff": 18,
+          "pipsDiff": 56,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 9,
+          "lowOnly": 1,
+          "highOnly": 22,
+          "neither": 28,
+          "highLower": 0,
+          "highHigher": 4,
+          "equal": 5,
+          "strictGain": 0,
+          "strictLoss": 4,
+          "strictLow": 9,
+          "strictHigh": 5,
+          "bothPipsDiff": 32,
+          "firstDiff": 5,
+          "blockDiff": 21,
+          "pipsDiff": 57,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 5,
+          "lowOnly": 9,
+          "highOnly": 9,
+          "neither": 37,
+          "highLower": 0,
+          "highHigher": 1,
+          "equal": 4,
+          "strictGain": 0,
+          "strictLoss": 1,
+          "strictLow": 4,
+          "strictHigh": 3,
+          "bothPipsDiff": 8,
+          "firstDiff": 0,
+          "blockDiff": 0,
+          "pipsDiff": -114,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highMore",
+      "mobilityLow": 0,
+      "mobilityHigh": 1
+    },
+    {
+      "seed": 300005,
+      "policy": "closed-branch-control",
+      "turn": 15,
+      "focal": 2,
+      "hand": [
+        "0-6",
+        "0-3",
+        "0-5",
+        "0-2",
+        "3-5"
+      ],
+      "opponentSizes": [
+        4,
+        4
+      ],
+      "tiles": [
+        "0-3",
+        "3-5"
+      ],
+      "keys": [
+        "single|right|0||0-3",
+        "single|left|3||3-5"
+      ],
+      "trainHits": 2,
+      "worldSeedStart": 322005000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 8,
+          "lowOnly": 13,
+          "highOnly": 5,
+          "neither": 34,
+          "highLower": 2,
+          "highHigher": 0,
+          "equal": 6,
+          "strictGain": 1,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 1,
+          "bothPipsDiff": -22,
+          "firstDiff": 6,
+          "blockDiff": -8,
+          "pipsDiff": -244,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 7,
+          "lowOnly": 16,
+          "highOnly": 9,
+          "neither": 28,
+          "highLower": 2,
+          "highHigher": 0,
+          "equal": 5,
+          "strictGain": 1,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 1,
+          "bothPipsDiff": -22,
+          "firstDiff": 7,
+          "blockDiff": -7,
+          "pipsDiff": -321,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "lowOnly": 4,
+          "highOnly": 4,
+          "neither": 52,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 2,
+          "blockDiff": 0,
+          "pipsDiff": -153,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highNotMore",
+      "mobilityLow": 3,
+      "mobilityHigh": 2
+    },
+    {
+      "seed": 300011,
+      "policy": "closed-branch-control",
+      "turn": 19,
+      "focal": 1,
+      "hand": [
+        "0-1",
+        "0-2",
+        "0-6",
+        "2-5"
+      ],
+      "opponentSizes": [
+        3,
+        4
+      ],
+      "tiles": [
+        "0-2",
+        "2-5"
+      ],
+      "keys": [
+        "single|down|0||0-2",
+        "single|down|5||2-5"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 322011000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 24,
+          "lowOnly": 22,
+          "highOnly": 9,
+          "neither": 5,
+          "highLower": 18,
+          "highHigher": 0,
+          "equal": 6,
+          "strictGain": 9,
+          "strictLoss": 0,
+          "strictLow": 15,
+          "strictHigh": 24,
+          "bothPipsDiff": -94,
+          "firstDiff": 10,
+          "blockDiff": -13,
+          "pipsDiff": -192,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 24,
+          "lowOnly": 22,
+          "highOnly": 9,
+          "neither": 5,
+          "highLower": 18,
+          "highHigher": 0,
+          "equal": 6,
+          "strictGain": 9,
+          "strictLoss": 0,
+          "strictLow": 15,
+          "strictHigh": 24,
+          "bothPipsDiff": -94,
+          "firstDiff": 10,
+          "blockDiff": -13,
+          "pipsDiff": -192,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 3,
+          "lowOnly": 17,
+          "highOnly": 7,
+          "neither": 33,
+          "highLower": 2,
+          "highHigher": 1,
+          "equal": 0,
+          "strictGain": 1,
+          "strictLoss": 0,
+          "strictLow": 2,
+          "strictHigh": 3,
+          "bothPipsDiff": -9,
+          "firstDiff": 16,
+          "blockDiff": -10,
+          "pipsDiff": -132,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highNotMore",
+      "mobilityLow": 1,
+      "mobilityHigh": 1
+    },
+    {
+      "seed": 300075,
+      "policy": "closed-branch-control",
+      "turn": 21,
+      "focal": 2,
+      "hand": [
+        "1-3",
+        "1-5",
+        "3-5",
+        "2-4"
+      ],
+      "opponentSizes": [
+        3,
+        3
+      ],
+      "tiles": [
+        "1-3",
+        "3-5"
+      ],
+      "keys": [
+        "single|down|1||1-3",
+        "single|down|5||3-5"
+      ],
+      "trainHits": 2,
+      "worldSeedStart": 322075000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 15,
+          "lowOnly": 13,
+          "highOnly": 10,
+          "neither": 22,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 15,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 5,
+          "blockDiff": -3,
+          "pipsDiff": -2,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 15,
+          "lowOnly": 13,
+          "highOnly": 10,
+          "neither": 22,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 15,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 5,
+          "blockDiff": -3,
+          "pipsDiff": -2,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 2,
+          "lowOnly": 10,
+          "highOnly": 12,
+          "neither": 36,
+          "highLower": 2,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": -8,
+          "firstDiff": -4,
+          "blockDiff": 2,
+          "pipsDiff": 0,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highNotMore",
+      "mobilityLow": 2,
+      "mobilityHigh": 2
+    },
+    {
+      "seed": 300080,
+      "policy": "closed-branch-control",
+      "turn": 13,
+      "focal": 1,
+      "hand": [
+        "0-5",
+        "2-5",
+        "0-4",
+        "0-1",
+        "5-6"
+      ],
+      "opponentSizes": [
+        4,
+        5
+      ],
+      "tiles": [
+        "0-5",
+        "5-6"
+      ],
+      "keys": [
+        "single|up|0||0-5",
+        "single|up|6||5-6"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 322080000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 4,
+          "lowOnly": 11,
+          "highOnly": 6,
+          "neither": 39,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 4,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 4,
+          "strictHigh": 4,
+          "bothPipsDiff": 0,
+          "firstDiff": 8,
+          "blockDiff": -5,
+          "pipsDiff": -242,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 7,
+          "lowOnly": 5,
+          "highOnly": 5,
+          "neither": 43,
+          "highLower": 2,
+          "highHigher": 0,
+          "equal": 5,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 7,
+          "strictHigh": 7,
+          "bothPipsDiff": -8,
+          "firstDiff": 0,
+          "blockDiff": 0,
+          "pipsDiff": -84,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "lowOnly": 4,
+          "highOnly": 0,
+          "neither": 56,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 4,
+          "blockDiff": -4,
+          "pipsDiff": -100,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highNotMore",
+      "mobilityLow": 0,
+      "mobilityHigh": 0
+    },
+    {
+      "seed": 313510,
+      "policy": "min-hand-pips",
+      "turn": 19,
+      "focal": 2,
+      "hand": [
+        "0-2",
+        "1-2",
+        "3-4",
+        "2-3"
+      ],
+      "opponentSizes": [
+        2,
+        2
+      ],
+      "tiles": [
+        "0-2",
+        "2-3"
+      ],
+      "keys": [
+        "single|down|0||0-2",
+        "single|down|3||2-3"
+      ],
+      "trainHits": 3,
+      "worldSeedStart": 335510000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 26,
+          "lowOnly": 23,
+          "highOnly": 11,
+          "neither": 0,
+          "highLower": 0,
+          "highHigher": 26,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 104,
+          "firstDiff": 0,
+          "blockDiff": -12,
+          "pipsDiff": -5,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 26,
+          "lowOnly": 23,
+          "highOnly": 11,
+          "neither": 0,
+          "highLower": 0,
+          "highHigher": 26,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 104,
+          "firstDiff": 0,
+          "blockDiff": -12,
+          "pipsDiff": -5,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 1,
+          "lowOnly": 20,
+          "highOnly": 14,
+          "neither": 25,
+          "highLower": 0,
+          "highHigher": 1,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 5,
+          "firstDiff": 0,
+          "blockDiff": -6,
+          "pipsDiff": -153,
+          "minusDiff": 0
+        }
+      },
+      "group": "urgent/highMore",
+      "mobilityLow": 0,
+      "mobilityHigh": 1
+    },
+    {
+      "seed": 317812,
+      "policy": "min-hand-pips",
+      "turn": 20,
+      "focal": 1,
+      "hand": [
+        "0-2",
+        "0-5",
+        "0-6"
+      ],
+      "opponentSizes": [
+        3,
+        2
+      ],
+      "tiles": [
+        "0-2",
+        "0-6"
+      ],
+      "keys": [
+        "single|down|2||0-2",
+        "single|down|6||0-6"
+      ],
+      "trainHits": 2,
+      "worldSeedStart": 339812000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 4,
+          "lowOnly": 56,
+          "highOnly": 0,
+          "neither": 0,
+          "highLower": 4,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 4,
+          "strictLow": 4,
+          "strictHigh": 0,
+          "bothPipsDiff": -24,
+          "firstDiff": 39,
+          "blockDiff": -56,
+          "pipsDiff": -555,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 4,
+          "lowOnly": 56,
+          "highOnly": 0,
+          "neither": 0,
+          "highLower": 4,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 4,
+          "strictLow": 4,
+          "strictHigh": 0,
+          "bothPipsDiff": -24,
+          "firstDiff": 39,
+          "blockDiff": -56,
+          "pipsDiff": -555,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 8,
+          "lowOnly": 52,
+          "highOnly": 0,
+          "neither": 0,
+          "highLower": 8,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 3,
+          "strictLow": 3,
+          "strictHigh": 0,
+          "bothPipsDiff": -48,
+          "firstDiff": 30,
+          "blockDiff": -52,
+          "pipsDiff": -510,
+          "minusDiff": 0
+        }
+      },
+      "group": "urgent/highMore",
+      "mobilityLow": 0,
+      "mobilityHigh": 1
+    },
+    {
+      "seed": 310864,
+      "policy": "min-hand-pips",
+      "turn": 19,
+      "focal": 0,
+      "hand": [
+        "0-2",
+        "0-1",
+        "2-4"
+      ],
+      "opponentSizes": [
+        3,
+        2
+      ],
+      "tiles": [
+        "0-2",
+        "2-4"
+      ],
+      "keys": [
+        "single|down|0||0-2",
+        "single|down|4||2-4"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 332864000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 6,
+          "lowOnly": 22,
+          "highOnly": 14,
+          "neither": 18,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 6,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 6,
+          "strictHigh": 6,
+          "bothPipsDiff": 0,
+          "firstDiff": 17,
+          "blockDiff": -8,
+          "pipsDiff": -17,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 6,
+          "lowOnly": 22,
+          "highOnly": 14,
+          "neither": 18,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 6,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 6,
+          "strictHigh": 6,
+          "bothPipsDiff": 0,
+          "firstDiff": 17,
+          "blockDiff": -8,
+          "pipsDiff": -17,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 1,
+          "lowOnly": 10,
+          "highOnly": 4,
+          "neither": 45,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 1,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 1,
+          "strictHigh": 1,
+          "bothPipsDiff": 0,
+          "firstDiff": 4,
+          "blockDiff": -6,
+          "pipsDiff": -11,
+          "minusDiff": 0
+        }
+      },
+      "group": "urgent/highNotMore",
+      "mobilityLow": 2,
+      "mobilityHigh": 1
+    },
+    {
+      "seed": 311305,
+      "policy": "min-hand-pips",
+      "turn": 19,
+      "focal": 2,
+      "hand": [
+        "2-6",
+        "0-1",
+        "2-4"
+      ],
+      "opponentSizes": [
+        3,
+        2
+      ],
+      "tiles": [
+        "0-1",
+        "2-6"
+      ],
+      "keys": [
+        "single|left|1||0-1",
+        "single|down|6||2-6"
+      ],
+      "trainHits": 2,
+      "worldSeedStart": 333305000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 34,
+          "lowOnly": 2,
+          "highOnly": 11,
+          "neither": 13,
+          "highLower": 9,
+          "highHigher": 0,
+          "equal": 25,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": -72,
+          "firstDiff": 0,
+          "blockDiff": 9,
+          "pipsDiff": -129,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 34,
+          "lowOnly": 2,
+          "highOnly": 11,
+          "neither": 13,
+          "highLower": 9,
+          "highHigher": 0,
+          "equal": 25,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": -72,
+          "firstDiff": 0,
+          "blockDiff": 9,
+          "pipsDiff": -129,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 2,
+          "lowOnly": 10,
+          "highOnly": 4,
+          "neither": 44,
+          "highLower": 1,
+          "highHigher": 0,
+          "equal": 1,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": -8,
+          "firstDiff": -3,
+          "blockDiff": -6,
+          "pipsDiff": -166,
+          "minusDiff": 0
+        }
+      },
+      "group": "urgent/highNotMore",
+      "mobilityLow": 2,
+      "mobilityHigh": 2
+    },
+    {
+      "seed": 311728,
+      "policy": "min-hand-pips",
+      "turn": 16,
+      "focal": 0,
+      "hand": [
+        "0-0",
+        "2-5",
+        "0-2",
+        "0-6",
+        "0-5"
+      ],
+      "opponentSizes": [
+        4,
+        2
+      ],
+      "tiles": [
+        "0-2",
+        "2-5"
+      ],
+      "keys": [
+        "single|down|0||0-2",
+        "single|down|5||2-5"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 333728000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 5,
+          "lowOnly": 0,
+          "highOnly": 0,
+          "neither": 55,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 5,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 0,
+          "blockDiff": 0,
+          "pipsDiff": 0,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 5,
+          "lowOnly": 0,
+          "highOnly": 0,
+          "neither": 55,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 5,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 0,
+          "blockDiff": 0,
+          "pipsDiff": 0,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 4,
+          "lowOnly": 4,
+          "highOnly": 2,
+          "neither": 50,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 4,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 3,
+          "strictHigh": 3,
+          "bothPipsDiff": 0,
+          "firstDiff": 4,
+          "blockDiff": -2,
+          "pipsDiff": -50,
+          "minusDiff": 0
+        }
+      },
+      "group": "urgent/highNotMore",
+      "mobilityLow": 2,
+      "mobilityHigh": 2
+    },
+    {
+      "seed": 312114,
+      "policy": "min-hand-pips",
+      "turn": 16,
+      "focal": 2,
+      "hand": [
+        "3-6",
+        "2-5",
+        "0-5",
+        "2-4"
+      ],
+      "opponentSizes": [
+        4,
+        2
+      ],
+      "tiles": [
+        "0-5",
+        "3-6"
+      ],
+      "keys": [
+        "single|up|5||0-5",
+        "single|down|6||3-6"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 334114000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 12,
+          "lowOnly": 0,
+          "highOnly": 1,
+          "neither": 47,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 12,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 2,
+          "blockDiff": 1,
+          "pipsDiff": -63,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 12,
+          "lowOnly": 0,
+          "highOnly": 1,
+          "neither": 47,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 12,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 2,
+          "blockDiff": 1,
+          "pipsDiff": -63,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "lowOnly": 5,
+          "highOnly": 4,
+          "neither": 51,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": -3,
+          "blockDiff": -1,
+          "pipsDiff": -32,
+          "minusDiff": 0
+        }
+      },
+      "group": "urgent/highNotMore",
+      "mobilityLow": 2,
+      "mobilityHigh": 1
+    },
+    {
+      "seed": 310081,
+      "policy": "min-hand-pips",
+      "turn": 8,
+      "focal": 0,
+      "hand": [
+        "0-0",
+        "0-3",
+        "3-5",
+        "0-5",
+        "1-3",
+        "3-3",
+        "0-2"
+      ],
+      "opponentSizes": [
+        6,
+        4
+      ],
+      "tiles": [
+        "0-5",
+        "3-5"
+      ],
+      "keys": [
+        "single|right|0||0-5",
+        "single|right|3||3-5"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 332081000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 1,
+          "lowOnly": 0,
+          "highOnly": 1,
+          "neither": 58,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 1,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 1,
+          "strictHigh": 1,
+          "bothPipsDiff": 0,
+          "firstDiff": 0,
+          "blockDiff": 1,
+          "pipsDiff": -10,
+          "minusDiff": -1
+        },
+        "min-hand-pips": {
+          "both": 2,
+          "lowOnly": 3,
+          "highOnly": 7,
+          "neither": 48,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 2,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 2,
+          "strictHigh": 2,
+          "bothPipsDiff": 0,
+          "firstDiff": 0,
+          "blockDiff": 4,
+          "pipsDiff": 20,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 1,
+          "lowOnly": 1,
+          "highOnly": 1,
+          "neither": 57,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 1,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 1,
+          "strictHigh": 1,
+          "bothPipsDiff": 0,
+          "firstDiff": -6,
+          "blockDiff": 0,
+          "pipsDiff": -73,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highMore",
+      "mobilityLow": 1,
+      "mobilityHigh": 2
+    },
+    {
+      "seed": 310101,
+      "policy": "min-hand-pips",
+      "turn": 13,
+      "focal": 2,
+      "hand": [
+        "2-5",
+        "5-6",
+        "1-2",
+        "3-5",
+        "2-4"
+      ],
+      "opponentSizes": [
+        5,
+        4
+      ],
+      "tiles": [
+        "1-2",
+        "2-5"
+      ],
+      "keys": [
+        "single|down|2||1-2",
+        "single|up|5||2-5"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 332101000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "lowOnly": 3,
+          "highOnly": 4,
+          "neither": 53,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 14,
+          "blockDiff": 1,
+          "pipsDiff": -388,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "lowOnly": 3,
+          "highOnly": 4,
+          "neither": 53,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 14,
+          "blockDiff": 1,
+          "pipsDiff": -388,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "lowOnly": 1,
+          "highOnly": 0,
+          "neither": 59,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 2,
+          "blockDiff": -1,
+          "pipsDiff": -140,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highMore",
+      "mobilityLow": 2,
+      "mobilityHigh": 3
+    },
+    {
+      "seed": 310256,
+      "policy": "min-hand-pips",
+      "turn": 13,
+      "focal": 1,
+      "hand": [
+        "3-5",
+        "0-1",
+        "2-3",
+        "1-5",
+        "0-4"
+      ],
+      "opponentSizes": [
+        4,
+        4
+      ],
+      "tiles": [
+        "0-1",
+        "3-5"
+      ],
+      "keys": [
+        "single|down|0||0-1",
+        "single|up|3||3-5"
+      ],
+      "trainHits": 3,
+      "worldSeedStart": 332256000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 12,
+          "lowOnly": 14,
+          "highOnly": 0,
+          "neither": 34,
+          "highLower": 1,
+          "highHigher": 0,
+          "equal": 11,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 1,
+          "strictHigh": 1,
+          "bothPipsDiff": -5,
+          "firstDiff": 1,
+          "blockDiff": -14,
+          "pipsDiff": -101,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 12,
+          "lowOnly": 14,
+          "highOnly": 0,
+          "neither": 34,
+          "highLower": 1,
+          "highHigher": 0,
+          "equal": 11,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 1,
+          "strictHigh": 1,
+          "bothPipsDiff": -5,
+          "firstDiff": 1,
+          "blockDiff": -14,
+          "pipsDiff": -101,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "lowOnly": 7,
+          "highOnly": 3,
+          "neither": 50,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 3,
+          "blockDiff": -4,
+          "pipsDiff": -84,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highMore",
+      "mobilityLow": 2,
+      "mobilityHigh": 3
+    },
+    {
+      "seed": 310280,
+      "policy": "min-hand-pips",
+      "turn": 15,
+      "focal": 0,
+      "hand": [
+        "0-4",
+        "3-4",
+        "2-3",
+        "1-2"
+      ],
+      "opponentSizes": [
+        4,
+        4
+      ],
+      "tiles": [
+        "0-4",
+        "3-4"
+      ],
+      "keys": [
+        "single|right|0||0-4",
+        "single|right|3||3-4"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 332280000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 6,
+          "lowOnly": 4,
+          "highOnly": 13,
+          "neither": 37,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 6,
+          "strictGain": 4,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 4,
+          "bothPipsDiff": 0,
+          "firstDiff": -5,
+          "blockDiff": 9,
+          "pipsDiff": 15,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 3,
+          "lowOnly": 5,
+          "highOnly": 5,
+          "neither": 47,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 3,
+          "strictGain": 0,
+          "strictLoss": 1,
+          "strictLow": 1,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 9,
+          "blockDiff": 0,
+          "pipsDiff": -27,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "lowOnly": 0,
+          "highOnly": 1,
+          "neither": 59,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 3,
+          "blockDiff": 1,
+          "pipsDiff": -15,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highMore",
+      "mobilityLow": 1,
+      "mobilityHigh": 2
+    },
+    {
+      "seed": 310000,
+      "policy": "min-hand-pips",
+      "turn": 14,
+      "focal": 0,
+      "hand": [
+        "0-1",
+        "0-2",
+        "2-3",
+        "1-2",
+        "0-3"
+      ],
+      "opponentSizes": [
+        4,
+        4
+      ],
+      "tiles": [
+        "0-2",
+        "2-3"
+      ],
+      "keys": [
+        "single|down|0||0-2",
+        "single|down|3||2-3"
+      ],
+      "trainHits": 2,
+      "worldSeedStart": 332000000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 12,
+          "lowOnly": 7,
+          "highOnly": 11,
+          "neither": 30,
+          "highLower": 0,
+          "highHigher": 2,
+          "equal": 10,
+          "strictGain": 7,
+          "strictLoss": 0,
+          "strictLow": 1,
+          "strictHigh": 8,
+          "bothPipsDiff": 4,
+          "firstDiff": 10,
+          "blockDiff": 4,
+          "pipsDiff": 10,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 12,
+          "lowOnly": 7,
+          "highOnly": 11,
+          "neither": 30,
+          "highLower": 0,
+          "highHigher": 2,
+          "equal": 10,
+          "strictGain": 7,
+          "strictLoss": 0,
+          "strictLow": 1,
+          "strictHigh": 8,
+          "bothPipsDiff": 4,
+          "firstDiff": 10,
+          "blockDiff": 4,
+          "pipsDiff": 10,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 3,
+          "lowOnly": 4,
+          "highOnly": 9,
+          "neither": 44,
+          "highLower": 1,
+          "highHigher": 0,
+          "equal": 2,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 3,
+          "strictHigh": 3,
+          "bothPipsDiff": -2,
+          "firstDiff": 1,
+          "blockDiff": 5,
+          "pipsDiff": -8,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highNotMore",
+      "mobilityLow": 2,
+      "mobilityHigh": 1
+    },
+    {
+      "seed": 310008,
+      "policy": "min-hand-pips",
+      "turn": 13,
+      "focal": 2,
+      "hand": [
+        "0-4",
+        "0-2",
+        "2-6",
+        "3-5",
+        "0-5"
+      ],
+      "opponentSizes": [
+        5,
+        4
+      ],
+      "tiles": [
+        "0-4",
+        "3-5"
+      ],
+      "keys": [
+        "single|up|0||0-4",
+        "single|down|5||3-5"
+      ],
+      "trainHits": 3,
+      "worldSeedStart": 332008000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 8,
+          "lowOnly": 4,
+          "highOnly": 6,
+          "neither": 42,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 8,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": -1,
+          "blockDiff": 2,
+          "pipsDiff": -52,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 8,
+          "lowOnly": 4,
+          "highOnly": 6,
+          "neither": 42,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 8,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": -1,
+          "blockDiff": 2,
+          "pipsDiff": -52,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "lowOnly": 2,
+          "highOnly": 4,
+          "neither": 54,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 6,
+          "blockDiff": 2,
+          "pipsDiff": -63,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highNotMore",
+      "mobilityLow": 2,
+      "mobilityHigh": 2
+    },
+    {
+      "seed": 310010,
+      "policy": "min-hand-pips",
+      "turn": 13,
+      "focal": 0,
+      "hand": [
+        "4-4",
+        "0-2",
+        "2-4",
+        "0-3",
+        "4-5"
+      ],
+      "opponentSizes": [
+        5,
+        4
+      ],
+      "tiles": [
+        "0-2",
+        "2-4"
+      ],
+      "keys": [
+        "single|up|0||0-2",
+        "single|up|4||2-4"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 332010000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 2,
+          "lowOnly": 8,
+          "highOnly": 24,
+          "neither": 26,
+          "highLower": 1,
+          "highHigher": 0,
+          "equal": 1,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 1,
+          "strictHigh": 1,
+          "bothPipsDiff": -1,
+          "firstDiff": -29,
+          "blockDiff": 16,
+          "pipsDiff": 67,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 18,
+          "lowOnly": 17,
+          "highOnly": 11,
+          "neither": 14,
+          "highLower": 11,
+          "highHigher": 0,
+          "equal": 7,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 2,
+          "strictHigh": 2,
+          "bothPipsDiff": -11,
+          "firstDiff": -1,
+          "blockDiff": -6,
+          "pipsDiff": -22,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "lowOnly": 5,
+          "highOnly": 5,
+          "neither": 50,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 5,
+          "blockDiff": 0,
+          "pipsDiff": -204,
+          "minusDiff": 2
+        }
+      },
+      "group": "normal/highNotMore",
+      "mobilityLow": 2,
+      "mobilityHigh": 1
+    },
+    {
+      "seed": 310063,
+      "policy": "min-hand-pips",
+      "turn": 11,
+      "focal": 2,
+      "hand": [
+        "2-3",
+        "1-4",
+        "0-4",
+        "4-4",
+        "0-2",
+        "4-5"
+      ],
+      "opponentSizes": [
+        4,
+        5
+      ],
+      "tiles": [
+        "2-3",
+        "4-5"
+      ],
+      "keys": [
+        "single|up|2||2-3",
+        "single|left|4||4-5"
+      ],
+      "trainHits": 1,
+      "worldSeedStart": 332063000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 1,
+          "lowOnly": 8,
+          "highOnly": 20,
+          "neither": 31,
+          "highLower": 0,
+          "highHigher": 1,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 1,
+          "strictHigh": 1,
+          "bothPipsDiff": 5,
+          "firstDiff": 14,
+          "blockDiff": 12,
+          "pipsDiff": 26,
+          "minusDiff": 2
+        },
+        "min-hand-pips": {
+          "both": 3,
+          "lowOnly": 6,
+          "highOnly": 19,
+          "neither": 32,
+          "highLower": 0,
+          "highHigher": 3,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 1,
+          "strictLow": 3,
+          "strictHigh": 2,
+          "bothPipsDiff": 13,
+          "firstDiff": 10,
+          "blockDiff": 13,
+          "pipsDiff": 90,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "lowOnly": 4,
+          "highOnly": 6,
+          "neither": 50,
+          "highLower": 0,
+          "highHigher": 0,
+          "equal": 0,
+          "strictGain": 0,
+          "strictLoss": 0,
+          "strictLow": 0,
+          "strictHigh": 0,
+          "bothPipsDiff": 0,
+          "firstDiff": 6,
+          "blockDiff": 2,
+          "pipsDiff": -195,
+          "minusDiff": 0
+        }
+      },
+      "group": "normal/highNotMore",
+      "mobilityLow": 3,
+      "mobilityHigh": 2
+    }
+  ],
+  "fullStrategyRounds": 0,
+  "limitations": [
+    "Training selected block-prone states",
+    "Official winner at block unknown; strict-min pips only descriptive",
+    "Assumed branch semantics",
+    "First eligible state per seed",
+    "Simple bots",
+    "Unadjusted exploratory position-level CIs",
+    "No pass-history conditioning"
+  ],
+  "exactNextAction": "Confirm any mobility interaction on disjoint seeds and same-side choices; resolve official block rule."
+}
