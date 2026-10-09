@@ -117,3 +117,11 @@ Preregister independent opponent-one-stone hand-size/branch-end-matched experime
 - Urgent hand=5 fast-doubles double-minus-connector: -3.12 pp [-5.61 pp, -0.63 pp] across 18 independent positions. Exploratory; vector-level matching not established.
 - Runner `simulator/double-connector-hand-strata.js`; data `runs/2026-10-10-0246-double-connector-hand-strata.json`.
 - Next: vector-matched urgent 5-tile counterexamples and immediate opponent finish/minus risk.
+
+
+## 2026-10-10 03:55:53 +04:00 — clockwise opponent-vector audit
+- 36 fresh positions, 540 exhaustive hidden worlds (15 each), 3240 forced continuations, 0 new full rounds. Cumulative **180000 full rounds + 97931 hidden worlds**.
+- Fixed vector interpretation: previous opponentSizes arrays were player-index ordered, NOT clockwise. This experiment stratifies clockwise next/following opponents.
+- Opening X-X exposed immediate opponent finish in 6/18 positions when next opponent had 2 stones, versus 0/18 when next opponent had 4; policy-dependent, provisional.
+- V8 self-test and deterministic replay green; independent Node CLI pending. Code: simulator/urgent-five-clockwise-vector.js; data/notes: runs/2026-10-10-0354-urgent-five-clockwise-vector.{json,md}.
+- Next: disjoint-seed next-player=2 threat study across focal hand 3/4/5.
