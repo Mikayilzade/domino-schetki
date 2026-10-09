@@ -66,3 +66,10 @@ Preregister independent opponent-one-stone hand-size/branch-end-matched experime
 - Cumulative: 180,000 full strategy rounds, 79,410 hidden worlds; 400 pilot worlds excluded.
 - Reproducible data and exact seed set: `runs/2026-10-09-1547-block-remainder-holdout.json`; notes and limitations in matching `.md`.
 - Next: official block outcome rule, independent replication and Node CLI regression.
+
+## 2026-10-09 17:00:33 +04:00 independent block-remainder replication
+- 32 positions, 1600 fixed-visible worlds, 4800 continuations; 0 new full rounds.
+- Cumulative: 180,000 full rounds; 81010 reproducible hidden worlds (400 pilot separate).
+- Finding: next-opponent immediate finish risk change -11.13pp [-17.67pp, -4.58pp]; block strictly-lowest proxy is NOT an official win.
+- Runner `simulator/block-remainder-replication.js`; data `runs/2026-10-09-1654-block-remainder-replication.json`; notes matching `.md`.
+- Next: independent block proxy replication; clarify block winner rule before official win-rate claims.
