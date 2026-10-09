@@ -1,0 +1,126 @@
+{
+  "schema": "qosa-side-equivariance-audit/v1",
+  "timestampAsiaBaku": "2026-10-09 07:47:14 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "seedRanges": [
+    [
+      158000,
+      165999
+    ],
+    [
+      166000,
+      173999
+    ]
+  ],
+  "selectedSeeds": [
+    158185,
+    158229,
+    158234,
+    158251,
+    158265,
+    158274,
+    158290,
+    158386,
+    158561,
+    158565,
+    158000,
+    158001,
+    158002,
+    158003,
+    158004,
+    158005,
+    158006,
+    158007,
+    158008,
+    158009,
+    166068,
+    166183,
+    166246,
+    166249,
+    166314,
+    166323,
+    166349,
+    166395,
+    166427,
+    166432,
+    166000,
+    166002,
+    166004,
+    166005,
+    166006,
+    166007,
+    166008,
+    166009,
+    166010,
+    166011
+  ],
+  "quotaPerDiscoveryAndGroup": 10,
+  "worldsPerPosition": 25,
+  "worldSeedFormula": "8500000+1000*dealSeed+worldIndex",
+  "positionCount": 40,
+  "newHiddenWorlds": 1000,
+  "policyWorldEvaluations": 3000,
+  "pairedContinuations": 6000,
+  "newFullStrategyRounds": 0,
+  "cumulativeFullStrategyRounds": 180000,
+  "previousHiddenWorlds": 64810,
+  "cumulativeHiddenWorlds": 65810,
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "random-legal"
+  ],
+  "summary": {
+    "closed-branch-control": {
+      "worlds": 1000,
+      "exactStateAndOutcomeAgreements": 1000,
+      "finishes": 969,
+      "blocks": 31,
+      "meanTurns": 8.546,
+      "minusCounts": {
+        "-10": 128,
+        "-20": 6,
+        "-30": 0,
+        "-40": 0
+      }
+    },
+    "min-hand-pips": {
+      "worlds": 1000,
+      "exactStateAndOutcomeAgreements": 1000,
+      "finishes": 964,
+      "blocks": 36,
+      "meanTurns": 8.191,
+      "minusCounts": {
+        "-10": 46,
+        "-20": 5,
+        "-30": 0,
+        "-40": 0
+      }
+    },
+    "random-legal": {
+      "worlds": 1000,
+      "exactStateAndOutcomeAgreements": 1000,
+      "finishes": 972,
+      "blocks": 28,
+      "meanTurns": 8.461,
+      "minusCounts": {
+        "-10": 32,
+        "-20": 0,
+        "-30": 0,
+        "-40": 0
+      }
+    }
+  },
+  "validation": "At every turn, the two continuations have identical canonical multiset of branch ends, opened numbers, hands, stock, turn and outcome. Source state unchanged.",
+  "finding": "For identical tile X-Y played from identical X ends onto two distinct sides, the geometry-free engine has no intrinsic side advantage. Nonzero differences with the previous side-sensitive policies are tie-breaking/order artifacts.",
+  "confidence": "Exact engine-state isomorphism for these actions and side-neutral policies, not an assertion about physical board geometry.",
+  "limitations": [
+    "Assumed branch locking",
+    "Side labels have no geometry/history in engine",
+    "Reachable-position selection",
+    "No assigned block winner"
+  ],
+  "exactNextAction": "Probe choices on sides with different end numbers and add explicit branch-history/locking effects only after rules are confirmed."
+}
