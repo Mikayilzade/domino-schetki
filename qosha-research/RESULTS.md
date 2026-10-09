@@ -400,3 +400,15 @@
 - cumulative persisted scale: **180,000 complete strategy rounds** (historical 4,000 separate) + **68,210 fixed-visible hidden worlds** (prior 65,810 + 2,400)
 - linked files: `simulator/different-end-choice.js`, `runs/2026-10-09-0855-different-end-choice.json`, `runs/2026-10-09-0855-different-end-choice.md`
 - exact next hypothesis/action: replicate same protocol on disjoint seed scans 178000..181999 and 186000..189999; inspect opponent <=2 vs >=3 and counterexamples, then assess practical advice.
+
+### 2026-10-09 09:45 (+04) — independent different-end mobility holdout
+- engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`; primary 3×9; no rule changes.
+- seeds: 178000..181999 (closed-branch-control discovery) and 186000..189999 (min-hand-pips discovery); 96 reachable positions, 25 matched hidden worlds/position = **2,400 new worlds**, 7,200 policy/world evaluations, 14,400 forced continuations, 0 unresolved, 0 new full strategy rounds.
+- strategies: side-neutral closed-branch-control, min-hand-pips, random-legal; same X-Y stone on different open ends, mobility-aligned = expose end matching more other own tiles.
+- finish-first aligned delta on 64 unequal-mobility positions: **+6.31 pp [0.37,12.26]**, **+6.75 pp [0.86,12.64]**, **+8.13 pp [4.01,12.24]**; remainder differences −1.18/−1.43/−1.32 pips. Exploratory unadjusted 95% normal CIs clustered by position, not world.
+- finding: independent replication across three policies; still provisional, not universal or causal. Urgency-specific and minus-finish effects not reliably established.
+- counterexample seed **179656**: hand 0-5,1-3,0-2; opponents 3/1; ends up=2,left=0,right=3,down=5; aligned move loses 80 pp under two policies.
+- cumulative: **180,000** full strategy rounds (historical 4,000 separate), **70,610** fixed-visible hidden worlds.
+- validation: deterministic V8 CommonJS self-test, immutable source, no unresolved; not Node CLI. Limitations: assumption-labelled branch locking, simple bots, first-eligible selection, quota balancing, correlated worlds, exploratory CIs, no block winner.
+- reproduce: `simulator/different-end-choice-replication.js 8 25`; data `runs/2026-10-09-0945-different-end-choice-replication.json`; world seed `9900000+1000*dealSeed+worldIndex`.
+- exact next action: preregister opponent-one-stone counterexample study on fresh seeds matched by hand size/branch ends, quantify immediate finish risk, then run Node CLI regression when possible.
