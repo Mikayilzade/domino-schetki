@@ -73,3 +73,10 @@ Preregister independent opponent-one-stone hand-size/branch-end-matched experime
 - Finding: next-opponent immediate finish risk change -11.13pp [-17.67pp, -4.58pp]; block strictly-lowest proxy is NOT an official win.
 - Runner `simulator/block-remainder-replication.js`; data `runs/2026-10-09-1654-block-remainder-replication.json`; notes matching `.md`.
 - Next: independent block proxy replication; clarify block winner rule before official win-rate claims.
+
+## 2026-10-09 17:56:46 +04:00 third block-conditional audit
+- 32 positions; 1600 hidden worlds; 4800 continuations; 9 overrides; 0 full rounds.
+- Cumulative **180000** full strategy rounds + **82610** hidden worlds (400 pilot separate).
+- Added `simulator/block-conditional-holdout.js` and `runs/2026-10-09-1754-block-conditional-holdout.json`.
+- Conditioned-on-block strictly-lowest remainder is a descriptive ratio, NOT official win and NOT matched causal effect.
+- Next: paired both-block-only analysis, official block rule, Node CLI regression.

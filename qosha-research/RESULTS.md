@@ -412,3 +412,16 @@
 - validation: deterministic V8 CommonJS self-test, immutable source, no unresolved; not Node CLI. Limitations: assumption-labelled branch locking, simple bots, first-eligible selection, quota balancing, correlated worlds, exploratory CIs, no block winner.
 - reproduce: `simulator/different-end-choice-replication.js 8 25`; data `runs/2026-10-09-0945-different-end-choice-replication.json`; world seed `9900000+1000*dealSeed+worldIndex`.
 - exact next action: preregister opponent-one-stone counterexample study on fresh seeds matched by hand size/branch ends, quantify immediate finish risk, then run Node CLI regression when possible.
+
+
+### 2026-10-09 17:56:46 +04:00 — third disjoint block-conditional audit
+- Engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`; 3×9; no rule changes. V8 CommonJS self-tests green; Node CLI not executed.
+- Deal seeds: closed-branch-control 270000..275999; min-hand-pips 276000..281999. 32 reachable positions, 1600 fixed-visible hidden worlds (25 training + 25 evaluation each), 4800 paired candidate continuations, 0 new complete strategy rounds. Hidden seed: `16000000+1000*dealSeed+worldIndex`.
+- Strategies: mobility-aligned versus frozen threat-first override when training immediate next-opponent finish risk falls >=12pp; three side-neutral continuation policies (closed-branch-control, min-hand-pips, random-legal). 9/32 positions overridden.
+- Immediate next-opponent finish risk change: -7.25 pp [-12.08, -2.42] (exploratory 95% position-level CI).
+- closed-branch-control: unconditional block change 7.63 pp; unconditional strictly-lowest-at-block change 6.25 pp; focal finish-first change -1.75 pp.
+- **New denominator audit:** among block outcomes, focal strictly-lowest remaining pips aligned=94.44% vs threat-first=84.81%; change=-9.63 pp. Bootstrap CI [-46.17, 4.71] pp.
+- IMPORTANT: Conditional-on-block subsets differ between strategies; these ratios are descriptive and cannot identify causal benefit among identical blocked worlds. No official winner is assigned at block. Confidence exploratory; bots/branch semantics/pass-history limitations remain.
+- Cumulative: **180000** full strategy rounds (historical 4000 separate); **82610** reproducible hidden worlds (400 pilot separate).
+- Reproduce: `node qosha-research/simulator/block-conditional-holdout.js 8 25 25`; `runs/2026-10-09-1754-block-conditional-holdout.json` contains exact selected seeds, position-level metrics and confidence intervals.
+- Exact next hypothesis/action: compare block rank in worlds where BOTH candidate moves produce blocks; seek official block scoring rule before making block-win claims.

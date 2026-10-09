@@ -1,0 +1,4664 @@
+{
+  "schema": "qosa-block-conditional-holdout/v1",
+  "timestampAsiaBaku": "2026-10-09 17:56:46 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "seedScans": [
+    {
+      "policy": "closed-branch-control",
+      "range": [
+        270000,
+        275999
+      ],
+      "eligible": 340,
+      "available": {
+        "lowMore": 230,
+        "highMore": 110
+      }
+    },
+    {
+      "policy": "min-hand-pips",
+      "range": [
+        276000,
+        281999
+      ],
+      "eligible": 520,
+      "available": {
+        "lowMore": 387,
+        "highMore": 133
+      }
+    }
+  ],
+  "selectedSeeds": [
+    272043,
+    271436,
+    274410,
+    272873,
+    275616,
+    273879,
+    274857,
+    271833,
+    271479,
+    275007,
+    275861,
+    272466,
+    275589,
+    272331,
+    270280,
+    270941,
+    276978,
+    277228,
+    276096,
+    279044,
+    280830,
+    279962,
+    278932,
+    279420,
+    280459,
+    277688,
+    277273,
+    279580,
+    279685,
+    278733,
+    276294,
+    281946
+  ],
+  "positions": 32,
+  "trainWorlds": 25,
+  "testWorlds": 25,
+  "newHiddenWorlds": 1600,
+  "pairedCandidateContinuations": 4800,
+  "fullStrategyRounds": 0,
+  "worldSeedFormula": "16000000+1000*dealSeed+worldIndex; training 0..trainWorlds-1; evaluation trainWorlds..trainWorlds+testWorlds-1",
+  "strategies": [
+    "mobility-aligned",
+    "threat-first override if training immediate next-opponent finish risk falls >=12pp"
+  ],
+  "continuationPolicies": [
+    "side-neutral-closed-branch-control",
+    "side-neutral-min-hand-pips",
+    "side-neutral-random-legal"
+  ],
+  "summary": {
+    "positions": 32,
+    "overrides": 9,
+    "immediateOpponentFinishRiskDelta": {
+      "n": 32,
+      "mean": -0.0725,
+      "ci95PositionNormalApprox": [
+        -0.12082355666786396,
+        -0.02417644333213604
+      ]
+    },
+    "policies": {
+      "closed-branch-control": {
+        "aligned": {
+          "blockWorldEquivalent": 18,
+          "strictMinGivenBlock": 0.9444444444444445,
+          "strictOrTiedMinGivenBlock": 0.9444444444444445
+        },
+        "threatFirst": {
+          "blockWorldEquivalent": 78.99999999999999,
+          "strictMinGivenBlock": 0.8481012658227849,
+          "strictOrTiedMinGivenBlock": 0.8481012658227849
+        },
+        "strictMinGivenBlockChange": -0.09634317862165964,
+        "bootstrap": {
+          "resamples": 1000,
+          "valid": 628,
+          "ci95PositionBootstrapPercentile": [
+            -0.4616858237547892,
+            0.04708097928436905
+          ]
+        },
+        "pairedPositionDeltas": {
+          "block": {
+            "n": 32,
+            "mean": 0.07625,
+            "ci95PositionNormalApprox": [
+              -0.011922553973408037,
+              0.16442255397340805
+            ]
+          },
+          "blockStrictMin": {
+            "n": 32,
+            "mean": 0.0625,
+            "ci95PositionNormalApprox": [
+              -0.022712022095930914,
+              0.14771202209593093
+            ]
+          },
+          "blockTiedMin": {
+            "n": 32,
+            "mean": 0,
+            "ci95PositionNormalApprox": [
+              0,
+              0
+            ]
+          },
+          "blockNotMin": {
+            "n": 32,
+            "mean": 0.01375,
+            "ci95PositionNormalApprox": [
+              -0.013199999999999998,
+              0.0407
+            ]
+          },
+          "first": {
+            "n": 32,
+            "mean": -0.0175,
+            "ci95PositionNormalApprox": [
+              -0.08076076855927121,
+              0.045760768559271206
+            ]
+          },
+          "pips": {
+            "n": 32,
+            "mean": -0.33875,
+            "ci95PositionNormalApprox": [
+              -0.7094654546366412,
+              0.031965454636641244
+            ]
+          },
+          "turns": {
+            "n": 32,
+            "mean": 0.23875000000000013,
+            "ci95PositionNormalApprox": [
+              0.04116048761833088,
+              0.43633951238166935
+            ]
+          }
+        }
+      },
+      "min-hand-pips": {
+        "aligned": {
+          "blockWorldEquivalent": 18,
+          "strictMinGivenBlock": 0.9444444444444445,
+          "strictOrTiedMinGivenBlock": 0.9444444444444445
+        },
+        "threatFirst": {
+          "blockWorldEquivalent": 78.99999999999999,
+          "strictMinGivenBlock": 0.8481012658227849,
+          "strictOrTiedMinGivenBlock": 0.8481012658227849
+        },
+        "strictMinGivenBlockChange": -0.09634317862165964,
+        "bootstrap": {
+          "resamples": 1000,
+          "valid": 628,
+          "ci95PositionBootstrapPercentile": [
+            -0.4616858237547892,
+            0.04708097928436905
+          ]
+        },
+        "pairedPositionDeltas": {
+          "block": {
+            "n": 32,
+            "mean": 0.07625,
+            "ci95PositionNormalApprox": [
+              -0.011922553973408037,
+              0.16442255397340805
+            ]
+          },
+          "blockStrictMin": {
+            "n": 32,
+            "mean": 0.0625,
+            "ci95PositionNormalApprox": [
+              -0.022712022095930914,
+              0.14771202209593093
+            ]
+          },
+          "blockTiedMin": {
+            "n": 32,
+            "mean": 0,
+            "ci95PositionNormalApprox": [
+              0,
+              0
+            ]
+          },
+          "blockNotMin": {
+            "n": 32,
+            "mean": 0.01375,
+            "ci95PositionNormalApprox": [
+              -0.013199999999999998,
+              0.0407
+            ]
+          },
+          "first": {
+            "n": 32,
+            "mean": -0.0175,
+            "ci95PositionNormalApprox": [
+              -0.08076076855927121,
+              0.045760768559271206
+            ]
+          },
+          "pips": {
+            "n": 32,
+            "mean": -0.33875,
+            "ci95PositionNormalApprox": [
+              -0.7094654546366412,
+              0.031965454636641244
+            ]
+          },
+          "turns": {
+            "n": 32,
+            "mean": 0.23875000000000013,
+            "ci95PositionNormalApprox": [
+              0.04116048761833088,
+              0.43633951238166935
+            ]
+          }
+        }
+      },
+      "random-legal": {
+        "aligned": {
+          "blockWorldEquivalent": 10,
+          "strictMinGivenBlock": 0.5000000000000001,
+          "strictOrTiedMinGivenBlock": 0.5000000000000001
+        },
+        "threatFirst": {
+          "blockWorldEquivalent": 60.00000000000001,
+          "strictMinGivenBlock": 0.9166666666666666,
+          "strictOrTiedMinGivenBlock": 0.9166666666666666
+        },
+        "strictMinGivenBlockChange": 0.4166666666666665,
+        "bootstrap": {
+          "resamples": 1000,
+          "valid": 958,
+          "ci95PositionBootstrapPercentile": [
+            -0.05555555555555558,
+            1
+          ]
+        },
+        "pairedPositionDeltas": {
+          "block": {
+            "n": 32,
+            "mean": 0.0625,
+            "ci95PositionNormalApprox": [
+              -0.022784705356481916,
+              0.14778470535648192
+            ]
+          },
+          "blockStrictMin": {
+            "n": 32,
+            "mean": 0.0625,
+            "ci95PositionNormalApprox": [
+              -0.022712022095930914,
+              0.14771202209593093
+            ]
+          },
+          "blockTiedMin": {
+            "n": 32,
+            "mean": 0,
+            "ci95PositionNormalApprox": [
+              0,
+              0
+            ]
+          },
+          "blockNotMin": {
+            "n": 32,
+            "mean": 0,
+            "ci95PositionNormalApprox": [
+              -0.003520263919724788,
+              0.003520263919724788
+            ]
+          },
+          "first": {
+            "n": 32,
+            "mean": -0.019999999999999997,
+            "ci95PositionNormalApprox": [
+              -0.082775298203323,
+              0.04277529820332301
+            ]
+          },
+          "pips": {
+            "n": 32,
+            "mean": -0.23875000000000002,
+            "ci95PositionNormalApprox": [
+              -0.5564425434715449,
+              0.07894254347154483
+            ]
+          },
+          "turns": {
+            "n": 32,
+            "mean": 0.20125000000000015,
+            "ci95PositionNormalApprox": [
+              0.06648850488913341,
+              0.3360114951108669
+            ]
+          }
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "seed": 272043,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 2,
+      "opponentHandSizes": [
+        1,
+        3
+      ],
+      "focalHand": [
+        "2-5",
+        "0-2",
+        "2-3",
+        "3-4"
+      ],
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.76,
+      "trainRiskAlternative": 0.76,
+      "testRiskAligned": 0.8,
+      "testRiskThreatFirst": 0.8,
+      "worldSeedStart": 288043000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 12.6,
+            "threatFirst": 12.6,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 26.6,
+            "threatFirst": 26.6,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 12.6,
+            "threatFirst": 12.6,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 26.6,
+            "threatFirst": 26.6,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 13.12,
+            "threatFirst": 13.12,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 26.6,
+            "threatFirst": 26.6,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 271436,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 0,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-1",
+        "0-3"
+      ],
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.64,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 0.72,
+      "testRiskThreatFirst": 0.72,
+      "worldSeedStart": 287436000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.28,
+            "threatFirst": 0.28,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 0.72,
+            "threatFirst": 0.72,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 28.56,
+            "threatFirst": 28.56,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.28,
+            "threatFirst": 0.28,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 0.72,
+            "threatFirst": 0.72,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 28.56,
+            "threatFirst": 28.56,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.28,
+            "threatFirst": 0.28,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 0.72,
+            "threatFirst": 0.72,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 28.56,
+            "threatFirst": 28.56,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 274410,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 0,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-2",
+        "0-4"
+      ],
+      "alignedIndex": 1,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.64,
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 0.88,
+      "worldSeedStart": 290410000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0.12,
+            "delta": 0.12
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 2,
+            "threatFirst": 1.76,
+            "delta": -0.24
+          },
+          "turns": {
+            "aligned": 26,
+            "threatFirst": 26.24,
+            "delta": 0.23999999999999844
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0.12,
+            "delta": 0.12
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 2,
+            "threatFirst": 1.76,
+            "delta": -0.24
+          },
+          "turns": {
+            "aligned": 26,
+            "threatFirst": 26.24,
+            "delta": 0.23999999999999844
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0.04,
+            "delta": 0.04
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 2,
+            "threatFirst": 1.92,
+            "delta": -0.08000000000000007
+          },
+          "turns": {
+            "aligned": 26,
+            "threatFirst": 26.32,
+            "delta": 0.3200000000000003
+          }
+        }
+      }
+    },
+    {
+      "seed": 272873,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 2,
+      "opponentHandSizes": [
+        1,
+        3
+      ],
+      "focalHand": [
+        "2-5",
+        "2-3"
+      ],
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.68,
+      "trainRiskAlternative": 0.68,
+      "testRiskAligned": 0.88,
+      "testRiskThreatFirst": 0.88,
+      "worldSeedStart": 288873000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.12,
+            "threatFirst": 0.12,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 6.16,
+            "threatFirst": 6.16,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 28.24,
+            "threatFirst": 28.24,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.12,
+            "threatFirst": 0.12,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 6.16,
+            "threatFirst": 6.16,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 28.24,
+            "threatFirst": 28.24,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.12,
+            "threatFirst": 0.12,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 6.16,
+            "threatFirst": 6.16,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 28.24,
+            "threatFirst": 28.24,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 275616,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 2,
+      "opponentHandSizes": [
+        1,
+        3
+      ],
+      "focalHand": [
+        "3-5",
+        "2-5",
+        "2-6"
+      ],
+      "alignedIndex": 1,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.56,
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 0.84,
+      "worldSeedStart": 291616000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 15,
+            "threatFirst": 13.72,
+            "delta": -1.2799999999999994
+          },
+          "turns": {
+            "aligned": 26,
+            "threatFirst": 26.48,
+            "delta": 0.4800000000000004
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 15,
+            "threatFirst": 13.72,
+            "delta": -1.2799999999999994
+          },
+          "turns": {
+            "aligned": 26,
+            "threatFirst": 26.48,
+            "delta": 0.4800000000000004
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0.12,
+            "delta": 0.12
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 15,
+            "threatFirst": 13.2,
+            "delta": -1.8000000000000007
+          },
+          "turns": {
+            "aligned": 26,
+            "threatFirst": 26.72,
+            "delta": 0.7199999999999989
+          }
+        }
+      }
+    },
+    {
+      "seed": 273879,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 1,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-3",
+        "0-6"
+      ],
+      "alignedIndex": 1,
+      "override": true,
+      "trainRiskAligned": 0.2,
+      "trainRiskAlternative": 0,
+      "testRiskAligned": 0.48,
+      "testRiskThreatFirst": 0,
+      "worldSeedStart": 289879000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.52,
+            "threatFirst": 0,
+            "delta": -0.52
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 1,
+            "delta": 1
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 1,
+            "delta": 1
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 1.44,
+            "threatFirst": 3,
+            "delta": 1.56
+          },
+          "turns": {
+            "aligned": 31.04,
+            "threatFirst": 32,
+            "delta": 0.9600000000000009
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.52,
+            "threatFirst": 0,
+            "delta": -0.52
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 1,
+            "delta": 1
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 1,
+            "delta": 1
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 1.44,
+            "threatFirst": 3,
+            "delta": 1.56
+          },
+          "turns": {
+            "aligned": 31.04,
+            "threatFirst": 32,
+            "delta": 0.9600000000000009
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.52,
+            "threatFirst": 0,
+            "delta": -0.52
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 1,
+            "delta": 1
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 1,
+            "delta": 1
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 1.44,
+            "threatFirst": 3,
+            "delta": 1.56
+          },
+          "turns": {
+            "aligned": 31.04,
+            "threatFirst": 32,
+            "delta": 0.9600000000000009
+          }
+        }
+      }
+    },
+    {
+      "seed": 274857,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 1,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-4",
+        "0-6",
+        "0-3"
+      ],
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.44,
+      "trainRiskAlternative": 0.44,
+      "testRiskAligned": 0.32,
+      "testRiskThreatFirst": 0.32,
+      "worldSeedStart": 290857000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 5.92,
+            "threatFirst": 5.92,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 28.44,
+            "threatFirst": 28.44,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 5.92,
+            "threatFirst": 5.92,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 28.44,
+            "threatFirst": 28.44,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 6.88,
+            "threatFirst": 6.88,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 28.28,
+            "threatFirst": 28.28,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 271833,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 0,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-2",
+        "2-5",
+        "2-6"
+      ],
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.4,
+      "trainRiskAlternative": 0.4,
+      "testRiskAligned": 0.44,
+      "testRiskThreatFirst": 0.44,
+      "worldSeedStart": 287833000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 5.08,
+            "threatFirst": 5.08,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 26.88,
+            "threatFirst": 26.88,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 5.08,
+            "threatFirst": 5.08,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 26.88,
+            "threatFirst": 26.88,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 6.48,
+            "threatFirst": 6.48,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 26.84,
+            "threatFirst": 26.84,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 271479,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-3",
+        "1-2",
+        "1-3",
+        "3-4",
+        "0-4",
+        "2-4"
+      ],
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.72,
+      "trainRiskAlternative": 0.72,
+      "testRiskAligned": 0.8,
+      "testRiskThreatFirst": 0.8,
+      "worldSeedStart": 287479000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 21.6,
+            "threatFirst": 21.6,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25.6,
+            "threatFirst": 25.6,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 21.6,
+            "threatFirst": 21.6,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25.6,
+            "threatFirst": 25.6,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 21.84,
+            "threatFirst": 21.84,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25.64,
+            "threatFirst": 25.64,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 275007,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "opponentHandSizes": [
+        1,
+        5
+      ],
+      "focalHand": [
+        "3-5",
+        "2-6",
+        "4-5"
+      ],
+      "alignedIndex": 0,
+      "override": true,
+      "trainRiskAligned": 0.64,
+      "trainRiskAlternative": 0.52,
+      "testRiskAligned": 0.76,
+      "testRiskThreatFirst": 0.64,
+      "worldSeedStart": 291007000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0.12,
+            "delta": 0.12
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 14.84,
+            "threatFirst": 13.04,
+            "delta": -1.8000000000000007
+          },
+          "turns": {
+            "aligned": 27.68,
+            "threatFirst": 27.92,
+            "delta": 0.240000000000002
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0.12,
+            "delta": 0.12
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 14.84,
+            "threatFirst": 13.04,
+            "delta": -1.8000000000000007
+          },
+          "turns": {
+            "aligned": 27.68,
+            "threatFirst": 27.92,
+            "delta": 0.240000000000002
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0.04,
+            "delta": 0.04
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0.04,
+            "delta": 0.04
+          },
+          "pips": {
+            "aligned": 14.92,
+            "threatFirst": 14.64,
+            "delta": -0.27999999999999936
+          },
+          "turns": {
+            "aligned": 26.72,
+            "threatFirst": 27.36,
+            "delta": 0.6400000000000006
+          }
+        }
+      }
+    },
+    {
+      "seed": 275861,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 1,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-2",
+        "1-2"
+      ],
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.4,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 0.44,
+      "testRiskThreatFirst": 0.44,
+      "worldSeedStart": 291861000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.56,
+            "threatFirst": 0.56,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 1.32,
+            "threatFirst": 1.32,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 26.12,
+            "threatFirst": 26.12,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.56,
+            "threatFirst": 0.56,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 1.32,
+            "threatFirst": 1.32,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 26.12,
+            "threatFirst": 26.12,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.56,
+            "threatFirst": 0.56,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 1.32,
+            "threatFirst": 1.32,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 26.12,
+            "threatFirst": 26.12,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 272466,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 1,
+      "opponentHandSizes": [
+        1,
+        5
+      ],
+      "focalHand": [
+        "2-5",
+        "0-2"
+      ],
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.76,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 0.64,
+      "testRiskThreatFirst": 0.64,
+      "worldSeedStart": 288466000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.36,
+            "threatFirst": 0.36,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 4.48,
+            "threatFirst": 4.48,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25.72,
+            "threatFirst": 25.72,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.36,
+            "threatFirst": 0.36,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 4.48,
+            "threatFirst": 4.48,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25.72,
+            "threatFirst": 25.72,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.36,
+            "threatFirst": 0.36,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 4.48,
+            "threatFirst": 4.48,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25.72,
+            "threatFirst": 25.72,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 275589,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 0,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "1-3",
+        "0-3"
+      ],
+      "alignedIndex": 0,
+      "override": true,
+      "trainRiskAligned": 0.8,
+      "trainRiskAlternative": 0.64,
+      "testRiskAligned": 0.64,
+      "testRiskThreatFirst": 0.56,
+      "worldSeedStart": 291589000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.36,
+            "threatFirst": 0.44,
+            "delta": 0.08000000000000002
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 2.56,
+            "threatFirst": 2.24,
+            "delta": -0.31999999999999984
+          },
+          "turns": {
+            "aligned": 25.72,
+            "threatFirst": 25.88,
+            "delta": 0.16000000000000014
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.36,
+            "threatFirst": 0.44,
+            "delta": 0.08000000000000002
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 2.56,
+            "threatFirst": 2.24,
+            "delta": -0.31999999999999984
+          },
+          "turns": {
+            "aligned": 25.72,
+            "threatFirst": 25.88,
+            "delta": 0.16000000000000014
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.36,
+            "threatFirst": 0.44,
+            "delta": 0.08000000000000002
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 2.56,
+            "threatFirst": 2.24,
+            "delta": -0.31999999999999984
+          },
+          "turns": {
+            "aligned": 25.72,
+            "threatFirst": 25.88,
+            "delta": 0.16000000000000014
+          }
+        }
+      }
+    },
+    {
+      "seed": 272331,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 1,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "1-2",
+        "3-5",
+        "2-5"
+      ],
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 1,
+      "worldSeedStart": 288331000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 10,
+            "threatFirst": 10,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25,
+            "threatFirst": 25,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 10,
+            "threatFirst": 10,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25,
+            "threatFirst": 25,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 10,
+            "threatFirst": 10,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25,
+            "threatFirst": 25,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 270280,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 1,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "1-4",
+        "2-4"
+      ],
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.44,
+      "trainRiskAlternative": 0.44,
+      "testRiskAligned": 0.4,
+      "testRiskThreatFirst": 0.4,
+      "worldSeedStart": 286280000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.6,
+            "threatFirst": 0.6,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 2,
+            "threatFirst": 2,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 26.2,
+            "threatFirst": 26.2,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.6,
+            "threatFirst": 0.6,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 2,
+            "threatFirst": 2,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 26.2,
+            "threatFirst": 26.2,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.6,
+            "threatFirst": 0.6,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 2,
+            "threatFirst": 2,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 26.2,
+            "threatFirst": 26.2,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 270941,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-2",
+        "2-5",
+        "2-4"
+      ],
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 1,
+      "worldSeedStart": 286941000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 13,
+            "threatFirst": 13,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 27,
+            "threatFirst": 27,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 13,
+            "threatFirst": 13,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 27,
+            "threatFirst": 27,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 13,
+            "threatFirst": 13,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 27,
+            "threatFirst": 27,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 276978,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-5",
+        "0-6"
+      ],
+      "alignedIndex": 1,
+      "override": true,
+      "trainRiskAligned": 0.76,
+      "trainRiskAlternative": 0.4,
+      "testRiskAligned": 0.72,
+      "testRiskThreatFirst": 0.32,
+      "worldSeedStart": 292978000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.28,
+            "threatFirst": 0.68,
+            "delta": 0.4
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 4.32,
+            "threatFirst": 1.92,
+            "delta": -2.4000000000000004
+          },
+          "turns": {
+            "aligned": 23.56,
+            "threatFirst": 24.36,
+            "delta": 0.8000000000000007
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.28,
+            "threatFirst": 0.68,
+            "delta": 0.4
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 4.32,
+            "threatFirst": 1.92,
+            "delta": -2.4000000000000004
+          },
+          "turns": {
+            "aligned": 23.56,
+            "threatFirst": 24.36,
+            "delta": 0.8000000000000007
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.28,
+            "threatFirst": 0.68,
+            "delta": 0.4
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 4.32,
+            "threatFirst": 1.92,
+            "delta": -2.4000000000000004
+          },
+          "turns": {
+            "aligned": 23.56,
+            "threatFirst": 24.36,
+            "delta": 0.8000000000000007
+          }
+        }
+      }
+    },
+    {
+      "seed": 277228,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-3",
+        "0-4",
+        "2-4"
+      ],
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 1,
+      "worldSeedStart": 293228000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 10,
+            "threatFirst": 10,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23,
+            "threatFirst": 23,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 10,
+            "threatFirst": 10,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23,
+            "threatFirst": 23,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 10,
+            "threatFirst": 10,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23,
+            "threatFirst": 23,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 276096,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 1,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "2-4",
+        "2-3",
+        "3-4",
+        "0-2"
+      ],
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0,
+      "trainRiskAlternative": 0.24,
+      "testRiskAligned": 0,
+      "testRiskThreatFirst": 0,
+      "worldSeedStart": 292096000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 8.28,
+            "threatFirst": 8.28,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 26.08,
+            "threatFirst": 26.08,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 8.28,
+            "threatFirst": 8.28,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 26.08,
+            "threatFirst": 26.08,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0.16,
+            "threatFirst": 0.16,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0.16,
+            "threatFirst": 0.16,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 8.32,
+            "threatFirst": 8.32,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 27.16,
+            "threatFirst": 27.16,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 279044,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 0,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-4",
+        "0-1"
+      ],
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.48,
+      "trainRiskAlternative": 0.48,
+      "testRiskAligned": 0.16,
+      "testRiskThreatFirst": 0.16,
+      "worldSeedStart": 295044000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.84,
+            "threatFirst": 0.84,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 0.16,
+            "threatFirst": 0.16,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 27.68,
+            "threatFirst": 27.68,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.84,
+            "threatFirst": 0.84,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 0.16,
+            "threatFirst": 0.16,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 27.68,
+            "threatFirst": 27.68,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.84,
+            "threatFirst": 0.84,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 0.16,
+            "threatFirst": 0.16,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 27.68,
+            "threatFirst": 27.68,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 280830,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 1,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-3",
+        "0-5",
+        "1-2"
+      ],
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.6,
+      "trainRiskAlternative": 0.6,
+      "testRiskAligned": 0.52,
+      "testRiskThreatFirst": 0.52,
+      "worldSeedStart": 296830000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 4.56,
+            "threatFirst": 4.56,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23.44,
+            "threatFirst": 23.44,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 4.56,
+            "threatFirst": 4.56,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23.44,
+            "threatFirst": 23.44,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 4.56,
+            "threatFirst": 4.56,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23.44,
+            "threatFirst": 23.44,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 279962,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 1,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-4",
+        "0-3",
+        "2-3",
+        "0-2"
+      ],
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 1,
+      "worldSeedStart": 295962000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 11,
+            "threatFirst": 11,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23,
+            "threatFirst": 23,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 11,
+            "threatFirst": 11,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23,
+            "threatFirst": 23,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 11,
+            "threatFirst": 11,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23,
+            "threatFirst": 23,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 278932,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "opponentHandSizes": [
+        1,
+        3
+      ],
+      "focalHand": [
+        "1-2",
+        "0-2",
+        "2-5",
+        "0-4"
+      ],
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.44,
+      "trainRiskAlternative": 0.72,
+      "testRiskAligned": 0.44,
+      "testRiskThreatFirst": 0.44,
+      "worldSeedStart": 294932000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 6.4,
+            "threatFirst": 6.4,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 22.36,
+            "threatFirst": 22.36,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 6.4,
+            "threatFirst": 6.4,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 22.36,
+            "threatFirst": 22.36,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 8.2,
+            "threatFirst": 8.2,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 22.24,
+            "threatFirst": 22.24,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 279420,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-1",
+        "0-2"
+      ],
+      "alignedIndex": 1,
+      "override": true,
+      "trainRiskAligned": 0.2,
+      "trainRiskAlternative": 0,
+      "testRiskAligned": 0.24,
+      "testRiskThreatFirst": 0,
+      "worldSeedStart": 295420000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.76,
+            "threatFirst": 0,
+            "delta": -0.76
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 1,
+            "delta": 1
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 1,
+            "delta": 1
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 0.24,
+            "threatFirst": 1,
+            "delta": 0.76
+          },
+          "turns": {
+            "aligned": 27.52,
+            "threatFirst": 28,
+            "delta": 0.4800000000000004
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.76,
+            "threatFirst": 0,
+            "delta": -0.76
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 1,
+            "delta": 1
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 1,
+            "delta": 1
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 0.24,
+            "threatFirst": 1,
+            "delta": 0.76
+          },
+          "turns": {
+            "aligned": 27.52,
+            "threatFirst": 28,
+            "delta": 0.4800000000000004
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.76,
+            "threatFirst": 0,
+            "delta": -0.76
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 1,
+            "delta": 1
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 1,
+            "delta": 1
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 0.24,
+            "threatFirst": 1,
+            "delta": 0.76
+          },
+          "turns": {
+            "aligned": 27.52,
+            "threatFirst": 28,
+            "delta": 0.4800000000000004
+          }
+        }
+      }
+    },
+    {
+      "seed": 280459,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 0,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "1-2",
+        "2-5",
+        "0-2"
+      ],
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.6,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 0.76,
+      "testRiskThreatFirst": 0.76,
+      "worldSeedStart": 296459000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 8.32,
+            "threatFirst": 8.32,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 21.96,
+            "threatFirst": 21.96,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 8.32,
+            "threatFirst": 8.32,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 21.96,
+            "threatFirst": 21.96,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 8.96,
+            "threatFirst": 8.96,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 21.8,
+            "threatFirst": 21.8,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 277688,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 0,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "1-3",
+        "2-3"
+      ],
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.76,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 0.8,
+      "testRiskThreatFirst": 0.8,
+      "worldSeedStart": 293688000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.2,
+            "threatFirst": 0.2,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 3.2,
+            "threatFirst": 3.2,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 22.4,
+            "threatFirst": 22.4,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.2,
+            "threatFirst": 0.2,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 3.2,
+            "threatFirst": 3.2,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 22.4,
+            "threatFirst": 22.4,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.2,
+            "threatFirst": 0.2,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 3.2,
+            "threatFirst": 3.2,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 22.4,
+            "threatFirst": 22.4,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 277273,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 1,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "0-1",
+        "1-2"
+      ],
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.24,
+      "trainRiskAlternative": 0.76,
+      "testRiskAligned": 0.28,
+      "testRiskThreatFirst": 0.28,
+      "worldSeedStart": 293273000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.72,
+            "threatFirst": 0.72,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 0.84,
+            "threatFirst": 0.84,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23.44,
+            "threatFirst": 23.44,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.72,
+            "threatFirst": 0.72,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 0.84,
+            "threatFirst": 0.84,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23.44,
+            "threatFirst": 23.44,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.72,
+            "threatFirst": 0.72,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 0.84,
+            "threatFirst": 0.84,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23.44,
+            "threatFirst": 23.44,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 279580,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 2,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "2-5",
+        "0-2",
+        "1-2"
+      ],
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 1,
+      "worldSeedStart": 295580000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 10,
+            "threatFirst": 10,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25,
+            "threatFirst": 25,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 10,
+            "threatFirst": 10,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25,
+            "threatFirst": 25,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 10,
+            "threatFirst": 10,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25,
+            "threatFirst": 25,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 279685,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 0,
+      "opponentHandSizes": [
+        1,
+        3
+      ],
+      "focalHand": [
+        "0-2",
+        "2-4"
+      ],
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.64,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 0.52,
+      "testRiskThreatFirst": 0.52,
+      "worldSeedStart": 295685000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.48,
+            "threatFirst": 0.48,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 3.12,
+            "threatFirst": 3.12,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23.96,
+            "threatFirst": 23.96,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.48,
+            "threatFirst": 0.48,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 3.12,
+            "threatFirst": 3.12,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23.96,
+            "threatFirst": 23.96,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.48,
+            "threatFirst": 0.48,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 3.12,
+            "threatFirst": 3.12,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 23.96,
+            "threatFirst": 23.96,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 278733,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 2,
+      "opponentHandSizes": [
+        1,
+        3
+      ],
+      "focalHand": [
+        "0-5",
+        "1-5",
+        "4-5",
+        "0-3"
+      ],
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0,
+      "trainRiskAlternative": 0.36,
+      "testRiskAligned": 0,
+      "testRiskThreatFirst": 0,
+      "worldSeedStart": 294733000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0.72,
+            "threatFirst": 0.72,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0.68,
+            "threatFirst": 0.68,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0.04,
+            "threatFirst": 0.04,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 4.4,
+            "threatFirst": 4.4,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25.6,
+            "threatFirst": 25.6,
+            "delta": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0.72,
+            "threatFirst": 0.72,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0.68,
+            "threatFirst": 0.68,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0.04,
+            "threatFirst": 0.04,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 4.4,
+            "threatFirst": 4.4,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25.6,
+            "threatFirst": 25.6,
+            "delta": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.08,
+            "threatFirst": 0.08,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0.2,
+            "threatFirst": 0.2,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0.2,
+            "threatFirst": 0.2,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 4.64,
+            "threatFirst": 4.64,
+            "delta": 0
+          },
+          "turns": {
+            "aligned": 25.2,
+            "threatFirst": 25.2,
+            "delta": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 276294,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 1,
+      "opponentHandSizes": [
+        1,
+        3
+      ],
+      "focalHand": [
+        "2-3",
+        "1-3",
+        "2-4",
+        "0-5"
+      ],
+      "alignedIndex": 0,
+      "override": true,
+      "trainRiskAligned": 0.28,
+      "trainRiskAlternative": 0.04,
+      "testRiskAligned": 0.52,
+      "testRiskThreatFirst": 0.2,
+      "worldSeedStart": 292294000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0.44,
+            "delta": 0.44
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0.44,
+            "delta": 0.44
+          },
+          "pips": {
+            "aligned": 12.52,
+            "threatFirst": 9,
+            "delta": -3.5199999999999996
+          },
+          "turns": {
+            "aligned": 19.92,
+            "threatFirst": 22.6,
+            "delta": 2.6799999999999997
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0.44,
+            "delta": 0.44
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0.44,
+            "delta": 0.44
+          },
+          "pips": {
+            "aligned": 12.52,
+            "threatFirst": 9,
+            "delta": -3.5199999999999996
+          },
+          "turns": {
+            "aligned": 19.92,
+            "threatFirst": 22.6,
+            "delta": 2.6799999999999997
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0.04,
+            "threatFirst": 0,
+            "delta": -0.04
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0.04,
+            "threatFirst": 0,
+            "delta": -0.04
+          },
+          "pips": {
+            "aligned": 11.92,
+            "threatFirst": 10.56,
+            "delta": -1.3599999999999994
+          },
+          "turns": {
+            "aligned": 20.36,
+            "threatFirst": 21.12,
+            "delta": 0.7600000000000016
+          }
+        }
+      }
+    },
+    {
+      "seed": 281946,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 0,
+      "opponentHandSizes": [
+        1,
+        2
+      ],
+      "focalHand": [
+        "4-5",
+        "3-5",
+        "2-3"
+      ],
+      "alignedIndex": 0,
+      "override": true,
+      "trainRiskAligned": 0.56,
+      "trainRiskAlternative": 0.28,
+      "testRiskAligned": 0.64,
+      "testRiskThreatFirst": 0.24,
+      "worldSeedStart": 297946000,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 13.76,
+            "threatFirst": 10.16,
+            "delta": -3.5999999999999996
+          },
+          "turns": {
+            "aligned": 25.08,
+            "threatFirst": 26.68,
+            "delta": 1.6000000000000014
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 13.76,
+            "threatFirst": 10.16,
+            "delta": -3.5999999999999996
+          },
+          "turns": {
+            "aligned": 25.08,
+            "threatFirst": 26.68,
+            "delta": 1.6000000000000014
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "block": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockStrictMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockTiedMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "blockNotMin": {
+            "aligned": 0,
+            "threatFirst": 0,
+            "delta": 0
+          },
+          "pips": {
+            "aligned": 13.88,
+            "threatFirst": 10.16,
+            "delta": -3.7200000000000006
+          },
+          "turns": {
+            "aligned": 25.08,
+            "threatFirst": 26.68,
+            "delta": 1.6000000000000014
+          }
+        }
+      }
+    }
+  ],
+  "blockInterpretation": "Strictly-lowest and tied-lowest remaining pips at block are descriptive only; no official winner is assigned. Conditional block rates are ratios of different action-induced block subsets and are NOT a causal matched-block effect.",
+  "confidence": "Exploratory unadjusted position-level CIs, bootstrap by position (1000 fixed-seed resamples); no multiple comparison correction.",
+  "limitations": [
+    "Branch locking/opening assumption-labelled",
+    "Simple continuation bots",
+    "Block winner not specified",
+    "No pass-history conditioning of sampled hidden worlds",
+    "First eligible state per seed",
+    "Selected quota strata",
+    "Conditional-on-block selection bias",
+    "V8 CommonJS harness, Node CLI not independently run"
+  ],
+  "exactNextAction": "Compare block remainder rank conditional on comparable block-producing worlds, and seek confirmed block scoring rule; do not promote official block-win claims."
+}
