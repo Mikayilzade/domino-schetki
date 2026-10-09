@@ -455,3 +455,15 @@
 - Reproduce: `node qosha-research/simulator/double-connector-urgency-holdout.js 466000 606000 12 40` (V8 CommonJS verified); complete positions, seeds, per-world seed offsets, metrics, and hand-size strata in `runs/2026-10-10-0154-double-connector-disjoint-holdout.json`.
 - Cumulative credited scale: **180,000 complete strategy rounds** (historical 4,000 separate) + **95423 fixed-visible hidden worlds** (400 pilot excluded).
 - Exact next hypothesis/action: on fresh seeds, pre-stratify focal hand=3/4/5 and full opponent hand-size vector; test whether the connector advantage reverses for urgent 5-tile hands under fast-doubles, inspect immediate opponent finish and minus risks, and identify specific counterexample hands. Keep bot/rules assumptions explicit.
+
+
+### 2026-10-10 02:48:31 +04:00 — pre-stratified double/connector hand-size holdout
+- engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, primary 3×9; no gameplay rule changes. V8 CommonJS self-test and first-position exact replay passed; independent Node CLI pending.
+- seed scan: `606000..825999`, filter `seed%17===0`, first eligible reachable state per seed; fixed quota 6 per urgency (min opponent <=2 vs 3–4) × focal hand 3/4/5 × X=0/2/4. **108 distinct positions**, **1968 distinct hidden allocations**, **11808 forced continuations**, 0 new full strategy rounds. Per-position seeds, world offsets, opponent-size vectors, branch ends and candidate results saved.
+- policies: side-neutral closed-branch-control, min-hand-pips, fast-doubles. Same-state forced X-X opening now minus X-Y connector exposing unopened X; identical hidden worlds and policy. Position-level unadjusted exploratory normal CIs; no official block winner.
+- urgent hand 3/4/5 fast-doubles finish-first double-minus-connector: -37.08 pp [-51.39 pp, -22.76 pp] (n=18); -3.89 pp [-8.68 pp, 0.90 pp] (n=18); -3.12 pp [-5.61 pp, -0.63 pp] (n=18).
+- hand=5 urgent exception audit: full opponent-size vectors are persisted but **not balanced by vector**; the prior +2.25pp exception is not a universal rule. Immediate-next-opponent finish and minus risks are separately recorded. No causal claim across urgency or hand-size strata.
+- confidence/limitations: assumption-labelled branch semantics; only X=0/2/4; correlated worlds; unequal combinatorial allocations; handcrafted bots; first-eligible selection; exploratory multiple comparisons; Node CLI pending. Historic 4,000 and quarantined 30,000 rounds excluded.
+- cumulative: **180,000** credited full strategy rounds + **97391** fixed-visible hidden worlds (400 pilot excluded).
+- reproducibility: `simulator/double-connector-hand-strata.js 606000 826000 6 30`; `runs/2026-10-10-0246-double-connector-hand-strata.json`.
+- exact next hypothesis/action: Investigate urgent focal-hand=5 exception with targeted opponent-size vector 2/4 vs 4/2, seed-disjoint matched-position holdout; compare immediate opponent finish and minus risk; do not promote universal double-retention advice.

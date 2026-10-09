@@ -109,3 +109,11 @@ Preregister independent opponent-one-stone hand-size/branch-end-matched experime
 - Paired double-minus-connector finish-first differences negative under all 3 continuation policies in both urgency groups; exception urgent/focal-hand=5 under fast-doubles (+2.25 pp). Model-specific, not universal.
 - Reproduce: `simulator/double-connector-urgency-holdout.js 466000 606000 12 40`, full data `runs/2026-10-10-0154-double-connector-disjoint-holdout.json`.
 - Next: pre-stratified focal hand/opponent-vector fresh-seed study, urgent hand=5 counterexamples, immediate threat and minus risk.
+
+
+## 2026-10-10 02:48:31 +04:00 — hand-size pre-stratified connector holdout
+- 108 positions, 1968 new distinct hidden worlds, 11808 continuations; 0 new full rounds. Cumulative **180,000 full rounds + 97391 hidden worlds**.
+- Engine unchanged `qosa-research-0.5.3`; exact replay and base self-test green in V8. Node CLI pending.
+- Urgent hand=5 fast-doubles double-minus-connector: -3.12 pp [-5.61 pp, -0.63 pp] across 18 independent positions. Exploratory; vector-level matching not established.
+- Runner `simulator/double-connector-hand-strata.js`; data `runs/2026-10-10-0246-double-connector-hand-strata.json`.
+- Next: vector-matched urgent 5-tile counterexamples and immediate opponent finish/minus risk.
