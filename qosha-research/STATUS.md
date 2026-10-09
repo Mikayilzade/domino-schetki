@@ -1,12 +1,13 @@
 # Qoşa research status
 
-Updated: 2026-10-07 10:56 (+04)
+Updated: 2026-10-09 08:55 (+04)
 
 ## Current engine state
 - version target: `qosa-research-0.6.1`
 - primary mode: 3 players × 9 stones + 1 stock
 - new strategy rounds: 180,000 matched-seat rounds persisted across validated baselines/stress/instrumentation runs (historical 4,000 kept separate)
 - historical baseline: kept separate in `RESULTS.md`
+- fixed-visible hidden worlds: **68,210** across research checkpoints (latest +2,400 on 2026-10-09)
 
 ## Newly confirmed by user
 - every 3-player round starts from `1-1`;
@@ -48,8 +49,12 @@ Updated: 2026-10-07 10:56 (+04)
 - `hidden-world-test.js` now requires **25/25 distinct actual hidden allocations** for seeds `700..724`, deterministic replay, 28-tile integrity, immutable visible state and identical focal candidate keys;
 - paired decision-regret is persisted and keeps finish-first, remainder and minus-finish metrics separate;
 - minus finish is a beneficial outcome: `minusFinishRegret` is measured against the **maximum** minus-finish rate;
-- source/tests are persisted, but the latest hidden-world/regret regressions have not been runtime-executed in this connector environment, so they are not yet labelled green;
+- fixed-visible hidden-world and regret regressions passed in the V8 CommonJS harness on 2026-10-08; independent Node CLI execution remains pending;
 - verified cumulative strategy scale remains **180,000**; quarantined pre-fix `30000..39999` remains excluded.
 
+## LATEST PATTERN FINDING (provisional)
+- On 96 same-state different-end positions, exposing the number with more remaining own connectors improved finish-first by 6.25–9.50 pp under three side-neutral policies (unadjusted position-level CIs); linked `runs/2026-10-09-0855-different-end-choice.md`.
+- This is discovery-only, not a human-ready universal rule; first-eligible selection, assumed branch locking and simple bots limit generalization.
+
 ## NEXT ACTION
-Execute `decision-regret-test.js` and `hidden-world-test.js`. If both are green, persist the first numerical 25-world paired-regret JSON; then reproduce corrected controlled specific-double seeds `30000..39999`.
+Replicate the different-end choice on disjoint seeds 178000..181999 and 186000..189999 (same 8-per-cell quota and 25 hidden worlds), record counterexamples by opponent urgency. Execute Node CLI regressions when an executable checkout is available. Keep quarantined old specific-double data excluded.

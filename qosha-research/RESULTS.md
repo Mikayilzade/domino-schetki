@@ -386,3 +386,17 @@
 - limitations: assumption-labelled locked/open branches, first-eligible selection, simple bots, block winner unassigned, correlated worlds, exploratory subgroup splits.
 - reproducibility: `simulator/endpoint-mobility-replication.js 24 25`; `runs/2026-10-09-0348-endpoint-mobility-replication.json`; world seed `6100000+1000*dealSeed+worldIndex`.
 - exact next action: Check whether the mobility advantage survives against new opponent continuation policies and when an opponent has 1-2 tiles; seek counterexamples with multiple open sides.
+
+
+### 2026-10-09 08:55 (+04) — different-end same-tile paired choice (side-neutral)
+- engine/rules: `qosa-research-0.5.3` / recovered `qosa-1.0.0`; primary 3×9; no rule changes; V8 CommonJS self-test passed (not Node CLI)
+- experiment: 96 reachable positions (8 per discovery-policy × urgency × mobility cell), 25 fixed-visible worlds each = **2,400 new hidden worlds**, 7,200 policy/world evaluations and **14,400 paired candidate continuations**; 0 new full strategy rounds
+- seed scans: 174000..177999 (closed-branch-control) and 182000..185999 (min-hand-pips); hidden seed `9900000+1000*dealSeed+worldIndex`; strategies: side-neutral closed-branch-control, min-hand-pips, random-legal
+- comparison: the SAME ordinary X–Y tile on an open X end (exposes Y) versus on a different open Y end (exposes X), with both numbers already opened. Aligned = expose the number touched by more OTHER own hand tiles. Identical hidden worlds, equal position weights.
+- finish-first aligned differences: closed-branch-control **+9.50 pp [3.85,15.15]**, min-hand-pips **+6.25 pp [0.77,11.73]**, random-legal **+7.13 pp [2.81,11.44]** (exploratory unadjusted 95% position-clustered normal CIs, n=64 unequal-mobility positions)
+- mean remainder aligned differences: −1.75, −1.34, −1.34 pips respectively; equal-mobility control showed no reliable directional effect; opponent-urgency subgroups vary
+- finding: **provisional**, same-state evidence that exposing an endpoint matching more remaining hand tiles may improve finishing first; unlike same-end side swaps, different-end placements change branch-end counts. Do not promote before independent holdout.
+- confidence/limitations: 3 simple side-neutral bots, assumption-labelled branch opening/locking, first-eligible position selection and quota balancing, correlated worlds, exploratory multiple comparisons, block winner unassigned, no physical geometry; no Node CLI execution
+- cumulative persisted scale: **180,000 complete strategy rounds** (historical 4,000 separate) + **68,210 fixed-visible hidden worlds** (prior 65,810 + 2,400)
+- linked files: `simulator/different-end-choice.js`, `runs/2026-10-09-0855-different-end-choice.json`, `runs/2026-10-09-0855-different-end-choice.md`
+- exact next hypothesis/action: replicate same protocol on disjoint seed scans 178000..181999 and 186000..189999; inspect opponent <=2 vs >=3 and counterexamples, then assess practical advice.
