@@ -1,0 +1,6928 @@
+{
+  "schema": "qosa-threat-first-out-of-sample/v1",
+  "timestampAsiaBaku": "2026-10-09 12:48:02 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "scans": [
+    {
+      "policy": "closed-branch-control",
+      "seedRange": [
+        210000,
+        215999
+      ],
+      "eligible": 329,
+      "available": {
+        "lowMore": 227,
+        "highMore": 102
+      }
+    },
+    {
+      "policy": "min-hand-pips",
+      "seedRange": [
+        216000,
+        221999
+      ],
+      "eligible": 513,
+      "available": {
+        "lowMore": 377,
+        "highMore": 136
+      }
+    }
+  ],
+  "selectedSeeds": [
+    210009,
+    210697,
+    211839,
+    214298,
+    214730,
+    210397,
+    214481,
+    214942,
+    210864,
+    215505,
+    214483,
+    210963,
+    212547,
+    211107,
+    214181,
+    211515,
+    211681,
+    214926,
+    210872,
+    215972,
+    211079,
+    215390,
+    212130,
+    213948,
+    216865,
+    218191,
+    217061,
+    218934,
+    218244,
+    217935,
+    219725,
+    221216,
+    217670,
+    216901,
+    221169,
+    220516,
+    216006,
+    219011,
+    219542,
+    220804,
+    216880,
+    216759,
+    221841,
+    217693,
+    218461,
+    217216,
+    220973,
+    217243
+  ],
+  "positionCount": 48,
+  "trainWorlds": 25,
+  "testWorlds": 25,
+  "uniqueHiddenWorlds": 2400,
+  "evaluationWorlds": 1200,
+  "candidateContinuations": 7200,
+  "fullStrategyRounds": 0,
+  "worldSeedFormula": "14000000+1000*dealSeed+worldIndex (training 0..trainWorlds-1, evaluation trainWorlds..trainWorlds+testWorlds-1)",
+  "strategies": [
+    "mobility-aligned",
+    "threat-first (training Monte Carlo override >=12pp)",
+    "mobility-alternative"
+  ],
+  "continuationPolicies": [
+    "side-neutral-closed-branch-control",
+    "side-neutral-min-hand-pips",
+    "side-neutral-random-legal"
+  ],
+  "selection": "First reachable same X-Y tile on distinct open X/Y ends, next opponent exactly one stone, other opponent >=2, unequal own endpoint mobility; stratified by discovery policy and mobility direction.",
+  "method": "Risk is chance the next opponent can finish immediately on its very next turn, estimated using only 25 training worlds. Override mobility-aligned choice when alternative reduces estimated immediate threat by at least 12 percentage points. Outcomes measured on disjoint 25 evaluation worlds per position; same evaluation worlds/policies for both forced moves.",
+  "ciMethod": "Unadjusted exploratory normal 95% intervals clustered by distinct selected deal-seed position; hidden worlds within position are NOT independent.",
+  "summary": {
+    "positionCount": 48,
+    "overrides": 19,
+    "riskAligned": {
+      "n": 48,
+      "mean": 0.6749999999999998,
+      "ci95NormalApprox": [
+        0.5949620568703471,
+        0.7550379431296526
+      ]
+    },
+    "riskAlternative": {
+      "n": 48,
+      "mean": 0.6275000000000001,
+      "ci95NormalApprox": [
+        0.536516479942872,
+        0.7184835200571281
+      ]
+    },
+    "riskThreatFirst": {
+      "n": 48,
+      "mean": 0.5624999999999999,
+      "ci95NormalApprox": [
+        0.4746472359226621,
+        0.6503527640773377
+      ]
+    },
+    "riskImprovement": {
+      "n": 48,
+      "mean": -0.11250000000000004,
+      "ci95NormalApprox": [
+        -0.15774356542941728,
+        -0.06725643457058281
+      ]
+    },
+    "policies": {
+      "closed-branch-control": {
+        "all": {
+          "first": {
+            "n": 48,
+            "mean": -0.02333333333333333,
+            "ci95NormalApprox": [
+              -0.07934905216743546,
+              0.03268238550076879
+            ]
+          },
+          "pips": {
+            "n": 48,
+            "mean": -0.05999999999999998,
+            "ci95NormalApprox": [
+              -0.6418187634265307,
+              0.5218187634265308
+            ]
+          },
+          "minus": {
+            "n": 48,
+            "mean": 0,
+            "ci95NormalApprox": [
+              0,
+              0
+            ]
+          },
+          "block": {
+            "n": 48,
+            "mean": 0.10333333333333333,
+            "ci95NormalApprox": [
+              0.02291475697707196,
+              0.1837519096895947
+            ]
+          },
+          "turns": {
+            "n": 48,
+            "mean": 0.3099999999999999,
+            "ci95NormalApprox": [
+              0.07913173324221295,
+              0.5408682667577869
+            ]
+          }
+        },
+        "overrideOnly": {
+          "first": {
+            "n": 19,
+            "mean": -0.05894736842105262,
+            "ci95NormalApprox": [
+              -0.201250434394386,
+              0.08335569755228077
+            ]
+          },
+          "pips": {
+            "n": 19,
+            "mean": -0.151578947368421,
+            "ci95NormalApprox": [
+              -1.6449094238199817,
+              1.3417515290831397
+            ]
+          },
+          "minus": {
+            "n": 19,
+            "mean": 0,
+            "ci95NormalApprox": [
+              0,
+              0
+            ]
+          },
+          "block": {
+            "n": 19,
+            "mean": 0.26105263157894737,
+            "ci95NormalApprox": [
+              0.07700578968180566,
+              0.4450994734760891
+            ]
+          },
+          "turns": {
+            "n": 19,
+            "mean": 0.7831578947368418,
+            "ci95NormalApprox": [
+              0.2611340980366055,
+              1.3051816914370782
+            ]
+          }
+        }
+      },
+      "min-hand-pips": {
+        "all": {
+          "first": {
+            "n": 48,
+            "mean": -0.02333333333333333,
+            "ci95NormalApprox": [
+              -0.07934905216743546,
+              0.03268238550076879
+            ]
+          },
+          "pips": {
+            "n": 48,
+            "mean": -0.05999999999999998,
+            "ci95NormalApprox": [
+              -0.6418187634265307,
+              0.5218187634265308
+            ]
+          },
+          "minus": {
+            "n": 48,
+            "mean": 0,
+            "ci95NormalApprox": [
+              0,
+              0
+            ]
+          },
+          "block": {
+            "n": 48,
+            "mean": 0.10333333333333333,
+            "ci95NormalApprox": [
+              0.02291475697707196,
+              0.1837519096895947
+            ]
+          },
+          "turns": {
+            "n": 48,
+            "mean": 0.3099999999999999,
+            "ci95NormalApprox": [
+              0.07913173324221295,
+              0.5408682667577869
+            ]
+          }
+        },
+        "overrideOnly": {
+          "first": {
+            "n": 19,
+            "mean": -0.05894736842105262,
+            "ci95NormalApprox": [
+              -0.201250434394386,
+              0.08335569755228077
+            ]
+          },
+          "pips": {
+            "n": 19,
+            "mean": -0.151578947368421,
+            "ci95NormalApprox": [
+              -1.6449094238199817,
+              1.3417515290831397
+            ]
+          },
+          "minus": {
+            "n": 19,
+            "mean": 0,
+            "ci95NormalApprox": [
+              0,
+              0
+            ]
+          },
+          "block": {
+            "n": 19,
+            "mean": 0.26105263157894737,
+            "ci95NormalApprox": [
+              0.07700578968180566,
+              0.4450994734760891
+            ]
+          },
+          "turns": {
+            "n": 19,
+            "mean": 0.7831578947368418,
+            "ci95NormalApprox": [
+              0.2611340980366055,
+              1.3051816914370782
+            ]
+          }
+        }
+      },
+      "random-legal": {
+        "all": {
+          "first": {
+            "n": 48,
+            "mean": -0.004166666666666661,
+            "ci95NormalApprox": [
+              -0.06168966956884627,
+              0.053356336235512954
+            ]
+          },
+          "pips": {
+            "n": 48,
+            "mean": -0.1774999999999999,
+            "ci95NormalApprox": [
+              -0.6090909776464468,
+              0.25409097764644706
+            ]
+          },
+          "minus": {
+            "n": 48,
+            "mean": 0,
+            "ci95NormalApprox": [
+              0,
+              0
+            ]
+          },
+          "block": {
+            "n": 48,
+            "mean": 0.09333333333333334,
+            "ci95NormalApprox": [
+              0.014505893342501033,
+              0.17216077332416563
+            ]
+          },
+          "turns": {
+            "n": 48,
+            "mean": 0.34500000000000003,
+            "ci95NormalApprox": [
+              0.1587853682493929,
+              0.5312146317506071
+            ]
+          }
+        },
+        "overrideOnly": {
+          "first": {
+            "n": 19,
+            "mean": -0.01052631578947367,
+            "ci95NormalApprox": [
+              -0.15821793798327233,
+              0.137165306404325
+            ]
+          },
+          "pips": {
+            "n": 19,
+            "mean": -0.4484210526315787,
+            "ci95NormalApprox": [
+              -1.545145973109495,
+              0.6483038678463374
+            ]
+          },
+          "minus": {
+            "n": 19,
+            "mean": 0,
+            "ci95NormalApprox": [
+              0,
+              0
+            ]
+          },
+          "block": {
+            "n": 19,
+            "mean": 0.23578947368421055,
+            "ci95NormalApprox": [
+              0.0518865951450333,
+              0.4196923522233878
+            ]
+          },
+          "turns": {
+            "n": 19,
+            "mean": 0.8715789473684211,
+            "ci95NormalApprox": [
+              0.5099327452249771,
+              1.2332251495118651
+            ]
+          }
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "seed": 210009,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 2,
+      "turn": 24,
+      "focalHand": [
+        "0-3",
+        "2-4",
+        "0-2"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 0,
+        "left": 3,
+        "right": 4,
+        "down": 0
+      },
+      "tile": "0-3",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|up|3||0-3",
+        "single|left|0||0-3"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 1,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 1,
+      "testRiskThreatFirst": 1,
+      "worldSeedStart": 224009000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 8,
+            "alternative": 8,
+            "threatFirst": 8,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 26,
+            "threatFirst": 26,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 8,
+            "alternative": 8,
+            "threatFirst": 8,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 26,
+            "threatFirst": 26,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 8,
+            "alternative": 8,
+            "threatFirst": 8,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 26,
+            "threatFirst": 26,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 210697,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 0,
+      "turn": 23,
+      "focalHand": [
+        "0-5",
+        "0-1"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 3,
+      "branchEnds": {
+        "up": 0,
+        "left": 5,
+        "right": 4,
+        "down": 0
+      },
+      "tile": "0-5",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|up|5||0-5",
+        "single|left|0||0-5"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.8,
+      "trainRiskAlternative": 0.8,
+      "testRiskAligned": 0.84,
+      "testRiskAlternative": 0.84,
+      "testRiskThreatFirst": 0.84,
+      "worldSeedStart": 224697000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.16,
+            "alternative": 0.16,
+            "threatFirst": 0.16,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 0.84,
+            "alternative": 0.84,
+            "threatFirst": 0.84,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.32,
+            "alternative": 25.32,
+            "threatFirst": 25.32,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.16,
+            "alternative": 0.16,
+            "threatFirst": 0.16,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 0.84,
+            "alternative": 0.84,
+            "threatFirst": 0.84,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.32,
+            "alternative": 25.32,
+            "threatFirst": 25.32,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.16,
+            "alternative": 0,
+            "threatFirst": 0.16,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 0.84,
+            "alternative": 1,
+            "threatFirst": 0.84,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.32,
+            "alternative": 25.48,
+            "threatFirst": 25.32,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 211839,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 2,
+      "turn": 25,
+      "focalHand": [
+        "0-4",
+        "2-5",
+        "0-5"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 3,
+        "left": 4,
+        "right": 1,
+        "down": 0
+      },
+      "tile": "0-4",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|down|4||0-4",
+        "single|left|0||0-4"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 0,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.6,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 0.76,
+      "testRiskThreatFirst": 0.76,
+      "worldSeedStart": 225839000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 12,
+            "alternative": 10.8,
+            "threatFirst": 10.8,
+            "overrideMinusMobility": -1.1999999999999993
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 27,
+            "alternative": 27.96,
+            "threatFirst": 27.96,
+            "overrideMinusMobility": 0.9600000000000009
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 12,
+            "alternative": 10.8,
+            "threatFirst": 10.8,
+            "overrideMinusMobility": -1.1999999999999993
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 27,
+            "alternative": 27.96,
+            "threatFirst": 27.96,
+            "overrideMinusMobility": 0.9600000000000009
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 12,
+            "alternative": 10.8,
+            "threatFirst": 10.8,
+            "overrideMinusMobility": -1.1999999999999993
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 27,
+            "alternative": 27.96,
+            "threatFirst": 27.96,
+            "overrideMinusMobility": 0.9600000000000009
+          }
+        }
+      }
+    },
+    {
+      "seed": 214298,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 1,
+      "turn": 23,
+      "focalHand": [
+        "2-4",
+        "2-5"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 5,
+        "left": 5,
+        "right": 5,
+        "down": 2
+      },
+      "tile": "2-5",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|down|5||2-5",
+        "single|up|2||2-5"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 0,
+      "override": true,
+      "trainRiskAligned": 0.2,
+      "trainRiskAlternative": 0,
+      "testRiskAligned": 0.36,
+      "testRiskAlternative": 0,
+      "testRiskThreatFirst": 0,
+      "worldSeedStart": 228298000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.64,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": -0.64
+          },
+          "pips": {
+            "aligned": 2.16,
+            "alternative": 6,
+            "threatFirst": 6,
+            "overrideMinusMobility": 3.84
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 1
+          },
+          "turns": {
+            "aligned": 26.28,
+            "alternative": 27,
+            "threatFirst": 27,
+            "overrideMinusMobility": 0.7199999999999989
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.64,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": -0.64
+          },
+          "pips": {
+            "aligned": 2.16,
+            "alternative": 6,
+            "threatFirst": 6,
+            "overrideMinusMobility": 3.84
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 1
+          },
+          "turns": {
+            "aligned": 26.28,
+            "alternative": 27,
+            "threatFirst": 27,
+            "overrideMinusMobility": 0.7199999999999989
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.64,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": -0.64
+          },
+          "pips": {
+            "aligned": 2.16,
+            "alternative": 6,
+            "threatFirst": 6,
+            "overrideMinusMobility": 3.84
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 1
+          },
+          "turns": {
+            "aligned": 26.28,
+            "alternative": 27,
+            "threatFirst": 27,
+            "overrideMinusMobility": 0.7199999999999989
+          }
+        }
+      }
+    },
+    {
+      "seed": 214730,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 0,
+      "turn": 24,
+      "focalHand": [
+        "2-4",
+        "0-5",
+        "2-5",
+        "4-6",
+        "0-6",
+        "0-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 0,
+        "left": 4,
+        "right": 3,
+        "down": 1
+      },
+      "tile": "0-3",
+      "lowMob": 2,
+      "highMob": 0,
+      "keys": [
+        "single|up|3||0-3",
+        "single|right|0||0-3"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 0,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.68,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 0.72,
+      "testRiskThreatFirst": 0.72,
+      "worldSeedStart": 228730000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 34,
+            "alternative": 32.32,
+            "threatFirst": 32.32,
+            "overrideMinusMobility": -1.6799999999999997
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 27.12,
+            "threatFirst": 27.12,
+            "overrideMinusMobility": 1.120000000000001
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 34,
+            "alternative": 32.32,
+            "threatFirst": 32.32,
+            "overrideMinusMobility": -1.6799999999999997
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 27.12,
+            "threatFirst": 27.12,
+            "overrideMinusMobility": 1.120000000000001
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 34,
+            "alternative": 32.2,
+            "threatFirst": 32.2,
+            "overrideMinusMobility": -1.7999999999999972
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 27,
+            "threatFirst": 27,
+            "overrideMinusMobility": 1
+          }
+        }
+      }
+    },
+    {
+      "seed": 210397,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 2,
+      "turn": 25,
+      "focalHand": [
+        "0-1",
+        "0-6"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 5,
+        "left": 6,
+        "right": 5,
+        "down": 0
+      },
+      "tile": "0-6",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|down|6||0-6",
+        "single|left|0||0-6"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 0,
+      "override": true,
+      "trainRiskAligned": 0.36,
+      "trainRiskAlternative": 0,
+      "testRiskAligned": 0.24,
+      "testRiskAlternative": 0,
+      "testRiskThreatFirst": 0,
+      "worldSeedStart": 224397000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.76,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": -0.76
+          },
+          "pips": {
+            "aligned": 0.24,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 0.76
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 1
+          },
+          "turns": {
+            "aligned": 28.52,
+            "alternative": 29,
+            "threatFirst": 29,
+            "overrideMinusMobility": 0.4800000000000004
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.76,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": -0.76
+          },
+          "pips": {
+            "aligned": 0.24,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 0.76
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 1
+          },
+          "turns": {
+            "aligned": 28.52,
+            "alternative": 29,
+            "threatFirst": 29,
+            "overrideMinusMobility": 0.4800000000000004
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.76,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": -0.76
+          },
+          "pips": {
+            "aligned": 0.24,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 0.76
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 1
+          },
+          "turns": {
+            "aligned": 28.52,
+            "alternative": 29,
+            "threatFirst": 29,
+            "overrideMinusMobility": 0.4800000000000004
+          }
+        }
+      }
+    },
+    {
+      "seed": 214481,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 0,
+      "turn": 27,
+      "focalHand": [
+        "0-4",
+        "0-5",
+        "0-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 5,
+        "left": 3,
+        "right": 0,
+        "down": 4
+      },
+      "tile": "0-3",
+      "lowMob": 2,
+      "highMob": 0,
+      "keys": [
+        "single|right|3||0-3",
+        "single|left|0||0-3"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 0,
+      "override": true,
+      "trainRiskAligned": 0.6,
+      "trainRiskAlternative": 0,
+      "testRiskAligned": 0.6,
+      "testRiskAlternative": 0,
+      "testRiskThreatFirst": 0,
+      "worldSeedStart": 228481000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0.4,
+            "threatFirst": 0.4,
+            "overrideMinusMobility": 0.4
+          },
+          "pips": {
+            "aligned": 7,
+            "alternative": 2.4,
+            "threatFirst": 2.4,
+            "overrideMinusMobility": -4.6
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 30.2,
+            "alternative": 32.8,
+            "threatFirst": 32.8,
+            "overrideMinusMobility": 2.599999999999998
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0.4,
+            "threatFirst": 0.4,
+            "overrideMinusMobility": 0.4
+          },
+          "pips": {
+            "aligned": 7,
+            "alternative": 2.4,
+            "threatFirst": 2.4,
+            "overrideMinusMobility": -4.6
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 30.2,
+            "alternative": 32.8,
+            "threatFirst": 32.8,
+            "overrideMinusMobility": 2.599999999999998
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0.4,
+            "threatFirst": 0.4,
+            "overrideMinusMobility": 0.4
+          },
+          "pips": {
+            "aligned": 7.12,
+            "alternative": 2.72,
+            "threatFirst": 2.72,
+            "overrideMinusMobility": -4.4
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 30.2,
+            "alternative": 32.8,
+            "threatFirst": 32.8,
+            "overrideMinusMobility": 2.599999999999998
+          }
+        }
+      }
+    },
+    {
+      "seed": 214942,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 0,
+      "turn": 23,
+      "focalHand": [
+        "2-6",
+        "1-2",
+        "2-5",
+        "4-5"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 3,
+      "branchEnds": {
+        "up": 3,
+        "left": 2,
+        "right": 6,
+        "down": 2
+      },
+      "tile": "2-6",
+      "lowMob": 2,
+      "highMob": 0,
+      "keys": [
+        "single|left|6||2-6",
+        "single|right|2||2-6"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.44,
+      "trainRiskAlternative": 0.44,
+      "testRiskAligned": 0.48,
+      "testRiskAlternative": 0.48,
+      "testRiskThreatFirst": 0.48,
+      "worldSeedStart": 228942000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 15.36,
+            "alternative": 15.36,
+            "threatFirst": 15.36,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.56,
+            "alternative": 26.56,
+            "threatFirst": 26.56,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 15.36,
+            "alternative": 15.36,
+            "threatFirst": 15.36,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.56,
+            "alternative": 26.56,
+            "threatFirst": 26.56,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 16.16,
+            "alternative": 17.12,
+            "threatFirst": 16.16,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.56,
+            "alternative": 26.56,
+            "threatFirst": 26.56,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 210864,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 1,
+      "turn": 24,
+      "focalHand": [
+        "2-3",
+        "2-4",
+        "0-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 3,
+      "branchEnds": {
+        "up": 5,
+        "left": 4,
+        "right": 2,
+        "down": 0
+      },
+      "tile": "2-4",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|right|4||2-4",
+        "single|left|2||2-4"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 0,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.68,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 0.76,
+      "testRiskThreatFirst": 0.76,
+      "worldSeedStart": 224864000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0.24,
+            "threatFirst": 0.24,
+            "overrideMinusMobility": 0.24
+          },
+          "pips": {
+            "aligned": 8,
+            "alternative": 6.08,
+            "threatFirst": 6.08,
+            "overrideMinusMobility": -1.92
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 27.2,
+            "threatFirst": 27.2,
+            "overrideMinusMobility": 1.1999999999999993
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0.24,
+            "threatFirst": 0.24,
+            "overrideMinusMobility": 0.24
+          },
+          "pips": {
+            "aligned": 8,
+            "alternative": 6.08,
+            "threatFirst": 6.08,
+            "overrideMinusMobility": -1.92
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 27.2,
+            "threatFirst": 27.2,
+            "overrideMinusMobility": 1.1999999999999993
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0.12,
+            "threatFirst": 0.12,
+            "overrideMinusMobility": 0.12
+          },
+          "pips": {
+            "aligned": 8,
+            "alternative": 6.92,
+            "threatFirst": 6.92,
+            "overrideMinusMobility": -1.08
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 26.96,
+            "threatFirst": 26.96,
+            "overrideMinusMobility": 0.9600000000000009
+          }
+        }
+      }
+    },
+    {
+      "seed": 215505,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 2,
+      "turn": 24,
+      "focalHand": [
+        "0-2",
+        "0-6",
+        "0-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 0,
+        "left": 3,
+        "right": 4,
+        "down": 6
+      },
+      "tile": "0-3",
+      "lowMob": 2,
+      "highMob": 0,
+      "keys": [
+        "single|up|3||0-3",
+        "single|left|0||0-3"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 0,
+      "override": true,
+      "trainRiskAligned": 0.64,
+      "trainRiskAlternative": 0.32,
+      "testRiskAligned": 0.48,
+      "testRiskAlternative": 0.12,
+      "testRiskThreatFirst": 0.12,
+      "worldSeedStart": 229505000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 4.88,
+            "alternative": 2.72,
+            "threatFirst": 2.72,
+            "overrideMinusMobility": -2.1599999999999997
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0.52,
+            "alternative": 0.88,
+            "threatFirst": 0.88,
+            "overrideMinusMobility": 0.36
+          },
+          "turns": {
+            "aligned": 28.6,
+            "alternative": 30.4,
+            "threatFirst": 30.4,
+            "overrideMinusMobility": 1.7999999999999972
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 4.88,
+            "alternative": 2.72,
+            "threatFirst": 2.72,
+            "overrideMinusMobility": -2.1599999999999997
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0.52,
+            "alternative": 0.88,
+            "threatFirst": 0.88,
+            "overrideMinusMobility": 0.36
+          },
+          "turns": {
+            "aligned": 28.6,
+            "alternative": 30.4,
+            "threatFirst": 30.4,
+            "overrideMinusMobility": 1.7999999999999972
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 6,
+            "alternative": 4.32,
+            "threatFirst": 4.32,
+            "overrideMinusMobility": -1.6799999999999997
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0.04,
+            "alternative": 0.2,
+            "threatFirst": 0.2,
+            "overrideMinusMobility": 0.16
+          },
+          "turns": {
+            "aligned": 27.72,
+            "alternative": 29.32,
+            "threatFirst": 29.32,
+            "overrideMinusMobility": 1.6000000000000014
+          }
+        }
+      }
+    },
+    {
+      "seed": 214483,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 1,
+      "turn": 24,
+      "focalHand": [
+        "0-2",
+        "0-4"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 2,
+        "left": 0,
+        "right": 0,
+        "down": 3
+      },
+      "tile": "0-2",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|left|2||0-2",
+        "single|up|0||0-2"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.68,
+      "trainRiskAlternative": 0.68,
+      "testRiskAligned": 0.84,
+      "testRiskAlternative": 0.84,
+      "testRiskThreatFirst": 0.84,
+      "worldSeedStart": 228483000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.16,
+            "alternative": 0,
+            "threatFirst": 0.16,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.36,
+            "alternative": 4,
+            "threatFirst": 3.36,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0.16,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.32,
+            "alternative": 26.64,
+            "threatFirst": 26.32,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.16,
+            "alternative": 0,
+            "threatFirst": 0.16,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.36,
+            "alternative": 4,
+            "threatFirst": 3.36,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0.16,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.32,
+            "alternative": 26.64,
+            "threatFirst": 26.32,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.16,
+            "alternative": 0.04,
+            "threatFirst": 0.16,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.36,
+            "alternative": 3.84,
+            "threatFirst": 3.36,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0.04,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.32,
+            "alternative": 26.48,
+            "threatFirst": 26.32,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 210963,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 1,
+      "turn": 25,
+      "focalHand": [
+        "3-6",
+        "0-6",
+        "0-4",
+        "4-5"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 3,
+      "branchEnds": {
+        "up": 4,
+        "left": 4,
+        "right": 4,
+        "down": 5
+      },
+      "tile": "4-5",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|up|5||4-5",
+        "single|down|4||4-5"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.32,
+      "trainRiskAlternative": 0.32,
+      "testRiskAligned": 0.08,
+      "testRiskAlternative": 0.08,
+      "testRiskThreatFirst": 0.08,
+      "worldSeedStart": 224963000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.48,
+            "alternative": 0.48,
+            "threatFirst": 0.48,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.28,
+            "alternative": 3.28,
+            "threatFirst": 3.28,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 33.48,
+            "alternative": 33.48,
+            "threatFirst": 33.48,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.48,
+            "alternative": 0.48,
+            "threatFirst": 0.48,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.28,
+            "alternative": 3.28,
+            "threatFirst": 3.28,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 33.48,
+            "alternative": 33.48,
+            "threatFirst": 33.48,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.2,
+            "alternative": 0.2,
+            "threatFirst": 0.2,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 9.12,
+            "alternative": 9.12,
+            "threatFirst": 9.12,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 31.72,
+            "alternative": 31.72,
+            "threatFirst": 31.72,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 212547,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "turn": 23,
+      "focalHand": [
+        "2-3",
+        "0-2"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 0,
+        "left": 3,
+        "right": 5,
+        "down": 2
+      },
+      "tile": "0-2",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|up|2||0-2",
+        "single|down|0||0-2"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 1,
+      "override": true,
+      "trainRiskAligned": 0.8,
+      "trainRiskAlternative": 0.6,
+      "testRiskAligned": 0.6,
+      "testRiskAlternative": 0.64,
+      "testRiskThreatFirst": 0.64,
+      "worldSeedStart": 226547000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.4,
+            "alternative": 0.36,
+            "threatFirst": 0.36,
+            "overrideMinusMobility": -0.040000000000000036
+          },
+          "pips": {
+            "aligned": 3,
+            "alternative": 3.2,
+            "threatFirst": 3.2,
+            "overrideMinusMobility": 0.20000000000000018
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.8,
+            "alternative": 25.72,
+            "threatFirst": 25.72,
+            "overrideMinusMobility": -0.08000000000000185
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.4,
+            "alternative": 0.36,
+            "threatFirst": 0.36,
+            "overrideMinusMobility": -0.040000000000000036
+          },
+          "pips": {
+            "aligned": 3,
+            "alternative": 3.2,
+            "threatFirst": 3.2,
+            "overrideMinusMobility": 0.20000000000000018
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.8,
+            "alternative": 25.72,
+            "threatFirst": 25.72,
+            "overrideMinusMobility": -0.08000000000000185
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.4,
+            "alternative": 0.36,
+            "threatFirst": 0.36,
+            "overrideMinusMobility": -0.040000000000000036
+          },
+          "pips": {
+            "aligned": 3,
+            "alternative": 3.2,
+            "threatFirst": 3.2,
+            "overrideMinusMobility": 0.20000000000000018
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.8,
+            "alternative": 25.72,
+            "threatFirst": 25.72,
+            "overrideMinusMobility": -0.08000000000000185
+          }
+        }
+      }
+    },
+    {
+      "seed": 211107,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "turn": 23,
+      "focalHand": [
+        "1-3",
+        "3-5"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 3,
+        "left": 1,
+        "right": 3,
+        "down": 3
+      },
+      "tile": "1-3",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|left|3||1-3",
+        "single|up|1||1-3"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.4,
+      "trainRiskAlternative": 0.4,
+      "testRiskAligned": 0.44,
+      "testRiskAlternative": 0.44,
+      "testRiskThreatFirst": 0.44,
+      "worldSeedStart": 225107000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.56,
+            "alternative": 0.56,
+            "threatFirst": 0.56,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.52,
+            "alternative": 3.52,
+            "threatFirst": 3.52,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.12,
+            "alternative": 26.12,
+            "threatFirst": 26.12,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.56,
+            "alternative": 0.56,
+            "threatFirst": 0.56,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.52,
+            "alternative": 3.52,
+            "threatFirst": 3.52,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.12,
+            "alternative": 26.12,
+            "threatFirst": 26.12,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.56,
+            "alternative": 0.56,
+            "threatFirst": 0.56,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.52,
+            "alternative": 3.52,
+            "threatFirst": 3.52,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.12,
+            "alternative": 26.12,
+            "threatFirst": 26.12,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 214181,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 0,
+      "turn": 23,
+      "focalHand": [
+        "0-6",
+        "3-4",
+        "2-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 3,
+        "left": 2,
+        "right": 6,
+        "down": 4
+      },
+      "tile": "2-3",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|left|3||2-3",
+        "single|up|2||2-3"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.4,
+      "trainRiskAlternative": 0.6,
+      "testRiskAligned": 0.36,
+      "testRiskAlternative": 0.64,
+      "testRiskThreatFirst": 0.36,
+      "worldSeedStart": 228181000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 8.52,
+            "alternative": 10.48,
+            "threatFirst": 8.52,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 27.36,
+            "alternative": 26.08,
+            "threatFirst": 27.36,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 8.52,
+            "alternative": 10.48,
+            "threatFirst": 8.52,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 27.36,
+            "alternative": 26.08,
+            "threatFirst": 27.36,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 8.68,
+            "alternative": 10.64,
+            "threatFirst": 8.68,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 27.24,
+            "alternative": 26.12,
+            "threatFirst": 27.24,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 211515,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 1,
+      "turn": 25,
+      "focalHand": [
+        "1-3",
+        "0-1",
+        "3-6",
+        "0-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 4,
+        "left": 0,
+        "right": 3,
+        "down": 2
+      },
+      "tile": "0-3",
+      "lowMob": 1,
+      "highMob": 2,
+      "keys": [
+        "single|left|3||0-3",
+        "single|right|0||0-3"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.72,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 0.68,
+      "testRiskAlternative": 1,
+      "testRiskThreatFirst": 0.68,
+      "worldSeedStart": 225515000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 11.12,
+            "alternative": 14,
+            "threatFirst": 11.12,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 27.96,
+            "alternative": 27,
+            "threatFirst": 27.96,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 11.12,
+            "alternative": 14,
+            "threatFirst": 11.12,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 27.96,
+            "alternative": 27,
+            "threatFirst": 27.96,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 12.28,
+            "alternative": 14,
+            "threatFirst": 12.28,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 28.08,
+            "alternative": 27,
+            "threatFirst": 28.08,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 211681,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "turn": 23,
+      "focalHand": [
+        "3-4",
+        "0-1",
+        "2-4"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 4,
+      "branchEnds": {
+        "up": 5,
+        "left": 2,
+        "right": 5,
+        "down": 4
+      },
+      "tile": "2-4",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|left|4||2-4",
+        "single|down|2||2-4"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 1,
+      "override": true,
+      "trainRiskAligned": 0.56,
+      "trainRiskAlternative": 0.32,
+      "testRiskAligned": 0.64,
+      "testRiskAlternative": 0.36,
+      "testRiskThreatFirst": 0.36,
+      "worldSeedStart": 225681000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.36,
+            "alternative": 0.36,
+            "threatFirst": 0.36,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 5.12,
+            "alternative": 3.16,
+            "threatFirst": 3.16,
+            "overrideMinusMobility": -1.96
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.8,
+            "alternative": 27.64,
+            "threatFirst": 27.64,
+            "overrideMinusMobility": 0.8399999999999999
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.36,
+            "alternative": 0.36,
+            "threatFirst": 0.36,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 5.12,
+            "alternative": 3.16,
+            "threatFirst": 3.16,
+            "overrideMinusMobility": -1.96
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.8,
+            "alternative": 27.64,
+            "threatFirst": 27.64,
+            "overrideMinusMobility": 0.8399999999999999
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.12,
+            "alternative": 0.52,
+            "threatFirst": 0.52,
+            "overrideMinusMobility": 0.4
+          },
+          "pips": {
+            "aligned": 6.08,
+            "alternative": 3.48,
+            "threatFirst": 3.48,
+            "overrideMinusMobility": -2.6
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.32,
+            "alternative": 27.96,
+            "threatFirst": 27.96,
+            "overrideMinusMobility": 1.6400000000000006
+          }
+        }
+      }
+    },
+    {
+      "seed": 214926,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "turn": 25,
+      "focalHand": [
+        "2-3",
+        "3-4"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 2,
+        "left": 2,
+        "right": 0,
+        "down": 3
+      },
+      "tile": "2-3",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|up|3||2-3",
+        "single|down|2||2-3"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 1,
+      "testRiskThreatFirst": 1,
+      "worldSeedStart": 228926000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 7,
+            "alternative": 7,
+            "threatFirst": 7,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 27,
+            "alternative": 27,
+            "threatFirst": 27,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 7,
+            "alternative": 7,
+            "threatFirst": 7,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 27,
+            "alternative": 27,
+            "threatFirst": 27,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 7,
+            "alternative": 7,
+            "threatFirst": 7,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 27,
+            "alternative": 27,
+            "threatFirst": 27,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 210872,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "turn": 24,
+      "focalHand": [
+        "2-3",
+        "3-5",
+        "0-2"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 0,
+        "left": 0,
+        "right": 2,
+        "down": 0
+      },
+      "tile": "0-2",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|up|2||0-2",
+        "single|right|0||0-2"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 1,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.68,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 0.76,
+      "testRiskThreatFirst": 0.76,
+      "worldSeedStart": 224872000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 13,
+            "alternative": 11.08,
+            "threatFirst": 11.08,
+            "overrideMinusMobility": -1.92
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 26.96,
+            "threatFirst": 26.96,
+            "overrideMinusMobility": 0.9600000000000009
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 13,
+            "alternative": 11.08,
+            "threatFirst": 11.08,
+            "overrideMinusMobility": -1.92
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 26.96,
+            "threatFirst": 26.96,
+            "overrideMinusMobility": 0.9600000000000009
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 13,
+            "alternative": 12.04,
+            "threatFirst": 12.04,
+            "overrideMinusMobility": -0.9600000000000009
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 26.84,
+            "threatFirst": 26.84,
+            "overrideMinusMobility": 0.8399999999999999
+          }
+        }
+      }
+    },
+    {
+      "seed": 215972,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "turn": 24,
+      "focalHand": [
+        "2-3",
+        "0-2"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 0,
+        "left": 4,
+        "right": 0,
+        "down": 2
+      },
+      "tile": "0-2",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|up|2||0-2",
+        "single|down|0||0-2"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 1,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.8,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 0.8,
+      "testRiskThreatFirst": 0.8,
+      "worldSeedStart": 229972000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 5,
+            "alternative": 5,
+            "threatFirst": 5,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 26.6,
+            "threatFirst": 26.6,
+            "overrideMinusMobility": 0.6000000000000014
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 5,
+            "alternative": 5,
+            "threatFirst": 5,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 26.6,
+            "threatFirst": 26.6,
+            "overrideMinusMobility": 0.6000000000000014
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0.16,
+            "threatFirst": 0.16,
+            "overrideMinusMobility": 0.16
+          },
+          "pips": {
+            "aligned": 5,
+            "alternative": 4.2,
+            "threatFirst": 4.2,
+            "overrideMinusMobility": -0.7999999999999998
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 26.44,
+            "threatFirst": 26.44,
+            "overrideMinusMobility": 0.4400000000000013
+          }
+        }
+      }
+    },
+    {
+      "seed": 211079,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "turn": 25,
+      "focalHand": [
+        "0-2",
+        "2-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 2,
+        "left": 2,
+        "right": 2,
+        "down": 0
+      },
+      "tile": "0-2",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|down|2||0-2",
+        "single|up|0||0-2"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.28,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 0.36,
+      "testRiskAlternative": 1,
+      "testRiskThreatFirst": 0.36,
+      "worldSeedStart": 225079000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.64,
+            "alternative": 0,
+            "threatFirst": 0.64,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.8,
+            "alternative": 5,
+            "threatFirst": 1.8,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 28.28,
+            "alternative": 27,
+            "threatFirst": 28.28,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.64,
+            "alternative": 0,
+            "threatFirst": 0.64,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.8,
+            "alternative": 5,
+            "threatFirst": 1.8,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 28.28,
+            "alternative": 27,
+            "threatFirst": 28.28,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.64,
+            "alternative": 0,
+            "threatFirst": 0.64,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.8,
+            "alternative": 5,
+            "threatFirst": 1.8,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 28.28,
+            "alternative": 27,
+            "threatFirst": 28.28,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 215390,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 1,
+      "turn": 25,
+      "focalHand": [
+        "2-4",
+        "1-4"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 5,
+      "branchEnds": {
+        "up": 2,
+        "left": 0,
+        "right": 4,
+        "down": 5
+      },
+      "tile": "2-4",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|up|4||2-4",
+        "single|right|2||2-4"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.84,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 0.76,
+      "testRiskAlternative": 1,
+      "testRiskThreatFirst": 0.76,
+      "worldSeedStart": 229390000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.24,
+            "alternative": 0,
+            "threatFirst": 0.24,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.8,
+            "alternative": 5,
+            "threatFirst": 3.8,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 27.48,
+            "alternative": 27,
+            "threatFirst": 27.48,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.24,
+            "alternative": 0,
+            "threatFirst": 0.24,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.8,
+            "alternative": 5,
+            "threatFirst": 3.8,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 27.48,
+            "alternative": 27,
+            "threatFirst": 27.48,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.24,
+            "alternative": 0,
+            "threatFirst": 0.24,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.8,
+            "alternative": 5,
+            "threatFirst": 3.8,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 27.48,
+            "alternative": 27,
+            "threatFirst": 27.48,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 212130,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "turn": 23,
+      "focalHand": [
+        "1-3",
+        "3-5"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 3,
+      "branchEnds": {
+        "up": 0,
+        "left": 1,
+        "right": 5,
+        "down": 3
+      },
+      "tile": "1-3",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|left|3||1-3",
+        "single|down|1||1-3"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 1,
+      "override": true,
+      "trainRiskAligned": 0.72,
+      "trainRiskAlternative": 0.24,
+      "testRiskAligned": 0.72,
+      "testRiskAlternative": 0.32,
+      "testRiskThreatFirst": 0.32,
+      "worldSeedStart": 226130000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.28,
+            "alternative": 0.68,
+            "threatFirst": 0.68,
+            "overrideMinusMobility": 0.4
+          },
+          "pips": {
+            "aligned": 5.76,
+            "alternative": 2.56,
+            "threatFirst": 2.56,
+            "overrideMinusMobility": -3.1999999999999997
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.56,
+            "alternative": 26.36,
+            "threatFirst": 26.36,
+            "overrideMinusMobility": 0.8000000000000007
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.28,
+            "alternative": 0.68,
+            "threatFirst": 0.68,
+            "overrideMinusMobility": 0.4
+          },
+          "pips": {
+            "aligned": 5.76,
+            "alternative": 2.56,
+            "threatFirst": 2.56,
+            "overrideMinusMobility": -3.1999999999999997
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.56,
+            "alternative": 26.36,
+            "threatFirst": 26.36,
+            "overrideMinusMobility": 0.8000000000000007
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.28,
+            "alternative": 0.68,
+            "threatFirst": 0.68,
+            "overrideMinusMobility": 0.4
+          },
+          "pips": {
+            "aligned": 5.76,
+            "alternative": 2.56,
+            "threatFirst": 2.56,
+            "overrideMinusMobility": -3.1999999999999997
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.56,
+            "alternative": 26.36,
+            "threatFirst": 26.36,
+            "overrideMinusMobility": 0.8000000000000007
+          }
+        }
+      }
+    },
+    {
+      "seed": 213948,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "turn": 23,
+      "focalHand": [
+        "0-2",
+        "3-4",
+        "2-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 3,
+      "branchEnds": {
+        "up": 2,
+        "left": 0,
+        "right": 2,
+        "down": 0
+      },
+      "tile": "0-2",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|left|2||0-2",
+        "single|up|0||0-2"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.76,
+      "trainRiskAlternative": 0.76,
+      "testRiskAligned": 0.76,
+      "testRiskAlternative": 0.76,
+      "testRiskThreatFirst": 0.76,
+      "worldSeedStart": 227948000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 10.32,
+            "alternative": 10.32,
+            "threatFirst": 10.32,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.72,
+            "alternative": 25.72,
+            "threatFirst": 25.72,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 10.32,
+            "alternative": 10.32,
+            "threatFirst": 10.32,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.72,
+            "alternative": 25.72,
+            "threatFirst": 25.72,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 10.8,
+            "alternative": 10.8,
+            "threatFirst": 10.8,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0.04,
+            "alternative": 0,
+            "threatFirst": 0.04,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.8,
+            "alternative": 25.84,
+            "threatFirst": 25.8,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 216865,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 1,
+      "turn": 23,
+      "focalHand": [
+        "0-4",
+        "0-6"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 0,
+        "left": 0,
+        "right": 0,
+        "down": 4
+      },
+      "tile": "0-4",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|up|4||0-4",
+        "single|down|0||0-4"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.36,
+      "trainRiskAlternative": 0.36,
+      "testRiskAligned": 0.28,
+      "testRiskAlternative": 0.28,
+      "testRiskThreatFirst": 0.28,
+      "worldSeedStart": 230865000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.72,
+            "alternative": 0.72,
+            "threatFirst": 0.72,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.68,
+            "alternative": 1.68,
+            "threatFirst": 1.68,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.44,
+            "alternative": 26.44,
+            "threatFirst": 26.44,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.72,
+            "alternative": 0.72,
+            "threatFirst": 0.72,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.68,
+            "alternative": 1.68,
+            "threatFirst": 1.68,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.44,
+            "alternative": 26.44,
+            "threatFirst": 26.44,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.72,
+            "alternative": 0.72,
+            "threatFirst": 0.72,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.68,
+            "alternative": 1.68,
+            "threatFirst": 1.68,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.44,
+            "alternative": 26.44,
+            "threatFirst": 26.44,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 218191,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 1,
+      "turn": 18,
+      "focalHand": [
+        "0-4",
+        "3-4",
+        "0-5",
+        "2-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 3,
+      "branchEnds": {
+        "up": 0,
+        "left": 6,
+        "right": 5,
+        "down": 6
+      },
+      "tile": "0-5",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|up|5||0-5",
+        "single|right|0||0-5"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 0,
+      "override": true,
+      "trainRiskAligned": 0.36,
+      "trainRiskAlternative": 0,
+      "testRiskAligned": 0.2,
+      "testRiskAlternative": 0,
+      "testRiskThreatFirst": 0,
+      "worldSeedStart": 232191000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.32,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": -0.32
+          },
+          "pips": {
+            "aligned": 5.12,
+            "alternative": 16,
+            "threatFirst": 16,
+            "overrideMinusMobility": 10.879999999999999
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 1
+          },
+          "turns": {
+            "aligned": 25.44,
+            "alternative": 22,
+            "threatFirst": 22,
+            "overrideMinusMobility": -3.4400000000000013
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.32,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": -0.32
+          },
+          "pips": {
+            "aligned": 5.12,
+            "alternative": 16,
+            "threatFirst": 16,
+            "overrideMinusMobility": 10.879999999999999
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 1
+          },
+          "turns": {
+            "aligned": 25.44,
+            "alternative": 22,
+            "threatFirst": 22,
+            "overrideMinusMobility": -3.4400000000000013
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.08,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": -0.08
+          },
+          "pips": {
+            "aligned": 10.16,
+            "alternative": 16,
+            "threatFirst": 16,
+            "overrideMinusMobility": 5.84
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 1
+          },
+          "turns": {
+            "aligned": 23.52,
+            "alternative": 22,
+            "threatFirst": 22,
+            "overrideMinusMobility": -1.5199999999999996
+          }
+        }
+      }
+    },
+    {
+      "seed": 217061,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "turn": 21,
+      "focalHand": [
+        "0-3",
+        "0-6",
+        "0-2"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 3,
+      "branchEnds": {
+        "up": 0,
+        "left": 5,
+        "right": 2,
+        "down": 6
+      },
+      "tile": "0-2",
+      "lowMob": 2,
+      "highMob": 0,
+      "keys": [
+        "single|up|2||0-2",
+        "single|right|0||0-2"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 0,
+      "override": true,
+      "trainRiskAligned": 0.52,
+      "trainRiskAlternative": 0.16,
+      "testRiskAligned": 0.68,
+      "testRiskAlternative": 0.36,
+      "testRiskThreatFirst": 0.36,
+      "worldSeedStart": 231061000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 7.08,
+            "alternative": 5.16,
+            "threatFirst": 5.16,
+            "overrideMinusMobility": -1.92
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0.32,
+            "alternative": 0.64,
+            "threatFirst": 0.64,
+            "overrideMinusMobility": 0.32
+          },
+          "turns": {
+            "aligned": 24.6,
+            "alternative": 26.2,
+            "threatFirst": 26.2,
+            "overrideMinusMobility": 1.5999999999999979
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 7.08,
+            "alternative": 5.16,
+            "threatFirst": 5.16,
+            "overrideMinusMobility": -1.92
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0.32,
+            "alternative": 0.64,
+            "threatFirst": 0.64,
+            "overrideMinusMobility": 0.32
+          },
+          "turns": {
+            "aligned": 24.6,
+            "alternative": 26.2,
+            "threatFirst": 26.2,
+            "overrideMinusMobility": 1.5999999999999979
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.24,
+            "alternative": 0.28,
+            "threatFirst": 0.28,
+            "overrideMinusMobility": 0.040000000000000036
+          },
+          "pips": {
+            "aligned": 6.48,
+            "alternative": 4.44,
+            "threatFirst": 4.44,
+            "overrideMinusMobility": -2.04
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0.04,
+            "alternative": 0.2,
+            "threatFirst": 0.2,
+            "overrideMinusMobility": 0.16
+          },
+          "turns": {
+            "aligned": 24.52,
+            "alternative": 25.88,
+            "threatFirst": 25.88,
+            "overrideMinusMobility": 1.3599999999999994
+          }
+        }
+      }
+    },
+    {
+      "seed": 218934,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "turn": 20,
+      "focalHand": [
+        "1-4",
+        "0-5",
+        "1-5"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 4,
+        "left": 3,
+        "right": 1,
+        "down": 0
+      },
+      "tile": "1-4",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|right|4||1-4",
+        "single|up|1||1-4"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 0,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.8,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 0.72,
+      "testRiskThreatFirst": 0.72,
+      "worldSeedStart": 232934000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 11,
+            "alternative": 11,
+            "threatFirst": 11,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0.28,
+            "threatFirst": 0.28,
+            "overrideMinusMobility": 0.28
+          },
+          "turns": {
+            "aligned": 22,
+            "alternative": 23.12,
+            "threatFirst": 23.12,
+            "overrideMinusMobility": 1.120000000000001
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 11,
+            "alternative": 11,
+            "threatFirst": 11,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0.28,
+            "threatFirst": 0.28,
+            "overrideMinusMobility": 0.28
+          },
+          "turns": {
+            "aligned": 22,
+            "alternative": 23.12,
+            "threatFirst": 23.12,
+            "overrideMinusMobility": 1.120000000000001
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 11,
+            "alternative": 10.4,
+            "threatFirst": 10.4,
+            "overrideMinusMobility": -0.5999999999999996
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0.04,
+            "threatFirst": 0.04,
+            "overrideMinusMobility": 0.04
+          },
+          "turns": {
+            "aligned": 22,
+            "alternative": 23,
+            "threatFirst": 23,
+            "overrideMinusMobility": 1
+          }
+        }
+      }
+    },
+    {
+      "seed": 218244,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "turn": 20,
+      "focalHand": [
+        "0-4",
+        "2-3",
+        "2-4"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 3,
+        "left": 2,
+        "right": 1,
+        "down": 0
+      },
+      "tile": "2-3",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|left|3||2-3",
+        "single|up|2||2-3"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 1,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 1,
+      "testRiskThreatFirst": 1,
+      "worldSeedStart": 232244000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 10,
+            "alternative": 10,
+            "threatFirst": 10,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 22,
+            "alternative": 22,
+            "threatFirst": 22,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 10,
+            "alternative": 10,
+            "threatFirst": 10,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 22,
+            "alternative": 22,
+            "threatFirst": 22,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 10,
+            "alternative": 10,
+            "threatFirst": 10,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 22,
+            "alternative": 22,
+            "threatFirst": 22,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 217935,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 0,
+      "turn": 21,
+      "focalHand": [
+        "0-3",
+        "0-2"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 3,
+      "branchEnds": {
+        "up": 0,
+        "left": 2,
+        "right": 0,
+        "down": 4
+      },
+      "tile": "0-2",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|up|2||0-2",
+        "single|left|0||0-2"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.48,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 0.56,
+      "testRiskAlternative": 1,
+      "testRiskThreatFirst": 0.56,
+      "worldSeedStart": 231935000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.44,
+            "alternative": 0,
+            "threatFirst": 0.44,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.68,
+            "alternative": 3,
+            "threatFirst": 1.68,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.88,
+            "alternative": 23,
+            "threatFirst": 23.88,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.44,
+            "alternative": 0,
+            "threatFirst": 0.44,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.68,
+            "alternative": 3,
+            "threatFirst": 1.68,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.88,
+            "alternative": 23,
+            "threatFirst": 23.88,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.44,
+            "alternative": 0,
+            "threatFirst": 0.44,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.68,
+            "alternative": 3,
+            "threatFirst": 1.68,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.88,
+            "alternative": 23,
+            "threatFirst": 23.88,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 219725,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "turn": 22,
+      "focalHand": [
+        "0-4",
+        "0-3",
+        "0-2"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 3,
+      "branchEnds": {
+        "up": 0,
+        "left": 2,
+        "right": 2,
+        "down": 0
+      },
+      "tile": "0-2",
+      "lowMob": 2,
+      "highMob": 0,
+      "keys": [
+        "single|up|2||0-2",
+        "single|left|0||0-2"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 1,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 1,
+      "testRiskThreatFirst": 1,
+      "worldSeedStart": 233725000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 7,
+            "alternative": 7,
+            "threatFirst": 7,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 24,
+            "alternative": 24,
+            "threatFirst": 24,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 7,
+            "alternative": 7,
+            "threatFirst": 7,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 24,
+            "alternative": 24,
+            "threatFirst": 24,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 7,
+            "alternative": 7,
+            "threatFirst": 7,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 24,
+            "alternative": 24,
+            "threatFirst": 24,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 221216,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "turn": 23,
+      "focalHand": [
+        "0-4",
+        "0-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 4,
+        "left": 0,
+        "right": 0,
+        "down": 1
+      },
+      "tile": "0-4",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|left|4||0-4",
+        "single|up|0||0-4"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.72,
+      "trainRiskAlternative": 0.72,
+      "testRiskAligned": 0.64,
+      "testRiskAlternative": 0.64,
+      "testRiskThreatFirst": 0.64,
+      "worldSeedStart": 235216000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.36,
+            "alternative": 0,
+            "threatFirst": 0.36,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.92,
+            "alternative": 3,
+            "threatFirst": 1.92,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.72,
+            "alternative": 26.08,
+            "threatFirst": 25.72,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.36,
+            "alternative": 0,
+            "threatFirst": 0.36,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.92,
+            "alternative": 3,
+            "threatFirst": 1.92,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.72,
+            "alternative": 26.08,
+            "threatFirst": 25.72,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.36,
+            "alternative": 0.12,
+            "threatFirst": 0.36,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.92,
+            "alternative": 2.64,
+            "threatFirst": 1.92,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0.04,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 25.72,
+            "alternative": 26,
+            "threatFirst": 25.72,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 217670,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 0,
+      "turn": 20,
+      "focalHand": [
+        "0-2",
+        "0-6",
+        "2-4",
+        "2-6"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 3,
+        "left": 2,
+        "right": 4,
+        "down": 4
+      },
+      "tile": "2-4",
+      "lowMob": 2,
+      "highMob": 0,
+      "keys": [
+        "single|left|4||2-4",
+        "single|right|2||2-4"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.76,
+      "trainRiskAlternative": 0.76,
+      "testRiskAligned": 0.56,
+      "testRiskAlternative": 0.56,
+      "testRiskThreatFirst": 0.56,
+      "worldSeedStart": 231670000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 12.48,
+            "alternative": 13.36,
+            "threatFirst": 12.48,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.32,
+            "alternative": 23.76,
+            "threatFirst": 23.32,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 12.48,
+            "alternative": 13.36,
+            "threatFirst": 12.48,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.32,
+            "alternative": 23.76,
+            "threatFirst": 23.32,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 13.52,
+            "alternative": 15.12,
+            "threatFirst": 13.52,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.4,
+            "alternative": 23.52,
+            "threatFirst": 23.4,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 216901,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 1,
+      "turn": 20,
+      "focalHand": [
+        "1-2",
+        "0-4",
+        "0-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 0,
+        "left": 0,
+        "right": 4,
+        "down": 5
+      },
+      "tile": "0-4",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|up|4||0-4",
+        "single|right|0||0-4"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.8,
+      "trainRiskAlternative": 0.8,
+      "testRiskAligned": 0.64,
+      "testRiskAlternative": 0.64,
+      "testRiskThreatFirst": 0.64,
+      "worldSeedStart": 230901000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 4.92,
+            "alternative": 6,
+            "threatFirst": 4.92,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0.36,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.08,
+            "alternative": 23.44,
+            "threatFirst": 23.08,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 4.92,
+            "alternative": 6,
+            "threatFirst": 4.92,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0.36,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.08,
+            "alternative": 23.44,
+            "threatFirst": 23.08,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 4.92,
+            "alternative": 5.28,
+            "threatFirst": 4.92,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0.12,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.08,
+            "alternative": 23.2,
+            "threatFirst": 23.08,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 221169,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "turn": 20,
+      "focalHand": [
+        "0-4",
+        "2-5",
+        "3-6",
+        "2-6"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 5,
+        "left": 2,
+        "right": 2,
+        "down": 2
+      },
+      "tile": "2-5",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|left|5||2-5",
+        "single|up|2||2-5"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.28,
+      "trainRiskAlternative": 0.28,
+      "testRiskAligned": 0.4,
+      "testRiskAlternative": 0.4,
+      "testRiskThreatFirst": 0.4,
+      "worldSeedStart": 235169000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 16.2,
+            "alternative": 16.2,
+            "threatFirst": 16.2,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.96,
+            "alternative": 23.96,
+            "threatFirst": 23.96,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 16.2,
+            "alternative": 16.2,
+            "threatFirst": 16.2,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.96,
+            "alternative": 23.96,
+            "threatFirst": 23.96,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 16.2,
+            "alternative": 16.2,
+            "threatFirst": 16.2,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.96,
+            "alternative": 23.96,
+            "threatFirst": 23.96,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 220516,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "turn": 21,
+      "focalHand": [
+        "0-3",
+        "0-5"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 0,
+        "left": 3,
+        "right": 0,
+        "down": 5
+      },
+      "tile": "0-3",
+      "lowMob": 1,
+      "highMob": 0,
+      "keys": [
+        "single|up|3||0-3",
+        "single|left|0||0-3"
+      ],
+      "alignedIndex": 1,
+      "chosenIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.76,
+      "trainRiskAlternative": 0.76,
+      "testRiskAligned": 0.68,
+      "testRiskAlternative": 0.68,
+      "testRiskThreatFirst": 0.68,
+      "worldSeedStart": 234516000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.32,
+            "alternative": 0.32,
+            "threatFirst": 0.32,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.4,
+            "alternative": 3.4,
+            "threatFirst": 3.4,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.64,
+            "alternative": 23.64,
+            "threatFirst": 23.64,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.32,
+            "alternative": 0.32,
+            "threatFirst": 0.32,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.4,
+            "alternative": 3.4,
+            "threatFirst": 3.4,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.64,
+            "alternative": 23.64,
+            "threatFirst": 23.64,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.32,
+            "alternative": 0.32,
+            "threatFirst": 0.32,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.4,
+            "alternative": 3.4,
+            "threatFirst": 3.4,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.64,
+            "alternative": 23.64,
+            "threatFirst": 23.64,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 216006,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 0,
+      "turn": 20,
+      "focalHand": [
+        "1-3",
+        "0-3",
+        "1-4"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 0,
+        "left": 4,
+        "right": 1,
+        "down": 3
+      },
+      "tile": "0-3",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|up|3||0-3",
+        "single|down|0||0-3"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.6,
+      "trainRiskAlternative": 0.64,
+      "testRiskAligned": 0.56,
+      "testRiskAlternative": 0.64,
+      "testRiskThreatFirst": 0.56,
+      "worldSeedStart": 230006000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 6.8,
+            "alternative": 7.2,
+            "threatFirst": 6.8,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.32,
+            "alternative": 23.08,
+            "threatFirst": 23.32,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 6.8,
+            "alternative": 7.2,
+            "threatFirst": 6.8,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.32,
+            "alternative": 23.08,
+            "threatFirst": 23.32,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 7.08,
+            "alternative": 7.28,
+            "threatFirst": 7.08,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.32,
+            "alternative": 23.32,
+            "threatFirst": 23.32,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 219011,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 1,
+      "turn": 21,
+      "focalHand": [
+        "3-6",
+        "2-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 3,
+        "left": 2,
+        "right": 1,
+        "down": 6
+      },
+      "tile": "2-3",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|left|3||2-3",
+        "single|up|2||2-3"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.72,
+      "trainRiskAlternative": 0.72,
+      "testRiskAligned": 0.56,
+      "testRiskAlternative": 0.8,
+      "testRiskThreatFirst": 0.56,
+      "worldSeedStart": 233011000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.44,
+            "alternative": 0.2,
+            "threatFirst": 0.44,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 5.04,
+            "alternative": 7.2,
+            "threatFirst": 5.04,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.88,
+            "alternative": 23.4,
+            "threatFirst": 23.88,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.44,
+            "alternative": 0.2,
+            "threatFirst": 0.44,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 5.04,
+            "alternative": 7.2,
+            "threatFirst": 5.04,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.88,
+            "alternative": 23.4,
+            "threatFirst": 23.88,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.44,
+            "alternative": 0.2,
+            "threatFirst": 0.44,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 5.04,
+            "alternative": 7.2,
+            "threatFirst": 5.04,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23.88,
+            "alternative": 23.4,
+            "threatFirst": 23.88,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 219542,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 1,
+      "turn": 23,
+      "focalHand": [
+        "1-4",
+        "3-4"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 3,
+        "left": 6,
+        "right": 4,
+        "down": 6
+      },
+      "tile": "3-4",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|up|4||3-4",
+        "single|right|3||3-4"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 1,
+      "override": true,
+      "trainRiskAligned": 0.2,
+      "trainRiskAlternative": 0,
+      "testRiskAligned": 0.4,
+      "testRiskAlternative": 0,
+      "testRiskThreatFirst": 0,
+      "worldSeedStart": 233542000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.6,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": -0.6
+          },
+          "pips": {
+            "aligned": 2,
+            "alternative": 5,
+            "threatFirst": 5,
+            "overrideMinusMobility": 3
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 1
+          },
+          "turns": {
+            "aligned": 26.2,
+            "alternative": 27,
+            "threatFirst": 27,
+            "overrideMinusMobility": 0.8000000000000007
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.6,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": -0.6
+          },
+          "pips": {
+            "aligned": 2,
+            "alternative": 5,
+            "threatFirst": 5,
+            "overrideMinusMobility": 3
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 1
+          },
+          "turns": {
+            "aligned": 26.2,
+            "alternative": 27,
+            "threatFirst": 27,
+            "overrideMinusMobility": 0.8000000000000007
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.6,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": -0.6
+          },
+          "pips": {
+            "aligned": 2,
+            "alternative": 5,
+            "threatFirst": 5,
+            "overrideMinusMobility": 3
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 1,
+            "threatFirst": 1,
+            "overrideMinusMobility": 1
+          },
+          "turns": {
+            "aligned": 26.2,
+            "alternative": 27,
+            "threatFirst": 27,
+            "overrideMinusMobility": 0.8000000000000007
+          }
+        }
+      }
+    },
+    {
+      "seed": 220804,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 1,
+      "turn": 21,
+      "focalHand": [
+        "0-3",
+        "1-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 3,
+        "left": 0,
+        "right": 0,
+        "down": 0
+      },
+      "tile": "0-3",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|left|3||0-3",
+        "single|up|0||0-3"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 1,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.8,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 0.72,
+      "testRiskThreatFirst": 0.72,
+      "worldSeedStart": 234804000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 4,
+            "alternative": 4,
+            "threatFirst": 4,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23,
+            "alternative": 23.84,
+            "threatFirst": 23.84,
+            "overrideMinusMobility": 0.8399999999999999
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 4,
+            "alternative": 4,
+            "threatFirst": 4,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23,
+            "alternative": 23.84,
+            "threatFirst": 23.84,
+            "overrideMinusMobility": 0.8399999999999999
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0.2,
+            "threatFirst": 0.2,
+            "overrideMinusMobility": 0.2
+          },
+          "pips": {
+            "aligned": 4,
+            "alternative": 3.2,
+            "threatFirst": 3.2,
+            "overrideMinusMobility": -0.7999999999999998
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23,
+            "alternative": 23.64,
+            "threatFirst": 23.64,
+            "overrideMinusMobility": 0.6400000000000006
+          }
+        }
+      }
+    },
+    {
+      "seed": 216880,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 1,
+      "turn": 17,
+      "focalHand": [
+        "1-2",
+        "0-5",
+        "2-6",
+        "0-6"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 3,
+      "branchEnds": {
+        "up": 4,
+        "left": 1,
+        "right": 2,
+        "down": 2
+      },
+      "tile": "1-2",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|left|2||1-2",
+        "single|right|1||1-2"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.84,
+      "trainRiskAlternative": 0.84,
+      "testRiskAligned": 0.76,
+      "testRiskAlternative": 0.76,
+      "testRiskThreatFirst": 0.76,
+      "worldSeedStart": 230880000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 17.08,
+            "alternative": 19,
+            "threatFirst": 17.08,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 19.72,
+            "alternative": 19.72,
+            "threatFirst": 19.72,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 17.08,
+            "alternative": 19,
+            "threatFirst": 17.08,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 19.72,
+            "alternative": 19.72,
+            "threatFirst": 19.72,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 17.08,
+            "alternative": 17.92,
+            "threatFirst": 17.08,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 19.88,
+            "alternative": 19.96,
+            "threatFirst": 19.88,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 216759,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 2,
+      "turn": 21,
+      "focalHand": [
+        "0-4",
+        "2-4",
+        "0-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 2,
+        "left": 4,
+        "right": 3,
+        "down": 4
+      },
+      "tile": "2-4",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|up|4||2-4",
+        "single|left|2||2-4"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0,
+      "trainRiskAlternative": 0.6,
+      "testRiskAligned": 0,
+      "testRiskAlternative": 0.44,
+      "testRiskThreatFirst": 0,
+      "worldSeedStart": 230759000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.12,
+            "alternative": 0,
+            "threatFirst": 0.12,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 2.64,
+            "alternative": 4.76,
+            "threatFirst": 2.64,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.24,
+            "alternative": 24.68,
+            "threatFirst": 26.24,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.12,
+            "alternative": 0,
+            "threatFirst": 0.12,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 2.64,
+            "alternative": 4.76,
+            "threatFirst": 2.64,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.24,
+            "alternative": 24.68,
+            "threatFirst": 26.24,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.12,
+            "alternative": 0,
+            "threatFirst": 0.12,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 3.04,
+            "alternative": 5.04,
+            "threatFirst": 3.04,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.24,
+            "alternative": 24.84,
+            "threatFirst": 26.24,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 221841,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 0,
+      "turn": 18,
+      "focalHand": [
+        "2-3",
+        "0-2"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 3,
+      "branchEnds": {
+        "up": 2,
+        "left": 0,
+        "right": 1,
+        "down": 3
+      },
+      "tile": "0-2",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|left|2||0-2",
+        "single|up|0||0-2"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 1,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.64,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 0.68,
+      "testRiskThreatFirst": 0.68,
+      "worldSeedStart": 235841000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 5,
+            "alternative": 5,
+            "threatFirst": 5,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 20,
+            "alternative": 20.96,
+            "threatFirst": 20.96,
+            "overrideMinusMobility": 0.9600000000000009
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 5,
+            "alternative": 5,
+            "threatFirst": 5,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 20,
+            "alternative": 20.96,
+            "threatFirst": 20.96,
+            "overrideMinusMobility": 0.9600000000000009
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0.16,
+            "threatFirst": 0.16,
+            "overrideMinusMobility": 0.16
+          },
+          "pips": {
+            "aligned": 5,
+            "alternative": 4.2,
+            "threatFirst": 4.2,
+            "overrideMinusMobility": -0.7999999999999998
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0.12,
+            "threatFirst": 0.12,
+            "overrideMinusMobility": 0.12
+          },
+          "turns": {
+            "aligned": 20,
+            "alternative": 21.28,
+            "threatFirst": 21.28,
+            "overrideMinusMobility": 1.2800000000000011
+          }
+        }
+      }
+    },
+    {
+      "seed": 217693,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 2,
+      "turn": 21,
+      "focalHand": [
+        "2-3",
+        "1-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 0,
+        "left": 6,
+        "right": 3,
+        "down": 1
+      },
+      "tile": "1-3",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|down|3||1-3",
+        "single|right|1||1-3"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 1,
+      "testRiskThreatFirst": 1,
+      "worldSeedStart": 231693000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 5,
+            "alternative": 5,
+            "threatFirst": 5,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23,
+            "alternative": 23,
+            "threatFirst": 23,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 5,
+            "alternative": 5,
+            "threatFirst": 5,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23,
+            "alternative": 23,
+            "threatFirst": 23,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 5,
+            "alternative": 5,
+            "threatFirst": 5,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 23,
+            "alternative": 23,
+            "threatFirst": 23,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 218461,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 1,
+      "turn": 20,
+      "focalHand": [
+        "2-3",
+        "1-2",
+        "2-4"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 3,
+      "branchEnds": {
+        "up": 1,
+        "left": 0,
+        "right": 2,
+        "down": 5
+      },
+      "tile": "1-2",
+      "lowMob": 0,
+      "highMob": 2,
+      "keys": [
+        "single|up|2||1-2",
+        "single|right|1||1-2"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 1,
+      "testRiskThreatFirst": 1,
+      "worldSeedStart": 232461000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 11,
+            "alternative": 11,
+            "threatFirst": 11,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 22,
+            "alternative": 22,
+            "threatFirst": 22,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 11,
+            "alternative": 11,
+            "threatFirst": 11,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 22,
+            "alternative": 22,
+            "threatFirst": 22,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 11,
+            "alternative": 11,
+            "threatFirst": 11,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 22,
+            "alternative": 22,
+            "threatFirst": 22,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 217216,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 1,
+      "turn": 24,
+      "focalHand": [
+        "0-2",
+        "2-3"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 3,
+      "branchEnds": {
+        "up": 2,
+        "left": 0,
+        "right": 0,
+        "down": 5
+      },
+      "tile": "0-2",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|left|2||0-2",
+        "single|up|0||0-2"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 1,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.8,
+      "testRiskAligned": 1,
+      "testRiskAlternative": 0.8,
+      "testRiskThreatFirst": 0.8,
+      "worldSeedStart": 231216000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0.2,
+            "threatFirst": 0.2,
+            "overrideMinusMobility": 0.2
+          },
+          "pips": {
+            "aligned": 5,
+            "alternative": 4,
+            "threatFirst": 4,
+            "overrideMinusMobility": -1
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 27,
+            "threatFirst": 27,
+            "overrideMinusMobility": 1
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0.2,
+            "threatFirst": 0.2,
+            "overrideMinusMobility": 0.2
+          },
+          "pips": {
+            "aligned": 5,
+            "alternative": 4,
+            "threatFirst": 4,
+            "overrideMinusMobility": -1
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 27,
+            "threatFirst": 27,
+            "overrideMinusMobility": 1
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0.04,
+            "threatFirst": 0.04,
+            "overrideMinusMobility": 0.04
+          },
+          "pips": {
+            "aligned": 5,
+            "alternative": 4.8,
+            "threatFirst": 4.8,
+            "overrideMinusMobility": -0.20000000000000018
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26,
+            "alternative": 27.04,
+            "threatFirst": 27.04,
+            "overrideMinusMobility": 1.0399999999999991
+          }
+        }
+      }
+    },
+    {
+      "seed": 220973,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 2,
+      "turn": 23,
+      "focalHand": [
+        "0-2",
+        "1-2"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 0,
+        "left": 2,
+        "right": 2,
+        "down": 6
+      },
+      "tile": "0-2",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|up|2||0-2",
+        "single|left|0||0-2"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.6,
+      "trainRiskAlternative": 1,
+      "testRiskAligned": 0.44,
+      "testRiskAlternative": 1,
+      "testRiskThreatFirst": 0.44,
+      "worldSeedStart": 234973000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0.56,
+            "alternative": 0,
+            "threatFirst": 0.56,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.32,
+            "alternative": 3,
+            "threatFirst": 1.32,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.12,
+            "alternative": 25,
+            "threatFirst": 26.12,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0.56,
+            "alternative": 0,
+            "threatFirst": 0.56,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.32,
+            "alternative": 3,
+            "threatFirst": 1.32,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.12,
+            "alternative": 25,
+            "threatFirst": 26.12,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0.56,
+            "alternative": 0,
+            "threatFirst": 0.56,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 1.32,
+            "alternative": 3,
+            "threatFirst": 1.32,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 26.12,
+            "alternative": 25,
+            "threatFirst": 26.12,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 217243,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 1,
+      "turn": 20,
+      "focalHand": [
+        "1-3",
+        "2-4",
+        "0-2"
+      ],
+      "nextOpponentHandSize": 1,
+      "otherOpponentHandSize": 2,
+      "branchEnds": {
+        "up": 3,
+        "left": 0,
+        "right": 3,
+        "down": 2
+      },
+      "tile": "0-2",
+      "lowMob": 0,
+      "highMob": 1,
+      "keys": [
+        "single|left|2||0-2",
+        "single|down|0||0-2"
+      ],
+      "alignedIndex": 0,
+      "chosenIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.68,
+      "trainRiskAlternative": 0.68,
+      "testRiskAligned": 0.8,
+      "testRiskAlternative": 0.68,
+      "testRiskThreatFirst": 0.8,
+      "worldSeedStart": 231243000,
+      "trainWorlds": 25,
+      "testWorlds": 25,
+      "policies": {
+        "closed-branch-control": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 8.8,
+            "alternative": 8.08,
+            "threatFirst": 8.8,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 22.6,
+            "alternative": 22.96,
+            "threatFirst": 22.6,
+            "overrideMinusMobility": 0
+          }
+        },
+        "min-hand-pips": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 8.8,
+            "alternative": 8.08,
+            "threatFirst": 8.8,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 22.6,
+            "alternative": 22.96,
+            "threatFirst": 22.6,
+            "overrideMinusMobility": 0
+          }
+        },
+        "random-legal": {
+          "first": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "pips": {
+            "aligned": 8.96,
+            "alternative": 8.64,
+            "threatFirst": 8.96,
+            "overrideMinusMobility": 0
+          },
+          "minus": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "block": {
+            "aligned": 0,
+            "alternative": 0,
+            "threatFirst": 0,
+            "overrideMinusMobility": 0
+          },
+          "turns": {
+            "aligned": 22.68,
+            "alternative": 22.96,
+            "threatFirst": 22.68,
+            "overrideMinusMobility": 0
+          }
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Assumption-labelled branch locking/opening",
+    "Simple deterministic bots and no block winner",
+    "No conditioning hidden distributions on opponent pass history",
+    "First eligible per seed and quota balancing",
+    "Exploratory unadjusted CIs",
+    "Risk model considers next opponent only; other opponent not immediate",
+    "V8 CommonJS evaluation, not Node CLI"
+  ],
+  "exactNextAction": "Independently replicate on disjoint seed ranges, test threshold sensitivity without reusing evaluation worlds, then evaluate both opponents at one tile."
+}
