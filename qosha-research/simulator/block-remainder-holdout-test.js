@@ -1,0 +1,11 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {blockRank,metrics,selfTest}=require('./block-remainder-holdout');
+assert.equal(selfTest().passed,true);
+assert.equal(blockRank({kind:'block',remainders:[7,7,3]},0).rank,2);
+assert.equal(blockRank({kind:'block',remainders:[7,7,3]},2).strictMin,true);
+assert.equal(blockRank({kind:'block',remainders:[1,1,1]},1).tiedMin,true);
+assert.equal(blockRank({kind:'block',remainders:[1,1,1]},1).strictMin,false);
+assert.throws(()=>blockRank({kind:'block',remainders:[1,2]},0),/invalid/);
+assert.equal(metrics({outcome:{kind:'finish',playerIndex:1},hands:[[[1,1]],[],[[3,4]]],turns:10},0).block,0);
+console.log('block-remainder-holdout tests passed');
