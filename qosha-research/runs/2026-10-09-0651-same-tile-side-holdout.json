@@ -1,0 +1,2970 @@
+{
+  "schema": "qosa-same-tile-two-sides/v1",
+  "timestampAsiaBaku": "2026-10-09 06:53:12 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "seedRanges": [
+    [
+      158000,
+      165999
+    ],
+    [
+      166000,
+      173999
+    ]
+  ],
+  "selectedSeeds": [
+    158185,
+    158229,
+    158234,
+    158251,
+    158265,
+    158274,
+    158290,
+    158386,
+    158561,
+    158565,
+    158000,
+    158001,
+    158002,
+    158003,
+    158004,
+    158005,
+    158006,
+    158007,
+    158008,
+    158009,
+    166068,
+    166183,
+    166246,
+    166249,
+    166314,
+    166323,
+    166349,
+    166395,
+    166427,
+    166432,
+    166000,
+    166002,
+    166004,
+    166005,
+    166006,
+    166007,
+    166008,
+    166009,
+    166010,
+    166011
+  ],
+  "worldSeedFormula": "8500000+1000*dealSeed+worldIndex",
+  "quotaPerDiscoveryAndGroup": 10,
+  "selection": "First reachable same ordinary tile X-Y playable on two distinct open sides with identical starting end X and resulting end Y; focal hand 2..6; stock empty; opponent minimum exactly 1 or >=3.",
+  "comparison": "Side A minus side B for the SAME tile and identical immediate pip reduction, same hidden worlds and continuation policy. Side order is canonical up,left,right,down.",
+  "positionCount": 40,
+  "worldsPerPosition": 25,
+  "newHiddenWorlds": 1000,
+  "policyWorldEvaluations": 3000,
+  "candidateContinuations": 16725,
+  "newFullStrategyRounds": 0,
+  "cumulativeFullStrategyRounds": 180000,
+  "historicalRoundsSeparate": 4000,
+  "previousHiddenWorlds": 63810,
+  "cumulativeHiddenWorlds": 64810,
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "random-legal"
+  ],
+  "scanAudit": [
+    {
+      "policy": "closed-branch-control",
+      "range": [
+        158000,
+        165999
+      ],
+      "scanned": 566,
+      "eligible": 558,
+      "counts": {
+        "opponent-one": 10,
+        "opponents-three-plus": 10
+      }
+    },
+    {
+      "policy": "min-hand-pips",
+      "range": [
+        166000,
+        173999
+      ],
+      "scanned": 433,
+      "eligible": 427,
+      "counts": {
+        "opponent-one": 10,
+        "opponents-three-plus": 10
+      }
+    }
+  ],
+  "summary": {
+    "closed-branch-control": {
+      "all": {
+        "finish": {
+          "n": 40,
+          "mean": 0.0049999999999999975,
+          "ci95NormalApprox": [
+            -0.009637044678591266,
+            0.01963704467859126
+          ]
+        },
+        "pips": {
+          "n": 40,
+          "mean": -0.056999999999999995,
+          "ci95NormalApprox": [
+            -0.16400024078573433,
+            0.05000024078573434
+          ]
+        },
+        "minus": {
+          "n": 40,
+          "mean": 0.01,
+          "ci95NormalApprox": [
+            -0.003091770756412657,
+            0.02309177075641266
+          ]
+        },
+        "outcomeDisagreement": {
+          "n": 40,
+          "mean": 0.039,
+          "ci95NormalApprox": [
+            0.014449293498076485,
+            0.06355070650192352
+          ]
+        },
+        "absPips": {
+          "n": 40,
+          "mean": 0.30100000000000005,
+          "ci95NormalApprox": [
+            0.12308236316363719,
+            0.4789176368363629
+          ]
+        }
+      },
+      "opponent-one": {
+        "finish": {
+          "n": 20,
+          "mean": 0,
+          "ci95NormalApprox": [
+            0,
+            0
+          ]
+        },
+        "pips": {
+          "n": 20,
+          "mean": 0,
+          "ci95NormalApprox": [
+            0,
+            0
+          ]
+        },
+        "minus": {
+          "n": 20,
+          "mean": 0,
+          "ci95NormalApprox": [
+            0,
+            0
+          ]
+        },
+        "outcomeDisagreement": {
+          "n": 20,
+          "mean": 0,
+          "ci95NormalApprox": [
+            0,
+            0
+          ]
+        },
+        "absPips": {
+          "n": 20,
+          "mean": 0,
+          "ci95NormalApprox": [
+            0,
+            0
+          ]
+        }
+      },
+      "opponents-three-plus": {
+        "finish": {
+          "n": 20,
+          "mean": 0.009999999999999995,
+          "ci95NormalApprox": [
+            -0.019485839598731215,
+            0.039485839598731205
+          ]
+        },
+        "pips": {
+          "n": 20,
+          "mean": -0.11399999999999999,
+          "ci95NormalApprox": [
+            -0.3277464437869761,
+            0.09974644378697611
+          ]
+        },
+        "minus": {
+          "n": 20,
+          "mean": 0.02,
+          "ci95NormalApprox": [
+            -0.005752310065006018,
+            0.04575231006500602
+          ]
+        },
+        "outcomeDisagreement": {
+          "n": 20,
+          "mean": 0.078,
+          "ci95NormalApprox": [
+            0.03488,
+            0.12112
+          ]
+        },
+        "absPips": {
+          "n": 20,
+          "mean": 0.6020000000000001,
+          "ci95NormalApprox": [
+            0.29652712536651965,
+            0.9074728746334806
+          ]
+        }
+      }
+    },
+    "min-hand-pips": {
+      "all": {
+        "finish": {
+          "n": 40,
+          "mean": -0.003999999999999999,
+          "ci95NormalApprox": [
+            -0.021930765996765703,
+            0.013930765996765702
+          ]
+        },
+        "pips": {
+          "n": 40,
+          "mean": 0.03399999999999999,
+          "ci95NormalApprox": [
+            -0.07696492474235686,
+            0.14496492474235684
+          ]
+        },
+        "minus": {
+          "n": 40,
+          "mean": -0.001,
+          "ci95NormalApprox": [
+            -0.0029599999999999987,
+            0.0009599999999999986
+          ]
+        },
+        "outcomeDisagreement": {
+          "n": 40,
+          "mean": 0.05,
+          "ci95NormalApprox": [
+            0.016343210385131993,
+            0.08365678961486801
+          ]
+        },
+        "absPips": {
+          "n": 40,
+          "mean": 0.418,
+          "ci95NormalApprox": [
+            0.15414167002454537,
+            0.6818583299754546
+          ]
+        }
+      },
+      "opponent-one": {
+        "finish": {
+          "n": 20,
+          "mean": 0,
+          "ci95NormalApprox": [
+            0,
+            0
+          ]
+        },
+        "pips": {
+          "n": 20,
+          "mean": 0,
+          "ci95NormalApprox": [
+            0,
+            0
+          ]
+        },
+        "minus": {
+          "n": 20,
+          "mean": 0,
+          "ci95NormalApprox": [
+            0,
+            0
+          ]
+        },
+        "outcomeDisagreement": {
+          "n": 20,
+          "mean": 0,
+          "ci95NormalApprox": [
+            0,
+            0
+          ]
+        },
+        "absPips": {
+          "n": 20,
+          "mean": 0,
+          "ci95NormalApprox": [
+            0,
+            0
+          ]
+        }
+      },
+      "opponents-three-plus": {
+        "finish": {
+          "n": 20,
+          "mean": -0.007999999999999998,
+          "ci95NormalApprox": [
+            -0.04424117576807672,
+            0.02824117576807672
+          ]
+        },
+        "pips": {
+          "n": 20,
+          "mean": 0.06799999999999998,
+          "ci95NormalApprox": [
+            -0.1557890164277152,
+            0.29178901642771515
+          ]
+        },
+        "minus": {
+          "n": 20,
+          "mean": -0.002,
+          "ci95NormalApprox": [
+            -0.005920000000000001,
+            0.0019200000000000007
+          ]
+        },
+        "outcomeDisagreement": {
+          "n": 20,
+          "mean": 0.1,
+          "ci95NormalApprox": [
+            0.039672472897392945,
+            0.16032752710260706
+          ]
+        },
+        "absPips": {
+          "n": 20,
+          "mean": 0.836,
+          "ci95NormalApprox": [
+            0.37214795970675024,
+            1.2998520402932496
+          ]
+        }
+      }
+    },
+    "random-legal": {
+      "all": {
+        "finish": {
+          "n": 40,
+          "mean": 0.020999999999999998,
+          "ci95NormalApprox": [
+            0.007836945253611902,
+            0.034163054746388095
+          ]
+        },
+        "pips": {
+          "n": 40,
+          "mean": -0.11600000000000003,
+          "ci95NormalApprox": [
+            -0.22890968008284435,
+            -0.0030903199171557344
+          ]
+        },
+        "minus": {
+          "n": 40,
+          "mean": 0.001,
+          "ci95NormalApprox": [
+            -0.0009599999999999995,
+            0.0029599999999999995
+          ]
+        },
+        "outcomeDisagreement": {
+          "n": 40,
+          "mean": 0.047,
+          "ci95NormalApprox": [
+            0.027574158368891117,
+            0.06642584163110889
+          ]
+        },
+        "absPips": {
+          "n": 40,
+          "mean": 0.58,
+          "ci95NormalApprox": [
+            0.33464946102696447,
+            0.8253505389730355
+          ]
+        }
+      },
+      "opponent-one": {
+        "finish": {
+          "n": 20,
+          "mean": 0.008,
+          "ci95NormalApprox": [
+            -0.001171195181252636,
+            0.017171195181252638
+          ]
+        },
+        "pips": {
+          "n": 20,
+          "mean": -0.031999999999999994,
+          "ci95NormalApprox": [
+            -0.07205715495586143,
+            0.008057154955861442
+          ]
+        },
+        "minus": {
+          "n": 20,
+          "mean": 0,
+          "ci95NormalApprox": [
+            0,
+            0
+          ]
+        },
+        "outcomeDisagreement": {
+          "n": 20,
+          "mean": 0.008,
+          "ci95NormalApprox": [
+            -0.001171195181252636,
+            0.017171195181252638
+          ]
+        },
+        "absPips": {
+          "n": 20,
+          "mean": 0.06799999999999999,
+          "ci95NormalApprox": [
+            -0.00769174939394511,
+            0.14369174939394508
+          ]
+        }
+      },
+      "opponents-three-plus": {
+        "finish": {
+          "n": 20,
+          "mean": 0.034,
+          "ci95NormalApprox": [
+            0.010359955472479379,
+            0.057640044527520626
+          ]
+        },
+        "pips": {
+          "n": 20,
+          "mean": -0.2,
+          "ci95NormalApprox": [
+            -0.4188114882002796,
+            0.01881148820027953
+          ]
+        },
+        "minus": {
+          "n": 20,
+          "mean": 0.002,
+          "ci95NormalApprox": [
+            -0.0019200000000000007,
+            0.005920000000000001
+          ]
+        },
+        "outcomeDisagreement": {
+          "n": 20,
+          "mean": 0.08600000000000001,
+          "ci95NormalApprox": [
+            0.05684516253915278,
+            0.11515483746084723
+          ]
+        },
+        "absPips": {
+          "n": 20,
+          "mean": 1.092,
+          "ci95NormalApprox": [
+            0.7240471407768024,
+            1.4599528592231978
+          ]
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Branch ends/locking assumption-labelled",
+    "Sides are labels with no geometry in current engine",
+    "Position-selection bias",
+    "Unadjusted position-level normal CIs",
+    "Correlated hidden worlds",
+    "Handcrafted bots",
+    "Block winner not assigned"
+  ],
+  "exactNextAction": "Swap side labels under a side-equivariant continuation policy to isolate side-tie-break artifacts; replicate on disjoint deal seeds and test when opponent has one tile.",
+  "rows": [
+    {
+      "seed": 158185,
+      "group": "opponent-one",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 23,
+      "focal": 1,
+      "opponents": [
+        1,
+        3
+      ],
+      "hand": [
+        "1-4",
+        "0-4",
+        "0-6",
+        "0-2"
+      ],
+      "tile": "0-2",
+      "from": 2,
+      "to": 0,
+      "sides": [
+        "up",
+        "right"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-2",
+        "single|right|0||0-2"
+      ],
+      "worldStart": 166685000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 125
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 125
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0.08,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0.16
+          },
+          "continuations": 125
+        }
+      }
+    },
+    {
+      "seed": 158229,
+      "group": "opponent-one",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 24,
+      "focal": 2,
+      "opponents": [
+        1,
+        1
+      ],
+      "hand": [
+        "0-5",
+        "3-5"
+      ],
+      "tile": "0-5",
+      "from": 5,
+      "to": 0,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-5",
+        "single|left|0||0-5"
+      ],
+      "worldStart": 166729000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 175
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 175
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 175
+        }
+      }
+    },
+    {
+      "seed": 158234,
+      "group": "opponent-one",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 23,
+      "focal": 0,
+      "opponents": [
+        1,
+        5
+      ],
+      "hand": [
+        "0-4",
+        "2-3",
+        "2-4",
+        "2-5"
+      ],
+      "tile": "0-4",
+      "from": 0,
+      "to": 4,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|4||0-4",
+        "single|left|4||0-4"
+      ],
+      "worldStart": 166734000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0.04,
+            "pips": -0.24,
+            "minus": 0,
+            "outcomeDisagreement": 0.04,
+            "absPips": 0.24
+          },
+          "continuations": 100
+        }
+      }
+    },
+    {
+      "seed": 158251,
+      "group": "opponent-one",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 24,
+      "focal": 1,
+      "opponents": [
+        1,
+        3
+      ],
+      "hand": [
+        "0-5",
+        "0-3",
+        "0-4"
+      ],
+      "tile": "0-3",
+      "from": 0,
+      "to": 3,
+      "sides": [
+        "up",
+        "right"
+      ],
+      "candidateKeys": [
+        "single|up|3||0-3",
+        "single|right|3||0-3"
+      ],
+      "worldStart": 166751000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 175
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 175
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 175
+        }
+      }
+    },
+    {
+      "seed": 158265,
+      "group": "opponent-one",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 23,
+      "focal": 2,
+      "opponents": [
+        3,
+        1
+      ],
+      "hand": [
+        "0-2",
+        "0-3",
+        "2-5",
+        "3-5",
+        "2-2",
+        "2-4"
+      ],
+      "tile": "0-3",
+      "from": 3,
+      "to": 0,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-3",
+        "single|left|0||0-3"
+      ],
+      "worldStart": 166765000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 175
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 175
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 175
+        }
+      }
+    },
+    {
+      "seed": 158274,
+      "group": "opponent-one",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 24,
+      "focal": 2,
+      "opponents": [
+        2,
+        1
+      ],
+      "hand": [
+        "0-5",
+        "0-1",
+        "0-4"
+      ],
+      "tile": "0-1",
+      "from": 0,
+      "to": 1,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|1||0-1",
+        "single|left|1||0-1"
+      ],
+      "worldStart": 166774000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 175
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 175
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 175
+        }
+      }
+    },
+    {
+      "seed": 158290,
+      "group": "opponent-one",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 23,
+      "focal": 2,
+      "opponents": [
+        4,
+        1
+      ],
+      "hand": [
+        "1-2",
+        "0-6",
+        "0-1",
+        "3-5"
+      ],
+      "tile": "1-2",
+      "from": 2,
+      "to": 1,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|1||1-2",
+        "single|left|1||1-2"
+      ],
+      "worldStart": 166790000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 75
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 75
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0.04,
+            "pips": -0.24,
+            "minus": 0,
+            "outcomeDisagreement": 0.04,
+            "absPips": 0.24
+          },
+          "continuations": 75
+        }
+      }
+    },
+    {
+      "seed": 158386,
+      "group": "opponent-one",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 23,
+      "focal": 0,
+      "opponents": [
+        3,
+        1
+      ],
+      "hand": [
+        "0-5",
+        "0-2",
+        "0-6",
+        "1-5",
+        "1-3"
+      ],
+      "tile": "0-2",
+      "from": 2,
+      "to": 0,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-2",
+        "single|left|0||0-2"
+      ],
+      "worldStart": 166886000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        }
+      }
+    },
+    {
+      "seed": 158561,
+      "group": "opponent-one",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 22,
+      "focal": 0,
+      "opponents": [
+        4,
+        1
+      ],
+      "hand": [
+        "0-4",
+        "0-2",
+        "0-3"
+      ],
+      "tile": "0-2",
+      "from": 2,
+      "to": 0,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-2",
+        "single|left|0||0-2"
+      ],
+      "worldStart": 167061000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        }
+      }
+    },
+    {
+      "seed": 158565,
+      "group": "opponent-one",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 22,
+      "focal": 1,
+      "opponents": [
+        1,
+        2
+      ],
+      "hand": [
+        "0-6",
+        "2-5",
+        "3-6",
+        "3-5",
+        "0-3",
+        "2-4"
+      ],
+      "tile": "0-6",
+      "from": 6,
+      "to": 0,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-6",
+        "single|left|0||0-6"
+      ],
+      "worldStart": 167065000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 150
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 150
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 150
+        }
+      }
+    },
+    {
+      "seed": 158000,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 13,
+      "focal": 1,
+      "opponents": [
+        4,
+        6
+      ],
+      "hand": [
+        "0-4",
+        "2-4",
+        "3-4",
+        "2-5",
+        "1-2",
+        "3-6"
+      ],
+      "tile": "0-4",
+      "from": 4,
+      "to": 0,
+      "sides": [
+        "right",
+        "down"
+      ],
+      "candidateKeys": [
+        "single|right|0||0-4",
+        "single|down|0||0-4"
+      ],
+      "worldStart": 166500000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 200
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 200
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0.28,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0.84
+          },
+          "continuations": 200
+        }
+      }
+    },
+    {
+      "seed": 158001,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 18,
+      "focal": 0,
+      "opponents": [
+        5,
+        3
+      ],
+      "hand": [
+        "2-5",
+        "0-2",
+        "2-4",
+        "0-3",
+        "0-5",
+        "0-0"
+      ],
+      "tile": "2-4",
+      "from": 4,
+      "to": 2,
+      "sides": [
+        "left",
+        "down"
+      ],
+      "candidateKeys": [
+        "single|left|2||2-4",
+        "single|down|2||2-4"
+      ],
+      "worldStart": 166501000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": -1.28,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 1.28
+          },
+          "continuations": 50
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": -0.8,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0.8
+          },
+          "continuations": 50
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": -0.04,
+            "pips": 0.2,
+            "minus": 0,
+            "outcomeDisagreement": 0.04,
+            "absPips": 1.72
+          },
+          "continuations": 50
+        }
+      }
+    },
+    {
+      "seed": 158002,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 14,
+      "focal": 2,
+      "opponents": [
+        4,
+        4
+      ],
+      "hand": [
+        "4-6",
+        "2-5",
+        "1-4",
+        "3-6",
+        "1-2"
+      ],
+      "tile": "3-6",
+      "from": 3,
+      "to": 6,
+      "sides": [
+        "left",
+        "down"
+      ],
+      "candidateKeys": [
+        "single|left|6||3-6",
+        "single|down|6||3-6"
+      ],
+      "worldStart": 166502000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 50
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 50
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": -0.12,
+            "minus": 0,
+            "outcomeDisagreement": 0.08,
+            "absPips": 4.04
+          },
+          "continuations": 50
+        }
+      }
+    },
+    {
+      "seed": 158003,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 17,
+      "focal": 2,
+      "opponents": [
+        4,
+        3
+      ],
+      "hand": [
+        "0-1",
+        "3-6",
+        "2-4",
+        "0-3",
+        "2-5",
+        "4-5"
+      ],
+      "tile": "2-5",
+      "from": 5,
+      "to": 2,
+      "sides": [
+        "up",
+        "right"
+      ],
+      "candidateKeys": [
+        "single|up|2||2-5",
+        "single|right|2||2-5"
+      ],
+      "worldStart": 166503000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 150
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 150
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0.44,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 1.08
+          },
+          "continuations": 150
+        }
+      }
+    },
+    {
+      "seed": 158004,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 9,
+      "focal": 0,
+      "opponents": [
+        6,
+        6
+      ],
+      "hand": [
+        "4-5",
+        "2-4",
+        "0-5",
+        "0-2",
+        "4-6",
+        "3-4"
+      ],
+      "tile": "0-5",
+      "from": 5,
+      "to": 0,
+      "sides": [
+        "up",
+        "down"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-5",
+        "single|down|0||0-5"
+      ],
+      "worldStart": 166504000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0.08,
+            "pips": -0.68,
+            "minus": 0,
+            "outcomeDisagreement": 0.08,
+            "absPips": 0.68
+          },
+          "continuations": 100
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": -0.2,
+            "pips": 1.4,
+            "minus": 0,
+            "outcomeDisagreement": 0.28,
+            "absPips": 2.84
+          },
+          "continuations": 100
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": -0.08,
+            "pips": 0.68,
+            "minus": 0,
+            "outcomeDisagreement": 0.16,
+            "absPips": 1.4
+          },
+          "continuations": 100
+        }
+      }
+    },
+    {
+      "seed": 158005,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 11,
+      "focal": 1,
+      "opponents": [
+        5,
+        7
+      ],
+      "hand": [
+        "4-5",
+        "2-4",
+        "0-2",
+        "0-3",
+        "2-6",
+        "3-6"
+      ],
+      "tile": "2-6",
+      "from": 6,
+      "to": 2,
+      "sides": [
+        "left",
+        "down"
+      ],
+      "candidateKeys": [
+        "single|left|2||2-6",
+        "single|down|2||2-6"
+      ],
+      "worldStart": 166505000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0.04,
+            "pips": -0.2,
+            "minus": 0,
+            "outcomeDisagreement": 0.04,
+            "absPips": 0.2
+          },
+          "continuations": 150
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0.04,
+            "pips": 0.04,
+            "minus": 0,
+            "outcomeDisagreement": 0.12,
+            "absPips": 0.36
+          },
+          "continuations": 150
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0.12,
+            "pips": -1.12,
+            "minus": 0,
+            "outcomeDisagreement": 0.12,
+            "absPips": 1.84
+          },
+          "continuations": 150
+        }
+      }
+    },
+    {
+      "seed": 158006,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 15,
+      "focal": 2,
+      "opponents": [
+        5,
+        4
+      ],
+      "hand": [
+        "0-4",
+        "0-0",
+        "0-3",
+        "2-3",
+        "4-4"
+      ],
+      "tile": "0-3",
+      "from": 3,
+      "to": 0,
+      "sides": [
+        "up",
+        "down"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-3",
+        "single|down|0||0-3"
+      ],
+      "worldStart": 166506000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0.12,
+            "pips": -0.52,
+            "minus": 0.2,
+            "outcomeDisagreement": 0.12,
+            "absPips": 0.52
+          },
+          "continuations": 125
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0.08,
+            "pips": -0.32,
+            "minus": 0,
+            "outcomeDisagreement": 0.08,
+            "absPips": 0.32
+          },
+          "continuations": 125
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0.08,
+            "pips": -0.36,
+            "minus": 0,
+            "outcomeDisagreement": 0.16,
+            "absPips": 0.76
+          },
+          "continuations": 125
+        }
+      }
+    },
+    {
+      "seed": 158007,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 10,
+      "focal": 1,
+      "opponents": [
+        5,
+        6
+      ],
+      "hand": [
+        "4-5",
+        "2-4",
+        "2-5",
+        "3-5",
+        "0-0",
+        "0-1"
+      ],
+      "tile": "2-4",
+      "from": 4,
+      "to": 2,
+      "sides": [
+        "left",
+        "right"
+      ],
+      "candidateKeys": [
+        "single|left|2||2-4",
+        "single|right|2||2-4"
+      ],
+      "worldStart": 166507000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0.04,
+            "pips": -0.32,
+            "minus": 0,
+            "outcomeDisagreement": 0.04,
+            "absPips": 0.32
+          },
+          "continuations": 100
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0.08,
+            "pips": -1.28,
+            "minus": 0,
+            "outcomeDisagreement": 0.16,
+            "absPips": 1.36
+          },
+          "continuations": 100
+        }
+      }
+    },
+    {
+      "seed": 158008,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 11,
+      "focal": 0,
+      "opponents": [
+        7,
+        5
+      ],
+      "hand": [
+        "3-4",
+        "0-2",
+        "4-5",
+        "0-5",
+        "3-5",
+        "2-4"
+      ],
+      "tile": "0-2",
+      "from": 2,
+      "to": 0,
+      "sides": [
+        "right",
+        "down"
+      ],
+      "candidateKeys": [
+        "single|right|0||0-2",
+        "single|down|0||0-2"
+      ],
+      "worldStart": 166508000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0.04,
+            "pips": -0.8,
+            "minus": 0,
+            "outcomeDisagreement": 0.2,
+            "absPips": 2.24
+          },
+          "continuations": 175
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": -0.44,
+            "minus": 0,
+            "outcomeDisagreement": 0.32,
+            "absPips": 2.84
+          },
+          "continuations": 175
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0.4,
+            "minus": 0,
+            "outcomeDisagreement": 0.08,
+            "absPips": 0.8
+          },
+          "continuations": 175
+        }
+      }
+    },
+    {
+      "seed": 158009,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "closed-branch-control",
+      "turn": 16,
+      "focal": 2,
+      "opponents": [
+        4,
+        5
+      ],
+      "hand": [
+        "3-4",
+        "0-2",
+        "0-1",
+        "3-3"
+      ],
+      "tile": "0-1",
+      "from": 0,
+      "to": 1,
+      "sides": [
+        "right",
+        "down"
+      ],
+      "candidateKeys": [
+        "single|right|1||0-1",
+        "single|down|1||0-1"
+      ],
+      "worldStart": 166509000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": -0.12,
+            "pips": 0.72,
+            "minus": 0.08,
+            "outcomeDisagreement": 0.2,
+            "absPips": 0.88
+          },
+          "continuations": 125
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": -0.04,
+            "pips": -0.12,
+            "minus": -0.04,
+            "outcomeDisagreement": 0.2,
+            "absPips": 1
+          },
+          "continuations": 125
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0.08,
+            "absPips": 0.56
+          },
+          "continuations": 125
+        }
+      }
+    },
+    {
+      "seed": 166068,
+      "group": "opponent-one",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 25,
+      "focal": 2,
+      "opponents": [
+        1,
+        2
+      ],
+      "hand": [
+        "2-4",
+        "0-3",
+        "1-4"
+      ],
+      "tile": "0-3",
+      "from": 0,
+      "to": 3,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|3||0-3",
+        "single|left|3||0-3"
+      ],
+      "worldStart": 174568000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        }
+      }
+    },
+    {
+      "seed": 166183,
+      "group": "opponent-one",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 23,
+      "focal": 2,
+      "opponents": [
+        1,
+        1
+      ],
+      "hand": [
+        "1-2",
+        "1-3",
+        "0-2"
+      ],
+      "tile": "0-2",
+      "from": 2,
+      "to": 0,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-2",
+        "single|left|0||0-2"
+      ],
+      "worldStart": 174683000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 200
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 200
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 200
+        }
+      }
+    },
+    {
+      "seed": 166246,
+      "group": "opponent-one",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 20,
+      "focal": 1,
+      "opponents": [
+        1,
+        2
+      ],
+      "hand": [
+        "0-5",
+        "2-6",
+        "5-6",
+        "0-4",
+        "3-5",
+        "2-4"
+      ],
+      "tile": "0-4",
+      "from": 0,
+      "to": 4,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|4||0-4",
+        "single|left|4||0-4"
+      ],
+      "worldStart": 174746000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 200
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 200
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 200
+        }
+      }
+    },
+    {
+      "seed": 166249,
+      "group": "opponent-one",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 19,
+      "focal": 2,
+      "opponents": [
+        5,
+        1
+      ],
+      "hand": [
+        "0-1",
+        "1-4",
+        "2-3",
+        "4-5"
+      ],
+      "tile": "2-3",
+      "from": 2,
+      "to": 3,
+      "sides": [
+        "left",
+        "right"
+      ],
+      "candidateKeys": [
+        "single|left|3||2-3",
+        "single|right|3||2-3"
+      ],
+      "worldStart": 174749000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 100
+        }
+      }
+    },
+    {
+      "seed": 166314,
+      "group": "opponent-one",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 19,
+      "focal": 1,
+      "opponents": [
+        1,
+        3
+      ],
+      "hand": [
+        "0-1",
+        "0-6",
+        "0-2",
+        "2-6"
+      ],
+      "tile": "0-2",
+      "from": 2,
+      "to": 0,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-2",
+        "single|left|0||0-2"
+      ],
+      "worldStart": 174814000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 225
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 225
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 225
+        }
+      }
+    },
+    {
+      "seed": 166323,
+      "group": "opponent-one",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 21,
+      "focal": 0,
+      "opponents": [
+        4,
+        1
+      ],
+      "hand": [
+        "0-3",
+        "0-1"
+      ],
+      "tile": "0-3",
+      "from": 3,
+      "to": 0,
+      "sides": [
+        "left",
+        "right"
+      ],
+      "candidateKeys": [
+        "single|left|0||0-3",
+        "single|right|0||0-3"
+      ],
+      "worldStart": 174823000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 125
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 125
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 125
+        }
+      }
+    },
+    {
+      "seed": 166349,
+      "group": "opponent-one",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 18,
+      "focal": 1,
+      "opponents": [
+        3,
+        1
+      ],
+      "hand": [
+        "0-6",
+        "0-3",
+        "2-5",
+        "2-3",
+        "0-2"
+      ],
+      "tile": "0-6",
+      "from": 6,
+      "to": 0,
+      "sides": [
+        "left",
+        "right"
+      ],
+      "candidateKeys": [
+        "single|left|0||0-6",
+        "single|right|0||0-6"
+      ],
+      "worldStart": 174849000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 200
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 200
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 200
+        }
+      }
+    },
+    {
+      "seed": 166395,
+      "group": "opponent-one",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 24,
+      "focal": 1,
+      "opponents": [
+        2,
+        1
+      ],
+      "hand": [
+        "0-2",
+        "1-5",
+        "0-5",
+        "1-2"
+      ],
+      "tile": "0-2",
+      "from": 2,
+      "to": 0,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-2",
+        "single|left|0||0-2"
+      ],
+      "worldStart": 174895000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 200
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 200
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 200
+        }
+      }
+    },
+    {
+      "seed": 166427,
+      "group": "opponent-one",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 16,
+      "focal": 0,
+      "opponents": [
+        4,
+        1
+      ],
+      "hand": [
+        "1-5",
+        "2-4",
+        "0-2",
+        "0-6"
+      ],
+      "tile": "0-2",
+      "from": 2,
+      "to": 0,
+      "sides": [
+        "up",
+        "right"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-2",
+        "single|right|0||0-2"
+      ],
+      "worldStart": 174927000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 125
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 125
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0.08,
+            "pips": -0.24,
+            "minus": 0,
+            "outcomeDisagreement": 0.08,
+            "absPips": 0.72
+          },
+          "continuations": 125
+        }
+      }
+    },
+    {
+      "seed": 166432,
+      "group": "opponent-one",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 21,
+      "focal": 2,
+      "opponents": [
+        2,
+        1
+      ],
+      "hand": [
+        "0-3",
+        "0-4"
+      ],
+      "tile": "0-3",
+      "from": 0,
+      "to": 3,
+      "sides": [
+        "up",
+        "right"
+      ],
+      "candidateKeys": [
+        "single|up|3||0-3",
+        "single|right|3||0-3"
+      ],
+      "worldStart": 174932000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 150
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 150
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 150
+        }
+      }
+    },
+    {
+      "seed": 166000,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 9,
+      "focal": 0,
+      "opponents": [
+        6,
+        6
+      ],
+      "hand": [
+        "0-6",
+        "2-5",
+        "3-3",
+        "0-1",
+        "2-6"
+      ],
+      "tile": "2-5",
+      "from": 5,
+      "to": 2,
+      "sides": [
+        "right",
+        "down"
+      ],
+      "candidateKeys": [
+        "single|right|2||2-5",
+        "single|down|2||2-5"
+      ],
+      "worldStart": 174500000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": -0.04,
+            "pips": 0.04,
+            "minus": -0.04,
+            "outcomeDisagreement": 0.12,
+            "absPips": 0.12
+          },
+          "continuations": 125
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": -0.04,
+            "pips": 0.04,
+            "minus": 0,
+            "outcomeDisagreement": 0.12,
+            "absPips": 0.12
+          },
+          "continuations": 125
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0.08,
+            "pips": -0.28,
+            "minus": 0.04,
+            "outcomeDisagreement": 0.16,
+            "absPips": 0.36
+          },
+          "continuations": 125
+        }
+      }
+    },
+    {
+      "seed": 166002,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 12,
+      "focal": 1,
+      "opponents": [
+        5,
+        4
+      ],
+      "hand": [
+        "1-2",
+        "3-6",
+        "5-6",
+        "0-6",
+        "4-6"
+      ],
+      "tile": "3-6",
+      "from": 3,
+      "to": 6,
+      "sides": [
+        "left",
+        "right"
+      ],
+      "candidateKeys": [
+        "single|left|6||3-6",
+        "single|right|6||3-6"
+      ],
+      "worldStart": 174502000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0.16,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0.16
+          },
+          "continuations": 75
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0.04,
+            "pips": -0.12,
+            "minus": 0,
+            "outcomeDisagreement": 0.04,
+            "absPips": 0.12
+          },
+          "continuations": 75
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0.08,
+            "pips": -0.6,
+            "minus": 0,
+            "outcomeDisagreement": 0.08,
+            "absPips": 1.24
+          },
+          "continuations": 75
+        }
+      }
+    },
+    {
+      "seed": 166004,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 11,
+      "focal": 2,
+      "opponents": [
+        5,
+        5
+      ],
+      "hand": [
+        "3-4",
+        "0-6",
+        "1-2",
+        "0-3",
+        "0-4",
+        "0-1"
+      ],
+      "tile": "0-6",
+      "from": 6,
+      "to": 0,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-6",
+        "single|left|0||0-6"
+      ],
+      "worldStart": 174504000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0.64,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 1.52
+          },
+          "continuations": 100
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0.48,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 1.36
+          },
+          "continuations": 100
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": -0.2,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0.36
+          },
+          "continuations": 100
+        }
+      }
+    },
+    {
+      "seed": 166005,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 8,
+      "focal": 0,
+      "opponents": [
+        6,
+        6
+      ],
+      "hand": [
+        "3-4",
+        "1-4",
+        "1-2",
+        "3-5",
+        "2-5",
+        "1-5"
+      ],
+      "tile": "1-2",
+      "from": 1,
+      "to": 2,
+      "sides": [
+        "left",
+        "right"
+      ],
+      "candidateKeys": [
+        "single|left|2||1-2",
+        "single|right|2||1-2"
+      ],
+      "worldStart": 174505000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 150
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0.08,
+            "pips": -0.2,
+            "minus": 0,
+            "outcomeDisagreement": 0.24,
+            "absPips": 1.56
+          },
+          "continuations": 150
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0.04,
+            "pips": -0.16,
+            "minus": 0,
+            "outcomeDisagreement": 0.12,
+            "absPips": 1.28
+          },
+          "continuations": 150
+        }
+      }
+    },
+    {
+      "seed": 166006,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 12,
+      "focal": 1,
+      "opponents": [
+        5,
+        6
+      ],
+      "hand": [
+        "0-2",
+        "3-4",
+        "0-1",
+        "0-5",
+        "1-5"
+      ],
+      "tile": "0-5",
+      "from": 5,
+      "to": 0,
+      "sides": [
+        "up",
+        "down"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-5",
+        "single|down|0||0-5"
+      ],
+      "worldStart": 174506000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": -0.04,
+            "pips": 0.04,
+            "minus": 0,
+            "outcomeDisagreement": 0.2,
+            "absPips": 0.2
+          },
+          "continuations": 175
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0.12,
+            "pips": -0.12,
+            "minus": 0,
+            "outcomeDisagreement": 0.12,
+            "absPips": 0.12
+          },
+          "continuations": 175
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0.08,
+            "pips": -0.28,
+            "minus": 0,
+            "outcomeDisagreement": 0.16,
+            "absPips": 0.92
+          },
+          "continuations": 175
+        }
+      }
+    },
+    {
+      "seed": 166007,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 12,
+      "focal": 2,
+      "opponents": [
+        5,
+        5
+      ],
+      "hand": [
+        "2-3",
+        "1-3",
+        "1-4",
+        "0-6",
+        "0-4"
+      ],
+      "tile": "0-4",
+      "from": 4,
+      "to": 0,
+      "sides": [
+        "up",
+        "down"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-4",
+        "single|down|0||0-4"
+      ],
+      "worldStart": 174507000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": -0.04,
+            "pips": 0.32,
+            "minus": 0,
+            "outcomeDisagreement": 0.12,
+            "absPips": 1.04
+          },
+          "continuations": 200
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": -0.24,
+            "pips": 1.16,
+            "minus": 0,
+            "outcomeDisagreement": 0.48,
+            "absPips": 2.92
+          },
+          "continuations": 200
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0.12,
+            "pips": -0.68,
+            "minus": 0,
+            "outcomeDisagreement": 0.2,
+            "absPips": 1.24
+          },
+          "continuations": 200
+        }
+      }
+    },
+    {
+      "seed": 166008,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 10,
+      "focal": 0,
+      "opponents": [
+        5,
+        4
+      ],
+      "hand": [
+        "0-2",
+        "2-2",
+        "0-5",
+        "0-4",
+        "3-4",
+        "2-6"
+      ],
+      "tile": "0-5",
+      "from": 5,
+      "to": 0,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|0||0-5",
+        "single|left|0||0-5"
+      ],
+      "worldStart": 174508000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0.2,
+            "pips": -0.6,
+            "minus": 0.16,
+            "outcomeDisagreement": 0.36,
+            "absPips": 2.12
+          },
+          "continuations": 125
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0.64,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 2.08
+          },
+          "continuations": 125
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": -0.48,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 1.12
+          },
+          "continuations": 125
+        }
+      }
+    },
+    {
+      "seed": 166009,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 9,
+      "focal": 0,
+      "opponents": [
+        4,
+        6
+      ],
+      "hand": [
+        "2-5",
+        "0-2",
+        "3-5",
+        "0-4",
+        "0-1",
+        "3-4"
+      ],
+      "tile": "2-5",
+      "from": 5,
+      "to": 2,
+      "sides": [
+        "left",
+        "right"
+      ],
+      "candidateKeys": [
+        "single|left|2||2-5",
+        "single|right|2||2-5"
+      ],
+      "worldStart": 174509000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": 0,
+            "pips": -0.28,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0.28
+          },
+          "continuations": 150
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": -0.28,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0.28
+          },
+          "continuations": 150
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0.24,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0.24
+          },
+          "continuations": 150
+        }
+      }
+    },
+    {
+      "seed": 166010,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 13,
+      "focal": 2,
+      "opponents": [
+        5,
+        6
+      ],
+      "hand": [
+        "0-1",
+        "3-5",
+        "1-4"
+      ],
+      "tile": "1-4",
+      "from": 4,
+      "to": 1,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "candidateKeys": [
+        "single|up|1||1-4",
+        "single|left|1||1-4"
+      ],
+      "worldStart": 174510000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": -0.04,
+            "pips": 0.32,
+            "minus": 0,
+            "outcomeDisagreement": 0.04,
+            "absPips": 0.32
+          },
+          "continuations": 125
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 125
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0.04,
+            "pips": -0.32,
+            "minus": 0,
+            "outcomeDisagreement": 0.04,
+            "absPips": 0.32
+          },
+          "continuations": 125
+        }
+      }
+    },
+    {
+      "seed": 166011,
+      "group": "opponents-three-plus",
+      "discoveryPolicy": "min-hand-pips",
+      "turn": 9,
+      "focal": 2,
+      "opponents": [
+        6,
+        6
+      ],
+      "hand": [
+        "3-3",
+        "2-3",
+        "0-4",
+        "0-0",
+        "2-2",
+        "0-1"
+      ],
+      "tile": "0-1",
+      "from": 1,
+      "to": 0,
+      "sides": [
+        "left",
+        "right"
+      ],
+      "candidateKeys": [
+        "single|left|0||0-1",
+        "single|right|0||0-1"
+      ],
+      "worldStart": 174511000,
+      "policies": {
+        "closed-branch-control": {
+          "deltas": {
+            "finish": -0.04,
+            "pips": 0.16,
+            "minus": 0,
+            "outcomeDisagreement": 0.04,
+            "absPips": 0.16
+          },
+          "continuations": 150
+        },
+        "min-hand-pips": {
+          "deltas": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "outcomeDisagreement": 0,
+            "absPips": 0
+          },
+          "continuations": 150
+        },
+        "random-legal": {
+          "deltas": {
+            "finish": 0.08,
+            "pips": -0.36,
+            "minus": 0,
+            "outcomeDisagreement": 0.08,
+            "absPips": 0.36
+          },
+          "continuations": 150
+        }
+      }
+    }
+  ]
+}
