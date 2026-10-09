@@ -1,13 +1,13 @@
 # Qoşa research status
 
-Updated: 2026-10-09 09:45 (+04)
+Updated: 2026-10-09 15:47 (+04)
 
 ## Current engine state
 - version target: `qosa-research-0.6.1`
 - primary mode: 3 players × 9 stones + 1 stock
 - new strategy rounds: 180,000 matched-seat rounds persisted across validated baselines/stress/instrumentation runs (historical 4,000 kept separate)
 - historical baseline: kept separate in `RESULTS.md`
-- fixed-visible hidden worlds: **70,610** across research checkpoints (latest +2,400 on 2026-10-09 09:45)
+- fixed-visible hidden worlds: **79,410** across research checkpoints (latest +2,400 on 2026-10-09 09:45)
 
 ## Newly confirmed by user
 - every 3-player round starts from `1-1`;
@@ -59,3 +59,10 @@ Updated: 2026-10-09 09:45 (+04)
 
 ## NEXT ACTION
 Preregister independent opponent-one-stone hand-size/branch-end-matched experiment to isolate immediate opponent finish risk; execute Node CLI regression when available. Quarantined specific-double data remain excluded.
+
+## 2026-10-09 15:47 (+04) block remainder checkpoint
+- 32 new positions, 1,600 fixed-visible hidden worlds, 4,800 paired candidate continuations; 0 new full strategy rounds.
+- Focal strictly-lowest pips at block tracked as a descriptive proxy only, NOT an official win. No reliable finish-first improvement.
+- Cumulative: 180,000 full strategy rounds, 79,410 hidden worlds; 400 pilot worlds excluded.
+- Reproducible data and exact seed set: `runs/2026-10-09-1547-block-remainder-holdout.json`; notes and limitations in matching `.md`.
+- Next: official block outcome rule, independent replication and Node CLI regression.
