@@ -425,3 +425,15 @@
 - Cumulative: **180000** full strategy rounds (historical 4000 separate); **82610** reproducible hidden worlds (400 pilot separate).
 - Reproduce: `node qosha-research/simulator/block-conditional-holdout.js 8 25 25`; `runs/2026-10-09-1754-block-conditional-holdout.json` contains exact selected seeds, position-level metrics and confidence intervals.
 - Exact next hypothesis/action: compare block rank in worlds where BOTH candidate moves produce blocks; seek official block scoring rule before making block-win claims.
+
+
+### 2026-10-09 23:48:43 +04:00 — independent same-side connector holdout (non-replication)
+- engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, 3×9; no gameplay-rule changes; same-side self-test passed in V8 CommonJS harness (Node CLI pending).
+- seeds: 403000..405999, disjoint from 400000..402999; 24 reachable positions (8 per opened-state group), 30 fixed-visible hidden worlds each = **720 new worlds**, **8820 forced candidate continuations**, 0 new complete strategy rounds. World seed `4100000+1000*dealSeed+worldIndex`.
+- strategies: spend-low/keep-high vs spend-high/keep-low on identical starting side/end and hidden worlds; closed-branch-control, min-hand-pips, fast-doubles continuation.
+- bothOpen finish-first keep-high-minus-low: closed-control **-1.67 [-11.62, 8.29] pp**, min-pips **-2.50 [-8.52, 3.52] pp**, fast-doubles **-4.58 [-15.20, 6.03] pp**; exploratory position-clustered CIs all cross zero. Prior bothOpen positive signal not replicated; no universal rule.
+- oneOpen fast-doubles **-9.17 [-14.07, -4.27] pp** is a post-hoc n=8/multiple-testing signal, not a confirmed finding.
+- limitations: 0 selected positions with opponent <=2; first-eligible/quota bias, bothClosed mostly earliest seeds, bots, assumption-labelled branch semantics, block winner unassigned, no Node CLI, unadjusted CIs.
+- cumulative: **180,000** full strategy rounds (historical 4,000 separate) and **92,906** credited fixed-visible hidden worlds (400 pilot excluded).
+- reproducibility: `simulator/same-side-holdout.js 403000 406000 8 30`; `runs/2026-10-09-2348-sameside-connector-replication.{json,md}`.
+- exact next hypothesis/action: independent seed-spaced same-side holdout matching full opponent hand-size vector and oversampling opponent <=2, with side-neutral continuation policies; quantify if the bothOpen sign stays unstable.

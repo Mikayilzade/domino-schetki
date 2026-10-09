@@ -1,13 +1,13 @@
 # Qoşa research status
 
-Updated: 2026-10-09 15:47 (+04)
+Updated: 2026-10-09 23:48:43 +04:00
 
 ## Current engine state
 - version target: `qosa-research-0.6.1`
 - primary mode: 3 players × 9 stones + 1 stock
 - new strategy rounds: 180,000 matched-seat rounds persisted across validated baselines/stress/instrumentation runs (historical 4,000 kept separate)
 - historical baseline: kept separate in `RESULTS.md`
-- fixed-visible hidden worlds: **79,410** across research checkpoints (latest +2,400 on 2026-10-09 09:45)
+- fixed-visible hidden worlds: **92,906** across research checkpoints (latest +2,400 on 2026-10-09 09:45)
 
 ## Newly confirmed by user
 - every 3-player round starts from `1-1`;
@@ -94,3 +94,9 @@ Preregister independent opponent-one-stone hand-size/branch-end-matched experime
 - Conditional urgent/highMore BOTH-block high-pip disadvantage +3.13 pips, 171/193 worse under closed-control; SAME six positions as prior, position-level CI crosses zero.
 - Code: simulator/block-pip-mobility-world-holdout.js; data/notes: runs/2026-10-09-2148-block-pip-mobility-world-holdout.{json,md}.
 - Next: disjoint-position same-side holdout, no official block winner claim.
+
+## 2026-10-09 23:48:43 +04:00 — independent same-side connector replication
+- 24 fresh reachable positions; 720 fixed-visible hidden worlds; 8820 continuations; 0 new full strategy rounds.
+- Cumulative 180,000 full rounds + 92,906 hidden worlds; prior bothOpen high-connector advantage NOT replicated (all three new point estimates negative with CIs crossing zero).
+- Data `runs/2026-10-09-2348-sameside-connector-replication.json`; notes matching `.md`; Node CLI pending.
+- Next: seed-spaced/opponent-vector-matched replication with opponent <=2, side-neutral policies.
