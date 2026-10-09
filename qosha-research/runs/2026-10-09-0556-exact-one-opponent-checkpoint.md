@@ -1,0 +1,13 @@
+# Exact-one-opponent endpoint mobility — 2026-10-09 05:56 Asia/Baku
+
+Engine `qosa-research-0.5.3`; rules `qosa-1.0.0`; 3 players × 9 tiles. Fresh discovery seeds: 154000..155999 (closed-branch-control) and 156000..157999 (min-hand-pips). Selected 20 positions per discovery policy and opponent minimum (exactly 1, exactly 2, >=3), total 120 positions. 25 fixed-visible worlds each: **3,000 new hidden worlds**, 15,000 policy-world evaluations, **68,375 candidate continuations**; zero new full rounds. Cumulative persisted research: 180,000 full rounds + **63,810 fixed-visible worlds**; historical 4,000 separate.
+
+Selection: first reachable same-side X-LOW / X-HIGH with both endpoints opened, focal hand size 4/5 and unequal remaining own connector counts; rank by `mixSeed32(seed ^ 0x20261009)`, take first 20 in each group. World seeds: `6100000 + 1000*dealSeed + worldIndex` (0..24). Compare the same two candidate moves within identical hidden worlds and continuation policies. Each group has n=40 independent selected positions (worlds are NOT independent observations).
+
+Exactly-one-opponent: aligned finish-first advantage in percentage points [exploratory 95% position CI]: closed-branch-control +2.20 [-0.82,5.22]; min-hand-pips 0.00 [0,0]; fast-doubles 0.00 [0,0]; moderate-double-hold 0.00 [0,0]; random-legal +0.60 [-0.12,1.32]. Mean remaining-pip difference (more connectors minus fewer): +1.773 [0.362,3.184], +1.870 [0.528,3.212], +1.870 [0.528,3.212], +1.870 [0.528,3.212], +1.801 [0.501,3.101], respectively. Positive pips means worse remainder; the immediate value of the played tile confounds this comparison.
+
+Exactly-one minus >=3 opponent minimum interaction in finish-first, pp: +1.20 [-5.32,7.72], +0.30 [-6.32,6.92], +4.00 [-1.37,9.37], +0.70 [-5.91,7.31], -1.90 [-6.35,2.55]. None excludes zero. **No reliable universal rule**; with one opponent tile left, future mobility may have little time to pay off, while pip exposure can matter. This is a hypothesis, not a causal conclusion.
+
+Validation: V8 CommonJS deterministic replay and source-state immutability check passed (seed 155673); all continuations resolved. Node CLI not run. Limitations: first-eligible quota sample, simple bots, branch-opening assumptions, unassigned block winner, exploratory unadjusted intervals, no multiplicity correction.
+
+Exact next action: persist an executable dedicated runner and selected-seed data, then compare the SAME tile placed on different open branch sides (equal immediate pip cost), especially with an opponent at exactly one tile, using independent seeds and paired decision regret. No scoreboard/PWA changes.
