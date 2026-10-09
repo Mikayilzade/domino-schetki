@@ -1,0 +1,2083 @@
+{
+  "schema": "qosa-paired-both-block/v1",
+  "timestampAsiaBaku": "2026-10-09 18:49:41 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "seedScans": [
+    {
+      "policy": "closed-branch-control",
+      "range": [
+        282000,
+        287999
+      ],
+      "eligible": 336,
+      "available": {
+        "lowMore": 238,
+        "highMore": 98
+      }
+    },
+    {
+      "policy": "min-hand-pips",
+      "range": [
+        288000,
+        293999
+      ],
+      "eligible": 515,
+      "available": {
+        "lowMore": 372,
+        "highMore": 143
+      }
+    }
+  ],
+  "selectedSeeds": [
+    285207,
+    286908,
+    283206,
+    283351,
+    285071,
+    284103,
+    284940,
+    286237,
+    286091,
+    282385,
+    287709,
+    282381,
+    285936,
+    287263,
+    282745,
+    282581,
+    282297,
+    285585,
+    284857,
+    282382,
+    285012,
+    284159,
+    283795,
+    287798,
+    290545,
+    291628,
+    289066,
+    288152,
+    291166,
+    293445,
+    292291,
+    291876,
+    293293,
+    289649,
+    292256,
+    289696,
+    291822,
+    289165,
+    293344,
+    288290,
+    290221,
+    288063,
+    291402,
+    290165,
+    290871,
+    291266,
+    289244,
+    292599
+  ],
+  "positions": 48,
+  "overrides": 15,
+  "trainWorlds": 25,
+  "testWorlds": 80,
+  "newHiddenWorlds": 2400,
+  "pairedCandidateContinuations": 7200,
+  "fullStrategyRounds": 0,
+  "worldSeedFormula": "18000000+1000*dealSeed+worldIndex; training 0..train-1, evaluation train..train+test-1 only for overrides",
+  "strategies": [
+    "mobility-aligned",
+    "threat-first if training risk improvement >=12pp"
+  ],
+  "continuationPolicies": [
+    "side-neutral-closed-branch-control",
+    "side-neutral-min-hand-pips",
+    "side-neutral-random-legal"
+  ],
+  "summary": {
+    "positions": 48,
+    "overrides": 15,
+    "trainingWorlds": 1200,
+    "evaluationWorlds": 1200,
+    "immediateRiskDelta": {
+      "n": 15,
+      "mean": -0.30999999999999994,
+      "ci95PositionNormalApprox": [
+        -0.35499825922558925,
+        -0.26500174077441063
+      ]
+    },
+    "policies": {
+      "closed-branch-control": {
+        "n": 1200,
+        "blockPairs": {
+          "both": 40,
+          "alignedOnly": 0,
+          "threatOnly": 302,
+          "neither": 858
+        },
+        "positionsWithBothBlock": 1,
+        "strictMinAlignedGivenBothBlock": 0.475,
+        "strictMinThreatGivenBothBlock": 0.475,
+        "pairedStrictMinDelta": 0,
+        "pairedFocalPipsDelta": 0,
+        "pairedMarginDelta": 0,
+        "pairedRankDelta": 0,
+        "pairedStrictMinPositionBootstrap": {
+          "resamples": 1000,
+          "valid": 644,
+          "ci95PositionBootstrapPercentile": [
+            0,
+            0
+          ]
+        },
+        "allFinishFirstDelta": {
+          "n": 15,
+          "mean": -0.025833333333333337,
+          "ci95PositionNormalApprox": [
+            -0.2418342232491956,
+            0.1901675565825289
+          ]
+        },
+        "allBlockDelta": {
+          "n": 15,
+          "mean": 0.25166666666666665,
+          "ci95PositionNormalApprox": [
+            0.04234039555437227,
+            0.460992937778961
+          ]
+        },
+        "allPipsDelta": {
+          "n": 15,
+          "mean": -0.06250000000000006,
+          "ci95PositionNormalApprox": [
+            -1.2919602135354633,
+            1.1669602135354633
+          ]
+        }
+      },
+      "min-hand-pips": {
+        "n": 1200,
+        "blockPairs": {
+          "both": 40,
+          "alignedOnly": 0,
+          "threatOnly": 302,
+          "neither": 858
+        },
+        "positionsWithBothBlock": 1,
+        "strictMinAlignedGivenBothBlock": 0.475,
+        "strictMinThreatGivenBothBlock": 0.475,
+        "pairedStrictMinDelta": 0,
+        "pairedFocalPipsDelta": 0,
+        "pairedMarginDelta": 0,
+        "pairedRankDelta": 0,
+        "pairedStrictMinPositionBootstrap": {
+          "resamples": 1000,
+          "valid": 644,
+          "ci95PositionBootstrapPercentile": [
+            0,
+            0
+          ]
+        },
+        "allFinishFirstDelta": {
+          "n": 15,
+          "mean": -0.025833333333333337,
+          "ci95PositionNormalApprox": [
+            -0.2418342232491956,
+            0.1901675565825289
+          ]
+        },
+        "allBlockDelta": {
+          "n": 15,
+          "mean": 0.25166666666666665,
+          "ci95PositionNormalApprox": [
+            0.04234039555437227,
+            0.460992937778961
+          ]
+        },
+        "allPipsDelta": {
+          "n": 15,
+          "mean": -0.06250000000000006,
+          "ci95PositionNormalApprox": [
+            -1.2919602135354633,
+            1.1669602135354633
+          ]
+        }
+      },
+      "random-legal": {
+        "n": 1200,
+        "blockPairs": {
+          "both": 5,
+          "alignedOnly": 0,
+          "threatOnly": 270,
+          "neither": 925
+        },
+        "positionsWithBothBlock": 1,
+        "strictMinAlignedGivenBothBlock": 0.2,
+        "strictMinThreatGivenBothBlock": 0.2,
+        "pairedStrictMinDelta": 0,
+        "pairedFocalPipsDelta": 0,
+        "pairedMarginDelta": 0,
+        "pairedRankDelta": 0,
+        "pairedStrictMinPositionBootstrap": {
+          "resamples": 1000,
+          "valid": 644,
+          "ci95PositionBootstrapPercentile": [
+            0,
+            0
+          ]
+        },
+        "allFinishFirstDelta": {
+          "n": 15,
+          "mean": -0.07250000000000001,
+          "ci95PositionNormalApprox": [
+            -0.2629257335551054,
+            0.11792573355510538
+          ]
+        },
+        "allBlockDelta": {
+          "n": 15,
+          "mean": 0.22500000000000003,
+          "ci95PositionNormalApprox": [
+            0.019837097245465368,
+            0.4301629027545347
+          ]
+        },
+        "allPipsDelta": {
+          "n": 15,
+          "mean": 0.19833333333333333,
+          "ci95PositionNormalApprox": [
+            -0.9208300243187614,
+            1.317496690985428
+          ]
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "seed": 285207,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 0,
+      "hand": [
+        "0-5",
+        "0-2"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-5",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.32,
+      "trainRiskAlternative": 0.32,
+      "worldSeedStart": 303207000,
+      "policies": {}
+    },
+    {
+      "seed": 286908,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 2,
+      "hand": [
+        "0-4",
+        "0-6"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-6",
+      "alignedIndex": 1,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.76,
+      "worldSeedStart": 304908000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 38,
+          "pipsDiff": -152,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 38,
+          "pipsDiff": -152,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 22,
+          "pipsDiff": -88,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 0.525
+    },
+    {
+      "seed": 283206,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 1,
+      "hand": [
+        "2-5",
+        "2-4"
+      ],
+      "opponentSizes": [
+        1,
+        4
+      ],
+      "tile": "2-5",
+      "alignedIndex": 1,
+      "override": true,
+      "trainRiskAligned": 0.64,
+      "trainRiskAlternative": 0.44,
+      "worldSeedStart": 301206000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": -37,
+          "pipsDiff": 222,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": -37,
+          "pipsDiff": 222,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": -37,
+          "pipsDiff": 222,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 0.5375,
+      "testRiskThreatFirst": 0.35
+    },
+    {
+      "seed": 283351,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 2,
+      "hand": [
+        "2-3",
+        "2-5"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "2-3",
+      "alignedIndex": 1,
+      "override": true,
+      "trainRiskAligned": 0.4,
+      "trainRiskAlternative": 0,
+      "worldSeedStart": 301351000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 80,
+          "neither": 0,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": -57,
+          "pipsDiff": 399,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 80,
+          "neither": 0,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": -57,
+          "pipsDiff": 399,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 80,
+          "neither": 0,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": -57,
+          "pipsDiff": 399,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 0.2875,
+      "testRiskThreatFirst": 0
+    },
+    {
+      "seed": 285071,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 0,
+      "hand": [
+        "0-5",
+        "3-5",
+        "0-2",
+        "0-3"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-3",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.28,
+      "trainRiskAlternative": 0.28,
+      "worldSeedStart": 303071000,
+      "policies": {}
+    },
+    {
+      "seed": 284103,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 1,
+      "hand": [
+        "0-6",
+        "0-1"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-1",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.68,
+      "trainRiskAlternative": 0.68,
+      "worldSeedStart": 302103000,
+      "policies": {}
+    },
+    {
+      "seed": 284940,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 1,
+      "hand": [
+        "0-5",
+        "0-3",
+        "2-5"
+      ],
+      "opponentSizes": [
+        1,
+        3
+      ],
+      "tile": "0-3",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.4,
+      "trainRiskAlternative": 0.4,
+      "worldSeedStart": 302940000,
+      "policies": {}
+    },
+    {
+      "seed": 286237,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 1,
+      "hand": [
+        "0-2",
+        "0-4"
+      ],
+      "opponentSizes": [
+        1,
+        3
+      ],
+      "tile": "0-2",
+      "alignedIndex": 1,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.84,
+      "worldSeedStart": 304237000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 0,
+          "pipsDiff": 0,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 0,
+          "pipsDiff": 0,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 3,
+          "neither": 77,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 6,
+          "pipsDiff": -24,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 0.7875
+    },
+    {
+      "seed": 286091,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 0,
+      "hand": [
+        "0-1",
+        "0-5",
+        "0-3"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-1",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.24,
+      "trainRiskAlternative": 0.24,
+      "worldSeedStart": 304091000,
+      "policies": {}
+    },
+    {
+      "seed": 282385,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 0,
+      "hand": [
+        "0-6",
+        "0-3",
+        "0-5"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-3",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0,
+      "trainRiskAlternative": 0.68,
+      "worldSeedStart": 300385000,
+      "policies": {}
+    },
+    {
+      "seed": 287709,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 0,
+      "hand": [
+        "0-5",
+        "0-2"
+      ],
+      "opponentSizes": [
+        1,
+        3
+      ],
+      "tile": "0-2",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "worldSeedStart": 305709000,
+      "policies": {}
+    },
+    {
+      "seed": 282381,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "lowMore",
+      "focal": 1,
+      "hand": [
+        "2-3",
+        "2-4"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "2-3",
+      "alignedIndex": 1,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.6,
+      "worldSeedStart": 300381000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 30,
+          "pipsDiff": -180,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 30,
+          "pipsDiff": -180,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 17,
+          "pipsDiff": -102,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 0.625
+    },
+    {
+      "seed": 285936,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 1,
+      "hand": [
+        "0-6",
+        "0-3",
+        "0-5",
+        "3-4",
+        "2-3"
+      ],
+      "opponentSizes": [
+        1,
+        4
+      ],
+      "tile": "2-3",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0,
+      "trainRiskAlternative": 0.4,
+      "worldSeedStart": 303936000,
+      "policies": {}
+    },
+    {
+      "seed": 287263,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 1,
+      "hand": [
+        "2-4",
+        "3-4"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "3-4",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "worldSeedStart": 305263000,
+      "policies": {}
+    },
+    {
+      "seed": 282745,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 1,
+      "hand": [
+        "2-4",
+        "0-2"
+      ],
+      "opponentSizes": [
+        1,
+        3
+      ],
+      "tile": "0-2",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.92,
+      "worldSeedStart": 300745000,
+      "policies": {}
+    },
+    {
+      "seed": 282581,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 0,
+      "hand": [
+        "0-5",
+        "5-6",
+        "2-6",
+        "2-5"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-5",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0,
+      "trainRiskAlternative": 0.6,
+      "worldSeedStart": 300581000,
+      "policies": {}
+    },
+    {
+      "seed": 282297,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "hand": [
+        "3-4",
+        "1-3"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "1-3",
+      "alignedIndex": 0,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.72,
+      "worldSeedStart": 300297000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 30,
+          "pipsDiff": -210,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 30,
+          "pipsDiff": -210,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 20,
+          "pipsDiff": -140,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 0.625
+    },
+    {
+      "seed": 285585,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 1,
+      "hand": [
+        "0-3",
+        "1-3"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-3",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.28,
+      "trainRiskAlternative": 0.72,
+      "worldSeedStart": 303585000,
+      "policies": {}
+    },
+    {
+      "seed": 284857,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "hand": [
+        "5-6",
+        "0-3",
+        "2-4",
+        "3-4",
+        "0-4"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-4",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.32,
+      "trainRiskAlternative": 1,
+      "worldSeedStart": 302857000,
+      "policies": {}
+    },
+    {
+      "seed": 282382,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "hand": [
+        "0-3",
+        "3-5"
+      ],
+      "opponentSizes": [
+        1,
+        3
+      ],
+      "tile": "0-3",
+      "alignedIndex": 0,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.64,
+      "worldSeedStart": 300382000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 20,
+          "pipsDiff": -160,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 20,
+          "pipsDiff": -160,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 13,
+          "pipsDiff": -104,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 0.75
+    },
+    {
+      "seed": 285012,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 0,
+      "hand": [
+        "2-6",
+        "1-2",
+        "5-6",
+        "2-3"
+      ],
+      "opponentSizes": [
+        1,
+        3
+      ],
+      "tile": "5-6",
+      "alignedIndex": 0,
+      "override": true,
+      "trainRiskAligned": 0.56,
+      "trainRiskAlternative": 0.24,
+      "worldSeedStart": 303012000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 0,
+          "pipsDiff": -24,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 0,
+          "pipsDiff": -24,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 0,
+          "pipsDiff": -81,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 0.6,
+      "testRiskThreatFirst": 0.3
+    },
+    {
+      "seed": 284159,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "hand": [
+        "4-6",
+        "0-6",
+        "5-6",
+        "0-4"
+      ],
+      "opponentSizes": [
+        1,
+        4
+      ],
+      "tile": "4-6",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.68,
+      "trainRiskAlternative": 0.84,
+      "worldSeedStart": 302159000,
+      "policies": {}
+    },
+    {
+      "seed": 283795,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 2,
+      "hand": [
+        "2-4",
+        "0-2"
+      ],
+      "opponentSizes": [
+        1,
+        3
+      ],
+      "tile": "0-2",
+      "alignedIndex": 0,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.72,
+      "worldSeedStart": 301795000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 18,
+          "pipsDiff": -108,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 18,
+          "pipsDiff": -108,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 7,
+          "pipsDiff": -42,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 0.775
+    },
+    {
+      "seed": 287798,
+      "discoveryPolicy": "closed-branch-control",
+      "group": "highMore",
+      "focal": 0,
+      "hand": [
+        "0-4",
+        "2-4"
+      ],
+      "opponentSizes": [
+        1,
+        3
+      ],
+      "tile": "2-4",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.2,
+      "trainRiskAlternative": 0.76,
+      "worldSeedStart": 305798000,
+      "policies": {}
+    },
+    {
+      "seed": 290545,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 1,
+      "hand": [
+        "2-4",
+        "4-6",
+        "3-4",
+        "0-5",
+        "4-5"
+      ],
+      "opponentSizes": [
+        1,
+        6
+      ],
+      "tile": "4-6",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.52,
+      "trainRiskAlternative": 0.8,
+      "worldSeedStart": 308545000,
+      "policies": {}
+    },
+    {
+      "seed": 291628,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "hand": [
+        "2-4",
+        "0-2",
+        "0-3",
+        "0-1"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "2-4",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.48,
+      "trainRiskAlternative": 0.48,
+      "worldSeedStart": 309628000,
+      "policies": {}
+    },
+    {
+      "seed": 289066,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "hand": [
+        "0-2",
+        "0-1"
+      ],
+      "opponentSizes": [
+        1,
+        4
+      ],
+      "tile": "0-1",
+      "alignedIndex": 1,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.52,
+      "worldSeedStart": 307066000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 39,
+          "pipsDiff": -78,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 39,
+          "pipsDiff": -78,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 29,
+          "pipsDiff": -58,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 0.5125
+    },
+    {
+      "seed": 288152,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "hand": [
+        "1-4",
+        "1-3",
+        "1-2"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "1-4",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "worldSeedStart": 306152000,
+      "policies": {}
+    },
+    {
+      "seed": 291166,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "hand": [
+        "2-6",
+        "2-4"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "2-6",
+      "alignedIndex": 1,
+      "override": true,
+      "trainRiskAligned": 0.28,
+      "trainRiskAlternative": 0,
+      "worldSeedStart": 309166000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 80,
+          "neither": 0,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": -58,
+          "pipsDiff": 348,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 80,
+          "neither": 0,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": -58,
+          "pipsDiff": 348,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 80,
+          "neither": 0,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": -58,
+          "pipsDiff": 348,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 0.275,
+      "testRiskThreatFirst": 0
+    },
+    {
+      "seed": 293445,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "hand": [
+        "0-5",
+        "0-6",
+        "0-3"
+      ],
+      "opponentSizes": [
+        1,
+        3
+      ],
+      "tile": "0-5",
+      "alignedIndex": 1,
+      "override": true,
+      "trainRiskAligned": 0.6,
+      "trainRiskAlternative": 0.36,
+      "worldSeedStart": 311445000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 40,
+          "alignedOnly": 0,
+          "threatOnly": 19,
+          "neither": 21,
+          "strictAligned": 19,
+          "strictThreat": 19,
+          "tiedAligned": 21,
+          "tiedThreat": 21,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 0,
+          "pipsDiff": -114,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 40,
+          "alignedOnly": 0,
+          "threatOnly": 19,
+          "neither": 21,
+          "strictAligned": 19,
+          "strictThreat": 19,
+          "tiedAligned": 21,
+          "tiedThreat": 21,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 0,
+          "pipsDiff": -114,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 5,
+          "alignedOnly": 0,
+          "threatOnly": 16,
+          "neither": 59,
+          "strictAligned": 1,
+          "strictThreat": 1,
+          "tiedAligned": 4,
+          "tiedThreat": 4,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 5,
+          "pipsDiff": -132,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 0.5,
+      "testRiskThreatFirst": 0.2625
+    },
+    {
+      "seed": 292291,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "hand": [
+        "0-2",
+        "0-1"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-2",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.76,
+      "trainRiskAlternative": 0.76,
+      "worldSeedStart": 310291000,
+      "policies": {}
+    },
+    {
+      "seed": 291876,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 1,
+      "hand": [
+        "0-4",
+        "0-2"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-2",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.6,
+      "trainRiskAlternative": 1,
+      "worldSeedStart": 309876000,
+      "policies": {}
+    },
+    {
+      "seed": 293293,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 0,
+      "hand": [
+        "0-2",
+        "2-5",
+        "0-3",
+        "0-4",
+        "5-6"
+      ],
+      "opponentSizes": [
+        1,
+        3
+      ],
+      "tile": "0-3",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.6,
+      "trainRiskAlternative": 0.6,
+      "worldSeedStart": 311293000,
+      "policies": {}
+    },
+    {
+      "seed": 289649,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "hand": [
+        "0-3",
+        "0-5"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-5",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.6,
+      "trainRiskAlternative": 0.6,
+      "worldSeedStart": 307649000,
+      "policies": {}
+    },
+    {
+      "seed": 292256,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "hand": [
+        "0-3",
+        "0-6"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-3",
+      "alignedIndex": 1,
+      "override": false,
+      "trainRiskAligned": 0.64,
+      "trainRiskAlternative": 0.64,
+      "worldSeedStart": 310256000,
+      "policies": {}
+    },
+    {
+      "seed": 289696,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "lowMore",
+      "focal": 2,
+      "hand": [
+        "0-4",
+        "2-3",
+        "0-2"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "2-3",
+      "alignedIndex": 1,
+      "override": true,
+      "trainRiskAligned": 0.6,
+      "trainRiskAlternative": 0.36,
+      "worldSeedStart": 307696000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 43,
+          "neither": 37,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 0,
+          "pipsDiff": -108,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 43,
+          "neither": 37,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 0,
+          "pipsDiff": -108,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 11,
+          "neither": 69,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 0,
+          "pipsDiff": -76,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 0.8,
+      "testRiskThreatFirst": 0.4625
+    },
+    {
+      "seed": 291822,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 0,
+      "hand": [
+        "0-4",
+        "1-4",
+        "2-4",
+        "2-3"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-4",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "worldSeedStart": 309822000,
+      "policies": {}
+    },
+    {
+      "seed": 289165,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 0,
+      "hand": [
+        "2-4",
+        "2-5",
+        "0-5"
+      ],
+      "opponentSizes": [
+        1,
+        3
+      ],
+      "tile": "0-5",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.8,
+      "trainRiskAlternative": 0.8,
+      "worldSeedStart": 307165000,
+      "policies": {}
+    },
+    {
+      "seed": 293344,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 1,
+      "hand": [
+        "0-2",
+        "3-4",
+        "2-4"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-2",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "worldSeedStart": 311344000,
+      "policies": {}
+    },
+    {
+      "seed": 288290,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 2,
+      "hand": [
+        "1-2",
+        "2-4"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "1-2",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 1,
+      "worldSeedStart": 306290000,
+      "policies": {}
+    },
+    {
+      "seed": 290221,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 1,
+      "hand": [
+        "0-3",
+        "1-3"
+      ],
+      "opponentSizes": [
+        1,
+        3
+      ],
+      "tile": "1-3",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.32,
+      "trainRiskAlternative": 0.32,
+      "worldSeedStart": 308221000,
+      "policies": {}
+    },
+    {
+      "seed": 288063,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 0,
+      "hand": [
+        "0-3",
+        "0-6",
+        "2-3"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "2-3",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0,
+      "trainRiskAlternative": 0.72,
+      "worldSeedStart": 306063000,
+      "policies": {}
+    },
+    {
+      "seed": 291402,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 0,
+      "hand": [
+        "2-3",
+        "0-3",
+        "0-1"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "2-3",
+      "alignedIndex": 0,
+      "override": true,
+      "trainRiskAligned": 1,
+      "trainRiskAlternative": 0.52,
+      "worldSeedStart": 309402000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 0,
+          "pipsDiff": -72,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 0,
+          "pipsDiff": -72,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 0,
+          "neither": 80,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": 0,
+          "pipsDiff": -46,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 1,
+      "testRiskThreatFirst": 0.7
+    },
+    {
+      "seed": 290165,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 2,
+      "hand": [
+        "2-4",
+        "0-2"
+      ],
+      "opponentSizes": [
+        1,
+        4
+      ],
+      "tile": "0-2",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.6,
+      "trainRiskAlternative": 0.6,
+      "worldSeedStart": 308165000,
+      "policies": {}
+    },
+    {
+      "seed": 290871,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 2,
+      "hand": [
+        "0-3",
+        "1-3"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "1-3",
+      "alignedIndex": 0,
+      "override": true,
+      "trainRiskAligned": 0.32,
+      "trainRiskAlternative": 0,
+      "worldSeedStart": 308871000,
+      "policies": {
+        "closed-branch-control": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 80,
+          "neither": 0,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": -54,
+          "pipsDiff": 162,
+          "minusDiff": 0
+        },
+        "min-hand-pips": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 80,
+          "neither": 0,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": -54,
+          "pipsDiff": 162,
+          "minusDiff": 0
+        },
+        "random-legal": {
+          "both": 0,
+          "alignedOnly": 0,
+          "threatOnly": 80,
+          "neither": 0,
+          "strictAligned": 0,
+          "strictThreat": 0,
+          "tiedAligned": 0,
+          "tiedThreat": 0,
+          "bothPipDiff": 0,
+          "bothMarginDiff": 0,
+          "bothRankDiff": 0,
+          "firstDiff": -54,
+          "pipsDiff": 162,
+          "minusDiff": 0
+        }
+      },
+      "testRiskAligned": 0.325,
+      "testRiskThreatFirst": 0
+    },
+    {
+      "seed": 291266,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 0,
+      "hand": [
+        "0-2",
+        "2-6",
+        "4-5"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "0-2",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.28,
+      "trainRiskAlternative": 0.72,
+      "worldSeedStart": 309266000,
+      "policies": {}
+    },
+    {
+      "seed": 289244,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 1,
+      "hand": [
+        "1-2",
+        "2-3"
+      ],
+      "opponentSizes": [
+        1,
+        2
+      ],
+      "tile": "1-2",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0.8,
+      "trainRiskAlternative": 0.8,
+      "worldSeedStart": 307244000,
+      "policies": {}
+    },
+    {
+      "seed": 292599,
+      "discoveryPolicy": "min-hand-pips",
+      "group": "highMore",
+      "focal": 2,
+      "hand": [
+        "1-3",
+        "3-4",
+        "2-3",
+        "2-4"
+      ],
+      "opponentSizes": [
+        1,
+        3
+      ],
+      "tile": "1-3",
+      "alignedIndex": 0,
+      "override": false,
+      "trainRiskAligned": 0,
+      "trainRiskAlternative": 0,
+      "worldSeedStart": 310599000,
+      "policies": {}
+    }
+  ],
+  "limitations": [
+    "Block winner unassigned; strict minimum pips is not official win",
+    "Only one position generated both-block worlds in this run",
+    "Assumed branch locking/opening",
+    "Simple bots",
+    "First eligible per seed",
+    "Exploratory clustered CIs",
+    "No pass-history conditioning",
+    "V8 CommonJS, not independent Node CLI"
+  ],
+  "exactNextAction": "Find multiple distinct both-block positions on disjoint seeds before interpreting the paired block-rank proxy; clarify official block rule."
+}
