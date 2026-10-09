@@ -87,3 +87,10 @@ Preregister independent opponent-one-stone hand-size/branch-end-matched experime
 - Both-block matched worlds across independent positions: 177/22 closed-control, 184/22 min-pips, 33/14 random-legal. Higher-pip move may improve conditional remainder but reduces unconditional finish-first. Not a universal rule.
 - Official block winner unknown; strictly lowest remaining pips is a descriptive proxy only.
 - Next: disjoint-seed replication with opponent-size and connector strata; clarify official block rule.
+
+
+## 2026-10-09 21:48 (+04) — new hidden-world holdout
+- Frozen 30 positions, 3000 new worlds, 18000 continuations; cumulative 180000 complete rounds + 91466 selected hidden worlds (400 pilot separate).
+- Conditional urgent/highMore BOTH-block high-pip disadvantage +3.13 pips, 171/193 worse under closed-control; SAME six positions as prior, position-level CI crosses zero.
+- Code: simulator/block-pip-mobility-world-holdout.js; data/notes: runs/2026-10-09-2148-block-pip-mobility-world-holdout.{json,md}.
+- Next: disjoint-position same-side holdout, no official block winner claim.
