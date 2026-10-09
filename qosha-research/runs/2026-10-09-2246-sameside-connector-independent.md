@@ -1,0 +1,7 @@
+# Qoşa research checkpoint 2026-10-09 22:46 Asia/Baku
+
+Engine qosa-research-0.5.3, rules qosa-1.0.0, 3x9. Reproduce: node qosha-research/simulator/same-side-holdout.js 400000 403000 8 30. Independent deal seeds 400000..402999; 24 selected positions (8 bothOpen, 8 oneOpen, 8 bothClosed), 720 new hidden worlds, 8550 continuations. World seed 4100000+1000*dealSeed+worldIndex (0..29). 0 new complete strategy rounds.
+
+Finish-first delta keep-high minus keep-low (pp): closed-control bothOpen +11.67 [-0.80,24.14], oneOpen +2.50 [-4.67,9.67], bothClosed -7.50 [-13.77,-1.23]; min-pips bothOpen +8.33 [2.04,14.63], oneOpen +3.75 [-5.36,12.86], bothClosed +0.42 [-11.65,12.48]; fast-doubles bothOpen +2.92 [-3.90,9.73], oneOpen -0.42 [-3.78,2.95], bothClosed +2.50 [-10.26,15.26]. CIs exploratory, unadjusted, position-clustered, n=8/group. Block winner unknown; no official win claim. New hidden-world cumulative if credited: 92186, full rounds 180000 (400 pilot separate). Finding: keeping higher X-Y connector might help when both target numbers opened, but reverses in both-closed for closed-control; not universal. Next: independent same-side replication with side-neutral policy, opponent-size strata and X-X + X-Y preservation test.
+
+Selected seeds: bothClosed 400000,400001,400002,400003,400004,400005,400006,400008; oneOpen 400015,400019,400025,400039,400046,400049,400053,400057; bothOpen 400007,400026,400122,400206,400227,400258,400314,400415.
