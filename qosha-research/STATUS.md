@@ -80,3 +80,10 @@ Preregister independent opponent-one-stone hand-size/branch-end-matched experime
 - Added `simulator/block-conditional-holdout.js` and `runs/2026-10-09-1754-block-conditional-holdout.json`.
 - Conditioned-on-block strictly-lowest remainder is a descriptive ratio, NOT official win and NOT matched causal effect.
 - Next: paired both-block-only analysis, official block rule, Node CLI regression.
+
+## 2026-10-09 19:48 (+04) — block-pip-choice holdout
+- 24 selected independent positions; 1536 credited hidden worlds; 8640 continuations; 0 new full strategy rounds. Verified cumulative 180000 full rounds + 86546 selected hidden worlds (400 pilot separate). 1908 screening worlds excluded.
+- Replayed in V8 from `simulator/block-pip-choice-replay.js` with JSON `runs/2026-10-09-1948-block-pip-choice-replay.json`; independent Node CLI pending.
+- Both-block matched worlds across independent positions: 177/22 closed-control, 184/22 min-pips, 33/14 random-legal. Higher-pip move may improve conditional remainder but reduces unconditional finish-first. Not a universal rule.
+- Official block winner unknown; strictly lowest remaining pips is a descriptive proxy only.
+- Next: disjoint-seed replication with opponent-size and connector strata; clarify official block rule.
