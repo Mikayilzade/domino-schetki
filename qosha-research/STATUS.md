@@ -100,3 +100,12 @@ Preregister independent opponent-one-stone hand-size/branch-end-matched experime
 - Cumulative 180,000 full rounds + 92,906 hidden worlds; prior bothOpen high-connector advantage NOT replicated (all three new point estimates negative with CIs crossing zero).
 - Data `runs/2026-10-09-2348-sameside-connector-replication.json`; notes matching `.md`; Node CLI pending.
 - Next: seed-spaced/opponent-vector-matched replication with opponent <=2, side-neutral policies.
+
+
+## 2026-10-10 01:55:03 +04:00 — disjoint double+connector replication
+- Reconciled 2026-10-10 01:00 checkpoint: +843 previously persisted hidden worlds (prior cumulative 93,749).
+- New: 72 positions, 1674 distinct worlds, 10044 forced continuations; 0 full strategy rounds; cumulative **180,000 full rounds + 95423 hidden worlds**.
+- Deterministic full replay and existing runner self-test passed in V8 CommonJS; Node CLI still pending.
+- Paired double-minus-connector finish-first differences negative under all 3 continuation policies in both urgency groups; exception urgent/focal-hand=5 under fast-doubles (+2.25 pp). Model-specific, not universal.
+- Reproduce: `simulator/double-connector-urgency-holdout.js 466000 606000 12 40`, full data `runs/2026-10-10-0154-double-connector-disjoint-holdout.json`.
+- Next: pre-stratified focal hand/opponent-vector fresh-seed study, urgent hand=5 counterexamples, immediate threat and minus risk.

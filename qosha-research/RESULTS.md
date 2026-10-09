@@ -437,3 +437,21 @@
 - cumulative: **180,000** full strategy rounds (historical 4,000 separate) and **92,906** credited fixed-visible hidden worlds (400 pilot excluded).
 - reproducibility: `simulator/same-side-holdout.js 403000 406000 8 30`; `runs/2026-10-09-2348-sameside-connector-replication.{json,md}`.
 - exact next hypothesis/action: independent seed-spaced same-side holdout matching full opponent hand-size vector and oversampling opponent <=2, with side-neutral continuation policies; quantify if the bothOpen sign stays unstable.
+
+
+### 2026-10-10 01:00 (+04) — source-of-truth backfill for previous paired double/connector run
+- Engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, 3×9. Previously committed in `runs/2026-10-10-0100-double-connector-urgency.{json,md}`; no recredit of samples in this checkpoint.
+- Prior scale: 48 independent reachable positions, 843 unique hidden allocations, 5,058 forced continuations; cumulative 93,749 hidden worlds and 180,000 full strategy rounds. Previous exploratory urgent double-minus-connector finish-first differences were negative under three continuation policies.
+- Limitation: previous `RESULTS.md`/status lagged the linked run files; this entry reconciles them without inventing additional samples.
+
+### 2026-10-10 01:55:03 +04:00 — disjoint double+connector urgency replication
+- Engine/rules: `qosa-research-0.5.3` / recovered `qosa-1.0.0`; primary 3×9; no rule mutation. `selfTest` passed and two full V8 CommonJS executions were bitwise identical after ignoring the timestamp (Node CLI still pending).
+- Seed scan: `466000..605999` with `seed%17===0`, selected seeds 466021..523294; 12 independent reachable positions for each X=0/2/4 × opponent urgency (opponent minimum <=2 vs 3–4): **72 positions**, **1674 new distinct hidden worlds**, **10044 forced candidate continuations**, 0 new complete strategy rounds. World seeds `22000000+1000*dealSeed+attemptOffset`, allocation de-duplication and exact offsets persisted.
+- Comparison: force X-X opening now vs X-Y connector from an opened Y end (exposes currently unopened X), same position and hidden worlds; continue with side-neutral closed-branch-control, min-hand-pips and fast-doubles. Finish-first is an outright finishing result only; block winner remains unassigned.
+- Finish-first **double minus connector**, opponent <=2 (36 positions): closed-control **-15.79 pp [-24.26, -7.31]**; min-pips **-12.17 pp [-19.59, -4.75]**; fast-doubles **-8.32 pp [-15.44, -1.20]**.
+- Opponent 3–4 (36 positions): closed-control **-35.40 pp [-43.98, -26.82]**; min-pips **-37.48 pp [-46.23, -28.73]**; fast-doubles **-28.06 pp [-37.38, -18.73]**.
+- Finding: on fresh disjoint deal seeds, preserving X-X and playing the X-Y connector again outperformed immediate X-X opening across all three bots in both urgency groups. **Important exception:** among opponent <=2 and focal hand=5 (11 positions), fast-doubles double-minus-connector is **+2.25 pp**, opposite sign; do not issue an unconditional human rule.
+- Confidence/limitations: exploratory position-clustered unadjusted 95% normal CIs; fixed first-eligible seed selection and X=0/2/4 only, highly uneven distinct hidden allocation counts in short-hand states, different hand-size mixes by urgency, simplistic continuation policies, assumed branch locking, no official block winner, no independent Node CLI. This is a within-state choice association under model policies, not a verified optimal human strategy.
+- Reproduce: `node qosha-research/simulator/double-connector-urgency-holdout.js 466000 606000 12 40` (V8 CommonJS verified); complete positions, seeds, per-world seed offsets, metrics, and hand-size strata in `runs/2026-10-10-0154-double-connector-disjoint-holdout.json`.
+- Cumulative credited scale: **180,000 complete strategy rounds** (historical 4,000 separate) + **95423 fixed-visible hidden worlds** (400 pilot excluded).
+- Exact next hypothesis/action: on fresh seeds, pre-stratify focal hand=3/4/5 and full opponent hand-size vector; test whether the connector advantage reverses for urgent 5-tile hands under fast-doubles, inspect immediate opponent finish and minus risks, and identify specific counterexample hands. Keep bot/rules assumptions explicit.
