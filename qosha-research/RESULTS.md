@@ -467,3 +467,15 @@
 - cumulative: **180,000** credited full strategy rounds + **97391** fixed-visible hidden worlds (400 pilot excluded).
 - reproducibility: `simulator/double-connector-hand-strata.js 606000 826000 6 30`; `runs/2026-10-10-0246-double-connector-hand-strata.json`.
 - exact next hypothesis/action: Investigate urgent focal-hand=5 exception with targeted opponent-size vector 2/4 vs 4/2, seed-disjoint matched-position holdout; compare immediate opponent finish and minus risk; do not promote universal double-retention advice.
+
+
+### 2026-10-10 07:48:22 +04:00 — exact next-two minus risk, disjoint discovery + holdout
+- engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, 3×9; V8 CommonJS fixture passed (Node CLI pending). No rule/code changes.
+- seed windows: discovery `2000000..2449999` (36 positions, X=0/2/4 × 12), independent holdout `2450000..2899999` (18 positions, X=0/2/4 × 6), seed%17=0; first eligible reachable state under closed-branch-control.
+- exact comparison: for every selected visible position, enumerate all unordered two-tile hands of NEXT clockwise opponent from unknown pool; force X-X opening vs X-Y connector, inspect legal immediate minus finishes. **54 positions, 459 exact next-hand allocations, 918 forced first actions, 0 new complete strategy rounds and 0 new sampled full hidden worlds.**
+- discovery: 17 double-only immediate −10 opportunities across 316 allocations, 6/36 positions positive; connector-only 0; equal-position extra risk +2.86 pp (exploratory CI +0.67..+5.04).
+- holdout: **1 double-only opportunity across 143 allocations, 1/18 positions positive**; one common opportunity for both actions; equal-position extra risk +0.26 pp (exploratory CI −0.25..+0.78). Thus the **frequency/magnitude did not replicate**.
+- combined: 18 double-only, 0 connector-only, 7/54 positions positive, 47 unchanged; all extra minus finishes were mixed −10, no −20. This is exact conditional on the selected positions and uniform hidden two-tile subsets, **not** a universal probability or a causal human-game rule.
+- limitations: first-eligible/seed-filter/quota bias; selected states not random; assumed branch locking; no continuation policy or official block winner; independent Node CLI pending. Marginal exact next-two allocations are NOT added to the credited 98,490 fixed-visible sampled worlds; prior 180,000 matched strategy rounds and historical 4,000 remain unchanged.
+- linked reproducible code `simulator/next-two-minus-exact.js`; frozen seeds, full per-position rows and examples `runs/2026-10-10-0745-exact-next-two-minus-holdout.json`.
+- next hypothesis: on **fresh disjoint seeds**, pair full-game continuations after double versus connector; stratify by immediate exact minus risk, then measure when the double's later finish advantage offsets its immediate exposure.

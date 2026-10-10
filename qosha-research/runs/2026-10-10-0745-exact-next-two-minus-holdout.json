@@ -1,0 +1,3082 @@
+{
+  "schema": "qosa-exact-next-two-minus-holdout/v1",
+  "timestampAsiaBaku": "2026-10-10 07:48:22 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "researchBranch": "qosha-research-20261010-0554",
+  "headBefore": "84779110680b5633b2c5f88cf92fadcd970998e5",
+  "seedFilter": "seed%17===0; first eligible reachable position per deal; next clockwise player exactly two stones",
+  "selection": "quota per X=0/2/4, first qualifying position per deal under closed-branch-control discovery",
+  "comparison": "forced X-X opening now versus legal X-Y connector to unopened X; enumerate all unordered next-opponent two-tile hands from unknown pool, keep visible state fixed",
+  "continuationStrategies": "none; exact immediate legal mixed/double minus actions, not rollouts",
+  "discovery": {
+    "seedRange": "2000000..2449999",
+    "quotaPerTarget": 12,
+    "selectedSeedsByTarget": {
+      "0": [
+        2000271,
+        2001478,
+        2001750,
+        2001886,
+        2002719,
+        2003603,
+        2003977,
+        2004572,
+        2005014,
+        2006170,
+        2006646,
+        2007581
+      ],
+      "2": [
+        2000900,
+        2005065,
+        2007734,
+        2007768,
+        2009876,
+        2010301,
+        2011202,
+        2011389,
+        2013446,
+        2020416,
+        2021963,
+        2023102
+      ],
+      "4": [
+        2004351,
+        2011015,
+        2047259,
+        2052274,
+        2070532,
+        2073983,
+        2090796,
+        2093516,
+        2113610,
+        2119730,
+        2122297,
+        2132293
+      ]
+    },
+    "summary": {
+      "positions": 36,
+      "exactNextHandAllocations": 316,
+      "matchedForcedFirstActions": 632,
+      "doubleOnly": 17,
+      "connectorOnly": 0,
+      "both": 0,
+      "doubleMinus": 17,
+      "connectorMinus": 0,
+      "mixedMinus": 17,
+      "minus20": 0,
+      "positionsWithExtraRisk": 6,
+      "positionsWithLessRisk": 0,
+      "positionsWithNoChange": 30,
+      "pooledDifference": 0.05379746835443038,
+      "equalPositionDifference": 0.028571428571428567
+    }
+  },
+  "holdout": {
+    "seedRange": "2450000..2899999",
+    "quotaPerTarget": 6,
+    "selectedSeedsByTarget": {
+      "0": [
+        2450465,
+        2450686,
+        2451332,
+        2451604,
+        2451638,
+        2452148
+      ],
+      "2": [
+        2450057,
+        2452862,
+        2453848,
+        2454613,
+        2455752,
+        2458302
+      ],
+      "4": [
+        2450176,
+        2451825,
+        2465680,
+        2477393,
+        2482493,
+        2492336
+      ]
+    },
+    "summary": {
+      "positions": 18,
+      "exactNextHandAllocations": 143,
+      "matchedForcedFirstActions": 286,
+      "doubleOnly": 1,
+      "connectorOnly": 0,
+      "both": 1,
+      "doubleMinus": 2,
+      "connectorMinus": 1,
+      "mixedMinus": 2,
+      "minus20": 0,
+      "positionsWithExtraRisk": 1,
+      "positionsWithLessRisk": 0,
+      "positionsWithNoChange": 17,
+      "pooledDifference": 0.006993006993006993,
+      "equalPositionDifference": 0.0026455026455026454
+    }
+  },
+  "combined": {
+    "positions": 54,
+    "exactNextHandAllocations": 459,
+    "matchedForcedFirstActions": 918,
+    "doubleOnly": 18,
+    "connectorOnly": 0,
+    "both": 1,
+    "doubleMinus": 19,
+    "connectorMinus": 1,
+    "mixedMinus": 19,
+    "minus20": 0,
+    "positionsWithExtraRisk": 7,
+    "positionsWithLessRisk": 0,
+    "positionsWithNoChange": 47,
+    "pooledDifference": 0.0392156862745098,
+    "equalPositionDifference": 0.019929453262786594
+  },
+  "rows": [
+    {
+      "label": "discovery",
+      "rows": [
+        {
+          "seed": 2000271,
+          "target": 0,
+          "turn": 21,
+          "focal": 1,
+          "hand": [
+            "0-5",
+            "0-3",
+            "0-0",
+            "2-3",
+            "0-2"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            3,
+            2
+          ],
+          "ends": [
+            2,
+            5,
+            0,
+            2
+          ],
+          "opened": [
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-5",
+          "hiddenPoolSize": 5,
+          "knownTileCount": 18,
+          "counts": {
+            "total": 10,
+            "doubleMinus": 2,
+            "connectorMinus": 0,
+            "doubleOnly": 2,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 2,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0.2,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0.2,
+          "examples": [
+            {
+              "nextHand": [
+                "0-1",
+                "2-2"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "0-1",
+                    "2-2"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            },
+            {
+              "nextHand": [
+                "0-6",
+                "2-2"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "0-6",
+                    "2-2"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            }
+          ]
+        },
+        {
+          "seed": 2001478,
+          "target": 0,
+          "turn": 22,
+          "focal": 2,
+          "hand": [
+            "0-0",
+            "0-1",
+            "0-2"
+          ],
+          "handSize": 3,
+          "opponentSizes": [
+            2,
+            1
+          ],
+          "ends": [
+            3,
+            0,
+            0,
+            2
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-2",
+          "hiddenPoolSize": 3,
+          "knownTileCount": 22,
+          "counts": {
+            "total": 3,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2001750,
+          "target": 0,
+          "turn": 21,
+          "focal": 2,
+          "hand": [
+            "0-5",
+            "5-6",
+            "0-3",
+            "0-0"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            0,
+            2,
+            2,
+            3
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-3",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2001886,
+          "target": 0,
+          "turn": 22,
+          "focal": 2,
+          "hand": [
+            "0-4",
+            "0-0",
+            "0-3",
+            "0-6"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            6,
+            3,
+            3,
+            0
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-3",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2002719,
+          "target": 0,
+          "turn": 22,
+          "focal": 1,
+          "hand": [
+            "0-1",
+            "0-2",
+            "0-0"
+          ],
+          "handSize": 3,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            2,
+            4,
+            0,
+            0
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-2",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 21,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2003603,
+          "target": 0,
+          "turn": 23,
+          "focal": 1,
+          "hand": [
+            "0-1",
+            "0-0",
+            "0-4",
+            "1-2"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            1,
+            2
+          ],
+          "ends": [
+            3,
+            0,
+            5,
+            4
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-4",
+          "hiddenPoolSize": 3,
+          "knownTileCount": 21,
+          "counts": {
+            "total": 3,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2003977,
+          "target": 0,
+          "turn": 22,
+          "focal": 1,
+          "hand": [
+            "0-2",
+            "0-1",
+            "1-5",
+            "0-0"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            2,
+            0,
+            2,
+            3
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-2",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2004572,
+          "target": 0,
+          "turn": 22,
+          "focal": 2,
+          "hand": [
+            "0-0",
+            "1-2",
+            "0-6",
+            "0-5"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            4
+          ],
+          "ends": [
+            5,
+            2,
+            2,
+            0
+          ],
+          "opened": [
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-5",
+          "hiddenPoolSize": 6,
+          "knownTileCount": 18,
+          "counts": {
+            "total": 15,
+            "doubleMinus": 3,
+            "connectorMinus": 0,
+            "doubleOnly": 3,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 3,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0.2,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0.2,
+          "examples": [
+            {
+              "nextHand": [
+                "0-1",
+                "2-2"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "0-1",
+                    "2-2"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            },
+            {
+              "nextHand": [
+                "0-2",
+                "2-2"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "0-2",
+                    "2-2"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            },
+            {
+              "nextHand": [
+                "0-3",
+                "2-2"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "0-3",
+                    "2-2"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            }
+          ]
+        },
+        {
+          "seed": 2005014,
+          "target": 0,
+          "turn": 25,
+          "focal": 1,
+          "hand": [
+            "0-4",
+            "0-3",
+            "0-0",
+            "0-1"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            1,
+            2
+          ],
+          "ends": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-1",
+          "hiddenPoolSize": 3,
+          "knownTileCount": 21,
+          "counts": {
+            "total": 3,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2006170,
+          "target": 0,
+          "turn": 20,
+          "focal": 1,
+          "hand": [
+            "1-4",
+            "0-4",
+            "0-1",
+            "0-0"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-4",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2006646,
+          "target": 0,
+          "turn": 22,
+          "focal": 1,
+          "hand": [
+            "0-1",
+            "0-5",
+            "0-0"
+          ],
+          "handSize": 3,
+          "opponentSizes": [
+            1,
+            2
+          ],
+          "ends": [
+            4,
+            1,
+            0,
+            0
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-1",
+          "hiddenPoolSize": 3,
+          "knownTileCount": 22,
+          "counts": {
+            "total": 3,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2007581,
+          "target": 0,
+          "turn": 28,
+          "focal": 1,
+          "hand": [
+            "0-0",
+            "0-4",
+            "0-2"
+          ],
+          "handSize": 3,
+          "opponentSizes": [
+            1,
+            2
+          ],
+          "ends": [
+            0,
+            0,
+            3,
+            4
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-4",
+          "hiddenPoolSize": 3,
+          "knownTileCount": 22,
+          "counts": {
+            "total": 3,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2000900,
+          "target": 2,
+          "turn": 20,
+          "focal": 1,
+          "hand": [
+            "2-5",
+            "2-6",
+            "2-4",
+            "2-2",
+            "1-2"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            4,
+            2,
+            4,
+            4
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "2-4",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 19,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2005065,
+          "target": 2,
+          "turn": 21,
+          "focal": 0,
+          "hand": [
+            "0-5",
+            "2-3",
+            "0-2",
+            "2-2"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            2,
+            3,
+            3,
+            2
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "2-3",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2007734,
+          "target": 2,
+          "turn": 20,
+          "focal": 0,
+          "hand": [
+            "2-3",
+            "2-6",
+            "0-2",
+            "0-3",
+            "2-2"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            2,
+            5
+          ],
+          "ends": [
+            3,
+            3,
+            0,
+            2
+          ],
+          "opened": [
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "2-3",
+          "hiddenPoolSize": 7,
+          "knownTileCount": 16,
+          "counts": {
+            "total": 21,
+            "doubleMinus": 2,
+            "connectorMinus": 0,
+            "doubleOnly": 2,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 2,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0.09523809523809523,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0.09523809523809523,
+          "examples": [
+            {
+              "nextHand": [
+                "0-0",
+                "1-2"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "1-2",
+                    "0-0"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            },
+            {
+              "nextHand": [
+                "0-0",
+                "2-4"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "2-4",
+                    "0-0"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            }
+          ]
+        },
+        {
+          "seed": 2007768,
+          "target": 2,
+          "turn": 22,
+          "focal": 0,
+          "hand": [
+            "2-4",
+            "1-2",
+            "2-2"
+          ],
+          "handSize": 3,
+          "opponentSizes": [
+            2,
+            3
+          ],
+          "ends": [
+            3,
+            2,
+            1,
+            6
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "1-2",
+          "hiddenPoolSize": 5,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 10,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2009876,
+          "target": 2,
+          "turn": 20,
+          "focal": 0,
+          "hand": [
+            "2-2",
+            "1-2",
+            "2-4"
+          ],
+          "handSize": 3,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "2-4",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 21,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2010301,
+          "target": 2,
+          "turn": 21,
+          "focal": 2,
+          "hand": [
+            "3-5",
+            "2-4",
+            "2-6",
+            "2-2",
+            "0-5"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            2,
+            4
+          ],
+          "ends": [
+            2,
+            0,
+            6,
+            0
+          ],
+          "opened": [
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "2-6",
+          "hiddenPoolSize": 6,
+          "knownTileCount": 17,
+          "counts": {
+            "total": 15,
+            "doubleMinus": 3,
+            "connectorMinus": 0,
+            "doubleOnly": 3,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 3,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0.2,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0.2,
+          "examples": [
+            {
+              "nextHand": [
+                "0-0",
+                "0-2"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "0-2",
+                    "0-0"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            },
+            {
+              "nextHand": [
+                "0-0",
+                "1-2"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "1-2",
+                    "0-0"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            },
+            {
+              "nextHand": [
+                "0-0",
+                "2-3"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "2-3",
+                    "0-0"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            }
+          ]
+        },
+        {
+          "seed": 2011202,
+          "target": 2,
+          "turn": 20,
+          "focal": 2,
+          "hand": [
+            "2-6",
+            "2-3",
+            "0-1",
+            "2-2"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            5
+          ],
+          "ends": [
+            3,
+            3,
+            6,
+            2
+          ],
+          "opened": [
+            0,
+            1,
+            4,
+            5,
+            6
+          ],
+          "connector": "2-6",
+          "hiddenPoolSize": 7,
+          "knownTileCount": 17,
+          "counts": {
+            "total": 21,
+            "doubleMinus": 3,
+            "connectorMinus": 0,
+            "doubleOnly": 3,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 3,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0.14285714285714285,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0.14285714285714285,
+          "examples": [
+            {
+              "nextHand": [
+                "1-2",
+                "3-3"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "1-2",
+                    "3-3"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            },
+            {
+              "nextHand": [
+                "2-4",
+                "3-3"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "2-4",
+                    "3-3"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            },
+            {
+              "nextHand": [
+                "2-5",
+                "3-3"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "2-5",
+                    "3-3"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            }
+          ]
+        },
+        {
+          "seed": 2011389,
+          "target": 2,
+          "turn": 21,
+          "focal": 2,
+          "hand": [
+            "2-2",
+            "2-5",
+            "2-6",
+            "0-3",
+            "5-6"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            0,
+            2,
+            5,
+            2
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "2-5",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 19,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2013446,
+          "target": 2,
+          "turn": 20,
+          "focal": 2,
+          "hand": [
+            "2-2",
+            "4-5",
+            "2-3",
+            "2-5",
+            "3-5"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            2,
+            2,
+            5,
+            5
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "2-5",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 19,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2020416,
+          "target": 2,
+          "turn": 22,
+          "focal": 0,
+          "hand": [
+            "2-3",
+            "0-4",
+            "2-4",
+            "2-2"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            3
+          ],
+          "ends": [
+            3,
+            5,
+            3,
+            2
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "2-3",
+          "hiddenPoolSize": 5,
+          "knownTileCount": 19,
+          "counts": {
+            "total": 10,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2021963,
+          "target": 2,
+          "turn": 27,
+          "focal": 2,
+          "hand": [
+            "2-5",
+            "2-2",
+            "0-5",
+            "0-2",
+            "2-6"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            5,
+            5,
+            6,
+            2
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "2-5",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 19,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2023102,
+          "target": 2,
+          "turn": 20,
+          "focal": 0,
+          "hand": [
+            "1-2",
+            "0-2",
+            "2-2"
+          ],
+          "handSize": 3,
+          "opponentSizes": [
+            2,
+            4
+          ],
+          "ends": [
+            4,
+            3,
+            2,
+            0
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-2",
+          "hiddenPoolSize": 6,
+          "knownTileCount": 19,
+          "counts": {
+            "total": 15,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2004351,
+          "target": 4,
+          "turn": 20,
+          "focal": 2,
+          "hand": [
+            "4-6",
+            "0-1",
+            "0-4",
+            "4-4"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            3
+          ],
+          "ends": [
+            3,
+            6,
+            4,
+            2
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "4-6",
+          "hiddenPoolSize": 5,
+          "knownTileCount": 19,
+          "counts": {
+            "total": 10,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2011015,
+          "target": 4,
+          "turn": 21,
+          "focal": 1,
+          "hand": [
+            "0-4",
+            "0-5",
+            "4-4",
+            "4-6",
+            "2-3"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            5,
+            2
+          ],
+          "ends": [
+            2,
+            3,
+            0,
+            4
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            5,
+            6
+          ],
+          "connector": "0-4",
+          "hiddenPoolSize": 7,
+          "knownTileCount": 16,
+          "counts": {
+            "total": 21,
+            "doubleMinus": 4,
+            "connectorMinus": 0,
+            "doubleOnly": 4,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 4,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0.19047619047619047,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0.19047619047619047,
+          "examples": [
+            {
+              "nextHand": [
+                "0-2",
+                "2-2"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "0-2",
+                    "2-2"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            },
+            {
+              "nextHand": [
+                "1-4",
+                "2-2"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "1-4",
+                    "2-2"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            },
+            {
+              "nextHand": [
+                "2-2",
+                "2-4"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "2-4",
+                    "2-2"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            },
+            {
+              "nextHand": [
+                "2-2",
+                "4-5"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "4-5",
+                    "2-2"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            }
+          ]
+        },
+        {
+          "seed": 2047259,
+          "target": 4,
+          "turn": 20,
+          "focal": 1,
+          "hand": [
+            "0-6",
+            "3-4",
+            "0-2",
+            "4-4",
+            "4-6"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            4,
+            2
+          ],
+          "ends": [
+            0,
+            0,
+            3,
+            4
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "3-4",
+          "hiddenPoolSize": 6,
+          "knownTileCount": 17,
+          "counts": {
+            "total": 15,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2052274,
+          "target": 4,
+          "turn": 21,
+          "focal": 1,
+          "hand": [
+            "4-4",
+            "0-3",
+            "0-4",
+            "3-4"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            3,
+            2
+          ],
+          "ends": [
+            3,
+            4,
+            4,
+            4
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "3-4",
+          "hiddenPoolSize": 5,
+          "knownTileCount": 19,
+          "counts": {
+            "total": 10,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2070532,
+          "target": 4,
+          "turn": 24,
+          "focal": 1,
+          "hand": [
+            "4-6",
+            "4-4",
+            "3-4"
+          ],
+          "handSize": 3,
+          "opponentSizes": [
+            1,
+            2
+          ],
+          "ends": [
+            4,
+            3,
+            4,
+            4
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "3-4",
+          "hiddenPoolSize": 3,
+          "knownTileCount": 22,
+          "counts": {
+            "total": 3,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2073983,
+          "target": 4,
+          "turn": 25,
+          "focal": 2,
+          "hand": [
+            "0-3",
+            "1-4",
+            "2-4",
+            "4-4",
+            "0-4"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            2,
+            1
+          ],
+          "ends": [
+            0,
+            4,
+            6,
+            4
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "0-4",
+          "hiddenPoolSize": 3,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 3,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2090796,
+          "target": 4,
+          "turn": 20,
+          "focal": 2,
+          "hand": [
+            "1-4",
+            "4-4",
+            "0-4"
+          ],
+          "handSize": 3,
+          "opponentSizes": [
+            2,
+            5
+          ],
+          "ends": [
+            2,
+            0,
+            0,
+            4
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "0-4",
+          "hiddenPoolSize": 7,
+          "knownTileCount": 18,
+          "counts": {
+            "total": 21,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2093516,
+          "target": 4,
+          "turn": 20,
+          "focal": 0,
+          "hand": [
+            "4-4",
+            "3-4",
+            "1-4"
+          ],
+          "handSize": 3,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            5,
+            4,
+            4,
+            3
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "3-4",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 21,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2113610,
+          "target": 4,
+          "turn": 21,
+          "focal": 0,
+          "hand": [
+            "4-4",
+            "0-3",
+            "4-6",
+            "0-4"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            3,
+            4,
+            6,
+            4
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "4-6",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2119730,
+          "target": 4,
+          "turn": 21,
+          "focal": 1,
+          "hand": [
+            "0-4",
+            "4-4",
+            "2-4"
+          ],
+          "handSize": 3,
+          "opponentSizes": [
+            3,
+            2
+          ],
+          "ends": [
+            0,
+            3,
+            2,
+            4
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "2-4",
+          "hiddenPoolSize": 5,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 10,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2122297,
+          "target": 4,
+          "turn": 20,
+          "focal": 1,
+          "hand": [
+            "0-4",
+            "4-5",
+            "4-4"
+          ],
+          "handSize": 3,
+          "opponentSizes": [
+            3,
+            2
+          ],
+          "ends": [
+            6,
+            5,
+            6,
+            4
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "4-5",
+          "hiddenPoolSize": 5,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 10,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2132293,
+          "target": 4,
+          "turn": 25,
+          "focal": 1,
+          "hand": [
+            "0-1",
+            "4-4",
+            "1-4",
+            "0-3",
+            "0-4"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            1,
+            2
+          ],
+          "ends": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "0-4",
+          "hiddenPoolSize": 3,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 3,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        }
+      ]
+    },
+    {
+      "label": "holdout",
+      "rows": [
+        {
+          "seed": 2450465,
+          "target": 0,
+          "turn": 21,
+          "focal": 2,
+          "hand": [
+            "0-0",
+            "0-4",
+            "0-5"
+          ],
+          "handSize": 3,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            0,
+            1,
+            5,
+            2
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-5",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 21,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2450686,
+          "target": 0,
+          "turn": 22,
+          "focal": 1,
+          "hand": [
+            "0-2",
+            "0-0",
+            "0-3",
+            "4-6"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            2,
+            0,
+            0,
+            3
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-3",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2451332,
+          "target": 0,
+          "turn": 25,
+          "focal": 1,
+          "hand": [
+            "0-6",
+            "0-1",
+            "0-3",
+            "0-0"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            4,
+            0,
+            4,
+            6
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-6",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2451604,
+          "target": 0,
+          "turn": 22,
+          "focal": 0,
+          "hand": [
+            "0-1",
+            "0-0",
+            "0-4",
+            "1-3",
+            "3-3"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            2,
+            3
+          ],
+          "ends": [
+            4,
+            0,
+            3,
+            3
+          ],
+          "opened": [
+            1,
+            2,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-4",
+          "hiddenPoolSize": 5,
+          "knownTileCount": 18,
+          "counts": {
+            "total": 10,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2451638,
+          "target": 0,
+          "turn": 22,
+          "focal": 0,
+          "hand": [
+            "1-2",
+            "0-1",
+            "0-6",
+            "0-0"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            2,
+            6,
+            4,
+            0
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-6",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2452148,
+          "target": 0,
+          "turn": 20,
+          "focal": 1,
+          "hand": [
+            "0-0",
+            "0-1",
+            "0-3"
+          ],
+          "handSize": 3,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            6,
+            0,
+            1,
+            4
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-1",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 21,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2450057,
+          "target": 2,
+          "turn": 21,
+          "focal": 1,
+          "hand": [
+            "2-2",
+            "1-2",
+            "2-3",
+            "2-4"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            5,
+            4,
+            2,
+            3
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "2-3",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2452862,
+          "target": 2,
+          "turn": 24,
+          "focal": 2,
+          "hand": [
+            "2-2",
+            "1-3",
+            "0-5",
+            "0-2",
+            "2-5"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            2,
+            1
+          ],
+          "ends": [
+            4,
+            0,
+            2,
+            2
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-2",
+          "hiddenPoolSize": 3,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 3,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2453848,
+          "target": 2,
+          "turn": 21,
+          "focal": 0,
+          "hand": [
+            "2-2",
+            "0-4",
+            "0-2",
+            "1-2"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            4
+          ],
+          "ends": [
+            3,
+            2,
+            3,
+            0
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-2",
+          "hiddenPoolSize": 6,
+          "knownTileCount": 18,
+          "counts": {
+            "total": 15,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2454613,
+          "target": 2,
+          "turn": 21,
+          "focal": 2,
+          "hand": [
+            "2-4",
+            "2-3",
+            "2-5",
+            "2-2"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            3
+          ],
+          "ends": [
+            2,
+            3,
+            3,
+            1
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "2-3",
+          "hiddenPoolSize": 5,
+          "knownTileCount": 19,
+          "counts": {
+            "total": 10,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2455752,
+          "target": 2,
+          "turn": 20,
+          "focal": 2,
+          "hand": [
+            "2-2",
+            "0-2",
+            "2-4",
+            "2-3",
+            "0-5"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            3,
+            0,
+            0,
+            2
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-2",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 19,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2458302,
+          "target": 2,
+          "turn": 22,
+          "focal": 2,
+          "hand": [
+            "2-2",
+            "0-1",
+            "1-2",
+            "0-3",
+            "0-2"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            2,
+            3
+          ],
+          "ends": [
+            3,
+            0,
+            2,
+            0
+          ],
+          "opened": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "connector": "0-2",
+          "hiddenPoolSize": 5,
+          "knownTileCount": 18,
+          "counts": {
+            "total": 10,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2450176,
+          "target": 4,
+          "turn": 21,
+          "focal": 0,
+          "hand": [
+            "4-4",
+            "0-4",
+            "2-4",
+            "4-6"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            3
+          ],
+          "ends": [
+            2,
+            4,
+            4,
+            1
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "2-4",
+          "hiddenPoolSize": 5,
+          "knownTileCount": 19,
+          "counts": {
+            "total": 10,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2451825,
+          "target": 4,
+          "turn": 20,
+          "focal": 0,
+          "hand": [
+            "4-4",
+            "0-4",
+            "0-5",
+            "2-5",
+            "2-4"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            2,
+            5
+          ],
+          "ends": [
+            3,
+            2,
+            4,
+            4
+          ],
+          "opened": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "2-4",
+          "hiddenPoolSize": 7,
+          "knownTileCount": 16,
+          "counts": {
+            "total": 21,
+            "doubleMinus": 2,
+            "connectorMinus": 1,
+            "doubleOnly": 1,
+            "connectorOnly": 0,
+            "both": 1,
+            "mixedMinus": 2,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0.09523809523809523,
+          "exactNextHandMinusRiskConnector": 0.047619047619047616,
+          "exactRiskDifference": 0.047619047619047616,
+          "examples": [
+            {
+              "nextHand": [
+                "0-0",
+                "0-2"
+              ],
+              "afterDouble": [
+                {
+                  "type": "mixed-finish",
+                  "minus": -10,
+                  "tiles": [
+                    "0-2",
+                    "0-0"
+                  ]
+                }
+              ],
+              "afterConnector": []
+            }
+          ]
+        },
+        {
+          "seed": 2465680,
+          "target": 4,
+          "turn": 20,
+          "focal": 1,
+          "hand": [
+            "4-4",
+            "2-4",
+            "4-5",
+            "2-3",
+            "2-6"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "ends": [
+            4,
+            4,
+            4,
+            5
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "4-5",
+          "hiddenPoolSize": 4,
+          "knownTileCount": 19,
+          "counts": {
+            "total": 6,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2477393,
+          "target": 4,
+          "turn": 22,
+          "focal": 1,
+          "hand": [
+            "1-4",
+            "1-2",
+            "4-4",
+            "2-4"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            3,
+            2
+          ],
+          "ends": [
+            2,
+            0,
+            4,
+            4
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "2-4",
+          "hiddenPoolSize": 5,
+          "knownTileCount": 19,
+          "counts": {
+            "total": 10,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2482493,
+          "target": 4,
+          "turn": 23,
+          "focal": 1,
+          "hand": [
+            "4-4",
+            "3-4",
+            "3-6",
+            "0-1",
+            "0-4"
+          ],
+          "handSize": 5,
+          "opponentSizes": [
+            1,
+            2
+          ],
+          "ends": [
+            3,
+            5,
+            4,
+            4
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "3-4",
+          "hiddenPoolSize": 3,
+          "knownTileCount": 20,
+          "counts": {
+            "total": 3,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        },
+        {
+          "seed": 2492336,
+          "target": 4,
+          "turn": 22,
+          "focal": 2,
+          "hand": [
+            "2-4",
+            "4-4",
+            "0-2",
+            "0-4"
+          ],
+          "handSize": 4,
+          "opponentSizes": [
+            2,
+            1
+          ],
+          "ends": [
+            4,
+            0,
+            0,
+            4
+          ],
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "connector": "0-4",
+          "hiddenPoolSize": 3,
+          "knownTileCount": 21,
+          "counts": {
+            "total": 3,
+            "doubleMinus": 0,
+            "connectorMinus": 0,
+            "doubleOnly": 0,
+            "connectorOnly": 0,
+            "both": 0,
+            "mixedMinus": 0,
+            "minus20": 0
+          },
+          "exactNextHandMinusRiskDouble": 0,
+          "exactNextHandMinusRiskConnector": 0,
+          "exactRiskDifference": 0,
+          "examples": []
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "selfTest": {
+      "passed": true,
+      "seed": 2000271,
+      "enumerated": 10,
+      "doubleOnly": 2
+    },
+    "allSeedsDistinct": true,
+    "allPositionsSourceImmutable": true,
+    "allNextHandsExhaustivelyEnumerated": true,
+    "zeroUnresolved": true
+  },
+  "newFinding": "Exact immediate minus exposure after double opening is nonnegative in this selected sample (7 positive, 0 negative positions), but the discovery risk prevalence (6/36) did not replicate in holdout (1/18). Every extra minus is mixed -10, not -20. Do not infer population risk or later-turn strategy advantage.",
+  "confidence": "Exact for fixed selected positions/uniform next-two allocation; weak for generalization across deal positions.",
+  "limitations": [
+    "No independent Node CLI (V8 CommonJS execution only)",
+    "Recovered locked/open branch semantics assumption-labelled",
+    "Not a complete hidden-world continuation: these are marginal next-two hand allocations; do not add to 98,490 fixed-visible hidden-world total",
+    "Selection/target quotas and seed filter bias prevalence; 18 holdout positions too few for robust population inference",
+    "Block winner unassigned; 5-player bazaar and loneZero unvalidated"
+  ],
+  "priorCumulative": {
+    "completeMatchedRounds": 180000,
+    "creditedFixedVisibleHiddenWorlds": 98490,
+    "historicalRoundsSeparate": 4000
+  },
+  "exactNextAction": "On fresh disjoint reachable positions, evaluate paired full-game continuations after both actions, stratify by exact immediate minus-risk difference, and quantify when opening X-X compensates via higher own finish-first rate or lower remainder. Keep immediate next-two enumeration separate from full hidden-world sampling."
+}

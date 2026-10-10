@@ -125,3 +125,11 @@ Preregister independent opponent-one-stone hand-size/branch-end-matched experime
 - Opening X-X exposed immediate opponent finish in 6/18 positions when next opponent had 2 stones, versus 0/18 when next opponent had 4; policy-dependent, provisional.
 - V8 self-test and deterministic replay green; independent Node CLI pending. Code: simulator/urgent-five-clockwise-vector.js; data/notes: runs/2026-10-10-0354-urgent-five-clockwise-vector.{json,md}.
 - Next: disjoint-seed next-player=2 threat study across focal hand 3/4/5.
+
+
+## 2026-10-10 07:48:22 +04:00 — exact next-two minus risk (source-of-truth branch)
+- Latest reproducible checkpoint: 54 fresh reachable positions (36 discovery + 18 independent holdout), 459 exhaustive next-two-hand allocations, 918 forced first actions; **not** full sampled hidden worlds.
+- 18 extra mixed −10 opportunities after double opening vs connector across 459 allocations; 7/54 positions positive, none negative. Discovery 6/36 versus holdout 1/18: magnitude/prevalence did not replicate; no general human rule.
+- Cumulative remains **180,000 matched complete strategy rounds + 98,490 credited fixed-visible hidden worlds** (historical 4,000 and quarantined 30,000 separate).
+- Reproduce: `simulator/next-two-minus-exact.js`, frozen exact rows/seeds in `runs/2026-10-10-0745-exact-next-two-minus-holdout.json`.
+- Next: fresh-seed matched full-game rollouts conditioned on exact immediate-minus risk; Node CLI regression remains pending.
