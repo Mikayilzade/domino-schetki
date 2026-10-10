@@ -1,0 +1,11 @@
+# Isolated-double exceptions: random-legal policy robustness — 2026-10-10 21:46 Asia/Baku
+
+- Engine/rules: qosa-research-0.5.3 / recovered qosa-1.0.0, primary 3×9. 8 selected deal seeds: flagged 110698,111828,111837,112162; hand-picked 2-2 controls 110287,110398,110594,110919.
+- Validation: reproducible deterministic self-test seed 110698 (10 exact allocations), same-state matched candidate keys, 28-tile exact enumeration inherited from exact-late-double-runner, 0 unresolved, no source-state mutation. Executed in in-memory V8 CommonJS harness; Node CLI still not executed.
+- Scale: 8 deal positions, 120 distinct exhaustive hidden allocations, 24000 world×random-policy-salt evaluations, 70800 candidate continuations. 0 new complete strategy rounds; cumulative previously validated full strategy rounds remain **180,000** (historical 4,000 separate). Do not count salts as independent worlds.
+- Method: preserve isolated X-X via ordinary single minus open X-X, equal action-class and hidden-allocation weights; deterministic policies versus random-legal with 200 matched continuation salts. Reproduce with `node qosha-research/simulator/isolated-exception-random-holdout.js test` and `node qosha-research/simulator/isolated-exception-random-holdout.js 200`.
+- Flagged seeds, fixed closed-branch delta → random-legal delta (positive favors preserving): 110698: -10.0 pp → -4.35 pp; 111828: -20.0 pp → 8.33 pp; 111837: -3.6 pp → 1.84 pp; 112162: -13.3 pp → -3.40 pp.
+- Key finding: 2 of 4 fixed-policy opening-favorable exceptions reverse to preserving under random-legal, and 2 remain opening-favorable. This is evidence of policy sensitivity, not a universal opening rule. Controls are selected and not a representative sample.
+- Confidence: exact only under uniform hidden allocations and the specified simulated policies; 200 salts explore continuation policy randomness, not independent deals. Limitations: assumed branch semantics, opponent history not conditioned, no winner on block, selection bias, correlated salts.
+- Exact next action: discover >=30 fresh isolated X-X positions from seeds >=125000 under a different discovery policy, compare fixed/random continuation and next-opponent mobility; stratify robust exceptions by branch ends and remaining hand shape.
+- Full data: `runs/2026-10-10-2146-isolated-exception-random-policy.json`.
