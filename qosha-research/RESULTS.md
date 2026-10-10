@@ -346,3 +346,16 @@
 - confidence/limitations: direction replicated on disjoint seed/world sets, but 10 positions per split, first-eligible selection, one continuation policy, equal-action-class averages, assumption-labelled branch rules; no human-play generalization. The 25-world original regression fixture was non-discriminative (all candidates 25/25), so it is only a correctness check.
 - reproducibility: `simulator/pattern-paired-runner.js` with `0 30 10 100` and `30 80 10 100`; `runs/2026-10-08-pattern-paired-20positions.json` records seeds, world formula and per-position deltas
 - exact next hypothesis/action: run the new runner and pattern-choice regression in Node; compare this pattern against **non-pattern matched double-vs-single controls** on fresh seeds and alternate continuation policies to isolate branch-control from pair preservation.
+
+
+### 2026-10-10 10:48 (+04) — strict next-opponent <=2 matched-world holdout
+- engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`; 3×9; executable V8 CommonJS self-test green; Node CLI not run.
+- fresh seeds `64000..64307`: 308 scanned deals, 40 strict positions, 1000 hidden allocations (25 per position), 8775 candidate continuations; no unresolved; no new full strategy rounds.
+- strict comparison: connector X-Y played while retaining X-X and another connector vs opening X-X, next clockwise opponent has 1–2 stones; same hidden worlds, equal-weight action classes/positions.
+- preserve-minus-open finish-first: closed-branch-control 32.9 pp (exploratory 95% position CI 21.7 pp..44.1 pp); min-hand-pips 32.2 pp; fast-doubles 27.1 pp.
+- immediate legal finish possibility for next opponent: open-minus-preserve 10.6 pp; possible next-player −10 difference 0.0 pp (none in this sample). Threat is a legal option, not necessarily chosen by a bot.
+- branch-control next opponent 1 vs 2 stones: 17.2 pp (n=10) vs 38.1 pp (n=30).
+- code: `simulator/late-double-threat-runner.js`; data: `runs/2026-10-10-strict-next-opponent-64000.json`; exact seed formula `14000000+1000*dealSeed+worldIndex`, policies in JSON; CLI test `node qosha-research/simulator/late-double-threat-runner.js test`.
+- cumulative verified: **180,000 full strategy rounds** + **28685 hidden allocations** (previous 27,685 + 1000); 4,000 historical rounds separate.
+- confidence/limits: moderate for model-specific sign; no causal human generalization. First eligible position, only 25 worlds, branch opening assumptions, bot policies, no block winner, uncorrected exploratory intervals.
+- next: independent 50+ positions using min-hand-pips discovery and >=50 worlds, matched non-pattern double-vs-single controls, explain counterexample seed 63040.
