@@ -1,0 +1,16 @@
+# Qoşa açdı — independent isolated-double mobility holdout
+
+- Timestamp: 2026-10-11 02:49 Asia/Baku (+04).
+- Engine/rules: `qosa-research-0.5.3` / recovered `qosa-1.0.0`; primary 3 players × 9 stones.
+- Reproduction: `node qosha-research/simulator/isolated-mobility-random-runner.js 140000 150000 50 12`. V8 CommonJS runner self-test passed (fixture seed 90000, 10 exact allocations); Node CLI not executed.
+- Seeds: scan 140000..149999, first 50 eligible positions (actual selected seeds 140063..143162), 3163 deals scanned, 515 **exhaustive hidden allocations**, 6180 matched allocation/policy-salt evaluations, 24120 candidate continuations; 0 unresolved; **0 new full strategy rounds**.
+- Strategies: closed-branch-control, min-hand-pips, fast-doubles, random-legal with 12 salts. For each identical state/world compare an ordinary move preserving isolated X-X against immediately opening X-X, equal weight per action class and position. Random continuation seed `23000000+1000*dealSeed+lexicographicAllocationIndex`, salts 0..11.
+- Preserve-minus-open chance of finishing first: **+14.17 pp** closed-branch-control (23 positive / 6 negative / 21 ties), **+14.40 pp** min-hand-pips, **+15.54 pp** fast-doubles, **+11.91 pp** random-legal (34 positive / 2 negative / 14 ties). Exploratory 95% position interval for random-legal: +7.41 to +16.42 pp, not multiplicity-adjusted.
+- Opening isolated X-X immediately gives the next player **+0.942 distinct playable stones** on average and **+31.90 pp** chance of having any legal move; both differences positive in all 50 selected positions. These are immediate mobility metrics, not necessarily chosen opponent moves.
+- 2-2 subgroup: n=10, random-legal preserve advantage +6.72 pp; other doubles: n=40, +13.21 pp. This subgroup contrast is exploratory and not a validated rule.
+- Candidate opening-favorable seed **142405**, hand `0-1, 0-4, 2-2`: fixed closed policy preserve-minus-open -20.0 pp, random policy -2.5 pp (12 salts ranged -30 to +20 pp); added next-player mobility +0.4 stone. This is **not robust**. Only 2/50 positions favored opening under random policy.
+- All 50 positions had **two stones** in the next opponent's hand; **zero one-stone** next-opponent cases. Do not extrapolate to one-stone emergencies.
+- Verified cumulative full strategy rounds remain **180,000**, historical 4,000 separate. This run adds 515 exact allocations and 24120 continuations, not full strategy rounds.
+- Confidence/limits: reproducible deterministic V8 execution of persisted simulator; uniform exact hidden allocations ignore previous opponent decisions; assumed branch-lock rules, first-eligible discovery bias, bot continuations, block winner unassigned; policy salts correlated; exploratory intervals. The 50 positions are disjoint from prior seed scan 135000..139499.
+- New finding: independent seed holdout again supports preserving an isolated double when a non-double move is available, and shows opening gives the next opponent more immediate choices. The candidate 2-2 exception is policy-sensitive.
+- Exact next action: reproduce seed 142405 with >=100 random salts and matched fixed policies, characterize own future legal moves; specifically change discovery/selection to obtain genuine next-opponent one-stone positions and compare matched non-double controls.
