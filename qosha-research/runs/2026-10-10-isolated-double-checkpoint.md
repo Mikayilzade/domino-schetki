@@ -1,0 +1,2 @@
+# Isolated X-X exact holdout (2026-10-10 16:52 Asia/Baku)
+Engine qosa-research-0.5.3; rules qosa-1.0.0; 3x9. Discovery seeds 82000..85499: 2261 scanned, 40 positions, 430 exact hidden allocations, 4143 candidate continuations, preserve-minus-open finish-first +20.68 pp, 4 opening-favorable cases. Holdout 86000..89999: 2194 scanned, 40 positions, 409 exact allocations, 3969 continuations, +17.40 pp, 2 opening-favorable cases. No new complete rounds; cumulative 180000. Provisional model-specific; next: third holdout with alternate discovery and branch-end stratification.
