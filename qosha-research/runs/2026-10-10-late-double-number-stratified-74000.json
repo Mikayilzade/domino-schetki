@@ -1,0 +1,6745 @@
+{
+  "schema": "qosa-late-double-number-stratified/v1",
+  "timestampAsiaBaku": "2026-10-10T11:54:39+04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "startSeed": 74000,
+  "endSeedExclusive": 76000,
+  "scannedDeals": 1240,
+  "selection": "first eligible strict decision per deal; next clockwise opponent 1 or 2 stones, focal 3..5, stock empty, single X-Y retains X-X and another connector; choose first eligible target X; quota 50 X=0 and 50 X>0; discovery closed-branch-control",
+  "selectedSeeds": {
+    "zero": [
+      74023,
+      74037,
+      74045,
+      74057,
+      74121,
+      74148,
+      74154,
+      74164,
+      74168,
+      74194,
+      74202,
+      74212,
+      74223,
+      74264,
+      74276,
+      74290,
+      74300,
+      74306,
+      74315,
+      74316,
+      74332,
+      74341,
+      74347,
+      74379,
+      74429,
+      74431,
+      74446,
+      74467,
+      74477,
+      74552,
+      74564,
+      74572,
+      74586,
+      74587,
+      74602,
+      74624,
+      74627,
+      74654,
+      74658,
+      74660,
+      74668,
+      74708,
+      74754,
+      74770,
+      74774,
+      74785,
+      74788,
+      74817,
+      74823,
+      74836
+    ],
+    "nonzero": [
+      74011,
+      74036,
+      74060,
+      74100,
+      74126,
+      74158,
+      74169,
+      74256,
+      74288,
+      74353,
+      74355,
+      74358,
+      74386,
+      74393,
+      74469,
+      74526,
+      74528,
+      74548,
+      74549,
+      74567,
+      74578,
+      74626,
+      74641,
+      74697,
+      74703,
+      74732,
+      74767,
+      74821,
+      74828,
+      74875,
+      74878,
+      74893,
+      74906,
+      74918,
+      74935,
+      74947,
+      74950,
+      74952,
+      74954,
+      75014,
+      75025,
+      75029,
+      75107,
+      75117,
+      75129,
+      75135,
+      75145,
+      75175,
+      75195,
+      75239
+    ]
+  },
+  "worldSeedFormula": "14000000+1000*dealSeed+worldIndex",
+  "worldsPerPosition": 50,
+  "positions": 100,
+  "hiddenAllocations": 5000,
+  "policyWorldEvaluations": 15000,
+  "candidateContinuations": 42000,
+  "newFullStrategyRounds": 0,
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "summary": {
+    "zero": {
+      "n": 50,
+      "targets": {
+        "0": 50
+      },
+      "nextCounts": {
+        "1": 9,
+        "2": 41
+      },
+      "immediateThreat": {
+        "finish": {
+          "n": 50,
+          "mean": 0.096,
+          "exploratoryCI95": [
+            0.03140793856827301,
+            0.160592061431727
+          ],
+          "positive": 9,
+          "negative": 0,
+          "zero": 41
+        },
+        "minus10": {
+          "n": 50,
+          "mean": 0,
+          "exploratoryCI95": [
+            0,
+            0
+          ],
+          "positive": 0,
+          "negative": 0,
+          "zero": 50
+        },
+        "anyMinus": {
+          "n": 50,
+          "mean": 0,
+          "exploratoryCI95": [
+            0,
+            0
+          ],
+          "positive": 0,
+          "negative": 0,
+          "zero": 50
+        }
+      },
+      "closed-branch-control": {
+        "finish": {
+          "n": 50,
+          "mean": 0.2434,
+          "exploratoryCI95": [
+            0.14720769627459798,
+            0.33959230372540206
+          ],
+          "positive": 23,
+          "negative": 1,
+          "zero": 26
+        },
+        "pips": {
+          "n": 50,
+          "mean": -2.7442,
+          "exploratoryCI95": [
+            -3.500465660878504,
+            -1.9879343391214963
+          ],
+          "positive": 6,
+          "negative": 42,
+          "zero": 2
+        },
+        "minus": {
+          "n": 50,
+          "mean": 0.1912,
+          "exploratoryCI95": [
+            0.0828596958468364,
+            0.29954030415316363
+          ],
+          "positive": 10,
+          "negative": 0,
+          "zero": 40
+        }
+      },
+      "min-hand-pips": {
+        "finish": {
+          "n": 50,
+          "mean": 0.2434,
+          "exploratoryCI95": [
+            0.14720769627459798,
+            0.33959230372540206
+          ],
+          "positive": 23,
+          "negative": 1,
+          "zero": 26
+        },
+        "pips": {
+          "n": 50,
+          "mean": -2.7442,
+          "exploratoryCI95": [
+            -3.500465660878504,
+            -1.9879343391214963
+          ],
+          "positive": 6,
+          "negative": 42,
+          "zero": 2
+        },
+        "minus": {
+          "n": 50,
+          "mean": 0.1912,
+          "exploratoryCI95": [
+            0.0828596958468364,
+            0.29954030415316363
+          ],
+          "positive": 10,
+          "negative": 0,
+          "zero": 40
+        }
+      },
+      "fast-doubles": {
+        "finish": {
+          "n": 50,
+          "mean": 0.21359999999999998,
+          "exploratoryCI95": [
+            0.12080585397774277,
+            0.30639414602225723
+          ],
+          "positive": 19,
+          "negative": 1,
+          "zero": 30
+        },
+        "pips": {
+          "n": 50,
+          "mean": -1.7050000000000005,
+          "exploratoryCI95": [
+            -2.3586450523028537,
+            -1.0513549476971473
+          ],
+          "positive": 12,
+          "negative": 35,
+          "zero": 3
+        },
+        "minus": {
+          "n": 50,
+          "mean": 0.17120000000000002,
+          "exploratoryCI95": [
+            0.06757633135234026,
+            0.2748236686476598
+          ],
+          "positive": 9,
+          "negative": 0,
+          "zero": 41
+        }
+      }
+    },
+    "nonzero": {
+      "n": 50,
+      "targets": {
+        "2": 25,
+        "3": 20,
+        "4": 3,
+        "5": 2
+      },
+      "nextCounts": {
+        "1": 10,
+        "2": 40
+      },
+      "immediateThreat": {
+        "finish": {
+          "n": 50,
+          "mean": 0.096,
+          "exploratoryCI95": [
+            0.041120000000000025,
+            0.15088
+          ],
+          "positive": 11,
+          "negative": 0,
+          "zero": 39
+        },
+        "minus10": {
+          "n": 50,
+          "mean": 0.0028000000000000004,
+          "exploratoryCI95": [
+            -0.0026879999999999925,
+            0.008287999999999993
+          ],
+          "positive": 1,
+          "negative": 0,
+          "zero": 49
+        },
+        "anyMinus": {
+          "n": 50,
+          "mean": 0.0028000000000000004,
+          "exploratoryCI95": [
+            -0.0026879999999999925,
+            0.008287999999999993
+          ],
+          "positive": 1,
+          "negative": 0,
+          "zero": 49
+        }
+      },
+      "closed-branch-control": {
+        "finish": {
+          "n": 50,
+          "mean": 0.20920000000000005,
+          "exploratoryCI95": [
+            0.1329292334901504,
+            0.2854707665098497
+          ],
+          "positive": 24,
+          "negative": 1,
+          "zero": 25
+        },
+        "pips": {
+          "n": 50,
+          "mean": -3.4202666666666657,
+          "exploratoryCI95": [
+            -4.3619916904291465,
+            -2.4785416429041853
+          ],
+          "positive": 6,
+          "negative": 42,
+          "zero": 2
+        },
+        "minus": {
+          "n": 50,
+          "mean": 0.10880000000000001,
+          "exploratoryCI95": [
+            0.041050090007439866,
+            0.17654990999256015
+          ],
+          "positive": 13,
+          "negative": 0,
+          "zero": 37
+        }
+      },
+      "min-hand-pips": {
+        "finish": {
+          "n": 50,
+          "mean": 0.18093333333333336,
+          "exploratoryCI95": [
+            0.105302910483501,
+            0.25656375618316574
+          ],
+          "positive": 20,
+          "negative": 1,
+          "zero": 29
+        },
+        "pips": {
+          "n": 50,
+          "mean": -3.3681999999999994,
+          "exploratoryCI95": [
+            -4.277153609588519,
+            -2.4592463904114794
+          ],
+          "positive": 6,
+          "negative": 42,
+          "zero": 2
+        },
+        "minus": {
+          "n": 50,
+          "mean": 0.0928,
+          "exploratoryCI95": [
+            0.025053793139394168,
+            0.16054620686060583
+          ],
+          "positive": 8,
+          "negative": 0,
+          "zero": 42
+        }
+      },
+      "fast-doubles": {
+        "finish": {
+          "n": 50,
+          "mean": 0.16606666666666672,
+          "exploratoryCI95": [
+            0.09044484825131492,
+            0.2416884850820185
+          ],
+          "positive": 17,
+          "negative": 1,
+          "zero": 32
+        },
+        "pips": {
+          "n": 50,
+          "mean": -3.1789333333333327,
+          "exploratoryCI95": [
+            -4.146237648472633,
+            -2.2116290181940323
+          ],
+          "positive": 8,
+          "negative": 40,
+          "zero": 2
+        },
+        "minus": {
+          "n": 50,
+          "mean": 0.0928,
+          "exploratoryCI95": [
+            0.025053793139394168,
+            0.16054620686060583
+          ],
+          "positive": 8,
+          "negative": 0,
+          "zero": 42
+        }
+      }
+    }
+  },
+  "rows": {
+    "zero": [
+      {
+        "seed": 74023,
+        "turn": 22,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-6",
+          "0-2"
+        ],
+        "handSizes": [
+          1,
+          3,
+          2
+        ],
+        "ends": [
+          0,
+          0,
+          6,
+          1
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|right|0||0-6"
+        ],
+        "worldSeedStart": 88023000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -6,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -6,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -6,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74037,
+        "turn": 21,
+        "focal": 0,
+        "next": 1,
+        "x": 0,
+        "hand": [
+          "0-6",
+          "0-3",
+          "0-0"
+        ],
+        "handSizes": [
+          3,
+          2,
+          2
+        ],
+        "ends": [
+          0,
+          1,
+          2,
+          6
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|down|0||0-6"
+        ],
+        "worldSeedStart": 88037000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74045,
+        "turn": 21,
+        "focal": 0,
+        "next": 1,
+        "x": 0,
+        "hand": [
+          "0-6",
+          "2-4",
+          "0-0",
+          "0-3"
+        ],
+        "handSizes": [
+          4,
+          2,
+          2
+        ],
+        "ends": [
+          3,
+          3,
+          0,
+          1
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|up|0||0-3",
+          "single|left|0||0-3"
+        ],
+        "worldSeedStart": 88045000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74057,
+        "turn": 22,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-1",
+          "0-0",
+          "0-4",
+          "1-2"
+        ],
+        "handSizes": [
+          2,
+          1,
+          4
+        ],
+        "ends": [
+          3,
+          0,
+          4,
+          5
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|right|0||0-4"
+        ],
+        "worldSeedStart": 88057000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74121,
+        "turn": 24,
+        "focal": 0,
+        "next": 1,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-4",
+          "0-2",
+          "0-3"
+        ],
+        "handSizes": [
+          4,
+          2,
+          3
+        ],
+        "ends": [
+          3,
+          3,
+          3,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|up|0||0-3",
+          "single|left|0||0-3",
+          "single|right|0||0-3"
+        ],
+        "worldSeedStart": 88121000,
+        "worlds": 50,
+        "continuations": 600,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -1.38,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -1.38,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 0.22,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74148,
+        "turn": 22,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-4",
+          "0-1"
+        ],
+        "handSizes": [
+          3,
+          3,
+          2
+        ],
+        "ends": [
+          5,
+          0,
+          5,
+          1
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|down|0||0-1"
+        ],
+        "worldSeedStart": 88148000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.6,
+            "pips": -1.98,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.6,
+            "pips": -1.98,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.6,
+            "pips": -1.98,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74154,
+        "turn": 23,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-3",
+          "0-6",
+          "0-5"
+        ],
+        "handSizes": [
+          1,
+          2,
+          4
+        ],
+        "ends": [
+          0,
+          6,
+          2,
+          5
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-6",
+          "single|down|0||0-5"
+        ],
+        "worldSeedStart": 88154000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0.42,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -7.67,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -7.67,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -3.82,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74164,
+        "turn": 24,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-3",
+          "0-5",
+          "0-0"
+        ],
+        "handSizes": [
+          1,
+          3,
+          2
+        ],
+        "ends": [
+          0,
+          3,
+          0,
+          5
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-3",
+          "single|down|0||0-5"
+        ],
+        "worldSeedStart": 88164000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 1,
+            "pips": -8,
+            "minus": 1
+          },
+          "min-hand-pips": {
+            "finish": 1,
+            "pips": -8,
+            "minus": 1
+          },
+          "fast-doubles": {
+            "finish": 1,
+            "pips": -8,
+            "minus": 1
+          }
+        }
+      },
+      {
+        "seed": 74168,
+        "turn": 20,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-5",
+          "0-0",
+          "0-6",
+          "1-5"
+        ],
+        "handSizes": [
+          3,
+          4,
+          2
+        ],
+        "ends": [
+          0,
+          6,
+          2,
+          2
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-6"
+        ],
+        "worldSeedStart": 88168000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -0.8,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -0.8,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -0.8,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74194,
+        "turn": 23,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-3",
+          "0-4",
+          "0-2"
+        ],
+        "handSizes": [
+          2,
+          3,
+          4
+        ],
+        "ends": [
+          4,
+          4,
+          4,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|up|0||0-4",
+          "single|left|0||0-4",
+          "single|right|0||0-4"
+        ],
+        "worldSeedStart": 88194000,
+        "worlds": 50,
+        "continuations": 600,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.1,
+            "pips": -1.48,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.1,
+            "pips": -1.48,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.1,
+            "pips": -1.48,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74202,
+        "turn": 21,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-4",
+          "0-3"
+        ],
+        "handSizes": [
+          2,
+          3,
+          2
+        ],
+        "ends": [
+          5,
+          3,
+          0,
+          2
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-3"
+        ],
+        "worldSeedStart": 88202000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": 0.84,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": 0.84,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 0.84,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74212,
+        "turn": 22,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-5",
+          "0-1"
+        ],
+        "handSizes": [
+          3,
+          3,
+          2
+        ],
+        "ends": [
+          4,
+          1,
+          4,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-1"
+        ],
+        "worldSeedStart": 88212000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": -0.02,
+            "pips": 0.1,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": -0.02,
+            "pips": 0.1,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": -0.02,
+            "pips": 0.1,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74223,
+        "turn": 25,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "3-6",
+          "0-0",
+          "0-5",
+          "0-2"
+        ],
+        "handSizes": [
+          1,
+          4,
+          2
+        ],
+        "ends": [
+          2,
+          5,
+          0,
+          1
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-5",
+          "single|up|0||0-2"
+        ],
+        "worldSeedStart": 88223000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": 0.02,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": 0.02,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 2.26,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74264,
+        "turn": 20,
+        "focal": 0,
+        "next": 1,
+        "x": 0,
+        "hand": [
+          "0-3",
+          "0-2",
+          "0-0",
+          "0-6"
+        ],
+        "handSizes": [
+          4,
+          2,
+          2
+        ],
+        "ends": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-2",
+          "single|down|0||0-6"
+        ],
+        "worldSeedStart": 88264000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.21,
+            "pips": -2.89,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.21,
+            "pips": -2.89,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 0.74,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74276,
+        "turn": 23,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-6",
+          "0-3",
+          "0-0"
+        ],
+        "handSizes": [
+          2,
+          3,
+          1
+        ],
+        "ends": [
+          0,
+          6,
+          1,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-6"
+        ],
+        "worldSeedStart": 88276000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0.18,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -3.96,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -3.96,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -3.96,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74290,
+        "turn": 25,
+        "focal": 0,
+        "next": 1,
+        "x": 0,
+        "hand": [
+          "3-4",
+          "0-4",
+          "0-0",
+          "0-2"
+        ],
+        "handSizes": [
+          4,
+          2,
+          2
+        ],
+        "ends": [
+          0,
+          4,
+          3,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-4"
+        ],
+        "worldSeedStart": 88290000,
+        "worlds": 50,
+        "continuations": 600,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74300,
+        "turn": 25,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "1-2",
+          "4-5",
+          "0-5",
+          "0-3",
+          "0-0"
+        ],
+        "handSizes": [
+          1,
+          2,
+          5
+        ],
+        "ends": [
+          0,
+          3,
+          3,
+          3
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-3",
+          "single|right|0||0-3",
+          "single|down|0||0-3"
+        ],
+        "worldSeedStart": 88300000,
+        "worlds": 50,
+        "continuations": 600,
+        "immediateOpenMinusKeep": {
+          "finish": 1,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74306,
+        "turn": 21,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-5",
+          "0-2",
+          "0-0"
+        ],
+        "handSizes": [
+          2,
+          3,
+          2
+        ],
+        "ends": [
+          0,
+          5,
+          6,
+          3
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-5"
+        ],
+        "worldSeedStart": 88306000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74315,
+        "turn": 20,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-3",
+          "0-4"
+        ],
+        "handSizes": [
+          2,
+          4,
+          3
+        ],
+        "ends": [
+          0,
+          0,
+          6,
+          4
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|down|0||0-4"
+        ],
+        "worldSeedStart": 88315000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.72,
+            "pips": -2.16,
+            "minus": 1
+          },
+          "min-hand-pips": {
+            "finish": 0.72,
+            "pips": -2.16,
+            "minus": 1
+          },
+          "fast-doubles": {
+            "finish": 0.72,
+            "pips": -2.16,
+            "minus": 1
+          }
+        }
+      },
+      {
+        "seed": 74316,
+        "turn": 21,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-3",
+          "0-4",
+          "0-2"
+        ],
+        "handSizes": [
+          2,
+          4,
+          2
+        ],
+        "ends": [
+          6,
+          4,
+          0,
+          2
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-4",
+          "single|down|0||0-2"
+        ],
+        "worldSeedStart": 88316000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.2,
+            "pips": -2.59,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.2,
+            "pips": -2.59,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 0.2,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74332,
+        "turn": 20,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "1-3",
+          "0-3",
+          "0-2"
+        ],
+        "handSizes": [
+          2,
+          2,
+          4
+        ],
+        "ends": [
+          3,
+          3,
+          6,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|up|0||0-3",
+          "single|left|0||0-3"
+        ],
+        "worldSeedStart": 88332000,
+        "worlds": 50,
+        "continuations": 750,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -2.1,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -2.1,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 1.02,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74341,
+        "turn": 26,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-2",
+          "0-0",
+          "0-5"
+        ],
+        "handSizes": [
+          1,
+          2,
+          3
+        ],
+        "ends": [
+          5,
+          0,
+          2,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|right|0||0-2",
+          "single|up|0||0-5"
+        ],
+        "worldSeedStart": 88341000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0.72,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 1,
+            "pips": -5.6,
+            "minus": 1
+          },
+          "min-hand-pips": {
+            "finish": 1,
+            "pips": -5.6,
+            "minus": 1
+          },
+          "fast-doubles": {
+            "finish": 1,
+            "pips": -5.6,
+            "minus": 1
+          }
+        }
+      },
+      {
+        "seed": 74347,
+        "turn": 30,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-2",
+          "0-4"
+        ],
+        "handSizes": [
+          4,
+          3,
+          1
+        ],
+        "ends": [
+          0,
+          4,
+          4,
+          6
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-4",
+          "single|right|0||0-4"
+        ],
+        "worldSeedStart": 88347000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0.36,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -2.88,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -2.88,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -2.88,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74379,
+        "turn": 20,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-3",
+          "0-2"
+        ],
+        "handSizes": [
+          2,
+          3,
+          3
+        ],
+        "ends": [
+          2,
+          6,
+          0,
+          1
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|up|0||0-2"
+        ],
+        "worldSeedStart": 88379000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.9,
+            "pips": -1.8,
+            "minus": 1
+          },
+          "min-hand-pips": {
+            "finish": 0.9,
+            "pips": -1.8,
+            "minus": 1
+          },
+          "fast-doubles": {
+            "finish": 0.9,
+            "pips": -1.8,
+            "minus": 1
+          }
+        }
+      },
+      {
+        "seed": 74429,
+        "turn": 24,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-4",
+          "0-3",
+          "0-0"
+        ],
+        "handSizes": [
+          2,
+          2,
+          3
+        ],
+        "ends": [
+          3,
+          4,
+          1,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-4",
+          "single|up|0||0-3"
+        ],
+        "worldSeedStart": 88429000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.82,
+            "pips": -2.46,
+            "minus": 1
+          },
+          "min-hand-pips": {
+            "finish": 0.82,
+            "pips": -2.46,
+            "minus": 1
+          },
+          "fast-doubles": {
+            "finish": 0.82,
+            "pips": -2.46,
+            "minus": 1
+          }
+        }
+      },
+      {
+        "seed": 74431,
+        "turn": 26,
+        "focal": 0,
+        "next": 1,
+        "x": 0,
+        "hand": [
+          "0-5",
+          "0-0",
+          "0-6"
+        ],
+        "handSizes": [
+          3,
+          2,
+          1
+        ],
+        "ends": [
+          3,
+          6,
+          0,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-6"
+        ],
+        "worldSeedStart": 88431000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -3.6,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -3.6,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -3.6,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74446,
+        "turn": 24,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-4",
+          "0-3"
+        ],
+        "handSizes": [
+          1,
+          3,
+          2
+        ],
+        "ends": [
+          0,
+          1,
+          4,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|right|0||0-4"
+        ],
+        "worldSeedStart": 88446000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74467,
+        "turn": 22,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-2",
+          "0-3",
+          "0-0"
+        ],
+        "handSizes": [
+          2,
+          3,
+          3
+        ],
+        "ends": [
+          2,
+          0,
+          2,
+          6
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|up|0||0-2",
+          "single|right|0||0-2"
+        ],
+        "worldSeedStart": 88467000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.36,
+            "pips": -0.46,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.36,
+            "pips": -0.46,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.36,
+            "pips": -0.46,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74477,
+        "turn": 24,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-2",
+          "0-6"
+        ],
+        "handSizes": [
+          2,
+          3,
+          1
+        ],
+        "ends": [
+          0,
+          6,
+          0,
+          1
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-6"
+        ],
+        "worldSeedStart": 88477000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0.22,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -3.6,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -3.6,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -3.6,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74552,
+        "turn": 26,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-1",
+          "0-5",
+          "1-2"
+        ],
+        "handSizes": [
+          1,
+          4,
+          2
+        ],
+        "ends": [
+          2,
+          0,
+          5,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|right|0||0-5"
+        ],
+        "worldSeedStart": 88552000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74564,
+        "turn": 28,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-4",
+          "0-0",
+          "0-1"
+        ],
+        "handSizes": [
+          2,
+          4,
+          3
+        ],
+        "ends": [
+          3,
+          0,
+          3,
+          1
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|down|0||0-1"
+        ],
+        "worldSeedStart": 88564000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.58,
+            "pips": -2.32,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.58,
+            "pips": -2.32,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.58,
+            "pips": -2.32,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74572,
+        "turn": 25,
+        "focal": 0,
+        "next": 1,
+        "x": 0,
+        "hand": [
+          "3-4",
+          "0-3",
+          "0-0",
+          "0-2"
+        ],
+        "handSizes": [
+          4,
+          2,
+          1
+        ],
+        "ends": [
+          3,
+          0,
+          3,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|up|0||0-3",
+          "single|right|0||0-3"
+        ],
+        "worldSeedStart": 88572000,
+        "worlds": 50,
+        "continuations": 750,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -10,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -10,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74586,
+        "turn": 24,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-4",
+          "0-3",
+          "0-0"
+        ],
+        "handSizes": [
+          1,
+          2,
+          3
+        ],
+        "ends": [
+          3,
+          0,
+          4,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|right|0||0-4",
+          "single|up|0||0-3"
+        ],
+        "worldSeedStart": 88586000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0.62,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 1,
+            "pips": -5.48,
+            "minus": 1
+          },
+          "min-hand-pips": {
+            "finish": 1,
+            "pips": -5.48,
+            "minus": 1
+          },
+          "fast-doubles": {
+            "finish": 1,
+            "pips": -5.48,
+            "minus": 1
+          }
+        }
+      },
+      {
+        "seed": 74587,
+        "turn": 20,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-3",
+          "0-6"
+        ],
+        "handSizes": [
+          4,
+          3,
+          2
+        ],
+        "ends": [
+          5,
+          3,
+          0,
+          6
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-3",
+          "single|down|0||0-6"
+        ],
+        "worldSeedStart": 88587000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.64,
+            "pips": -1.92,
+            "minus": 1
+          },
+          "min-hand-pips": {
+            "finish": 0.64,
+            "pips": -1.92,
+            "minus": 1
+          },
+          "fast-doubles": {
+            "finish": 0.64,
+            "pips": -1.92,
+            "minus": 1
+          }
+        }
+      },
+      {
+        "seed": 74602,
+        "turn": 21,
+        "focal": 0,
+        "next": 1,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-5",
+          "0-4"
+        ],
+        "handSizes": [
+          3,
+          2,
+          3
+        ],
+        "ends": [
+          2,
+          0,
+          4,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|right|0||0-4"
+        ],
+        "worldSeedStart": 88602000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.08,
+            "pips": 0.08,
+            "minus": 0.56
+          },
+          "min-hand-pips": {
+            "finish": 0.08,
+            "pips": 0.08,
+            "minus": 0.56
+          },
+          "fast-doubles": {
+            "finish": 0.08,
+            "pips": 0.08,
+            "minus": 0.56
+          }
+        }
+      },
+      {
+        "seed": 74624,
+        "turn": 20,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-3",
+          "0-4",
+          "0-0"
+        ],
+        "handSizes": [
+          3,
+          3,
+          2
+        ],
+        "ends": [
+          0,
+          4,
+          0,
+          1
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-4"
+        ],
+        "worldSeedStart": 88624000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.44,
+            "pips": -1.32,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.44,
+            "pips": -1.32,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.44,
+            "pips": -1.32,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74627,
+        "turn": 21,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-1",
+          "0-2",
+          "0-0"
+        ],
+        "handSizes": [
+          2,
+          2,
+          3
+        ],
+        "ends": [
+          4,
+          2,
+          0,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-2"
+        ],
+        "worldSeedStart": 88627000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.54,
+            "pips": -0.54,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.54,
+            "pips": -0.54,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.54,
+            "pips": -0.54,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74654,
+        "turn": 20,
+        "focal": 0,
+        "next": 1,
+        "x": 0,
+        "hand": [
+          "0-4",
+          "0-0",
+          "0-2"
+        ],
+        "handSizes": [
+          3,
+          2,
+          4
+        ],
+        "ends": [
+          5,
+          4,
+          5,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-4"
+        ],
+        "worldSeedStart": 88654000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.18,
+            "pips": -0.36,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.18,
+            "pips": -0.36,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.18,
+            "pips": -0.36,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74658,
+        "turn": 24,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-4",
+          "2-4",
+          "0-2"
+        ],
+        "handSizes": [
+          1,
+          4,
+          2
+        ],
+        "ends": [
+          2,
+          0,
+          2,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|up|0||0-2",
+          "single|right|0||0-2"
+        ],
+        "worldSeedStart": 88658000,
+        "worlds": 50,
+        "continuations": 750,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 1,
+            "pips": -12,
+            "minus": 1
+          },
+          "min-hand-pips": {
+            "finish": 1,
+            "pips": -12,
+            "minus": 1
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74660,
+        "turn": 20,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-3",
+          "0-1",
+          "0-4"
+        ],
+        "handSizes": [
+          2,
+          2,
+          4
+        ],
+        "ends": [
+          2,
+          5,
+          4,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|right|0||0-4"
+        ],
+        "worldSeedStart": 88660000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -2.24,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -2.24,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74668,
+        "turn": 22,
+        "focal": 0,
+        "next": 1,
+        "x": 0,
+        "hand": [
+          "0-1",
+          "0-0",
+          "0-2"
+        ],
+        "handSizes": [
+          3,
+          2,
+          3
+        ],
+        "ends": [
+          4,
+          0,
+          4,
+          2
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|down|0||0-2"
+        ],
+        "worldSeedStart": 88668000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.2,
+            "pips": -0.2,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.2,
+            "pips": -0.2,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.2,
+            "pips": -0.2,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74708,
+        "turn": 26,
+        "focal": 0,
+        "next": 1,
+        "x": 0,
+        "hand": [
+          "1-3",
+          "0-2",
+          "0-3",
+          "0-0"
+        ],
+        "handSizes": [
+          4,
+          1,
+          1
+        ],
+        "ends": [
+          0,
+          6,
+          2,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|right|0||0-2"
+        ],
+        "worldSeedStart": 88708000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0.56,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74754,
+        "turn": 22,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "1-4",
+          "0-2",
+          "0-3"
+        ],
+        "handSizes": [
+          3,
+          4,
+          2
+        ],
+        "ends": [
+          3,
+          0,
+          2,
+          6
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|right|0||0-2",
+          "single|up|0||0-3"
+        ],
+        "worldSeedStart": 88754000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.08,
+            "pips": -1.84,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.08,
+            "pips": -1.84,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -0.79,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74770,
+        "turn": 24,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-3",
+          "2-3",
+          "0-0",
+          "0-5"
+        ],
+        "handSizes": [
+          1,
+          2,
+          4
+        ],
+        "ends": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|up|0||0-3",
+          "single|left|0||0-3"
+        ],
+        "worldSeedStart": 88770000,
+        "worlds": 50,
+        "continuations": 750,
+        "immediateOpenMinusKeep": {
+          "finish": 0.72,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -6.6,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -6.6,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74774,
+        "turn": 26,
+        "focal": 2,
+        "next": 0,
+        "x": 0,
+        "hand": [
+          "0-5",
+          "0-4",
+          "1-2",
+          "0-0"
+        ],
+        "handSizes": [
+          2,
+          3,
+          4
+        ],
+        "ends": [
+          3,
+          0,
+          3,
+          5
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|down|0||0-5"
+        ],
+        "worldSeedStart": 88774000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -2.6,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -2.6,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -2.6,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74785,
+        "turn": 20,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-6",
+          "0-5"
+        ],
+        "handSizes": [
+          3,
+          3,
+          2
+        ],
+        "ends": [
+          4,
+          6,
+          0,
+          5
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-6",
+          "single|down|0||0-5"
+        ],
+        "worldSeedStart": 88785000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.78,
+            "pips": -3.9,
+            "minus": 1
+          },
+          "min-hand-pips": {
+            "finish": 0.78,
+            "pips": -3.9,
+            "minus": 1
+          },
+          "fast-doubles": {
+            "finish": 0.78,
+            "pips": -3.9,
+            "minus": 1
+          }
+        }
+      },
+      {
+        "seed": 74788,
+        "turn": 20,
+        "focal": 1,
+        "next": 2,
+        "x": 0,
+        "hand": [
+          "0-2",
+          "0-5",
+          "0-0"
+        ],
+        "handSizes": [
+          3,
+          3,
+          2
+        ],
+        "ends": [
+          2,
+          6,
+          0,
+          2
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|up|0||0-2",
+          "single|down|0||0-2"
+        ],
+        "worldSeedStart": 88788000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.56,
+            "pips": 0.2,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.56,
+            "pips": 0.2,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.56,
+            "pips": 0.2,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74817,
+        "turn": 21,
+        "focal": 0,
+        "next": 1,
+        "x": 0,
+        "hand": [
+          "0-3",
+          "2-4",
+          "0-0",
+          "0-2"
+        ],
+        "handSizes": [
+          4,
+          2,
+          2
+        ],
+        "ends": [
+          0,
+          3,
+          3,
+          5
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-3",
+          "single|right|0||0-3"
+        ],
+        "worldSeedStart": 88817000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": 1.2,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": 1.2,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 1.2,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74823,
+        "turn": 20,
+        "focal": 0,
+        "next": 1,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "2-4",
+          "0-3",
+          "0-1",
+          "1-3"
+        ],
+        "handSizes": [
+          5,
+          2,
+          2
+        ],
+        "ends": [
+          2,
+          3,
+          3,
+          0
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|left|0||0-3",
+          "single|right|0||0-3"
+        ],
+        "worldSeedStart": 88823000,
+        "worlds": 50,
+        "continuations": 900,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -1.52,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -1.52,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 3.32,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74836,
+        "turn": 20,
+        "focal": 0,
+        "next": 1,
+        "x": 0,
+        "hand": [
+          "0-0",
+          "0-2",
+          "0-6"
+        ],
+        "handSizes": [
+          3,
+          2,
+          3
+        ],
+        "ends": [
+          0,
+          0,
+          0,
+          6
+        ],
+        "opened": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "keep": [
+          "single|down|0||0-6"
+        ],
+        "worldSeedStart": 88836000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.2,
+            "pips": -0.4,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.2,
+            "pips": -0.4,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.2,
+            "pips": -0.4,
+            "minus": 0
+          }
+        }
+      }
+    ],
+    "nonzero": [
+      {
+        "seed": 74011,
+        "turn": 20,
+        "focal": 0,
+        "next": 1,
+        "x": 2,
+        "hand": [
+          "0-2",
+          "2-4",
+          "0-3",
+          "2-2"
+        ],
+        "handSizes": [
+          4,
+          2,
+          3
+        ],
+        "ends": [
+          3,
+          0,
+          2,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|left|2||0-2"
+        ],
+        "worldSeedStart": 88011000,
+        "worlds": 50,
+        "continuations": 600,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.62,
+            "pips": -2.06,
+            "minus": 0.22
+          },
+          "min-hand-pips": {
+            "finish": 0.38,
+            "pips": -2.48,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.38,
+            "pips": -2.48,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74036,
+        "turn": 20,
+        "focal": 2,
+        "next": 0,
+        "x": 3,
+        "hand": [
+          "3-5",
+          "2-3",
+          "3-3",
+          "2-6"
+        ],
+        "handSizes": [
+          2,
+          2,
+          4
+        ],
+        "ends": [
+          3,
+          3,
+          5,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|right|3||3-5"
+        ],
+        "worldSeedStart": 88036000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.18,
+            "pips": -6.02,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.18,
+            "pips": -6.02,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.18,
+            "pips": -6.02,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74060,
+        "turn": 21,
+        "focal": 2,
+        "next": 0,
+        "x": 3,
+        "hand": [
+          "3-3",
+          "3-5",
+          "0-3",
+          "0-2"
+        ],
+        "handSizes": [
+          2,
+          2,
+          4
+        ],
+        "ends": [
+          0,
+          3,
+          2,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|up|3||0-3"
+        ],
+        "worldSeedStart": 88060000,
+        "worlds": 50,
+        "continuations": 600,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.2,
+            "pips": -2.12,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.2,
+            "pips": -2.12,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 1.64,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74100,
+        "turn": 20,
+        "focal": 2,
+        "next": 0,
+        "x": 2,
+        "hand": [
+          "1-2",
+          "2-2",
+          "2-3"
+        ],
+        "handSizes": [
+          2,
+          3,
+          3
+        ],
+        "ends": [
+          3,
+          2,
+          0,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|up|2||2-3"
+        ],
+        "worldSeedStart": 88100000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.46,
+            "pips": -1.38,
+            "minus": 0.22
+          },
+          "min-hand-pips": {
+            "finish": 0.46,
+            "pips": -1.38,
+            "minus": 0.22
+          },
+          "fast-doubles": {
+            "finish": 0.46,
+            "pips": -1.38,
+            "minus": 0.22
+          }
+        }
+      },
+      {
+        "seed": 74126,
+        "turn": 22,
+        "focal": 0,
+        "next": 1,
+        "x": 3,
+        "hand": [
+          "3-3",
+          "3-4",
+          "3-6",
+          "3-5"
+        ],
+        "handSizes": [
+          4,
+          2,
+          3
+        ],
+        "ends": [
+          3,
+          4,
+          4,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|left|3||3-4",
+          "single|right|3||3-4"
+        ],
+        "worldSeedStart": 88126000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": 0.24,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": 0.24,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 2.42,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74158,
+        "turn": 22,
+        "focal": 1,
+        "next": 2,
+        "x": 3,
+        "hand": [
+          "3-4",
+          "0-4",
+          "0-3",
+          "3-3"
+        ],
+        "handSizes": [
+          3,
+          4,
+          2
+        ],
+        "ends": [
+          0,
+          0,
+          2,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|up|3||0-3",
+          "single|left|3||0-3"
+        ],
+        "worldSeedStart": 88158000,
+        "worlds": 50,
+        "continuations": 750,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.02,
+            "pips": 2.92,
+            "minus": 0.02
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74169,
+        "turn": 20,
+        "focal": 0,
+        "next": 1,
+        "x": 3,
+        "hand": [
+          "0-3",
+          "3-3",
+          "2-3",
+          "0-2"
+        ],
+        "handSizes": [
+          4,
+          2,
+          2
+        ],
+        "ends": [
+          3,
+          6,
+          0,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|right|3||0-3"
+        ],
+        "worldSeedStart": 88169000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -0.34,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -0.34,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -0.34,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74256,
+        "turn": 22,
+        "focal": 2,
+        "next": 0,
+        "x": 2,
+        "hand": [
+          "2-2",
+          "2-5",
+          "2-3"
+        ],
+        "handSizes": [
+          2,
+          3,
+          3
+        ],
+        "ends": [
+          5,
+          0,
+          6,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|up|2||2-5"
+        ],
+        "worldSeedStart": 88256000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.64,
+            "pips": -3.2,
+            "minus": 0.72
+          },
+          "min-hand-pips": {
+            "finish": 0.64,
+            "pips": -3.2,
+            "minus": 0.72
+          },
+          "fast-doubles": {
+            "finish": 0.64,
+            "pips": -3.2,
+            "minus": 0.72
+          }
+        }
+      },
+      {
+        "seed": 74288,
+        "turn": 24,
+        "focal": 2,
+        "next": 0,
+        "x": 2,
+        "hand": [
+          "0-2",
+          "2-4",
+          "2-2"
+        ],
+        "handSizes": [
+          2,
+          2,
+          3
+        ],
+        "ends": [
+          5,
+          4,
+          2,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|left|2||2-4"
+        ],
+        "worldSeedStart": 88288000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74353,
+        "turn": 22,
+        "focal": 2,
+        "next": 0,
+        "x": 5,
+        "hand": [
+          "3-5",
+          "5-5",
+          "2-5"
+        ],
+        "handSizes": [
+          2,
+          3,
+          3
+        ],
+        "ends": [
+          5,
+          5,
+          3,
+          0
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "open": [
+          "double-sequence|||5|5-5"
+        ],
+        "keep": [
+          "single|right|5||3-5"
+        ],
+        "worldSeedStart": 88353000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.48,
+            "pips": -3.36,
+            "minus": 0.2
+          },
+          "min-hand-pips": {
+            "finish": 0.48,
+            "pips": -3.36,
+            "minus": 0.2
+          },
+          "fast-doubles": {
+            "finish": 0.48,
+            "pips": -3.36,
+            "minus": 0.2
+          }
+        }
+      },
+      {
+        "seed": 74355,
+        "turn": 21,
+        "focal": 1,
+        "next": 2,
+        "x": 3,
+        "hand": [
+          "1-3",
+          "0-4",
+          "3-4",
+          "3-3"
+        ],
+        "handSizes": [
+          3,
+          4,
+          2
+        ],
+        "ends": [
+          5,
+          3,
+          5,
+          1
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|down|3||1-3"
+        ],
+        "worldSeedStart": 88355000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.38,
+            "pips": -5.78,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.38,
+            "pips": -5.78,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.38,
+            "pips": -5.78,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74358,
+        "turn": 22,
+        "focal": 0,
+        "next": 1,
+        "x": 2,
+        "hand": [
+          "2-2",
+          "2-3",
+          "2-6"
+        ],
+        "handSizes": [
+          3,
+          2,
+          2
+        ],
+        "ends": [
+          6,
+          3,
+          2,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|left|2||2-3",
+          "single|up|2||2-6"
+        ],
+        "worldSeedStart": 88358000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.8,
+            "pips": -4,
+            "minus": 1
+          },
+          "min-hand-pips": {
+            "finish": 0.8,
+            "pips": -4,
+            "minus": 1
+          },
+          "fast-doubles": {
+            "finish": 0.8,
+            "pips": -4,
+            "minus": 1
+          }
+        }
+      },
+      {
+        "seed": 74386,
+        "turn": 20,
+        "focal": 0,
+        "next": 1,
+        "x": 4,
+        "hand": [
+          "4-6",
+          "1-4",
+          "3-4",
+          "4-4"
+        ],
+        "handSizes": [
+          4,
+          2,
+          5
+        ],
+        "ends": [
+          6,
+          3,
+          4,
+          6
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||4|4-4"
+        ],
+        "keep": [
+          "single|up|4||4-6",
+          "single|down|4||4-6",
+          "single|left|4||3-4"
+        ],
+        "worldSeedStart": 88386000,
+        "worlds": 50,
+        "continuations": 600,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.3999999999999999,
+            "pips": -5.173333333333335,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.28666666666666674,
+            "pips": -4.42,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.15333333333333335,
+            "pips": -3.486666666666668,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74393,
+        "turn": 20,
+        "focal": 1,
+        "next": 2,
+        "x": 2,
+        "hand": [
+          "2-2",
+          "0-3",
+          "0-2",
+          "2-4",
+          "1-2"
+        ],
+        "handSizes": [
+          3,
+          5,
+          2
+        ],
+        "ends": [
+          0,
+          2,
+          4,
+          0
+        ],
+        "opened": [
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|right|2||2-4"
+        ],
+        "worldSeedStart": 88393000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0.14,
+          "minus10": 0.14,
+          "anyMinus": 0.14
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -3.5,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -2.7,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74469,
+        "turn": 23,
+        "focal": 0,
+        "next": 1,
+        "x": 3,
+        "hand": [
+          "2-3",
+          "3-3",
+          "3-5"
+        ],
+        "handSizes": [
+          3,
+          1,
+          2
+        ],
+        "ends": [
+          3,
+          3,
+          5,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|right|3||3-5"
+        ],
+        "worldSeedStart": 88469000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0.34,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.66,
+            "pips": -6.02,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.66,
+            "pips": -6.02,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.66,
+            "pips": -6.02,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74526,
+        "turn": 22,
+        "focal": 2,
+        "next": 0,
+        "x": 4,
+        "hand": [
+          "4-6",
+          "2-4",
+          "4-4"
+        ],
+        "handSizes": [
+          2,
+          2,
+          3
+        ],
+        "ends": [
+          2,
+          4,
+          4,
+          6
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||4|4-4"
+        ],
+        "keep": [
+          "single|down|4||4-6",
+          "single|up|4||2-4"
+        ],
+        "worldSeedStart": 88526000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.55,
+            "pips": -3.3,
+            "minus": 0.5
+          },
+          "min-hand-pips": {
+            "finish": 0.55,
+            "pips": -3.3,
+            "minus": 0.5
+          },
+          "fast-doubles": {
+            "finish": 0.55,
+            "pips": -3.3,
+            "minus": 0.5
+          }
+        }
+      },
+      {
+        "seed": 74528,
+        "turn": 25,
+        "focal": 0,
+        "next": 1,
+        "x": 2,
+        "hand": [
+          "0-3",
+          "2-2",
+          "2-4",
+          "2-3",
+          "0-5"
+        ],
+        "handSizes": [
+          5,
+          1,
+          1
+        ],
+        "ends": [
+          0,
+          4,
+          2,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|left|2||2-4"
+        ],
+        "worldSeedStart": 88528000,
+        "worlds": 50,
+        "continuations": 600,
+        "immediateOpenMinusKeep": {
+          "finish": 0.32,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74548,
+        "turn": 22,
+        "focal": 1,
+        "next": 2,
+        "x": 3,
+        "hand": [
+          "3-3",
+          "3-6",
+          "0-3"
+        ],
+        "handSizes": [
+          3,
+          3,
+          2
+        ],
+        "ends": [
+          3,
+          5,
+          6,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|right|3||3-6"
+        ],
+        "worldSeedStart": 88548000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.66,
+            "pips": -1.98,
+            "minus": 0.52
+          },
+          "min-hand-pips": {
+            "finish": 0.66,
+            "pips": -1.98,
+            "minus": 0.52
+          },
+          "fast-doubles": {
+            "finish": 0.66,
+            "pips": -1.98,
+            "minus": 0.52
+          }
+        }
+      },
+      {
+        "seed": 74549,
+        "turn": 26,
+        "focal": 0,
+        "next": 1,
+        "x": 2,
+        "hand": [
+          "2-2",
+          "0-6",
+          "0-3",
+          "2-3",
+          "0-2"
+        ],
+        "handSizes": [
+          5,
+          1,
+          2
+        ],
+        "ends": [
+          3,
+          2,
+          3,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|up|2||2-3",
+          "single|right|2||2-3"
+        ],
+        "worldSeedStart": 88549000,
+        "worlds": 50,
+        "continuations": 750,
+        "immediateOpenMinusKeep": {
+          "finish": 0.6,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74567,
+        "turn": 22,
+        "focal": 1,
+        "next": 2,
+        "x": 2,
+        "hand": [
+          "1-2",
+          "2-2",
+          "2-5"
+        ],
+        "handSizes": [
+          1,
+          3,
+          2
+        ],
+        "ends": [
+          2,
+          0,
+          2,
+          5
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|down|2||2-5"
+        ],
+        "worldSeedStart": 88567000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -5.48,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -5.48,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -5.48,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74578,
+        "turn": 21,
+        "focal": 0,
+        "next": 1,
+        "x": 2,
+        "hand": [
+          "2-5",
+          "2-2",
+          "0-2"
+        ],
+        "handSizes": [
+          3,
+          2,
+          2
+        ],
+        "ends": [
+          3,
+          5,
+          2,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|left|2||2-5"
+        ],
+        "worldSeedStart": 88578000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74626,
+        "turn": 26,
+        "focal": 2,
+        "next": 0,
+        "x": 3,
+        "hand": [
+          "1-3",
+          "2-3",
+          "3-3"
+        ],
+        "handSizes": [
+          2,
+          4,
+          3
+        ],
+        "ends": [
+          4,
+          3,
+          4,
+          1
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|down|3||1-3"
+        ],
+        "worldSeedStart": 88626000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.4,
+            "pips": -2,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.4,
+            "pips": -2,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.4,
+            "pips": -2,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74641,
+        "turn": 27,
+        "focal": 1,
+        "next": 2,
+        "x": 2,
+        "hand": [
+          "2-2",
+          "0-2",
+          "2-3"
+        ],
+        "handSizes": [
+          1,
+          3,
+          1
+        ],
+        "ends": [
+          2,
+          3,
+          2,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|left|2||2-3"
+        ],
+        "worldSeedStart": 88641000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0.64,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74697,
+        "turn": 20,
+        "focal": 0,
+        "next": 1,
+        "x": 3,
+        "hand": [
+          "2-3",
+          "3-3",
+          "3-4",
+          "2-4"
+        ],
+        "handSizes": [
+          4,
+          2,
+          2
+        ],
+        "ends": [
+          5,
+          1,
+          3,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|down|3||2-3"
+        ],
+        "worldSeedStart": 88697000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": 0.88,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": 0.88,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 0.88,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74703,
+        "turn": 22,
+        "focal": 2,
+        "next": 0,
+        "x": 2,
+        "hand": [
+          "2-4",
+          "0-2",
+          "2-2"
+        ],
+        "handSizes": [
+          2,
+          3,
+          3
+        ],
+        "ends": [
+          2,
+          2,
+          0,
+          6
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|right|2||0-2"
+        ],
+        "worldSeedStart": 88703000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.4,
+            "pips": -0.24,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.4,
+            "pips": -0.24,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.4,
+            "pips": -0.24,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74732,
+        "turn": 21,
+        "focal": 0,
+        "next": 1,
+        "x": 3,
+        "hand": [
+          "2-3",
+          "3-5",
+          "3-3",
+          "0-4",
+          "2-5"
+        ],
+        "handSizes": [
+          5,
+          2,
+          4
+        ],
+        "ends": [
+          2,
+          6,
+          2,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|up|3||2-3",
+          "single|right|3||2-3"
+        ],
+        "worldSeedStart": 88732000,
+        "worlds": 50,
+        "continuations": 750,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.2,
+            "pips": -1.72,
+            "minus": 0.16
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -2.44,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -1.86,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74767,
+        "turn": 23,
+        "focal": 2,
+        "next": 0,
+        "x": 4,
+        "hand": [
+          "0-4",
+          "4-4",
+          "2-4",
+          "0-5"
+        ],
+        "handSizes": [
+          1,
+          1,
+          4
+        ],
+        "ends": [
+          1,
+          4,
+          4,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||4|4-4"
+        ],
+        "keep": [
+          "single|down|4||2-4"
+        ],
+        "worldSeedStart": 88767000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0.56,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": 2,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": 2,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 2,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74821,
+        "turn": 24,
+        "focal": 0,
+        "next": 1,
+        "x": 2,
+        "hand": [
+          "2-6",
+          "0-2",
+          "2-2"
+        ],
+        "handSizes": [
+          3,
+          2,
+          1
+        ],
+        "ends": [
+          2,
+          6,
+          2,
+          1
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|left|2||2-6"
+        ],
+        "worldSeedStart": 88821000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -6.56,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -6.56,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -6.56,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74828,
+        "turn": 20,
+        "focal": 0,
+        "next": 1,
+        "x": 2,
+        "hand": [
+          "2-6",
+          "0-2",
+          "2-2",
+          "1-2"
+        ],
+        "handSizes": [
+          4,
+          2,
+          2
+        ],
+        "ends": [
+          2,
+          2,
+          0,
+          0
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|right|2||0-2",
+          "single|down|2||0-2"
+        ],
+        "worldSeedStart": 88828000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.4,
+            "pips": -1.42,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.4,
+            "pips": -1.12,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": 1.2,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74875,
+        "turn": 22,
+        "focal": 0,
+        "next": 1,
+        "x": 3,
+        "hand": [
+          "0-4",
+          "1-3",
+          "3-5",
+          "3-3",
+          "2-3"
+        ],
+        "handSizes": [
+          5,
+          2,
+          2
+        ],
+        "ends": [
+          5,
+          2,
+          4,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|up|3||3-5",
+          "single|left|3||2-3"
+        ],
+        "worldSeedStart": 88875000,
+        "worlds": 50,
+        "continuations": 600,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.38,
+            "pips": -10.52,
+            "minus": 0.26
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -7,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74878,
+        "turn": 25,
+        "focal": 2,
+        "next": 0,
+        "x": 2,
+        "hand": [
+          "1-2",
+          "2-3",
+          "2-2"
+        ],
+        "handSizes": [
+          1,
+          1,
+          3
+        ],
+        "ends": [
+          2,
+          3,
+          2,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|left|2||2-3"
+        ],
+        "worldSeedStart": 88878000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0.46,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74893,
+        "turn": 21,
+        "focal": 2,
+        "next": 0,
+        "x": 3,
+        "hand": [
+          "0-3",
+          "3-5",
+          "2-4",
+          "2-3",
+          "3-3"
+        ],
+        "handSizes": [
+          2,
+          2,
+          5
+        ],
+        "ends": [
+          6,
+          3,
+          6,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|down|3||2-3"
+        ],
+        "worldSeedStart": 88893000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -5.88,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -5.88,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -5.88,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74906,
+        "turn": 24,
+        "focal": 2,
+        "next": 0,
+        "x": 3,
+        "hand": [
+          "3-3",
+          "0-6",
+          "3-6",
+          "2-3",
+          "3-4"
+        ],
+        "handSizes": [
+          2,
+          2,
+          5
+        ],
+        "ends": [
+          5,
+          4,
+          5,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|left|3||3-4"
+        ],
+        "worldSeedStart": 88906000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -6.78,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -6.78,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -6.78,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74918,
+        "turn": 22,
+        "focal": 2,
+        "next": 0,
+        "x": 2,
+        "hand": [
+          "2-6",
+          "2-5",
+          "2-2"
+        ],
+        "handSizes": [
+          2,
+          1,
+          3
+        ],
+        "ends": [
+          2,
+          1,
+          6,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|right|2||2-6"
+        ],
+        "worldSeedStart": 88918000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -3.76,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -3.76,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -3.76,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74935,
+        "turn": 27,
+        "focal": 0,
+        "next": 1,
+        "x": 3,
+        "hand": [
+          "2-5",
+          "3-3",
+          "3-4",
+          "3-6"
+        ],
+        "handSizes": [
+          4,
+          1,
+          2
+        ],
+        "ends": [
+          3,
+          6,
+          5,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|left|3||3-6"
+        ],
+        "worldSeedStart": 88935000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0.66,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -11.02,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -11.02,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -8.32,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74947,
+        "turn": 21,
+        "focal": 2,
+        "next": 0,
+        "x": 5,
+        "hand": [
+          "4-5",
+          "5-5",
+          "2-5"
+        ],
+        "handSizes": [
+          2,
+          2,
+          3
+        ],
+        "ends": [
+          4,
+          5,
+          0,
+          5
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "open": [
+          "double-sequence|||5|5-5"
+        ],
+        "keep": [
+          "single|up|5||4-5"
+        ],
+        "worldSeedStart": 88947000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.78,
+            "pips": -5.46,
+            "minus": 0.48
+          },
+          "min-hand-pips": {
+            "finish": 0.78,
+            "pips": -5.46,
+            "minus": 0.48
+          },
+          "fast-doubles": {
+            "finish": 0.78,
+            "pips": -5.46,
+            "minus": 0.48
+          }
+        }
+      },
+      {
+        "seed": 74950,
+        "turn": 22,
+        "focal": 1,
+        "next": 2,
+        "x": 2,
+        "hand": [
+          "1-2",
+          "2-2",
+          "0-2",
+          "2-3"
+        ],
+        "handSizes": [
+          3,
+          4,
+          2
+        ],
+        "ends": [
+          0,
+          4,
+          2,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|up|2||0-2",
+          "single|down|2||2-3"
+        ],
+        "worldSeedStart": 88950000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.25,
+            "pips": -1.32,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.01,
+            "pips": -0.29,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -0.26,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74952,
+        "turn": 23,
+        "focal": 1,
+        "next": 2,
+        "x": 2,
+        "hand": [
+          "0-2",
+          "2-2",
+          "2-5",
+          "1-2"
+        ],
+        "handSizes": [
+          3,
+          4,
+          1
+        ],
+        "ends": [
+          5,
+          2,
+          4,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|up|2||2-5"
+        ],
+        "worldSeedStart": 88952000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0.24,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -3.96,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -3.96,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -3.96,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 74954,
+        "turn": 24,
+        "focal": 1,
+        "next": 2,
+        "x": 3,
+        "hand": [
+          "2-3",
+          "3-4",
+          "0-2",
+          "3-3"
+        ],
+        "handSizes": [
+          1,
+          4,
+          2
+        ],
+        "ends": [
+          4,
+          3,
+          2,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|right|3||2-3",
+          "single|up|3||3-4"
+        ],
+        "worldSeedStart": 88954000,
+        "worlds": 50,
+        "continuations": 600,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -7.52,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -7.52,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -4.02,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 75014,
+        "turn": 23,
+        "focal": 2,
+        "next": 0,
+        "x": 2,
+        "hand": [
+          "0-5",
+          "2-4",
+          "0-0",
+          "2-6",
+          "2-2"
+        ],
+        "handSizes": [
+          2,
+          3,
+          5
+        ],
+        "ends": [
+          0,
+          0,
+          2,
+          6
+        ],
+        "opened": [
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|down|2||2-6"
+        ],
+        "worldSeedStart": 89014000,
+        "worlds": 50,
+        "continuations": 750,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.22,
+            "pips": -3.72,
+            "minus": 0.14
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -3.04,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -11.88,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 75025,
+        "turn": 25,
+        "focal": 1,
+        "next": 2,
+        "x": 3,
+        "hand": [
+          "3-3",
+          "3-4",
+          "3-5"
+        ],
+        "handSizes": [
+          1,
+          3,
+          2
+        ],
+        "ends": [
+          3,
+          5,
+          4,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|right|3||3-4",
+          "single|left|3||3-5"
+        ],
+        "worldSeedStart": 89025000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 1,
+            "pips": -15,
+            "minus": 1
+          },
+          "min-hand-pips": {
+            "finish": 1,
+            "pips": -15,
+            "minus": 1
+          },
+          "fast-doubles": {
+            "finish": 1,
+            "pips": -15,
+            "minus": 1
+          }
+        }
+      },
+      {
+        "seed": 75029,
+        "turn": 22,
+        "focal": 0,
+        "next": 1,
+        "x": 2,
+        "hand": [
+          "2-2",
+          "2-4",
+          "1-4",
+          "1-2"
+        ],
+        "handSizes": [
+          4,
+          2,
+          1
+        ],
+        "ends": [
+          2,
+          2,
+          5,
+          4
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|down|2||2-4"
+        ],
+        "worldSeedStart": 89029000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -4.96,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -4.96,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -4.96,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 75107,
+        "turn": 22,
+        "focal": 2,
+        "next": 0,
+        "x": 2,
+        "hand": [
+          "1-2",
+          "2-6",
+          "2-2"
+        ],
+        "handSizes": [
+          2,
+          2,
+          3
+        ],
+        "ends": [
+          2,
+          6,
+          4,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|left|2||2-6"
+        ],
+        "worldSeedStart": 89107000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.26,
+            "pips": -0.78,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.26,
+            "pips": -0.78,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.26,
+            "pips": -0.78,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 75117,
+        "turn": 23,
+        "focal": 0,
+        "next": 1,
+        "x": 2,
+        "hand": [
+          "2-3",
+          "0-2",
+          "3-4",
+          "2-2"
+        ],
+        "handSizes": [
+          4,
+          2,
+          1
+        ],
+        "ends": [
+          2,
+          2,
+          0,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|right|2||0-2"
+        ],
+        "worldSeedStart": 89117000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -0.82,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -0.82,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -0.82,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 75129,
+        "turn": 22,
+        "focal": 2,
+        "next": 0,
+        "x": 3,
+        "hand": [
+          "0-3",
+          "3-3",
+          "0-1",
+          "3-5",
+          "1-3"
+        ],
+        "handSizes": [
+          2,
+          1,
+          5
+        ],
+        "ends": [
+          2,
+          3,
+          3,
+          5
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|down|3||3-5"
+        ],
+        "worldSeedStart": 89129000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -5.42,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -4.28,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -4.28,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 75135,
+        "turn": 24,
+        "focal": 2,
+        "next": 0,
+        "x": 3,
+        "hand": [
+          "3-3",
+          "3-6",
+          "3-4"
+        ],
+        "handSizes": [
+          2,
+          2,
+          3
+        ],
+        "ends": [
+          4,
+          2,
+          3,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|up|3||3-4"
+        ],
+        "worldSeedStart": 89135000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": -0.02,
+            "pips": 0.74,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": -0.02,
+            "pips": 0.74,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": -0.02,
+            "pips": 0.74,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 75145,
+        "turn": 21,
+        "focal": 1,
+        "next": 2,
+        "x": 2,
+        "hand": [
+          "2-3",
+          "2-2",
+          "0-2",
+          "0-3"
+        ],
+        "handSizes": [
+          3,
+          4,
+          2
+        ],
+        "ends": [
+          2,
+          2,
+          3,
+          6
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|right|2||2-3"
+        ],
+        "worldSeedStart": 89145000,
+        "worlds": 50,
+        "continuations": 450,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -0.98,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -0.98,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -0.98,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 75175,
+        "turn": 23,
+        "focal": 1,
+        "next": 2,
+        "x": 3,
+        "hand": [
+          "2-3",
+          "3-4",
+          "0-4",
+          "3-3"
+        ],
+        "handSizes": [
+          3,
+          4,
+          1
+        ],
+        "ends": [
+          3,
+          4,
+          4,
+          3
+        ],
+        "opened": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "keep": [
+          "single|left|3||3-4",
+          "single|right|3||3-4"
+        ],
+        "worldSeedStart": 89175000,
+        "worlds": 50,
+        "continuations": 750,
+        "immediateOpenMinusKeep": {
+          "finish": 0.46,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -1.36,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -4.62,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -4.62,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 75195,
+        "turn": 25,
+        "focal": 2,
+        "next": 0,
+        "x": 2,
+        "hand": [
+          "2-2",
+          "3-6",
+          "2-3",
+          "0-2"
+        ],
+        "handSizes": [
+          2,
+          2,
+          4
+        ],
+        "ends": [
+          0,
+          2,
+          2,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|up|2||0-2"
+        ],
+        "worldSeedStart": 89195000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0.14,
+            "pips": 0.12,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0.14,
+            "pips": 0.12,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0.14,
+            "pips": 0.12,
+            "minus": 0
+          }
+        }
+      },
+      {
+        "seed": 75239,
+        "turn": 23,
+        "focal": 0,
+        "next": 1,
+        "x": 2,
+        "hand": [
+          "0-4",
+          "2-5",
+          "2-2",
+          "2-4"
+        ],
+        "handSizes": [
+          4,
+          1,
+          1
+        ],
+        "ends": [
+          2,
+          5,
+          2,
+          2
+        ],
+        "opened": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "keep": [
+          "single|left|2||2-5"
+        ],
+        "worldSeedStart": 89239000,
+        "worlds": 50,
+        "continuations": 300,
+        "immediateOpenMinusKeep": {
+          "finish": 0.38,
+          "minus10": 0,
+          "anyMinus": 0
+        },
+        "preserveMinusOpen": {
+          "closed-branch-control": {
+            "finish": 0,
+            "pips": -7,
+            "minus": 0
+          },
+          "min-hand-pips": {
+            "finish": 0,
+            "pips": -7,
+            "minus": 0
+          },
+          "fast-doubles": {
+            "finish": 0,
+            "pips": -7,
+            "minus": 0
+          }
+        }
+      }
+    ]
+  },
+  "confidence": "moderate model-specific sign; exploratory CIs",
+  "limitations": "quotas are not prevalence weighted; X strata not matched by hand/opponent/branch state; assumed branch semantics; bot continuations; first-eligible selection; block winner unassigned; no human generalization",
+  "next": "match X strata by hand size, next-player count and opened/branch state; retest seed 74212 and 75135 with >=200 worlds; compare non-pattern controls"
+}
