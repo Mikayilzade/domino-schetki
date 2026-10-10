@@ -359,3 +359,16 @@
 - cumulative verified: **180,000 full strategy rounds** + **28685 hidden allocations** (previous 27,685 + 1000); 4,000 historical rounds separate.
 - confidence/limits: moderate for model-specific sign; no causal human generalization. First eligible position, only 25 worlds, branch opening assumptions, bot policies, no block winner, uncorrected exploratory intervals.
 - next: independent 50+ positions using min-hand-pips discovery and >=50 worlds, matched non-pattern double-vs-single controls, explain counterexample seed 63040.
+
+
+### 2026-10-10 14:54:50 +04:00 — exact conditional late-double enumeration
+- Engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`; primary 3×9. No gameplay changes.
+- Reproduced prior discovery seeds `74000..75999`, 100 strict positions (50 X=0, 50 X>0), matched all selected seed/turn/hand triples; no new complete strategy rounds.
+- **671 exhaustive distinct hidden opponent allocations**, 5,622 evaluated candidate continuations; 2–21 allocations per position, all resolved. Unlike 50-world Monte Carlo, these position-specific results have no allocation sampling error.
+- Compared preserving X-X plus connector against immediately opening X-X, on identical worlds and three deterministic policies. Finish-first advantage: **23.03 / 21.57 / 19.26 percentage points** (closed-branch / min-pips / fast-doubles). Closed-branch mean remainder difference **-3.12 pips**; 47 positive, 53 ties, 0 negative positions.
+- Previous apparent opening-favorable seeds were sampling artifacts: 74212: 0.00 pp (10 allocations); 75135: 16.67 pp (6 allocations). Do not retain the earlier -2 pp estimates as verified exceptions.
+- Validation: executable deterministic 10/6-allocation fixtures, 28-tile integrity, unchanged focal candidate set and source state; self-test passed in V8 CommonJS harness (Node CLI not run).
+- Confidence: exact under equal weighting of unseen-tile allocations and fixed bot policies; not an exact posterior conditioned on opponents' earlier decisions. Quota/first-eligible selection, assumed branch opening semantics, block winner unassigned, exploratory position intervals.
+- Cumulative validated full strategy rounds remain **180,000** (historical 4,000 separate); the 671 exhaustive allocations are tracked separately from earlier random-world samples.
+- Reproduce: `simulator/exact-late-double-runner.js` (`test`, then `74000 76000 50`), data `runs/2026-10-10-exact-late-double-74000.json`.
+- Exact next hypothesis/action: repeat on independent fresh seeds, then use matched non-pattern double-versus-single controls to isolate branch control from connector retention.
