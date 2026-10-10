@@ -1,0 +1,2834 @@
+{
+  "schema": "qosa-isolated-mobility-exact/v1",
+  "timestampAsiaBaku": "2026-10-10 23:50 (+04)",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "start": 130000,
+  "end": 134000,
+  "limit": 40,
+  "scannedDeals": 1740,
+  "positions": 40,
+  "exactHiddenAllocations": 359,
+  "candidateContinuations": 3246,
+  "newFullStrategyRounds": 0,
+  "discovery": "min-hand-pips",
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "continuationSeedFormula": "23000000+1000*dealSeed+lexicographicAllocationIndex",
+  "selection": "first eligible/deal, isolated X-X, focal 3-5 stones, next opponent 1-2 stones, stock empty",
+  "weighting": "exact uniform hidden allocations, equal action class and position weights",
+  "metricDefinition": "next starter tiles: number of distinct physical tile types that can BEGIN a legal action; not later stones in a multi-double sequence",
+  "reproduction": "From repo JS modules: for seeds 130000..133999 initialize 3x9 later-round with previousWinnerIndex=seed%3, advance using min-hand-pips, stop at first isolated-double-exact-runner.eligible state; exact-late-double-runner.exactWorlds + isolated-double-exact-runner.analyze; for each exact world and open/keep candidate, applyTurn then count distinct first action tiles for next player; equal-weight worlds/classes/positions.",
+  "summary": {
+    "all": {
+      "positions": 40,
+      "openingFavored": 2,
+      "mobility": {
+        "n": 40,
+        "mean": 0.862767857142857,
+        "exploratoryCI95": [
+          0.7288307405739216,
+          0.9967049737117923
+        ]
+      },
+      "nextCanMove": {
+        "n": 40,
+        "mean": 0.33768452380952363,
+        "exploratoryCI95": [
+          0.25361383728507386,
+          0.4217552103339734
+        ]
+      },
+      "immediateFinish": {
+        "n": 40,
+        "mean": 0.051041666666666666,
+        "exploratoryCI95": [
+          0.0003530156395510006,
+          0.10173031769378232
+        ]
+      },
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": {
+            "n": 40,
+            "mean": 0.1376785714285714,
+            "exploratoryCI95": [
+              0.05819999742858557,
+              0.21715714542855724
+            ]
+          },
+          "pips": {
+            "n": 40,
+            "mean": -1.2562797619047616,
+            "exploratoryCI95": [
+              -2.1671473413852516,
+              -0.34541218242427163
+            ]
+          }
+        },
+        "min-hand-pips": {
+          "finish": {
+            "n": 40,
+            "mean": 0.1376785714285714,
+            "exploratoryCI95": [
+              0.05819999742858557,
+              0.21715714542855724
+            ]
+          },
+          "pips": {
+            "n": 40,
+            "mean": -1.2562797619047616,
+            "exploratoryCI95": [
+              -2.1671473413852516,
+              -0.34541218242427163
+            ]
+          }
+        },
+        "fast-doubles": {
+          "finish": {
+            "n": 40,
+            "mean": 0.1426785714285714,
+            "exploratoryCI95": [
+              0.055272132275537025,
+              0.2300850105816058
+            ]
+          },
+          "pips": {
+            "n": 40,
+            "mean": -0.9487797619047619,
+            "exploratoryCI95": [
+              -1.8672158535300467,
+              -0.030343670279477042
+            ]
+          }
+        }
+      }
+    },
+    "openingAddsMobility": {
+      "positions": 40,
+      "openingFavored": 2,
+      "mobility": {
+        "n": 40,
+        "mean": 0.862767857142857,
+        "exploratoryCI95": [
+          0.7288307405739216,
+          0.9967049737117923
+        ]
+      },
+      "nextCanMove": {
+        "n": 40,
+        "mean": 0.33768452380952363,
+        "exploratoryCI95": [
+          0.25361383728507386,
+          0.4217552103339734
+        ]
+      },
+      "immediateFinish": {
+        "n": 40,
+        "mean": 0.051041666666666666,
+        "exploratoryCI95": [
+          0.0003530156395510006,
+          0.10173031769378232
+        ]
+      },
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": {
+            "n": 40,
+            "mean": 0.1376785714285714,
+            "exploratoryCI95": [
+              0.05819999742858557,
+              0.21715714542855724
+            ]
+          },
+          "pips": {
+            "n": 40,
+            "mean": -1.2562797619047616,
+            "exploratoryCI95": [
+              -2.1671473413852516,
+              -0.34541218242427163
+            ]
+          }
+        },
+        "min-hand-pips": {
+          "finish": {
+            "n": 40,
+            "mean": 0.1376785714285714,
+            "exploratoryCI95": [
+              0.05819999742858557,
+              0.21715714542855724
+            ]
+          },
+          "pips": {
+            "n": 40,
+            "mean": -1.2562797619047616,
+            "exploratoryCI95": [
+              -2.1671473413852516,
+              -0.34541218242427163
+            ]
+          }
+        },
+        "fast-doubles": {
+          "finish": {
+            "n": 40,
+            "mean": 0.1426785714285714,
+            "exploratoryCI95": [
+              0.055272132275537025,
+              0.2300850105816058
+            ]
+          },
+          "pips": {
+            "n": 40,
+            "mean": -0.9487797619047619,
+            "exploratoryCI95": [
+              -1.8672158535300467,
+              -0.030343670279477042
+            ]
+          }
+        }
+      }
+    },
+    "openingDoesNotAddMobility": {
+      "positions": 0,
+      "openingFavored": 0,
+      "mobility": null,
+      "nextCanMove": null,
+      "immediateFinish": null,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": null,
+          "pips": null
+        },
+        "min-hand-pips": {
+          "finish": null,
+          "pips": null
+        },
+        "fast-doubles": {
+          "finish": null,
+          "pips": null
+        }
+      }
+    },
+    "next1": {
+      "positions": 4,
+      "openingFavored": 0,
+      "mobility": {
+        "n": 4,
+        "mean": 0.5104166666666666,
+        "exploratoryCI95": [
+          0.32666666666666666,
+          0.6941666666666666
+        ]
+      },
+      "nextCanMove": {
+        "n": 4,
+        "mean": 0.5104166666666666,
+        "exploratoryCI95": [
+          0.32666666666666666,
+          0.6941666666666666
+        ]
+      },
+      "immediateFinish": {
+        "n": 4,
+        "mean": 0.5104166666666666,
+        "exploratoryCI95": [
+          0.32666666666666666,
+          0.6941666666666666
+        ]
+      },
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": {
+            "n": 4,
+            "mean": 0,
+            "exploratoryCI95": [
+              0,
+              0
+            ]
+          },
+          "pips": {
+            "n": 4,
+            "mean": -5,
+            "exploratoryCI95": [
+              -6.8224662776944145,
+              -3.1775337223055855
+            ]
+          }
+        },
+        "min-hand-pips": {
+          "finish": {
+            "n": 4,
+            "mean": 0,
+            "exploratoryCI95": [
+              0,
+              0
+            ]
+          },
+          "pips": {
+            "n": 4,
+            "mean": -5,
+            "exploratoryCI95": [
+              -6.8224662776944145,
+              -3.1775337223055855
+            ]
+          }
+        },
+        "fast-doubles": {
+          "finish": {
+            "n": 4,
+            "mean": 0,
+            "exploratoryCI95": [
+              0,
+              0
+            ]
+          },
+          "pips": {
+            "n": 4,
+            "mean": -4.4375,
+            "exploratoryCI95": [
+              -6.091628043209876,
+              -2.7833719567901243
+            ]
+          }
+        }
+      }
+    },
+    "next2": {
+      "positions": 36,
+      "openingFavored": 2,
+      "mobility": {
+        "n": 36,
+        "mean": 0.9019179894179893,
+        "exploratoryCI95": [
+          0.7597684639677301,
+          1.0440675148682486
+        ]
+      },
+      "nextCanMove": {
+        "n": 36,
+        "mean": 0.3184920634920633,
+        "exploratoryCI95": [
+          0.2289105646305707,
+          0.40807356235355596
+        ]
+      },
+      "immediateFinish": {
+        "n": 36,
+        "mean": 0,
+        "exploratoryCI95": [
+          0,
+          0
+        ]
+      },
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": {
+            "n": 36,
+            "mean": 0.15297619047619046,
+            "exploratoryCI95": [
+              0.06600494859946295,
+              0.239947432352918
+            ]
+          },
+          "pips": {
+            "n": 36,
+            "mean": -0.8403108465608465,
+            "exploratoryCI95": [
+              -1.7379034278921777,
+              0.057281734770484594
+            ]
+          }
+        },
+        "min-hand-pips": {
+          "finish": {
+            "n": 36,
+            "mean": 0.15297619047619046,
+            "exploratoryCI95": [
+              0.06600494859946295,
+              0.239947432352918
+            ]
+          },
+          "pips": {
+            "n": 36,
+            "mean": -0.8403108465608465,
+            "exploratoryCI95": [
+              -1.7379034278921777,
+              0.057281734770484594
+            ]
+          }
+        },
+        "fast-doubles": {
+          "finish": {
+            "n": 36,
+            "mean": 0.15853174603174602,
+            "exploratoryCI95": [
+              0.06270349495877853,
+              0.2543599971047135
+            ]
+          },
+          "pips": {
+            "n": 36,
+            "mean": -0.5611441798941798,
+            "exploratoryCI95": [
+              -1.4849292098482354,
+              0.3626408500598759
+            ]
+          }
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "seed": 130000,
+      "turn": 20,
+      "x": 0,
+      "focal": 0,
+      "next": 1,
+      "hand": [
+        "0-0",
+        "1-2",
+        "1-3"
+      ],
+      "handSizes": [
+        3,
+        2,
+        5
+      ],
+      "ends": [
+        5,
+        0,
+        1,
+        6
+      ],
+      "targetEndCount": 1,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|right|2||1-2",
+        "single|right|3||1-3"
+      ],
+      "exactAllocations": 21,
+      "continuations": 189,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.19047619047619047,
+          "pips": -0.30952380952380953,
+          "minus": 0.23809523809523808
+        },
+        "min-hand-pips": {
+          "finish": 0.19047619047619047,
+          "pips": -0.30952380952380953,
+          "minus": 0.23809523809523808
+        },
+        "fast-doubles": {
+          "finish": 0.19047619047619047,
+          "pips": -0.30952380952380953,
+          "minus": 0.23809523809523808
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.2857142857142857,
+      "openMinusKeepNextCanMove": 0.11904761904761904
+    },
+    {
+      "seed": 130008,
+      "turn": 20,
+      "x": 0,
+      "focal": 1,
+      "next": 2,
+      "hand": [
+        "2-5",
+        "0-0",
+        "2-4"
+      ],
+      "handSizes": [
+        3,
+        3,
+        2
+      ],
+      "ends": [
+        0,
+        4,
+        2,
+        0
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|right|5||2-5",
+        "single|left|2||2-4",
+        "single|right|4||2-4"
+      ],
+      "exactAllocations": 10,
+      "continuations": 120,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.5,
+          "pips": -3,
+          "minus": 0.6666666666666667
+        },
+        "min-hand-pips": {
+          "finish": 0.5,
+          "pips": -3,
+          "minus": 0.6666666666666667
+        },
+        "fast-doubles": {
+          "finish": 0.5,
+          "pips": -3,
+          "minus": 0.6666666666666667
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1.3333333333333333,
+      "openMinusKeepNextCanMove": 0.7333333333333334
+    },
+    {
+      "seed": 130012,
+      "turn": 20,
+      "x": 3,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "0-5",
+        "3-3",
+        "0-2"
+      ],
+      "handSizes": [
+        2,
+        3,
+        3
+      ],
+      "ends": [
+        2,
+        1,
+        3,
+        3
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||3|3-3"
+      ],
+      "keep": [
+        "single|up|0||0-2"
+      ],
+      "exactAllocations": 10,
+      "continuations": 60,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.1,
+          "pips": 2.2,
+          "minus": 0.1
+        },
+        "min-hand-pips": {
+          "finish": 0.1,
+          "pips": 2.2,
+          "minus": 0.1
+        },
+        "fast-doubles": {
+          "finish": 0.1,
+          "pips": 2.2,
+          "minus": 0.1
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.4,
+      "openMinusKeepNextCanMove": 0.1
+    },
+    {
+      "seed": 130052,
+      "turn": 19,
+      "x": 0,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "3-6",
+        "0-0",
+        "2-3",
+        "3-4"
+      ],
+      "handSizes": [
+        2,
+        2,
+        4
+      ],
+      "ends": [
+        4,
+        0,
+        1,
+        0
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|up|3||3-4"
+      ],
+      "exactAllocations": 6,
+      "continuations": 36,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 2,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 2,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 2,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1,
+      "openMinusKeepNextCanMove": 0.16666666666666666
+    },
+    {
+      "seed": 130095,
+      "turn": 20,
+      "x": 0,
+      "focal": 1,
+      "next": 2,
+      "hand": [
+        "2-4",
+        "1-5",
+        "0-0"
+      ],
+      "handSizes": [
+        3,
+        3,
+        1
+      ],
+      "ends": [
+        2,
+        0,
+        2,
+        0
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|up|4||2-4",
+        "single|right|4||2-4"
+      ],
+      "exactAllocations": 4,
+      "continuations": 36,
+      "immediateOpenMinusKeepFinish": 0.5,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -6,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -6,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -6,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.5,
+      "openMinusKeepNextCanMove": 0.5
+    },
+    {
+      "seed": 130179,
+      "turn": 20,
+      "x": 0,
+      "focal": 0,
+      "next": 1,
+      "hand": [
+        "0-0",
+        "1-4",
+        "1-3"
+      ],
+      "handSizes": [
+        3,
+        2,
+        2
+      ],
+      "ends": [
+        0,
+        0,
+        1,
+        2
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|right|4||1-4",
+        "single|right|3||1-3"
+      ],
+      "exactAllocations": 6,
+      "continuations": 54,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 0.5,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 0.5,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 0.5,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1,
+      "openMinusKeepNextCanMove": 0.16666666666666666
+    },
+    {
+      "seed": 130207,
+      "turn": 19,
+      "x": 2,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "1-3",
+        "2-2",
+        "0-5"
+      ],
+      "handSizes": [
+        2,
+        3,
+        3
+      ],
+      "ends": [
+        2,
+        2,
+        1,
+        2
+      ],
+      "targetEndCount": 3,
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||2|2-2"
+      ],
+      "keep": [
+        "single|right|3||1-3"
+      ],
+      "exactAllocations": 10,
+      "continuations": 60,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.4,
+          "pips": -1.3,
+          "minus": 0.6
+        },
+        "min-hand-pips": {
+          "finish": 0.4,
+          "pips": -1.3,
+          "minus": 0.6
+        },
+        "fast-doubles": {
+          "finish": 0.4,
+          "pips": -1.3,
+          "minus": 0.6
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.8,
+      "openMinusKeepNextCanMove": 0.5
+    },
+    {
+      "seed": 130214,
+      "turn": 21,
+      "x": 0,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "3-4",
+        "2-4",
+        "0-0"
+      ],
+      "handSizes": [
+        2,
+        2,
+        3
+      ],
+      "ends": [
+        0,
+        0,
+        2,
+        0
+      ],
+      "targetEndCount": 3,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|right|4||2-4"
+      ],
+      "exactAllocations": 6,
+      "continuations": 36,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 0.6666666666666666,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 0.6666666666666666,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 0.6666666666666666,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.5,
+      "openMinusKeepNextCanMove": 0.16666666666666666
+    },
+    {
+      "seed": 130246,
+      "turn": 17,
+      "x": 2,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "1-5",
+        "2-2",
+        "0-4"
+      ],
+      "handSizes": [
+        2,
+        3,
+        3
+      ],
+      "ends": [
+        2,
+        2,
+        3,
+        0
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||2|2-2"
+      ],
+      "keep": [
+        "single|down|4||0-4"
+      ],
+      "exactAllocations": 10,
+      "continuations": 60,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.3,
+          "pips": -0.4,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0.3,
+          "pips": -0.4,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0.3,
+          "pips": -0.4,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1.2,
+      "openMinusKeepNextCanMove": 0.3
+    },
+    {
+      "seed": 130302,
+      "turn": 20,
+      "x": 0,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "0-0",
+        "2-3",
+        "1-2"
+      ],
+      "handSizes": [
+        1,
+        3,
+        3
+      ],
+      "ends": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "targetEndCount": 3,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|right|2||1-2"
+      ],
+      "exactAllocations": 4,
+      "continuations": 24,
+      "immediateOpenMinusKeepFinish": 0.25,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -2.25,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -2.25,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -2.25,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.25,
+      "openMinusKeepNextCanMove": 0.25
+    },
+    {
+      "seed": 130303,
+      "turn": 18,
+      "x": 0,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "0-0",
+        "2-3",
+        "2-5"
+      ],
+      "handSizes": [
+        2,
+        2,
+        3
+      ],
+      "ends": [
+        3,
+        0,
+        0,
+        0
+      ],
+      "targetEndCount": 3,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|up|2||2-3"
+      ],
+      "exactAllocations": 6,
+      "continuations": 36,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 1,
+          "pips": -5.333333333333333,
+          "minus": 1
+        },
+        "min-hand-pips": {
+          "finish": 1,
+          "pips": -5.333333333333333,
+          "minus": 1
+        },
+        "fast-doubles": {
+          "finish": 1,
+          "pips": -5.333333333333333,
+          "minus": 1
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1.5,
+      "openMinusKeepNextCanMove": 1
+    },
+    {
+      "seed": 130358,
+      "turn": 16,
+      "x": 0,
+      "focal": 0,
+      "next": 1,
+      "hand": [
+        "1-5",
+        "2-4",
+        "0-0",
+        "5-6"
+      ],
+      "handSizes": [
+        4,
+        2,
+        3
+      ],
+      "ends": [
+        2,
+        3,
+        0,
+        5
+      ],
+      "targetEndCount": 1,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|down|1||1-5",
+        "single|up|4||2-4",
+        "single|down|6||5-6"
+      ],
+      "exactAllocations": 10,
+      "continuations": 120,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -2.0333333333333323,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -2.0333333333333323,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 0.2666666666666668,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1.0666666666666669,
+      "openMinusKeepNextCanMove": 0.23333333333333334
+    },
+    {
+      "seed": 130462,
+      "turn": 20,
+      "x": 0,
+      "focal": 1,
+      "next": 2,
+      "hand": [
+        "1-3",
+        "1-4",
+        "0-0"
+      ],
+      "handSizes": [
+        2,
+        3,
+        2
+      ],
+      "ends": [
+        4,
+        0,
+        0,
+        0
+      ],
+      "targetEndCount": 3,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|up|1||1-4"
+      ],
+      "exactAllocations": 6,
+      "continuations": 36,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 1,
+          "pips": -4.333333333333333,
+          "minus": 1
+        },
+        "min-hand-pips": {
+          "finish": 1,
+          "pips": -4.333333333333333,
+          "minus": 1
+        },
+        "fast-doubles": {
+          "finish": 1,
+          "pips": -4.333333333333333,
+          "minus": 1
+        }
+      },
+      "openMinusKeepNextStarterTiles": 2,
+      "openMinusKeepNextCanMove": 1
+    },
+    {
+      "seed": 130514,
+      "turn": 18,
+      "x": 0,
+      "focal": 1,
+      "next": 2,
+      "hand": [
+        "5-6",
+        "0-0",
+        "2-4"
+      ],
+      "handSizes": [
+        4,
+        3,
+        2
+      ],
+      "ends": [
+        0,
+        0,
+        5,
+        0
+      ],
+      "targetEndCount": 3,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|right|6||5-6"
+      ],
+      "exactAllocations": 15,
+      "continuations": 90,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.6666666666666666,
+          "pips": -4,
+          "minus": 0.26666666666666666
+        },
+        "min-hand-pips": {
+          "finish": 0.6666666666666666,
+          "pips": -4,
+          "minus": 0.26666666666666666
+        },
+        "fast-doubles": {
+          "finish": 0.6666666666666666,
+          "pips": -4,
+          "minus": 0.26666666666666666
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.6666666666666666,
+      "openMinusKeepNextCanMove": 0.4666666666666667
+    },
+    {
+      "seed": 130595,
+      "turn": 20,
+      "x": 0,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "1-2",
+        "0-0",
+        "3-5"
+      ],
+      "handSizes": [
+        2,
+        3,
+        3
+      ],
+      "ends": [
+        6,
+        2,
+        2,
+        0
+      ],
+      "targetEndCount": 1,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|left|1||1-2",
+        "single|right|1||1-2"
+      ],
+      "exactAllocations": 10,
+      "continuations": 90,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.1,
+          "pips": 1.7,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0.1,
+          "pips": 1.7,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0.1,
+          "pips": 1.7,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.8,
+      "openMinusKeepNextCanMove": 0.1
+    },
+    {
+      "seed": 130644,
+      "turn": 18,
+      "x": 2,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "2-2",
+        "0-4",
+        "0-3"
+      ],
+      "handSizes": [
+        2,
+        3,
+        3
+      ],
+      "ends": [
+        2,
+        4,
+        4,
+        2
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||2|2-2"
+      ],
+      "keep": [
+        "single|left|0||0-4",
+        "single|right|0||0-4"
+      ],
+      "exactAllocations": 10,
+      "continuations": 90,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.05,
+          "pips": -0.15,
+          "minus": 0.05
+        },
+        "min-hand-pips": {
+          "finish": 0.05,
+          "pips": -0.15,
+          "minus": 0.05
+        },
+        "fast-doubles": {
+          "finish": 0.05,
+          "pips": -0.15,
+          "minus": 0.05
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.4,
+      "openMinusKeepNextCanMove": 0.1
+    },
+    {
+      "seed": 130651,
+      "turn": 20,
+      "x": 0,
+      "focal": 0,
+      "next": 1,
+      "hand": [
+        "2-5",
+        "1-2",
+        "0-0"
+      ],
+      "handSizes": [
+        3,
+        2,
+        3
+      ],
+      "ends": [
+        2,
+        0,
+        0,
+        2
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|up|5||2-5",
+        "single|down|5||2-5",
+        "single|up|1||1-2",
+        "single|down|1||1-2"
+      ],
+      "exactAllocations": 10,
+      "continuations": 150,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.075,
+          "pips": 1.575,
+          "minus": 0.025
+        },
+        "min-hand-pips": {
+          "finish": 0.075,
+          "pips": 1.575,
+          "minus": 0.025
+        },
+        "fast-doubles": {
+          "finish": 0.075,
+          "pips": 1.575,
+          "minus": 0.025
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.8,
+      "openMinusKeepNextCanMove": 0.1
+    },
+    {
+      "seed": 130724,
+      "turn": 17,
+      "x": 0,
+      "focal": 1,
+      "next": 2,
+      "hand": [
+        "2-3",
+        "0-0",
+        "1-4",
+        "5-6"
+      ],
+      "handSizes": [
+        3,
+        4,
+        2
+      ],
+      "ends": [
+        0,
+        6,
+        0,
+        5
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|left|5||5-6",
+        "single|down|6||5-6"
+      ],
+      "exactAllocations": 10,
+      "continuations": 90,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.1,
+          "pips": -5.5,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0.1,
+          "pips": -5.5,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0.1,
+          "pips": -3.75,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1.6,
+      "openMinusKeepNextCanMove": 0.65
+    },
+    {
+      "seed": 130783,
+      "turn": 20,
+      "x": 2,
+      "focal": 1,
+      "next": 2,
+      "hand": [
+        "1-3",
+        "0-5",
+        "2-2"
+      ],
+      "handSizes": [
+        2,
+        3,
+        2
+      ],
+      "ends": [
+        2,
+        2,
+        2,
+        3
+      ],
+      "targetEndCount": 3,
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||2|2-2"
+      ],
+      "keep": [
+        "single|down|1||1-3"
+      ],
+      "exactAllocations": 6,
+      "continuations": 36,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.3333333333333333,
+          "pips": -0.6666666666666666,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0.3333333333333333,
+          "pips": -0.6666666666666666,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0.3333333333333333,
+          "pips": -0.6666666666666666,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1.5,
+      "openMinusKeepNextCanMove": 0.5
+    },
+    {
+      "seed": 130789,
+      "turn": 20,
+      "x": 0,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "1-4",
+        "0-0",
+        "2-4"
+      ],
+      "handSizes": [
+        1,
+        2,
+        3
+      ],
+      "ends": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "targetEndCount": 3,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|right|1||1-4",
+        "single|right|2||2-4"
+      ],
+      "exactAllocations": 3,
+      "continuations": 27,
+      "immediateOpenMinusKeepFinish": 0.6666666666666666,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -5.5,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -5.5,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -5.5,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.6666666666666666,
+      "openMinusKeepNextCanMove": 0.6666666666666666
+    },
+    {
+      "seed": 130870,
+      "turn": 17,
+      "x": 0,
+      "focal": 0,
+      "next": 1,
+      "hand": [
+        "2-3",
+        "2-6",
+        "0-0"
+      ],
+      "handSizes": [
+        3,
+        2,
+        4
+      ],
+      "ends": [
+        6,
+        5,
+        0,
+        1
+      ],
+      "targetEndCount": 1,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|up|2||2-6"
+      ],
+      "exactAllocations": 15,
+      "continuations": 90,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 0,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.3333333333333333,
+      "openMinusKeepNextCanMove": 0.06666666666666667
+    },
+    {
+      "seed": 130919,
+      "turn": 17,
+      "x": 3,
+      "focal": 1,
+      "next": 2,
+      "hand": [
+        "3-3",
+        "2-4",
+        "2-5",
+        "0-5"
+      ],
+      "handSizes": [
+        3,
+        4,
+        2
+      ],
+      "ends": [
+        3,
+        3,
+        3,
+        4
+      ],
+      "targetEndCount": 3,
+      "opened": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||3|3-3"
+      ],
+      "keep": [
+        "single|down|2||2-4"
+      ],
+      "exactAllocations": 10,
+      "continuations": 60,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 0.1,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 0.1,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 0.1,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.4,
+      "openMinusKeepNextCanMove": 0.2
+    },
+    {
+      "seed": 130920,
+      "turn": 24,
+      "x": 2,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "2-2",
+        "0-3",
+        "0-0",
+        "0-6"
+      ],
+      "handSizes": [
+        2,
+        4,
+        4
+      ],
+      "ends": [
+        3,
+        2,
+        0,
+        2
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||2|2-2"
+      ],
+      "keep": [
+        "single|up|0||0-3"
+      ],
+      "exactAllocations": 15,
+      "continuations": 225,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.2,
+          "pips": -0.6,
+          "minus": 0.2
+        },
+        "min-hand-pips": {
+          "finish": 0.2,
+          "pips": -0.6,
+          "minus": -0.8
+        },
+        "fast-doubles": {
+          "finish": 0.8666666666666667,
+          "pips": -7,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1.3333333333333333,
+      "openMinusKeepNextCanMove": 0.9333333333333333
+    },
+    {
+      "seed": 130935,
+      "turn": 17,
+      "x": 0,
+      "focal": 0,
+      "next": 1,
+      "hand": [
+        "1-2",
+        "2-3",
+        "0-0",
+        "1-5"
+      ],
+      "handSizes": [
+        4,
+        1,
+        3
+      ],
+      "ends": [
+        0,
+        2,
+        0,
+        4
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|left|1||1-2",
+        "single|left|3||2-3"
+      ],
+      "exactAllocations": 4,
+      "continuations": 36,
+      "immediateOpenMinusKeepFinish": 0.625,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -6.25,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -6.25,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -4,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.625,
+      "openMinusKeepNextCanMove": 0.625
+    },
+    {
+      "seed": 130939,
+      "turn": 17,
+      "x": 3,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "3-3",
+        "0-6",
+        "0-4",
+        "0-5"
+      ],
+      "handSizes": [
+        2,
+        3,
+        4
+      ],
+      "ends": [
+        3,
+        5,
+        3,
+        3
+      ],
+      "targetEndCount": 3,
+      "opened": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||3|3-3"
+      ],
+      "keep": [
+        "single|left|0||0-5"
+      ],
+      "exactAllocations": 10,
+      "continuations": 60,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -1.7,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -1.7,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -1.7,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.8,
+      "openMinusKeepNextCanMove": 0.5
+    },
+    {
+      "seed": 130963,
+      "turn": 17,
+      "x": 0,
+      "focal": 1,
+      "next": 2,
+      "hand": [
+        "1-3",
+        "2-3",
+        "2-4",
+        "0-0"
+      ],
+      "handSizes": [
+        3,
+        4,
+        2
+      ],
+      "ends": [
+        3,
+        6,
+        2,
+        0
+      ],
+      "targetEndCount": 1,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|up|1||1-3",
+        "single|up|2||2-3",
+        "single|right|3||2-3",
+        "single|right|4||2-4"
+      ],
+      "exactAllocations": 10,
+      "continuations": 150,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -3.075,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -3.075,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -0.275,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1,
+      "openMinusKeepNextCanMove": 0.2
+    },
+    {
+      "seed": 131075,
+      "turn": 17,
+      "x": 0,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "1-2",
+        "3-4",
+        "2-3",
+        "0-0"
+      ],
+      "handSizes": [
+        2,
+        3,
+        4
+      ],
+      "ends": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "targetEndCount": 3,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|right|2||1-2"
+      ],
+      "exactAllocations": 10,
+      "continuations": 60,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.3,
+          "pips": 1.7,
+          "minus": 0.3
+        },
+        "min-hand-pips": {
+          "finish": 0.3,
+          "pips": 1.7,
+          "minus": 0.3
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 3.9,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.4,
+      "openMinusKeepNextCanMove": 0.2
+    },
+    {
+      "seed": 131085,
+      "turn": 20,
+      "x": 0,
+      "focal": 0,
+      "next": 1,
+      "hand": [
+        "2-3",
+        "1-3",
+        "0-0"
+      ],
+      "handSizes": [
+        3,
+        2,
+        2
+      ],
+      "ends": [
+        0,
+        4,
+        3,
+        0
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|right|2||2-3",
+        "single|right|1||1-3"
+      ],
+      "exactAllocations": 6,
+      "continuations": 54,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -1.1666666666666667,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -1.1666666666666667,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -1.1666666666666667,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1,
+      "openMinusKeepNextCanMove": 0.16666666666666666
+    },
+    {
+      "seed": 131094,
+      "turn": 21,
+      "x": 2,
+      "focal": 0,
+      "next": 1,
+      "hand": [
+        "0-3",
+        "0-5",
+        "2-2",
+        "3-4"
+      ],
+      "handSizes": [
+        4,
+        2,
+        3
+      ],
+      "ends": [
+        2,
+        4,
+        2,
+        2
+      ],
+      "targetEndCount": 3,
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||2|2-2"
+      ],
+      "keep": [
+        "single|left|3||3-4"
+      ],
+      "exactAllocations": 10,
+      "continuations": 60,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -1.1,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -1.1,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -0.5,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.4,
+      "openMinusKeepNextCanMove": 0.2
+    },
+    {
+      "seed": 131222,
+      "turn": 21,
+      "x": 0,
+      "focal": 0,
+      "next": 1,
+      "hand": [
+        "3-4",
+        "0-0",
+        "3-5"
+      ],
+      "handSizes": [
+        3,
+        2,
+        2
+      ],
+      "ends": [
+        1,
+        0,
+        0,
+        3
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|down|4||3-4",
+        "single|down|5||3-5"
+      ],
+      "exactAllocations": 6,
+      "continuations": 54,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 0.5,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 0.5,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 0.5,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1,
+      "openMinusKeepNextCanMove": 0.16666666666666666
+    },
+    {
+      "seed": 131241,
+      "turn": 14,
+      "x": 0,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "1-3",
+        "3-4",
+        "1-2",
+        "2-3",
+        "0-0"
+      ],
+      "handSizes": [
+        2,
+        4,
+        5
+      ],
+      "ends": [
+        3,
+        0,
+        1,
+        0
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|up|1||1-3",
+        "single|right|3||1-3",
+        "single|up|4||3-4",
+        "single|right|2||1-2",
+        "single|up|2||2-3"
+      ],
+      "exactAllocations": 15,
+      "continuations": 270,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -4.133333333333334,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -4.133333333333334,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -0.3333333333333333,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.8666666666666666,
+      "openMinusKeepNextCanMove": 0.3466666666666666
+    },
+    {
+      "seed": 131312,
+      "turn": 20,
+      "x": 0,
+      "focal": 1,
+      "next": 2,
+      "hand": [
+        "5-6",
+        "1-2",
+        "0-0"
+      ],
+      "handSizes": [
+        2,
+        3,
+        2
+      ],
+      "ends": [
+        2,
+        0,
+        3,
+        0
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|up|1||1-2"
+      ],
+      "exactAllocations": 6,
+      "continuations": 36,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 8,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 8,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 8,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1,
+      "openMinusKeepNextCanMove": 0.16666666666666666
+    },
+    {
+      "seed": 131351,
+      "turn": 21,
+      "x": 2,
+      "focal": 0,
+      "next": 1,
+      "hand": [
+        "0-3",
+        "2-2",
+        "0-4"
+      ],
+      "handSizes": [
+        3,
+        2,
+        3
+      ],
+      "ends": [
+        0,
+        2,
+        0,
+        2
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||2|2-2"
+      ],
+      "keep": [
+        "single|up|3||0-3",
+        "single|right|3||0-3",
+        "single|up|4||0-4",
+        "single|right|4||0-4"
+      ],
+      "exactAllocations": 10,
+      "continuations": 150,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": -0.075,
+          "pips": 0.725,
+          "minus": 0.025
+        },
+        "min-hand-pips": {
+          "finish": -0.075,
+          "pips": 0.725,
+          "minus": 0.025
+        },
+        "fast-doubles": {
+          "finish": -0.075,
+          "pips": 0.725,
+          "minus": 0.025
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.8,
+      "openMinusKeepNextCanMove": 0.1
+    },
+    {
+      "seed": 131378,
+      "turn": 17,
+      "x": 2,
+      "focal": 1,
+      "next": 2,
+      "hand": [
+        "0-4",
+        "1-4",
+        "2-2",
+        "0-6"
+      ],
+      "handSizes": [
+        2,
+        4,
+        2
+      ],
+      "ends": [
+        2,
+        2,
+        0,
+        2
+      ],
+      "targetEndCount": 3,
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||2|2-2"
+      ],
+      "keep": [
+        "single|right|4||0-4",
+        "single|right|6||0-6"
+      ],
+      "exactAllocations": 6,
+      "continuations": 54,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.16666666666666666,
+          "pips": -2.5,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0.16666666666666666,
+          "pips": -2.5,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -2,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1.75,
+      "openMinusKeepNextCanMove": 0.75
+    },
+    {
+      "seed": 131442,
+      "turn": 18,
+      "x": 0,
+      "focal": 0,
+      "next": 1,
+      "hand": [
+        "3-4",
+        "0-0",
+        "1-3"
+      ],
+      "handSizes": [
+        3,
+        2,
+        3
+      ],
+      "ends": [
+        5,
+        3,
+        2,
+        0
+      ],
+      "targetEndCount": 1,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|left|4||3-4",
+        "single|left|1||1-3"
+      ],
+      "exactAllocations": 10,
+      "continuations": 90,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.1,
+          "pips": -1.15,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0.1,
+          "pips": -1.15,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0.1,
+          "pips": -1.15,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.8,
+      "openMinusKeepNextCanMove": 0.1
+    },
+    {
+      "seed": 131448,
+      "turn": 19,
+      "x": 2,
+      "focal": 1,
+      "next": 2,
+      "hand": [
+        "0-4",
+        "0-1",
+        "2-2"
+      ],
+      "handSizes": [
+        3,
+        3,
+        2
+      ],
+      "ends": [
+        4,
+        5,
+        2,
+        2
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||2|2-2"
+      ],
+      "keep": [
+        "single|up|0||0-4"
+      ],
+      "exactAllocations": 10,
+      "continuations": 60,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": -0.1,
+          "pips": 0.1,
+          "minus": 0.1
+        },
+        "min-hand-pips": {
+          "finish": -0.1,
+          "pips": 0.1,
+          "minus": 0.1
+        },
+        "fast-doubles": {
+          "finish": -0.1,
+          "pips": 0.1,
+          "minus": 0.1
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.4,
+      "openMinusKeepNextCanMove": 0.1
+    },
+    {
+      "seed": 131605,
+      "turn": 18,
+      "x": 0,
+      "focal": 2,
+      "next": 0,
+      "hand": [
+        "2-3",
+        "3-5",
+        "0-0"
+      ],
+      "handSizes": [
+        2,
+        3,
+        3
+      ],
+      "ends": [
+        2,
+        0,
+        0,
+        4
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|up|3||2-3"
+      ],
+      "exactAllocations": 10,
+      "continuations": 60,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 2.4,
+          "minus": 0.1
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 2.4,
+          "minus": 0.1
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 2.4,
+          "minus": 0.1
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.4,
+      "openMinusKeepNextCanMove": 0.1
+    },
+    {
+      "seed": 131713,
+      "turn": 17,
+      "x": 0,
+      "focal": 1,
+      "next": 2,
+      "hand": [
+        "2-3",
+        "2-4",
+        "1-3",
+        "0-0"
+      ],
+      "handSizes": [
+        3,
+        4,
+        2
+      ],
+      "ends": [
+        3,
+        4,
+        0,
+        0
+      ],
+      "targetEndCount": 2,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|up|2||2-3",
+        "single|left|2||2-4",
+        "single|up|1||1-3"
+      ],
+      "exactAllocations": 10,
+      "continuations": 120,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -3.166666666666667,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -3.166666666666667,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -0.6666666666666667,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.8,
+      "openMinusKeepNextCanMove": 0.3333333333333334
+    },
+    {
+      "seed": 131718,
+      "turn": 22,
+      "x": 0,
+      "focal": 0,
+      "next": 1,
+      "hand": [
+        "2-5",
+        "0-0",
+        "2-4"
+      ],
+      "handSizes": [
+        3,
+        2,
+        1
+      ],
+      "ends": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "targetEndCount": 3,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|left|5||2-5",
+        "single|left|4||2-4"
+      ],
+      "exactAllocations": 3,
+      "continuations": 27,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -6.5,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -6.5,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -6.5,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 1.3333333333333333,
+      "openMinusKeepNextCanMove": 0.3333333333333333
+    },
+    {
+      "seed": 131739,
+      "turn": 18,
+      "x": 0,
+      "focal": 1,
+      "next": 2,
+      "hand": [
+        "0-0",
+        "2-3",
+        "1-5"
+      ],
+      "handSizes": [
+        3,
+        3,
+        2
+      ],
+      "ends": [
+        6,
+        3,
+        0,
+        3
+      ],
+      "targetEndCount": 1,
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "open": [
+        "double-sequence|||0|0-0"
+      ],
+      "keep": [
+        "single|left|2||2-3",
+        "single|down|2||2-3"
+      ],
+      "exactAllocations": 10,
+      "continuations": 90,
+      "immediateOpenMinusKeepFinish": 0,
+      "preserveMinusOpen": {
+        "closed-branch-control": {
+          "finish": 0.1,
+          "pips": -0.3,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "finish": 0.1,
+          "pips": -0.3,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "finish": 0.1,
+          "pips": -0.3,
+          "minus": 0
+        }
+      },
+      "openMinusKeepNextStarterTiles": 0.8,
+      "openMinusKeepNextCanMove": 0.1
+    }
+  ],
+  "limitations": "bot policies and branch opening assumed; uniform exact hidden allocations not conditioned on opponent history; first eligible selection and exploratory subgroups; block winner unassigned."
+}
