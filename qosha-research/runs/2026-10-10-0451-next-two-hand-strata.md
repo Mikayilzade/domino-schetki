@@ -1,0 +1,3 @@
+# 2026-10-10 04:51 Asia/Baku
+
+Engine qosa-research-0.5.3 / rules qosa-1.0.0. 36 fresh 3x9 positions, 302 unique hidden worlds, 1,812 paired continuations; seed scan 1226000..1599999, seed%17=0, six positions per focal hand 3/4/5 and following opponent <=2/>=3, NEXT clockwise opponent exactly 2. Strategies: closed-branch-control, min-hand-pips, fast-doubles. X-X opening now minus X-Y connector: finish-first -30.09/-25.79/-17.92 pp; immediate NEXT-player finish risk +1.11 pp, only 2/36 positions positive. Cumulative: 180,000 complete rounds + 98,233 hidden worlds. Provisional: model assumptions, quota bias, correlated worlds, no block winner, V8 only. Next: X-matched fresh-seed replication and exact immediate-finish hand patterns.
