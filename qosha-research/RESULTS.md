@@ -372,3 +372,12 @@
 - Cumulative validated full strategy rounds remain **180,000** (historical 4,000 separate); the 671 exhaustive allocations are tracked separately from earlier random-world samples.
 - Reproduce: `simulator/exact-late-double-runner.js` (`test`, then `74000 76000 50`), data `runs/2026-10-10-exact-late-double-74000.json`.
 - Exact next hypothesis/action: repeat on independent fresh seeds, then use matched non-pattern double-versus-single controls to isolate branch control from connector retention.
+
+
+### 2026-10-11 12:45 (+04) — equal-pip connector control regression checkpoint
+- Engine/rules: existing `qosa-research-0.5.3` / recovered `qosa-1.0.0`, 3×9; no gameplay changes.
+- Persisted `simulator/connector-other-matches-test.js`: deterministic reachable-state discovery seeds `0..19999` (stop after 10 eligible positions); verifies legal single actions, same discarded pip sum, connector vs non-connector distinction, double retained, and source-state immutability.
+- Validation: source persisted but **not executed** in Node in this connector-only run; no pass claim. Test uses `closed-branch-control` for discovery.
+- New complete deals: 0; new evaluated hidden worlds: 0; no new strategy finding. Verified prior full-round cumulative baseline remains 180,000; exact hidden allocations tracked separately.
+- Confidence/limits: test scaffolding only, does not establish strategic advantage or isolate branch geometry; requires execution and independent paired-world runner.
+- Exact next action: run `node qosha-research/simulator/connector-other-matches-test.js`; if green, implement/run paired-world equal-pip comparison on fresh seeds with identical continuation worlds and three policies; record first-place, remainder, minus-finish separately.
