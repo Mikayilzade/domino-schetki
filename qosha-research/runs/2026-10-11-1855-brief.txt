@@ -1,1 +1,13 @@
-2026-10-11 18:55 Asia/Baku. New 25-position matched-world analysis: seeds 260000..319999, 750 hidden allocations. Hypothetical playable tile difference unrelated minus connector: next +0.2693; third +0.4907. Exploratory only. Engine qosa-research-0.5.3 / qosa-1.0.0. No new full rounds; cumulative 180000. Next: test same-mobility outcome strata.
+2026-10-11 18:55 Asia/Baku. Independent two-opponent immediate-mobility holdout.
+Engine qosa-research-0.5.3 / recovered rules qosa-1.0.0; mode 3x9.
+Seed scan 260000..319999, 6952 deals scanned, 25 first-eligible positions, 750 matched hidden worlds (30 per position); world seeds = 31000000+1000*dealSeed+j.
+Selected seeds: 260226,260292,260361,261153,261314,261540,261657,261974,262001,262269,262440,262573,262711,263361,263420,264591,265242,265331,265970,266262,266301,266355,266545,266716,266951.
+Compare connector X-Y versus unrelated equal-pip single, both retain X-X plus another X connector. Delta = unrelated minus connector. Distinct immediately playable tiles:
+next opponent +0.2693 (exploratory position CI95 +0.0465..+0.4922);
+third opponent +0.4907 (CI +0.2005..+0.7808);
+sum +0.7600 (CI +0.2631..+1.2569).
+Third mobility is HYPOTHETICAL before the next player acts.
+Same matched-world continuation policies: closed-branch-control / min-hand-pips / fast-doubles; 8280 candidate continuations, zero unresolved. Finish-first connector minus unrelated: -4.00 / -1.20 / +4.67 percentage points. Mean remainder: +0.735 / +0.953 / -1.875 pips.
+Validation: V8 CommonJS replay self-test passed on seed 35245. New full strategy rounds 0; cumulative validated full rounds 180000.
+Limitations: assumed locked branches, first-eligible selection, branch-side confounding, hidden allocations not conditioned on opponent history, block winner unassigned, exploratory CIs. No reliable first-place advantage.
+Next: conditional same-mobility comparisons with position-cluster uncertainty on fresh seeds under alternate discovery policy.
