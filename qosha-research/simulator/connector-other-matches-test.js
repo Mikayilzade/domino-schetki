@@ -35,5 +35,11 @@ for(let seed=0;seed<20000&&positions<10;seed++){
   s=r.stepRound(s,(opts,state)=>chooseBy('closed-branch-control',opts,{seed,turns:state.turns,player:state.currentPlayer}));
  }
 }
+// Distinct equal-pip tiles cannot both fit the same endpoint: the other pip is forced.
+for(let endpoint=0;endpoint<=6;endpoint++){
+ const candidates=e.createDoubleSixDeck().filter(t=>t.includes(endpoint));
+ for(let i=0;i<candidates.length;i++)for(let j=i+1;j<candidates.length;j++)
+  assert(e.pipSum([candidates[i]])!==e.pipSum([candidates[j]]),'same-side equal-pip distinct tile impossible');
+}
 assert(positions>0,'no reachable eligible fixture in seed range');
 console.log(JSON.stringify({passed:true,positions,pairs,seedRange:'0..19999'}));
