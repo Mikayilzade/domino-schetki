@@ -1,0 +1,1 @@
+Qoşa research 2026-10-11 04:51 Asia/Baku: independent min-pips holdout 60 positions, 500 exact allocations, 5148 continuations; finish-first retain X-X +30.80/+26.99/+23.94 pp across three policies. See pending checkpoint. 
