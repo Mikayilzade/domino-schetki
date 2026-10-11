@@ -1,0 +1,968 @@
+{
+  "schema": "qosa-third-player-connector-reanalysis/v1",
+  "timestampAsiaBaku": "2026-10-11 15:52 (+04)",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "seedRange": [
+    140000,
+    170000
+  ],
+  "selectedSeeds": [
+    140082,
+    140471,
+    140955,
+    140973,
+    141192,
+    141814,
+    142178,
+    142707,
+    143589,
+    143988,
+    144011,
+    144048,
+    144391,
+    146175,
+    146589,
+    146983,
+    147205,
+    147220,
+    147732,
+    149025
+  ],
+  "scannedDeals": 9026,
+  "positions": 20,
+  "hiddenWorlds": 400,
+  "policyWorldEvaluations": 1200,
+  "candidateContinuations": 5280,
+  "fullStrategyRoundsAdded": 0,
+  "cumulativeVerifiedFullStrategyRounds": 180000,
+  "worldSeedFormula": "31000000+1000*dealSeed+worldIndex",
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "comparison": "Connector vs unrelated equal-pip move, both retain X-X and another X connector; identical hidden allocations and policies.",
+  "metrics": "next and third potential playable-tile counts immediately after focal move; connector legal tiles at focal next turn after two actual opponent moves, conditional on both branches surviving; positive finish=connector better, positive mobility=unrelated move gives opponents more choices, positive access=connector-spend yields more connector access.",
+  "caveats": "Branch selection confounded; first eligible per seed under closed-branch-control; no posterior conditioning; third mobility before next opponent acts; next-turn access conditions on survival; position-normal CIs exploratory; block winner not assigned; no source code changes; reanalysis derived from connector-mobility-runner.js with deterministic extra two-step continuations.",
+  "next": "Independent policy-discovery holdout; stratify by immediate mobility and branch endpoint geometry; test whether connector access predicts finish advantage.",
+  "summary": {
+    "closed-branch-control": {
+      "finish": {
+        "n": 20,
+        "mean": -0.06749999999999998,
+        "ci95": [
+          -0.25617762955564394,
+          0.12117762955564398
+        ]
+      },
+      "pips": {
+        "n": 20,
+        "mean": 1.4175,
+        "ci95": [
+          -0.3122292229527839,
+          3.1472292229527836
+        ]
+      },
+      "next": {
+        "n": 20,
+        "mean": 0.28,
+        "ci95": [
+          -0.028710233748498515,
+          0.5887102337484986
+        ]
+      },
+      "third": {
+        "n": 20,
+        "mean": 0.41999999999999993,
+        "ci95": [
+          0.04155460937645106,
+          0.7984453906235488
+        ]
+      },
+      "bothMobilityEqual": {
+        "positions": 7,
+        "worlds": 77,
+        "finish": {
+          "n": 7,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        }
+      },
+      "nextFocalConnectorAccess": {
+        "positions": 19,
+        "worlds": 349,
+        "delta": {
+          "n": 19,
+          "mean": -1.1236842105263156,
+          "ci95": [
+            -1.3510414958286683,
+            -0.896326925223963
+          ]
+        }
+      }
+    },
+    "min-hand-pips": {
+      "finish": {
+        "n": 20,
+        "mean": -0.06999999999999999,
+        "ci95": [
+          -0.21226442392878642,
+          0.07226442392878644
+        ]
+      },
+      "pips": {
+        "n": 20,
+        "mean": 0.9325000000000001,
+        "ci95": [
+          -0.40031659238897843,
+          2.2653165923889786
+        ]
+      },
+      "next": {
+        "n": 20,
+        "mean": 0.28,
+        "ci95": [
+          -0.028710233748498515,
+          0.5887102337484986
+        ]
+      },
+      "third": {
+        "n": 20,
+        "mean": 0.41999999999999993,
+        "ci95": [
+          0.04155460937645106,
+          0.7984453906235488
+        ]
+      },
+      "bothMobilityEqual": {
+        "positions": 7,
+        "worlds": 77,
+        "finish": {
+          "n": 7,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        }
+      },
+      "nextFocalConnectorAccess": {
+        "positions": 19,
+        "worlds": 349,
+        "delta": {
+          "n": 19,
+          "mean": -1.1236842105263156,
+          "ci95": [
+            -1.3510414958286683,
+            -0.896326925223963
+          ]
+        }
+      }
+    },
+    "fast-doubles": {
+      "finish": {
+        "n": 20,
+        "mean": 0.025,
+        "ci95": [
+          -0.016759839685112694,
+          0.0667598396851127
+        ]
+      },
+      "pips": {
+        "n": 20,
+        "mean": -1.2625,
+        "ci95": [
+          -2.738503137031326,
+          0.21350313703132606
+        ]
+      },
+      "next": {
+        "n": 20,
+        "mean": 0.28,
+        "ci95": [
+          -0.028710233748498515,
+          0.5887102337484986
+        ]
+      },
+      "third": {
+        "n": 20,
+        "mean": 0.41999999999999993,
+        "ci95": [
+          0.04155460937645106,
+          0.7984453906235488
+        ]
+      },
+      "bothMobilityEqual": {
+        "positions": 7,
+        "worlds": 77,
+        "finish": {
+          "n": 7,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        }
+      },
+      "nextFocalConnectorAccess": {
+        "positions": 19,
+        "worlds": 349,
+        "delta": {
+          "n": 19,
+          "mean": -1.1236842105263156,
+          "ci95": [
+            -1.3510414958286683,
+            -0.896326925223963
+          ]
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "seed": 140082,
+      "turn": 22,
+      "x": 2,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -1.8,
+          "next": 1.05,
+          "third": 0.95,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -1.8,
+          "next": 1.05,
+          "third": 0.95,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -6,
+          "next": 1.05,
+          "third": 0.95,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        }
+      }
+    },
+    {
+      "seed": 140471,
+      "turn": 20,
+      "x": 3,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -0.4,
+          "next": -0.65,
+          "third": -0.35,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -0.6
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 0,
+          "next": -0.65,
+          "third": -0.35,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -0.6
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 0,
+          "next": -0.65,
+          "third": -0.35,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -0.6
+        }
+      }
+    },
+    {
+      "seed": 140955,
+      "turn": 23,
+      "x": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 0,
+          "next": 0.25,
+          "third": 0.75,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 0,
+          "next": 0.25,
+          "third": 0.75,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -4.5,
+          "next": 0.25,
+          "third": 0.75,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        }
+      }
+    },
+    {
+      "seed": 140973,
+      "turn": 20,
+      "x": 2,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0.1,
+          "pips": -1.65,
+          "next": 0.35,
+          "third": 0.65,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1.5
+        },
+        "min-hand-pips": {
+          "finish": 0.1,
+          "pips": -1.65,
+          "next": 0.35,
+          "third": 0.65,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1.5
+        },
+        "fast-doubles": {
+          "finish": -0.05,
+          "pips": -2.65,
+          "next": 0.35,
+          "third": 0.65,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1.5
+        }
+      }
+    },
+    {
+      "seed": 141192,
+      "turn": 21,
+      "x": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0.2,
+          "pips": -0.6,
+          "next": 1.2,
+          "third": 1.8,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        },
+        "min-hand-pips": {
+          "finish": 0.2,
+          "pips": -0.6,
+          "next": 1.2,
+          "third": 1.8,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        },
+        "fast-doubles": {
+          "finish": 0.4,
+          "pips": -5.7,
+          "next": 1.2,
+          "third": 1.8,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        }
+      }
+    },
+    {
+      "seed": 141814,
+      "turn": 23,
+      "x": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -1.95,
+          "next": 0.15,
+          "third": 0.85,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 6,
+          "access": -1
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -1.95,
+          "next": 0.15,
+          "third": 0.85,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 6,
+          "access": -1
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 1.2,
+          "next": 0.15,
+          "third": 0.85,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 6,
+          "access": -1
+        }
+      }
+    },
+    {
+      "seed": 142178,
+      "turn": 20,
+      "x": 3,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": -0.65,
+          "pips": 8.65,
+          "next": -0.3,
+          "third": -0.7,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 1.2,
+          "next": -0.3,
+          "third": -0.7,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 1.2,
+          "next": -0.3,
+          "third": -0.7,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        }
+      }
+    },
+    {
+      "seed": 142707,
+      "turn": 21,
+      "x": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": -1,
+          "pips": 7,
+          "next": -1.05,
+          "third": -0.95,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -2
+        },
+        "min-hand-pips": {
+          "finish": -1,
+          "pips": 7,
+          "next": -1.05,
+          "third": -0.95,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -2
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 1.5,
+          "next": -1.05,
+          "third": -0.95,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -2
+        }
+      }
+    },
+    {
+      "seed": 143589,
+      "turn": 20,
+      "x": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": -1,
+          "pips": 5,
+          "next": -0.15,
+          "third": -0.85,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        },
+        "min-hand-pips": {
+          "finish": -1,
+          "pips": 5,
+          "next": -0.15,
+          "third": -0.85,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 1.5,
+          "next": -0.15,
+          "third": -0.85,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        }
+      }
+    },
+    {
+      "seed": 143988,
+      "turn": 22,
+      "x": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 3,
+          "next": 0.1,
+          "third": -0.1,
+          "equalN": 8,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -1
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 3,
+          "next": 0.1,
+          "third": -0.1,
+          "equalN": 8,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -1
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 0,
+          "next": 0.1,
+          "third": -0.1,
+          "equalN": 8,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -1
+        }
+      }
+    },
+    {
+      "seed": 144011,
+      "turn": 22,
+      "x": 2,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": -1,
+          "next": 1.1,
+          "third": 1.9,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1.6
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -1,
+          "next": 1.1,
+          "third": 1.9,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1.6
+        },
+        "fast-doubles": {
+          "finish": 0.15,
+          "pips": -5.55,
+          "next": 1.1,
+          "third": 1.9,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1.6
+        }
+      }
+    },
+    {
+      "seed": 144048,
+      "turn": 20,
+      "x": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0.1,
+          "pips": -0.8,
+          "next": 1.25,
+          "third": 1.75,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        },
+        "min-hand-pips": {
+          "finish": 0.1,
+          "pips": -0.8,
+          "next": 1.25,
+          "third": 1.75,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -5.7,
+          "next": 1.25,
+          "third": 1.75,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        }
+      }
+    },
+    {
+      "seed": 144391,
+      "turn": 20,
+      "x": 2,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 0,
+          "next": 0,
+          "third": 0,
+          "equalN": 20,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -2
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 0,
+          "next": 0,
+          "third": 0,
+          "equalN": 20,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -2
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 2.8,
+          "next": 0,
+          "third": 0,
+          "equalN": 20,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -2
+        }
+      }
+    },
+    {
+      "seed": 146175,
+      "turn": 23,
+      "x": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0.2,
+          "pips": -2.8,
+          "next": 1.55,
+          "third": 1.45,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": 0
+        },
+        "min-hand-pips": {
+          "finish": 0.2,
+          "pips": -2.8,
+          "next": 1.55,
+          "third": 1.45,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": 0
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -5.6,
+          "next": 1.55,
+          "third": 1.45,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": 0
+        }
+      }
+    },
+    {
+      "seed": 146589,
+      "turn": 22,
+      "x": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 4.6,
+          "next": -0.1,
+          "third": 0.1,
+          "equalN": 6,
+          "equalFinish": 0,
+          "accessN": 0,
+          "access": null
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 4.6,
+          "next": -0.1,
+          "third": 0.1,
+          "equalN": 6,
+          "equalFinish": 0,
+          "accessN": 0,
+          "access": null
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 0,
+          "next": -0.1,
+          "third": 0.1,
+          "equalN": 6,
+          "equalFinish": 0,
+          "accessN": 0,
+          "access": null
+        }
+      }
+    },
+    {
+      "seed": 146983,
+      "turn": 20,
+      "x": 2,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 6.65,
+          "next": 0,
+          "third": 0,
+          "equalN": 20,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -2
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 4.8,
+          "next": 0,
+          "third": 0,
+          "equalN": 20,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -2
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 1.25,
+          "next": 0,
+          "third": 0,
+          "equalN": 20,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -2
+        }
+      }
+    },
+    {
+      "seed": 147205,
+      "turn": 20,
+      "x": 3,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": -0.3,
+          "pips": 5.15,
+          "next": -0.2,
+          "third": 0.2,
+          "equalN": 5,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -0.65
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 2.05,
+          "next": -0.2,
+          "third": 0.2,
+          "equalN": 5,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -0.65
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 4.3,
+          "next": -0.2,
+          "third": 0.2,
+          "equalN": 5,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -0.65
+        }
+      }
+    },
+    {
+      "seed": 147220,
+      "turn": 23,
+      "x": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 2.1,
+          "next": 0.1,
+          "third": -0.1,
+          "equalN": 10,
+          "equalFinish": 0,
+          "accessN": 3,
+          "access": -1
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 2.1,
+          "next": 0.1,
+          "third": -0.1,
+          "equalN": 10,
+          "equalFinish": 0,
+          "accessN": 3,
+          "access": -1
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 1.2,
+          "next": 0.1,
+          "third": -0.1,
+          "equalN": 10,
+          "equalFinish": 0,
+          "accessN": 3,
+          "access": -1
+        }
+      }
+    },
+    {
+      "seed": 147732,
+      "turn": 21,
+      "x": 3,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 1,
+          "pips": -6.8,
+          "next": 1.15,
+          "third": 0.85,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": -4.5,
+          "next": 1.15,
+          "third": 0.85,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": -4.5,
+          "next": 1.15,
+          "third": 0.85,
+          "equalN": 0,
+          "equalFinish": null,
+          "accessN": 20,
+          "access": -1
+        }
+      }
+    },
+    {
+      "seed": 149025,
+      "turn": 22,
+      "x": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "finish": 0,
+          "pips": 4,
+          "next": -0.2,
+          "third": 0.2,
+          "equalN": 8,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -1
+        },
+        "min-hand-pips": {
+          "finish": 0,
+          "pips": 4,
+          "next": -0.2,
+          "third": 0.2,
+          "equalN": 8,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -1
+        },
+        "fast-doubles": {
+          "finish": 0,
+          "pips": 0,
+          "next": -0.2,
+          "third": 0.2,
+          "equalN": 8,
+          "equalFinish": 0,
+          "accessN": 20,
+          "access": -1
+        }
+      }
+    }
+  ]
+}
