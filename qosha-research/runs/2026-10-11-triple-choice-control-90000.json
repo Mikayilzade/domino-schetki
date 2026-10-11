@@ -1,0 +1,6412 @@
+{
+  "schema": "qosa-exact-triple-choice-control/v1",
+  "timestampAsiaBaku": "2026-10-11T05:52:31 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "seedSets": [
+    {
+      "start": 90000,
+      "endExclusive": 91500,
+      "limit": 25,
+      "discovery": "min-hand-pips",
+      "scanned": 755
+    },
+    {
+      "start": 91500,
+      "endExclusive": 93000,
+      "limit": 25,
+      "discovery": "closed-branch-control",
+      "scanned": 878
+    }
+  ],
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "positions": 50,
+  "selectedSeeds": [
+    90004,
+    90047,
+    90071,
+    90112,
+    90151,
+    90156,
+    90157,
+    90168,
+    90173,
+    90186,
+    90190,
+    90213,
+    90214,
+    90242,
+    90270,
+    90300,
+    90330,
+    90368,
+    90420,
+    90563,
+    90584,
+    90604,
+    90642,
+    90720,
+    90754,
+    91536,
+    91595,
+    91596,
+    91608,
+    91657,
+    91722,
+    91764,
+    91766,
+    91803,
+    91816,
+    91853,
+    91883,
+    91941,
+    91951,
+    92007,
+    92009,
+    92172,
+    92179,
+    92213,
+    92224,
+    92276,
+    92320,
+    92364,
+    92372,
+    92377
+  ],
+  "exactHiddenAllocations": 360,
+  "candidateContinuations": 4650,
+  "newFullStrategyRounds": 0,
+  "verifiedPreviousFullStrategyRounds": 180000,
+  "priorExactLateGameAllocations": 1337,
+  "comparison": "same-position open X-X vs X-Y connector retaining X-X and another X connector vs unrelated legal non-X single retaining X-X",
+  "weighting": "all distinct hidden opponent allocations equally weighted per position, equal action class and position weights",
+  "continuationSeedFormula": "15000000+1000*dealSeed+lexicographicAllocationIndex",
+  "selection": "first eligible state per deal, focal 3..5, next opponent 1..2, stock empty; discovery quotas",
+  "limitations": "assumed branch semantics; opponent history ignored in hidden posterior; block winner unassigned; first-eligible selection; exploratory CIs; not human causal advice",
+  "next": "replicate B vs C on fresh seeds controlling pip removal and next-opponent mobility",
+  "summary": {
+    "all": {
+      "positions": 50,
+      "exactAllocations": 360,
+      "closed-branch-control": {
+        "connectorMinusOpen": {
+          "finish": {
+            "n": 50,
+            "mean": 0.132,
+            "exploratoryPositionCI95": [
+              0.06737153568279684,
+              0.19662846431720316
+            ],
+            "positive": 21,
+            "negative": 1,
+            "zero": 28
+          },
+          "pips": {
+            "n": 50,
+            "mean": -2.724666666666667,
+            "exploratoryPositionCI95": [
+              -3.5696953684540347,
+              -1.879637964879299
+            ],
+            "positive": 8,
+            "negative": 40,
+            "zero": 2
+          },
+          "minus": {
+            "n": 50,
+            "mean": 0.09266666666666667,
+            "exploratoryPositionCI95": [
+              0.02640552135678105,
+              0.1589278119765523
+            ],
+            "positive": 9,
+            "negative": 0,
+            "zero": 41
+          },
+          "block": {
+            "n": 50,
+            "mean": -0.018000000000000002,
+            "exploratoryPositionCI95": [
+              -0.03820919922543525,
+              0.0022091992254352523
+            ],
+            "positive": 3,
+            "negative": 5,
+            "zero": 42
+          }
+        },
+        "unrelatedMinusOpen": {
+          "finish": {
+            "n": 50,
+            "mean": 0.19044444444444442,
+            "exploratoryPositionCI95": [
+              0.10605986964432157,
+              0.27482901924456726
+            ],
+            "positive": 22,
+            "negative": 1,
+            "zero": 27
+          },
+          "pips": {
+            "n": 50,
+            "mean": -4.439111111111111,
+            "exploratoryPositionCI95": [
+              -5.531533332239377,
+              -3.3466888899828446
+            ],
+            "positive": 4,
+            "negative": 45,
+            "zero": 1
+          },
+          "minus": {
+            "n": 50,
+            "mean": 0.1753333333333333,
+            "exploratoryPositionCI95": [
+              0.08813661983767201,
+              0.2625300468289946
+            ],
+            "positive": 15,
+            "negative": 0,
+            "zero": 35
+          },
+          "block": {
+            "n": 50,
+            "mean": -0.01788888888888889,
+            "exploratoryPositionCI95": [
+              -0.037715455926422836,
+              0.0019376781486450494
+            ],
+            "positive": 2,
+            "negative": 5,
+            "zero": 43
+          }
+        },
+        "connectorMinusUnrelated": {
+          "finish": {
+            "n": 50,
+            "mean": -0.05844444444444445,
+            "exploratoryPositionCI95": [
+              -0.1380416248647596,
+              0.021152735975870696
+            ],
+            "positive": 10,
+            "negative": 16,
+            "zero": 24
+          },
+          "pips": {
+            "n": 50,
+            "mean": 1.7144444444444447,
+            "exploratoryPositionCI95": [
+              0.7133115602318383,
+              2.715577328657051
+            ],
+            "positive": 33,
+            "negative": 13,
+            "zero": 4
+          },
+          "minus": {
+            "n": 50,
+            "mean": -0.08266666666666668,
+            "exploratoryPositionCI95": [
+              -0.15551427503128246,
+              -0.00981905830205089
+            ],
+            "positive": 1,
+            "negative": 11,
+            "zero": 38
+          },
+          "block": {
+            "n": 50,
+            "mean": -0.00011111111111111127,
+            "exploratoryPositionCI95": [
+              -0.005715344079189249,
+              0.005493121856967026
+            ],
+            "positive": 3,
+            "negative": 3,
+            "zero": 44
+          }
+        }
+      },
+      "min-hand-pips": {
+        "connectorMinusOpen": {
+          "finish": {
+            "n": 50,
+            "mean": 0.11066666666666668,
+            "exploratoryPositionCI95": [
+              0.04716734173587181,
+              0.17416599159746154
+            ],
+            "positive": 17,
+            "negative": 1,
+            "zero": 32
+          },
+          "pips": {
+            "n": 50,
+            "mean": -2.4903333333333335,
+            "exploratoryPositionCI95": [
+              -3.2926233713287374,
+              -1.6880432953379296
+            ],
+            "positive": 8,
+            "negative": 40,
+            "zero": 2
+          },
+          "minus": {
+            "n": 50,
+            "mean": 0.08800000000000001,
+            "exploratoryPositionCI95": [
+              0.021884416360437378,
+              0.15411558363956263
+            ],
+            "positive": 8,
+            "negative": 0,
+            "zero": 42
+          },
+          "block": {
+            "n": 50,
+            "mean": -0.018000000000000002,
+            "exploratoryPositionCI95": [
+              -0.03820919922543525,
+              0.0022091992254352523
+            ],
+            "positive": 3,
+            "negative": 5,
+            "zero": 42
+          }
+        },
+        "unrelatedMinusOpen": {
+          "finish": {
+            "n": 50,
+            "mean": 0.18099999999999997,
+            "exploratoryPositionCI95": [
+              0.09602559967195347,
+              0.2659744003280465
+            ],
+            "positive": 19,
+            "negative": 1,
+            "zero": 30
+          },
+          "pips": {
+            "n": 50,
+            "mean": -4.285333333333334,
+            "exploratoryPositionCI95": [
+              -5.398828066579927,
+              -3.171838600086741
+            ],
+            "positive": 5,
+            "negative": 44,
+            "zero": 1
+          },
+          "minus": {
+            "n": 50,
+            "mean": 0.17,
+            "exploratoryPositionCI95": [
+              0.08261487540776749,
+              0.2573851245922325
+            ],
+            "positive": 14,
+            "negative": 0,
+            "zero": 36
+          },
+          "block": {
+            "n": 50,
+            "mean": -0.017222222222222222,
+            "exploratoryPositionCI95": [
+              -0.03713880133252101,
+              0.002694356888076569
+            ],
+            "positive": 3,
+            "negative": 5,
+            "zero": 42
+          }
+        },
+        "connectorMinusUnrelated": {
+          "finish": {
+            "n": 50,
+            "mean": -0.07033333333333334,
+            "exploratoryPositionCI95": [
+              -0.14603288096151343,
+              0.005366214294846738
+            ],
+            "positive": 8,
+            "negative": 13,
+            "zero": 29
+          },
+          "pips": {
+            "n": 50,
+            "mean": 1.7949999999999997,
+            "exploratoryPositionCI95": [
+              0.83310032683519,
+              2.7568996731648094
+            ],
+            "positive": 35,
+            "negative": 11,
+            "zero": 4
+          },
+          "minus": {
+            "n": 50,
+            "mean": -0.08200000000000002,
+            "exploratoryPositionCI95": [
+              -0.15489470762682297,
+              -0.00910529237317706
+            ],
+            "positive": 1,
+            "negative": 10,
+            "zero": 39
+          },
+          "block": {
+            "n": 50,
+            "mean": -0.0007777777777777778,
+            "exploratoryPositionCI95": [
+              -0.005889949648379151,
+              0.004334394092823596
+            ],
+            "positive": 3,
+            "negative": 3,
+            "zero": 44
+          }
+        }
+      },
+      "fast-doubles": {
+        "connectorMinusOpen": {
+          "finish": {
+            "n": 50,
+            "mean": 0.011000000000000003,
+            "exploratoryPositionCI95": [
+              -0.008569086732792507,
+              0.030569086732792513
+            ],
+            "positive": 5,
+            "negative": 2,
+            "zero": 43
+          },
+          "pips": {
+            "n": 50,
+            "mean": -0.9471111111111109,
+            "exploratoryPositionCI95": [
+              -1.7434638721534474,
+              -0.15075835006877436
+            ],
+            "positive": 19,
+            "negative": 28,
+            "zero": 3
+          },
+          "minus": {
+            "n": 50,
+            "mean": 0,
+            "exploratoryPositionCI95": [
+              0,
+              0
+            ],
+            "positive": 0,
+            "negative": 0,
+            "zero": 50
+          },
+          "block": {
+            "n": 50,
+            "mean": -0.014666666666666666,
+            "exploratoryPositionCI95": [
+              -0.03362597279555463,
+              0.0042926394622212986
+            ],
+            "positive": 3,
+            "negative": 5,
+            "zero": 42
+          }
+        },
+        "unrelatedMinusOpen": {
+          "finish": {
+            "n": 50,
+            "mean": 0.0010000000000000007,
+            "exploratoryPositionCI95": [
+              -0.009241605776873513,
+              0.011241605776873515
+            ],
+            "positive": 3,
+            "negative": 2,
+            "zero": 45
+          },
+          "pips": {
+            "n": 50,
+            "mean": -0.8461111111111113,
+            "exploratoryPositionCI95": [
+              -1.7154944114815307,
+              0.023272189259308185
+            ],
+            "positive": 19,
+            "negative": 29,
+            "zero": 2
+          },
+          "minus": {
+            "n": 50,
+            "mean": 0,
+            "exploratoryPositionCI95": [
+              0,
+              0
+            ],
+            "positive": 0,
+            "negative": 0,
+            "zero": 50
+          },
+          "block": {
+            "n": 50,
+            "mean": -0.011111111111111112,
+            "exploratoryPositionCI95": [
+              -0.03578910650762017,
+              0.013566884285397948
+            ],
+            "positive": 2,
+            "negative": 6,
+            "zero": 42
+          }
+        },
+        "connectorMinusUnrelated": {
+          "finish": {
+            "n": 50,
+            "mean": 0.010000000000000002,
+            "exploratoryPositionCI95": [
+              -0.005049547796823952,
+              0.025049547796823956
+            ],
+            "positive": 5,
+            "negative": 2,
+            "zero": 43
+          },
+          "pips": {
+            "n": 50,
+            "mean": -0.10100000000000002,
+            "exploratoryPositionCI95": [
+              -0.8839612062477225,
+              0.6819612062477225
+            ],
+            "positive": 26,
+            "negative": 22,
+            "zero": 2
+          },
+          "minus": {
+            "n": 50,
+            "mean": 0,
+            "exploratoryPositionCI95": [
+              0,
+              0
+            ],
+            "positive": 0,
+            "negative": 0,
+            "zero": 50
+          },
+          "block": {
+            "n": 50,
+            "mean": -0.0035555555555555557,
+            "exploratoryPositionCI95": [
+              -0.020691424513337414,
+              0.013580313402226304
+            ],
+            "positive": 3,
+            "negative": 3,
+            "zero": 44
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": {
+          "n": 50,
+          "mean": -0.04666666666666667,
+          "exploratoryPositionCI95": [
+            -0.08260908975941007,
+            -0.010724243573923264
+          ],
+          "positive": 0,
+          "negative": 7,
+          "zero": 43
+        },
+        "unrelatedMinusOpen": {
+          "n": 50,
+          "mean": -0.06633333333333334,
+          "exploratoryPositionCI95": [
+            -0.11524650084020778,
+            -0.017420165826458903
+          ],
+          "positive": 0,
+          "negative": 7,
+          "zero": 43
+        },
+        "connectorMinusUnrelated": {
+          "n": 50,
+          "mean": 0.01966666666666667,
+          "exploratoryPositionCI95": [
+            -0.0004745282664383038,
+            0.03980786159977164
+          ],
+          "positive": 4,
+          "negative": 0,
+          "zero": 46
+        }
+      }
+    },
+    "minDiscovery": {
+      "positions": 25,
+      "exactAllocations": 193,
+      "closed-branch-control": {
+        "connectorMinusOpen": {
+          "finish": {
+            "n": 25,
+            "mean": 0.154,
+            "exploratoryPositionCI95": [
+              0.0546431997891028,
+              0.2533568002108972
+            ],
+            "positive": 12,
+            "negative": 0,
+            "zero": 13
+          },
+          "pips": {
+            "n": 25,
+            "mean": -2.640666666666667,
+            "exploratoryPositionCI95": [
+              -3.7877335839435586,
+              -1.4935997493897757
+            ],
+            "positive": 4,
+            "negative": 20,
+            "zero": 1
+          },
+          "minus": {
+            "n": 25,
+            "mean": 0.10733333333333334,
+            "exploratoryPositionCI95": [
+              0.005522280451591227,
+              0.20914438621507545
+            ],
+            "positive": 5,
+            "negative": 0,
+            "zero": 20
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.032,
+            "exploratoryPositionCI95": [
+              -0.0712870145354812,
+              0.0072870145354811955
+            ],
+            "positive": 3,
+            "negative": 4,
+            "zero": 18
+          }
+        },
+        "unrelatedMinusOpen": {
+          "finish": {
+            "n": 25,
+            "mean": 0.1942222222222222,
+            "exploratoryPositionCI95": [
+              0.08960294736522019,
+              0.29884149707922425
+            ],
+            "positive": 14,
+            "negative": 0,
+            "zero": 11
+          },
+          "pips": {
+            "n": 25,
+            "mean": -4.280222222222222,
+            "exploratoryPositionCI95": [
+              -5.505664002380047,
+              -3.0547804420643976
+            ],
+            "positive": 2,
+            "negative": 23,
+            "zero": 0
+          },
+          "minus": {
+            "n": 25,
+            "mean": 0.16266666666666665,
+            "exploratoryPositionCI95": [
+              0.05311102357452224,
+              0.27222230975881107
+            ],
+            "positive": 8,
+            "negative": 0,
+            "zero": 17
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.03377777777777778,
+            "exploratoryPositionCI95": [
+              -0.0726228873576413,
+              0.005067331802085739
+            ],
+            "positive": 2,
+            "negative": 4,
+            "zero": 19
+          }
+        },
+        "connectorMinusUnrelated": {
+          "finish": {
+            "n": 25,
+            "mean": -0.04022222222222222,
+            "exploratoryPositionCI95": [
+              -0.14433366716417487,
+              0.06388922271973041
+            ],
+            "positive": 6,
+            "negative": 9,
+            "zero": 10
+          },
+          "pips": {
+            "n": 25,
+            "mean": 1.6395555555555552,
+            "exploratoryPositionCI95": [
+              0.6220967600525129,
+              2.6570143510585975
+            ],
+            "positive": 15,
+            "negative": 8,
+            "zero": 2
+          },
+          "minus": {
+            "n": 25,
+            "mean": -0.05533333333333333,
+            "exploratoryPositionCI95": [
+              -0.1532374642188299,
+              0.04257079755216324
+            ],
+            "positive": 1,
+            "negative": 5,
+            "zero": 19
+          },
+          "block": {
+            "n": 25,
+            "mean": 0.0017777777777777776,
+            "exploratoryPositionCI95": [
+              -0.008792860335574549,
+              0.012348415891130103
+            ],
+            "positive": 3,
+            "negative": 2,
+            "zero": 20
+          }
+        }
+      },
+      "min-hand-pips": {
+        "connectorMinusOpen": {
+          "finish": {
+            "n": 25,
+            "mean": 0.13533333333333336,
+            "exploratoryPositionCI95": [
+              0.034571624556856376,
+              0.23609504210981036
+            ],
+            "positive": 10,
+            "negative": 0,
+            "zero": 15
+          },
+          "pips": {
+            "n": 25,
+            "mean": -2.508,
+            "exploratoryPositionCI95": [
+              -3.6392546061260838,
+              -1.376745393873916
+            ],
+            "positive": 4,
+            "negative": 20,
+            "zero": 1
+          },
+          "minus": {
+            "n": 25,
+            "mean": 0.098,
+            "exploratoryPositionCI95": [
+              -0.003605411929352098,
+              0.1996054119293521
+            ],
+            "positive": 4,
+            "negative": 0,
+            "zero": 21
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.032,
+            "exploratoryPositionCI95": [
+              -0.0712870145354812,
+              0.0072870145354811955
+            ],
+            "positive": 3,
+            "negative": 4,
+            "zero": 18
+          }
+        },
+        "unrelatedMinusOpen": {
+          "finish": {
+            "n": 25,
+            "mean": 0.17733333333333334,
+            "exploratoryPositionCI95": [
+              0.07051316683669111,
+              0.28415349982997556
+            ],
+            "positive": 11,
+            "negative": 0,
+            "zero": 14
+          },
+          "pips": {
+            "n": 25,
+            "mean": -4.007333333333333,
+            "exploratoryPositionCI95": [
+              -5.282758131039618,
+              -2.7319085356270496
+            ],
+            "positive": 2,
+            "negative": 23,
+            "zero": 0
+          },
+          "minus": {
+            "n": 25,
+            "mean": 0.152,
+            "exploratoryPositionCI95": [
+              0.04207096349614142,
+              0.26192903650385857
+            ],
+            "positive": 7,
+            "negative": 0,
+            "zero": 18
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.03244444444444444,
+            "exploratoryPositionCI95": [
+              -0.0715620863234335,
+              0.006673197434544621
+            ],
+            "positive": 3,
+            "negative": 4,
+            "zero": 18
+          }
+        },
+        "connectorMinusUnrelated": {
+          "finish": {
+            "n": 25,
+            "mean": -0.042,
+            "exploratoryPositionCI95": [
+              -0.14469879093377516,
+              0.060698790933775164
+            ],
+            "positive": 6,
+            "negative": 6,
+            "zero": 13
+          },
+          "pips": {
+            "n": 25,
+            "mean": 1.4993333333333332,
+            "exploratoryPositionCI95": [
+              0.4265916473593345,
+              2.5720750193073316
+            ],
+            "positive": 17,
+            "negative": 6,
+            "zero": 2
+          },
+          "minus": {
+            "n": 25,
+            "mean": -0.054000000000000006,
+            "exploratoryPositionCI95": [
+              -0.15198693246210607,
+              0.043986932462106054
+            ],
+            "positive": 1,
+            "negative": 4,
+            "zero": 20
+          },
+          "block": {
+            "n": 25,
+            "mean": 0.0004444444444444445,
+            "exploratoryPositionCI95": [
+              -0.00908815433585533,
+              0.009977043224744221
+            ],
+            "positive": 3,
+            "negative": 2,
+            "zero": 20
+          }
+        }
+      },
+      "fast-doubles": {
+        "connectorMinusOpen": {
+          "finish": {
+            "n": 25,
+            "mean": 0.025333333333333333,
+            "exploratoryPositionCI95": [
+              -0.004194635078301735,
+              0.0548613017449684
+            ],
+            "positive": 3,
+            "negative": 0,
+            "zero": 22
+          },
+          "pips": {
+            "n": 25,
+            "mean": -0.9886666666666665,
+            "exploratoryPositionCI95": [
+              -2.044271386962626,
+              0.06693805362929306
+            ],
+            "positive": 10,
+            "negative": 14,
+            "zero": 1
+          },
+          "minus": {
+            "n": 25,
+            "mean": 0,
+            "exploratoryPositionCI95": [
+              0,
+              0
+            ],
+            "positive": 0,
+            "negative": 0,
+            "zero": 25
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.025333333333333333,
+            "exploratoryPositionCI95": [
+              -0.06234530577069072,
+              0.011678639104024058
+            ],
+            "positive": 3,
+            "negative": 4,
+            "zero": 18
+          }
+        },
+        "unrelatedMinusOpen": {
+          "finish": {
+            "n": 25,
+            "mean": 0.008,
+            "exploratoryPositionCI95": [
+              -0.0034907447458733063,
+              0.019490744745873305
+            ],
+            "positive": 2,
+            "negative": 0,
+            "zero": 23
+          },
+          "pips": {
+            "n": 25,
+            "mean": -0.9922222222222221,
+            "exploratoryPositionCI95": [
+              -2.037631359134223,
+              0.053186914689778764
+            ],
+            "positive": 8,
+            "negative": 16,
+            "zero": 1
+          },
+          "minus": {
+            "n": 25,
+            "mean": 0,
+            "exploratoryPositionCI95": [
+              0,
+              0
+            ],
+            "positive": 0,
+            "negative": 0,
+            "zero": 25
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.018222222222222223,
+            "exploratoryPositionCI95": [
+              -0.06730490801308378,
+              0.030860463568639335
+            ],
+            "positive": 2,
+            "negative": 5,
+            "zero": 18
+          }
+        },
+        "connectorMinusUnrelated": {
+          "finish": {
+            "n": 25,
+            "mean": 0.017333333333333333,
+            "exploratoryPositionCI95": [
+              -0.00564815615841327,
+              0.040314822825079935
+            ],
+            "positive": 3,
+            "negative": 0,
+            "zero": 22
+          },
+          "pips": {
+            "n": 25,
+            "mean": 0.003555555555555463,
+            "exploratoryPositionCI95": [
+              -0.9418644241821498,
+              0.9489755352932606
+            ],
+            "positive": 14,
+            "negative": 10,
+            "zero": 1
+          },
+          "minus": {
+            "n": 25,
+            "mean": 0,
+            "exploratoryPositionCI95": [
+              0,
+              0
+            ],
+            "positive": 0,
+            "negative": 0,
+            "zero": 25
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.0071111111111111115,
+            "exploratoryPositionCI95": [
+              -0.041679517724700764,
+              0.027457295502478545
+            ],
+            "positive": 3,
+            "negative": 3,
+            "zero": 19
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": {
+          "n": 25,
+          "mean": -0.07533333333333334,
+          "exploratoryPositionCI95": [
+            -0.14172305944613883,
+            -0.008943607220527824
+          ],
+          "positive": 0,
+          "negative": 5,
+          "zero": 20
+        },
+        "unrelatedMinusOpen": {
+          "n": 25,
+          "mean": -0.08866666666666667,
+          "exploratoryPositionCI95": [
+            -0.1662163517676344,
+            -0.01111698156569893
+          ],
+          "positive": 0,
+          "negative": 5,
+          "zero": 20
+        },
+        "connectorMinusUnrelated": {
+          "n": 25,
+          "mean": 0.013333333333333334,
+          "exploratoryPositionCI95": [
+            -0.00475664752368825,
+            0.03142331419035492
+          ],
+          "positive": 2,
+          "negative": 0,
+          "zero": 23
+        }
+      }
+    },
+    "closedDiscovery": {
+      "positions": 25,
+      "exactAllocations": 167,
+      "closed-branch-control": {
+        "connectorMinusOpen": {
+          "finish": {
+            "n": 25,
+            "mean": 0.11,
+            "exploratoryPositionCI95": [
+              0.0261626265607922,
+              0.19383737343920782
+            ],
+            "positive": 9,
+            "negative": 1,
+            "zero": 15
+          },
+          "pips": {
+            "n": 25,
+            "mean": -2.808666666666666,
+            "exploratoryPositionCI95": [
+              -4.072699411273006,
+              -1.5446339220603258
+            ],
+            "positive": 4,
+            "negative": 20,
+            "zero": 1
+          },
+          "minus": {
+            "n": 25,
+            "mean": 0.078,
+            "exploratoryPositionCI95": [
+              -0.008566050312271187,
+              0.16456605031227117
+            ],
+            "positive": 4,
+            "negative": 0,
+            "zero": 21
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.004,
+            "exploratoryPositionCI95": [
+              -0.011840000000000002,
+              0.0038400000000000014
+            ],
+            "positive": 0,
+            "negative": 1,
+            "zero": 24
+          }
+        },
+        "unrelatedMinusOpen": {
+          "finish": {
+            "n": 25,
+            "mean": 0.18666666666666668,
+            "exploratoryPositionCI95": [
+              0.052031378793313265,
+              0.3213019545400201
+            ],
+            "positive": 8,
+            "negative": 1,
+            "zero": 16
+          },
+          "pips": {
+            "n": 25,
+            "mean": -4.598,
+            "exploratoryPositionCI95": [
+              -6.431904183982802,
+              -2.7640958160171976
+            ],
+            "positive": 2,
+            "negative": 22,
+            "zero": 1
+          },
+          "minus": {
+            "n": 25,
+            "mean": 0.18799999999999997,
+            "exploratoryPositionCI95": [
+              0.05018537668302392,
+              0.325814623316976
+            ],
+            "positive": 7,
+            "negative": 0,
+            "zero": 18
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.002,
+            "exploratoryPositionCI95": [
+              -0.005920000000000001,
+              0.0019200000000000007
+            ],
+            "positive": 0,
+            "negative": 1,
+            "zero": 24
+          }
+        },
+        "connectorMinusUnrelated": {
+          "finish": {
+            "n": 25,
+            "mean": -0.07666666666666667,
+            "exploratoryPositionCI95": [
+              -0.198835923877339,
+              0.045502590544005656
+            ],
+            "positive": 4,
+            "negative": 7,
+            "zero": 14
+          },
+          "pips": {
+            "n": 25,
+            "mean": 1.7893333333333334,
+            "exploratoryPositionCI95": [
+              0.0413136987796523,
+              3.5373529678870144
+            ],
+            "positive": 18,
+            "negative": 5,
+            "zero": 2
+          },
+          "minus": {
+            "n": 25,
+            "mean": -0.11,
+            "exploratoryPositionCI95": [
+              -0.2188344308265235,
+              -0.0011655691734764884
+            ],
+            "positive": 0,
+            "negative": 6,
+            "zero": 19
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.002,
+            "exploratoryPositionCI95": [
+              -0.005920000000000001,
+              0.0019200000000000007
+            ],
+            "positive": 0,
+            "negative": 1,
+            "zero": 24
+          }
+        }
+      },
+      "min-hand-pips": {
+        "connectorMinusOpen": {
+          "finish": {
+            "n": 25,
+            "mean": 0.08600000000000002,
+            "exploratoryPositionCI95": [
+              0.007788968477254771,
+              0.16421103152274527
+            ],
+            "positive": 7,
+            "negative": 1,
+            "zero": 17
+          },
+          "pips": {
+            "n": 25,
+            "mean": -2.4726666666666666,
+            "exploratoryPositionCI95": [
+              -3.6339071361519366,
+              -1.3114261971813965
+            ],
+            "positive": 4,
+            "negative": 20,
+            "zero": 1
+          },
+          "minus": {
+            "n": 25,
+            "mean": 0.078,
+            "exploratoryPositionCI95": [
+              -0.008566050312271187,
+              0.16456605031227117
+            ],
+            "positive": 4,
+            "negative": 0,
+            "zero": 21
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.004,
+            "exploratoryPositionCI95": [
+              -0.011840000000000002,
+              0.0038400000000000014
+            ],
+            "positive": 0,
+            "negative": 1,
+            "zero": 24
+          }
+        },
+        "unrelatedMinusOpen": {
+          "finish": {
+            "n": 25,
+            "mean": 0.18466666666666667,
+            "exploratoryPositionCI95": [
+              0.050243961794367714,
+              0.31908937153896566
+            ],
+            "positive": 8,
+            "negative": 1,
+            "zero": 16
+          },
+          "pips": {
+            "n": 25,
+            "mean": -4.5633333333333335,
+            "exploratoryPositionCI95": [
+              -6.410318722595562,
+              -2.7163479440711042
+            ],
+            "positive": 3,
+            "negative": 21,
+            "zero": 1
+          },
+          "minus": {
+            "n": 25,
+            "mean": 0.18799999999999997,
+            "exploratoryPositionCI95": [
+              0.05018537668302392,
+              0.325814623316976
+            ],
+            "positive": 7,
+            "negative": 0,
+            "zero": 18
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.002,
+            "exploratoryPositionCI95": [
+              -0.005920000000000001,
+              0.0019200000000000007
+            ],
+            "positive": 0,
+            "negative": 1,
+            "zero": 24
+          }
+        },
+        "connectorMinusUnrelated": {
+          "finish": {
+            "n": 25,
+            "mean": -0.09866666666666667,
+            "exploratoryPositionCI95": [
+              -0.21089493220251634,
+              0.013561598869183011
+            ],
+            "positive": 2,
+            "negative": 7,
+            "zero": 16
+          },
+          "pips": {
+            "n": 25,
+            "mean": 2.090666666666667,
+            "exploratoryPositionCI95": [
+              0.4784173733431365,
+              3.7029159599901975
+            ],
+            "positive": 18,
+            "negative": 5,
+            "zero": 2
+          },
+          "minus": {
+            "n": 25,
+            "mean": -0.11,
+            "exploratoryPositionCI95": [
+              -0.2188344308265235,
+              -0.0011655691734764884
+            ],
+            "positive": 0,
+            "negative": 6,
+            "zero": 19
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.002,
+            "exploratoryPositionCI95": [
+              -0.005920000000000001,
+              0.0019200000000000007
+            ],
+            "positive": 0,
+            "negative": 1,
+            "zero": 24
+          }
+        }
+      },
+      "fast-doubles": {
+        "connectorMinusOpen": {
+          "finish": {
+            "n": 25,
+            "mean": -0.0033333333333333322,
+            "exploratoryPositionCI95": [
+              -0.02835409508269897,
+              0.021687428416032307
+            ],
+            "positive": 2,
+            "negative": 2,
+            "zero": 21
+          },
+          "pips": {
+            "n": 25,
+            "mean": -0.9055555555555556,
+            "exploratoryPositionCI95": [
+              -2.119929826985542,
+              0.3088187158744312
+            ],
+            "positive": 9,
+            "negative": 14,
+            "zero": 2
+          },
+          "minus": {
+            "n": 25,
+            "mean": 0,
+            "exploratoryPositionCI95": [
+              0,
+              0
+            ],
+            "positive": 0,
+            "negative": 0,
+            "zero": 25
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.004,
+            "exploratoryPositionCI95": [
+              -0.011840000000000002,
+              0.0038400000000000014
+            ],
+            "positive": 0,
+            "negative": 1,
+            "zero": 24
+          }
+        },
+        "unrelatedMinusOpen": {
+          "finish": {
+            "n": 25,
+            "mean": -0.006,
+            "exploratoryPositionCI95": [
+              -0.022750494962283395,
+              0.010750494962283396
+            ],
+            "positive": 1,
+            "negative": 2,
+            "zero": 22
+          },
+          "pips": {
+            "n": 25,
+            "mean": -0.6999999999999998,
+            "exploratoryPositionCI95": [
+              -2.109460991275007,
+              0.7094609912750073
+            ],
+            "positive": 11,
+            "negative": 13,
+            "zero": 1
+          },
+          "minus": {
+            "n": 25,
+            "mean": 0,
+            "exploratoryPositionCI95": [
+              0,
+              0
+            ],
+            "positive": 0,
+            "negative": 0,
+            "zero": 25
+          },
+          "block": {
+            "n": 25,
+            "mean": -0.004,
+            "exploratoryPositionCI95": [
+              -0.011840000000000002,
+              0.0038400000000000014
+            ],
+            "positive": 0,
+            "negative": 1,
+            "zero": 24
+          }
+        },
+        "connectorMinusUnrelated": {
+          "finish": {
+            "n": 25,
+            "mean": 0.002666666666666667,
+            "exploratoryPositionCI95": [
+              -0.016813187314077414,
+              0.02214652064741075
+            ],
+            "positive": 2,
+            "negative": 2,
+            "zero": 21
+          },
+          "pips": {
+            "n": 25,
+            "mean": -0.20555555555555544,
+            "exploratoryPositionCI95": [
+              -1.4727888005755678,
+              1.0616776894644568
+            ],
+            "positive": 12,
+            "negative": 12,
+            "zero": 1
+          },
+          "minus": {
+            "n": 25,
+            "mean": 0,
+            "exploratoryPositionCI95": [
+              0,
+              0
+            ],
+            "positive": 0,
+            "negative": 0,
+            "zero": 25
+          },
+          "block": {
+            "n": 25,
+            "mean": 0,
+            "exploratoryPositionCI95": [
+              0,
+              0
+            ],
+            "positive": 0,
+            "negative": 0,
+            "zero": 25
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": {
+          "n": 25,
+          "mean": -0.018000000000000002,
+          "exploratoryPositionCI95": [
+            -0.04258478662370965,
+            0.006584786623709652
+          ],
+          "positive": 0,
+          "negative": 2,
+          "zero": 23
+        },
+        "unrelatedMinusOpen": {
+          "n": 25,
+          "mean": -0.044000000000000004,
+          "exploratoryPositionCI95": [
+            -0.10396446947985115,
+            0.01596446947985114
+          ],
+          "positive": 0,
+          "negative": 2,
+          "zero": 23
+        },
+        "connectorMinusUnrelated": {
+          "n": 25,
+          "mean": 0.026000000000000002,
+          "exploratoryPositionCI95": [
+            -0.010282065358337401,
+            0.062282065358337406
+          ],
+          "positive": 2,
+          "negative": 0,
+          "zero": 23
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "seed": 90004,
+      "discovery": "min-hand-pips",
+      "turn": 20,
+      "target": 0,
+      "hand": [
+        "2-6",
+        "0-5",
+        "0-0",
+        "0-4"
+      ],
+      "handSizes": [
+        4,
+        2,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|up|0||0-5"
+        ],
+        "unrelated": [
+          "single|right|6||2-6"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 54,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0.3333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 5.333333333333333,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0.3333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 5.333333333333333,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90047,
+      "discovery": "min-hand-pips",
+      "turn": 21,
+      "target": 0,
+      "hand": [
+        "2-3",
+        "0-0",
+        "0-3",
+        "0-5"
+      ],
+      "handSizes": [
+        2,
+        2,
+        4
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|left|0||0-3",
+          "single|up|0||0-5"
+        ],
+        "unrelated": [
+          "single|left|2||2-3"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 72,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.16666666666666666,
+            "pips": -1.5,
+            "minus": 0,
+            "block": -0.16666666666666666
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -4.166666666666667,
+            "minus": 0,
+            "block": -0.16666666666666666
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.16666666666666666,
+            "pips": 2.6666666666666665,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.16666666666666666,
+            "pips": -1.5,
+            "minus": 0,
+            "block": -0.16666666666666666
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -4.166666666666667,
+            "minus": 0,
+            "block": -0.16666666666666666
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.16666666666666666,
+            "pips": 2.6666666666666665,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 1,
+            "minus": 0,
+            "block": -0.16666666666666666
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 0.8333333333333334,
+            "minus": 0,
+            "block": -0.16666666666666666
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0.16666666666666666,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90071,
+      "discovery": "min-hand-pips",
+      "turn": 14,
+      "target": 2,
+      "hand": [
+        "0-2",
+        "0-3",
+        "1-2",
+        "2-2",
+        "0-5"
+      ],
+      "handSizes": [
+        4,
+        5,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "connector": [
+          "single|up|2||0-2"
+        ],
+        "unrelated": [
+          "single|up|3||0-3",
+          "single|up|5||0-5"
+        ]
+      },
+      "exactAllocations": 15,
+      "continuations": 180,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.26666666666666666,
+            "pips": -3,
+            "minus": 0,
+            "block": 0.06666666666666667
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.1,
+            "pips": -2.7,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.16666666666666666,
+            "pips": -0.3,
+            "minus": 0,
+            "block": 0.06666666666666667
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.26666666666666666,
+            "pips": -3,
+            "minus": 0,
+            "block": 0.06666666666666667
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.13333333333333333,
+            "pips": -3.066666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.13333333333333333,
+            "pips": 0.06666666666666667,
+            "minus": 0,
+            "block": 0.06666666666666667
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0.26666666666666666,
+            "pips": -3,
+            "minus": 0,
+            "block": 0.06666666666666667
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.13333333333333333,
+            "pips": -3.466666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.13333333333333333,
+            "pips": 0.4666666666666667,
+            "minus": 0,
+            "block": 0.06666666666666667
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90112,
+      "discovery": "min-hand-pips",
+      "turn": 23,
+      "target": 0,
+      "hand": [
+        "0-1",
+        "0-2",
+        "0-0",
+        "1-2"
+      ],
+      "handSizes": [
+        1,
+        3,
+        4
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|left|0||0-2",
+          "single|right|0||0-2"
+        ],
+        "unrelated": [
+          "single|left|1||1-2",
+          "single|right|1||1-2"
+        ]
+      },
+      "exactAllocations": 4,
+      "continuations": 60,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.75,
+            "pips": -4.25,
+            "minus": 0.75,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.75,
+            "pips": -4.5,
+            "minus": 0.75,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0.25,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.75,
+            "pips": -4.25,
+            "minus": 0.75,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.75,
+            "pips": -4.5,
+            "minus": 0.75,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0.25,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -2.75,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0.75,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": -0.5,
+        "unrelatedMinusOpen": -0.5,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90151,
+      "discovery": "min-hand-pips",
+      "turn": 22,
+      "target": 3,
+      "hand": [
+        "3-3",
+        "0-3",
+        "0-4",
+        "3-5",
+        "3-4"
+      ],
+      "handSizes": [
+        1,
+        5,
+        1
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "connector": [
+          "single|right|3||0-3"
+        ],
+        "unrelated": [
+          "single|right|4||0-4"
+        ]
+      },
+      "exactAllocations": 2,
+      "continuations": 18,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 2,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 1,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 2,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 1,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 2,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 1,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": -0.5,
+        "unrelatedMinusOpen": -0.5,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90156,
+      "discovery": "min-hand-pips",
+      "turn": 14,
+      "target": 2,
+      "hand": [
+        "2-2",
+        "2-5",
+        "0-5",
+        "2-3",
+        "0-2"
+      ],
+      "handSizes": [
+        5,
+        2,
+        4
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "connector": [
+          "single|up|2||2-5",
+          "single|left|2||2-5"
+        ],
+        "unrelated": [
+          "single|up|0||0-5",
+          "single|left|0||0-5"
+        ]
+      },
+      "exactAllocations": 15,
+      "continuations": 225,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.1,
+            "pips": -4.633333333333334,
+            "minus": 0,
+            "block": 0.06666666666666667
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.13333333333333333,
+            "pips": -4.333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.03333333333333333,
+            "pips": -0.3,
+            "minus": 0,
+            "block": 0.06666666666666667
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.03333333333333333,
+            "pips": -4.066666666666666,
+            "minus": 0,
+            "block": 0.06666666666666667
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -3.3333333333333335,
+            "minus": 0,
+            "block": 0.03333333333333333
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.03333333333333333,
+            "pips": -0.7333333333333333,
+            "minus": 0,
+            "block": 0.03333333333333333
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0,
+            "block": 0.13333333333333333
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -2.6,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -2.4,
+            "minus": 0,
+            "block": 0.13333333333333333
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": -0.13333333333333333,
+        "unrelatedMinusOpen": -0.13333333333333333,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90157,
+      "discovery": "min-hand-pips",
+      "turn": 17,
+      "target": 0,
+      "hand": [
+        "0-0",
+        "0-2",
+        "0-1",
+        "2-6"
+      ],
+      "handSizes": [
+        3,
+        4,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|left|0||0-2",
+          "single|down|0||0-2"
+        ],
+        "unrelated": [
+          "single|left|6||2-6",
+          "single|down|6||2-6"
+        ]
+      },
+      "exactAllocations": 10,
+      "continuations": 150,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 4.2,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.2,
+            "pips": -0.5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.2,
+            "pips": 4.7,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 4.2,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.2,
+            "pips": -0.5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.2,
+            "pips": 4.7,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 4.4,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 0.4,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 4,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90168,
+      "discovery": "min-hand-pips",
+      "turn": 21,
+      "target": 0,
+      "hand": [
+        "0-5",
+        "0-2",
+        "2-3",
+        "0-6",
+        "0-0"
+      ],
+      "handSizes": [
+        5,
+        2,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|down|0||0-5",
+          "single|up|0||0-2",
+          "single|right|0||0-2"
+        ],
+        "unrelated": [
+          "single|up|3||2-3",
+          "single|right|3||2-3"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 108,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.5,
+            "pips": -9.666666666666666,
+            "minus": 0.5,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.5,
+            "pips": -9.333333333333334,
+            "minus": 0.5,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -0.3333333333333333,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.5,
+            "pips": -9.666666666666666,
+            "minus": 0.5,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.5,
+            "pips": -9.333333333333334,
+            "minus": 0.5,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -0.3333333333333333,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -4.333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -0.6666666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -3.6666666666666665,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90173,
+      "discovery": "min-hand-pips",
+      "turn": 16,
+      "target": 0,
+      "hand": [
+        "0-5",
+        "0-0",
+        "1-4",
+        "0-1"
+      ],
+      "handSizes": [
+        3,
+        4,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|up|0||0-5",
+          "single|left|0||0-5",
+          "single|right|0||0-1"
+        ],
+        "unrelated": [
+          "single|right|4||1-4"
+        ]
+      },
+      "exactAllocations": 10,
+      "continuations": 150,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.1,
+            "pips": -1.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.1,
+            "pips": 2.5,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.1,
+            "pips": -1.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.1,
+            "pips": 2.5,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0.16666666666666674,
+            "minus": 0,
+            "block": 0.03333333333333333
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -1.5,
+            "minus": 0,
+            "block": 0.4
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 1.6666666666666672,
+            "minus": 0,
+            "block": -0.3666666666666667
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90186,
+      "discovery": "min-hand-pips",
+      "turn": 21,
+      "target": 2,
+      "hand": [
+        "0-4",
+        "2-2",
+        "0-2",
+        "2-3",
+        "0-3"
+      ],
+      "handSizes": [
+        2,
+        5,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "connector": [
+          "single|right|2||0-2"
+        ],
+        "unrelated": [
+          "single|up|0||0-4",
+          "single|right|4||0-4",
+          "single|right|3||0-3"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 90,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -1.8333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.05555555555555555,
+            "pips": -4.277777777777778,
+            "minus": 0,
+            "block": 0.05555555555555555
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.05555555555555555,
+            "pips": 2.444444444444444,
+            "minus": 0,
+            "block": -0.05555555555555555
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -2.3888888888888893,
+            "minus": 0,
+            "block": 0.05555555555555555
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0.388888888888889,
+            "minus": 0,
+            "block": -0.05555555555555555
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -1.2777777777777781,
+            "minus": 0,
+            "block": 0.1111111111111111
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -0.7222222222222219,
+            "minus": 0,
+            "block": -0.1111111111111111
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90190,
+      "discovery": "min-hand-pips",
+      "turn": 14,
+      "target": 2,
+      "hand": [
+        "1-2",
+        "2-3",
+        "2-2",
+        "1-3",
+        "0-4"
+      ],
+      "handSizes": [
+        5,
+        2,
+        4
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "connector": [
+          "single|right|2||1-2",
+          "single|up|2||2-3"
+        ],
+        "unrelated": [
+          "single|up|1||1-3",
+          "single|right|3||1-3",
+          "single|left|4||0-4"
+        ]
+      },
+      "exactAllocations": 15,
+      "continuations": 270,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.23333333333333334,
+            "pips": -4.266666666666667,
+            "minus": 0.23333333333333334,
+            "block": 0.03333333333333333
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.26666666666666666,
+            "pips": -4.2444444444444445,
+            "minus": 0.26666666666666666,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.03333333333333329,
+            "pips": -0.022222222222222084,
+            "minus": -0.03333333333333329,
+            "block": 0.03333333333333333
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -0.3,
+            "minus": 0,
+            "block": 0.03333333333333333
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -1.577777777777778,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 1.2777777777777783,
+            "minus": 0,
+            "block": 0.03333333333333333
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0.16666666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -0.17777777777777762,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0.3444444444444443,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90213,
+      "discovery": "min-hand-pips",
+      "turn": 21,
+      "target": 0,
+      "hand": [
+        "0-0",
+        "0-2",
+        "2-3",
+        "0-3"
+      ],
+      "handSizes": [
+        2,
+        1,
+        4
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|down|0||0-2"
+        ],
+        "unrelated": [
+          "single|down|3||2-3"
+        ]
+      },
+      "exactAllocations": 3,
+      "continuations": 27,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -7,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 5,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -7,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 5,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90214,
+      "discovery": "min-hand-pips",
+      "turn": 19,
+      "target": 0,
+      "hand": [
+        "0-3",
+        "2-3",
+        "0-2",
+        "0-4",
+        "0-0"
+      ],
+      "handSizes": [
+        1,
+        2,
+        5
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|left|0||0-2",
+          "single|right|0||0-4"
+        ],
+        "unrelated": [
+          "single|left|3||2-3"
+        ]
+      },
+      "exactAllocations": 3,
+      "continuations": 36,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -5.666666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -9.666666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 4,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -5.666666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -9.666666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 4,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 2,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": -0.5,
+        "unrelatedMinusOpen": -0.6666666666666666,
+        "connectorMinusUnrelated": 0.16666666666666666
+      }
+    },
+    {
+      "seed": 90242,
+      "discovery": "min-hand-pips",
+      "turn": 18,
+      "target": 0,
+      "hand": [
+        "0-0",
+        "0-2",
+        "0-4",
+        "2-3",
+        "0-5"
+      ],
+      "handSizes": [
+        2,
+        3,
+        5
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|down|0||0-5"
+        ],
+        "unrelated": [
+          "single|up|2||2-3"
+        ]
+      },
+      "exactAllocations": 10,
+      "continuations": 90,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.2,
+            "pips": -5,
+            "minus": 0.2,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.3,
+            "pips": -6.8,
+            "minus": 0.3,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.1,
+            "pips": 1.8,
+            "minus": -0.1,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.2,
+            "pips": -5,
+            "minus": 0.2,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.3,
+            "pips": -6.8,
+            "minus": 0.3,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.1,
+            "pips": 1.8,
+            "minus": -0.1,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 0.5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -0.5,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90270,
+      "discovery": "min-hand-pips",
+      "turn": 17,
+      "target": 0,
+      "hand": [
+        "0-5",
+        "1-3",
+        "0-0",
+        "0-6"
+      ],
+      "handSizes": [
+        2,
+        4,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|left|0||0-6"
+        ],
+        "unrelated": [
+          "single|up|1||1-3",
+          "single|down|1||1-3"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 72,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -3.3333333333333335,
+            "minus": 0,
+            "block": -0.16666666666666666
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -3.3333333333333335,
+            "minus": 0,
+            "block": -0.16666666666666666
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -3.3333333333333335,
+            "minus": 0,
+            "block": -0.16666666666666666
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -3.3333333333333335,
+            "minus": 0,
+            "block": -0.16666666666666666
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -0.16666666666666666,
+            "minus": 0,
+            "block": -0.16666666666666666
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 2.6666666666666665,
+            "minus": 0,
+            "block": -0.16666666666666666
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -2.8333333333333335,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90300,
+      "discovery": "min-hand-pips",
+      "turn": 19,
+      "target": 3,
+      "hand": [
+        "0-3",
+        "0-4",
+        "3-3",
+        "1-3"
+      ],
+      "handSizes": [
+        2,
+        4,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "connector": [
+          "single|down|3||1-3"
+        ],
+        "unrelated": [
+          "single|right|0||0-4"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 54,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.16666666666666666,
+            "pips": -4.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.16666666666666666,
+            "pips": -2.5,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -0.6666666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -3.3333333333333335,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -0.6666666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -3.3333333333333335,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90330,
+      "discovery": "min-hand-pips",
+      "turn": 17,
+      "target": 0,
+      "hand": [
+        "2-4",
+        "0-5",
+        "0-3",
+        "0-0"
+      ],
+      "handSizes": [
+        4,
+        2,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|right|0||0-5"
+        ],
+        "unrelated": [
+          "single|up|4||2-4",
+          "single|left|4||2-4"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 72,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -3.3333333333333335,
+            "minus": 0,
+            "block": -0.3333333333333333
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -3.3333333333333335,
+            "minus": 0,
+            "block": -0.3333333333333333
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -3.3333333333333335,
+            "minus": 0,
+            "block": -0.3333333333333333
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -3.3333333333333335,
+            "minus": 0,
+            "block": -0.3333333333333333
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0.6666666666666666,
+            "minus": 0,
+            "block": -0.3333333333333333
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 1.6666666666666667,
+            "minus": 0,
+            "block": -0.3333333333333333
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -1,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90368,
+      "discovery": "min-hand-pips",
+      "turn": 14,
+      "target": 0,
+      "hand": [
+        "2-5",
+        "0-4",
+        "0-3",
+        "2-4",
+        "0-0"
+      ],
+      "handSizes": [
+        4,
+        5,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|down|0||0-4"
+        ],
+        "unrelated": [
+          "single|down|2||2-4"
+        ]
+      },
+      "exactAllocations": 15,
+      "continuations": 135,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.26666666666666666,
+            "pips": -5.133333333333334,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.13333333333333333,
+            "pips": -4.6,
+            "minus": 0,
+            "block": 0.06666666666666667
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.13333333333333333,
+            "pips": -0.5333333333333333,
+            "minus": 0,
+            "block": -0.06666666666666667
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.26666666666666666,
+            "pips": -5.133333333333334,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.13333333333333333,
+            "pips": -4.6,
+            "minus": 0,
+            "block": 0.06666666666666667
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.13333333333333333,
+            "pips": -0.5333333333333333,
+            "minus": 0,
+            "block": -0.06666666666666667
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0.26666666666666666,
+            "pips": -5.133333333333334,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -3.2,
+            "minus": 0,
+            "block": -0.13333333333333333
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.26666666666666666,
+            "pips": -1.9333333333333333,
+            "minus": 0,
+            "block": 0.13333333333333333
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90420,
+      "discovery": "min-hand-pips",
+      "turn": 21,
+      "target": 0,
+      "hand": [
+        "0-3",
+        "0-0",
+        "2-3",
+        "0-4"
+      ],
+      "handSizes": [
+        4,
+        2,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|right|0||0-3"
+        ],
+        "unrelated": [
+          "single|up|3||2-3",
+          "single|right|2||2-3"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 72,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0.6666666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.5,
+            "pips": -4.166666666666667,
+            "minus": 0.5,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.5,
+            "pips": 4.833333333333333,
+            "minus": -0.5,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0.6666666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.5,
+            "pips": -4.166666666666667,
+            "minus": 0.5,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.5,
+            "pips": 4.833333333333333,
+            "minus": -0.5,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0.6666666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -1,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 1.6666666666666667,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90563,
+      "discovery": "min-hand-pips",
+      "turn": 17,
+      "target": 0,
+      "hand": [
+        "1-2",
+        "0-0",
+        "0-6",
+        "0-2"
+      ],
+      "handSizes": [
+        2,
+        3,
+        4
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|up|0||0-2",
+          "single|down|0||0-2"
+        ],
+        "unrelated": [
+          "single|up|1||1-2",
+          "single|down|1||1-2"
+        ]
+      },
+      "exactAllocations": 10,
+      "continuations": 150,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -1,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 1,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -1,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 1,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 2.6,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0.4,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90584,
+      "discovery": "min-hand-pips",
+      "turn": 17,
+      "target": 2,
+      "hand": [
+        "2-2",
+        "2-3",
+        "0-3",
+        "2-5",
+        "1-2"
+      ],
+      "handSizes": [
+        2,
+        3,
+        5
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "connector": [
+          "single|up|2||2-5",
+          "single|down|2||2-5"
+        ],
+        "unrelated": [
+          "single|left|3||0-3"
+        ]
+      },
+      "exactAllocations": 10,
+      "continuations": 120,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -0.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 0.2,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -0.7,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -2.05,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 0.5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -2.55,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -2.05,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 3.4,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -5.45,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90604,
+      "discovery": "min-hand-pips",
+      "turn": 20,
+      "target": 0,
+      "hand": [
+        "0-4",
+        "0-0",
+        "2-4",
+        "0-1"
+      ],
+      "handSizes": [
+        4,
+        2,
+        3
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|up|0||0-4",
+          "single|right|0||0-4"
+        ],
+        "unrelated": [
+          "single|up|2||2-4",
+          "single|left|4||2-4",
+          "single|right|2||2-4"
+        ]
+      },
+      "exactAllocations": 10,
+      "continuations": 180,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.1,
+            "pips": -2.1,
+            "minus": 0,
+            "block": -0.3
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.16666666666666666,
+            "pips": -2.1666666666666665,
+            "minus": 0,
+            "block": -0.3
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.06666666666666665,
+            "pips": 0.06666666666666668,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.1,
+            "pips": -2.1,
+            "minus": 0,
+            "block": -0.3
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.16666666666666666,
+            "pips": -2.1666666666666665,
+            "minus": 0,
+            "block": -0.3
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.06666666666666665,
+            "pips": 0.06666666666666668,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0.1,
+            "pips": 0.9,
+            "minus": 0,
+            "block": -0.2
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.06666666666666667,
+            "pips": -0.7333333333333334,
+            "minus": 0,
+            "block": -0.16666666666666669
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.03333333333333334,
+            "pips": 1.6333333333333333,
+            "minus": 0,
+            "block": -0.03333333333333332
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90642,
+      "discovery": "min-hand-pips",
+      "turn": 22,
+      "target": 0,
+      "hand": [
+        "1-2",
+        "0-3",
+        "0-1",
+        "0-0"
+      ],
+      "handSizes": [
+        2,
+        1,
+        4
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|up|0||0-3"
+        ],
+        "unrelated": [
+          "single|right|1||1-2"
+        ]
+      },
+      "exactAllocations": 3,
+      "continuations": 27,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 1,
+            "pips": -7,
+            "minus": 1,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -1,
+            "pips": 4,
+            "minus": -1,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 1,
+            "pips": -7,
+            "minus": 1,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -1,
+            "pips": 4,
+            "minus": -1,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 90720,
+      "discovery": "min-hand-pips",
+      "turn": 18,
+      "target": 0,
+      "hand": [
+        "0-5",
+        "2-4",
+        "4-5",
+        "0-4",
+        "0-0"
+      ],
+      "handSizes": [
+        1,
+        3,
+        5
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|up|0||0-4"
+        ],
+        "unrelated": [
+          "single|up|2||2-4",
+          "single|down|4||2-4",
+          "single|up|5||4-5"
+        ]
+      },
+      "exactAllocations": 4,
+      "continuations": 60,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.25,
+            "pips": -11.916666666666666,
+            "minus": 0.25,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.25,
+            "pips": 7.916666666666666,
+            "minus": -0.25,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.25,
+            "pips": -11.916666666666666,
+            "minus": 0.25,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.25,
+            "pips": 7.916666666666666,
+            "minus": -0.25,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -7.75,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3.75,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": -0.25,
+        "unrelatedMinusOpen": -0.41666666666666674,
+        "connectorMinusUnrelated": 0.16666666666666669
+      }
+    },
+    {
+      "seed": 90754,
+      "discovery": "min-hand-pips",
+      "turn": 17,
+      "target": 0,
+      "hand": [
+        "0-2",
+        "0-0",
+        "0-5",
+        "1-2"
+      ],
+      "handSizes": [
+        2,
+        2,
+        4
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|right|0||0-2"
+        ],
+        "unrelated": [
+          "single|right|1||1-2",
+          "single|down|2||1-2"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 72,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 1,
+            "pips": -5,
+            "minus": 1,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.5,
+            "pips": -3.1666666666666665,
+            "minus": 0.5,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.5,
+            "pips": -1.8333333333333333,
+            "minus": 0.5,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 1,
+            "pips": -5,
+            "minus": 1,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.5,
+            "pips": -3.1666666666666665,
+            "minus": 0.5,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.5,
+            "pips": -1.8333333333333333,
+            "minus": 0.5,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -0.08333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -1.9166666666666667,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 91536,
+      "discovery": "closed-branch-control",
+      "turn": 22,
+      "target": 0,
+      "hand": [
+        "0-1",
+        "0-3",
+        "0-2",
+        "3-5",
+        "0-0"
+      ],
+      "handSizes": [
+        2,
+        5,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|right|0||0-2"
+        ],
+        "unrelated": [
+          "single|left|3||3-5"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 54,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.16666666666666666,
+            "pips": -3.3333333333333335,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -1.6666666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.16666666666666666,
+            "pips": -1.6666666666666667,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.16666666666666666,
+            "pips": -3.3333333333333335,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -1.6666666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.16666666666666666,
+            "pips": -1.6666666666666667,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 91595,
+      "discovery": "closed-branch-control",
+      "turn": 20,
+      "target": 4,
+      "hand": [
+        "0-4",
+        "0-1",
+        "4-4",
+        "4-5",
+        "4-6"
+      ],
+      "handSizes": [
+        2,
+        2,
+        5
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||4|4-4"
+        ],
+        "connector": [
+          "single|up|4||0-4",
+          "single|left|4||4-6"
+        ],
+        "unrelated": [
+          "single|up|1||0-1"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 72,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -1.9166666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 7,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -8.916666666666666,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -0.9166666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 7,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -7.916666666666667,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 2.1666666666666665,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 9,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -6.833333333333333,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 91596,
+      "discovery": "closed-branch-control",
+      "turn": 21,
+      "target": 0,
+      "hand": [
+        "0-2",
+        "0-5",
+        "0-0",
+        "2-3"
+      ],
+      "handSizes": [
+        4,
+        2,
+        3
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|right|0||0-2",
+          "single|up|0||0-5"
+        ],
+        "unrelated": [
+          "single|right|3||2-3"
+        ]
+      },
+      "exactAllocations": 10,
+      "continuations": 120,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.35,
+            "pips": -3.25,
+            "minus": 0.35,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.6,
+            "pips": -4.5,
+            "minus": 0.6,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.25,
+            "pips": 1.25,
+            "minus": -0.25,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.35,
+            "pips": -3.25,
+            "minus": 0.35,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.6,
+            "pips": -4.5,
+            "minus": 0.6,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.25,
+            "pips": 1.25,
+            "minus": -0.25,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0.05,
+            "pips": -0.95,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -0.8,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.05,
+            "pips": -0.15,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 91608,
+      "discovery": "closed-branch-control",
+      "turn": 21,
+      "target": 2,
+      "hand": [
+        "2-4",
+        "0-2",
+        "2-2",
+        "3-4"
+      ],
+      "handSizes": [
+        2,
+        2,
+        4
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "connector": [
+          "single|right|2||2-4"
+        ],
+        "unrelated": [
+          "single|right|3||3-4"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 54,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -0.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -0.5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -0.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -0.5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -0.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -0.5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 91657,
+      "discovery": "closed-branch-control",
+      "turn": 21,
+      "target": 3,
+      "hand": [
+        "2-6",
+        "3-3",
+        "2-3",
+        "0-3"
+      ],
+      "handSizes": [
+        3,
+        4,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "connector": [
+          "single|down|3||2-3",
+          "single|left|3||0-3",
+          "single|right|3||0-3"
+        ],
+        "unrelated": [
+          "single|down|6||2-6"
+        ]
+      },
+      "exactAllocations": 10,
+      "continuations": 150,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.1,
+            "pips": 1.1333333333333335,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -1.2,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.1,
+            "pips": 2.3333333333333335,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0.8666666666666665,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -2.1,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 2.9666666666666663,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0.8666666666666665,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -2.1,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 2.9666666666666663,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 91722,
+      "discovery": "closed-branch-control",
+      "turn": 30,
+      "target": 0,
+      "hand": [
+        "2-5",
+        "0-4",
+        "2-4",
+        "0-0",
+        "0-2"
+      ],
+      "handSizes": [
+        2,
+        2,
+        5
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|right|0||0-2"
+        ],
+        "unrelated": [
+          "single|right|5||2-5",
+          "single|right|4||2-4"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 72,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": -0.16666666666666666,
+            "pips": 3.3333333333333335,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": -0.16666666666666666,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3.3333333333333335,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": -0.16666666666666666,
+            "pips": 3.3333333333333335,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": -0.16666666666666666,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3.3333333333333335,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": -0.16666666666666666,
+            "pips": 3.3333333333333335,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": -0.08333333333333333,
+            "pips": 1.5833333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.08333333333333333,
+            "pips": 1.75,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 91764,
+      "discovery": "closed-branch-control",
+      "turn": 22,
+      "target": 2,
+      "hand": [
+        "2-2",
+        "0-3",
+        "2-6",
+        "0-2"
+      ],
+      "handSizes": [
+        1,
+        4,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "connector": [
+          "single|left|2||2-6"
+        ],
+        "unrelated": [
+          "single|right|0||0-3"
+        ]
+      },
+      "exactAllocations": 3,
+      "continuations": 27,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -8,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 1,
+            "pips": -13,
+            "minus": 1,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -1,
+            "pips": 5,
+            "minus": -1,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -8,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 1,
+            "pips": -13,
+            "minus": 1,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -1,
+            "pips": 5,
+            "minus": -1,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -8,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -5,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 91766,
+      "discovery": "closed-branch-control",
+      "turn": 22,
+      "target": 0,
+      "hand": [
+        "0-1",
+        "0-0",
+        "1-5",
+        "0-2",
+        "0-5"
+      ],
+      "handSizes": [
+        5,
+        2,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|right|0||0-2",
+          "single|left|0||0-5"
+        ],
+        "unrelated": [
+          "single|left|1||1-5"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 72,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -1.75,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -6.166666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 4.416666666666667,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -1.75,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -6.166666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 4.416666666666667,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 2.5,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 91803,
+      "discovery": "closed-branch-control",
+      "turn": 20,
+      "target": 0,
+      "hand": [
+        "0-4",
+        "0-6",
+        "2-3",
+        "0-0",
+        "0-2"
+      ],
+      "handSizes": [
+        5,
+        2,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|right|0||0-2",
+          "single|down|0||0-2"
+        ],
+        "unrelated": [
+          "single|right|3||2-3",
+          "single|down|3||2-3"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 90,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -1.3333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -4.333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -1.3333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -4.333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 4,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 1,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 91816,
+      "discovery": "closed-branch-control",
+      "turn": 22,
+      "target": 4,
+      "hand": [
+        "2-5",
+        "4-6",
+        "4-5",
+        "0-4",
+        "4-4"
+      ],
+      "handSizes": [
+        1,
+        5,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||4|4-4"
+        ],
+        "connector": [
+          "single|right|4||4-6"
+        ],
+        "unrelated": [
+          "single|left|5||2-5"
+        ]
+      },
+      "exactAllocations": 3,
+      "continuations": 27,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -1.3333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -13.666666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 12.333333333333334,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -1.3333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -13.666666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 12.333333333333334,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -1.3333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -1,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -0.3333333333333333,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 91853,
+      "discovery": "closed-branch-control",
+      "turn": 21,
+      "target": 3,
+      "hand": [
+        "3-6",
+        "0-3",
+        "2-6",
+        "3-3",
+        "2-4"
+      ],
+      "handSizes": [
+        3,
+        5,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "connector": [
+          "single|up|3||0-3"
+        ],
+        "unrelated": [
+          "single|left|6||2-6",
+          "single|down|6||2-6",
+          "single|left|4||2-4",
+          "single|down|4||2-4"
+        ]
+      },
+      "exactAllocations": 10,
+      "continuations": 180,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.2,
+            "pips": -0.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.3,
+            "pips": -4.55,
+            "minus": 0.2,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.1,
+            "pips": 4.05,
+            "minus": -0.2,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.2,
+            "pips": -0.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.25,
+            "pips": -4.9,
+            "minus": 0.2,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.05,
+            "pips": 4.4,
+            "minus": -0.2,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 4.8,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 1.2,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3.6,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 91883,
+      "discovery": "closed-branch-control",
+      "turn": 21,
+      "target": 0,
+      "hand": [
+        "0-5",
+        "0-2",
+        "0-0",
+        "2-4"
+      ],
+      "handSizes": [
+        3,
+        4,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|down|0||0-2"
+        ],
+        "unrelated": [
+          "single|down|4||2-4"
+        ]
+      },
+      "exactAllocations": 10,
+      "continuations": 90,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0.8,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -2.2,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0.8,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -2.2,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0.8,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -2.2,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 91941,
+      "discovery": "closed-branch-control",
+      "turn": 21,
+      "target": 0,
+      "hand": [
+        "0-3",
+        "2-3",
+        "0-6",
+        "2-4",
+        "0-0"
+      ],
+      "handSizes": [
+        2,
+        5,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|up|0||0-3",
+          "single|right|0||0-3",
+          "single|down|0||0-6"
+        ],
+        "unrelated": [
+          "single|up|2||2-3",
+          "single|right|2||2-3"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 108,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -6.166666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -5.666666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -0.5,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -6.166666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -5.666666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -0.5,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -2.722222222222222,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 1.8333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -4.5555555555555545,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 91951,
+      "discovery": "closed-branch-control",
+      "turn": 21,
+      "target": 3,
+      "hand": [
+        "3-3",
+        "0-3",
+        "1-2",
+        "3-5"
+      ],
+      "handSizes": [
+        3,
+        4,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||3|3-3"
+        ],
+        "connector": [
+          "single|down|3||3-5"
+        ],
+        "unrelated": [
+          "single|up|1||1-2",
+          "single|right|1||1-2"
+        ]
+      },
+      "exactAllocations": 10,
+      "continuations": 120,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.5,
+            "pips": -6.6,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 1.8,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.5,
+            "pips": -8.4,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -5.1,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 1.5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -6.6,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -5.1,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 1.5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -6.6,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 92007,
+      "discovery": "closed-branch-control",
+      "turn": 20,
+      "target": 0,
+      "hand": [
+        "2-3",
+        "0-4",
+        "0-0",
+        "0-3"
+      ],
+      "handSizes": [
+        2,
+        3,
+        4
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|up|0||0-3",
+          "single|right|0||0-3"
+        ],
+        "unrelated": [
+          "single|up|2||2-3",
+          "single|right|2||2-3"
+        ]
+      },
+      "exactAllocations": 10,
+      "continuations": 150,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.4,
+            "pips": -3,
+            "minus": 0.4,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.6,
+            "pips": -3.8,
+            "minus": 0.6,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.2,
+            "pips": 0.8,
+            "minus": -0.2,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.4,
+            "pips": -3,
+            "minus": 0.4,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.6,
+            "pips": -3.8,
+            "minus": 0.6,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.2,
+            "pips": 0.8,
+            "minus": -0.2,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0.2,
+            "pips": -1.2,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 0.4,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.2,
+            "pips": -1.6,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 92009,
+      "discovery": "closed-branch-control",
+      "turn": 20,
+      "target": 2,
+      "hand": [
+        "2-2",
+        "0-2",
+        "2-5",
+        "0-3"
+      ],
+      "handSizes": [
+        2,
+        4,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "connector": [
+          "single|up|2||0-2"
+        ],
+        "unrelated": [
+          "single|up|3||0-3"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 54,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 1.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -1.6666666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3.1666666666666665,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 1.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -1.6666666666666667,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3.1666666666666665,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 1.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 4,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -2.5,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 92172,
+      "discovery": "closed-branch-control",
+      "turn": 22,
+      "target": 2,
+      "hand": [
+        "2-3",
+        "2-2",
+        "0-5",
+        "0-2"
+      ],
+      "handSizes": [
+        1,
+        4,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "connector": [
+          "single|left|2||2-3",
+          "single|down|2||0-2"
+        ],
+        "unrelated": [
+          "single|down|5||0-5"
+        ]
+      },
+      "exactAllocations": 3,
+      "continuations": 36,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.16666666666666666,
+            "pips": -5.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -7,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.16666666666666666,
+            "pips": 1.5,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.16666666666666666,
+            "pips": -5.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -7,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0.16666666666666666,
+            "pips": 1.5,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -3,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -3.6666666666666665,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0.6666666666666666,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 92179,
+      "discovery": "closed-branch-control",
+      "turn": 20,
+      "target": 0,
+      "hand": [
+        "2-4",
+        "0-2",
+        "0-0",
+        "0-6"
+      ],
+      "handSizes": [
+        2,
+        2,
+        4
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|right|0||0-2",
+          "single|down|0||0-2",
+          "single|up|0||0-6"
+        ],
+        "unrelated": [
+          "single|right|4||2-4",
+          "single|down|4||2-4"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 108,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.8333333333333334,
+            "pips": -4.666666666666667,
+            "minus": 1,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.8333333333333334,
+            "pips": -4.666666666666667,
+            "minus": 1,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.8333333333333334,
+            "pips": -4.666666666666667,
+            "minus": 1,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.8333333333333334,
+            "pips": -4.666666666666667,
+            "minus": 1,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": -0.16666666666666666,
+            "pips": 2.9605947323337506e-16,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": -0.16666666666666666,
+            "pips": 2.3333333333333335,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -2.3333333333333326,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 92213,
+      "discovery": "closed-branch-control",
+      "turn": 22,
+      "target": 0,
+      "hand": [
+        "3-6",
+        "0-4",
+        "0-5",
+        "0-0",
+        "3-5"
+      ],
+      "handSizes": [
+        2,
+        1,
+        5
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|right|0||0-4"
+        ],
+        "unrelated": [
+          "single|up|6||3-6",
+          "single|up|5||3-5"
+        ]
+      },
+      "exactAllocations": 3,
+      "continuations": 36,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -1,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -9.166666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 8.166666666666666,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -1,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -9.166666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 8.166666666666666,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -1,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -5.5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 4.5,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 92224,
+      "discovery": "closed-branch-control",
+      "turn": 24,
+      "target": 0,
+      "hand": [
+        "0-3",
+        "2-4",
+        "0-0",
+        "0-6"
+      ],
+      "handSizes": [
+        4,
+        4,
+        1
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|down|0||0-6"
+        ],
+        "unrelated": [
+          "single|up|2||2-4",
+          "single|left|4||2-4"
+        ]
+      },
+      "exactAllocations": 5,
+      "continuations": 60,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0.2,
+            "pips": -7.8,
+            "minus": 0.2,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.4,
+            "pips": -10.8,
+            "minus": 0.3,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.2,
+            "pips": 3,
+            "minus": -0.1,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0.2,
+            "pips": -7.8,
+            "minus": 0.2,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.4,
+            "pips": -10.8,
+            "minus": 0.3,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.2,
+            "pips": 3,
+            "minus": -0.1,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -6,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.1,
+            "pips": -7.5,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.1,
+            "pips": 1.5,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": -0.2,
+        "unrelatedMinusOpen": -0.6,
+        "connectorMinusUnrelated": 0.4
+      }
+    },
+    {
+      "seed": 92276,
+      "discovery": "closed-branch-control",
+      "turn": 21,
+      "target": 2,
+      "hand": [
+        "0-6",
+        "0-3",
+        "2-2",
+        "0-2",
+        "2-3"
+      ],
+      "handSizes": [
+        3,
+        5,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "connector": [
+          "single|down|2||0-2"
+        ],
+        "unrelated": [
+          "single|down|6||0-6",
+          "single|down|3||0-3"
+        ]
+      },
+      "exactAllocations": 10,
+      "continuations": 120,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -4.2,
+            "minus": 0,
+            "block": -0.1
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.1,
+            "pips": -7.15,
+            "minus": 0,
+            "block": -0.05
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.1,
+            "pips": 2.95,
+            "minus": 0,
+            "block": -0.05
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -4.2,
+            "minus": 0,
+            "block": -0.1
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0.1,
+            "pips": -7.15,
+            "minus": 0,
+            "block": -0.05
+          },
+          "connectorMinusUnrelated": {
+            "finish": -0.1,
+            "pips": 2.95,
+            "minus": 0,
+            "block": -0.05
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -4.2,
+            "minus": 0,
+            "block": -0.1
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -5.85,
+            "minus": 0,
+            "block": -0.1
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 1.65,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 92320,
+      "discovery": "closed-branch-control",
+      "turn": 23,
+      "target": 2,
+      "hand": [
+        "2-4",
+        "1-2",
+        "1-4",
+        "2-2"
+      ],
+      "handSizes": [
+        4,
+        2,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "connector": [
+          "single|right|2||2-4"
+        ],
+        "unrelated": [
+          "single|right|1||1-4"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 54,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -0.6666666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 0.6666666666666666,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 1,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -1,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 1,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -1,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 92364,
+      "discovery": "closed-branch-control",
+      "turn": 23,
+      "target": 0,
+      "hand": [
+        "0-0",
+        "0-4",
+        "0-2",
+        "3-5",
+        "1-3"
+      ],
+      "handSizes": [
+        5,
+        1,
+        3
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||0|0-0"
+        ],
+        "connector": [
+          "single|up|0||0-4"
+        ],
+        "unrelated": [
+          "single|left|5||3-5",
+          "single|right|3||3-5",
+          "single|left|1||1-3"
+        ]
+      },
+      "exactAllocations": 4,
+      "continuations": 60,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -6.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -9.833333333333334,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3.3333333333333335,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -6.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -9.833333333333334,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 3.3333333333333335,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -4,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -7,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 2.9999999999999996,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": -0.25,
+        "unrelatedMinusOpen": -0.5000000000000001,
+        "connectorMinusUnrelated": 0.25
+      }
+    },
+    {
+      "seed": 92372,
+      "discovery": "closed-branch-control",
+      "turn": 21,
+      "target": 2,
+      "hand": [
+        "2-6",
+        "0-2",
+        "0-3",
+        "3-4",
+        "2-2"
+      ],
+      "handSizes": [
+        2,
+        3,
+        5
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "connector": [
+          "single|left|2||2-6"
+        ],
+        "unrelated": [
+          "single|up|0||0-3",
+          "single|up|4||3-4"
+        ]
+      },
+      "exactAllocations": 10,
+      "continuations": 120,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -8.3,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -4.55,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -3.75,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -2.8,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -3.8,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 1,
+            "minus": 0,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -2.1,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": 0.6,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": -2.7,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    },
+    {
+      "seed": 92377,
+      "discovery": "closed-branch-control",
+      "turn": 23,
+      "target": 2,
+      "hand": [
+        "2-2",
+        "1-4",
+        "2-3",
+        "0-2"
+      ],
+      "handSizes": [
+        2,
+        4,
+        2
+      ],
+      "classes": {
+        "open": [
+          "double-sequence|||2|2-2"
+        ],
+        "connector": [
+          "single|down|2||2-3",
+          "single|up|2||0-2"
+        ],
+        "unrelated": [
+          "single|right|1||1-4"
+        ]
+      },
+      "exactAllocations": 6,
+      "continuations": 72,
+      "contrasts": {
+        "closed-branch-control": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -1.3333333333333333,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 1,
+            "pips": -7,
+            "minus": 1,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -1,
+            "pips": 5.666666666666667,
+            "minus": -1,
+            "block": 0
+          }
+        },
+        "min-hand-pips": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": -0.6666666666666666,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 1,
+            "pips": -7,
+            "minus": 1,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": -1,
+            "pips": 6.333333333333333,
+            "minus": -1,
+            "block": 0
+          }
+        },
+        "fast-doubles": {
+          "connectorMinusOpen": {
+            "finish": 0,
+            "pips": 1.5,
+            "minus": 0,
+            "block": 0
+          },
+          "unrelatedMinusOpen": {
+            "finish": 0,
+            "pips": -0.8333333333333334,
+            "minus": 0,
+            "block": 0
+          },
+          "connectorMinusUnrelated": {
+            "finish": 0,
+            "pips": 2.3333333333333335,
+            "minus": 0,
+            "block": 0
+          }
+        }
+      },
+      "immediateFinishOpportunity": {
+        "connectorMinusOpen": 0,
+        "unrelatedMinusOpen": 0,
+        "connectorMinusUnrelated": 0
+      }
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "seed": 90004,
+    "exactAllocations": 6,
+    "continuations": 54,
+    "execution": "V8 CommonJS harness; Node CLI not run"
+  }
+}
