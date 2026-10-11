@@ -1,0 +1,4270 @@
+{
+  "schema": "qosa-two-opponent-conditional-holdout/v1",
+  "timestampAsiaBaku": "2026-10-12 02:54 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "start": 860000,
+  "end": 900000,
+  "scannedDeals": 9909,
+  "positions": 40,
+  "worldsPerPosition": 40,
+  "hiddenWorlds": 1600,
+  "candidateContinuations": 19440,
+  "selectedSeeds": [
+    860163,
+    860171,
+    860455,
+    860498,
+    860554,
+    860778,
+    860796,
+    860803,
+    860837,
+    861291,
+    861536,
+    861674,
+    861691,
+    861757,
+    862094,
+    862112,
+    862203,
+    862219,
+    862283,
+    862508,
+    863045,
+    864099,
+    864583,
+    864863,
+    865227,
+    865281,
+    865350,
+    866086,
+    866245,
+    866514,
+    867180,
+    867306,
+    867755,
+    867846,
+    867863,
+    868063,
+    868506,
+    868727,
+    869893,
+    869908
+  ],
+  "bothOpponentMobilityUnchangedWorlds": 345,
+  "worldSeedFormula": "34000000+1000*dealSeed+worldIndex",
+  "discoveryPolicy": "min-hand-pips",
+  "continuationPolicies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "comparison": "equal-pip connector vs unrelated; X-X and another X connector retained; both opponent immediate mobility BEFORE next player acts; next-turn connector availability AFTER both players act",
+  "limitations": "different branch sides confounded; both-mobility-unchanged post-treatment descriptive only, not causal; opponent history not conditioned; first eligible; assumed branch opening; block winner unassigned; position-normal CI exploratory",
+  "summary": {
+    "mobilityOtherMinusConnector": {
+      "next": {
+        "n": 40,
+        "mean": -0.0024999999999999883,
+        "exploratoryCI95": [
+          -0.19397815969719795,
+          0.188978159697198
+        ]
+      },
+      "third": {
+        "n": 40,
+        "mean": 0.027499999999999976,
+        "exploratoryCI95": [
+          -0.26903746855399285,
+          0.3240374685539928
+        ]
+      }
+    },
+    "closed-branch-control": {
+      "all": {
+        "finish": {
+          "n": 40,
+          "mean": -0.24875000000000003,
+          "exploratoryCI95": [
+            -0.3794788834249665,
+            -0.11802111657503359
+          ]
+        },
+        "pips": {
+          "n": 40,
+          "mean": 2.38375,
+          "exploratoryCI95": [
+            1.1652218406765877,
+            3.6022781593234123
+          ]
+        },
+        "minus": {
+          "n": 40,
+          "mean": -0.25687499999999996,
+          "exploratoryCI95": [
+            -0.386777586715032,
+            -0.12697241328496794
+          ]
+        },
+        "access": {
+          "n": 40,
+          "mean": -0.4131250000000001,
+          "exploratoryCI95": [
+            -0.5522498193838532,
+            -0.274000180616147
+          ]
+        },
+        "available": {
+          "n": 40,
+          "mean": -1.06875,
+          "exploratoryCI95": [
+            -1.2635744796852166,
+            -0.8739255203147835
+          ]
+        },
+        "returned": {
+          "n": 40,
+          "mean": -0.013124999999999998,
+          "exploratoryCI95": [
+            -0.045759651779892975,
+            0.01950965177989298
+          ]
+        }
+      },
+      "bothUnchangedPositionCluster": {
+        "finish": {
+          "n": 11,
+          "mean": -0.07727272727272728,
+          "exploratoryCI95": [
+            -0.18410754996103887,
+            0.0295620954155843
+          ]
+        },
+        "pips": {
+          "n": 11,
+          "mean": 1.7310833902939171,
+          "exploratoryCI95": [
+            -0.03474958828956609,
+            3.4969163688774003
+          ]
+        },
+        "minus": {
+          "n": 11,
+          "mean": -0.07727272727272728,
+          "exploratoryCI95": [
+            -0.18410754996103887,
+            0.0295620954155843
+          ]
+        },
+        "access": {
+          "n": 11,
+          "mean": -0.5667464114832536,
+          "exploratoryCI95": [
+            -0.8119193721113664,
+            -0.3215734508551406
+          ]
+        }
+      }
+    },
+    "min-hand-pips": {
+      "all": {
+        "finish": {
+          "n": 40,
+          "mean": -0.25312500000000004,
+          "exploratoryCI95": [
+            -0.38311286524972044,
+            -0.12313713475027963
+          ]
+        },
+        "pips": {
+          "n": 40,
+          "mean": 2.4843749999999996,
+          "exploratoryCI95": [
+            1.2478642170846117,
+            3.7208857829153876
+          ]
+        },
+        "minus": {
+          "n": 40,
+          "mean": -0.26375,
+          "exploratoryCI95": [
+            -0.3915618957888044,
+            -0.1359381042111956
+          ]
+        },
+        "access": {
+          "n": 40,
+          "mean": -0.4131250000000001,
+          "exploratoryCI95": [
+            -0.5522498193838532,
+            -0.274000180616147
+          ]
+        },
+        "available": {
+          "n": 40,
+          "mean": -1.06875,
+          "exploratoryCI95": [
+            -1.2635744796852166,
+            -0.8739255203147835
+          ]
+        },
+        "returned": {
+          "n": 40,
+          "mean": -0.013124999999999998,
+          "exploratoryCI95": [
+            -0.045759651779892975,
+            0.01950965177989298
+          ]
+        }
+      },
+      "bothUnchangedPositionCluster": {
+        "finish": {
+          "n": 11,
+          "mean": -0.07727272727272728,
+          "exploratoryCI95": [
+            -0.18410754996103887,
+            0.0295620954155843
+          ]
+        },
+        "pips": {
+          "n": 11,
+          "mean": 1.7310833902939171,
+          "exploratoryCI95": [
+            -0.03474958828956609,
+            3.4969163688774003
+          ]
+        },
+        "minus": {
+          "n": 11,
+          "mean": -0.07727272727272728,
+          "exploratoryCI95": [
+            -0.18410754996103887,
+            0.0295620954155843
+          ]
+        },
+        "access": {
+          "n": 11,
+          "mean": -0.5667464114832536,
+          "exploratoryCI95": [
+            -0.8119193721113664,
+            -0.3215734508551406
+          ]
+        }
+      }
+    },
+    "fast-doubles": {
+      "all": {
+        "finish": {
+          "n": 40,
+          "mean": 0.0018750000000000004,
+          "exploratoryCI95": [
+            -0.014146355439793637,
+            0.017896355439793638
+          ]
+        },
+        "pips": {
+          "n": 40,
+          "mean": 0.5443750000000003,
+          "exploratoryCI95": [
+            -0.4444110917510844,
+            1.533161091751085
+          ]
+        },
+        "minus": {
+          "n": 40,
+          "mean": -0.001875,
+          "exploratoryCI95": [
+            -0.005549999999999998,
+            0.0017999999999999978
+          ]
+        },
+        "access": {
+          "n": 40,
+          "mean": -0.4131250000000001,
+          "exploratoryCI95": [
+            -0.5522498193838532,
+            -0.274000180616147
+          ]
+        },
+        "available": {
+          "n": 40,
+          "mean": -1.06875,
+          "exploratoryCI95": [
+            -1.2635744796852166,
+            -0.8739255203147835
+          ]
+        },
+        "returned": {
+          "n": 40,
+          "mean": -0.013124999999999998,
+          "exploratoryCI95": [
+            -0.045759651779892975,
+            0.01950965177989298
+          ]
+        }
+      },
+      "bothUnchangedPositionCluster": {
+        "finish": {
+          "n": 11,
+          "mean": 0,
+          "exploratoryCI95": [
+            0,
+            0
+          ]
+        },
+        "pips": {
+          "n": 11,
+          "mean": 0.75715994531784,
+          "exploratoryCI95": [
+            0.1801324168706402,
+            1.3341874737650399
+          ]
+        },
+        "minus": {
+          "n": 11,
+          "mean": 0,
+          "exploratoryCI95": [
+            0,
+            0
+          ]
+        },
+        "access": {
+          "n": 11,
+          "mean": -0.5667464114832536,
+          "exploratoryCI95": [
+            -0.8119193721113664,
+            -0.3215734508551406
+          ]
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "seed": 860163,
+      "turn": 20,
+      "x": 0,
+      "sides": [
+        "right",
+        "left"
+      ],
+      "handSizes": [
+        3,
+        4,
+        1
+      ],
+      "bothUnchanged": 19,
+      "mobilityOtherMinusConnector": {
+        "next": 0.025,
+        "third": -0.025
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": -0.125,
+            "minus": 0,
+            "access": 0.025,
+            "available": 0.025,
+            "returned": 0.025
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": 0
+          }
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": -0.125,
+            "minus": 0,
+            "access": 0.025,
+            "available": 0.025,
+            "returned": 0.025
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": 0
+          }
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 1.25,
+            "minus": 0,
+            "access": 0.025,
+            "available": 0.025,
+            "returned": 0.025
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 860171,
+      "turn": 17,
+      "x": 0,
+      "sides": [
+        "right",
+        "left"
+      ],
+      "handSizes": [
+        4,
+        2,
+        3
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -0.45,
+        "third": -0.55
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -0.2,
+            "pips": 0.725,
+            "minus": 0,
+            "access": -0.55,
+            "available": -0.55,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -0.2,
+            "pips": 0.725,
+            "minus": 0,
+            "access": -0.55,
+            "available": -0.55,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0.2,
+            "minus": 0,
+            "access": -0.55,
+            "available": -0.55,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 860455,
+      "turn": 17,
+      "x": 2,
+      "sides": [
+        "up",
+        "down"
+      ],
+      "handSizes": [
+        4,
+        1,
+        3
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -0.45,
+        "third": -0.55
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -0.8,
+            "pips": 8.75,
+            "minus": -0.8,
+            "access": -0.45,
+            "available": -1.25,
+            "returned": -0.45
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -0.8,
+            "pips": 9.8,
+            "minus": -0.8,
+            "access": -0.45,
+            "available": -1.25,
+            "returned": -0.45
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 4.25,
+            "minus": 0,
+            "access": -0.45,
+            "available": -1.25,
+            "returned": -0.45
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 860498,
+      "turn": 17,
+      "x": 0,
+      "sides": [
+        "down",
+        "left"
+      ],
+      "handSizes": [
+        4,
+        2,
+        2
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": 0.5,
+        "third": 0.5
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": -5.25,
+            "minus": 0,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 860554,
+      "turn": 21,
+      "x": 2,
+      "sides": [
+        "up",
+        "right"
+      ],
+      "handSizes": [
+        2,
+        4,
+        1
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -0.4,
+        "third": -0.6
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": 4.3,
+            "minus": 0,
+            "access": -0.4,
+            "available": -0.4,
+            "returned": -0.4
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": 4.3,
+            "minus": 0,
+            "access": -0.4,
+            "available": -0.4,
+            "returned": -0.4
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 1.6,
+            "minus": 0,
+            "access": -0.4,
+            "available": -0.4,
+            "returned": -0.4
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 860778,
+      "turn": 17,
+      "x": 0,
+      "sides": [
+        "left",
+        "right"
+      ],
+      "handSizes": [
+        4,
+        2,
+        2
+      ],
+      "bothUnchanged": 40,
+      "mobilityOtherMinusConnector": {
+        "next": 0,
+        "third": 0
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -1,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -1
+          }
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -1,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -1
+          }
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -1,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -1
+          }
+        }
+      }
+    },
+    {
+      "seed": 860796,
+      "turn": 17,
+      "x": 0,
+      "sides": [
+        "left",
+        "up"
+      ],
+      "handSizes": [
+        2,
+        3,
+        4
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": 0.35,
+        "third": 0.65
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": 1.95,
+            "minus": 0,
+            "access": -0.325,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": 1.95,
+            "minus": 0,
+            "access": -0.325,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0.175,
+            "pips": -1.7,
+            "minus": 0,
+            "access": -0.325,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 860803,
+      "turn": 18,
+      "x": 0,
+      "sides": [
+        "down",
+        "right"
+      ],
+      "handSizes": [
+        4,
+        1,
+        3
+      ],
+      "bothUnchanged": 19,
+      "mobilityOtherMinusConnector": {
+        "next": 0.025,
+        "third": -0.025
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": 2.8,
+            "minus": 0,
+            "access": -0.725,
+            "available": -0.725,
+            "returned": 0.025
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 5,
+            "minus": 0,
+            "access": -1
+          }
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": 2.8,
+            "minus": 0,
+            "access": -0.725,
+            "available": -0.725,
+            "returned": 0.025
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 5,
+            "minus": 0,
+            "access": -1
+          }
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0.425,
+            "minus": 0,
+            "access": -0.725,
+            "available": -0.725,
+            "returned": 0.025
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -1
+          }
+        }
+      }
+    },
+    {
+      "seed": 860837,
+      "turn": 14,
+      "x": 0,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "handSizes": [
+        2,
+        4,
+        5
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -0.125,
+        "third": -0.875
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -0.6,
+            "pips": 3.6,
+            "minus": -0.7,
+            "access": 0,
+            "available": 0,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -0.6,
+            "pips": 3.6,
+            "minus": -0.7,
+            "access": 0,
+            "available": 0,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": -0.125,
+            "pips": 1.675,
+            "minus": 0,
+            "access": 0,
+            "available": 0,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 861291,
+      "turn": 18,
+      "x": 0,
+      "sides": [
+        "down",
+        "up"
+      ],
+      "handSizes": [
+        4,
+        2,
+        3
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": 0.35,
+        "third": 0.65
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -1,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -1,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": -0.6,
+            "minus": 0,
+            "access": -1,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 861536,
+      "turn": 17,
+      "x": 0,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "handSizes": [
+        2,
+        3,
+        4
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -0.85,
+        "third": -1.15
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -0.925,
+            "pips": 7.85,
+            "minus": -0.925,
+            "access": -1,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -0.925,
+            "pips": 7.85,
+            "minus": -0.925,
+            "access": -1,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 3,
+            "minus": 0,
+            "access": -1,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 861674,
+      "turn": 16,
+      "x": 0,
+      "sides": [
+        "up",
+        "down"
+      ],
+      "handSizes": [
+        3,
+        4,
+        2
+      ],
+      "bothUnchanged": 20,
+      "mobilityOtherMinusConnector": {
+        "next": 0.05,
+        "third": -0.05
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": 3.325,
+            "minus": 0,
+            "access": -0.45,
+            "available": -0.45,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 3.3,
+            "minus": 0,
+            "access": -0.55
+          }
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": 3.325,
+            "minus": 0,
+            "access": -0.45,
+            "available": -0.45,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 3.3,
+            "minus": 0,
+            "access": -0.55
+          }
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0.9,
+            "minus": 0,
+            "access": -0.45,
+            "available": -0.45,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 1.25,
+            "minus": 0,
+            "access": -0.55
+          }
+        }
+      }
+    },
+    {
+      "seed": 861691,
+      "turn": 18,
+      "x": 0,
+      "sides": [
+        "right",
+        "up"
+      ],
+      "handSizes": [
+        4,
+        5,
+        2
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -0.6,
+        "third": -1.4
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -0.025,
+            "pips": 1.15,
+            "minus": -0.025,
+            "access": -0.05,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -0.025,
+            "pips": 1.15,
+            "minus": -0.025,
+            "access": -0.05,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 2.05,
+            "minus": 0,
+            "access": -0.05,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 861757,
+      "turn": 21,
+      "x": 0,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "handSizes": [
+        2,
+        5,
+        2
+      ],
+      "bothUnchanged": 40,
+      "mobilityOtherMinusConnector": {
+        "next": 0,
+        "third": 0
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": 0,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": 0
+          }
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": 0,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": 0
+          }
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 2.55,
+            "minus": 0,
+            "access": 0,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 2.55,
+            "minus": 0,
+            "access": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 862094,
+      "turn": 17,
+      "x": 0,
+      "sides": [
+        "right",
+        "up"
+      ],
+      "handSizes": [
+        3,
+        4,
+        1
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": 0.275,
+        "third": 0.725
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": -1.375,
+            "minus": 0,
+            "access": 0.275,
+            "available": -0.45,
+            "returned": 0.275
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": -1.375,
+            "minus": 0,
+            "access": 0.275,
+            "available": -0.45,
+            "returned": 0.275
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": 0.275,
+            "available": -0.45,
+            "returned": 0.275
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 862112,
+      "turn": 20,
+      "x": 0,
+      "sides": [
+        "left",
+        "up"
+      ],
+      "handSizes": [
+        4,
+        2,
+        2
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -1.05,
+        "third": -0.95
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -1,
+            "pips": 7,
+            "minus": -1,
+            "access": -1,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -1,
+            "pips": 7,
+            "minus": -1,
+            "access": -1,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0.875,
+            "minus": 0,
+            "access": -1,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 862203,
+      "turn": 17,
+      "x": 2,
+      "sides": [
+        "down",
+        "left"
+      ],
+      "handSizes": [
+        6,
+        2,
+        3
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -1,
+        "third": -2
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -1,
+            "pips": 14.5,
+            "minus": -1,
+            "access": 0,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -1,
+            "pips": 15.425,
+            "minus": -1,
+            "access": 0,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 11.3,
+            "minus": 0,
+            "access": 0,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 862219,
+      "turn": 17,
+      "x": 0,
+      "sides": [
+        "down",
+        "right"
+      ],
+      "handSizes": [
+        2,
+        3,
+        4
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -0.225,
+        "third": -0.775
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -0.85,
+            "pips": 5.85,
+            "minus": -0.85,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -0.85,
+            "pips": 5.85,
+            "minus": -0.85,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 2.275,
+            "minus": 0,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 862283,
+      "turn": 17,
+      "x": 2,
+      "sides": [
+        "up",
+        "right"
+      ],
+      "handSizes": [
+        2,
+        3,
+        4
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": 0.4,
+        "third": 0.6
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -0.225,
+            "pips": 0.325,
+            "minus": -0.225,
+            "access": -0.525,
+            "available": -0.825,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -0.225,
+            "pips": 0.35,
+            "minus": -0.225,
+            "access": -0.525,
+            "available": -0.825,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -0.525,
+            "available": -0.825,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 862508,
+      "turn": 19,
+      "x": 0,
+      "sides": [
+        "right",
+        "left"
+      ],
+      "handSizes": [
+        6,
+        2,
+        2
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -0.5,
+        "third": -0.5
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": 5.75,
+            "minus": 0,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": 5.75,
+            "minus": 0,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 8.7,
+            "minus": 0,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 863045,
+      "turn": 17,
+      "x": 0,
+      "sides": [
+        "left",
+        "up"
+      ],
+      "handSizes": [
+        3,
+        6,
+        2
+      ],
+      "bothUnchanged": 40,
+      "mobilityOtherMinusConnector": {
+        "next": 0,
+        "third": 0
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -0.55,
+            "pips": 8.375,
+            "minus": -0.55,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": -0.55,
+            "pips": 8.375,
+            "minus": -0.55,
+            "access": 0
+          }
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -0.55,
+            "pips": 8.375,
+            "minus": -0.55,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": -0.55,
+            "pips": 8.375,
+            "minus": -0.55,
+            "access": 0
+          }
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0.95,
+            "minus": 0,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0.95,
+            "minus": 0,
+            "access": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 864099,
+      "turn": 18,
+      "x": 0,
+      "sides": [
+        "left",
+        "up"
+      ],
+      "handSizes": [
+        2,
+        3,
+        4
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -0.775,
+        "third": -0.225
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": 1.75,
+            "minus": 0,
+            "access": -0.375,
+            "available": -0.375,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": 1.75,
+            "minus": 0,
+            "access": -0.375,
+            "available": -0.375,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 2.125,
+            "minus": 0,
+            "access": -0.375,
+            "available": -0.375,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 864583,
+      "turn": 18,
+      "x": 0,
+      "sides": [
+        "down",
+        "right"
+      ],
+      "handSizes": [
+        3,
+        4,
+        2
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -0.35,
+        "third": -0.65
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -0.575,
+            "pips": 5.8,
+            "minus": -0.575,
+            "access": -1,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -0.575,
+            "pips": 5.8,
+            "minus": -0.575,
+            "access": -1,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 1.35,
+            "minus": 0,
+            "access": -1,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 864863,
+      "turn": 17,
+      "x": 0,
+      "sides": [
+        "right",
+        "down"
+      ],
+      "handSizes": [
+        4,
+        2,
+        2
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -0.3,
+        "third": -0.7
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -1,
+            "pips": 3,
+            "minus": -1,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -1,
+            "pips": 3,
+            "minus": -1,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0.6,
+            "minus": 0,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 865227,
+      "turn": 17,
+      "x": 0,
+      "sides": [
+        "down",
+        "right"
+      ],
+      "handSizes": [
+        2,
+        2,
+        4
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -0.575,
+        "third": -0.425
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -1,
+            "pips": 6,
+            "minus": -1,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -1,
+            "pips": 6,
+            "minus": -1,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0.9,
+            "minus": 0,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 865281,
+      "turn": 17,
+      "x": 2,
+      "sides": [
+        "right",
+        "up"
+      ],
+      "handSizes": [
+        2,
+        3,
+        4
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": 1.125,
+        "third": 1.875
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0.375,
+            "pips": -5.225,
+            "minus": 0,
+            "access": -0.725,
+            "available": -0.725,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0.475,
+            "pips": -5.45,
+            "minus": 0,
+            "access": -0.725,
+            "available": -0.725,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0.2,
+            "pips": -5.025,
+            "minus": 0,
+            "access": -0.725,
+            "available": -0.725,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 865350,
+      "turn": 17,
+      "x": 0,
+      "sides": [
+        "right",
+        "up"
+      ],
+      "handSizes": [
+        2,
+        4,
+        4
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": 0.85,
+        "third": 2.15
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0.425,
+            "pips": -2.125,
+            "minus": 0.425,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0.425,
+            "pips": -2.125,
+            "minus": 0.425,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": -0.05,
+            "pips": -2.9,
+            "minus": -0.075,
+            "access": 0,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 866086,
+      "turn": 14,
+      "x": 3,
+      "sides": [
+        "left",
+        "up"
+      ],
+      "handSizes": [
+        2,
+        4,
+        5
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": 0.725,
+        "third": 1.275
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0.275,
+            "pips": -4.425,
+            "minus": 0.275,
+            "access": -1,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": -2.5,
+            "minus": 0,
+            "access": -1,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": -4.55,
+            "minus": 0,
+            "access": -1,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 866245,
+      "turn": 16,
+      "x": 0,
+      "sides": [
+        "right",
+        "up"
+      ],
+      "handSizes": [
+        3,
+        4,
+        1
+      ],
+      "bothUnchanged": 40,
+      "mobilityOtherMinusConnector": {
+        "next": 0,
+        "third": 0
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -0.825,
+            "available": -1.65,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -0.825
+          }
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -0.825,
+            "available": -1.65,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -0.825
+          }
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -0.825,
+            "available": -1.65,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0,
+            "minus": 0,
+            "access": -0.825
+          }
+        }
+      }
+    },
+    {
+      "seed": 866514,
+      "turn": 21,
+      "x": 0,
+      "sides": [
+        "left",
+        "right"
+      ],
+      "handSizes": [
+        2,
+        4,
+        2
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": 1.175,
+        "third": 0.825
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0.1,
+            "pips": -0.2,
+            "minus": 0,
+            "access": -1,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0.1,
+            "pips": -0.2,
+            "minus": 0,
+            "access": -1,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": -4.5,
+            "minus": 0,
+            "access": -1,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 867180,
+      "turn": 17,
+      "x": 0,
+      "sides": [
+        "right",
+        "up"
+      ],
+      "handSizes": [
+        2,
+        4,
+        4
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": 1.05,
+        "third": 1.95
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -0.15,
+            "pips": 0.15,
+            "minus": 0,
+            "access": -1,
+            "available": -1.175,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -0.15,
+            "pips": 0.15,
+            "minus": 0,
+            "access": -1,
+            "available": -1.175,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": -0.125,
+            "pips": -2.375,
+            "minus": 0,
+            "access": -1,
+            "available": -1.175,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 867306,
+      "turn": 14,
+      "x": 0,
+      "sides": [
+        "up",
+        "left"
+      ],
+      "handSizes": [
+        3,
+        5,
+        2
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": 1.3,
+        "third": 1.7
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -0.175,
+            "pips": 1.25,
+            "minus": -0.175,
+            "access": 0,
+            "available": -1.8,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -0.175,
+            "pips": 1.25,
+            "minus": -0.175,
+            "access": 0,
+            "available": -1.8,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": -3.075,
+            "minus": 0,
+            "access": 0,
+            "available": -1.8,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 867755,
+      "turn": 16,
+      "x": 0,
+      "sides": [
+        "left",
+        "right"
+      ],
+      "handSizes": [
+        4,
+        2,
+        3
+      ],
+      "bothUnchanged": 28,
+      "mobilityOtherMinusConnector": {
+        "next": -0.15,
+        "third": 0.15
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": 1.45,
+            "minus": 0,
+            "access": -1,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 1.2142857142857142,
+            "minus": 0,
+            "access": -1
+          }
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": 1.45,
+            "minus": 0,
+            "access": -1,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 1.2142857142857142,
+            "minus": 0,
+            "access": -1
+          }
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0.425,
+            "minus": 0,
+            "access": -1,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": -0.03571428571428571,
+            "minus": 0,
+            "access": -1
+          }
+        }
+      }
+    },
+    {
+      "seed": 867846,
+      "turn": 20,
+      "x": 0,
+      "sides": [
+        "right",
+        "up"
+      ],
+      "handSizes": [
+        2,
+        3,
+        4
+      ],
+      "bothUnchanged": 19,
+      "mobilityOtherMinusConnector": {
+        "next": 0.025,
+        "third": -0.025
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": 1.725,
+            "minus": 0,
+            "access": -0.575,
+            "available": -0.575,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 2.0526315789473686,
+            "minus": 0,
+            "access": -0.6842105263157895
+          }
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": 1.725,
+            "minus": 0,
+            "access": -0.575,
+            "available": -0.575,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 2.0526315789473686,
+            "minus": 0,
+            "access": -0.6842105263157895
+          }
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0.825,
+            "minus": 0,
+            "access": -0.575,
+            "available": -0.575,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0.7894736842105263,
+            "minus": 0,
+            "access": -0.6842105263157895
+          }
+        }
+      }
+    },
+    {
+      "seed": 867863,
+      "turn": 18,
+      "x": 0,
+      "sides": [
+        "right",
+        "up"
+      ],
+      "handSizes": [
+        2,
+        4,
+        5
+      ],
+      "bothUnchanged": 40,
+      "mobilityOtherMinusConnector": {
+        "next": 0,
+        "third": 0
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -0.3,
+            "pips": 1.8,
+            "minus": -0.3,
+            "access": -0.825,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": -0.3,
+            "pips": 1.8,
+            "minus": -0.3,
+            "access": -0.825
+          }
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -0.3,
+            "pips": 1.8,
+            "minus": -0.3,
+            "access": -0.825,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": -0.3,
+            "pips": 1.8,
+            "minus": -0.3,
+            "access": -0.825
+          }
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0.35,
+            "minus": 0,
+            "access": -0.825,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 0.35,
+            "minus": 0,
+            "access": -0.825
+          }
+        }
+      }
+    },
+    {
+      "seed": 868063,
+      "turn": 14,
+      "x": 3,
+      "sides": [
+        "right",
+        "left"
+      ],
+      "handSizes": [
+        2,
+        4,
+        6
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": 0.375,
+        "third": 0.625
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": 1.8,
+            "minus": 0,
+            "access": -1,
+            "available": -1.15,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": 2.125,
+            "minus": 0,
+            "access": -1,
+            "available": -1.15,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 0.075,
+            "minus": 0,
+            "access": -1,
+            "available": -1.15,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 868506,
+      "turn": 19,
+      "x": 0,
+      "sides": [
+        "left",
+        "up"
+      ],
+      "handSizes": [
+        5,
+        2,
+        2
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -1.05,
+        "third": -0.95
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -1,
+            "pips": 7,
+            "minus": -1,
+            "access": 0,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -1,
+            "pips": 7,
+            "minus": -1,
+            "access": 0,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 2.25,
+            "minus": 0,
+            "access": 0,
+            "available": -2,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 868727,
+      "turn": 17,
+      "x": 0,
+      "sides": [
+        "down",
+        "left"
+      ],
+      "handSizes": [
+        3,
+        4,
+        2
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": -0.625,
+        "third": -1.375
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": -0.75,
+            "pips": 5.55,
+            "minus": -0.85,
+            "access": -0.225,
+            "available": -1.225,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": -0.75,
+            "pips": 5.55,
+            "minus": -0.85,
+            "access": -0.225,
+            "available": -1.225,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 1.575,
+            "minus": 0,
+            "access": -0.225,
+            "available": -1.225,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 869893,
+      "turn": 17,
+      "x": 0,
+      "sides": [
+        "up",
+        "right"
+      ],
+      "handSizes": [
+        5,
+        2,
+        3
+      ],
+      "bothUnchanged": 0,
+      "mobilityOtherMinusConnector": {
+        "next": 0.775,
+        "third": 1.225
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0,
+            "access": 0.55,
+            "available": 0.55,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": -2,
+            "minus": 0,
+            "access": 0.55,
+            "available": 0.55,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": -3.2,
+            "minus": 0,
+            "access": 0.55,
+            "available": 0.55,
+            "returned": 0
+          },
+          "bothUnchanged": null
+        }
+      }
+    },
+    {
+      "seed": 869908,
+      "turn": 14,
+      "x": 0,
+      "sides": [
+        "left",
+        "up"
+      ],
+      "handSizes": [
+        5,
+        2,
+        4
+      ],
+      "bothUnchanged": 40,
+      "mobilityOtherMinusConnector": {
+        "next": 0,
+        "third": 0
+      },
+      "policy": {
+        "closed-branch-control": {
+          "all": {
+            "finish": 0,
+            "pips": -2.7,
+            "minus": 0,
+            "access": -0.35,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": -2.7,
+            "minus": 0,
+            "access": -0.35
+          }
+        },
+        "min-hand-pips": {
+          "all": {
+            "finish": 0,
+            "pips": -2.7,
+            "minus": 0,
+            "access": -0.35,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": -2.7,
+            "minus": 0,
+            "access": -0.35
+          }
+        },
+        "fast-doubles": {
+          "all": {
+            "finish": 0,
+            "pips": 2.475,
+            "minus": 0,
+            "access": -0.35,
+            "available": -1,
+            "returned": 0
+          },
+          "bothUnchanged": {
+            "finish": 0,
+            "pips": 2.475,
+            "minus": 0,
+            "access": -0.35
+          }
+        }
+      }
+    }
+  ],
+  "fullStateSignatureSpec": "center; four [side,active,end] in up,left,right,down order; sorted openedNumbers; focal-relative hand sizes; stock size",
+  "fullStateBySeed": {
+    "860163": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          0
+        ],
+        [
+          "left",
+          true,
+          2
+        ],
+        [
+          "right",
+          true,
+          5
+        ],
+        [
+          "down",
+          true,
+          4
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        1,
+        3
+      ],
+      "stockSize": 0
+    },
+    "860171": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          0
+        ],
+        [
+          "left",
+          true,
+          2
+        ],
+        [
+          "right",
+          true,
+          3
+        ],
+        [
+          "down",
+          true,
+          6
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "860455": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          5
+        ],
+        [
+          "left",
+          true,
+          2
+        ],
+        [
+          "right",
+          true,
+          1
+        ],
+        [
+          "down",
+          true,
+          3
+        ]
+      ],
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        1,
+        3
+      ],
+      "stockSize": 0
+    },
+    "860498": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          0
+        ],
+        [
+          "left",
+          true,
+          2
+        ],
+        [
+          "right",
+          true,
+          2
+        ],
+        [
+          "down",
+          true,
+          6
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        2
+      ],
+      "stockSize": 0
+    },
+    "860554": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          4
+        ],
+        [
+          "left",
+          true,
+          2
+        ],
+        [
+          "right",
+          true,
+          0
+        ],
+        [
+          "down",
+          true,
+          2
+        ]
+      ],
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        1,
+        2
+      ],
+      "stockSize": 0
+    },
+    "860778": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          0
+        ],
+        [
+          "left",
+          true,
+          5
+        ],
+        [
+          "right",
+          true,
+          4
+        ],
+        [
+          "down",
+          true,
+          6
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        2
+      ],
+      "stockSize": 0
+    },
+    "860796": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          2
+        ],
+        [
+          "left",
+          true,
+          6
+        ],
+        [
+          "right",
+          true,
+          3
+        ],
+        [
+          "down",
+          true,
+          0
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "860803": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          0
+        ],
+        [
+          "left",
+          true,
+          0
+        ],
+        [
+          "right",
+          true,
+          3
+        ],
+        [
+          "down",
+          true,
+          5
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        1,
+        3
+      ],
+      "stockSize": 0
+    },
+    "860837": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          5
+        ],
+        [
+          "left",
+          true,
+          4
+        ],
+        [
+          "right",
+          true,
+          1
+        ],
+        [
+          "down",
+          true,
+          0
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        5,
+        2,
+        4
+      ],
+      "stockSize": 0
+    },
+    "861291": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          2
+        ],
+        [
+          "left",
+          true,
+          2
+        ],
+        [
+          "right",
+          true,
+          1
+        ],
+        [
+          "down",
+          true,
+          6
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "861536": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          6
+        ],
+        [
+          "left",
+          true,
+          4
+        ],
+        [
+          "right",
+          true,
+          5
+        ],
+        [
+          "down",
+          true,
+          3
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "861674": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          5
+        ],
+        [
+          "left",
+          true,
+          0
+        ],
+        [
+          "right",
+          true,
+          1
+        ],
+        [
+          "down",
+          true,
+          3
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "861691": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          2
+        ],
+        [
+          "left",
+          true,
+          3
+        ],
+        [
+          "right",
+          true,
+          5
+        ],
+        [
+          "down",
+          true,
+          6
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        5,
+        2,
+        4
+      ],
+      "stockSize": 0
+    },
+    "861757": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          6
+        ],
+        [
+          "left",
+          true,
+          2
+        ],
+        [
+          "right",
+          true,
+          5
+        ],
+        [
+          "down",
+          true,
+          2
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        5,
+        2,
+        2
+      ],
+      "stockSize": 0
+    },
+    "862094": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          4
+        ],
+        [
+          "left",
+          true,
+          4
+        ],
+        [
+          "right",
+          true,
+          5
+        ],
+        [
+          "down",
+          true,
+          0
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        1,
+        3
+      ],
+      "stockSize": 0
+    },
+    "862112": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          3
+        ],
+        [
+          "left",
+          true,
+          5
+        ],
+        [
+          "right",
+          true,
+          0
+        ],
+        [
+          "down",
+          true,
+          6
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        2
+      ],
+      "stockSize": 0
+    },
+    "862203": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          4
+        ],
+        [
+          "left",
+          true,
+          0
+        ],
+        [
+          "right",
+          true,
+          4
+        ],
+        [
+          "down",
+          true,
+          3
+        ]
+      ],
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        6,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "862219": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          3
+        ],
+        [
+          "left",
+          true,
+          1
+        ],
+        [
+          "right",
+          true,
+          2
+        ],
+        [
+          "down",
+          true,
+          6
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "862283": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          1
+        ],
+        [
+          "left",
+          true,
+          2
+        ],
+        [
+          "right",
+          true,
+          0
+        ],
+        [
+          "down",
+          true,
+          0
+        ]
+      ],
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "862508": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          3
+        ],
+        [
+          "left",
+          true,
+          2
+        ],
+        [
+          "right",
+          true,
+          6
+        ],
+        [
+          "down",
+          true,
+          4
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        6,
+        2,
+        2
+      ],
+      "stockSize": 0
+    },
+    "863045": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          3
+        ],
+        [
+          "left",
+          true,
+          5
+        ],
+        [
+          "right",
+          true,
+          3
+        ],
+        [
+          "down",
+          true,
+          2
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        6,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "864099": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          2
+        ],
+        [
+          "left",
+          true,
+          5
+        ],
+        [
+          "right",
+          true,
+          1
+        ],
+        [
+          "down",
+          true,
+          6
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "864583": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          1
+        ],
+        [
+          "left",
+          true,
+          0
+        ],
+        [
+          "right",
+          true,
+          4
+        ],
+        [
+          "down",
+          true,
+          6
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "864863": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          0
+        ],
+        [
+          "left",
+          true,
+          6
+        ],
+        [
+          "right",
+          true,
+          3
+        ],
+        [
+          "down",
+          true,
+          2
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        2
+      ],
+      "stockSize": 0
+    },
+    "865227": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          3
+        ],
+        [
+          "left",
+          true,
+          0
+        ],
+        [
+          "right",
+          true,
+          4
+        ],
+        [
+          "down",
+          true,
+          6
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        2
+      ],
+      "stockSize": 0
+    },
+    "865281": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          5
+        ],
+        [
+          "left",
+          true,
+          2
+        ],
+        [
+          "right",
+          true,
+          3
+        ],
+        [
+          "down",
+          true,
+          2
+        ]
+      ],
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "865350": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          3
+        ],
+        [
+          "left",
+          true,
+          3
+        ],
+        [
+          "right",
+          true,
+          5
+        ],
+        [
+          "down",
+          true,
+          6
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        4
+      ],
+      "stockSize": 0
+    },
+    "866086": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          5
+        ],
+        [
+          "left",
+          true,
+          4
+        ],
+        [
+          "right",
+          true,
+          4
+        ],
+        [
+          "down",
+          true,
+          3
+        ]
+      ],
+      "opened": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        5,
+        2,
+        4
+      ],
+      "stockSize": 0
+    },
+    "866245": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          4
+        ],
+        [
+          "left",
+          true,
+          0
+        ],
+        [
+          "right",
+          true,
+          6
+        ],
+        [
+          "down",
+          true,
+          1
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        1,
+        3
+      ],
+      "stockSize": 0
+    },
+    "866514": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          0
+        ],
+        [
+          "left",
+          true,
+          5
+        ],
+        [
+          "right",
+          true,
+          3
+        ],
+        [
+          "down",
+          true,
+          0
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        2
+      ],
+      "stockSize": 0
+    },
+    "867180": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          3
+        ],
+        [
+          "left",
+          true,
+          3
+        ],
+        [
+          "right",
+          true,
+          5
+        ],
+        [
+          "down",
+          true,
+          4
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        4
+      ],
+      "stockSize": 0
+    },
+    "867306": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          6
+        ],
+        [
+          "left",
+          true,
+          4
+        ],
+        [
+          "right",
+          true,
+          4
+        ],
+        [
+          "down",
+          true,
+          3
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        5,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "867755": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          5
+        ],
+        [
+          "left",
+          true,
+          3
+        ],
+        [
+          "right",
+          true,
+          1
+        ],
+        [
+          "down",
+          true,
+          0
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "867846": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          2
+        ],
+        [
+          "left",
+          true,
+          5
+        ],
+        [
+          "right",
+          true,
+          3
+        ],
+        [
+          "down",
+          true,
+          6
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "867863": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          3
+        ],
+        [
+          "left",
+          true,
+          2
+        ],
+        [
+          "right",
+          true,
+          5
+        ],
+        [
+          "down",
+          true,
+          0
+        ]
+      ],
+      "opened": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        5,
+        2,
+        4
+      ],
+      "stockSize": 0
+    },
+    "868063": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          6
+        ],
+        [
+          "left",
+          true,
+          5
+        ],
+        [
+          "right",
+          true,
+          4
+        ],
+        [
+          "down",
+          true,
+          4
+        ]
+      ],
+      "opened": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        6,
+        2,
+        4
+      ],
+      "stockSize": 0
+    },
+    "868506": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          3
+        ],
+        [
+          "left",
+          true,
+          5
+        ],
+        [
+          "right",
+          true,
+          4
+        ],
+        [
+          "down",
+          true,
+          6
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        5,
+        2,
+        2
+      ],
+      "stockSize": 0
+    },
+    "868727": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          0
+        ],
+        [
+          "left",
+          true,
+          2
+        ],
+        [
+          "right",
+          true,
+          4
+        ],
+        [
+          "down",
+          true,
+          6
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        4,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "869893": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          3
+        ],
+        [
+          "left",
+          true,
+          0
+        ],
+        [
+          "right",
+          true,
+          2
+        ],
+        [
+          "down",
+          true,
+          5
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        5,
+        2,
+        3
+      ],
+      "stockSize": 0
+    },
+    "869908": {
+      "center": "1-1",
+      "branches": [
+        [
+          "up",
+          true,
+          4
+        ],
+        [
+          "left",
+          true,
+          6
+        ],
+        [
+          "right",
+          true,
+          2
+        ],
+        [
+          "down",
+          true,
+          4
+        ]
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "relativeHandSizes": [
+        5,
+        2,
+        4
+      ],
+      "stockSize": 0
+    }
+  },
+  "strata": {
+    "zero": {
+      "positions": 33,
+      "meanConnectorMinusUnrelatedFinish": {
+        "closed-branch-control": -0.2598484848484849,
+        "min-hand-pips": -0.2598484848484849,
+        "fast-doubles": -0.003787878787878788
+      },
+      "meanPips": {
+        "closed-branch-control": 2.282575757575757,
+        "min-hand-pips": 2.282575757575757,
+        "fast-doubles": 0.4280303030303031
+      }
+    },
+    "nonzero": {
+      "positions": 7,
+      "meanConnectorMinusUnrelatedFinish": {
+        "closed-branch-control": -0.19642857142857142,
+        "min-hand-pips": -0.2214285714285714,
+        "fast-doubles": 0.028571428571428574
+      },
+      "meanPips": {
+        "closed-branch-control": 2.8607142857142853,
+        "min-hand-pips": 3.4357142857142864,
+        "fast-doubles": 1.0928571428571427
+      }
+    }
+  },
+  "validation": {
+    "test": "two-opponent-conditional-holdout.selfTest",
+    "passed": true,
+    "fixtureSeed": 320058,
+    "execution": "V8 CommonJS harness; not Node CLI",
+    "elapsedMs": 27194
+  },
+  "newFullRounds": 0,
+  "verifiedPriorFullRounds": 180000
+}
