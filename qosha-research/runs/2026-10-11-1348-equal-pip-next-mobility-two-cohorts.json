@@ -1,0 +1,3646 @@
+{
+  "schema": "qosa-equal-pip-mobility-two-cohorts/v1",
+  "test": {
+    "passed": true,
+    "seed": 35245,
+    "worlds": 2,
+    "continuations": 18
+  },
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "generatedAsiaBaku": "2026-10-11T13:50:04 +04:00",
+  "cohorts": {
+    "discovery": {
+      "schema": "qosa-equal-pip-next-mobility/v1",
+      "timestampAsiaBaku": "2026-10-11T13:49:23 +04:00",
+      "engine": "qosa-research-0.5.3",
+      "rules": "qosa-1.0.0",
+      "mode": "3x9",
+      "start": 80000,
+      "end": 120000,
+      "limit": 30,
+      "scannedDeals": 9655,
+      "positions": 30,
+      "selectedSeeds": [
+        80419,
+        80705,
+        80856,
+        81035,
+        81170,
+        81303,
+        81816,
+        81863,
+        81908,
+        82350,
+        82665,
+        83071,
+        83347,
+        83550,
+        84030,
+        84457,
+        84629,
+        85470,
+        85727,
+        86178,
+        86220,
+        86273,
+        87035,
+        87043,
+        87173,
+        87183,
+        87362,
+        87728,
+        88205,
+        89654
+      ],
+      "hiddenWorlds": 900,
+      "policyWorldEvaluations": 2700,
+      "candidateContinuations": 10260,
+      "newFullStrategyRounds": 0,
+      "previousVerifiedFullStrategyRounds": 180000,
+      "policies": [
+        "closed-branch-control",
+        "min-hand-pips",
+        "fast-doubles"
+      ],
+      "worldSeedFormula": "31000000+1000*dealSeed+worldIndex",
+      "comparison": "Same state, same discarded pip sum; connector X-Y spent vs unrelated non-X single; X-X and another connector retained after either; identical hidden worlds and continuation policies",
+      "mobility": "immediate next clockwise opponent distinct playable tiles (not duplicate placements), total legal actions, and availability of immediate finish; other minus connector",
+      "limitations": "Different target sides necessarily confound equal-pip distinct tile moves; selection first eligible state/deal, 40 random hidden worlds per position, no opponent history posterior, assumed branch rules, block winner unassigned; exploratory CIs and world strata correlated within positions. No causal proof.",
+      "next": "Hold out new seeds and analyze same-next-mobility worlds with position-cluster uncertainty; examine third-player mobility and connector future utility",
+      "summary": {
+        "immediateOtherMinusConnector": {
+          "playable": {
+            "n": 30,
+            "mean": 0.1311111111111111,
+            "exploratoryCI95": [
+              -0.15002793264521788,
+              0.4122501548674401
+            ],
+            "positive": 13,
+            "negative": 10,
+            "zero": 7
+          },
+          "placements": {
+            "n": 30,
+            "mean": 0.022222222222222202,
+            "exploratoryCI95": [
+              -0.27363401523049136,
+              0.31807845967493575
+            ],
+            "positive": 12,
+            "negative": 15,
+            "zero": 3
+          },
+          "finishOpportunity": {
+            "n": 30,
+            "mean": 0.0077777777777777776,
+            "exploratoryCI95": [
+              -0.038862025473729335,
+              0.054417581029284894
+            ],
+            "positive": 1,
+            "negative": 1,
+            "zero": 28
+          }
+        },
+        "closed-branch-control": {
+          "finish": {
+            "n": 30,
+            "mean": -0.24333333333333332,
+            "exploratoryCI95": [
+              -0.38155938174596105,
+              -0.10510728492070556
+            ],
+            "positive": 2,
+            "negative": 13,
+            "zero": 15
+          },
+          "pips": {
+            "n": 30,
+            "mean": 2.534444444444444,
+            "exploratoryCI95": [
+              0.8051789442096602,
+              4.263709944679228
+            ],
+            "positive": 16,
+            "negative": 6,
+            "zero": 8
+          },
+          "minus": {
+            "n": 30,
+            "mean": -0.2544444444444444,
+            "exploratoryCI95": [
+              -0.39746201674073867,
+              -0.1114268721481502
+            ],
+            "positive": 1,
+            "negative": 12,
+            "zero": 17
+          },
+          "byMobilityWorld": {
+            "otherMore": {
+              "n": 282,
+              "finish": {
+                "n": 282,
+                "mean": 0.014184397163120567,
+                "exploratoryCI95": [
+                  -0.029820410183090534,
+                  0.05818920450933167
+                ],
+                "positive": 22,
+                "negative": 18,
+                "zero": 242
+              },
+              "pips": {
+                "n": 282,
+                "mean": -0.3723404255319149,
+                "exploratoryCI95": [
+                  -0.8368061715317283,
+                  0.09212532046789851
+                ],
+                "positive": 52,
+                "negative": 63,
+                "zero": 167
+              }
+            },
+            "equal": {
+              "n": 405,
+              "finish": {
+                "n": 405,
+                "mean": -0.21481481481481482,
+                "exploratoryCI95": [
+                  -0.25823840171250795,
+                  -0.1713912279171217
+                ],
+                "positive": 6,
+                "negative": 93,
+                "zero": 306
+              },
+              "pips": {
+                "n": 405,
+                "mean": 2.1160493827160494,
+                "exploratoryCI95": [
+                  1.7335455698552664,
+                  2.4985531955768323
+                ],
+                "positive": 154,
+                "negative": 19,
+                "zero": 232
+              }
+            },
+            "connectorMore": {
+              "n": 213,
+              "finish": {
+                "n": 213,
+                "mean": -0.6384976525821596,
+                "exploratoryCI95": [
+                  -0.7070034728426631,
+                  -0.5699918323216562
+                ],
+                "positive": 3,
+                "negative": 139,
+                "zero": 71
+              },
+              "pips": {
+                "n": 213,
+                "mean": 7.178403755868545,
+                "exploratoryCI95": [
+                  6.200044945672124,
+                  8.156762566064966
+                ],
+                "positive": 158,
+                "negative": 22,
+                "zero": 33
+              }
+            }
+          }
+        },
+        "min-hand-pips": {
+          "finish": {
+            "n": 30,
+            "mean": -0.24333333333333332,
+            "exploratoryCI95": [
+              -0.38155938174596105,
+              -0.10510728492070556
+            ],
+            "positive": 2,
+            "negative": 13,
+            "zero": 15
+          },
+          "pips": {
+            "n": 30,
+            "mean": 2.5588888888888888,
+            "exploratoryCI95": [
+              0.8254713198383552,
+              4.292306457939422
+            ],
+            "positive": 16,
+            "negative": 6,
+            "zero": 8
+          },
+          "minus": {
+            "n": 30,
+            "mean": -0.2544444444444444,
+            "exploratoryCI95": [
+              -0.39746201674073867,
+              -0.1114268721481502
+            ],
+            "positive": 1,
+            "negative": 12,
+            "zero": 17
+          },
+          "byMobilityWorld": {
+            "otherMore": {
+              "n": 282,
+              "finish": {
+                "n": 282,
+                "mean": 0.014184397163120567,
+                "exploratoryCI95": [
+                  -0.029820410183090534,
+                  0.05818920450933167
+                ],
+                "positive": 22,
+                "negative": 18,
+                "zero": 242
+              },
+              "pips": {
+                "n": 282,
+                "mean": -0.3723404255319149,
+                "exploratoryCI95": [
+                  -0.8368061715317283,
+                  0.09212532046789851
+                ],
+                "positive": 52,
+                "negative": 63,
+                "zero": 167
+              }
+            },
+            "equal": {
+              "n": 405,
+              "finish": {
+                "n": 405,
+                "mean": -0.21481481481481482,
+                "exploratoryCI95": [
+                  -0.25823840171250795,
+                  -0.1713912279171217
+                ],
+                "positive": 6,
+                "negative": 93,
+                "zero": 306
+              },
+              "pips": {
+                "n": 405,
+                "mean": 2.251851851851852,
+                "exploratoryCI95": [
+                  1.8682825397147544,
+                  2.6354211639889495
+                ],
+                "positive": 165,
+                "negative": 19,
+                "zero": 221
+              }
+            },
+            "connectorMore": {
+              "n": 213,
+              "finish": {
+                "n": 213,
+                "mean": -0.6384976525821596,
+                "exploratoryCI95": [
+                  -0.7070034728426631,
+                  -0.5699918323216562
+                ],
+                "positive": 3,
+                "negative": 139,
+                "zero": 71
+              },
+              "pips": {
+                "n": 213,
+                "mean": 7.023474178403756,
+                "exploratoryCI95": [
+                  6.054918224547087,
+                  7.992030132260425
+                ],
+                "positive": 158,
+                "negative": 22,
+                "zero": 33
+              }
+            }
+          }
+        },
+        "fast-doubles": {
+          "finish": {
+            "n": 30,
+            "mean": -0.002222222222222222,
+            "exploratoryCI95": [
+              -0.03723522448993791,
+              0.03279078004549346
+            ],
+            "positive": 2,
+            "negative": 3,
+            "zero": 25
+          },
+          "pips": {
+            "n": 30,
+            "mean": -0.2833333333333333,
+            "exploratoryCI95": [
+              -1.3206416818785889,
+              0.7539750152119223
+            ],
+            "positive": 15,
+            "negative": 9,
+            "zero": 6
+          },
+          "minus": {
+            "n": 30,
+            "mean": -0.01888888888888889,
+            "exploratoryCI95": [
+              -0.04614038272978206,
+              0.008362604952004287
+            ],
+            "positive": 0,
+            "negative": 3,
+            "zero": 27
+          },
+          "byMobilityWorld": {
+            "otherMore": {
+              "n": 282,
+              "finish": {
+                "n": 282,
+                "mean": 0.028368794326241134,
+                "exploratoryCI95": [
+                  0.00895662468188567,
+                  0.0477809639705966
+                ],
+                "positive": 8,
+                "negative": 0,
+                "zero": 274
+              },
+              "pips": {
+                "n": 282,
+                "mean": -3.0425531914893615,
+                "exploratoryCI95": [
+                  -3.6089554587697275,
+                  -2.4761509242089956
+                ],
+                "positive": 19,
+                "negative": 149,
+                "zero": 114
+              }
+            },
+            "equal": {
+              "n": 405,
+              "finish": {
+                "n": 405,
+                "mean": -0.01728395061728395,
+                "exploratoryCI95": [
+                  -0.03597462317997194,
+                  0.001406721945404043
+                ],
+                "positive": 4,
+                "negative": 11,
+                "zero": 390
+              },
+              "pips": {
+                "n": 405,
+                "mean": 0.22469135802469137,
+                "exploratoryCI95": [
+                  -0.01122753398758658,
+                  0.4606102500369693
+                ],
+                "positive": 50,
+                "negative": 24,
+                "zero": 331
+              }
+            },
+            "connectorMore": {
+              "n": 213,
+              "finish": {
+                "n": 213,
+                "mean": -0.014084507042253521,
+                "exploratoryCI95": [
+                  -0.04169014084507042,
+                  0.013521126760563376
+                ],
+                "positive": 3,
+                "negative": 6,
+                "zero": 204
+              },
+              "pips": {
+                "n": 213,
+                "mean": 2.403755868544601,
+                "exploratoryCI95": [
+                  1.9317047256175215,
+                  2.8758070114716805
+                ],
+                "positive": 79,
+                "negative": 3,
+                "zero": 131
+              }
+            }
+          }
+        }
+      },
+      "rows": [
+        {
+          "seed": 80419,
+          "turn": 21,
+          "focal": 2,
+          "next": 0,
+          "x": 2,
+          "handSizes": [
+            2,
+            3,
+            4
+          ],
+          "connectorSide": "down",
+          "otherSide": "up",
+          "connectorKey": "single|down|2||2-3",
+          "otherKey": "single|up|5||0-5",
+          "hiddenWorldSeedStart": 111419000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": -0.2,
+            "placements": -0.2,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 6,
+            "equal": 12,
+            "connectorMore": 12
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.6,
+              "pips": 2.7333333333333334,
+              "minus": -0.9
+            },
+            "min-hand-pips": {
+              "finish": -0.6,
+              "pips": 2.7333333333333334,
+              "minus": -0.9
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0.8,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 80705,
+          "turn": 20,
+          "focal": 1,
+          "next": 2,
+          "x": 0,
+          "handSizes": [
+            3,
+            5,
+            2
+          ],
+          "connectorSide": "up",
+          "otherSide": "down",
+          "connectorKey": "single|up|0||0-5",
+          "otherKey": "single|down|2||2-3",
+          "hiddenWorldSeedStart": 111705000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": -0.43333333333333335,
+            "placements": 0.13333333333333333,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 6,
+            "equal": 8,
+            "connectorMore": 16
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.8333333333333334,
+              "pips": 4.3,
+              "minus": -0.8333333333333334
+            },
+            "min-hand-pips": {
+              "finish": -0.8333333333333334,
+              "pips": 4.3,
+              "minus": -0.8333333333333334
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 3.2,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 80856,
+          "turn": 22,
+          "focal": 0,
+          "next": 1,
+          "x": 0,
+          "handSizes": [
+            4,
+            2,
+            2
+          ],
+          "connectorSide": "right",
+          "otherSide": "up",
+          "connectorKey": "single|right|0||0-4",
+          "otherKey": "single|up|1||1-3",
+          "hiddenWorldSeedStart": 111856000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 0.4666666666666667,
+            "placements": 0.4666666666666667,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 14,
+            "equal": 16,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -5,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 81035,
+          "turn": 20,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            2,
+            2,
+            5
+          ],
+          "connectorSide": "up",
+          "otherSide": "left",
+          "connectorKey": "single|up|0||0-5",
+          "otherKey": "single|left|3||2-3",
+          "hiddenWorldSeedStart": 112035000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 0.5333333333333333,
+            "placements": 0,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 16,
+            "equal": 14,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -2.4,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 81170,
+          "turn": 22,
+          "focal": 2,
+          "next": 0,
+          "x": 2,
+          "handSizes": [
+            2,
+            1,
+            5
+          ],
+          "connectorSide": "up",
+          "otherSide": "down",
+          "connectorKey": "single|up|2||2-4",
+          "otherKey": "single|down|0||0-6",
+          "hiddenWorldSeedStart": 112170000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": 2,
+            "placements": 2,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 30,
+            "equal": 0,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 4.4,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 81303,
+          "turn": 21,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            2,
+            3,
+            5
+          ],
+          "connectorSide": "down",
+          "otherSide": "left",
+          "connectorKey": "single|down|0||0-5",
+          "otherKey": "single|left|3||2-3",
+          "hiddenWorldSeedStart": 112303000,
+          "worlds": 30,
+          "continuations": 450,
+          "immediateOtherMinusConnector": {
+            "playable": 0.3,
+            "placements": -0.5333333333333333,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 9,
+            "equal": 21,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 2.3,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 2.3,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0.6,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 81816,
+          "turn": 26,
+          "focal": 0,
+          "next": 1,
+          "x": 0,
+          "handSizes": [
+            4,
+            2,
+            2
+          ],
+          "connectorSide": "up",
+          "otherSide": "left",
+          "connectorKey": "single|up|0||0-5",
+          "otherKey": "single|left|2||2-3",
+          "hiddenWorldSeedStart": 112816000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": 1.5,
+            "placements": 1.5,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 30,
+            "equal": 0,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -5,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 81863,
+          "turn": 21,
+          "focal": 1,
+          "next": 2,
+          "x": 2,
+          "handSizes": [
+            2,
+            5,
+            2
+          ],
+          "connectorSide": "right",
+          "otherSide": "down",
+          "connectorKey": "single|right|2||2-5",
+          "otherKey": "single|down|4||3-4",
+          "hiddenWorldSeedStart": 112863000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": -0.9333333333333333,
+            "placements": -0.9333333333333333,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 6,
+            "connectorMore": 24
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -1,
+              "pips": 14.866666666666667,
+              "minus": -1
+            },
+            "min-hand-pips": {
+              "finish": -1,
+              "pips": 14.866666666666667,
+              "minus": -1
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 3.7333333333333334,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 81908,
+          "turn": 22,
+          "focal": 1,
+          "next": 2,
+          "x": 0,
+          "handSizes": [
+            3,
+            4,
+            2
+          ],
+          "connectorSide": "left",
+          "otherSide": "right",
+          "connectorKey": "single|left|0||0-6",
+          "otherKey": "single|right|2||2-4",
+          "hiddenWorldSeedStart": 112908000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": 0.8333333333333334,
+            "placements": 0.8333333333333334,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 22,
+            "equal": 8,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0.06666666666666667,
+              "pips": -0.13333333333333333,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0.06666666666666667,
+              "pips": -0.13333333333333333,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -3.2,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 82350,
+          "turn": 22,
+          "focal": 1,
+          "next": 2,
+          "x": 0,
+          "handSizes": [
+            1,
+            5,
+            2
+          ],
+          "connectorSide": "left",
+          "otherSide": "up",
+          "connectorKey": "single|left|0||0-3",
+          "otherKey": "single|up|1||1-2",
+          "hiddenWorldSeedStart": 113350000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 0,
+            "placements": 0,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 11,
+            "equal": 8,
+            "connectorMore": 11
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": -0.7333333333333333,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": -0.7333333333333333,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 82665,
+          "turn": 24,
+          "focal": 1,
+          "next": 2,
+          "x": 4,
+          "handSizes": [
+            1,
+            4,
+            2
+          ],
+          "connectorSide": "right",
+          "otherSide": "down",
+          "connectorKey": "single|right|4||4-5",
+          "otherKey": "single|down|3||3-6",
+          "hiddenWorldSeedStart": 113665000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": 0,
+            "placements": 0,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 30,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 83071,
+          "turn": 20,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            2,
+            2,
+            5
+          ],
+          "connectorSide": "down",
+          "otherSide": "up",
+          "connectorKey": "single|down|0||0-4",
+          "otherKey": "single|up|1||1-3",
+          "hiddenWorldSeedStart": 114071000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": 0,
+            "placements": -0.6666666666666666,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 30,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 83347,
+          "turn": 21,
+          "focal": 2,
+          "next": 0,
+          "x": 2,
+          "handSizes": [
+            2,
+            2,
+            4
+          ],
+          "connectorSide": "right",
+          "otherSide": "down",
+          "connectorKey": "single|right|2||2-5",
+          "otherKey": "single|down|3||3-4",
+          "hiddenWorldSeedStart": 114347000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": 1.5,
+            "placements": 1.5,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 30,
+            "equal": 0,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": -0.5333333333333333,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": -0.5333333333333333,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -4.9,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 83550,
+          "turn": 21,
+          "focal": 0,
+          "next": 1,
+          "x": 0,
+          "handSizes": [
+            5,
+            2,
+            2
+          ],
+          "connectorSide": "up",
+          "otherSide": "left",
+          "connectorKey": "single|up|0||0-5",
+          "otherKey": "single|left|2||2-3",
+          "hiddenWorldSeedStart": 114550000,
+          "worlds": 30,
+          "continuations": 450,
+          "immediateOtherMinusConnector": {
+            "playable": 1.4,
+            "placements": 1.4,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 30,
+            "equal": 0,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.13333333333333333,
+              "pips": -0.6666666666666666,
+              "minus": -0.13333333333333333
+            },
+            "min-hand-pips": {
+              "finish": -0.13333333333333333,
+              "pips": -0.6666666666666666,
+              "minus": -0.13333333333333333
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -7.2,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 84030,
+          "turn": 20,
+          "focal": 1,
+          "next": 2,
+          "x": 0,
+          "handSizes": [
+            3,
+            5,
+            2
+          ],
+          "connectorSide": "up",
+          "otherSide": "right",
+          "connectorKey": "single|up|0||0-5",
+          "otherKey": "single|right|3||2-3",
+          "hiddenWorldSeedStart": 115030000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 0,
+            "placements": -1,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 30,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.7,
+              "pips": 5.6,
+              "minus": -0.7
+            },
+            "min-hand-pips": {
+              "finish": -0.7,
+              "pips": 5.6,
+              "minus": -0.7
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 2,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 84457,
+          "turn": 25,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            2,
+            1,
+            4
+          ],
+          "connectorSide": "up",
+          "otherSide": "left",
+          "connectorKey": "single|up|0||0-5",
+          "otherKey": "single|left|2||2-3",
+          "hiddenWorldSeedStart": 115457000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 0.06666666666666667,
+            "placements": 0.06666666666666667,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 10,
+            "equal": 12,
+            "connectorMore": 8
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 3.6666666666666665,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 3.6666666666666665,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 84629,
+          "turn": 20,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            2,
+            2,
+            4
+          ],
+          "connectorSide": "down",
+          "otherSide": "up",
+          "connectorKey": "single|down|0||0-5",
+          "otherKey": "single|up|2||2-3",
+          "hiddenWorldSeedStart": 115629000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": -0.9666666666666667,
+            "placements": -0.9666666666666667,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 9,
+            "connectorMore": 21
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -1,
+              "pips": 5,
+              "minus": -1
+            },
+            "min-hand-pips": {
+              "finish": -1,
+              "pips": 5,
+              "minus": -1
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0.8333333333333334,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 85470,
+          "turn": 21,
+          "focal": 0,
+          "next": 1,
+          "x": 0,
+          "handSizes": [
+            5,
+            2,
+            2
+          ],
+          "connectorSide": "down",
+          "otherSide": "up",
+          "connectorKey": "single|down|0||0-5",
+          "otherKey": "single|up|3||2-3",
+          "hiddenWorldSeedStart": 116470000,
+          "worlds": 30,
+          "continuations": 450,
+          "immediateOtherMinusConnector": {
+            "playable": 0.13333333333333333,
+            "placements": 0.13333333333333333,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 11,
+            "equal": 12,
+            "connectorMore": 7
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 1.3666666666666667,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 1.3666666666666667,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 85727,
+          "turn": 20,
+          "focal": 0,
+          "next": 1,
+          "x": 0,
+          "handSizes": [
+            4,
+            2,
+            4
+          ],
+          "connectorSide": "up",
+          "otherSide": "left",
+          "connectorKey": "single|up|0||0-5",
+          "otherKey": "single|left|1||1-4",
+          "hiddenWorldSeedStart": 116727000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 0,
+            "placements": -0.6666666666666666,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 30,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": -0.3333333333333333,
+              "pips": 0.3333333333333333,
+              "minus": -0.4
+            }
+          }
+        },
+        {
+          "seed": 86178,
+          "turn": 23,
+          "focal": 1,
+          "next": 2,
+          "x": 2,
+          "handSizes": [
+            2,
+            5,
+            1
+          ],
+          "connectorSide": "left",
+          "otherSide": "up",
+          "connectorKey": "single|left|2||1-2",
+          "otherKey": "single|up|3||0-3",
+          "hiddenWorldSeedStart": 117178000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": -0.36666666666666664,
+            "placements": -0.36666666666666664,
+            "finishOpportunity": -0.36666666666666664
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 19,
+            "connectorMore": 11
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 4.4,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 5.133333333333334,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 1.4666666666666666,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 86220,
+          "turn": 21,
+          "focal": 0,
+          "next": 1,
+          "x": 0,
+          "handSizes": [
+            4,
+            2,
+            2
+          ],
+          "connectorSide": "left",
+          "otherSide": "up",
+          "connectorKey": "single|left|0||0-6",
+          "otherKey": "single|up|4||2-4",
+          "hiddenWorldSeedStart": 117220000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": -1.0333333333333334,
+            "placements": -1.0333333333333334,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 5,
+            "connectorMore": 25
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -1,
+              "pips": 10,
+              "minus": -1
+            },
+            "min-hand-pips": {
+              "finish": -1,
+              "pips": 10,
+              "minus": -1
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 1,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 86273,
+          "turn": 20,
+          "focal": 0,
+          "next": 1,
+          "x": 0,
+          "handSizes": [
+            4,
+            2,
+            5
+          ],
+          "connectorSide": "right",
+          "otherSide": "left",
+          "connectorKey": "single|right|0||0-4",
+          "otherKey": "single|left|1||1-3",
+          "hiddenWorldSeedStart": 117273000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": -0.5333333333333333,
+            "placements": -0.5333333333333333,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 2,
+            "equal": 13,
+            "connectorMore": 15
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.1,
+              "pips": 1.1,
+              "minus": -0.3
+            },
+            "min-hand-pips": {
+              "finish": -0.1,
+              "pips": 1.1,
+              "minus": -0.3
+            },
+            "fast-doubles": {
+              "finish": 0.23333333333333334,
+              "pips": -0.26666666666666666,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 87035,
+          "turn": 22,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            2,
+            2,
+            5
+          ],
+          "connectorSide": "up",
+          "otherSide": "right",
+          "connectorKey": "single|up|0||0-5",
+          "otherKey": "single|right|3||2-3",
+          "hiddenWorldSeedStart": 118035000,
+          "worlds": 30,
+          "continuations": 450,
+          "immediateOtherMinusConnector": {
+            "playable": -1,
+            "placements": -0.4,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 7,
+            "connectorMore": 23
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -1,
+              "pips": 20,
+              "minus": -1
+            },
+            "min-hand-pips": {
+              "finish": -1,
+              "pips": 20,
+              "minus": -1
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 1.5,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 87043,
+          "turn": 23,
+          "focal": 1,
+          "next": 2,
+          "x": 0,
+          "handSizes": [
+            4,
+            5,
+            1
+          ],
+          "connectorSide": "left",
+          "otherSide": "up",
+          "connectorKey": "single|left|0||0-5",
+          "otherKey": "single|up|2||2-3",
+          "hiddenWorldSeedStart": 118043000,
+          "worlds": 30,
+          "continuations": 450,
+          "immediateOtherMinusConnector": {
+            "playable": 0.6,
+            "placements": 0.6,
+            "finishOpportunity": 0.6
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 18,
+            "equal": 12,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": -3,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": -3,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -2.6666666666666665,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 87173,
+          "turn": 24,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            2,
+            4,
+            4
+          ],
+          "connectorSide": "up",
+          "otherSide": "right",
+          "connectorKey": "single|up|0||0-5",
+          "otherKey": "single|right|2||2-3",
+          "hiddenWorldSeedStart": 118173000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": -0.7,
+            "placements": -0.03333333333333333,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 11,
+            "connectorMore": 19
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.3333333333333333,
+              "pips": 1.7,
+              "minus": -0.3333333333333333
+            },
+            "min-hand-pips": {
+              "finish": -0.3333333333333333,
+              "pips": 1.7,
+              "minus": -0.3333333333333333
+            },
+            "fast-doubles": {
+              "finish": -0.2,
+              "pips": 2.966666666666667,
+              "minus": -0.13333333333333333
+            }
+          }
+        },
+        {
+          "seed": 87183,
+          "turn": 20,
+          "focal": 0,
+          "next": 1,
+          "x": 0,
+          "handSizes": [
+            4,
+            2,
+            4
+          ],
+          "connectorSide": "up",
+          "otherSide": "left",
+          "connectorKey": "single|up|0||0-3",
+          "otherKey": "single|left|1||1-2",
+          "hiddenWorldSeedStart": 118183000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": 0,
+            "placements": -0.9666666666666667,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 30,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.4,
+              "pips": 2.5,
+              "minus": -0.4
+            },
+            "min-hand-pips": {
+              "finish": -0.4,
+              "pips": 2.5,
+              "minus": -0.4
+            },
+            "fast-doubles": {
+              "finish": -0.03333333333333333,
+              "pips": 0.2,
+              "minus": -0.03333333333333333
+            }
+          }
+        },
+        {
+          "seed": 87362,
+          "turn": 20,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            2,
+            4,
+            5
+          ],
+          "connectorSide": "right",
+          "otherSide": "down",
+          "connectorKey": "single|right|0||0-4",
+          "otherKey": "single|down|1||1-3",
+          "hiddenWorldSeedStart": 118362000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": -0.36666666666666664,
+            "placements": -0.36666666666666664,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 19,
+            "connectorMore": 11
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.3333333333333333,
+              "pips": 0.2,
+              "minus": -0.3333333333333333
+            },
+            "min-hand-pips": {
+              "finish": -0.3333333333333333,
+              "pips": 0.2,
+              "minus": -0.3333333333333333
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 1.8666666666666667,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 87728,
+          "turn": 21,
+          "focal": 1,
+          "next": 2,
+          "x": 0,
+          "handSizes": [
+            2,
+            5,
+            2
+          ],
+          "connectorSide": "left",
+          "otherSide": "up",
+          "connectorKey": "single|left|0||0-5",
+          "otherKey": "single|up|2||2-3",
+          "hiddenWorldSeedStart": 118728000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 0,
+            "placements": -0.43333333333333335,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 30,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 88205,
+          "turn": 20,
+          "focal": 0,
+          "next": 1,
+          "x": 0,
+          "handSizes": [
+            4,
+            2,
+            3
+          ],
+          "connectorSide": "left",
+          "otherSide": "right",
+          "connectorKey": "single|left|0||0-6",
+          "otherKey": "single|right|2||2-4",
+          "hiddenWorldSeedStart": 119205000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 1.0666666666666667,
+            "placements": 1.0666666666666667,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 25,
+            "equal": 5,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0.3,
+              "pips": -0.9,
+              "minus": 0.3
+            },
+            "min-hand-pips": {
+              "finish": 0.3,
+              "pips": -0.9,
+              "minus": 0.3
+            },
+            "fast-doubles": {
+              "finish": 0.26666666666666666,
+              "pips": -5,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 89654,
+          "turn": 20,
+          "focal": 0,
+          "next": 1,
+          "x": 0,
+          "handSizes": [
+            5,
+            2,
+            4
+          ],
+          "connectorSide": "up",
+          "otherSide": "left",
+          "connectorKey": "single|up|0||0-4",
+          "otherKey": "single|left|1||1-3",
+          "hiddenWorldSeedStart": 120654000,
+          "worlds": 30,
+          "continuations": 450,
+          "immediateOtherMinusConnector": {
+            "playable": 0.06666666666666667,
+            "placements": 0.06666666666666667,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 12,
+            "equal": 8,
+            "connectorMore": 10
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.23333333333333334,
+              "pips": 2.2666666666666666,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": -0.23333333333333334,
+              "pips": 2.2666666666666666,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 2.2333333333333334,
+              "minus": 0
+            }
+          }
+        }
+      ]
+    },
+    "independentHoldout": {
+      "schema": "qosa-equal-pip-next-mobility/v1",
+      "timestampAsiaBaku": "2026-10-11T13:50:04 +04:00",
+      "engine": "qosa-research-0.5.3",
+      "rules": "qosa-1.0.0",
+      "mode": "3x9",
+      "start": 160000,
+      "end": 220000,
+      "limit": 30,
+      "scannedDeals": 7012,
+      "positions": 30,
+      "selectedSeeds": [
+        160342,
+        160383,
+        160467,
+        160627,
+        160641,
+        161022,
+        161485,
+        161604,
+        161940,
+        161962,
+        162207,
+        162924,
+        163503,
+        163564,
+        163987,
+        164428,
+        164543,
+        164718,
+        164838,
+        165049,
+        165166,
+        165419,
+        165865,
+        166170,
+        166255,
+        166398,
+        166578,
+        166607,
+        166930,
+        167011
+      ],
+      "hiddenWorlds": 900,
+      "policyWorldEvaluations": 2700,
+      "candidateContinuations": 11070,
+      "newFullStrategyRounds": 0,
+      "previousVerifiedFullStrategyRounds": 180000,
+      "policies": [
+        "closed-branch-control",
+        "min-hand-pips",
+        "fast-doubles"
+      ],
+      "worldSeedFormula": "31000000+1000*dealSeed+worldIndex",
+      "comparison": "Same state, same discarded pip sum; connector X-Y spent vs unrelated non-X single; X-X and another connector retained after either; identical hidden worlds and continuation policies",
+      "mobility": "immediate next clockwise opponent distinct playable tiles (not duplicate placements), total legal actions, and availability of immediate finish; other minus connector",
+      "limitations": "Different target sides necessarily confound equal-pip distinct tile moves; selection first eligible state/deal, 40 random hidden worlds per position, no opponent history posterior, assumed branch rules, block winner unassigned; exploratory CIs and world strata correlated within positions. No causal proof.",
+      "next": "Hold out new seeds and analyze same-next-mobility worlds with position-cluster uncertainty; examine third-player mobility and connector future utility",
+      "summary": {
+        "immediateOtherMinusConnector": {
+          "playable": {
+            "n": 30,
+            "mean": 0.06444444444444444,
+            "exploratoryCI95": [
+              -0.16461203045434744,
+              0.2935009193432363
+            ],
+            "positive": 15,
+            "negative": 13,
+            "zero": 2
+          },
+          "placements": {
+            "n": 30,
+            "mean": 0.015555555555555552,
+            "exploratoryCI95": [
+              -0.21158227103669358,
+              0.24269338214780467
+            ],
+            "positive": 15,
+            "negative": 14,
+            "zero": 1
+          },
+          "finishOpportunity": {
+            "n": 30,
+            "mean": -0.02333333333333333,
+            "exploratoryCI95": [
+              -0.05120196513630498,
+              0.004535298469638321
+            ],
+            "positive": 0,
+            "negative": 4,
+            "zero": 26
+          }
+        },
+        "closed-branch-control": {
+          "finish": {
+            "n": 30,
+            "mean": -0.2511111111111111,
+            "exploratoryCI95": [
+              -0.38359497574791035,
+              -0.11862724647431186
+            ],
+            "positive": 0,
+            "negative": 12,
+            "zero": 18
+          },
+          "pips": {
+            "n": 30,
+            "mean": 2.9433333333333334,
+            "exploratoryCI95": [
+              1.4691659174806813,
+              4.417500749185986
+            ],
+            "positive": 19,
+            "negative": 5,
+            "zero": 6
+          },
+          "minus": {
+            "n": 30,
+            "mean": -0.21333333333333335,
+            "exploratoryCI95": [
+              -0.34735867319165237,
+              -0.0793079934750143
+            ],
+            "positive": 0,
+            "negative": 9,
+            "zero": 21
+          },
+          "byMobilityWorld": {
+            "otherMore": {
+              "n": 315,
+              "finish": {
+                "n": 315,
+                "mean": -0.08888888888888889,
+                "exploratoryCI95": [
+                  -0.1260268537547668,
+                  -0.051750924023010986
+                ],
+                "positive": 5,
+                "negative": 33,
+                "zero": 277
+              },
+              "pips": {
+                "n": 315,
+                "mean": 0.7777777777777778,
+                "exploratoryCI95": [
+                  0.24150937370107217,
+                  1.3140461818544833
+                ],
+                "positive": 90,
+                "negative": 64,
+                "zero": 161
+              }
+            },
+            "equal": {
+              "n": 331,
+              "finish": {
+                "n": 331,
+                "mean": -0.21148036253776434,
+                "exploratoryCI95": [
+                  -0.2563310759555922,
+                  -0.1666296491199365
+                ],
+                "positive": 1,
+                "negative": 71,
+                "zero": 259
+              },
+              "pips": {
+                "n": 331,
+                "mean": 2.6253776435045317,
+                "exploratoryCI95": [
+                  2.13434975919452,
+                  3.1164055278145435
+                ],
+                "positive": 145,
+                "negative": 23,
+                "zero": 163
+              }
+            },
+            "connectorMore": {
+              "n": 254,
+              "finish": {
+                "n": 254,
+                "mean": -0.5039370078740157,
+                "exploratoryCI95": [
+                  -0.5655471699856236,
+                  -0.4423268457624079
+                ],
+                "positive": 0,
+                "negative": 128,
+                "zero": 126
+              },
+              "pips": {
+                "n": 254,
+                "mean": 6.043307086614173,
+                "exploratoryCI95": [
+                  5.187468769255595,
+                  6.899145403972751
+                ],
+                "positive": 195,
+                "negative": 33,
+                "zero": 26
+              }
+            }
+          }
+        },
+        "min-hand-pips": {
+          "finish": {
+            "n": 30,
+            "mean": -0.23444444444444443,
+            "exploratoryCI95": [
+              -0.3664367114625374,
+              -0.10245217742635146
+            ],
+            "positive": 0,
+            "negative": 11,
+            "zero": 19
+          },
+          "pips": {
+            "n": 30,
+            "mean": 2.7377777777777776,
+            "exploratoryCI95": [
+              1.3575749004576378,
+              4.117980655097917
+            ],
+            "positive": 19,
+            "negative": 5,
+            "zero": 6
+          },
+          "minus": {
+            "n": 30,
+            "mean": -0.21333333333333335,
+            "exploratoryCI95": [
+              -0.34735867319165237,
+              -0.0793079934750143
+            ],
+            "positive": 0,
+            "negative": 9,
+            "zero": 21
+          },
+          "byMobilityWorld": {
+            "otherMore": {
+              "n": 315,
+              "finish": {
+                "n": 315,
+                "mean": -0.08253968253968254,
+                "exploratoryCI95": [
+                  -0.11880076477351037,
+                  -0.0462786003058547
+                ],
+                "positive": 5,
+                "negative": 31,
+                "zero": 279
+              },
+              "pips": {
+                "n": 315,
+                "mean": 0.4253968253968254,
+                "exploratoryCI95": [
+                  -0.07484491784616626,
+                  0.925638568639817
+                ],
+                "positive": 84,
+                "negative": 71,
+                "zero": 160
+              }
+            },
+            "equal": {
+              "n": 331,
+              "finish": {
+                "n": 331,
+                "mean": -0.1933534743202417,
+                "exploratoryCI95": [
+                  -0.23678152003689584,
+                  -0.14992542860358754
+                ],
+                "positive": 1,
+                "negative": 65,
+                "zero": 265
+              },
+              "pips": {
+                "n": 331,
+                "mean": 2.4924471299093653,
+                "exploratoryCI95": [
+                  2.048388853307377,
+                  2.936505406511354
+                ],
+                "positive": 142,
+                "negative": 20,
+                "zero": 169
+              }
+            },
+            "connectorMore": {
+              "n": 254,
+              "finish": {
+                "n": 254,
+                "mean": -0.4763779527559055,
+                "exploratoryCI95": [
+                  -0.537921227254577,
+                  -0.41483467825723397
+                ],
+                "positive": 0,
+                "negative": 121,
+                "zero": 133
+              },
+              "pips": {
+                "n": 254,
+                "mean": 5.925196850393701,
+                "exploratoryCI95": [
+                  5.120365270827742,
+                  6.73002842995966
+                ],
+                "positive": 189,
+                "negative": 22,
+                "zero": 43
+              }
+            }
+          }
+        },
+        "fast-doubles": {
+          "finish": {
+            "n": 30,
+            "mean": 0.008888888888888889,
+            "exploratoryCI95": [
+              -0.014115930048412407,
+              0.031893707826190186
+            ],
+            "positive": 3,
+            "negative": 1,
+            "zero": 26
+          },
+          "pips": {
+            "n": 30,
+            "mean": -0.01888888888888894,
+            "exploratoryCI95": [
+              -1.1625308600025785,
+              1.1247530822248006
+            ],
+            "positive": 13,
+            "negative": 11,
+            "zero": 6
+          },
+          "minus": {
+            "n": 30,
+            "mean": 0,
+            "exploratoryCI95": [
+              0,
+              0
+            ],
+            "positive": 0,
+            "negative": 0,
+            "zero": 30
+          },
+          "byMobilityWorld": {
+            "otherMore": {
+              "n": 315,
+              "finish": {
+                "n": 315,
+                "mean": 0.031746031746031744,
+                "exploratoryCI95": [
+                  0.012353674050338336,
+                  0.05113838944172515
+                ],
+                "positive": 10,
+                "negative": 0,
+                "zero": 305
+              },
+              "pips": {
+                "n": 315,
+                "mean": -2.7111111111111112,
+                "exploratoryCI95": [
+                  -3.2325543596184207,
+                  -2.1896678626038018
+                ],
+                "positive": 14,
+                "negative": 149,
+                "zero": 152
+              }
+            },
+            "equal": {
+              "n": 331,
+              "finish": {
+                "n": 331,
+                "mean": 0.01812688821752266,
+                "exploratoryCI95": [
+                  -0.0005244692253693721,
+                  0.036778245660414696
+                ],
+                "positive": 8,
+                "negative": 2,
+                "zero": 321
+              },
+              "pips": {
+                "n": 331,
+                "mean": 0.5981873111782477,
+                "exploratoryCI95": [
+                  0.12199457758606258,
+                  1.0743800447704328
+                ],
+                "positive": 60,
+                "negative": 53,
+                "zero": 218
+              }
+            },
+            "connectorMore": {
+              "n": 254,
+              "finish": {
+                "n": 254,
+                "mean": -0.031496062992125984,
+                "exploratoryCI95": [
+                  -0.05301766724643424,
+                  -0.009974458737817733
+                ],
+                "positive": 0,
+                "negative": 8,
+                "zero": 246
+              },
+              "pips": {
+                "n": 254,
+                "mean": 2.515748031496063,
+                "exploratoryCI95": [
+                  2.0046647273795273,
+                  3.0268313356125987
+                ],
+                "positive": 96,
+                "negative": 9,
+                "zero": 149
+              }
+            }
+          }
+        }
+      },
+      "rows": [
+        {
+          "seed": 160342,
+          "turn": 20,
+          "focal": 2,
+          "next": 0,
+          "x": 3,
+          "handSizes": [
+            2,
+            2,
+            6
+          ],
+          "connectorSide": "left",
+          "otherSide": "right",
+          "connectorKey": "single|left|3||3-4",
+          "otherKey": "single|right|2||2-5",
+          "hiddenWorldSeedStart": 191342000,
+          "worlds": 30,
+          "continuations": 450,
+          "immediateOtherMinusConnector": {
+            "playable": -0.06666666666666667,
+            "placements": -0.5,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 11,
+            "equal": 6,
+            "connectorMore": 13
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": -2.8333333333333335,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": -0.5333333333333333,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -1.1666666666666667,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 160383,
+          "turn": 20,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            2,
+            2,
+            4
+          ],
+          "connectorSide": "left",
+          "otherSide": "up",
+          "connectorKey": "single|left|0||0-5",
+          "otherKey": "single|up|3||2-3",
+          "hiddenWorldSeedStart": 191383000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 0.16666666666666666,
+            "placements": 0.16666666666666666,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 13,
+            "equal": 9,
+            "connectorMore": 8
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 3.5,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 3.5,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 160467,
+          "turn": 25,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            1,
+            3,
+            4
+          ],
+          "connectorSide": "up",
+          "otherSide": "left",
+          "connectorKey": "single|up|0||0-3",
+          "otherKey": "single|left|1||1-2",
+          "hiddenWorldSeedStart": 191467000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": -0.1,
+            "placements": -0.1,
+            "finishOpportunity": -0.1
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 10,
+            "equal": 7,
+            "connectorMore": 13
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.6666666666666666,
+              "pips": 2.4,
+              "minus": -0.6666666666666666
+            },
+            "min-hand-pips": {
+              "finish": -0.6666666666666666,
+              "pips": 2.4,
+              "minus": -0.6666666666666666
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0.8,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 160627,
+          "turn": 21,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            2,
+            2,
+            5
+          ],
+          "connectorSide": "left",
+          "otherSide": "up",
+          "connectorKey": "single|left|0||0-5",
+          "otherKey": "single|up|3||2-3",
+          "hiddenWorldSeedStart": 191627000,
+          "worlds": 30,
+          "continuations": 540,
+          "immediateOtherMinusConnector": {
+            "playable": -0.5333333333333333,
+            "placements": 0.03333333333333333,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 14,
+            "connectorMore": 16
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 5.133333333333334,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 5.133333333333334,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 3.033333333333333,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 160641,
+          "turn": 21,
+          "focal": 1,
+          "next": 2,
+          "x": 0,
+          "handSizes": [
+            2,
+            6,
+            2
+          ],
+          "connectorSide": "right",
+          "otherSide": "up",
+          "connectorKey": "single|right|0||0-5",
+          "otherKey": "single|up|2||2-3",
+          "hiddenWorldSeedStart": 191641000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": 0.6333333333333333,
+            "placements": 0.16666666666666666,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 19,
+            "equal": 11,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 161022,
+          "turn": 20,
+          "focal": 0,
+          "next": 1,
+          "x": 2,
+          "handSizes": [
+            5,
+            2,
+            3
+          ],
+          "connectorSide": "right",
+          "otherSide": "up",
+          "connectorKey": "single|right|2||2-5",
+          "otherKey": "single|up|3||3-4",
+          "hiddenWorldSeedStart": 192022000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 0,
+            "placements": -0.4666666666666667,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 30,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 161485,
+          "turn": 20,
+          "focal": 0,
+          "next": 1,
+          "x": 0,
+          "handSizes": [
+            6,
+            2,
+            4
+          ],
+          "connectorSide": "down",
+          "otherSide": "up",
+          "connectorKey": "single|down|0||0-5",
+          "otherKey": "single|up|3||2-3",
+          "hiddenWorldSeedStart": 192485000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": -0.3333333333333333,
+            "placements": -0.3333333333333333,
+            "finishOpportunity": -0.06666666666666667
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 20,
+            "connectorMore": 10
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 1.5666666666666667,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 1.2,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 5.1,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 161604,
+          "turn": 21,
+          "focal": 2,
+          "next": 0,
+          "x": 2,
+          "handSizes": [
+            2,
+            4,
+            5
+          ],
+          "connectorSide": "up",
+          "otherSide": "left",
+          "connectorKey": "single|up|2||1-2",
+          "otherKey": "single|left|0||0-3",
+          "hiddenWorldSeedStart": 192604000,
+          "worlds": 30,
+          "continuations": 630,
+          "immediateOtherMinusConnector": {
+            "playable": 0.43333333333333335,
+            "placements": 0.16666666666666666,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 12,
+            "equal": 18,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.36666666666666664,
+              "pips": 0.4,
+              "minus": -0.36666666666666664
+            },
+            "min-hand-pips": {
+              "finish": -0.36666666666666664,
+              "pips": 0.1,
+              "minus": -0.36666666666666664
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -3.6,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 161940,
+          "turn": 22,
+          "focal": 1,
+          "next": 2,
+          "x": 3,
+          "handSizes": [
+            1,
+            5,
+            2
+          ],
+          "connectorSide": "right",
+          "otherSide": "up",
+          "connectorKey": "single|right|3||1-3",
+          "otherKey": "single|up|4||0-4",
+          "hiddenWorldSeedStart": 192940000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 0,
+            "placements": 0,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 9,
+            "equal": 12,
+            "connectorMore": 9
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 10.8,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 8,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 8,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 161962,
+          "turn": 21,
+          "focal": 1,
+          "next": 2,
+          "x": 0,
+          "handSizes": [
+            3,
+            6,
+            2
+          ],
+          "connectorSide": "up",
+          "otherSide": "right",
+          "connectorKey": "single|up|0||0-5",
+          "otherKey": "single|right|2||2-3",
+          "hiddenWorldSeedStart": 192962000,
+          "worlds": 30,
+          "continuations": 720,
+          "immediateOtherMinusConnector": {
+            "playable": 0.3333333333333333,
+            "placements": 0.3333333333333333,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 10,
+            "equal": 20,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": -0.6666666666666666,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": -0.6666666666666666,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0.23333333333333334,
+              "pips": -2.966666666666667,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 162207,
+          "turn": 21,
+          "focal": 0,
+          "next": 1,
+          "x": 0,
+          "handSizes": [
+            4,
+            2,
+            2
+          ],
+          "connectorSide": "up",
+          "otherSide": "right",
+          "connectorKey": "single|up|0||0-6",
+          "otherKey": "single|right|4||2-4",
+          "hiddenWorldSeedStart": 193207000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": -1.0333333333333334,
+            "placements": -1.0333333333333334,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 5,
+            "connectorMore": 25
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -1,
+              "pips": 10,
+              "minus": -1
+            },
+            "min-hand-pips": {
+              "finish": -1,
+              "pips": 10,
+              "minus": -1
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 1.2,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 162924,
+          "turn": 21,
+          "focal": 1,
+          "next": 2,
+          "x": 4,
+          "handSizes": [
+            2,
+            5,
+            2
+          ],
+          "connectorSide": "down",
+          "otherSide": "up",
+          "connectorKey": "single|down|4||1-4",
+          "otherKey": "single|up|5||0-5",
+          "hiddenWorldSeedStart": 193924000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": -0.7333333333333333,
+            "placements": -0.7333333333333333,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 5,
+            "equal": 6,
+            "connectorMore": 19
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.43333333333333335,
+              "pips": 7.866666666666666,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 4.466666666666667,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 2.6666666666666665,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 163503,
+          "turn": 21,
+          "focal": 0,
+          "next": 1,
+          "x": 0,
+          "handSizes": [
+            4,
+            2,
+            2
+          ],
+          "connectorSide": "left",
+          "otherSide": "up",
+          "connectorKey": "single|left|0||0-5",
+          "otherKey": "single|up|3||2-3",
+          "hiddenWorldSeedStart": 194503000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 0.5,
+            "placements": -0.1,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 15,
+            "equal": 15,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -2.1666666666666665,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 163564,
+          "turn": 23,
+          "focal": 1,
+          "next": 2,
+          "x": 2,
+          "handSizes": [
+            4,
+            5,
+            1
+          ],
+          "connectorSide": "left",
+          "otherSide": "right",
+          "connectorKey": "single|left|2||2-5",
+          "otherKey": "single|right|3||3-4",
+          "hiddenWorldSeedStart": 194564000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": -0.4,
+            "placements": -0.23333333333333334,
+            "finishOpportunity": -0.4
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 18,
+            "connectorMore": 12
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.6666666666666666,
+              "pips": 11.866666666666667,
+              "minus": -0.6666666666666666
+            },
+            "min-hand-pips": {
+              "finish": -0.6666666666666666,
+              "pips": 11.866666666666667,
+              "minus": -0.6666666666666666
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 3.466666666666667,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 163987,
+          "turn": 20,
+          "focal": 2,
+          "next": 0,
+          "x": 3,
+          "handSizes": [
+            2,
+            5,
+            4
+          ],
+          "connectorSide": "left",
+          "otherSide": "up",
+          "connectorKey": "single|left|3||1-3",
+          "otherKey": "single|up|0||0-4",
+          "hiddenWorldSeedStart": 194987000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": 0.36666666666666664,
+            "placements": 0.36666666666666664,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 15,
+            "equal": 7,
+            "connectorMore": 8
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.6666666666666666,
+              "pips": 3.933333333333333,
+              "minus": -0.7333333333333333
+            },
+            "min-hand-pips": {
+              "finish": -0.6,
+              "pips": 3.7333333333333334,
+              "minus": -0.7333333333333333
+            },
+            "fast-doubles": {
+              "finish": -0.2,
+              "pips": 0.5333333333333333,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 164428,
+          "turn": 22,
+          "focal": 1,
+          "next": 2,
+          "x": 0,
+          "handSizes": [
+            3,
+            4,
+            2
+          ],
+          "connectorSide": "right",
+          "otherSide": "left",
+          "connectorKey": "single|right|0||0-6",
+          "otherKey": "single|left|4||2-4",
+          "hiddenWorldSeedStart": 195428000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": -0.3,
+            "placements": -0.3,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 5,
+            "equal": 11,
+            "connectorMore": 14
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 2.4,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 2.4,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 3.4,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 164543,
+          "turn": 22,
+          "focal": 1,
+          "next": 2,
+          "x": 0,
+          "handSizes": [
+            2,
+            4,
+            2
+          ],
+          "connectorSide": "left",
+          "otherSide": "up",
+          "connectorKey": "single|left|0||0-6",
+          "otherKey": "single|up|1||1-5",
+          "hiddenWorldSeedStart": 195543000,
+          "worlds": 30,
+          "continuations": 540,
+          "immediateOtherMinusConnector": {
+            "playable": 0.5,
+            "placements": 0.5,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 15,
+            "equal": 15,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -5.4,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 164718,
+          "turn": 24,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            2,
+            2,
+            4
+          ],
+          "connectorSide": "up",
+          "otherSide": "right",
+          "connectorKey": "single|up|0||0-4",
+          "otherKey": "single|right|1||1-3",
+          "hiddenWorldSeedStart": 195718000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 0.16666666666666666,
+            "placements": 0.16666666666666666,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 12,
+            "equal": 11,
+            "connectorMore": 7
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 4,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 4,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 164838,
+          "turn": 22,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            2,
+            3,
+            4
+          ],
+          "connectorSide": "up",
+          "otherSide": "left",
+          "connectorKey": "single|up|0||0-6",
+          "otherKey": "single|left|4||2-4",
+          "hiddenWorldSeedStart": 195838000,
+          "worlds": 30,
+          "continuations": 450,
+          "immediateOtherMinusConnector": {
+            "playable": 0.36666666666666664,
+            "placements": 0.36666666666666664,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 11,
+            "equal": 19,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0.1,
+              "pips": -1.2,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 165049,
+          "turn": 21,
+          "focal": 2,
+          "next": 0,
+          "x": 2,
+          "handSizes": [
+            2,
+            4,
+            4
+          ],
+          "connectorSide": "left",
+          "otherSide": "down",
+          "connectorKey": "single|left|2||2-4",
+          "otherKey": "single|down|0||0-6",
+          "hiddenWorldSeedStart": 196049000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 1.0666666666666667,
+            "placements": 1.4333333333333333,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 26,
+            "equal": 4,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.03333333333333333,
+              "pips": 0.5,
+              "minus": -0.03333333333333333
+            },
+            "min-hand-pips": {
+              "finish": -0.03333333333333333,
+              "pips": 0.5,
+              "minus": -0.03333333333333333
+            },
+            "fast-doubles": {
+              "finish": 0.13333333333333333,
+              "pips": -4.933333333333334,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 165166,
+          "turn": 21,
+          "focal": 1,
+          "next": 2,
+          "x": 0,
+          "handSizes": [
+            2,
+            4,
+            2
+          ],
+          "connectorSide": "right",
+          "otherSide": "up",
+          "connectorKey": "single|right|0||0-5",
+          "otherKey": "single|up|2||2-3",
+          "hiddenWorldSeedStart": 196166000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": -0.9333333333333333,
+            "placements": -0.9333333333333333,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 6,
+            "connectorMore": 24
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -1,
+              "pips": 7,
+              "minus": -1
+            },
+            "min-hand-pips": {
+              "finish": -1,
+              "pips": 7,
+              "minus": -1
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 1.1666666666666667,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 165419,
+          "turn": 21,
+          "focal": 0,
+          "next": 1,
+          "x": 2,
+          "handSizes": [
+            4,
+            2,
+            2
+          ],
+          "connectorSide": "up",
+          "otherSide": "left",
+          "connectorKey": "single|up|2||2-4",
+          "otherKey": "single|left|6||0-6",
+          "hiddenWorldSeedStart": 196419000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 0.03333333333333333,
+            "placements": 0.03333333333333333,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 10,
+            "equal": 11,
+            "connectorMore": 9
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.5333333333333333,
+              "pips": 7.066666666666666,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": -0.5333333333333333,
+              "pips": 7.066666666666666,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 3.2,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 165865,
+          "turn": 20,
+          "focal": 1,
+          "next": 2,
+          "x": 0,
+          "handSizes": [
+            2,
+            4,
+            2
+          ],
+          "connectorSide": "right",
+          "otherSide": "up",
+          "connectorKey": "single|right|0||0-6",
+          "otherKey": "single|up|2||2-4",
+          "hiddenWorldSeedStart": 196865000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": 0.6,
+            "placements": 0.6,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 18,
+            "equal": 12,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -1.4,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 166170,
+          "turn": 21,
+          "focal": 0,
+          "next": 1,
+          "x": 0,
+          "handSizes": [
+            4,
+            2,
+            3
+          ],
+          "connectorSide": "left",
+          "otherSide": "right",
+          "connectorKey": "single|left|0||0-6",
+          "otherKey": "single|right|4||2-4",
+          "hiddenWorldSeedStart": 197170000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": -0.26666666666666666,
+            "placements": -0.26666666666666666,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 7,
+            "equal": 11,
+            "connectorMore": 12
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.9333333333333333,
+              "pips": 5.666666666666667,
+              "minus": -0.9333333333333333
+            },
+            "min-hand-pips": {
+              "finish": -0.9333333333333333,
+              "pips": 5.666666666666667,
+              "minus": -0.9333333333333333
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 1.6,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 166255,
+          "turn": 21,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            2,
+            3,
+            5
+          ],
+          "connectorSide": "down",
+          "otherSide": "right",
+          "connectorKey": "single|down|0||0-6",
+          "otherKey": "single|right|2||2-4",
+          "hiddenWorldSeedStart": 197255000,
+          "worlds": 30,
+          "continuations": 450,
+          "immediateOtherMinusConnector": {
+            "playable": 0.9666666666666667,
+            "placements": 0.6333333333333333,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 24,
+            "equal": 6,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -0.23333333333333334,
+              "pips": 3.1333333333333333,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": -0.23333333333333334,
+              "pips": 3.1333333333333333,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -2.6333333333333333,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 166398,
+          "turn": 22,
+          "focal": 2,
+          "next": 0,
+          "x": 0,
+          "handSizes": [
+            2,
+            2,
+            4
+          ],
+          "connectorSide": "up",
+          "otherSide": "left",
+          "connectorKey": "single|up|0||0-5",
+          "otherKey": "single|left|3||2-3",
+          "hiddenWorldSeedStart": 197398000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": -1.0666666666666667,
+            "placements": -1.0666666666666667,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 0,
+            "equal": 3,
+            "connectorMore": 27
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": -1,
+              "pips": 8,
+              "minus": -1
+            },
+            "min-hand-pips": {
+              "finish": -1,
+              "pips": 8,
+              "minus": -1
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 1.3333333333333333,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 166578,
+          "turn": 20,
+          "focal": 0,
+          "next": 1,
+          "x": 2,
+          "handSizes": [
+            4,
+            2,
+            2
+          ],
+          "connectorSide": "down",
+          "otherSide": "up",
+          "connectorKey": "single|down|2||1-2",
+          "otherKey": "single|up|3||0-3",
+          "hiddenWorldSeedStart": 197578000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": -0.7666666666666667,
+            "placements": -0.7666666666666667,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 3,
+            "equal": 10,
+            "connectorMore": 17
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": -2.6,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": -4,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 166607,
+          "turn": 22,
+          "focal": 2,
+          "next": 0,
+          "x": 2,
+          "handSizes": [
+            2,
+            2,
+            5
+          ],
+          "connectorSide": "down",
+          "otherSide": "right",
+          "connectorKey": "single|down|2||2-3",
+          "otherKey": "single|right|0||0-5",
+          "hiddenWorldSeedStart": 197607000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": 1.0666666666666667,
+            "placements": 1.0666666666666667,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 28,
+            "equal": 2,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": -3.466666666666667,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": -3.466666666666667,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -5,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 166930,
+          "turn": 25,
+          "focal": 1,
+          "next": 2,
+          "x": 0,
+          "handSizes": [
+            2,
+            4,
+            1
+          ],
+          "connectorSide": "down",
+          "otherSide": "up",
+          "connectorKey": "single|down|0||0-5",
+          "otherKey": "single|up|2||2-3",
+          "hiddenWorldSeedStart": 197930000,
+          "worlds": 30,
+          "continuations": 360,
+          "immediateOtherMinusConnector": {
+            "playable": -0.13333333333333333,
+            "placements": -0.13333333333333333,
+            "finishOpportunity": -0.13333333333333333
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 7,
+            "equal": 12,
+            "connectorMore": 11
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": 3.8333333333333335,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": 3.8333333333333335,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        },
+        {
+          "seed": 167011,
+          "turn": 22,
+          "focal": 1,
+          "next": 2,
+          "x": 2,
+          "handSizes": [
+            2,
+            4,
+            2
+          ],
+          "connectorSide": "down",
+          "otherSide": "right",
+          "connectorKey": "single|down|2||2-5",
+          "otherKey": "single|right|3||3-4",
+          "hiddenWorldSeedStart": 198011000,
+          "worlds": 30,
+          "continuations": 270,
+          "immediateOtherMinusConnector": {
+            "playable": 1.4,
+            "placements": 1.4,
+            "finishOpportunity": 0
+          },
+          "mobilityWorldCounts": {
+            "otherMore": 30,
+            "equal": 0,
+            "connectorMore": 0
+          },
+          "policyConnectorMinusOther": {
+            "closed-branch-control": {
+              "finish": 0,
+              "pips": -1.2,
+              "minus": 0
+            },
+            "min-hand-pips": {
+              "finish": 0,
+              "pips": -1.2,
+              "minus": 0
+            },
+            "fast-doubles": {
+              "finish": 0,
+              "pips": -5.6,
+              "minus": 0
+            }
+          }
+        }
+      ]
+    }
+  },
+  "conclusion": "Immediate next-player mobility partly correlates with move outcomes, but cannot alone explain equal-mobility worlds; exploratory bot-specific and side-confounded.",
+  "confidence": "Exploratory position-cluster intervals; no causal inference, first eligible positions, no opponent-history conditioning, locked branch assumption.",
+  "next": "Replicate same-mobility subset with position-cluster confidence and compare third-player mobility; test opposite action pairs."
+}
