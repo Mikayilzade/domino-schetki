@@ -1,0 +1,135 @@
+{
+  "schema": "qosa-pass-vs-direct-win-holdout-summary/v1",
+  "timestampAsiaBaku": "2026-10-12T19:45:57+04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "seedRange": "2920000..2920699",
+  "selectedSeeds": [
+    2920006,
+    2920024,
+    2920042,
+    2920077,
+    2920123,
+    2920148,
+    2920150,
+    2920161,
+    2920174,
+    2920183,
+    2920204,
+    2920220,
+    2920231,
+    2920233,
+    2920235,
+    2920245,
+    2920258,
+    2920262,
+    2920271,
+    2920277,
+    2920304,
+    2920344,
+    2920356,
+    2920439,
+    2920450,
+    2920457,
+    2920477,
+    2920502,
+    2920540,
+    2920553,
+    2920558,
+    2920560,
+    2920563,
+    2920610,
+    2920690,
+    2920695
+  ],
+  "discoveryPolicy": "min-hand-pips",
+  "selection": "first eligible 3+ canonical ordinary singles, prior empty-stock next-opponent pass, <=6 unseen opponent tiles, >=6 compatible hidden allocations",
+  "scannedDeals": 700,
+  "eligibleBeforeThreshold": 79,
+  "excludedFewWorlds": 43,
+  "positions": 36,
+  "exactHiddenAllocations": 493,
+  "compatibleHiddenAllocations": 453,
+  "trainWorlds": 221,
+  "holdoutWorlds": 232,
+  "candidateActions": 115,
+  "candidateContinuations": 4365,
+  "unresolved": 0,
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "continuationSeedFormula": "96000000+1000*dealSeed+lexicographicCompatibleAllocationIndex",
+  "split": "seed-hash 50/50 train/test; no holdout outcomes used for direct-win selection",
+  "historyChangedForecasts": 3,
+  "strictPassActionReversals": 0,
+  "metrics": {
+    "closedBranch": {
+      "directMinusHistoryWin": {
+        "mean": 0.041666666666666664,
+        "ci95": [
+          -0.011761062297067366,
+          0.0950943956304007
+        ]
+      },
+      "historyMinusMaxPipsWin": {
+        "mean": -0.001388888888888887,
+        "ci95": [
+          -0.0343427192925249,
+          0.03156494151474713
+        ]
+      },
+      "directMinusHistoryPips": {
+        "mean": -0.6701388888888888,
+        "ci95": [
+          -1.3233696042094958,
+          -0.016908173568281892
+        ]
+      },
+      "directChoiceChanged": 13
+    },
+    "minPips": {
+      "directMinusHistoryWin": {
+        "mean": 0.041666666666666664,
+        "ci95": [
+          -0.011761062297067366,
+          0.0950943956304007
+        ]
+      },
+      "historyMinusMaxPipsWin": {
+        "mean": -0.001388888888888887,
+        "ci95": [
+          -0.0343427192925249,
+          0.03156494151474713
+        ]
+      },
+      "directChoiceChanged": 13
+    },
+    "fastDoubles": {
+      "directMinusHistoryWin": {
+        "mean": 0.02916666666666666,
+        "ci95": [
+          -0.02220642399804265,
+          0.08053975733137597
+        ]
+      },
+      "historyMinusMaxPipsWin": {
+        "mean": 0.014583333333333334,
+        "ci95": [
+          -0.012912651221991586,
+          0.04207931788865825
+        ]
+      },
+      "directChoiceChanged": 13
+    }
+  },
+  "newFullStrategyRounds": 0,
+  "verifiedFullStrategyRounds": 180000,
+  "historicalRoundsSeparate": 4000,
+  "validation": "V8 CommonJS deterministic fixture seed 2920006: 6 compatible allocations, 3 candidates, 54 continuations; exact pass probabilities matched brute force; immutable source; not Node CLI",
+  "finding": "No reliable first-place improvement; all exploratory intervals include zero. Prior +3.14pp pass-max advantage over immediate pip discard did not replicate.",
+  "limitations": "selected late game, small same-position train/test worlds, assumed branch opening, fixed bots, no block winner, canonical ordinary singles only; summary only, per-position JSON and executable script pending write recovery",
+  "next": "Persist reproducible code and per-position data; replicate on disjoint seeds and branch-geometry-matched controls."
+}
