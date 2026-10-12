@@ -1,1 +1,11 @@
-Research write probe: 30 positions, 290 hidden allocations, 181 compatible.
+2026-10-12 18:08 Asia/Baku | Qoşa exact multi-choice pass-history checkpoint
+Engine qosa-research-0.5.3; rules qosa-1.0.0; mode 3x9.
+Seeds 2900000..2900304 (305 deals scanned); first eligible late-game state per deal under min-hand-pips discovery. 30 positions, >=3 distinct playable single tiles, <=6 unseen opponent stones, next opponent previously passed with empty stock.
+290 exhaustive hidden allocations, 181 history-compatible, 141 legal candidate actions, 2682 matched continuations; 0 unresolved.
+Continuation strategies: closed-branch-control, min-hand-pips, fast-doubles. Seed per world: 90000000 + 1000*dealSeed + lexicographicAllocationIndex.
+Mean pass-forecast Brier: uniform 0.04449409, history-conditioned 0.02134131. Predictions changed 8/30; strict preferred-action reversals 0/30 (ties retain original).
+First-place delta history-minus-uniform 0.0 pp for all three policies; pips and minus-finish deltas 0.0. First-place regret vs best single action: 0.07444, 0.07444, 0.08111 respectively.
+Self-test replay seed 2900003 passed in V8 CommonJS (6 singles, 15 exact worlds, 270 continuations); Node CLI not run. No reliable winning heuristic found.
+Full strategy rounds added 0; verified cumulative 180000; historical 4000 separate.
+Limitations: exact only under uniform hidden allocations conditioned on witnessed target passes; selected late-game states; single-action subset; assumed branch semantics; fixed bots; block winner unassigned. Standalone runner code write blocked; this checkpoint is not yet independently executable.
+Next: persist runner; independent seeds 2910000..2930000; evaluate strict reversals and direct first-place/pips/minus regret against min-pips and branch-control choices.
