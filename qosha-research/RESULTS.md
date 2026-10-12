@@ -405,3 +405,14 @@
 - 0 new full strategy rounds; verified cumulative 180,000, historical 4,000 separate. Assumed branch rules, bot policies, selected sample, no block winner; no causal human-play inference.
 - reproducible code `simulator/pass-history-holdout-replay.js`; data `runs/2026-10-12-pass-history-holdout-2400000.json`. Executed in V8 CommonJS harness, not Node CLI.
 - exact next action: independent 30+ positions on seeds 2600000..2900000, specifically examine posterior-induced move reversals and paired regret rather than treating Brier as a win proxy.
+
+
+### 2026-10-12T16:58:10 +04:00 — recovered independent pass-history regret audit
+- engine/rules: `qosa-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9. **0 new complete strategy rounds**; verified cumulative **180,000** (historical 4,000 separate).
+- Recovery cohort: deal-seed discovery `2600000..2756515`, 30 previously unpublished selected positions, 216 exhaustive hidden allocations, 122 consistent with observed next-opponent empty-stock pass history; 732 forced-action continuations, 0 unresolved. Re-executed against current GitHub code after an earlier failed write; seed list and per-position data persisted.
+- Policies: closed-branch-control, min-hand-pips, fast-doubles. Matched comparison of equal-pip connector vs unrelated single retaining X-X; continuation seed `71000000+1000*dealSeed+lexicographicAllocationIndex`.
+- Mean Brier forecast error: unconditioned **0.17955**, pass-conditioned **0.07904** (56.0% relative reduction); probabilities changed in 21/30 positions. Preferred max-pass action changed 3/30, but **2 changes were ties**, only **1 strict reversal** (3 compatible hidden worlds).
+- Strict reversal seed 2715495: history recommended connector despite a **−66.67 pp** first-place difference versus unrelated under closed-branch and min-pips; fast-doubles difference 0. Relative to unconditioned max-pass selection, naive tie-break history choice lost **5.56 pp** first-place, tie-safe history choice lost **2.22 pp** (position-equal weighting). These are sample-specific paired action deltas, NOT population win rates.
+- Finding: improved next-pass calibration does **not** establish improved winning decisions; distinguish strict reversals from posterior ties. No reliable positive strategy claim. Small compatible worlds at changed positions and bot/branch assumptions prevent human-play generalization.
+- Code: `simulator/pass-history-regret-audit.js`; full data: `runs/2026-10-12-1658-pass-history-regret.json`. Executed in V8 CommonJS harness, not Node CLI.
+- Exact next action: independent 3+-candidate/near-tie discovery, tie-safe posterior decisions, matched-world first-place/pips/minus regret, with more strict reversals before any tactical recommendation.
