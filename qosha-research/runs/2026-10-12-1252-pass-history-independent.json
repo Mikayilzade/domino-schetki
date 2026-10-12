@@ -1,0 +1,1656 @@
+{
+  "schema": "qosa-pass-history-independent/v1",
+  "timestampAsiaBaku": "2026-10-12T12:52:36 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "start": 2400000,
+  "end": 3000000,
+  "limit": 30,
+  "scannedDeals": 136545,
+  "eligiblePreHistoryStates": 601,
+  "positions": 30,
+  "selectedSeeds": [
+    2402445,
+    2405676,
+    2415005,
+    2417304,
+    2428389,
+    2441200,
+    2441768,
+    2447571,
+    2450605,
+    2453977,
+    2456198,
+    2462544,
+    2464828,
+    2468056,
+    2470460,
+    2471311,
+    2478776,
+    2479739,
+    2485507,
+    2489265,
+    2490390,
+    2498440,
+    2499172,
+    2500589,
+    2504323,
+    2510369,
+    2510405,
+    2523877,
+    2526989,
+    2536544
+  ],
+  "exactAllocations": 223,
+  "compatibleAllocations": 149,
+  "candidateContinuations": 2142,
+  "fullStrategyRoundsAdded": 0,
+  "priorVerifiedFullStrategyRounds": 180000,
+  "discoveryPolicy": "min-hand-pips",
+  "continuationPolicies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "continuationSeedFormula": "73000000+1000*dealSeed+compatibleAllocationIndex",
+  "summary": {
+    "brierUniform": 0.1034351851851852,
+    "brierHistory": 0.04543518518518519,
+    "changedPassChoiceDirection": 6,
+    "historyInformativePositions": 13,
+    "byPolicy": {
+      "closed-branch-control": {
+        "higherConditionalPassWinDelta": 0.07536231884057971,
+        "eligiblePositions": 23,
+        "better": 7,
+        "worse": 3,
+        "ties": 13,
+        "connectorMinusUnrelatedWin": -0.13666666666666666,
+        "connectorMinusUnrelatedPips": 1.1166666666666667
+      },
+      "min-hand-pips": {
+        "higherConditionalPassWinDelta": 0.07971014492753624,
+        "eligiblePositions": 23,
+        "better": 7,
+        "worse": 3,
+        "ties": 13,
+        "connectorMinusUnrelatedWin": -0.13333333333333333,
+        "connectorMinusUnrelatedPips": 1.1300000000000001
+      },
+      "fast-doubles": {
+        "higherConditionalPassWinDelta": 0.043478260869565216,
+        "eligiblePositions": 23,
+        "better": 3,
+        "worse": 0,
+        "ties": 20,
+        "connectorMinusUnrelatedWin": 0.02777777777777778,
+        "connectorMinusUnrelatedPips": -2.264444444444444
+      }
+    }
+  },
+  "limitations": "Independent deal seeds, but selected positions conditioned on prior empty-stock target pass and first eligible equal-pip pair. Uniform allocations conditional only on target pass (not opponent choice history). Both forced next-pass counterfactuals scored on actual deal. Exact enumeration within model; branch rules assumed; bot continuation; no block winner; small selected sample; policy and Brier outcomes provisional.",
+  "next": "Replicate on a second disjoint seed range; inspect history-posterior failures and test whether the higher-pass choice remains favorable after controlling for hand size and alternative policies.",
+  "rows": [
+    {
+      "seed": 2402445,
+      "turn": 20,
+      "passWitnesses": 1,
+      "handSizes": [
+        2,
+        1,
+        5
+      ],
+      "exactAllocations": 3,
+      "compatibleAllocations": 3,
+      "historyInformative": false,
+      "continuations": 54,
+      "pair": {
+        "connector": "single|down|0||0-6",
+        "other": "single|up|4||2-4",
+        "pips": 6
+      },
+      "predictions": [
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 3
+        },
+        {
+          "unconditional": 0.3333333333333333,
+          "conditional": 0.3333333333333333,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 1
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": -2,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": -2,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -2,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2405676,
+      "turn": 21,
+      "passWitnesses": 1,
+      "handSizes": [
+        2,
+        2,
+        4
+      ],
+      "exactAllocations": 6,
+      "compatibleAllocations": 1,
+      "historyInformative": true,
+      "continuations": 9,
+      "pair": {
+        "connector": "single|down|2||2-5",
+        "other": "single|left|3||3-4",
+        "pips": 7
+      },
+      "predictions": [
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 2,
+          "compatiblePassCount": 1
+        },
+        {
+          "unconditional": 0.16666666666666666,
+          "conditional": 0,
+          "actual": 0,
+          "excluded": 2,
+          "compatiblePassCount": 0
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": -4,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": -4,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -7,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2415005,
+      "turn": 22,
+      "passWitnesses": 1,
+      "handSizes": [
+        1,
+        3,
+        4
+      ],
+      "exactAllocations": 4,
+      "compatibleAllocations": 4,
+      "historyInformative": false,
+      "continuations": 72,
+      "pair": {
+        "connector": "single|right|0||0-5",
+        "other": "single|left|3||2-3",
+        "pips": 5
+      },
+      "predictions": [
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 4
+        },
+        {
+          "unconditional": 0.75,
+          "conditional": 0.75,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 3
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": -1.25,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": -1.25,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2417304,
+      "turn": 21,
+      "passWitnesses": 1,
+      "handSizes": [
+        3,
+        5,
+        2
+      ],
+      "exactAllocations": 10,
+      "compatibleAllocations": 10,
+      "historyInformative": false,
+      "continuations": 300,
+      "pair": {
+        "connector": "single|right|0||0-6",
+        "other": "single|up|4||2-4",
+        "pips": 6
+      },
+      "predictions": [
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 10
+        },
+        {
+          "unconditional": 0.6000000000000001,
+          "conditional": 0.6000000000000001,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 6
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": -0.6,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": -0.6,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0.2,
+          "pips": -4.3,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2428389,
+      "turn": 20,
+      "passWitnesses": 1,
+      "handSizes": [
+        2,
+        4,
+        2
+      ],
+      "exactAllocations": 6,
+      "compatibleAllocations": 6,
+      "historyInformative": false,
+      "continuations": 108,
+      "pair": {
+        "connector": "single|down|0||0-5",
+        "other": "single|left|2||2-3",
+        "pips": 5
+      },
+      "predictions": [
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 6
+        },
+        {
+          "unconditional": 0.5,
+          "conditional": 0.5,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 3
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -4.166666666666667,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2441200,
+      "turn": 17,
+      "passWitnesses": 1,
+      "handSizes": [
+        4,
+        2,
+        3
+      ],
+      "exactAllocations": 10,
+      "compatibleAllocations": 10,
+      "historyInformative": false,
+      "continuations": 120,
+      "pair": {
+        "connector": "single|left|0||0-5",
+        "other": "single|up|2||2-3",
+        "pips": 5
+      },
+      "predictions": [
+        {
+          "unconditional": 0.6000000000000001,
+          "conditional": 0.6000000000000001,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 6
+        },
+        {
+          "unconditional": 0.1,
+          "conditional": 0.1,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 1
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0.1,
+          "pips": -0.2,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0.1,
+          "pips": -0.2,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -3,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2441768,
+      "turn": 17,
+      "passWitnesses": 1,
+      "handSizes": [
+        4,
+        2,
+        3
+      ],
+      "exactAllocations": 10,
+      "compatibleAllocations": 10,
+      "historyInformative": false,
+      "continuations": 180,
+      "pair": {
+        "connector": "single|up|0||0-6",
+        "other": "single|left|2||2-4",
+        "pips": 6
+      },
+      "predictions": [
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 10
+        },
+        {
+          "unconditional": 0.1,
+          "conditional": 0.1,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 1
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0.2,
+          "pips": -0.8,
+          "minus": 0.2
+        },
+        "min-hand-pips": {
+          "win": 0.2,
+          "pips": -0.8,
+          "minus": 0.2
+        },
+        "fast-doubles": {
+          "win": 0.3,
+          "pips": -6,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2447571,
+      "turn": 20,
+      "passWitnesses": 1,
+      "handSizes": [
+        3,
+        4,
+        1
+      ],
+      "exactAllocations": 4,
+      "compatibleAllocations": 4,
+      "historyInformative": false,
+      "continuations": 36,
+      "pair": {
+        "connector": "single|left|0||0-5",
+        "other": "single|up|2||2-3",
+        "pips": 5
+      },
+      "predictions": [
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 4
+        },
+        {
+          "unconditional": 0.25,
+          "conditional": 0.25,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 1
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": -3.75,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": -3.75,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0.5,
+          "pips": -4.5,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2450605,
+      "turn": 25,
+      "passWitnesses": 1,
+      "handSizes": [
+        4,
+        2,
+        2
+      ],
+      "exactAllocations": 6,
+      "compatibleAllocations": 6,
+      "historyInformative": false,
+      "continuations": 54,
+      "pair": {
+        "connector": "single|left|2||2-3",
+        "other": "single|up|0||0-5",
+        "pips": 5
+      },
+      "predictions": [
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 6
+        },
+        {
+          "unconditional": 0.16666666666666666,
+          "conditional": 0.16666666666666666,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 1
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0.16666666666666666,
+          "pips": -1.6666666666666667,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0.16666666666666666,
+          "pips": -1.6666666666666667,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -4.166666666666667,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2453977,
+      "turn": 17,
+      "passWitnesses": 1,
+      "handSizes": [
+        2,
+        3,
+        4
+      ],
+      "exactAllocations": 10,
+      "compatibleAllocations": 10,
+      "historyInformative": false,
+      "continuations": 90,
+      "pair": {
+        "connector": "single|right|2||1-2",
+        "other": "single|left|0||0-3",
+        "pips": 3
+      },
+      "predictions": [
+        {
+          "unconditional": 0.3,
+          "conditional": 0.3,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 3
+        },
+        {
+          "unconditional": 0.1,
+          "conditional": 0.1,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 1
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": -0.4,
+          "pips": 1.1,
+          "minus": -0.3
+        },
+        "min-hand-pips": {
+          "win": -0.3,
+          "pips": 1.5,
+          "minus": -0.3
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -0.6,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2456198,
+      "turn": 17,
+      "passWitnesses": 1,
+      "handSizes": [
+        5,
+        2,
+        3
+      ],
+      "exactAllocations": 10,
+      "compatibleAllocations": 3,
+      "historyInformative": true,
+      "continuations": 27,
+      "pair": {
+        "connector": "single|right|2||2-5",
+        "other": "single|left|4||3-4",
+        "pips": 7
+      },
+      "predictions": [
+        {
+          "unconditional": 0,
+          "conditional": 0,
+          "actual": 0,
+          "excluded": 2,
+          "compatiblePassCount": 0
+        },
+        {
+          "unconditional": 0,
+          "conditional": 0,
+          "actual": 0,
+          "excluded": 2,
+          "compatiblePassCount": 0
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": -0.3333333333333333,
+          "pips": 5,
+          "minus": -0.3333333333333333
+        },
+        "min-hand-pips": {
+          "win": -0.3333333333333333,
+          "pips": 5,
+          "minus": -0.3333333333333333
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 2.3333333333333335,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2462544,
+      "turn": 17,
+      "passWitnesses": 1,
+      "handSizes": [
+        2,
+        4,
+        4
+      ],
+      "exactAllocations": 15,
+      "compatibleAllocations": 3,
+      "historyInformative": true,
+      "continuations": 45,
+      "pair": {
+        "connector": "single|right|2||1-2",
+        "other": "single|up|0||0-3",
+        "pips": 3
+      },
+      "predictions": [
+        {
+          "unconditional": 0.6666666666666667,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 3,
+          "compatiblePassCount": 3
+        },
+        {
+          "unconditional": 0.06666666666666667,
+          "conditional": 0,
+          "actual": 0,
+          "excluded": 3,
+          "compatiblePassCount": 0
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0.3333333333333333,
+          "pips": -2.3333333333333335,
+          "minus": 0.3333333333333333
+        },
+        "min-hand-pips": {
+          "win": 0.3333333333333333,
+          "pips": -2.3333333333333335,
+          "minus": 0.3333333333333333
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -5,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2464828,
+      "turn": 18,
+      "passWitnesses": 1,
+      "handSizes": [
+        3,
+        5,
+        2
+      ],
+      "exactAllocations": 10,
+      "compatibleAllocations": 3,
+      "historyInformative": true,
+      "continuations": 63,
+      "pair": {
+        "connector": "single|right|0||0-5",
+        "other": "single|left|2||2-3",
+        "pips": 5
+      },
+      "predictions": [
+        {
+          "unconditional": 0.3,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 2,
+          "compatiblePassCount": 3
+        },
+        {
+          "unconditional": 0.1,
+          "conditional": 0.3333333333333333,
+          "actual": 0,
+          "excluded": 2,
+          "compatiblePassCount": 1
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": -0.6666666666666666,
+          "pips": 2.6666666666666665,
+          "minus": -0.6666666666666666
+        },
+        "min-hand-pips": {
+          "win": -0.6666666666666666,
+          "pips": 2.6666666666666665,
+          "minus": -0.6666666666666666
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -4.333333333333333,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2468056,
+      "turn": 25,
+      "passWitnesses": 1,
+      "handSizes": [
+        1,
+        4,
+        2
+      ],
+      "exactAllocations": 3,
+      "compatibleAllocations": 3,
+      "historyInformative": false,
+      "continuations": 27,
+      "pair": {
+        "connector": "single|left|0||0-5",
+        "other": "single|up|3||2-3",
+        "pips": 5
+      },
+      "predictions": [
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 3
+        },
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 3
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2470460,
+      "turn": 21,
+      "passWitnesses": 1,
+      "handSizes": [
+        2,
+        4,
+        2
+      ],
+      "exactAllocations": 6,
+      "compatibleAllocations": 1,
+      "historyInformative": true,
+      "continuations": 12,
+      "pair": {
+        "connector": "single|up|3||3-4",
+        "other": "single|right|5||2-5",
+        "pips": 7
+      },
+      "predictions": [
+        {
+          "unconditional": 0.5,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 2,
+          "compatiblePassCount": 1
+        },
+        {
+          "unconditional": 0.5,
+          "conditional": 0,
+          "actual": 0,
+          "excluded": 2,
+          "compatiblePassCount": 0
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 1,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 1,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2471311,
+      "turn": 14,
+      "passWitnesses": 1,
+      "handSizes": [
+        2,
+        4,
+        5
+      ],
+      "exactAllocations": 15,
+      "compatibleAllocations": 6,
+      "historyInformative": true,
+      "continuations": 144,
+      "pair": {
+        "connector": "single|up|0||0-4",
+        "other": "single|left|1||1-3",
+        "pips": 4
+      },
+      "predictions": [
+        {
+          "unconditional": 0.39999999999999997,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 2,
+          "compatiblePassCount": 6
+        },
+        {
+          "unconditional": 0.6666666666666667,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 2,
+          "compatiblePassCount": 6
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0.5,
+          "pips": -1.5,
+          "minus": 1
+        },
+        "min-hand-pips": {
+          "win": 0.5,
+          "pips": -1.5,
+          "minus": 1
+        },
+        "fast-doubles": {
+          "win": -0.16666666666666666,
+          "pips": 2.5,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2478776,
+      "turn": 23,
+      "passWitnesses": 1,
+      "handSizes": [
+        1,
+        4,
+        2
+      ],
+      "exactAllocations": 3,
+      "compatibleAllocations": 3,
+      "historyInformative": false,
+      "continuations": 27,
+      "pair": {
+        "connector": "single|down|0||0-6",
+        "other": "single|right|4||2-4",
+        "pips": 6
+      },
+      "predictions": [
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 3
+        },
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 3
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2479739,
+      "turn": 17,
+      "passWitnesses": 1,
+      "handSizes": [
+        4,
+        2,
+        3
+      ],
+      "exactAllocations": 10,
+      "compatibleAllocations": 10,
+      "historyInformative": false,
+      "continuations": 180,
+      "pair": {
+        "connector": "single|right|0||0-5",
+        "other": "single|up|3||2-3",
+        "pips": 5
+      },
+      "predictions": [
+        {
+          "unconditional": 0.3,
+          "conditional": 0.3,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 3
+        },
+        {
+          "unconditional": 0.1,
+          "conditional": 0.1,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 1
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 2,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 2,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -0.2,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2485507,
+      "turn": 20,
+      "passWitnesses": 1,
+      "handSizes": [
+        2,
+        4,
+        2
+      ],
+      "exactAllocations": 6,
+      "compatibleAllocations": 1,
+      "historyInformative": true,
+      "continuations": 9,
+      "pair": {
+        "connector": "single|right|2||2-5",
+        "other": "single|left|4||3-4",
+        "pips": 7
+      },
+      "predictions": [
+        {
+          "unconditional": 0.16666666666666666,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 2,
+          "compatiblePassCount": 1
+        },
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 2,
+          "compatiblePassCount": 1
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": -1,
+          "pips": 7,
+          "minus": -1
+        },
+        "min-hand-pips": {
+          "win": -1,
+          "pips": 7,
+          "minus": -1
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 1,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2489265,
+      "turn": 21,
+      "passWitnesses": 1,
+      "handSizes": [
+        2,
+        4,
+        2
+      ],
+      "exactAllocations": 6,
+      "compatibleAllocations": 1,
+      "historyInformative": true,
+      "continuations": 9,
+      "pair": {
+        "connector": "single|up|2||2-4",
+        "other": "single|right|6||0-6",
+        "pips": 6
+      },
+      "predictions": [
+        {
+          "unconditional": 0,
+          "conditional": 0,
+          "actual": 0,
+          "excluded": 2,
+          "compatiblePassCount": 0
+        },
+        {
+          "unconditional": 0.5,
+          "conditional": 0,
+          "actual": 0,
+          "excluded": 2,
+          "compatiblePassCount": 0
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": -1,
+          "pips": 14,
+          "minus": -1
+        },
+        "min-hand-pips": {
+          "win": -1,
+          "pips": 14,
+          "minus": -1
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2490390,
+      "turn": 20,
+      "passWitnesses": 1,
+      "handSizes": [
+        1,
+        4,
+        2
+      ],
+      "exactAllocations": 3,
+      "compatibleAllocations": 3,
+      "historyInformative": false,
+      "continuations": 27,
+      "pair": {
+        "connector": "single|up|0||0-6",
+        "other": "single|right|2||2-4",
+        "pips": 6
+      },
+      "predictions": [
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 3
+        },
+        {
+          "unconditional": 0.3333333333333333,
+          "conditional": 0.3333333333333333,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 1
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": -2,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": -2,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -2,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2498440,
+      "turn": 24,
+      "passWitnesses": 1,
+      "handSizes": [
+        4,
+        2,
+        1
+      ],
+      "exactAllocations": 3,
+      "compatibleAllocations": 3,
+      "historyInformative": false,
+      "continuations": 27,
+      "pair": {
+        "connector": "single|up|3||2-3",
+        "other": "single|right|5||0-5",
+        "pips": 5
+      },
+      "predictions": [
+        {
+          "unconditional": 0,
+          "conditional": 0,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 0
+        },
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 3
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": -1,
+          "pips": 13,
+          "minus": -1
+        },
+        "min-hand-pips": {
+          "win": -1,
+          "pips": 13,
+          "minus": -1
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2499172,
+      "turn": 24,
+      "passWitnesses": 1,
+      "handSizes": [
+        2,
+        4,
+        2
+      ],
+      "exactAllocations": 6,
+      "compatibleAllocations": 6,
+      "historyInformative": false,
+      "continuations": 54,
+      "pair": {
+        "connector": "single|down|0||0-6",
+        "other": "single|up|2||2-4",
+        "pips": 6
+      },
+      "predictions": [
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 6
+        },
+        {
+          "unconditional": 0.16666666666666666,
+          "conditional": 0.16666666666666666,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 1
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0.16666666666666666,
+          "pips": -0.3333333333333333,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0.16666666666666666,
+          "pips": -0.3333333333333333,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -5,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2500589,
+      "turn": 17,
+      "passWitnesses": 1,
+      "handSizes": [
+        2,
+        3,
+        4
+      ],
+      "exactAllocations": 10,
+      "compatibleAllocations": 6,
+      "historyInformative": true,
+      "continuations": 72,
+      "pair": {
+        "connector": "single|right|0||0-5",
+        "other": "single|left|1||1-4",
+        "pips": 5
+      },
+      "predictions": [
+        {
+          "unconditional": 0.3,
+          "conditional": 0.5,
+          "actual": 1,
+          "excluded": 1,
+          "compatiblePassCount": 3
+        },
+        {
+          "unconditional": 0.3,
+          "conditional": 0.16666666666666666,
+          "actual": 0,
+          "excluded": 1,
+          "compatiblePassCount": 1
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": -0.16666666666666666,
+          "pips": 3.1666666666666665,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": -0.16666666666666666,
+          "pips": 3.1666666666666665,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0.3333333333333333,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2504323,
+      "turn": 17,
+      "passWitnesses": 1,
+      "handSizes": [
+        3,
+        4,
+        2
+      ],
+      "exactAllocations": 10,
+      "compatibleAllocations": 6,
+      "historyInformative": true,
+      "continuations": 72,
+      "pair": {
+        "connector": "single|up|0||0-3",
+        "other": "single|right|2||1-2",
+        "pips": 3
+      },
+      "predictions": [
+        {
+          "unconditional": 0.6000000000000001,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 1,
+          "compatiblePassCount": 6
+        },
+        {
+          "unconditional": 0,
+          "conditional": 0,
+          "actual": 0,
+          "excluded": 1,
+          "compatiblePassCount": 0
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -4.166666666666667,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2510369,
+      "turn": 20,
+      "passWitnesses": 1,
+      "handSizes": [
+        2,
+        4,
+        2
+      ],
+      "exactAllocations": 6,
+      "compatibleAllocations": 3,
+      "historyInformative": true,
+      "continuations": 54,
+      "pair": {
+        "connector": "single|right|0||0-6",
+        "other": "single|up|4||2-4",
+        "pips": 6
+      },
+      "predictions": [
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 1,
+          "compatiblePassCount": 3
+        },
+        {
+          "unconditional": 0.5,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 1,
+          "compatiblePassCount": 3
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -6,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2510405,
+      "turn": 21,
+      "passWitnesses": 1,
+      "handSizes": [
+        2,
+        2,
+        4
+      ],
+      "exactAllocations": 6,
+      "compatibleAllocations": 6,
+      "historyInformative": false,
+      "continuations": 72,
+      "pair": {
+        "connector": "single|down|0||0-5",
+        "other": "single|left|3||2-3",
+        "pips": 5
+      },
+      "predictions": [
+        {
+          "unconditional": 0.16666666666666666,
+          "conditional": 0.16666666666666666,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 1
+        },
+        {
+          "unconditional": 0.5,
+          "conditional": 0.5,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 3
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": -1,
+          "pips": 5,
+          "minus": -1
+        },
+        "min-hand-pips": {
+          "win": -1,
+          "pips": 5,
+          "minus": -1
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0.8333333333333334,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2523877,
+      "turn": 21,
+      "passWitnesses": 1,
+      "handSizes": [
+        2,
+        2,
+        4
+      ],
+      "exactAllocations": 6,
+      "compatibleAllocations": 6,
+      "historyInformative": false,
+      "continuations": 54,
+      "pair": {
+        "connector": "single|down|0||0-5",
+        "other": "single|up|3||2-3",
+        "pips": 5
+      },
+      "predictions": [
+        {
+          "unconditional": 1,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 0,
+          "compatiblePassCount": 6
+        },
+        {
+          "unconditional": 0,
+          "conditional": 0,
+          "actual": 0,
+          "excluded": 0,
+          "compatiblePassCount": 0
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -4.166666666666667,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2526989,
+      "turn": 17,
+      "passWitnesses": 1,
+      "handSizes": [
+        4,
+        2,
+        3
+      ],
+      "exactAllocations": 10,
+      "compatibleAllocations": 6,
+      "historyInformative": true,
+      "continuations": 72,
+      "pair": {
+        "connector": "single|up|0||0-5",
+        "other": "single|left|2||2-3",
+        "pips": 5
+      },
+      "predictions": [
+        {
+          "unconditional": 0.6000000000000001,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 1,
+          "compatiblePassCount": 6
+        },
+        {
+          "unconditional": 0,
+          "conditional": 0,
+          "actual": 0,
+          "excluded": 1,
+          "compatiblePassCount": 0
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -5,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "seed": 2536544,
+      "turn": 17,
+      "passWitnesses": 1,
+      "handSizes": [
+        4,
+        2,
+        3
+      ],
+      "exactAllocations": 10,
+      "compatibleAllocations": 6,
+      "historyInformative": true,
+      "continuations": 72,
+      "pair": {
+        "connector": "single|up|0||0-3",
+        "other": "single|left|2||1-2",
+        "pips": 3
+      },
+      "predictions": [
+        {
+          "unconditional": 0.6000000000000001,
+          "conditional": 1,
+          "actual": 1,
+          "excluded": 1,
+          "compatiblePassCount": 6
+        },
+        {
+          "unconditional": 0,
+          "conditional": 0,
+          "actual": 0,
+          "excluded": 1,
+          "compatiblePassCount": 0
+        }
+      ],
+      "policy": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0,
+          "minus": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -3.3333333333333335,
+          "minus": 0
+        }
+      }
+    }
+  ]
+}
