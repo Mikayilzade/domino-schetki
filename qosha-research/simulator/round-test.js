@@ -4,7 +4,7 @@ const e=require('./engine');
 const r=require('./round-driver');
 const first=(opts)=>opts.actions[0];
 let s=e.createBranchState([2,2],['up','left']);s=e.applySinglePlacement(s,{side:'up',tile:[2,5],to:5});
-let base={branchState:s,openingState:e.createOpeningState(),hands:[[[5,6]],[[0,0]],[[1,1]]],stock:[],currentPlayer:0,consecutivePasses:0,turns:0};
+let base={branchState:s,openingState:e.createOpeningState([5]),hands:[[[5,6]],[[0,0]],[[1,1]]],stock:[],currentPlayer:0,consecutivePasses:0,turns:0};
 let out=r.runRound(base,first);assert.equal(out.outcome.kind,'finish');assert.equal(out.outcome.minus,0);
 base={branchState:s,openingState:e.createOpeningState(),hands:[[[5,5]],[[0,0]],[[1,1]]],stock:[],currentPlayer:0,consecutivePasses:0,turns:0};
 out=r.runRound(base,first);assert.equal(out.outcome.minus,-10);
