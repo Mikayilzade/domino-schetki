@@ -381,3 +381,16 @@
 - New complete deals: 0; new evaluated hidden worlds: 0; no new strategy finding. Verified prior full-round cumulative baseline remains 180,000; exact hidden allocations tracked separately.
 - Confidence/limits: test scaffolding only, does not establish strategic advantage or isolate branch geometry; requires execution and independent paired-world runner.
 - Exact next action: run `node qosha-research/simulator/connector-other-matches-test.js`; if green, implement/run paired-world equal-pip comparison on fresh seeds with identical continuation worlds and three policies; record first-place, remainder, minus-finish separately.
+
+
+### 2026-10-12T06:51:05 +04:00 — exact first-opponent response audit (independent seeds)
+- engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, primary 3×9; 0 new full strategy rounds; prior verified cumulative **180,000** (historical 4,000 separate).
+- fresh deal seeds: `1100000..1179999`, scanned 8114, selected 30 first eligible positions; **346 exact hidden allocations** and **4836 candidate continuations**, 0 unresolved. Continuation seeds `49000000+1000*dealSeed+lexicographicAllocationIndex`.
+- matched comparison: connector X-Y versus unrelated equal-pip single, both retaining X-X and another X connector; identical hidden worlds, equal position weights; three continuation policies.
+- connector minus unrelated finish-first deltas: closed-branch-control -17.28 pp; min-hand-pips -17.75 pp; fast-doubles -0.25 pp.
+- next opponent reply: closed-branch-control changed 54.58%, pass-flip 37.98%, different tile 11.35%; min-hand-pips changed 54.58%, pass-flip 37.98%, different tile 11.35%; fast-doubles changed 54.58%, pass-flip 37.98%, different tile 11.35%. Category counts and position-level uncertainty in JSON.
+- finding: changes in next actual reply are common but not sufficient to establish why finish-first changes; category is a post-action mediator, not a causal control. No geometry-independent human rule claimed.
+- validation: deterministic V8 CommonJS self-test passed for seeds 1100677,1101051; exact allocation and unchanged-visible-state checks passed. Node CLI not executed.
+- confidence/limitations: exact under uniform hidden allocations per visible position and fixed bot policies, not an observational posterior; first-eligible selection, assumed branch semantics, block winner unassigned; exploratory intervals.
+- artifacts: `simulator/exact-first-response-runner.js`, `runs/2026-10-12-exact-first-response-1100000.json`.
+- exact next action: replicate on disjoint seeds with category-conditioned finish results; inspect forced passes versus different-tile replies and four-end changes, avoiding post-treatment causal claims.
