@@ -394,3 +394,14 @@
 - confidence/limitations: exact under uniform hidden allocations per visible position and fixed bot policies, not an observational posterior; first-eligible selection, assumed branch semantics, block winner unassigned; exploratory intervals.
 - artifacts: `simulator/exact-first-response-runner.js`, `runs/2026-10-12-exact-first-response-1100000.json`.
 - exact next action: replicate on disjoint seeds with category-conditioned finish results; inspect forced passes versus different-tile replies and four-end changes, avoiding post-treatment causal claims.
+
+
+### 2026-10-12T14:06:24 +04:00 — independent pass-history replay, 3×9
+- engine/rules: qosa-research-0.5.3 / qosa-1.0.0; no gameplay changes.
+- seed discovery range 2400000..2600000; 15 fixed selected seeds (see JSON), all independent of the prior 12-position cohort. Min-hand-pips discovery; observed prior empty-stock pass by next opponent.
+- exhaustive 113 unseen allocations, 77 history-compatible, 462 matched forced-action continuations; 0 unresolved. Exact conditional/unconditional pass probabilities verified against brute-force enumeration for both actions in all 15 positions.
+- Brier on observed next passes: uniform 0.07657 vs history 0.04217; probabilities changed in 4/15 positions, but **move choice changed in 0/15**. Therefore **no demonstrated win-rate gain** from using history, despite improved forecast calibration.
+- connector minus unrelated first-finish: closed-branch -4.00 pp, min-pips -3.33 pp, fast-doubles 6.67 pp; these are not universal heuristics.
+- 0 new full strategy rounds; verified cumulative 180,000, historical 4,000 separate. Assumed branch rules, bot policies, selected sample, no block winner; no causal human-play inference.
+- reproducible code `simulator/pass-history-holdout-replay.js`; data `runs/2026-10-12-pass-history-holdout-2400000.json`. Executed in V8 CommonJS harness, not Node CLI.
+- exact next action: independent 30+ positions on seeds 2600000..2900000, specifically examine posterior-induced move reversals and paired regret rather than treating Brier as a win proxy.
