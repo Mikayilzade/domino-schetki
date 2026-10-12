@@ -1,0 +1,2601 @@
+{
+  "schema": "qosa-pass-vs-win-independent-third-cohort-and-pooled/v1",
+  "timestampAsiaBaku": "2026-10-12T21:53:35+04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "runner": "simulator/pass-vs-win-holdout-runner.js::analyze(seed)",
+  "selfTest": {
+    "passed": true,
+    "seed": 2920006,
+    "worlds": 6,
+    "continuations": 54
+  },
+  "seedDiscoveryRange": "2940000..2940466",
+  "selectedSeeds": [
+    2940018,
+    2940024,
+    2940056,
+    2940062,
+    2940100,
+    2940122,
+    2940159,
+    2940168,
+    2940176,
+    2940181,
+    2940189,
+    2940208,
+    2940213,
+    2940226,
+    2940229,
+    2940251,
+    2940277,
+    2940280,
+    2940303,
+    2940307,
+    2940321,
+    2940335,
+    2940338,
+    2940347,
+    2940362,
+    2940387,
+    2940441,
+    2940445,
+    2940451,
+    2940466
+  ],
+  "selection": "first eligible min-hand-pips-discovery position with prior next-opponent empty-stock pass, >=3 canonical ordinary singles, <=6 hidden opponent stones, >=6 exact history-compatible allocations; first 30 qualifying independent seeds",
+  "scannedDeals": 467,
+  "eligibleBeforeWorldThreshold": 63,
+  "excludedForFewCompatibleWorlds": 33,
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "split": "seed-hash 50/50 training/holdout compatible allocations",
+  "continuationSeedFormula": "96000000+1000*dealSeed+lexicographicCompatibleAllocationIndex",
+  "fullStrategyRoundsAdded": 0,
+  "verifiedPriorFullStrategyRounds": 180000,
+  "historicalSeparate": 4000,
+  "newCohort": {
+    "positions": 30,
+    "hiddenAllocations": 408,
+    "compatibleWorlds": 374,
+    "continuations": 3639,
+    "actions": 97,
+    "passSpreadPositive": 16,
+    "historyChangesForecast": 3,
+    "historyChangesChoice": 0,
+    "policies": {
+      "closed-branch-control": {
+        "changedDirectChoice": 7,
+        "directMinusPassWin": {
+          "n": 30,
+          "mean": 0.006666666666666662,
+          "ci95": [
+            -0.02519596713768469,
+            0.03852930047101801
+          ]
+        },
+        "directMinusPassPips": {
+          "n": 30,
+          "mean": 0.09249999999999996,
+          "ci95": [
+            -0.6952195065722842,
+            0.880219506572284
+          ]
+        },
+        "passMinusMaxPipsWin": {
+          "n": 30,
+          "mean": 0.016666666666666666,
+          "ci95": [
+            -0.04572817053010997,
+            0.0790615038634433
+          ]
+        },
+        "directRegret": {
+          "n": 30,
+          "mean": 0.04583333333333333,
+          "ci95": [
+            0.0025715245452479843,
+            0.08909514212141867
+          ]
+        },
+        "passRegret": {
+          "n": 30,
+          "mean": 0.052500000000000005,
+          "ci95": [
+            0.004389510547051202,
+            0.10061048945294881
+          ]
+        },
+        "withPassSpread": {
+          "n": 16,
+          "mean": 0.0046874999999999955,
+          "ci95": [
+            -0.05401352346850522,
+            0.06338852346850521
+          ]
+        },
+        "withoutPassSpread": {
+          "n": 14,
+          "mean": 0.008928571428571428,
+          "ci95": [
+            -0.00857142857142857,
+            0.026428571428571426
+          ]
+        }
+      },
+      "min-hand-pips": {
+        "changedDirectChoice": 7,
+        "directMinusPassWin": {
+          "n": 30,
+          "mean": 0.015833333333333324,
+          "ci95": [
+            -0.03928848543396209,
+            0.07095515210062875
+          ]
+        },
+        "directMinusPassPips": {
+          "n": 30,
+          "mean": -0.00333333333333344,
+          "ci95": [
+            -0.7652530740810031,
+            0.7585864074143363
+          ]
+        },
+        "passMinusMaxPipsWin": {
+          "n": 30,
+          "mean": 0.020000000000000004,
+          "ci95": [
+            -0.043319775923391465,
+            0.08331977592339147
+          ]
+        },
+        "directRegret": {
+          "n": 30,
+          "mean": 0.04583333333333333,
+          "ci95": [
+            0.0025715245452479843,
+            0.08909514212141867
+          ]
+        },
+        "passRegret": {
+          "n": 30,
+          "mean": 0.06166666666666666,
+          "ci95": [
+            -0.003344839535676644,
+            0.12667817286900995
+          ]
+        },
+        "withPassSpread": {
+          "n": 16,
+          "mean": 0.029687499999999985,
+          "ci95": [
+            -0.07475826817460504,
+            0.134133268174605
+          ]
+        },
+        "withoutPassSpread": {
+          "n": 14,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        }
+      },
+      "fast-doubles": {
+        "changedDirectChoice": 6,
+        "directMinusPassWin": {
+          "n": 30,
+          "mean": 0.016666666666666663,
+          "ci95": [
+            -0.015999999999999973,
+            0.0493333333333333
+          ]
+        },
+        "directMinusPassPips": {
+          "n": 30,
+          "mean": -0.2525000000000001,
+          "ci95": [
+            -0.6497197236424379,
+            0.14471972364243774
+          ]
+        },
+        "passMinusMaxPipsWin": {
+          "n": 30,
+          "mean": 0.020000000000000004,
+          "ci95": [
+            -0.043319775923391465,
+            0.08331977592339147
+          ]
+        },
+        "directRegret": {
+          "n": 30,
+          "mean": 0.035,
+          "ci95": [
+            -0.006736876938167331,
+            0.07673687693816733
+          ]
+        },
+        "passRegret": {
+          "n": 30,
+          "mean": 0.051666666666666666,
+          "ci95": [
+            0.00014452694764827134,
+            0.10318880638568506
+          ]
+        },
+        "withPassSpread": {
+          "n": 16,
+          "mean": 0.031249999999999993,
+          "ci95": [
+            -0.029999999999999992,
+            0.09249999999999997
+          ]
+        },
+        "withoutPassSpread": {
+          "n": 14,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        }
+      }
+    }
+  },
+  "pooled": {
+    "sourceFiles": [
+      "runs/2026-10-12-1945-pass-vs-direct-win-2920000.json",
+      "runs/2026-10-12-2051-pass-vs-direct-win-independent-2930000.json",
+      "this file"
+    ],
+    "positions": 96,
+    "hiddenAllocations": 1300,
+    "compatibleWorlds": 1178,
+    "continuations": 11418,
+    "actions": 309,
+    "passSpreadPositive": 54,
+    "historyChangesForecast": 9,
+    "historyChangesChoice": 0,
+    "policies": {
+      "closed-branch-control": {
+        "changedDirectChoice": 34,
+        "directMinusPassWin": {
+          "n": 96,
+          "mean": 0.021875000000000002,
+          "ci95": [
+            -0.0027134915046385967,
+            0.046463491504638604
+          ]
+        },
+        "directMinusPassPips": {
+          "n": 96,
+          "mean": -0.15026041666666665,
+          "ci95": [
+            -0.5375996671371014,
+            0.23707883380376812
+          ]
+        },
+        "passMinusMaxPipsWin": {
+          "n": 96,
+          "mean": 0.0140625,
+          "ci95": [
+            -0.016636019210030266,
+            0.04476101921003026
+          ]
+        },
+        "directRegret": {
+          "n": 96,
+          "mean": 0.04296875000000001,
+          "ci95": [
+            0.021767225295203085,
+            0.06417027470479693
+          ]
+        },
+        "passRegret": {
+          "n": 96,
+          "mean": 0.06484375000000002,
+          "ci95": [
+            0.0373791792094047,
+            0.09230832079059534
+          ]
+        },
+        "withPassSpread": {
+          "n": 54,
+          "mean": 0.034722222222222224,
+          "ci95": [
+            -0.004038231309413651,
+            0.0734826757538581
+          ]
+        },
+        "withoutPassSpread": {
+          "n": 42,
+          "mean": 0.005357142857142854,
+          "ci95": [
+            -0.02032568649589448,
+            0.03103997221018019
+          ]
+        }
+      },
+      "min-hand-pips": {
+        "changedDirectChoice": 34,
+        "directMinusPassWin": {
+          "n": 96,
+          "mean": 0.024739583333333332,
+          "ci95": [
+            -0.003452649152619801,
+            0.052931815819286465
+          ]
+        },
+        "directMinusPassPips": {
+          "n": 96,
+          "mean": -0.12291666666666672,
+          "ci95": [
+            -0.4788934137224884,
+            0.23306008038915493
+          ]
+        },
+        "passMinusMaxPipsWin": {
+          "n": 96,
+          "mean": 0.015104166666666663,
+          "ci95": [
+            -0.015779604831039275,
+            0.0459879381643726
+          ]
+        },
+        "directRegret": {
+          "n": 96,
+          "mean": 0.04296875000000001,
+          "ci95": [
+            0.021767225295203085,
+            0.06417027470479693
+          ]
+        },
+        "passRegret": {
+          "n": 96,
+          "mean": 0.06770833333333333,
+          "ci95": [
+            0.037137826259066864,
+            0.0982788404075998
+          ]
+        },
+        "withPassSpread": {
+          "n": 54,
+          "mean": 0.04212962962962962,
+          "ci95": [
+            -0.003755047933981945,
+            0.08801430719324119
+          ]
+        },
+        "withoutPassSpread": {
+          "n": 42,
+          "mean": 0.0023809523809523777,
+          "ci95": [
+            -0.0226571757255693,
+            0.02741908048747406
+          ]
+        }
+      },
+      "fast-doubles": {
+        "changedDirectChoice": 33,
+        "directMinusPassWin": {
+          "n": 96,
+          "mean": 0.01822916666666666,
+          "ci95": [
+            -0.00575475740451778,
+            0.0422130907378511
+          ]
+        },
+        "directMinusPassPips": {
+          "n": 96,
+          "mean": -0.19270833333333334,
+          "ci95": [
+            -0.49644811437458647,
+            0.11103144770791981
+          ]
+        },
+        "passMinusMaxPipsWin": {
+          "n": 96,
+          "mean": 0.022135416666666668,
+          "ci95": [
+            -0.007808208617018527,
+            0.05207904195035186
+          ]
+        },
+        "directRegret": {
+          "n": 96,
+          "mean": 0.040625,
+          "ci95": [
+            0.019379478026008184,
+            0.061870521973991816
+          ]
+        },
+        "passRegret": {
+          "n": 96,
+          "mean": 0.05885416666666667,
+          "ci95": [
+            0.03137616917215335,
+            0.08633216416118
+          ]
+        },
+        "withPassSpread": {
+          "n": 54,
+          "mean": 0.030555555555555544,
+          "ci95": [
+            -0.007268309537223086,
+            0.06837942064833417
+          ]
+        },
+        "withoutPassSpread": {
+          "n": 42,
+          "mean": 0.0023809523809523777,
+          "ci95": [
+            -0.0226571757255693,
+            0.02741908048747406
+          ]
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "seed": 2940018,
+      "turn": 20,
+      "keys": [
+        "single|up|0||0-3",
+        "single|right|1||0-1",
+        "single|right|6||0-6"
+      ],
+      "allWorlds": 20,
+      "compatibleWorlds": 20,
+      "trainWorlds": 10,
+      "testWorlds": 10,
+      "history": 2,
+      "uniform": 2,
+      "maxPips": 2,
+      "passUniform": [
+        0.05,
+        0.19999999999999998,
+        0.19999999999999998
+      ],
+      "passHistory": [
+        0.05,
+        0.19999999999999998,
+        0.19999999999999998
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 1,
+          "trainWin": 0.8999999999999999,
+          "holdoutDirectWin": 0.6,
+          "holdoutHistoryWin": 0.2,
+          "holdoutMaxPipsWin": 0.2,
+          "directMinusHistoryWin": 0.39999999999999997,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 1.6,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0.39999999999999997
+        },
+        "min-hand-pips": {
+          "direct": 1,
+          "trainWin": 0.9999999999999999,
+          "holdoutDirectWin": 0.9999999999999999,
+          "holdoutHistoryWin": 0.2,
+          "holdoutMaxPipsWin": 0.2,
+          "directMinusHistoryWin": 0.7999999999999998,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": -0.7999999999999999,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0.7999999999999998
+        },
+        "fast-doubles": {
+          "direct": 1,
+          "trainWin": 0.9999999999999999,
+          "holdoutDirectWin": 0.9999999999999999,
+          "holdoutHistoryWin": 0.5,
+          "holdoutMaxPipsWin": 0.5,
+          "directMinusHistoryWin": 0.4999999999999999,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": -0.5,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0.4999999999999999
+        }
+      },
+      "continuations": 180
+    },
+    {
+      "seed": 2940024,
+      "turn": 20,
+      "keys": [
+        "single|left|2||0-2",
+        "single|left|4||0-4",
+        "single|left|6||0-6"
+      ],
+      "allWorlds": 10,
+      "compatibleWorlds": 10,
+      "trainWorlds": 5,
+      "testWorlds": 5,
+      "history": 0,
+      "uniform": 0,
+      "maxPips": 2,
+      "passUniform": [
+        0.4,
+        0,
+        0.09999999999999999
+      ],
+      "passHistory": [
+        0.4,
+        0,
+        0.09999999999999999
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 1,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": -5.2,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 1,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": -4.800000000000001,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 1,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": -4.400000000000002,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 90
+    },
+    {
+      "seed": 2940056,
+      "turn": 18,
+      "keys": [
+        "single|up|1||1-3",
+        "single|left|5||2-5",
+        "single|left|4||2-4"
+      ],
+      "allWorlds": 10,
+      "compatibleWorlds": 10,
+      "trainWorlds": 5,
+      "testWorlds": 5,
+      "history": 1,
+      "uniform": 1,
+      "maxPips": 1,
+      "passUniform": [
+        0,
+        0,
+        0
+      ],
+      "passHistory": [
+        0,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 1,
+          "trainWin": 0.4,
+          "holdoutDirectWin": 0.2,
+          "holdoutHistoryWin": 0.2,
+          "holdoutMaxPipsWin": 0.2,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0.2,
+          "historyWinRegret": 0.2
+        },
+        "min-hand-pips": {
+          "direct": 1,
+          "trainWin": 0.4,
+          "holdoutDirectWin": 0.2,
+          "holdoutHistoryWin": 0.2,
+          "holdoutMaxPipsWin": 0.2,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0.2,
+          "historyWinRegret": 0.2
+        },
+        "fast-doubles": {
+          "direct": 1,
+          "trainWin": 0.4,
+          "holdoutDirectWin": 0.2,
+          "holdoutHistoryWin": 0.2,
+          "holdoutMaxPipsWin": 0.2,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0.2,
+          "historyWinRegret": 0.2
+        }
+      },
+      "continuations": 90
+    },
+    {
+      "seed": 2940062,
+      "turn": 17,
+      "keys": [
+        "single|down|5||2-5",
+        "single|down|6||2-6",
+        "single|down|1||1-2"
+      ],
+      "allWorlds": 20,
+      "compatibleWorlds": 10,
+      "trainWorlds": 5,
+      "testWorlds": 5,
+      "history": 0,
+      "uniform": 0,
+      "maxPips": 1,
+      "passUniform": [
+        0.5,
+        0.19999999999999998,
+        0.19999999999999998
+      ],
+      "passHistory": [
+        0.4,
+        0.09999999999999999,
+        0.4
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 0,
+          "trainWin": 0.2,
+          "holdoutDirectWin": 0.4,
+          "holdoutHistoryWin": 0.4,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0.4,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 0,
+          "trainWin": 0.2,
+          "holdoutDirectWin": 0.4,
+          "holdoutHistoryWin": 0.4,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0.4,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 0,
+          "trainWin": 0.2,
+          "holdoutDirectWin": 0.4,
+          "holdoutHistoryWin": 0.4,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0.4,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 90
+    },
+    {
+      "seed": 2940100,
+      "turn": 17,
+      "keys": [
+        "single|down|6||2-6",
+        "single|down|0||0-2",
+        "single|down|3||2-3"
+      ],
+      "allWorlds": 20,
+      "compatibleWorlds": 20,
+      "trainWorlds": 10,
+      "testWorlds": 10,
+      "history": 2,
+      "uniform": 2,
+      "maxPips": 0,
+      "passUniform": [
+        0.19999999999999998,
+        0.19999999999999998,
+        0.5
+      ],
+      "passHistory": [
+        0.19999999999999998,
+        0.19999999999999998,
+        0.5
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 180
+    },
+    {
+      "seed": 2940122,
+      "turn": 18,
+      "keys": [
+        "single|right|3||2-3",
+        "single|left|2||2-5",
+        "single|left|0||0-5"
+      ],
+      "allWorlds": 20,
+      "compatibleWorlds": 10,
+      "trainWorlds": 5,
+      "testWorlds": 5,
+      "history": 1,
+      "uniform": 1,
+      "maxPips": 1,
+      "passUniform": [
+        0.19999999999999998,
+        0.19999999999999998,
+        0.19999999999999998
+      ],
+      "passHistory": [
+        0.09999999999999999,
+        0.4,
+        0.4
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 1,
+          "trainWin": 1,
+          "holdoutDirectWin": 1,
+          "holdoutHistoryWin": 1,
+          "holdoutMaxPipsWin": 1,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 1,
+          "trainWin": 1,
+          "holdoutDirectWin": 1,
+          "holdoutHistoryWin": 1,
+          "holdoutMaxPipsWin": 1,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 1,
+          "trainWin": 1,
+          "holdoutDirectWin": 1,
+          "holdoutHistoryWin": 1,
+          "holdoutMaxPipsWin": 1,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 90
+    },
+    {
+      "seed": 2940159,
+      "turn": 17,
+      "keys": [
+        "single|up|4||0-4",
+        "single|left|1||1-2",
+        "single|up|2||0-2"
+      ],
+      "allWorlds": 15,
+      "compatibleWorlds": 15,
+      "trainWorlds": 7,
+      "testWorlds": 8,
+      "history": 0,
+      "uniform": 0,
+      "maxPips": 0,
+      "passUniform": [
+        0.06666666666666665,
+        0,
+        0.06666666666666665
+      ],
+      "passHistory": [
+        0.06666666666666665,
+        0,
+        0.06666666666666665
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 0,
+          "trainWin": 0.14285714285714285,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0.125,
+          "historyWinRegret": 0.125
+        },
+        "min-hand-pips": {
+          "direct": 0,
+          "trainWin": 0.14285714285714285,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0.125,
+          "historyWinRegret": 0.125
+        },
+        "fast-doubles": {
+          "direct": 0,
+          "trainWin": 0.14285714285714285,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0.125,
+          "historyWinRegret": 0.125
+        }
+      },
+      "continuations": 135
+    },
+    {
+      "seed": 2940168,
+      "turn": 16,
+      "keys": [
+        "single|up|4||0-4",
+        "single|up|3||0-3",
+        "single|up|2||0-2",
+        "single|up|6||0-6"
+      ],
+      "allWorlds": 15,
+      "compatibleWorlds": 15,
+      "trainWorlds": 7,
+      "testWorlds": 8,
+      "history": 3,
+      "uniform": 3,
+      "maxPips": 3,
+      "passUniform": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "passHistory": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 3,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 3,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 3,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 180
+    },
+    {
+      "seed": 2940176,
+      "turn": 17,
+      "keys": [
+        "single|right|0||0-4",
+        "single|up|0||0-1",
+        "single|up|3||1-3",
+        "single|up|2||1-2"
+      ],
+      "allWorlds": 15,
+      "compatibleWorlds": 15,
+      "trainWorlds": 7,
+      "testWorlds": 8,
+      "history": 0,
+      "uniform": 0,
+      "maxPips": 0,
+      "passUniform": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "passHistory": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 0,
+          "trainWin": 0.2857142857142857,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 0,
+          "trainWin": 0.2857142857142857,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 2,
+          "trainWin": 0.42857142857142855,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 180
+    },
+    {
+      "seed": 2940181,
+      "turn": 19,
+      "keys": [
+        "single|right|2||1-2",
+        "single|right|0||0-1",
+        "single|right|3||1-3"
+      ],
+      "allWorlds": 15,
+      "compatibleWorlds": 15,
+      "trainWorlds": 7,
+      "testWorlds": 8,
+      "history": 2,
+      "uniform": 2,
+      "maxPips": 2,
+      "passUniform": [
+        0,
+        0,
+        0
+      ],
+      "passHistory": [
+        0,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 135
+    },
+    {
+      "seed": 2940189,
+      "turn": 20,
+      "keys": [
+        "single|down|0||0-2",
+        "single|down|3||2-3",
+        "single|right|0||0-1"
+      ],
+      "allWorlds": 15,
+      "compatibleWorlds": 15,
+      "trainWorlds": 7,
+      "testWorlds": 8,
+      "history": 1,
+      "uniform": 1,
+      "maxPips": 1,
+      "passUniform": [
+        0,
+        0,
+        0
+      ],
+      "passHistory": [
+        0,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 1,
+          "trainWin": 0.14285714285714285,
+          "holdoutDirectWin": 0.25,
+          "holdoutHistoryWin": 0.25,
+          "holdoutMaxPipsWin": 0.25,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 1,
+          "trainWin": 0.14285714285714285,
+          "holdoutDirectWin": 0.25,
+          "holdoutHistoryWin": 0.25,
+          "holdoutMaxPipsWin": 0.25,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 1,
+          "trainWin": 0.14285714285714285,
+          "holdoutDirectWin": 0.375,
+          "holdoutHistoryWin": 0.375,
+          "holdoutMaxPipsWin": 0.375,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 135
+    },
+    {
+      "seed": 2940208,
+      "turn": 20,
+      "keys": [
+        "single|up|6||2-6",
+        "single|left|4||0-4",
+        "single|left|3||0-3"
+      ],
+      "allWorlds": 10,
+      "compatibleWorlds": 10,
+      "trainWorlds": 5,
+      "testWorlds": 5,
+      "history": 0,
+      "uniform": 0,
+      "maxPips": 0,
+      "passUniform": [
+        0,
+        0,
+        0
+      ],
+      "passHistory": [
+        0,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 0,
+          "trainWin": 0.4,
+          "holdoutDirectWin": 0.6000000000000001,
+          "holdoutHistoryWin": 0.6000000000000001,
+          "holdoutMaxPipsWin": 0.6000000000000001,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 0,
+          "trainWin": 0.4,
+          "holdoutDirectWin": 0.6000000000000001,
+          "holdoutHistoryWin": 0.6000000000000001,
+          "holdoutMaxPipsWin": 0.6000000000000001,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 0,
+          "trainWin": 0.4,
+          "holdoutDirectWin": 0.6000000000000001,
+          "holdoutHistoryWin": 0.6000000000000001,
+          "holdoutMaxPipsWin": 0.6000000000000001,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 90
+    },
+    {
+      "seed": 2940213,
+      "turn": 17,
+      "keys": [
+        "single|up|2||0-2",
+        "single|right|2||2-3",
+        "single|right|5||3-5"
+      ],
+      "allWorlds": 15,
+      "compatibleWorlds": 15,
+      "trainWorlds": 7,
+      "testWorlds": 8,
+      "history": 2,
+      "uniform": 2,
+      "maxPips": 2,
+      "passUniform": [
+        0,
+        0,
+        0
+      ],
+      "passHistory": [
+        0,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0.125,
+          "historyWinRegret": 0.125
+        },
+        "min-hand-pips": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0.125,
+          "historyWinRegret": 0.125
+        },
+        "fast-doubles": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0.125,
+          "historyWinRegret": 0.125
+        }
+      },
+      "continuations": 135
+    },
+    {
+      "seed": 2940226,
+      "turn": 17,
+      "keys": [
+        "single|right|3||2-3",
+        "single|left|0||0-6",
+        "single|right|4||2-4"
+      ],
+      "allWorlds": 20,
+      "compatibleWorlds": 10,
+      "trainWorlds": 5,
+      "testWorlds": 5,
+      "history": 1,
+      "uniform": 1,
+      "maxPips": 1,
+      "passUniform": [
+        0,
+        0.19999999999999998,
+        0.05
+      ],
+      "passHistory": [
+        0,
+        0.4,
+        0.09999999999999999
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": -5.800000000000001,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": -5.800000000000001,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 2,
+          "trainWin": 0.2,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": -3.4000000000000004,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 90
+    },
+    {
+      "seed": 2940229,
+      "turn": 20,
+      "keys": [
+        "single|down|0||0-5",
+        "single|right|0||0-4",
+        "single|up|0||0-1"
+      ],
+      "allWorlds": 10,
+      "compatibleWorlds": 10,
+      "trainWorlds": 5,
+      "testWorlds": 5,
+      "history": 0,
+      "uniform": 0,
+      "maxPips": 0,
+      "passUniform": [
+        0.09999999999999999,
+        0.09999999999999999,
+        0.09999999999999999
+      ],
+      "passHistory": [
+        0.09999999999999999,
+        0.09999999999999999,
+        0.09999999999999999
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 0,
+          "trainWin": 0.8,
+          "holdoutDirectWin": 0.6000000000000001,
+          "holdoutHistoryWin": 0.6000000000000001,
+          "holdoutMaxPipsWin": 0.6000000000000001,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 0,
+          "trainWin": 0.8,
+          "holdoutDirectWin": 0.6000000000000001,
+          "holdoutHistoryWin": 0.6000000000000001,
+          "holdoutMaxPipsWin": 0.6000000000000001,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 0,
+          "trainWin": 0.6000000000000001,
+          "holdoutDirectWin": 0.2,
+          "holdoutHistoryWin": 0.2,
+          "holdoutMaxPipsWin": 0.2,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 90
+    },
+    {
+      "seed": 2940251,
+      "turn": 18,
+      "keys": [
+        "single|right|5||3-5",
+        "single|right|0||0-3",
+        "single|down|0||0-6",
+        "single|up|0||0-2"
+      ],
+      "allWorlds": 15,
+      "compatibleWorlds": 15,
+      "trainWorlds": 7,
+      "testWorlds": 8,
+      "history": 0,
+      "uniform": 0,
+      "maxPips": 0,
+      "passUniform": [
+        0.06666666666666665,
+        0.06666666666666665,
+        0,
+        0
+      ],
+      "passHistory": [
+        0.06666666666666665,
+        0.06666666666666665,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 0,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 0,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 0,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 180
+    },
+    {
+      "seed": 2940277,
+      "turn": 20,
+      "keys": [
+        "single|down|3||3-6",
+        "single|right|3||3-5",
+        "single|up|3||2-3",
+        "single|up|0||0-2"
+      ],
+      "allWorlds": 20,
+      "compatibleWorlds": 20,
+      "trainWorlds": 10,
+      "testWorlds": 10,
+      "history": 0,
+      "uniform": 0,
+      "maxPips": 0,
+      "passUniform": [
+        0.5,
+        0.5,
+        0.5,
+        0.05
+      ],
+      "passHistory": [
+        0.5,
+        0.5,
+        0.5,
+        0.05
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 0,
+          "trainWin": 0.5,
+          "holdoutDirectWin": 0.5,
+          "holdoutHistoryWin": 0.5,
+          "holdoutMaxPipsWin": 0.5,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 0,
+          "trainWin": 0.5,
+          "holdoutDirectWin": 0.5,
+          "holdoutHistoryWin": 0.5,
+          "holdoutMaxPipsWin": 0.5,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 0,
+          "trainWin": 0.5,
+          "holdoutDirectWin": 0.5,
+          "holdoutHistoryWin": 0.5,
+          "holdoutMaxPipsWin": 0.5,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 240
+    },
+    {
+      "seed": 2940280,
+      "turn": 20,
+      "keys": [
+        "single|right|2||2-6",
+        "single|left|1||0-1",
+        "single|up|2||2-3"
+      ],
+      "allWorlds": 15,
+      "compatibleWorlds": 15,
+      "trainWorlds": 7,
+      "testWorlds": 8,
+      "history": 0,
+      "uniform": 0,
+      "maxPips": 0,
+      "passUniform": [
+        0,
+        0,
+        0
+      ],
+      "passHistory": [
+        0,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 1,
+          "trainWin": 0.5714285714285714,
+          "holdoutDirectWin": 0.125,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0.125,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 2.375,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0.125
+        },
+        "min-hand-pips": {
+          "direct": 1,
+          "trainWin": 0.2857142857142857,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 1.5,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 1,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 2.125,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 135
+    },
+    {
+      "seed": 2940303,
+      "turn": 18,
+      "keys": [
+        "single|up|4||0-4",
+        "single|right|2||2-5",
+        "single|up|1||0-1"
+      ],
+      "allWorlds": 10,
+      "compatibleWorlds": 6,
+      "trainWorlds": 3,
+      "testWorlds": 3,
+      "history": 1,
+      "uniform": 1,
+      "maxPips": 1,
+      "passUniform": [
+        0,
+        0,
+        0
+      ],
+      "passHistory": [
+        0,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 1,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 1,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 1,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 54
+    },
+    {
+      "seed": 2940307,
+      "turn": 19,
+      "keys": [
+        "single|up|0||0-2",
+        "single|right|0||0-1",
+        "single|down|0||0-3"
+      ],
+      "allWorlds": 15,
+      "compatibleWorlds": 15,
+      "trainWorlds": 7,
+      "testWorlds": 8,
+      "history": 2,
+      "uniform": 2,
+      "maxPips": 2,
+      "passUniform": [
+        0,
+        0,
+        0
+      ],
+      "passHistory": [
+        0,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 2,
+          "trainWin": 0.5714285714285714,
+          "holdoutDirectWin": 0.75,
+          "holdoutHistoryWin": 0.75,
+          "holdoutMaxPipsWin": 0.75,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 2,
+          "trainWin": 0.5714285714285714,
+          "holdoutDirectWin": 0.75,
+          "holdoutHistoryWin": 0.75,
+          "holdoutMaxPipsWin": 0.75,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 2,
+          "trainWin": 0.14285714285714285,
+          "holdoutDirectWin": 0.25,
+          "holdoutHistoryWin": 0.25,
+          "holdoutMaxPipsWin": 0.25,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 135
+    },
+    {
+      "seed": 2940321,
+      "turn": 20,
+      "keys": [
+        "single|up|6||2-6",
+        "single|down|0||0-3",
+        "single|up|1||1-2"
+      ],
+      "allWorlds": 6,
+      "compatibleWorlds": 6,
+      "trainWorlds": 3,
+      "testWorlds": 3,
+      "history": 0,
+      "uniform": 0,
+      "maxPips": 0,
+      "passUniform": [
+        0.16666666666666666,
+        0,
+        0
+      ],
+      "passHistory": [
+        0.16666666666666666,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 0,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 0,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 0,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 54
+    },
+    {
+      "seed": 2940335,
+      "turn": 18,
+      "keys": [
+        "single|left|3||2-3",
+        "single|left|0||0-2",
+        "single|left|6||2-6"
+      ],
+      "allWorlds": 20,
+      "compatibleWorlds": 20,
+      "trainWorlds": 10,
+      "testWorlds": 10,
+      "history": 0,
+      "uniform": 0,
+      "maxPips": 2,
+      "passUniform": [
+        1,
+        0.5,
+        0.5
+      ],
+      "passHistory": [
+        1,
+        0.5,
+        0.5
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 1,
+          "trainWin": 0.2,
+          "holdoutDirectWin": 0.1,
+          "holdoutHistoryWin": 0.30000000000000004,
+          "holdoutMaxPipsWin": 0.2,
+          "directMinusHistoryWin": -0.20000000000000004,
+          "historyMinusMaxPipsWin": 0.10000000000000003,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 3.6999999999999997,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0.20000000000000004,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 1,
+          "trainWin": 0.2,
+          "holdoutDirectWin": 0.1,
+          "holdoutHistoryWin": 0.30000000000000004,
+          "holdoutMaxPipsWin": 0.1,
+          "directMinusHistoryWin": -0.20000000000000004,
+          "historyMinusMaxPipsWin": 0.20000000000000004,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 3.6999999999999997,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0.20000000000000004,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 0,
+          "trainWin": 0.1,
+          "holdoutDirectWin": 0.30000000000000004,
+          "holdoutHistoryWin": 0.30000000000000004,
+          "holdoutMaxPipsWin": 0.1,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0.20000000000000004,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 180
+    },
+    {
+      "seed": 2940338,
+      "turn": 18,
+      "keys": [
+        "single|left|1||1-2",
+        "single|up|1||1-3",
+        "single|up|2||2-3"
+      ],
+      "allWorlds": 10,
+      "compatibleWorlds": 10,
+      "trainWorlds": 5,
+      "testWorlds": 5,
+      "history": 0,
+      "uniform": 0,
+      "maxPips": 2,
+      "passUniform": [
+        0.4,
+        0,
+        0
+      ],
+      "passHistory": [
+        0.4,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 0,
+          "trainWin": 0.6000000000000001,
+          "holdoutDirectWin": 1,
+          "holdoutHistoryWin": 1,
+          "holdoutMaxPipsWin": 0.4,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0.6,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 0,
+          "trainWin": 0.6000000000000001,
+          "holdoutDirectWin": 1,
+          "holdoutHistoryWin": 1,
+          "holdoutMaxPipsWin": 0.4,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0.6,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 0,
+          "trainWin": 0.6000000000000001,
+          "holdoutDirectWin": 1,
+          "holdoutHistoryWin": 1,
+          "holdoutMaxPipsWin": 0.4,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0.6,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 90
+    },
+    {
+      "seed": 2940347,
+      "turn": 16,
+      "keys": [
+        "single|down|2||2-5",
+        "single|up|4||0-4",
+        "single|left|4||1-4"
+      ],
+      "allWorlds": 6,
+      "compatibleWorlds": 6,
+      "trainWorlds": 3,
+      "testWorlds": 3,
+      "history": 0,
+      "uniform": 0,
+      "maxPips": 0,
+      "passUniform": [
+        0,
+        0,
+        0
+      ],
+      "passHistory": [
+        0,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 0,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 0,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 0,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 54
+    },
+    {
+      "seed": 2940362,
+      "turn": 17,
+      "keys": [
+        "single|left|0||0-2",
+        "single|left|4||2-4",
+        "single|left|3||2-3"
+      ],
+      "allWorlds": 10,
+      "compatibleWorlds": 10,
+      "trainWorlds": 5,
+      "testWorlds": 5,
+      "history": 2,
+      "uniform": 2,
+      "maxPips": 1,
+      "passUniform": [
+        0,
+        0,
+        0.09999999999999999
+      ],
+      "passHistory": [
+        0,
+        0,
+        0.09999999999999999
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 1,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": -1.4000000000000004,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 1,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": -1.4000000000000004,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 1,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": -1.4000000000000004,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 90
+    },
+    {
+      "seed": 2940387,
+      "turn": 18,
+      "keys": [
+        "single|right|4||0-4",
+        "single|right|3||0-3",
+        "single|up|5||2-5",
+        "single|up|0||0-2"
+      ],
+      "allWorlds": 6,
+      "compatibleWorlds": 6,
+      "trainWorlds": 3,
+      "testWorlds": 3,
+      "history": 2,
+      "uniform": 2,
+      "maxPips": 2,
+      "passUniform": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "passHistory": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 72
+    },
+    {
+      "seed": 2940441,
+      "turn": 20,
+      "keys": [
+        "single|up|0||0-3",
+        "single|right|2||1-2",
+        "single|left|4||0-4"
+      ],
+      "allWorlds": 10,
+      "compatibleWorlds": 10,
+      "trainWorlds": 5,
+      "testWorlds": 5,
+      "history": 0,
+      "uniform": 0,
+      "maxPips": 2,
+      "passUniform": [
+        0.09999999999999999,
+        0,
+        0
+      ],
+      "passHistory": [
+        0.09999999999999999,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 0,
+          "trainWin": 0.4,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0.6000000000000001,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": -0.6000000000000001,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0.6000000000000001,
+          "historyWinRegret": 0.6000000000000001
+        },
+        "min-hand-pips": {
+          "direct": 0,
+          "trainWin": 0.4,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0.6000000000000001,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": -0.6000000000000001,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0.6000000000000001,
+          "historyWinRegret": 0.6000000000000001
+        },
+        "fast-doubles": {
+          "direct": 0,
+          "trainWin": 0.4,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0.6000000000000001,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": -0.6000000000000001,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0.6000000000000001,
+          "historyWinRegret": 0.6000000000000001
+        }
+      },
+      "continuations": 90
+    },
+    {
+      "seed": 2940445,
+      "turn": 17,
+      "keys": [
+        "single|left|0||0-3",
+        "single|up|0||0-2",
+        "single|up|6||2-6",
+        "single|up|4||2-4"
+      ],
+      "allWorlds": 10,
+      "compatibleWorlds": 10,
+      "trainWorlds": 5,
+      "testWorlds": 5,
+      "history": 2,
+      "uniform": 2,
+      "maxPips": 2,
+      "passUniform": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "passHistory": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 2,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 120
+    },
+    {
+      "seed": 2940451,
+      "turn": 17,
+      "keys": [
+        "single|right|3||3-4",
+        "single|up|4||4-5",
+        "single|up|0||0-5"
+      ],
+      "allWorlds": 15,
+      "compatibleWorlds": 15,
+      "trainWorlds": 7,
+      "testWorlds": 8,
+      "history": 1,
+      "uniform": 1,
+      "maxPips": 1,
+      "passUniform": [
+        0,
+        0.06666666666666665,
+        0
+      ],
+      "passHistory": [
+        0,
+        0.06666666666666665,
+        0
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 0,
+          "trainWin": 0.2857142857142857,
+          "holdoutDirectWin": 0.125,
+          "holdoutHistoryWin": 0.25,
+          "holdoutMaxPipsWin": 0.25,
+          "directMinusHistoryWin": -0.125,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 7.5,
+          "directMinusHistoryMinus": 0.125,
+          "directWinRegret": 0.125,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 0,
+          "trainWin": 0.2857142857142857,
+          "holdoutDirectWin": 0.125,
+          "holdoutHistoryWin": 0.25,
+          "holdoutMaxPipsWin": 0.25,
+          "directMinusHistoryWin": -0.125,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 7.5,
+          "directMinusHistoryMinus": 0.125,
+          "directWinRegret": 0.125,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 1,
+          "trainWin": 0.14285714285714285,
+          "holdoutDirectWin": 0.25,
+          "holdoutHistoryWin": 0.25,
+          "holdoutMaxPipsWin": 0.25,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 135
+    },
+    {
+      "seed": 2940466,
+      "turn": 17,
+      "keys": [
+        "single|down|1||1-2",
+        "single|left|6||0-6",
+        "single|up|2||2-3",
+        "single|left|2||0-2"
+      ],
+      "allWorlds": 10,
+      "compatibleWorlds": 10,
+      "trainWorlds": 5,
+      "testWorlds": 5,
+      "history": 1,
+      "uniform": 1,
+      "maxPips": 1,
+      "passUniform": [
+        0,
+        0.09999999999999999,
+        0,
+        0.09999999999999999
+      ],
+      "passHistory": [
+        0,
+        0.09999999999999999,
+        0,
+        0.09999999999999999
+      ],
+      "policies": {
+        "closed-branch-control": {
+          "direct": 1,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "min-hand-pips": {
+          "direct": 1,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        },
+        "fast-doubles": {
+          "direct": 1,
+          "trainWin": 0,
+          "holdoutDirectWin": 0,
+          "holdoutHistoryWin": 0,
+          "holdoutMaxPipsWin": 0,
+          "directMinusHistoryWin": 0,
+          "historyMinusMaxPipsWin": 0,
+          "historyMinusUniformWin": 0,
+          "directMinusHistoryPips": 0,
+          "directMinusHistoryMinus": 0,
+          "directWinRegret": 0,
+          "historyWinRegret": 0
+        }
+      },
+      "continuations": 120
+    }
+  ],
+  "confidence": "Exploratory position-level normal 95% intervals, NOT adjusted for selection/multiple comparisons; independently selected deal seeds, within-position train/holdout hidden allocations.",
+  "limitations": "Uniform exact hidden allocations conditional only on observed next-opponent passes; first-eligible late-game selection; small hidden-world train/test; canonical singles exclude alternative sides/doubles; assumed branch opening; fixed deterministic bot continuations; block winner unassigned; not proof of human-play causality.",
+  "newFinding": "See independent and pooled position-level CI; do not claim a general advantage if confidence intervals include zero.",
+  "next": "Preregister a larger independent cohort with >=12 compatible hidden allocations, evaluate non-zero pass-spread and same-geometry strata; test winner-target utility and remaining pips on held-out worlds."
+}
