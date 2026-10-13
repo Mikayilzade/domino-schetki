@@ -1,5 +1,5 @@
 {
-  "schema": "qosa-pass-vs-win-independent-split/v1",
+  "schema": "qosa-pass-vs-win-independent-split/v2",
   "timestampAsiaBaku": "2026-10-13T08:49:25 +04:00",
   "engine": "qosa-research-0.5.3",
   "rules": "qosa-1.0.0",
@@ -5394,8 +5394,5513 @@
       }
     }
   ],
-  "finding": "Independent seed replication of split-trained win-choice versus analytic next-pass; interpret held-out effect only, not train gain. See atLeastEightWorlds and changedSeeds.",
+  "finding": "Two independent fresh seed batches: compare >=8-world holdout effects in atLeastEightWorlds and pooledIndependent; exploratory position-level CIs, not proof of human strategy or causal pass effects.",
   "confidence": "Model-only; position-level exploratory CIs; no claim of general human-play advantage without replication.",
   "limitations": "Uniform exact hidden allocations not conditioned on observed pass history; first-eligible selection, assumed branch semantics, deterministic bots, small per-position train/test, block winner unassigned.",
-  "exactNext": "Enrich >=8-world disagreement positions with pass-history-conditioned posterior, then replicate on fresh seed sets and test minus-sensitive tie-break."
+  "exactNext": "Reproduce decision-disagreement seeds under history-conditioned hidden-world posterior, test minus-sensitive tie-breaks and a truly cross-fitted two-fold policy.",
+  "replication": {
+    "timestampAsiaBaku": "2026-10-13T08:50:24 +04:00",
+    "seedRange": [
+      2600000,
+      2999999
+    ],
+    "selectedSeeds": [
+      2600194,
+      2600393,
+      2601014,
+      2601436,
+      2601633,
+      2601968,
+      2603160,
+      2603537,
+      2603776,
+      2603921,
+      2604594,
+      2604626,
+      2604747,
+      2604877,
+      2605210,
+      2605229,
+      2605232,
+      2605852,
+      2605854,
+      2606018,
+      2606084,
+      2606318,
+      2606403,
+      2607246,
+      2607316,
+      2607710,
+      2607946,
+      2608368,
+      2608389,
+      2608587,
+      2609068,
+      2609300,
+      2609343,
+      2609401,
+      2609636,
+      2610074,
+      2610253,
+      2610422,
+      2610693,
+      2610934,
+      2611130,
+      2611242,
+      2611330,
+      2611974,
+      2611982,
+      2613584,
+      2613653,
+      2613999,
+      2614024,
+      2614573,
+      2614714,
+      2614991,
+      2615141,
+      2615243,
+      2615302,
+      2615555,
+      2615783,
+      2615982,
+      2616493,
+      2616643,
+      2616695,
+      2616768,
+      2617143,
+      2617192,
+      2617628,
+      2617925,
+      2618093,
+      2618388,
+      2618394,
+      2618843,
+      2618844,
+      2618855,
+      2619069,
+      2619270,
+      2620465,
+      2620592,
+      2620720,
+      2620782,
+      2620785,
+      2621077
+    ],
+    "scannedDeals": 21078,
+    "positions": 80,
+    "exactAllocations": 718,
+    "continuations": 7947,
+    "validation": {
+      "v8CommonJsTest": {
+        "passed": true,
+        "seeds": [
+          2080132,
+          2080432,
+          2080458
+        ],
+        "worlds": 35
+      },
+      "unresolved": 0
+    },
+    "originalSummary": {
+      "informativePositions": 60,
+      "excludedFewWorlds": 8,
+      "excludedPassTies": 12,
+      "policies": {
+        "closed-branch-control": {
+          "changed": 7,
+          "trainAdv": {
+            "n": 60,
+            "mean": 0.044047619047619044,
+            "ci95": [
+              0.00405289717362952,
+              0.08404234092160856
+            ]
+          },
+          "testWinAdv": {
+            "n": 60,
+            "mean": 0.03416666666666667,
+            "ci95": [
+              0.000051723317766282084,
+              0.06828161001556707
+            ]
+          },
+          "testPipsDelta": {
+            "n": 60,
+            "mean": -0.23371212121212123,
+            "ci95": [
+              -0.49413198248813295,
+              0.026707740063890456
+            ]
+          },
+          "testMinusDelta": {
+            "n": 60,
+            "mean": 0.03416666666666667,
+            "ci95": [
+              0.000051723317766282084,
+              0.06828161001556707
+            ]
+          },
+          "passOracleRegret": {
+            "n": 60,
+            "mean": 0.04651515151515152,
+            "ci95": [
+              0.01146297111601173,
+              0.08156733191429132
+            ]
+          },
+          "learnedOracleRegret": {
+            "n": 60,
+            "mean": 0.012348484848484852,
+            "ci95": [
+              0.0014046172859693076,
+              0.023292352411000396
+            ]
+          },
+          "changedOnlyTestWinAdv": {
+            "n": 7,
+            "mean": 0.29285714285714287,
+            "ci95": [
+              0.07017351076892672,
+              0.515540774945359
+            ]
+          }
+        },
+        "min-hand-pips": {
+          "changed": 5,
+          "trainAdv": {
+            "n": 60,
+            "mean": 0.03666666666666667,
+            "ci95": [
+              -0.0023019536707036825,
+              0.07563528700403702
+            ]
+          },
+          "testWinAdv": {
+            "n": 60,
+            "mean": 0.030000000000000002,
+            "ci95": [
+              -0.0033678420242593786,
+              0.06336784202425938
+            ]
+          },
+          "testPipsDelta": {
+            "n": 60,
+            "mean": -0.19000000000000003,
+            "ci95": [
+              -0.4314338655044675,
+              0.05143386550446741
+            ]
+          },
+          "testMinusDelta": {
+            "n": 60,
+            "mean": 0.030000000000000002,
+            "ci95": [
+              -0.0033678420242593786,
+              0.06336784202425938
+            ]
+          },
+          "passOracleRegret": {
+            "n": 60,
+            "mean": 0.04234848484848486,
+            "ci95": [
+              0.007925539792653445,
+              0.07677142990431626
+            ]
+          },
+          "learnedOracleRegret": {
+            "n": 60,
+            "mean": 0.012348484848484852,
+            "ci95": [
+              0.0014046172859693076,
+              0.023292352411000396
+            ]
+          },
+          "changedOnlyTestWinAdv": {
+            "n": 5,
+            "mean": 0.36,
+            "ci95": [
+              0.07194000624869828,
+              0.6480599937513016
+            ]
+          }
+        },
+        "fast-doubles": {
+          "changed": 0,
+          "trainAdv": {
+            "n": 60,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "testWinAdv": {
+            "n": 60,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "testPipsDelta": {
+            "n": 60,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "testMinusDelta": {
+            "n": 60,
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ]
+          },
+          "passOracleRegret": {
+            "n": 60,
+            "mean": 0.006060606060606061,
+            "ci95": [
+              -0.005818181818181815,
+              0.017939393939393936
+            ]
+          },
+          "learnedOracleRegret": {
+            "n": 60,
+            "mean": 0.006060606060606061,
+            "ci95": [
+              -0.005818181818181815,
+              0.017939393939393936
+            ]
+          },
+          "changedOnlyTestWinAdv": null
+        }
+      }
+    },
+    "atLeastEightWorlds": {
+      "closed-branch-control": {
+        "eligiblePositions": 44,
+        "changed": 7,
+        "testWinAdv": {
+          "n": 44,
+          "mean": 0.0465909090909091,
+          "ci95": [
+            0.00048394900665885143,
+            0.09269786917515935
+          ]
+        },
+        "testPipsDelta": {
+          "n": 44,
+          "mean": -0.31869834710743805,
+          "ci95": [
+            -0.6715029674194339,
+            0.034106273204557835
+          ]
+        },
+        "testMinusDelta": {
+          "n": 44,
+          "mean": 0.0465909090909091,
+          "ci95": [
+            0.00048394900665885143,
+            0.09269786917515935
+          ]
+        },
+        "changedOnlyTestWinAdv": {
+          "n": 7,
+          "mean": 0.29285714285714287,
+          "ci95": [
+            0.07017351076892672,
+            0.515540774945359
+          ]
+        },
+        "changedSeeds": [
+          2603537,
+          2607946,
+          2609068,
+          2610074,
+          2610253,
+          2614991,
+          2615982
+        ]
+      },
+      "min-hand-pips": {
+        "eligiblePositions": 44,
+        "changed": 5,
+        "testWinAdv": {
+          "n": 44,
+          "mean": 0.04090909090909091,
+          "ci95": [
+            -0.0042945038787277,
+            0.08611268569690952
+          ]
+        },
+        "testPipsDelta": {
+          "n": 44,
+          "mean": -0.25909090909090915,
+          "ci95": [
+            -0.5869079558479866,
+            0.06872613766616831
+          ]
+        },
+        "testMinusDelta": {
+          "n": 44,
+          "mean": 0.04090909090909091,
+          "ci95": [
+            -0.0042945038787277,
+            0.08611268569690952
+          ]
+        },
+        "changedOnlyTestWinAdv": {
+          "n": 5,
+          "mean": 0.36,
+          "ci95": [
+            0.07194000624869828,
+            0.6480599937513016
+          ]
+        },
+        "changedSeeds": [
+          2603537,
+          2609068,
+          2610074,
+          2614991,
+          2615982
+        ]
+      },
+      "fast-doubles": {
+        "eligiblePositions": 44,
+        "changed": 0,
+        "testWinAdv": {
+          "n": 44,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        },
+        "testPipsDelta": {
+          "n": 44,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        },
+        "testMinusDelta": {
+          "n": 44,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        },
+        "changedOnlyTestWinAdv": null,
+        "changedSeeds": []
+      }
+    },
+    "rows": [
+      {
+        "seed": 2600194,
+        "turn": 17,
+        "worlds": 6,
+        "trainWorlds": 3,
+        "testWorlds": 3,
+        "passDelta": -0.16666666666666666,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2600393,
+        "turn": 15,
+        "worlds": 15,
+        "trainWorlds": 7,
+        "testWorlds": 8,
+        "passDelta": 0,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.2857142857142857,
+              0.7142857142857143
+            ],
+            "testWins": [
+              0.25,
+              0.375
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.2857142857142857,
+              0.7142857142857143
+            ],
+            "testWins": [
+              0.25,
+              0.375
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.14285714285714285
+            ],
+            "testWins": [
+              0.125,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2601014,
+        "turn": 21,
+        "worlds": 3,
+        "trainWorlds": 1,
+        "testWorlds": 2,
+        "passDelta": 0,
+        "nextHandSize": 1,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              1,
+              1
+            ],
+            "testWins": [
+              1,
+              1
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              1,
+              1
+            ],
+            "testWins": [
+              1,
+              1
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2601436,
+        "turn": 17,
+        "worlds": 6,
+        "trainWorlds": 3,
+        "testWorlds": 3,
+        "passDelta": -0.8333333333333334,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.3333333333333333
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2601633,
+        "turn": 14,
+        "worlds": 15,
+        "trainWorlds": 7,
+        "testWorlds": 8,
+        "passDelta": -0.3333333333333333,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0.125
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0.125
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2601968,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.4,
+              0.8
+            ],
+            "testWins": [
+              0.4,
+              0.8
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.4,
+              0.8
+            ],
+            "testWins": [
+              0.4,
+              0.8
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2603160,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.3,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.6,
+              0.8
+            ],
+            "testWins": [
+              0.6,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.6,
+              0.8
+            ],
+            "testWins": [
+              0.6,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2603537,
+        "turn": 21,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.6000000000000001,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 1,
+            "changed": true,
+            "trainWins": [
+              0.4,
+              0.6
+            ],
+            "testWins": [
+              0.4,
+              0.6
+            ],
+            "delta": {
+              "win": 0.19999999999999996,
+              "pips": -0.6000000000000001,
+              "minus": 0.19999999999999996
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 1,
+            "changed": true,
+            "trainWins": [
+              0.4,
+              0.6
+            ],
+            "testWins": [
+              0.4,
+              0.6
+            ],
+            "delta": {
+              "win": 0.19999999999999996,
+              "pips": -0.6000000000000001,
+              "minus": 0.19999999999999996
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              0
+            ],
+            "testWins": [
+              0.2,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2603776,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.19999999999999998,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2603921,
+        "turn": 17,
+        "worlds": 6,
+        "trainWorlds": 3,
+        "testWorlds": 3,
+        "passDelta": -0.16666666666666666,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2604594,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2604626,
+        "turn": 22,
+        "worlds": 3,
+        "trainWorlds": 1,
+        "testWorlds": 2,
+        "passDelta": 0,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2604747,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.5000000000000001,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.8
+            ],
+            "testWins": [
+              0.2,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.8
+            ],
+            "testWins": [
+              0.2,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0.2
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2604877,
+        "turn": 17,
+        "worlds": 4,
+        "trainWorlds": 2,
+        "testWorlds": 2,
+        "passDelta": -0.5,
+        "nextHandSize": 1,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.5,
+              1
+            ],
+            "testWins": [
+              0,
+              0.5
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.5,
+              1
+            ],
+            "testWins": [
+              0,
+              0.5
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2605210,
+        "turn": 21,
+        "worlds": 6,
+        "trainWorlds": 3,
+        "testWorlds": 3,
+        "passDelta": 0,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2605229,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.1,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2605232,
+        "turn": 18,
+        "worlds": 4,
+        "trainWorlds": 2,
+        "testWorlds": 2,
+        "passDelta": -0.25,
+        "nextHandSize": 1,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.5
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.5
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2605852,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.19999999999999998,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2605854,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              0.8
+            ],
+            "testWins": [
+              0,
+              0.4
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              0.8
+            ],
+            "testWins": [
+              0,
+              0.4
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2606018,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.6000000000000001,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              0.2
+            ],
+            "testWins": [
+              0.6,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              0.2
+            ],
+            "testWins": [
+              0.6,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2606084,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.19999999999999998,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              1
+            ],
+            "testWins": [
+              0,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              1
+            ],
+            "testWins": [
+              0,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2606318,
+        "turn": 21,
+        "worlds": 6,
+        "trainWorlds": 3,
+        "testWorlds": 3,
+        "passDelta": -0.5,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2606403,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.19999999999999998,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.8
+            ],
+            "testWins": [
+              0,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.8
+            ],
+            "testWins": [
+              0,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2607246,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.3000000000000001,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.2
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2607316,
+        "turn": 17,
+        "worlds": 4,
+        "trainWorlds": 2,
+        "testWorlds": 2,
+        "passDelta": 0.75,
+        "nextHandSize": 1,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0.5,
+              0.5
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0.5,
+              0.5
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2607710,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.2
+            ],
+            "testWins": [
+              0,
+              0.6
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.2
+            ],
+            "testWins": [
+              0,
+              0.6
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2607946,
+        "turn": 12,
+        "worlds": 21,
+        "trainWorlds": 10,
+        "testWorlds": 11,
+        "passDelta": 0.14285714285714285,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 1,
+            "changed": true,
+            "trainWins": [
+              0,
+              0.3
+            ],
+            "testWins": [
+              0.09090909090909091,
+              0.09090909090909091
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0.7272727272727284,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0.09090909090909091,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2608368,
+        "turn": 19,
+        "worlds": 6,
+        "trainWorlds": 3,
+        "testWorlds": 3,
+        "passDelta": 0,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2608389,
+        "turn": 20,
+        "worlds": 3,
+        "trainWorlds": 1,
+        "testWorlds": 2,
+        "passDelta": 0,
+        "nextHandSize": 1,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2608587,
+        "turn": 14,
+        "worlds": 15,
+        "trainWorlds": 7,
+        "testWorlds": 8,
+        "passDelta": -0.13333333333333336,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2609068,
+        "turn": 19,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.3000000000000001,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 0,
+            "changed": true,
+            "trainWins": [
+              0.8,
+              0.6
+            ],
+            "testWins": [
+              0.6,
+              0.6
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 0,
+            "changed": true,
+            "trainWins": [
+              0.8,
+              0.6
+            ],
+            "testWins": [
+              0.6,
+              0.6
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2609300,
+        "turn": 14,
+        "worlds": 15,
+        "trainWorlds": 7,
+        "testWorlds": 8,
+        "passDelta": 0.3333333333333333,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.14285714285714285,
+              0.14285714285714285
+            ],
+            "testWins": [
+              0.5,
+              0.625
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.14285714285714285,
+              0.14285714285714285
+            ],
+            "testWins": [
+              0.5,
+              0.625
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2609343,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.6000000000000001,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              0.2
+            ],
+            "testWins": [
+              0.2,
+              0.2
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              0.2
+            ],
+            "testWins": [
+              0.2,
+              0.2
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2609401,
+        "turn": 15,
+        "worlds": 15,
+        "trainWorlds": 7,
+        "testWorlds": 8,
+        "passDelta": 0.13333333333333336,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2609636,
+        "turn": 17,
+        "worlds": 4,
+        "trainWorlds": 2,
+        "testWorlds": 2,
+        "passDelta": -0.25,
+        "nextHandSize": 1,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2610074,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.3000000000000001,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 1,
+            "changed": true,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              0.8
+            ],
+            "delta": {
+              "win": 0.8,
+              "pips": -6.8,
+              "minus": 0.8
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 1,
+            "changed": true,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              0.8
+            ],
+            "delta": {
+              "win": 0.8,
+              "pips": -6.8,
+              "minus": 0.8
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2610253,
+        "turn": 14,
+        "worlds": 15,
+        "trainWorlds": 7,
+        "testWorlds": 8,
+        "passDelta": 0.06666666666666667,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 1,
+            "changed": true,
+            "trainWins": [
+              0.14285714285714285,
+              0.2857142857142857
+            ],
+            "testWins": [
+              0.125,
+              0.375
+            ],
+            "delta": {
+              "win": 0.25,
+              "pips": -2.75,
+              "minus": 0.25
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2610422,
+        "turn": 17,
+        "worlds": 4,
+        "trainWorlds": 2,
+        "testWorlds": 2,
+        "passDelta": -0.25,
+        "nextHandSize": 1,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.5
+            ],
+            "testWins": [
+              0,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.5
+            ],
+            "testWins": [
+              0,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2610693,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.19999999999999998,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2610934,
+        "turn": 20,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.19999999999999998,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2611130,
+        "turn": 17,
+        "worlds": 6,
+        "trainWorlds": 3,
+        "testWorlds": 3,
+        "passDelta": 1,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "testWins": [
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "testWins": [
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2611242,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.4
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.4
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2611330,
+        "turn": 21,
+        "worlds": 3,
+        "trainWorlds": 1,
+        "testWorlds": 2,
+        "passDelta": 0,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2611974,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.1,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2611982,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.19999999999999998,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              0
+            ],
+            "testWins": [
+              0,
+              0.2
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              0
+            ],
+            "testWins": [
+              0,
+              0.2
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2613584,
+        "turn": 16,
+        "worlds": 21,
+        "trainWorlds": 10,
+        "testWorlds": 11,
+        "passDelta": 0.09523809523809523,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.5,
+              0
+            ],
+            "testWins": [
+              0.2727272727272727,
+              0.36363636363636365
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.5,
+              0
+            ],
+            "testWins": [
+              0.2727272727272727,
+              0.36363636363636365
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.1,
+              0
+            ],
+            "testWins": [
+              0,
+              0.36363636363636365
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2613653,
+        "turn": 17,
+        "worlds": 6,
+        "trainWorlds": 3,
+        "testWorlds": 3,
+        "passDelta": -0.8333333333333334,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2613999,
+        "turn": 20,
+        "worlds": 3,
+        "trainWorlds": 1,
+        "testWorlds": 2,
+        "passDelta": 0.3333333333333333,
+        "nextHandSize": 1,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2614024,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.19999999999999998,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              1
+            ],
+            "testWins": [
+              0.2,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              1
+            ],
+            "testWins": [
+              0.2,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2614573,
+        "turn": 17,
+        "worlds": 3,
+        "trainWorlds": 1,
+        "testWorlds": 2,
+        "passDelta": 0.6666666666666667,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2614714,
+        "turn": 20,
+        "worlds": 3,
+        "trainWorlds": 1,
+        "testWorlds": 2,
+        "passDelta": 0,
+        "nextHandSize": 1,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              1,
+              1
+            ],
+            "testWins": [
+              1,
+              1
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              1,
+              1
+            ],
+            "testWins": [
+              1,
+              1
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2614991,
+        "turn": 18,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.1,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 1,
+            "changed": true,
+            "trainWins": [
+              0,
+              0.6
+            ],
+            "testWins": [
+              0,
+              0.6
+            ],
+            "delta": {
+              "win": 0.6,
+              "pips": -1.7999999999999998,
+              "minus": 0.6
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 1,
+            "changed": true,
+            "trainWins": [
+              0,
+              0.6
+            ],
+            "testWins": [
+              0,
+              0.6
+            ],
+            "delta": {
+              "win": 0.6,
+              "pips": -1.2000000000000002,
+              "minus": 0.6
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2615141,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.3000000000000001,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2615243,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.3,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.8
+            ],
+            "testWins": [
+              0,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.8
+            ],
+            "testWins": [
+              0,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2615302,
+        "turn": 20,
+        "worlds": 6,
+        "trainWorlds": 3,
+        "testWorlds": 3,
+        "passDelta": 0.5,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              1,
+              1
+            ],
+            "testWins": [
+              1,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              1,
+              1
+            ],
+            "testWins": [
+              1,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2615555,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.19999999999999998,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2615783,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.1,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2615982,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.1,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 1,
+            "changed": true,
+            "trainWins": [
+              0,
+              0.2
+            ],
+            "testWins": [
+              0,
+              0.2
+            ],
+            "delta": {
+              "win": 0.2,
+              "pips": -2.8000000000000003,
+              "minus": 0.2
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 1,
+            "changed": true,
+            "trainWins": [
+              0,
+              0.2
+            ],
+            "testWins": [
+              0,
+              0.2
+            ],
+            "delta": {
+              "win": 0.2,
+              "pips": -2.8000000000000003,
+              "minus": 0.2
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2616493,
+        "turn": 20,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.5000000000000001,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0.2,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0.2,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2616643,
+        "turn": 18,
+        "worlds": 6,
+        "trainWorlds": 3,
+        "testWorlds": 3,
+        "passDelta": 0,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.3333333333333333
+            ],
+            "testWins": [
+              0,
+              0.6666666666666666
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0.3333333333333333
+            ],
+            "testWins": [
+              0,
+              0.6666666666666666
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2616695,
+        "turn": 16,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.19999999999999998,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2616768,
+        "turn": 19,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.3,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.8,
+              1
+            ],
+            "testWins": [
+              0.4,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0.8,
+              1
+            ],
+            "testWins": [
+              0.4,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2617143,
+        "turn": 25,
+        "worlds": 6,
+        "trainWorlds": 3,
+        "testWorlds": 3,
+        "passDelta": 1,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "testWins": [
+              0.6666666666666666,
+              0.6666666666666666
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "testWins": [
+              0.6666666666666666,
+              0.6666666666666666
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2617192,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.3,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2617628,
+        "turn": 17,
+        "worlds": 4,
+        "trainWorlds": 2,
+        "testWorlds": 2,
+        "passDelta": 0.25,
+        "nextHandSize": 1,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.5,
+              0.5
+            ],
+            "testWins": [
+              1,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.5,
+              0.5
+            ],
+            "testWins": [
+              1,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2617925,
+        "turn": 20,
+        "worlds": 6,
+        "trainWorlds": 3,
+        "testWorlds": 3,
+        "passDelta": -0.5,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              1
+            ],
+            "testWins": [
+              0,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2618093,
+        "turn": 21,
+        "worlds": 6,
+        "trainWorlds": 3,
+        "testWorlds": 3,
+        "passDelta": 0,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2618388,
+        "turn": 14,
+        "worlds": 15,
+        "trainWorlds": 7,
+        "testWorlds": 8,
+        "passDelta": 0,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.2857142857142857,
+              0.2857142857142857
+            ],
+            "testWins": [
+              0.5,
+              0.625
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.2857142857142857,
+              0.2857142857142857
+            ],
+            "testWins": [
+              0.5,
+              0.625
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2618394,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.9,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.8,
+              0.8
+            ],
+            "testWins": [
+              0.8,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.8,
+              0.8
+            ],
+            "testWins": [
+              0.8,
+              0.8
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2618843,
+        "turn": 14,
+        "worlds": 15,
+        "trainWorlds": 7,
+        "testWorlds": 8,
+        "passDelta": 0.06666666666666667,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0.125
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0.125
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2618844,
+        "turn": 14,
+        "worlds": 15,
+        "trainWorlds": 7,
+        "testWorlds": 8,
+        "passDelta": 0.06666666666666667,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.14285714285714285,
+              0.14285714285714285
+            ],
+            "testWins": [
+              0.125,
+              0.125
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.14285714285714285,
+              0.14285714285714285
+            ],
+            "testWins": [
+              0.125,
+              0.125
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2618855,
+        "turn": 18,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.3000000000000001,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2619069,
+        "turn": 14,
+        "worlds": 15,
+        "trainWorlds": 7,
+        "testWorlds": 8,
+        "passDelta": -0.13333333333333336,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2619270,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.3000000000000001,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.8,
+              0.8
+            ],
+            "testWins": [
+              1,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.8,
+              0.8
+            ],
+            "testWins": [
+              1,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0.2,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2620465,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.5000000000000001,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0.2,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2620592,
+        "turn": 17,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": 0.3000000000000001,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              1,
+              0.8
+            ],
+            "testWins": [
+              1,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              1,
+              0.8
+            ],
+            "testWins": [
+              1,
+              1
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 0,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2620720,
+        "turn": 21,
+        "worlds": 6,
+        "trainWorlds": 3,
+        "testWorlds": 3,
+        "passDelta": -0.16666666666666666,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2620782,
+        "turn": 17,
+        "worlds": 4,
+        "trainWorlds": 2,
+        "testWorlds": 2,
+        "passDelta": 0,
+        "nextHandSize": 1,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      },
+      {
+        "seed": 2620785,
+        "turn": 18,
+        "worlds": 10,
+        "trainWorlds": 5,
+        "testWorlds": 5,
+        "passDelta": -0.1,
+        "nextHandSize": 2,
+        "policy": {
+          "closed-branch-control": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "min-hand-pips": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          },
+          "fast-doubles": {
+            "pass": 1,
+            "learned": 1,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": {
+              "win": 0,
+              "pips": 0,
+              "minus": 0
+            }
+          }
+        }
+      },
+      {
+        "seed": 2621077,
+        "turn": 21,
+        "worlds": 3,
+        "trainWorlds": 1,
+        "testWorlds": 2,
+        "passDelta": 0,
+        "nextHandSize": 1,
+        "policy": {
+          "closed-branch-control": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "min-hand-pips": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          },
+          "fast-doubles": {
+            "pass": null,
+            "learned": 0,
+            "changed": false,
+            "trainWins": [
+              0,
+              0
+            ],
+            "testWins": [
+              0,
+              0
+            ],
+            "delta": null
+          }
+        }
+      }
+    ]
+  },
+  "pooledIndependent": {
+    "positions": 160,
+    "exactAllocations": 1479,
+    "continuations": 17301,
+    "atLeastEightWorlds": {
+      "closed-branch-control": {
+        "eligiblePositions": 84,
+        "changed": 13,
+        "testWinAdv": {
+          "n": 84,
+          "mean": 0.04166666666666667,
+          "ci95": [
+            0.01361692838021521,
+            0.06971640495311814
+          ]
+        },
+        "testPipsDelta": {
+          "n": 84,
+          "mean": -0.1853896103896104,
+          "ci95": [
+            -0.40982463688471865,
+            0.03904541610549783
+          ]
+        },
+        "testMinusDelta": {
+          "n": 84,
+          "mean": 0.04017857142857143,
+          "ci95": [
+            0.012181866050113156,
+            0.0681752768070297
+          ]
+        },
+        "changedOnlyTestWinAdv": {
+          "n": 13,
+          "mean": 0.2692307692307693,
+          "ci95": [
+            0.14453244687784772,
+            0.3939290915836908
+          ]
+        }
+      },
+      "min-hand-pips": {
+        "eligiblePositions": 84,
+        "changed": 12,
+        "testWinAdv": {
+          "n": 84,
+          "mean": 0.03571428571428572,
+          "ci95": [
+            0.007287072947241353,
+            0.06414149848133008
+          ]
+        },
+        "testPipsDelta": {
+          "n": 84,
+          "mean": -0.13333333333333336,
+          "ci95": [
+            -0.35099417878154815,
+            0.08432751211488146
+          ]
+        },
+        "testMinusDelta": {
+          "n": 84,
+          "mean": 0.03720238095238096,
+          "ci95": [
+            0.00963361121330172,
+            0.0647711506914602
+          ]
+        },
+        "changedOnlyTestWinAdv": {
+          "n": 12,
+          "mean": 0.25000000000000006,
+          "ci95": [
+            0.09516582673026863,
+            0.4048341732697315
+          ]
+        }
+      },
+      "fast-doubles": {
+        "eligiblePositions": 84,
+        "changed": 2,
+        "testWinAdv": {
+          "n": 84,
+          "mean": -0.001488095238095238,
+          "ci95": [
+            -0.008041315473098828,
+            0.005065124996908351
+          ]
+        },
+        "testPipsDelta": {
+          "n": 84,
+          "mean": 0.06547619047619048,
+          "ci95": [
+            -0.030635810510164174,
+            0.16158819146254513
+          ]
+        },
+        "testMinusDelta": {
+          "n": 84,
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ]
+        },
+        "changedOnlyTestWinAdv": {
+          "n": 2,
+          "mean": -0.0625,
+          "ci95": [
+            -0.4299999999999999,
+            0.3049999999999999
+          ]
+        }
+      }
+    },
+    "distinctSeedSets": true,
+    "completeStrategyRoundsUnchanged": 180000
+  }
 }
