@@ -1,0 +1,141 @@
+{
+  "schema": "qosa-observed-pass-independent-holdout/v1",
+  "timestampAsiaBaku": "2026-10-13T16:50:19 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "dealSeedsRequested": [
+    2820000,
+    2839999
+  ],
+  "scannedDeals": 107,
+  "selectedSeeds": [
+    2820001,
+    2820002,
+    2820004,
+    2820005,
+    2820009,
+    2820011,
+    2820014,
+    2820018,
+    2820020,
+    2820023,
+    2820026,
+    2820027,
+    2820028,
+    2820032,
+    2820034,
+    2820035,
+    2820037,
+    2820038,
+    2820042,
+    2820043,
+    2820045,
+    2820047,
+    2820049,
+    2820050,
+    2820059,
+    2820061,
+    2820063,
+    2820064,
+    2820070,
+    2820071,
+    2820080,
+    2820083,
+    2820084,
+    2820087,
+    2820090,
+    2820093,
+    2820097,
+    2820100,
+    2820103,
+    2820106
+  ],
+  "positions": 40,
+  "worldProposals": 6400,
+  "passCompatibleProposals": 2323,
+  "heldoutCompatibleWorlds": 1180,
+  "candidateContinuations": 54720,
+  "unresolved": 0,
+  "newCompleteRounds": 0,
+  "validatedCumulativeCompleteRounds": 180000,
+  "worldSeedFormula": "(350000000+dealSeed*257+proposalIndex)>>>0",
+  "continuationSeedFormula": "(59000000+1000*dealSeed+proposalIndex)>>>0",
+  "split": "even proposals training, odd accepted proposals independent held-out; both policies choose without held-out outcomes",
+  "comparison": "uniform prior versus pass-conditioned posterior for an immediately observed stock-empty pass; same fixed visible hand, known stones and continuation seeds",
+  "policyResults": {
+    "closed-branch-control": {
+      "changed": 8,
+      "winAdv": 0.025292165844491434,
+      "exploratoryCI95": [
+        0.0018616073113498915,
+        0.048722724377632975
+      ],
+      "meanRemainderDelta": -0.25768293399107345,
+      "minusFinishDelta": -0.014706659619450318,
+      "changedOnlyWinAdv": 0.12646082922245716
+    },
+    "min-hand-pips": {
+      "changed": 10,
+      "winAdv": -0.018798943731826768,
+      "exploratoryCI95": [
+        -0.04023389524629487,
+        0.0026360077826413364
+      ],
+      "meanRemainderDelta": 0.05950990940773774,
+      "minusFinishDelta": 0.003551136363636363,
+      "changedOnlyWinAdv": -0.07519577492730707
+    }
+  },
+  "exploratoryStrata": {
+    "closed-branch-control": {
+      "acceptBelowThird": {
+        "n": 17,
+        "changed": 6,
+        "winAdv": 0.054070112893642316
+      },
+      "acceptAtLeastThird": {
+        "n": 23,
+        "changed": 2,
+        "winAdv": 0.00402150932990165
+      },
+      "passerHandAtMost3": {
+        "n": 18,
+        "changed": 0,
+        "winAdv": 0
+      },
+      "passerHand4plus": {
+        "n": 22,
+        "changed": 8,
+        "winAdv": 0.04598575608089351
+      }
+    },
+    "min-hand-pips": {
+      "acceptBelowThird": {
+        "n": 17,
+        "changed": 7,
+        "winAdv": -0.04133244206773618
+      },
+      "acceptAtLeastThird": {
+        "n": 23,
+        "changed": 3,
+        "winAdv": -0.0021437493096328475
+      },
+      "passerHandAtMost3": {
+        "n": 18,
+        "changed": 0,
+        "winAdv": 0
+      },
+      "passerHand4plus": {
+        "n": 22,
+        "changed": 10,
+        "winAdv": -0.034179897694230486
+      }
+    }
+  },
+  "validation": "V8 CommonJS harness: observed-pass-posterior-test, decision-regret-test, hidden-world-test, deterministic 2-position replay passed; Node CLI not executed",
+  "confidence": "closed-branch win improvement is positive in this independent model-specific position-level exploratory CI; alternate continuation policy reverses sign and its CI includes zero. No general human-game claim.",
+  "limitations": "uniform hidden allocations conditioned only on immediately observed pass, not full opponent decisions; repeated world samples possible; min-hand-pips discovery, first eligible selection, deterministic bots, assumed branch semantics, block winner unassigned, exploratory CIs uncorrected for multiple hypotheses/subgroups",
+  "reproduction": "node qosha-research/simulator/reachable-pass-heldout-runner.js 2820000 2840000 40 160",
+  "next": "Combine disjoint cohorts without world-level pseudoreplication; test disagreement cases on fresh seeds and add verified multi-pass event replay"
+}
