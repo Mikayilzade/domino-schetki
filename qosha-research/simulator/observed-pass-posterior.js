@@ -6,7 +6,7 @@ const integer=x=>Number.isInteger(x)&&x>=0;
 function sameBoard(a,b){
   if(!a||!b||!a.branches||!b.branches)return false;
   return e.SIDES.every(s=>a.branches[s]&&b.branches[s]&&
-    a.branches[s].end===b.branches[s].end&&a.branches[s].open===b.branches[s].open);
+    a.branches[s].end===b.branches[s].end&&a.branches[s].active===b.branches[s].active);
 }
 function sameOpened(a,b){
   return a&&b&&a.openedNumbers instanceof Set&&b.openedNumbers instanceof Set&&

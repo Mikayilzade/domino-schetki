@@ -394,3 +394,16 @@
 - confidence/limitations: exact under uniform hidden allocations per visible position and fixed bot policies, not an observational posterior; first-eligible selection, assumed branch semantics, block winner unassigned; exploratory intervals.
 - artifacts: `simulator/exact-first-response-runner.js`, `runs/2026-10-12-exact-first-response-1100000.json`.
 - exact next action: replicate on disjoint seeds with category-conditioned finish results; inspect forced passes versus different-tile replies and four-end changes, avoiding post-treatment causal claims.
+
+
+### 2026-10-13T15:49:00 +04:00 — reachable observed-pass posterior, independent held-out comparison
+- engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, 3×9; no gameplay-rule changes. GitHub research branch `qosha-research-20261013-passforecast-1252`.
+- fresh seeds `2800000..2800087`: scanned 88 deals, selected **30 reachable positions** immediately after a verified stock-empty opponent pass. Proposed **4800** uniform hidden worlds; **1606** pass-compatible proposals; **795** held-out pass-compatible worlds; **36800** evaluated candidate continuations, 0 unresolved. No new complete strategy rounds; cumulative **180,000** full strategy rounds unchanged (historical 4,000 separate).
+- policy comparison: uniform-prior choice versus pass-conditioned choice, both trained on even-index worlds; evaluated on **odd-index pass-compatible worlds only** (no decision leakage). Continuations: `closed-branch-control`, `min-hand-pips`.
+- closed-branch: changed 9/30 choices; posterior minus prior held-out first-place **1.14 pp**, exploratory 95% interval **-2.24 pp .. 4.52 pp**; remainder -0.200 pips, minus-finish 2.39 pp.
+- min-hand-pips: changed 7/30 choices; held-out first-place **-0.32 pp**, exploratory 95% interval **-2.55 pp .. 1.91 pp**; remainder -0.076 pips, minus-finish 0.00 pp.
+- validation: V8 CommonJS executed observed-pass-posterior-test with added branch `active` regression and deterministic 2-position runner self-test; 28-tile/visible-state/choice invariants checked. Fixed `sameBoard` to compare actual `active` field rather than nonexistent `open`; no Node CLI execution claimed.
+- finding: pass evidence can alter selected moves, but no reliable general win advantage claimed without a confidence interval excluding zero. All estimates are model-specific and exploratory.
+- limits: immediate observed passes only; uniform prior conditioned on pass, not other past decisions; min-hand-pips discovery, deterministic bots, selection on pass acceptance and 2..10 legal actions, assumed branch semantics, block winner unassigned. Held-out worlds independent of training selection by index but sampled with replacement.
+- reproduce: `node qosha-research/simulator/observed-pass-posterior-test.js`; `node qosha-research/simulator/reachable-pass-heldout-runner.js test`; `node qosha-research/simulator/reachable-pass-heldout-runner.js 2800000 2820000 30 160`. Data: `runs/2026-10-13-reachable-pass-heldout-2800000.json`.
+- exact next action: replicate on disjoint seeds `2820000..` with >=30 positions, test pass severity/branch-end strata, then add full-event replay verification for multiple-pass evidence (do not silently infer unchanged hands).

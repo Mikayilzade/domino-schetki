@@ -30,6 +30,8 @@ mustThrow(()=>p.samplePosterior(spec,[{...obs,eventsSincePass:null}],{count:2}),
 mustThrow(()=>p.samplePosterior(spec,[{...obs,branchState:null}],{count:2}),'snapshot');
 mustThrow(()=>p.samplePosterior(spec,[{...obs,turn:8,playerIndex:1,eventsSincePass:[]}],{count:2}),'turn log');
 mustThrow(()=>p.samplePosterior(spec,[{...obs,branchState:e.createBranchState([1,1])}],{count:2}),'contradicts');
+const wrongActive=e.cloneBranchState(branchState);wrongActive.branches.up.active=false;
+mustThrow(()=>p.samplePosterior(spec,[{...obs,branchState:wrongActive}],{count:2}),'contradicts');
 const altered={...spec,hiddenHandSizes:[2,7,9]};
 mustThrow(()=>p.samplePosterior(altered,[obs],{count:2}),'hand size changed');
 const rejected=prior.find(w=>!p.consistent(w,obs));

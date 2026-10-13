@@ -1,0 +1,2867 @@
+{
+  "schema": "qosa-reachable-observed-pass-heldout/v1",
+  "timestampAsiaBaku": "2026-10-13T15:49:00 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "start": 2800000,
+  "end": 2820000,
+  "limit": 30,
+  "proposalCount": 160,
+  "scannedDeals": 88,
+  "positions": 30,
+  "selectedSeeds": [
+    2800007,
+    2800013,
+    2800014,
+    2800015,
+    2800017,
+    2800019,
+    2800025,
+    2800026,
+    2800027,
+    2800028,
+    2800030,
+    2800031,
+    2800032,
+    2800038,
+    2800039,
+    2800040,
+    2800041,
+    2800044,
+    2800048,
+    2800050,
+    2800054,
+    2800061,
+    2800066,
+    2800067,
+    2800068,
+    2800069,
+    2800075,
+    2800080,
+    2800081,
+    2800087
+  ],
+  "priorWorldProposals": 4800,
+  "posteriorAcceptedProposals": 1606,
+  "heldoutPosteriorWorlds": 795,
+  "candidateContinuations": 36800,
+  "newFullStrategyRounds": 0,
+  "verifiedPriorFullStrategyRounds": 180000,
+  "worldSeedFormula": "(350000000 + dealSeed * 257 + proposalIndex) >>> 0",
+  "continuationSeedFormula": "(59000000 + 1000 * dealSeed + proposalIndex) >>> 0",
+  "split": "even proposal indices train, odd accepted proposal indices posterior holdout; both choices selected without seeing holdout outcomes",
+  "selection": "first reachable immediate stock-empty opponent pass followed by focal 2..10 legal actions; 16..N-1 accepted proposals and >=6 per split; min-hand-pips discovery",
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips"
+  ],
+  "summary": {
+    "closed-branch-control": {
+      "changed": 9,
+      "heldoutWinAdv": {
+        "n": 30,
+        "mean": 0.011411609081079643,
+        "exploratoryCI95": [
+          -0.022412862184459603,
+          0.045236080346618884
+        ]
+      },
+      "heldoutPipsDelta": {
+        "n": 30,
+        "mean": -0.1996861989514142,
+        "exploratoryCI95": [
+          -0.5308397289821039,
+          0.1314673310792755
+        ]
+      },
+      "heldoutMinusDelta": {
+        "n": 30,
+        "mean": 0.023905723905723906,
+        "exploratoryCI95": [
+          -0.01610319505922422,
+          0.06391464287067203
+        ]
+      },
+      "changedOnlyWinAdv": {
+        "n": 9,
+        "mean": 0.03803869693693215,
+        "exploratoryCI95": [
+          -0.0774520138353266,
+          0.1535294077091909
+        ]
+      },
+      "priorRegret": {
+        "n": 30,
+        "mean": 0.04144525156153064,
+        "exploratoryCI95": [
+          0.008850218428912746,
+          0.07404028469414853
+        ]
+      },
+      "posteriorRegret": {
+        "n": 30,
+        "mean": 0.03003364248045099,
+        "exploratoryCI95": [
+          0.006191264751583544,
+          0.053876020209318434
+        ]
+      }
+    },
+    "min-hand-pips": {
+      "changed": 7,
+      "heldoutWinAdv": {
+        "n": 30,
+        "mean": -0.0031868677406030185,
+        "exploratoryCI95": [
+          -0.025509447243581482,
+          0.019135711762375444
+        ]
+      },
+      "heldoutPipsDelta": {
+        "n": 30,
+        "mean": -0.07569938469658198,
+        "exploratoryCI95": [
+          -0.31087485606087895,
+          0.159476086667715
+        ]
+      },
+      "heldoutMinusDelta": {
+        "n": 30,
+        "mean": 0,
+        "exploratoryCI95": [
+          0,
+          0
+        ]
+      },
+      "changedOnlyWinAdv": {
+        "n": 7,
+        "mean": -0.013658004602584364,
+        "exploratoryCI95": [
+          -0.11480300105239083,
+          0.08748699184722211
+        ]
+      },
+      "priorRegret": {
+        "n": 30,
+        "mean": 0.019585188850404094,
+        "exploratoryCI95": [
+          -0.007404248700184354,
+          0.04657462640099254
+        ]
+      },
+      "posteriorRegret": {
+        "n": 30,
+        "mean": 0.02277205659100711,
+        "exploratoryCI95": [
+          0.0031688940214089287,
+          0.04237521916060529
+        ]
+      }
+    }
+  },
+  "rows": [
+    {
+      "seed": 2800007,
+      "turn": 24,
+      "passer": 1,
+      "focal": 2,
+      "actions": 2,
+      "knownTiles": 24,
+      "handSizes": [
+        1,
+        2,
+        1
+      ],
+      "proposals": 160,
+      "accepted": 55,
+      "acceptedTrain": 29,
+      "acceptedTest": 26,
+      "acceptanceRate": 0.34375,
+      "worldSeedStart": 1069601799,
+      "continuations": 640,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|left|4||0-4",
+          "posteriorChoice": "single|left|4||0-4",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "single|left|4||0-4",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|4||0-4",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|left|4||0-4",
+          "posteriorChoice": "single|left|4||0-4",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "single|left|4||0-4",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|4||0-4",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800013,
+      "turn": 25,
+      "passer": 1,
+      "focal": 2,
+      "actions": 4,
+      "knownTiles": 24,
+      "handSizes": [
+        1,
+        1,
+        2
+      ],
+      "proposals": 160,
+      "accepted": 88,
+      "acceptedTrain": 46,
+      "acceptedTest": 42,
+      "acceptanceRate": 0.55,
+      "worldSeedStart": 1069603341,
+      "continuations": 1280,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|down|1||0-1",
+          "posteriorChoice": "single|down|1||0-1",
+          "changed": false,
+          "priorTrain": {
+            "win": 0,
+            "pips": 7
+          },
+          "posteriorTrain": {
+            "win": 0,
+            "pips": 7
+          },
+          "heldoutPrior": {
+            "key": "single|down|1||0-1",
+            "win": 0,
+            "pips": 7,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|1||0-1",
+            "win": 0,
+            "pips": 7,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|down|1||0-1",
+          "posteriorChoice": "single|down|1||0-1",
+          "changed": false,
+          "priorTrain": {
+            "win": 0,
+            "pips": 7
+          },
+          "posteriorTrain": {
+            "win": 0,
+            "pips": 7
+          },
+          "heldoutPrior": {
+            "key": "single|down|1||0-1",
+            "win": 0,
+            "pips": 7,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|1||0-1",
+            "win": 0,
+            "pips": 7,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800014,
+      "turn": 11,
+      "passer": 0,
+      "focal": 1,
+      "actions": 7,
+      "knownTiles": 13,
+      "handSizes": [
+        5,
+        5,
+        5
+      ],
+      "proposals": 160,
+      "accepted": 39,
+      "acceptedTrain": 13,
+      "acceptedTest": 26,
+      "acceptanceRate": 0.24375,
+      "worldSeedStart": 1069603598,
+      "continuations": 2240,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|up|0||0-2",
+          "posteriorChoice": "single|up|0||0-2",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.7625,
+            "pips": 1.2375
+          },
+          "posteriorTrain": {
+            "win": 0.8461538461538461,
+            "pips": 0.6153846153846154
+          },
+          "heldoutPrior": {
+            "key": "single|up|0||0-2",
+            "win": 0.6923076923076923,
+            "pips": 1.2307692307692308,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|up|0||0-2",
+            "win": 0.6923076923076923,
+            "pips": 1.2307692307692308,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0.15384615384615385,
+            "posterior": 0.15384615384615385
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|left|4||2-4",
+          "posteriorChoice": "single|left|5||2-5",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.7,
+            "pips": 1.0125
+          },
+          "posteriorTrain": {
+            "win": 0.8461538461538461,
+            "pips": 0.6153846153846154
+          },
+          "heldoutPrior": {
+            "key": "single|left|4||2-4",
+            "win": 0.8461538461538461,
+            "pips": 0.6153846153846154,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|5||2-5",
+            "win": 0.6538461538461539,
+            "pips": 1,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": -0.1923076923076923,
+            "pips": 0.3846153846153846,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0.1923076923076923
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800015,
+      "turn": 7,
+      "passer": 1,
+      "focal": 2,
+      "actions": 5,
+      "knownTiles": 7,
+      "handSizes": [
+        7,
+        7,
+        7
+      ],
+      "proposals": 160,
+      "accepted": 37,
+      "acceptedTrain": 17,
+      "acceptedTest": 20,
+      "acceptanceRate": 0.23125,
+      "worldSeedStart": 1069603855,
+      "continuations": 1600,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|right|0||0-1",
+          "posteriorChoice": "single|right|3||1-3",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.725,
+            "pips": 1.3875
+          },
+          "posteriorTrain": {
+            "win": 0.7058823529411765,
+            "pips": 0.29411764705882354
+          },
+          "heldoutPrior": {
+            "key": "single|right|0||0-1",
+            "win": 0.65,
+            "pips": 1.6,
+            "minus": 0.1
+          },
+          "heldoutPosterior": {
+            "key": "single|right|3||1-3",
+            "win": 0.45,
+            "pips": 1.05,
+            "minus": 0.1
+          },
+          "heldoutDelta": {
+            "win": -0.2,
+            "pips": -0.55,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0.04999999999999993,
+            "posterior": 0.24999999999999994
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|left|3||1-3",
+          "posteriorChoice": "single|left|0||0-1",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.6875,
+            "pips": 0.6
+          },
+          "posteriorTrain": {
+            "win": 0.7058823529411765,
+            "pips": 1.3529411764705883
+          },
+          "heldoutPrior": {
+            "key": "single|left|3||1-3",
+            "win": 0.6,
+            "pips": 0.4,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|0||0-1",
+            "win": 0.6,
+            "pips": 1.75,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 1.35,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0.050000000000000044,
+            "posterior": 0.050000000000000044
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800017,
+      "turn": 25,
+      "passer": 0,
+      "focal": 1,
+      "actions": 4,
+      "knownTiles": 25,
+      "handSizes": [
+        1,
+        1,
+        1
+      ],
+      "proposals": 160,
+      "accepted": 75,
+      "acceptedTrain": 39,
+      "acceptedTest": 36,
+      "acceptanceRate": 0.46875,
+      "worldSeedStart": 1069604369,
+      "continuations": 1280,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|down|5||0-5",
+          "posteriorChoice": "single|down|5||0-5",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "single|down|5||0-5",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|5||0-5",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|down|5||0-5",
+          "posteriorChoice": "single|down|5||0-5",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "single|down|5||0-5",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|5||0-5",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800019,
+      "turn": 4,
+      "passer": 1,
+      "focal": 2,
+      "actions": 6,
+      "knownTiles": 4,
+      "handSizes": [
+        8,
+        8,
+        8
+      ],
+      "proposals": 160,
+      "accepted": 39,
+      "acceptedTrain": 21,
+      "acceptedTest": 18,
+      "acceptanceRate": 0.24375,
+      "worldSeedStart": 1069604883,
+      "continuations": 1920,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "double-sequence|||0,5|0-0,5-5",
+          "posteriorChoice": "single|right|3||1-3",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.575,
+            "pips": 2.9875
+          },
+          "posteriorTrain": {
+            "win": 0.8095238095238095,
+            "pips": 1.9047619047619047
+          },
+          "heldoutPrior": {
+            "key": "double-sequence|||0,5|0-0,5-5",
+            "win": 0.5,
+            "pips": 4.722222222222222,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|right|3||1-3",
+            "win": 0.6111111111111112,
+            "pips": 3.8333333333333335,
+            "minus": 0.1111111111111111
+          },
+          "heldoutDelta": {
+            "win": 0.11111111111111116,
+            "pips": -0.8888888888888888,
+            "minus": 0.1111111111111111
+          },
+          "heldoutRegret": {
+            "prior": 0.2777777777777778,
+            "posterior": 0.16666666666666663
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|right|3||1-3",
+          "posteriorChoice": "single|right|3||1-3",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.775,
+            "pips": 1.3625
+          },
+          "posteriorTrain": {
+            "win": 0.9047619047619048,
+            "pips": 0.47619047619047616
+          },
+          "heldoutPrior": {
+            "key": "single|right|3||1-3",
+            "win": 0.7222222222222222,
+            "pips": 1.3888888888888888,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|right|3||1-3",
+            "win": 0.7222222222222222,
+            "pips": 1.3888888888888888,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800025,
+      "turn": 16,
+      "passer": 0,
+      "focal": 1,
+      "actions": 2,
+      "knownTiles": 16,
+      "handSizes": [
+        4,
+        4,
+        4
+      ],
+      "proposals": 160,
+      "accepted": 43,
+      "acceptedTrain": 26,
+      "acceptedTest": 17,
+      "acceptanceRate": 0.26875,
+      "worldSeedStart": 1069606425,
+      "continuations": 640,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|right|0||0-1",
+          "posteriorChoice": "single|right|0||0-1",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.3625,
+            "pips": 3.625
+          },
+          "posteriorTrain": {
+            "win": 0.5,
+            "pips": 2.3076923076923075
+          },
+          "heldoutPrior": {
+            "key": "single|right|0||0-1",
+            "win": 0.29411764705882354,
+            "pips": 4,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|right|0||0-1",
+            "win": 0.29411764705882354,
+            "pips": 4,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|right|0||0-1",
+          "posteriorChoice": "single|right|3||1-3",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.375,
+            "pips": 2.675
+          },
+          "posteriorTrain": {
+            "win": 0.34615384615384615,
+            "pips": 1.4230769230769231
+          },
+          "heldoutPrior": {
+            "key": "single|right|0||0-1",
+            "win": 0.29411764705882354,
+            "pips": 3.411764705882353,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|right|3||1-3",
+            "win": 0.23529411764705882,
+            "pips": 2.6470588235294117,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": -0.05882352941176472,
+            "pips": -0.7647058823529411,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0.05882352941176472
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800026,
+      "turn": 11,
+      "passer": 0,
+      "focal": 1,
+      "actions": 6,
+      "knownTiles": 12,
+      "handSizes": [
+        6,
+        6,
+        4
+      ],
+      "proposals": 160,
+      "accepted": 63,
+      "acceptedTrain": 30,
+      "acceptedTest": 33,
+      "acceptanceRate": 0.39375,
+      "worldSeedStart": 1069606682,
+      "continuations": 1920,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|left|6||3-6",
+          "posteriorChoice": "double-sequence|||4,6|4-4,6-6",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.675,
+            "pips": 1.9125
+          },
+          "posteriorTrain": {
+            "win": 0.6666666666666666,
+            "pips": 1.8333333333333333
+          },
+          "heldoutPrior": {
+            "key": "single|left|6||3-6",
+            "win": 0.36363636363636365,
+            "pips": 3.727272727272727,
+            "minus": 0.06060606060606061
+          },
+          "heldoutPosterior": {
+            "key": "double-sequence|||4,6|4-4,6-6",
+            "win": 0.7272727272727273,
+            "pips": 1.4242424242424243,
+            "minus": 0.6666666666666666
+          },
+          "heldoutDelta": {
+            "win": 0.36363636363636365,
+            "pips": -2.3030303030303028,
+            "minus": 0.606060606060606
+          },
+          "heldoutRegret": {
+            "prior": 0.36363636363636365,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|left|6||3-6",
+          "posteriorChoice": "single|left|6||3-6",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.825,
+            "pips": 0.525
+          },
+          "posteriorTrain": {
+            "win": 0.9333333333333333,
+            "pips": 0.2
+          },
+          "heldoutPrior": {
+            "key": "single|left|6||3-6",
+            "win": 0.9090909090909091,
+            "pips": 0.2727272727272727,
+            "minus": 0.24242424242424243
+          },
+          "heldoutPosterior": {
+            "key": "single|left|6||3-6",
+            "win": 0.9090909090909091,
+            "pips": 0.2727272727272727,
+            "minus": 0.24242424242424243
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800027,
+      "turn": 21,
+      "passer": 0,
+      "focal": 1,
+      "actions": 2,
+      "knownTiles": 22,
+      "handSizes": [
+        2,
+        2,
+        2
+      ],
+      "proposals": 160,
+      "accepted": 28,
+      "acceptedTrain": 17,
+      "acceptedTest": 11,
+      "acceptanceRate": 0.175,
+      "worldSeedStart": 1069606939,
+      "continuations": 640,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "double-sequence|||2|2-2",
+          "posteriorChoice": "double-sequence|||2|2-2",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "double-sequence|||2|2-2",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "double-sequence|||2|2-2",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "double-sequence|||2|2-2",
+          "posteriorChoice": "double-sequence|||2|2-2",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "double-sequence|||2|2-2",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "double-sequence|||2|2-2",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800028,
+      "turn": 4,
+      "passer": 0,
+      "focal": 1,
+      "actions": 10,
+      "knownTiles": 4,
+      "handSizes": [
+        8,
+        8,
+        8
+      ],
+      "proposals": 160,
+      "accepted": 45,
+      "acceptedTrain": 23,
+      "acceptedTest": 22,
+      "acceptanceRate": 0.28125,
+      "worldSeedStart": 1069607196,
+      "continuations": 3200,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|right|6||1-6",
+          "posteriorChoice": "single|down|6||1-6",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.2625,
+            "pips": 4.9125
+          },
+          "posteriorTrain": {
+            "win": 0.391304347826087,
+            "pips": 3.3043478260869565
+          },
+          "heldoutPrior": {
+            "key": "single|right|6||1-6",
+            "win": 0.3181818181818182,
+            "pips": 4.2272727272727275,
+            "minus": 0.18181818181818182
+          },
+          "heldoutPosterior": {
+            "key": "single|down|6||1-6",
+            "win": 0.3181818181818182,
+            "pips": 4.2272727272727275,
+            "minus": 0.18181818181818182
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|left|2||1-2",
+          "posteriorChoice": "single|down|2||1-2",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.275,
+            "pips": 3.775
+          },
+          "posteriorTrain": {
+            "win": 0.4782608695652174,
+            "pips": 2.0869565217391304
+          },
+          "heldoutPrior": {
+            "key": "single|left|2||1-2",
+            "win": 0.4090909090909091,
+            "pips": 2.1818181818181817,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|2||1-2",
+            "win": 0.2727272727272727,
+            "pips": 3.3181818181818183,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": -0.1363636363636364,
+            "pips": 1.1363636363636367,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0.1363636363636364
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800030,
+      "turn": 14,
+      "passer": 1,
+      "focal": 2,
+      "actions": 4,
+      "knownTiles": 15,
+      "handSizes": [
+        2,
+        5,
+        6
+      ],
+      "proposals": 160,
+      "accepted": 44,
+      "acceptedTrain": 21,
+      "acceptedTest": 23,
+      "acceptanceRate": 0.275,
+      "worldSeedStart": 1069607710,
+      "continuations": 1280,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|down|3||2-3",
+          "posteriorChoice": "single|down|3||2-3",
+          "changed": false,
+          "priorTrain": {
+            "win": 0,
+            "pips": 14.025
+          },
+          "posteriorTrain": {
+            "win": 0,
+            "pips": 14.571428571428571
+          },
+          "heldoutPrior": {
+            "key": "single|down|3||2-3",
+            "win": 0,
+            "pips": 18.130434782608695,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|3||2-3",
+            "win": 0,
+            "pips": 18.130434782608695,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|down|3||2-3",
+          "posteriorChoice": "single|down|3||2-3",
+          "changed": false,
+          "priorTrain": {
+            "win": 0,
+            "pips": 14.5125
+          },
+          "posteriorTrain": {
+            "win": 0,
+            "pips": 15.428571428571429
+          },
+          "heldoutPrior": {
+            "key": "single|down|3||2-3",
+            "win": 0,
+            "pips": 18.782608695652176,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|3||2-3",
+            "win": 0,
+            "pips": 18.782608695652176,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800031,
+      "turn": 22,
+      "passer": 2,
+      "focal": 0,
+      "actions": 2,
+      "knownTiles": 22,
+      "handSizes": [
+        2,
+        2,
+        2
+      ],
+      "proposals": 160,
+      "accepted": 23,
+      "acceptedTrain": 12,
+      "acceptedTest": 11,
+      "acceptanceRate": 0.14375,
+      "worldSeedStart": 1069607967,
+      "continuations": 640,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "double-sequence|||0|0-0",
+          "posteriorChoice": "double-sequence|||0|0-0",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "double-sequence|||0|0-0",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "double-sequence|||0|0-0",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "double-sequence|||0|0-0",
+          "posteriorChoice": "double-sequence|||0|0-0",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "double-sequence|||0|0-0",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "double-sequence|||0|0-0",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800032,
+      "turn": 19,
+      "passer": 0,
+      "focal": 1,
+      "actions": 4,
+      "knownTiles": 20,
+      "handSizes": [
+        2,
+        3,
+        3
+      ],
+      "proposals": 160,
+      "accepted": 102,
+      "acceptedTrain": 56,
+      "acceptedTest": 46,
+      "acceptanceRate": 0.6375,
+      "worldSeedStart": 1069608224,
+      "continuations": 1280,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|right|5||2-5",
+          "posteriorChoice": "single|right|5||2-5",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.5875,
+            "pips": 1.425
+          },
+          "posteriorTrain": {
+            "win": 0.8392857142857143,
+            "pips": 0.32142857142857145
+          },
+          "heldoutPrior": {
+            "key": "single|right|5||2-5",
+            "win": 0.9347826086956522,
+            "pips": 0.13043478260869565,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|right|5||2-5",
+            "win": 0.9347826086956522,
+            "pips": 0.13043478260869565,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|right|5||2-5",
+          "posteriorChoice": "single|right|5||2-5",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.5875,
+            "pips": 1.425
+          },
+          "posteriorTrain": {
+            "win": 0.8392857142857143,
+            "pips": 0.32142857142857145
+          },
+          "heldoutPrior": {
+            "key": "single|right|5||2-5",
+            "win": 0.9347826086956522,
+            "pips": 0.13043478260869565,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|right|5||2-5",
+            "win": 0.9347826086956522,
+            "pips": 0.13043478260869565,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800038,
+      "turn": 10,
+      "passer": 0,
+      "focal": 1,
+      "actions": 2,
+      "knownTiles": 11,
+      "handSizes": [
+        6,
+        5,
+        6
+      ],
+      "proposals": 160,
+      "accepted": 21,
+      "acceptedTrain": 11,
+      "acceptedTest": 10,
+      "acceptanceRate": 0.13125,
+      "worldSeedStart": 1069609766,
+      "continuations": 640,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|left|3||3-5",
+          "posteriorChoice": "single|left|3||3-5",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.5625,
+            "pips": 2.7375
+          },
+          "posteriorTrain": {
+            "win": 0.6363636363636364,
+            "pips": 1.6363636363636365
+          },
+          "heldoutPrior": {
+            "key": "single|left|3||3-5",
+            "win": 0.5,
+            "pips": 2.8,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|3||3-5",
+            "win": 0.5,
+            "pips": 2.8,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|right|3||3-5",
+          "posteriorChoice": "single|right|3||3-5",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.5,
+            "pips": 2.675
+          },
+          "posteriorTrain": {
+            "win": 0.5454545454545454,
+            "pips": 2
+          },
+          "heldoutPrior": {
+            "key": "single|right|3||3-5",
+            "win": 0.4,
+            "pips": 2.8,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|right|3||3-5",
+            "win": 0.4,
+            "pips": 2.8,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800039,
+      "turn": 7,
+      "passer": 1,
+      "focal": 2,
+      "actions": 4,
+      "knownTiles": 8,
+      "handSizes": [
+        7,
+        6,
+        7
+      ],
+      "proposals": 160,
+      "accepted": 97,
+      "acceptedTrain": 50,
+      "acceptedTest": 47,
+      "acceptanceRate": 0.60625,
+      "worldSeedStart": 1069610023,
+      "continuations": 1280,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|right|4||1-4",
+          "posteriorChoice": "single|right|3||1-3",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.2,
+            "pips": 6.1375
+          },
+          "posteriorTrain": {
+            "win": 0.12,
+            "pips": 4.8
+          },
+          "heldoutPrior": {
+            "key": "single|right|4||1-4",
+            "win": 0.19148936170212766,
+            "pips": 5.957446808510638,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|right|3||1-3",
+            "win": 0.1276595744680851,
+            "pips": 4.9361702127659575,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": -0.06382978723404256,
+            "pips": -1.0212765957446805,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0.06382978723404256
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "double-sequence|||3|3-3",
+          "posteriorChoice": "double-sequence|||3|3-3",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.1625,
+            "pips": 4.275
+          },
+          "posteriorTrain": {
+            "win": 0.2,
+            "pips": 3.64
+          },
+          "heldoutPrior": {
+            "key": "double-sequence|||3|3-3",
+            "win": 0.0425531914893617,
+            "pips": 5.191489361702128,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "double-sequence|||3|3-3",
+            "win": 0.0425531914893617,
+            "pips": 5.191489361702128,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0.021276595744680847,
+            "posterior": 0.021276595744680847
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800040,
+      "turn": 19,
+      "passer": 0,
+      "focal": 1,
+      "actions": 2,
+      "knownTiles": 19,
+      "handSizes": [
+        3,
+        3,
+        3
+      ],
+      "proposals": 160,
+      "accepted": 37,
+      "acceptedTrain": 15,
+      "acceptedTest": 22,
+      "acceptanceRate": 0.23125,
+      "worldSeedStart": 1069610280,
+      "continuations": 640,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "double-sequence|||3|3-3",
+          "posteriorChoice": "double-sequence|||3|3-3",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "double-sequence|||3|3-3",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "double-sequence|||3|3-3",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "double-sequence|||3|3-3",
+          "posteriorChoice": "double-sequence|||3|3-3",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "double-sequence|||3|3-3",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "double-sequence|||3|3-3",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800041,
+      "turn": 17,
+      "passer": 2,
+      "focal": 0,
+      "actions": 6,
+      "knownTiles": 18,
+      "handSizes": [
+        4,
+        2,
+        4
+      ],
+      "proposals": 160,
+      "accepted": 53,
+      "acceptedTrain": 29,
+      "acceptedTest": 24,
+      "acceptanceRate": 0.33125,
+      "worldSeedStart": 1069610537,
+      "continuations": 1920,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|down|2||1-2",
+          "posteriorChoice": "single|down|2||1-2",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.4375,
+            "pips": 3.9375
+          },
+          "posteriorTrain": {
+            "win": 0.27586206896551724,
+            "pips": 5.068965517241379
+          },
+          "heldoutPrior": {
+            "key": "single|down|2||1-2",
+            "win": 0.4166666666666667,
+            "pips": 4.083333333333333,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|2||1-2",
+            "win": 0.4166666666666667,
+            "pips": 4.083333333333333,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|down|3||1-3",
+          "posteriorChoice": "single|down|3||1-3",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.225,
+            "pips": 6.2125
+          },
+          "posteriorTrain": {
+            "win": 0.10344827586206896,
+            "pips": 8.448275862068966
+          },
+          "heldoutPrior": {
+            "key": "single|down|3||1-3",
+            "win": 0.125,
+            "pips": 7.875,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|3||1-3",
+            "win": 0.125,
+            "pips": 7.875,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800044,
+      "turn": 19,
+      "passer": 1,
+      "focal": 2,
+      "actions": 3,
+      "knownTiles": 20,
+      "handSizes": [
+        3,
+        2,
+        3
+      ],
+      "proposals": 160,
+      "accepted": 90,
+      "acceptedTrain": 47,
+      "acceptedTest": 43,
+      "acceptanceRate": 0.5625,
+      "worldSeedStart": 1069611308,
+      "continuations": 960,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|left|2||0-2",
+          "posteriorChoice": "single|left|3||0-3",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.3375,
+            "pips": 3.1125
+          },
+          "posteriorTrain": {
+            "win": 0.2765957446808511,
+            "pips": 3.8297872340425534
+          },
+          "heldoutPrior": {
+            "key": "single|left|2||0-2",
+            "win": 0.046511627906976744,
+            "pips": 5.395348837209302,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|3||0-3",
+            "win": 0.16279069767441862,
+            "pips": 4.27906976744186,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0.11627906976744187,
+            "pips": -1.116279069767442,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0.11627906976744187,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|left|2||0-2",
+          "posteriorChoice": "single|left|3||0-3",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.3375,
+            "pips": 3.1125
+          },
+          "posteriorTrain": {
+            "win": 0.2765957446808511,
+            "pips": 3.8297872340425534
+          },
+          "heldoutPrior": {
+            "key": "single|left|2||0-2",
+            "win": 0.046511627906976744,
+            "pips": 5.395348837209302,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|3||0-3",
+            "win": 0.16279069767441862,
+            "pips": 4.27906976744186,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0.11627906976744187,
+            "pips": -1.116279069767442,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0.11627906976744187,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800048,
+      "turn": 11,
+      "passer": 0,
+      "focal": 1,
+      "actions": 2,
+      "knownTiles": 13,
+      "handSizes": [
+        4,
+        6,
+        5
+      ],
+      "proposals": 160,
+      "accepted": 38,
+      "acceptedTrain": 15,
+      "acceptedTest": 23,
+      "acceptanceRate": 0.2375,
+      "worldSeedStart": 1069612336,
+      "continuations": 640,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|left|2||2-4",
+          "posteriorChoice": "single|left|2||2-4",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.075,
+            "pips": 5.0375
+          },
+          "posteriorTrain": {
+            "win": 0.26666666666666666,
+            "pips": 3.7333333333333334
+          },
+          "heldoutPrior": {
+            "key": "single|left|2||2-4",
+            "win": 0.13043478260869565,
+            "pips": 4.913043478260869,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|2||2-4",
+            "win": 0.13043478260869565,
+            "pips": 4.913043478260869,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|left|2||2-4",
+          "posteriorChoice": "single|left|2||2-4",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.0625,
+            "pips": 5.125
+          },
+          "posteriorTrain": {
+            "win": 0.2,
+            "pips": 3.8666666666666667
+          },
+          "heldoutPrior": {
+            "key": "single|left|2||2-4",
+            "win": 0.08695652173913043,
+            "pips": 5.130434782608695,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|2||2-4",
+            "win": 0.08695652173913043,
+            "pips": 5.130434782608695,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800050,
+      "turn": 25,
+      "passer": 1,
+      "focal": 2,
+      "actions": 4,
+      "knownTiles": 24,
+      "handSizes": [
+        1,
+        2,
+        1
+      ],
+      "proposals": 160,
+      "accepted": 50,
+      "acceptedTrain": 23,
+      "acceptedTest": 27,
+      "acceptanceRate": 0.3125,
+      "worldSeedStart": 1069612850,
+      "continuations": 1280,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|down|5||0-5",
+          "posteriorChoice": "single|down|5||0-5",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "single|down|5||0-5",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|5||0-5",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|down|5||0-5",
+          "posteriorChoice": "single|down|5||0-5",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "single|down|5||0-5",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|5||0-5",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800054,
+      "turn": 18,
+      "passer": 2,
+      "focal": 0,
+      "actions": 4,
+      "knownTiles": 15,
+      "handSizes": [
+        4,
+        4,
+        5
+      ],
+      "proposals": 160,
+      "accepted": 76,
+      "acceptedTrain": 35,
+      "acceptedTest": 41,
+      "acceptanceRate": 0.475,
+      "worldSeedStart": 1069613878,
+      "continuations": 1280,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|down|0||0-2",
+          "posteriorChoice": "single|left|0||0-2",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.5875,
+            "pips": 0.6375
+          },
+          "posteriorTrain": {
+            "win": 0.5428571428571428,
+            "pips": 0.5428571428571428
+          },
+          "heldoutPrior": {
+            "key": "single|down|0||0-2",
+            "win": 0.4878048780487805,
+            "pips": 0.7317073170731707,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|0||0-2",
+            "win": 0.4878048780487805,
+            "pips": 0.7317073170731707,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|down|0||0-2",
+          "posteriorChoice": "single|left|0||0-2",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.475,
+            "pips": 1.05
+          },
+          "posteriorTrain": {
+            "win": 0.2571428571428571,
+            "pips": 1
+          },
+          "heldoutPrior": {
+            "key": "single|down|0||0-2",
+            "win": 0.14634146341463414,
+            "pips": 1.951219512195122,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|0||0-2",
+            "win": 0.12195121951219512,
+            "pips": 1.3902439024390243,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": -0.02439024390243902,
+            "pips": -0.5609756097560976,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0.02439024390243902
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800061,
+      "turn": 16,
+      "passer": 2,
+      "focal": 0,
+      "actions": 2,
+      "knownTiles": 16,
+      "handSizes": [
+        4,
+        4,
+        4
+      ],
+      "proposals": 160,
+      "accepted": 81,
+      "acceptedTrain": 45,
+      "acceptedTest": 36,
+      "acceptanceRate": 0.50625,
+      "worldSeedStart": 1069615677,
+      "continuations": 640,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|right|0||0-4",
+          "posteriorChoice": "single|right|0||0-4",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.8375,
+            "pips": 0.3875
+          },
+          "posteriorTrain": {
+            "win": 0.7111111111111111,
+            "pips": 0.6888888888888889
+          },
+          "heldoutPrior": {
+            "key": "single|right|0||0-4",
+            "win": 0.7777777777777778,
+            "pips": 0.2222222222222222,
+            "minus": 0.3055555555555556
+          },
+          "heldoutPosterior": {
+            "key": "single|right|0||0-4",
+            "win": 0.7777777777777778,
+            "pips": 0.2222222222222222,
+            "minus": 0.3055555555555556
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|right|0||0-4",
+          "posteriorChoice": "single|right|0||0-4",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.8375,
+            "pips": 0.1625
+          },
+          "posteriorTrain": {
+            "win": 0.7111111111111111,
+            "pips": 0.28888888888888886
+          },
+          "heldoutPrior": {
+            "key": "single|right|0||0-4",
+            "win": 0.7777777777777778,
+            "pips": 0.2222222222222222,
+            "minus": 0.3055555555555556
+          },
+          "heldoutPosterior": {
+            "key": "single|right|0||0-4",
+            "win": 0.7777777777777778,
+            "pips": 0.2222222222222222,
+            "minus": 0.3055555555555556
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800066,
+      "turn": 4,
+      "passer": 0,
+      "focal": 1,
+      "actions": 7,
+      "knownTiles": 4,
+      "handSizes": [
+        8,
+        8,
+        8
+      ],
+      "proposals": 160,
+      "accepted": 16,
+      "acceptedTrain": 6,
+      "acceptedTest": 10,
+      "acceptanceRate": 0.1,
+      "worldSeedStart": 1069616962,
+      "continuations": 2240,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|down|2||1-2",
+          "posteriorChoice": "single|down|2||1-2",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.4,
+            "pips": 4.3375
+          },
+          "posteriorTrain": {
+            "win": 0.6666666666666666,
+            "pips": 1
+          },
+          "heldoutPrior": {
+            "key": "single|down|2||1-2",
+            "win": 0.3,
+            "pips": 4.2,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|2||1-2",
+            "win": 0.3,
+            "pips": 4.2,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0.10000000000000003,
+            "posterior": 0.10000000000000003
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|right|2||1-2",
+          "posteriorChoice": "single|left|3||1-3",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.4125,
+            "pips": 2.6625
+          },
+          "posteriorTrain": {
+            "win": 0.6666666666666666,
+            "pips": 1.3333333333333333
+          },
+          "heldoutPrior": {
+            "key": "single|right|2||1-2",
+            "win": 0.2,
+            "pips": 4.4,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|3||1-3",
+            "win": 0.4,
+            "pips": 1.7,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0.2,
+            "pips": -2.7,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0.39999999999999997,
+            "posterior": 0.19999999999999996
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800067,
+      "turn": 25,
+      "passer": 1,
+      "focal": 2,
+      "actions": 3,
+      "knownTiles": 23,
+      "handSizes": [
+        2,
+        2,
+        1
+      ],
+      "proposals": 160,
+      "accepted": 78,
+      "acceptedTrain": 40,
+      "acceptedTest": 38,
+      "acceptanceRate": 0.4875,
+      "worldSeedStart": 1069617219,
+      "continuations": 960,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|left|0||0-2",
+          "posteriorChoice": "single|left|0||0-2",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "single|left|0||0-2",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|0||0-2",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|left|0||0-2",
+          "posteriorChoice": "single|left|0||0-2",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "single|left|0||0-2",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|0||0-2",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800068,
+      "turn": 11,
+      "passer": 2,
+      "focal": 0,
+      "actions": 3,
+      "knownTiles": 12,
+      "handSizes": [
+        6,
+        5,
+        5
+      ],
+      "proposals": 160,
+      "accepted": 33,
+      "acceptedTrain": 15,
+      "acceptedTest": 18,
+      "acceptanceRate": 0.20625,
+      "worldSeedStart": 1069617476,
+      "continuations": 960,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|right|2||1-2",
+          "posteriorChoice": "double-sequence|||2|2-2",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.1,
+            "pips": 6.5875
+          },
+          "posteriorTrain": {
+            "win": 0.13333333333333333,
+            "pips": 7.2
+          },
+          "heldoutPrior": {
+            "key": "single|right|2||1-2",
+            "win": 0.2222222222222222,
+            "pips": 4.888888888888889,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "double-sequence|||2|2-2",
+            "win": 0.05555555555555555,
+            "pips": 7.777777777777778,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": -0.16666666666666666,
+            "pips": 2.8888888888888884,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0.16666666666666666
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|right|2||1-2",
+          "posteriorChoice": "single|right|2||1-2",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.1,
+            "pips": 6.5875
+          },
+          "posteriorTrain": {
+            "win": 0.13333333333333333,
+            "pips": 7.933333333333334
+          },
+          "heldoutPrior": {
+            "key": "single|right|2||1-2",
+            "win": 0.2222222222222222,
+            "pips": 4.888888888888889,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|right|2||1-2",
+            "win": 0.2222222222222222,
+            "pips": 4.888888888888889,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800069,
+      "turn": 7,
+      "passer": 1,
+      "focal": 2,
+      "actions": 4,
+      "knownTiles": 7,
+      "handSizes": [
+        7,
+        7,
+        7
+      ],
+      "proposals": 160,
+      "accepted": 74,
+      "acceptedTrain": 37,
+      "acceptedTest": 37,
+      "acceptanceRate": 0.4625,
+      "worldSeedStart": 1069617733,
+      "continuations": 1280,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "double-sequence|||0,4|0-0,4-4",
+          "posteriorChoice": "double-sequence|||0,4|0-0,4-4",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.4125,
+            "pips": 2.8125
+          },
+          "posteriorTrain": {
+            "win": 0.3783783783783784,
+            "pips": 2.72972972972973
+          },
+          "heldoutPrior": {
+            "key": "double-sequence|||0,4|0-0,4-4",
+            "win": 0.4594594594594595,
+            "pips": 2.918918918918919,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "double-sequence|||0,4|0-0,4-4",
+            "win": 0.4594594594594595,
+            "pips": 2.918918918918919,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "double-sequence|||0,4|0-0,4-4",
+          "posteriorChoice": "double-sequence|||0,4|0-0,4-4",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.7875,
+            "pips": 0.85
+          },
+          "posteriorTrain": {
+            "win": 0.8918918918918919,
+            "pips": 0.3783783783783784
+          },
+          "heldoutPrior": {
+            "key": "double-sequence|||0,4|0-0,4-4",
+            "win": 0.8918918918918919,
+            "pips": 0.32432432432432434,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "double-sequence|||0,4|0-0,4-4",
+            "win": 0.8918918918918919,
+            "pips": 0.32432432432432434,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800075,
+      "turn": 22,
+      "passer": 1,
+      "focal": 2,
+      "actions": 2,
+      "knownTiles": 22,
+      "handSizes": [
+        2,
+        2,
+        2
+      ],
+      "proposals": 160,
+      "accepted": 21,
+      "acceptedTrain": 12,
+      "acceptedTest": 9,
+      "acceptanceRate": 0.13125,
+      "worldSeedStart": 1069619275,
+      "continuations": 640,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|down|0||0-1",
+          "posteriorChoice": "single|down|0||0-1",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.175,
+            "pips": 3.3
+          },
+          "posteriorTrain": {
+            "win": 0,
+            "pips": 4
+          },
+          "heldoutPrior": {
+            "key": "single|down|0||0-1",
+            "win": 0,
+            "pips": 4,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|0||0-1",
+            "win": 0,
+            "pips": 4,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|down|0||0-1",
+          "posteriorChoice": "single|down|0||0-1",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.175,
+            "pips": 3.3
+          },
+          "posteriorTrain": {
+            "win": 0,
+            "pips": 4
+          },
+          "heldoutPrior": {
+            "key": "single|down|0||0-1",
+            "win": 0,
+            "pips": 4,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|0||0-1",
+            "win": 0,
+            "pips": 4,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800080,
+      "turn": 19,
+      "passer": 2,
+      "focal": 0,
+      "actions": 4,
+      "knownTiles": 20,
+      "handSizes": [
+        3,
+        3,
+        2
+      ],
+      "proposals": 160,
+      "accepted": 38,
+      "acceptedTrain": 21,
+      "acceptedTest": 17,
+      "acceptanceRate": 0.2375,
+      "worldSeedStart": 1069620560,
+      "continuations": 1280,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|right|0||0-2",
+          "posteriorChoice": "single|right|0||0-2",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.15,
+            "pips": 1.225
+          },
+          "posteriorTrain": {
+            "win": 0.5714285714285714,
+            "pips": 0.42857142857142855
+          },
+          "heldoutPrior": {
+            "key": "single|right|0||0-2",
+            "win": 0.7647058823529411,
+            "pips": 0.23529411764705882,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|right|0||0-2",
+            "win": 0.7647058823529411,
+            "pips": 0.23529411764705882,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|right|0||0-2",
+          "posteriorChoice": "single|right|0||0-2",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.15,
+            "pips": 1.225
+          },
+          "posteriorTrain": {
+            "win": 0.5714285714285714,
+            "pips": 0.42857142857142855
+          },
+          "heldoutPrior": {
+            "key": "single|right|0||0-2",
+            "win": 0.7647058823529411,
+            "pips": 0.23529411764705882,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|right|0||0-2",
+            "win": 0.7647058823529411,
+            "pips": 0.23529411764705882,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800081,
+      "turn": 21,
+      "passer": 2,
+      "focal": 0,
+      "actions": 2,
+      "knownTiles": 21,
+      "handSizes": [
+        2,
+        3,
+        2
+      ],
+      "proposals": 160,
+      "accepted": 103,
+      "acceptedTrain": 52,
+      "acceptedTest": 51,
+      "acceptanceRate": 0.64375,
+      "worldSeedStart": 1069620817,
+      "continuations": 640,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|down|0||0-5",
+          "posteriorChoice": "single|down|0||0-5",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "single|down|0||0-5",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|0||0-5",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|down|0||0-5",
+          "posteriorChoice": "single|down|0||0-5",
+          "changed": false,
+          "priorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "posteriorTrain": {
+            "win": 1,
+            "pips": 0
+          },
+          "heldoutPrior": {
+            "key": "single|down|0||0-5",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|down|0||0-5",
+            "win": 1,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 2800087,
+      "turn": 10,
+      "passer": 0,
+      "focal": 1,
+      "actions": 3,
+      "knownTiles": 10,
+      "handSizes": [
+        6,
+        6,
+        6
+      ],
+      "proposals": 160,
+      "accepted": 19,
+      "acceptedTrain": 8,
+      "acceptedTest": 11,
+      "acceptanceRate": 0.11875,
+      "worldSeedStart": 1069622359,
+      "continuations": 960,
+      "policy": {
+        "closed-branch-control": {
+          "priorChoice": "single|right|0||0-1",
+          "posteriorChoice": "double-sequence|||4|4-4",
+          "changed": true,
+          "priorTrain": {
+            "win": 0.675,
+            "pips": 1.8875
+          },
+          "posteriorTrain": {
+            "win": 0.5,
+            "pips": 2
+          },
+          "heldoutPrior": {
+            "key": "single|right|0||0-1",
+            "win": 0.45454545454545453,
+            "pips": 4.545454545454546,
+            "minus": 0.18181818181818182
+          },
+          "heldoutPosterior": {
+            "key": "double-sequence|||4|4-4",
+            "win": 0.6363636363636364,
+            "pips": 1.5454545454545454,
+            "minus": 0.18181818181818182
+          },
+          "heldoutDelta": {
+            "win": 0.18181818181818182,
+            "pips": -3.0000000000000004,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0.18181818181818182,
+            "posterior": 0
+          }
+        },
+        "min-hand-pips": {
+          "priorChoice": "single|left|0||0-1",
+          "posteriorChoice": "single|left|0||0-1",
+          "changed": false,
+          "priorTrain": {
+            "win": 0.9125,
+            "pips": 0.35
+          },
+          "posteriorTrain": {
+            "win": 0.875,
+            "pips": 0.5
+          },
+          "heldoutPrior": {
+            "key": "single|left|0||0-1",
+            "win": 0.9090909090909091,
+            "pips": 0.36363636363636365,
+            "minus": 0
+          },
+          "heldoutPosterior": {
+            "key": "single|left|0||0-1",
+            "win": 0.9090909090909091,
+            "pips": 0.36363636363636365,
+            "minus": 0
+          },
+          "heldoutDelta": {
+            "win": 0,
+            "pips": 0,
+            "minus": 0
+          },
+          "heldoutRegret": {
+            "prior": 0,
+            "posterior": 0
+          }
+        }
+      }
+    }
+  ],
+  "limitations": "Pass is generated by min-hand-pips bots; uniform allocation proposal conditioned only on observed empty-stock pass (not other opponent actions); no independent human-game validation. Assumed branch semantics, first eligible selection, selected acceptance band, deterministic continuation bots, repeated sampled worlds, no block winner; exploratory position CIs.",
+  "next": "Replicate on disjoint seeds; stratify posterior choice changes by pass severity/branch endpoints; test multiple observed passes with verified hand stability."
+}
