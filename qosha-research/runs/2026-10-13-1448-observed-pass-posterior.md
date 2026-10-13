@@ -1,0 +1,12 @@
+# Observed-pass-conditioned posterior — 2026-10-13 14:48 (+04), Asia/Baku
+
+- Engine/rules: `qosa-research-0.5.3` / recovered `qosa-1.0.0`; primary 3 players × 9 stones. No gameplay rule changes.
+- Scope: `qosha-research/` only. The live scoreboard/PWA remains untouched.
+- Added `simulator/observed-pass-posterior.js` and deterministic regression `observed-pass-posterior-test.js`.
+- Method: preserve fixed focal hand, played/known tiles, board, hand sizes, and seed; reject hidden allocations incompatible with a verified opponent pass at the *pass-time* branch/open snapshot. Only applies if the stock was empty and a complete, explicitly verified intervening turn log proves that opponent's hand did not change. Missing evidence, changed hand, stock draw, turn-order mismatch, inconsistent board or zero posterior support => error, never silent assumption.
+- Validation fixture (synthetic, NOT a reachable-game strategy sample): proposal seeds **9300..9799**, 500 prior hidden allocations; **60 accepted / 440 rejected**, 57 distinct accepted target-opponent hands. 28 unique tiles, deterministic replay, unchanged source state and pass-consistent hands confirmed. Existing JS dependencies plus new test executed successfully in V8 CommonJS harness; **Node CLI not executed**.
+- Strategy deals this run: **0**; full strategy rounds validated previously: **180,000** (historical 4,000 separate). No new human-gameplay rule or strategy advantage claimed.
+- Confidence: high for deterministic filtering on the synthetic fixture; conditional posterior correctness still depends on truth/completeness of observed event history and assumed branch legality. The test does not establish an empirical win-rate improvement.
+- Limitation: a hand that changed since the observed pass cannot be constrained using the old pass; event-log attestation is supplied by the caller, not independently reconstructed from a full replay. Sampling can be inefficient for rare pass histories; acceptance rate is a diagnostic, not an outcome metric.
+- Exact next hypothesis/action: capture **reachable** 3×9 positions with verified stock-empty pass snapshots and full intervening turns; compare uniform versus pass-conditioned hidden worlds on identical deterministic proposals and candidate rollouts (>=8 accepted worlds per position). Test whether conditioning changes best move, first-place probability, remainder, minus-finish and regret on fresh seed sets; keep old unconditioned runs separate.
+- Reproduce: `node qosha-research/simulator/observed-pass-posterior-test.js`.
