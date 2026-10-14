@@ -1,0 +1,13 @@
+# Independent matched-K next-opponent mobility audit — 2026-10-14 08:51 Asia/Baku
+
+Engine: `qosa-research-0.5.3`; rules: recovered `qosa-1.0.0`; 3 players × 9 stones. Deterministic deal seeds **3610000..3619999**, 10,000 deals scanned/initialized. Discovery policy: `closed-branch-control`, reachable turns 4..24 without earlier passes. Test fixture seed 3603084 passed in V8 CommonJS; Node CLI not run.
+
+Matched legal **single vs one-double-opening** moves, equal discarded pips, equal remaining hand size, different retained-double count, and equal **K** (number of distinct unknown stones immediately playable after the move). Found **72 positions, 110 matched action pairs**. Exact playable-stone sets matched in **0/110**; identical branch ends **0/110**, identical opened numbers **0/110**. Early/middle/late pairs: **7/50/15**.
+
+Using the next clockwise opponent's *actual simulated hand* (diagnostic, not a real-game hidden-world posterior), number of legal actions differed in **89/110 (80.91%)** pairs. After single: more choices in **18** pairs; after opening a double: more in **71**; tied in **21**. Mean legal actions: **2.800** after single versus **4.273** after double. Next-opponent play/pass changed in **4/110**; both playable in **106**, both passed in **0**. Shared playable unknown-stone identities across paired moves: **343/529 (64.84%)**.
+
+Finding: equal K is NOT equal next-opponent freedom to choose moves, since one playable stone may have several legal branch placements. This is a structural model observation, not proof that saving doubles causally improves wins. One discovery policy, assumption-labelled branch opening, no earlier passes, actual next hand known only to diagnostic. No new full tournament rounds; verified prior **180,000** full rounds; historical 4,000 separate. No new Monte Carlo worlds, win-rate, remainder, or minus estimates.
+
+**Reproducibility:** start from `qosha-research/simulator/exact-playable-audit.js` on this branch. For each candidate move, after `applyTurn`, call `turnOptions(result.branchState, result.openingState, state.hands[(state.currentPlayer+1)%3], result.stock)` and record `actions.length` and `phase`. In the existing matched-K pair loop, compare those two values for each single-versus-double pair. Preserve the seed range and filters above. New `matched-k-mobility.js` code was executed in V8, but GitHub rejected its write; this checkpoint records the exact method and results without claiming code was persisted.
+
+**Next:** recover script write, rerun in Node, then paired hidden-world rollouts on independent seeds stratified by legal-action count and playable-identity overlap; compare finish-first, remaining pips, minus and regret.
