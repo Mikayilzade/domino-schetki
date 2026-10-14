@@ -29,7 +29,7 @@ function choosePair(s){
  pairs.sort((a,b)=>(a.single+'|'+a.double).localeCompare(b.single+'|'+b.double));
  return pairs[0]||null;
 }
-function discover(start,end,limit){
+function discover(start,end,limit,discoveryPolicy='closed-branch-control'){
  if(!Number.isSafeInteger(start)||!Number.isSafeInteger(end)||end<=start||!Number.isInteger(limit)||limit<1)throw Error('bad discovery arguments');
  const positions=[];let scanned=0;
  for(let seed=start;seed<end&&positions.length<limit;seed++){
@@ -44,7 +44,7 @@ function discover(start,end,limit){
     if(pair){positions.push({seed,turn:s.turns,phase:s.turns<=7?'early':s.turns<=14?'mid':'late',focal:s.currentPlayer,
       state:rd.cloneRoundState(s),pair});break;}
    }
-   s=rd.stepRound(s,(opts,t)=>chooseBy('closed-branch-control',opts,{seed,turns:t.turns,player:t.currentPlayer}));
+   s=rd.stepRound(s,(opts,t)=>chooseBy(discoveryPolicy,opts,{seed,turns:t.turns,player:t.currentPlayer}));
   }
  }
  return {scanned,positions};
@@ -75,9 +75,9 @@ function summarize(xs){
  const sd=n>1?Math.sqrt(xs.reduce((a,b)=>a+(b-mean)**2,0)/(n-1)):0;
  return {n,mean,exploratoryPositionCI95:n>1?[mean-1.96*sd/Math.sqrt(n),mean+1.96*sd/Math.sqrt(n)]:null};
 }
-function run(start=3620000,end=3630000,limit=30,worlds=20,policies=POLICIES){
+function run(start=3620000,end=3630000,limit=30,worlds=20,policies=POLICIES,discoveryPolicy='closed-branch-control'){
  if(!Number.isInteger(worlds)||worlds<1||worlds>1000||!Array.isArray(policies)||!policies.length)throw Error('bad worlds/policies');
- const discovery=discover(start,end,limit);
+ const discovery=discover(start,end,limit,discoveryPolicy);
  const all=[],global={singleRestricts:0,doubleRestricts:0,equal:0,passFlips:0,bothPlay:0,bothPass:0,
   singleActions:0,doubleActions:0,uniqueAllocations:0,worlds:0,continuations:0};
  const byPolicy=Object.fromEntries(policies.map(p=>[p,{win:[],pips:[],minus:[],block:[],byMobility:{singleRestricts:[],doubleRestricts:[],equal:[]}}]));
@@ -128,7 +128,7 @@ function run(start=3620000,end=3630000,limit=30,worlds=20,policies=POLICIES){
    winTiedPositions:g.win.filter(x=>x===0).length}];
  }));
  return {schema:'qosa-matched-k-outcomes/v1',engine:'qosa-research-0.5.3',rules:'qosa-1.0.0',mode:'3x9',
-  discoverySeeds:[start,end-1],scannedDeals:discovery.scanned,selectedPositions:all.length,
+  discoverySeeds:[start,end-1],scannedDeals:discovery.scanned,selectedPositions:all.length,discoveryPolicy,
   selection:'first eligible state and lexicographically first single-vs-one-double pair per deal; turns 4..24, no earlier pass; equal discarded pips, remaining hand size, and distinct playable unknown stone count K',
   worldsPerPosition:worlds,worldSeedFormula:'(1500000000 + Math.imul(dealSeed,73) + worldIndex) >>> 0',
   policies,global,metrics,positions:all,
@@ -141,11 +141,13 @@ function test(){
  const b=run(3603084,3603085,1,3,['closed-branch-control']);
  if(JSON.stringify(a)!==JSON.stringify(b)||a.selectedPositions!==1||a.global.worlds!==3||a.global.continuations!==6)throw Error('deterministic fixture failed');
  if(a.global.singleRestricts+a.global.doubleRestricts+a.global.equal!==3)throw Error('mobility partition failed');
- return {passed:true,fixture:3603084,worlds:3};
+ const alt=run(3650080,3650081,1,3,['min-hand-pips'],'min-hand-pips');
+ if(alt.selectedPositions!==1||alt.discoveryPolicy!=='min-hand-pips'||alt.global.continuations!==6)throw Error('alternate discovery fixture failed');
+ return {passed:true,fixture:3603084,alternateDiscoveryFixture:3650080,worlds:3};
 }
 if(require.main===module){
  const args=process.argv.slice(2);
  console.log(JSON.stringify(args[0]==='test'?test():run(
-  Number(args[0]||3620000),Number(args[1]||3630000),Number(args[2]||30),Number(args[3]||20)),null,2));
+  Number(args[0]||3620000),Number(args[1]||3630000),Number(args[2]||30),Number(args[3]||20),POLICIES,args[4]||'closed-branch-control'),null,2));
 }
 module.exports={choosePair,discover,run,test};

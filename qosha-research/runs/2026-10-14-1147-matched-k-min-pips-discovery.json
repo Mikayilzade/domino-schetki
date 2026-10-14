@@ -1,0 +1,1906 @@
+{
+  "schema": "qosa-matched-k-outcomes/v1",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "discoverySeeds": [
+    3650000,
+    3669999
+  ],
+  "scannedDeals": 1662,
+  "selectedPositions": 40,
+  "discoveryPolicy": "min-hand-pips",
+  "selection": "first eligible state and lexicographically first single-vs-one-double pair per deal; turns 4..24, no earlier pass; equal discarded pips, remaining hand size, and distinct playable unknown stone count K",
+  "worldsPerPosition": 25,
+  "worldSeedFormula": "(1500000000 + Math.imul(dealSeed,73) + worldIndex) >>> 0",
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "global": {
+    "singleRestricts": 788,
+    "doubleRestricts": 71,
+    "equal": 141,
+    "passFlips": 15,
+    "bothPlay": 985,
+    "bothPass": 0,
+    "singleActions": 3432,
+    "doubleActions": 5123,
+    "uniqueAllocations": 906,
+    "worlds": 1000,
+    "continuations": 6000
+  },
+  "metrics": {
+    "closed-branch-control": {
+      "positionWeighted": {
+        "win": {
+          "n": 40,
+          "mean": 0.17200000000000007,
+          "exploratoryPositionCI95": [
+            0.11099973064372212,
+            0.23300026935627802
+          ]
+        },
+        "pips": {
+          "n": 40,
+          "mean": -1.247,
+          "exploratoryPositionCI95": [
+            -1.8164536282329689,
+            -0.6775463717670314
+          ]
+        },
+        "minus": {
+          "n": 40,
+          "mean": 0.047999999999999994,
+          "exploratoryPositionCI95": [
+            -0.003318267252959299,
+            0.09931826725295928
+          ]
+        },
+        "block": {
+          "n": 40,
+          "mean": -0.002000000000000001,
+          "exploratoryPositionCI95": [
+            -0.024969103886162677,
+            0.020969103886162674
+          ]
+        }
+      },
+      "byNextMobility": {
+        "singleRestricts": {
+          "n": 788,
+          "mean": 0.18401015228426396,
+          "exploratoryPositionCI95": [
+            0.1449481827790398,
+            0.2230721217894881
+          ]
+        },
+        "doubleRestricts": {
+          "n": 71,
+          "mean": 0.1267605633802817,
+          "exploratoryPositionCI95": [
+            0.0028642856261013594,
+            0.250656841134462
+          ]
+        },
+        "equal": {
+          "n": 141,
+          "mean": 0.1276595744680851,
+          "exploratoryPositionCI95": [
+            0.05163109982012232,
+            0.20368804911604788
+          ]
+        }
+      },
+      "winPositivePositions": 31,
+      "winNegativePositions": 6,
+      "winTiedPositions": 3
+    },
+    "min-hand-pips": {
+      "positionWeighted": {
+        "win": {
+          "n": 40,
+          "mean": 0.09500000000000001,
+          "exploratoryPositionCI95": [
+            0.041025808636596224,
+            0.1489741913634038
+          ]
+        },
+        "pips": {
+          "n": 40,
+          "mean": -0.7390000000000001,
+          "exploratoryPositionCI95": [
+            -1.3094152621038693,
+            -0.16858473789613104
+          ]
+        },
+        "minus": {
+          "n": 40,
+          "mean": 0.013000000000000001,
+          "exploratoryPositionCI95": [
+            -0.02385714125564353,
+            0.04985714125564353
+          ]
+        },
+        "block": {
+          "n": 40,
+          "mean": -0.0020000000000000026,
+          "exploratoryPositionCI95": [
+            -0.02444858832863924,
+            0.020448588328639238
+          ]
+        }
+      },
+      "byNextMobility": {
+        "singleRestricts": {
+          "n": 788,
+          "mean": 0.10279187817258884,
+          "exploratoryPositionCI95": [
+            0.06788757961078555,
+            0.1376961767343921
+          ]
+        },
+        "doubleRestricts": {
+          "n": 71,
+          "mean": 0,
+          "exploratoryPositionCI95": [
+            -0.09630936069638546,
+            0.09630936069638546
+          ]
+        },
+        "equal": {
+          "n": 141,
+          "mean": 0.09929078014184398,
+          "exploratoryPositionCI95": [
+            0.03295740472394987,
+            0.16562415555973808
+          ]
+        }
+      },
+      "winPositivePositions": 26,
+      "winNegativePositions": 10,
+      "winTiedPositions": 4
+    },
+    "fast-doubles": {
+      "positionWeighted": {
+        "win": {
+          "n": 40,
+          "mean": 0.05700000000000001,
+          "exploratoryPositionCI95": [
+            0.006479707656610517,
+            0.1075202923433895
+          ]
+        },
+        "pips": {
+          "n": 40,
+          "mean": -0.4720000000000001,
+          "exploratoryPositionCI95": [
+            -0.915667916282507,
+            -0.028332083717493184
+          ]
+        },
+        "minus": {
+          "n": 40,
+          "mean": 0,
+          "exploratoryPositionCI95": [
+            0,
+            0
+          ]
+        },
+        "block": {
+          "n": 40,
+          "mean": -0.009000000000000001,
+          "exploratoryPositionCI95": [
+            -0.032061121906571316,
+            0.014061121906571317
+          ]
+        }
+      },
+      "byNextMobility": {
+        "singleRestricts": {
+          "n": 788,
+          "mean": 0.05710659898477157,
+          "exploratoryPositionCI95": [
+            0.02519148550553864,
+            0.0890217124640045
+          ]
+        },
+        "doubleRestricts": {
+          "n": 71,
+          "mean": 0.028169014084507043,
+          "exploratoryPositionCI95": [
+            -0.05950099532289603,
+            0.11583902349191012
+          ]
+        },
+        "equal": {
+          "n": 141,
+          "mean": 0.07092198581560284,
+          "exploratoryPositionCI95": [
+            0.0007661811396394713,
+            0.1410777904915662
+          ]
+        }
+      },
+      "winPositivePositions": 19,
+      "winNegativePositions": 11,
+      "winTiedPositions": 10
+    }
+  },
+  "positions": [
+    {
+      "seed": 3650080,
+      "turn": 7,
+      "phase": "early",
+      "focal": 0,
+      "pair": {
+        "single": "single|left|3||1-3",
+        "double": "double-sequence|||2|2-2",
+        "K": 4,
+        "overlap": 2
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 16,
+        "doubleRestricts": 3,
+        "equal": 6,
+        "passFlips": 2,
+        "singleActions": 53,
+        "doubleActions": 77
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.32,
+          "pips": -3.08,
+          "minus": -0.04,
+          "block": -0.04
+        },
+        "min-hand-pips": {
+          "win": 0.12,
+          "pips": -0.8,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.52,
+          "pips": -0.96,
+          "minus": 0,
+          "block": 0
+        }
+      }
+    },
+    {
+      "seed": 3650141,
+      "turn": 9,
+      "phase": "mid",
+      "focal": 1,
+      "pair": {
+        "single": "single|left|5||1-5",
+        "double": "double-sequence|||3|3-3",
+        "K": 6,
+        "overlap": 4
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 21,
+        "doubleRestricts": 2,
+        "equal": 2,
+        "passFlips": 0,
+        "singleActions": 73,
+        "doubleActions": 117
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": -0.12,
+          "pips": 1.92,
+          "minus": 0,
+          "block": -0.04
+        },
+        "min-hand-pips": {
+          "win": 0.12,
+          "pips": -2.84,
+          "minus": 0,
+          "block": -0.04
+        },
+        "fast-doubles": {
+          "win": 0.08,
+          "pips": -0.44,
+          "minus": 0,
+          "block": 0
+        }
+      }
+    },
+    {
+      "seed": 3650195,
+      "turn": 8,
+      "phase": "mid",
+      "focal": 2,
+      "pair": {
+        "single": "single|right|5||1-5",
+        "double": "double-sequence|||3|3-3",
+        "K": 4,
+        "overlap": 1
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 17,
+        "doubleRestricts": 3,
+        "equal": 5,
+        "passFlips": 0,
+        "singleActions": 56,
+        "doubleActions": 87
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.08,
+          "pips": -0.2,
+          "minus": 0,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": -0.04,
+          "pips": -0.2,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.04,
+          "pips": 0.32,
+          "minus": 0,
+          "block": 0
+        }
+      }
+    },
+    {
+      "seed": 3650200,
+      "turn": 7,
+      "phase": "early",
+      "focal": 0,
+      "pair": {
+        "single": "single|left|2||2-6",
+        "double": "double-sequence|||4|4-4",
+        "K": 6,
+        "overlap": 4
+      },
+      "uniqueAllocations": 24,
+      "immediate": {
+        "singleRestricts": 21,
+        "doubleRestricts": 0,
+        "equal": 4,
+        "passFlips": 0,
+        "singleActions": 102,
+        "doubleActions": 149
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.2,
+          "pips": -1.56,
+          "minus": 0.08,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": -0.08,
+          "pips": -1,
+          "minus": -0.04,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -3.88,
+          "minus": 0,
+          "block": 0
+        }
+      }
+    },
+    {
+      "seed": 3650254,
+      "turn": 10,
+      "phase": "mid",
+      "focal": 2,
+      "pair": {
+        "single": "single|left|5||1-5",
+        "double": "double-sequence|||3|3-3",
+        "K": 7,
+        "overlap": 6
+      },
+      "uniqueAllocations": 24,
+      "immediate": {
+        "singleRestricts": 24,
+        "doubleRestricts": 0,
+        "equal": 1,
+        "passFlips": 0,
+        "singleActions": 106,
+        "doubleActions": 173
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.32,
+          "pips": -1.88,
+          "minus": 0.12,
+          "block": -0.08
+        },
+        "min-hand-pips": {
+          "win": 0.24,
+          "pips": -2.32,
+          "minus": 0,
+          "block": -0.04
+        },
+        "fast-doubles": {
+          "win": -0.08,
+          "pips": 1.12,
+          "minus": 0,
+          "block": 0
+        }
+      }
+    },
+    {
+      "seed": 3650316,
+      "turn": 7,
+      "phase": "early",
+      "focal": 1,
+      "pair": {
+        "single": "single|down|5||3-5",
+        "double": "double-sequence|||4|4-4",
+        "K": 7,
+        "overlap": 6
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 25,
+        "doubleRestricts": 0,
+        "equal": 0,
+        "passFlips": 0,
+        "singleActions": 119,
+        "doubleActions": 169
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.28,
+          "pips": -1.36,
+          "minus": 0.08,
+          "block": 0.04
+        },
+        "min-hand-pips": {
+          "win": 0.2,
+          "pips": -0.24,
+          "minus": 0.08,
+          "block": 0.08
+        },
+        "fast-doubles": {
+          "win": -0.04,
+          "pips": 0.08,
+          "minus": 0,
+          "block": -0.04
+        }
+      }
+    },
+    {
+      "seed": 3650319,
+      "turn": 6,
+      "phase": "early",
+      "focal": 2,
+      "pair": {
+        "single": "single|down|6||4-6",
+        "double": "double-sequence|||5|5-5",
+        "K": 9,
+        "overlap": 7
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 15,
+        "doubleRestricts": 4,
+        "equal": 6,
+        "passFlips": 0,
+        "singleActions": 126,
+        "doubleActions": 147
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.28,
+          "pips": -3.6,
+          "minus": 0.04,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": 0.16,
+          "pips": -1.32,
+          "minus": 0,
+          "block": -0.04
+        },
+        "fast-doubles": {
+          "win": 0.08,
+          "pips": -1.08,
+          "minus": 0,
+          "block": 0.08
+        }
+      }
+    },
+    {
+      "seed": 3650362,
+      "turn": 9,
+      "phase": "mid",
+      "focal": 0,
+      "pair": {
+        "single": "single|down|4||0-4",
+        "double": "double-sequence|||2|2-2",
+        "K": 8,
+        "overlap": 7
+      },
+      "uniqueAllocations": 21,
+      "immediate": {
+        "singleRestricts": 16,
+        "doubleRestricts": 3,
+        "equal": 6,
+        "passFlips": 0,
+        "singleActions": 136,
+        "doubleActions": 157
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.04,
+          "pips": 0.44,
+          "minus": 0,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": 0.04,
+          "pips": 0.44,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0.44,
+          "minus": 0,
+          "block": 0.04
+        }
+      }
+    },
+    {
+      "seed": 3650372,
+      "turn": 11,
+      "phase": "mid",
+      "focal": 1,
+      "pair": {
+        "single": "single|down|3||3-5",
+        "double": "double-sequence|||4|4-4",
+        "K": 7,
+        "overlap": 6
+      },
+      "uniqueAllocations": 24,
+      "immediate": {
+        "singleRestricts": 20,
+        "doubleRestricts": 2,
+        "equal": 3,
+        "passFlips": 0,
+        "singleActions": 97,
+        "doubleActions": 132
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.64,
+          "pips": -3.68,
+          "minus": 0.12,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": -1.64,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -1.64,
+          "minus": 0,
+          "block": 0
+        }
+      }
+    },
+    {
+      "seed": 3650374,
+      "turn": 8,
+      "phase": "mid",
+      "focal": 2,
+      "pair": {
+        "single": "single|down|6||4-6",
+        "double": "double-sequence|||5|5-5",
+        "K": 7,
+        "overlap": 6
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 21,
+        "doubleRestricts": 0,
+        "equal": 4,
+        "passFlips": 0,
+        "singleActions": 83,
+        "doubleActions": 136
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.2,
+          "pips": -1.72,
+          "minus": 0,
+          "block": 0.08
+        },
+        "min-hand-pips": {
+          "win": 0.12,
+          "pips": -2.52,
+          "minus": 0,
+          "block": 0.16
+        },
+        "fast-doubles": {
+          "win": -0.04,
+          "pips": -0.96,
+          "minus": 0,
+          "block": 0.12
+        }
+      }
+    },
+    {
+      "seed": 3650456,
+      "turn": 7,
+      "phase": "early",
+      "focal": 0,
+      "pair": {
+        "single": "single|left|6||0-6",
+        "double": "double-sequence|||3|3-3",
+        "K": 7,
+        "overlap": 5
+      },
+      "uniqueAllocations": 23,
+      "immediate": {
+        "singleRestricts": 19,
+        "doubleRestricts": 2,
+        "equal": 4,
+        "passFlips": 0,
+        "singleActions": 115,
+        "doubleActions": 148
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.12,
+          "pips": -1.2,
+          "minus": 0,
+          "block": 0.08
+        },
+        "min-hand-pips": {
+          "win": -0.12,
+          "pips": 2.68,
+          "minus": 0,
+          "block": -0.04
+        },
+        "fast-doubles": {
+          "win": -0.12,
+          "pips": 0.76,
+          "minus": 0,
+          "block": 0
+        }
+      }
+    },
+    {
+      "seed": 3650480,
+      "turn": 8,
+      "phase": "mid",
+      "focal": 0,
+      "pair": {
+        "single": "single|up|0||0-6",
+        "double": "double-sequence|||3|3-3",
+        "K": 8,
+        "overlap": 7
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 16,
+        "doubleRestricts": 0,
+        "equal": 9,
+        "passFlips": 0,
+        "singleActions": 86,
+        "doubleActions": 109
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.28,
+          "pips": -1,
+          "minus": 0,
+          "block": 0.2
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0.8,
+          "minus": 0,
+          "block": 0.2
+        },
+        "fast-doubles": {
+          "win": 0.04,
+          "pips": -0.56,
+          "minus": 0,
+          "block": 0.04
+        }
+      }
+    },
+    {
+      "seed": 3650488,
+      "turn": 18,
+      "phase": "late",
+      "focal": 1,
+      "pair": {
+        "single": "single|right|0||0-4",
+        "double": "double-sequence|||2|2-2",
+        "K": 4,
+        "overlap": 2
+      },
+      "uniqueAllocations": 13,
+      "immediate": {
+        "singleRestricts": 22,
+        "doubleRestricts": 2,
+        "equal": 1,
+        "passFlips": 0,
+        "singleActions": 44,
+        "doubleActions": 102
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.28,
+          "pips": -1.12,
+          "minus": 0,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": 0.28,
+          "pips": -1.12,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.28,
+          "pips": -1.12,
+          "minus": 0,
+          "block": 0
+        }
+      }
+    },
+    {
+      "seed": 3650491,
+      "turn": 10,
+      "phase": "mid",
+      "focal": 1,
+      "pair": {
+        "single": "single|left|5||1-5",
+        "double": "double-sequence|||3|3-3",
+        "K": 6,
+        "overlap": 4
+      },
+      "uniqueAllocations": 23,
+      "immediate": {
+        "singleRestricts": 18,
+        "doubleRestricts": 5,
+        "equal": 2,
+        "passFlips": 0,
+        "singleActions": 87,
+        "doubleActions": 123
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": -0.12,
+          "pips": 0.36,
+          "minus": -0.36,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": 0.4,
+          "pips": -1.2,
+          "minus": 0,
+          "block": -0.08
+        },
+        "fast-doubles": {
+          "win": 0.4,
+          "pips": -1.2,
+          "minus": 0,
+          "block": -0.08
+        }
+      }
+    },
+    {
+      "seed": 3650519,
+      "turn": 5,
+      "phase": "early",
+      "focal": 0,
+      "pair": {
+        "single": "single|down|4||4-6",
+        "double": "double-sequence|||5|5-5",
+        "K": 5,
+        "overlap": 5
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 21,
+        "doubleRestricts": 0,
+        "equal": 4,
+        "passFlips": 0,
+        "singleActions": 49,
+        "doubleActions": 83
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.12,
+          "pips": -3.52,
+          "minus": 0.04,
+          "block": 0.12
+        },
+        "min-hand-pips": {
+          "win": 0.12,
+          "pips": -4.08,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.08,
+          "pips": -4.08,
+          "minus": 0,
+          "block": -0.04
+        }
+      }
+    },
+    {
+      "seed": 3650538,
+      "turn": 10,
+      "phase": "mid",
+      "focal": 0,
+      "pair": {
+        "single": "single|down|6||2-6",
+        "double": "double-sequence|||4|4-4",
+        "K": 6,
+        "overlap": 4
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 18,
+        "doubleRestricts": 2,
+        "equal": 5,
+        "passFlips": 0,
+        "singleActions": 80,
+        "doubleActions": 107
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 0.56,
+          "minus": 0.08,
+          "block": 0.04
+        },
+        "min-hand-pips": {
+          "win": -0.08,
+          "pips": 1.84,
+          "minus": 0,
+          "block": -0.04
+        },
+        "fast-doubles": {
+          "win": 0.44,
+          "pips": -1.36,
+          "minus": 0,
+          "block": 0.04
+        }
+      }
+    },
+    {
+      "seed": 3650612,
+      "turn": 8,
+      "phase": "mid",
+      "focal": 0,
+      "pair": {
+        "single": "single|down|2||2-4",
+        "double": "double-sequence|||3|3-3",
+        "K": 5,
+        "overlap": 4
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 21,
+        "doubleRestricts": 2,
+        "equal": 2,
+        "passFlips": 2,
+        "singleActions": 54,
+        "doubleActions": 100
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.04,
+          "pips": -2,
+          "minus": 0,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": -0.24,
+          "minus": 0,
+          "block": 0.12
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -0.28,
+          "minus": 0,
+          "block": 0.16
+        }
+      }
+    },
+    {
+      "seed": 3650660,
+      "turn": 13,
+      "phase": "mid",
+      "focal": 0,
+      "pair": {
+        "single": "single|right|3||1-3",
+        "double": "double-sequence|||2|2-2",
+        "K": 8,
+        "overlap": 7
+      },
+      "uniqueAllocations": 23,
+      "immediate": {
+        "singleRestricts": 20,
+        "doubleRestricts": 2,
+        "equal": 3,
+        "passFlips": 0,
+        "singleActions": 135,
+        "doubleActions": 180
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": -0.08,
+          "minus": 0.56,
+          "block": -0.08
+        },
+        "min-hand-pips": {
+          "win": -0.04,
+          "pips": 0.16,
+          "minus": 0.24,
+          "block": -0.08
+        },
+        "fast-doubles": {
+          "win": 0.12,
+          "pips": -0.4,
+          "minus": 0,
+          "block": -0.08
+        }
+      }
+    },
+    {
+      "seed": 3650711,
+      "turn": 10,
+      "phase": "mid",
+      "focal": 0,
+      "pair": {
+        "single": "single|left|5||3-5",
+        "double": "double-sequence|||4|4-4",
+        "K": 7,
+        "overlap": 5
+      },
+      "uniqueAllocations": 24,
+      "immediate": {
+        "singleRestricts": 16,
+        "doubleRestricts": 3,
+        "equal": 6,
+        "passFlips": 0,
+        "singleActions": 110,
+        "doubleActions": 137
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 0.6,
+          "minus": 0,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": -0.28,
+          "pips": 1.68,
+          "minus": -0.24,
+          "block": 0.04
+        },
+        "fast-doubles": {
+          "win": -0.04,
+          "pips": 0.4,
+          "minus": 0,
+          "block": 0.04
+        }
+      }
+    },
+    {
+      "seed": 3650822,
+      "turn": 6,
+      "phase": "early",
+      "focal": 2,
+      "pair": {
+        "single": "single|right|0||0-4",
+        "double": "double-sequence|||2|2-2",
+        "K": 9,
+        "overlap": 8
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 23,
+        "doubleRestricts": 1,
+        "equal": 1,
+        "passFlips": 0,
+        "singleActions": 134,
+        "doubleActions": 174
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.2,
+          "pips": -1.04,
+          "minus": -0.04,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": 0.6,
+          "pips": -4.32,
+          "minus": 0.04,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.32,
+          "pips": -1.52,
+          "minus": 0,
+          "block": -0.04
+        }
+      }
+    },
+    {
+      "seed": 3650830,
+      "turn": 8,
+      "phase": "mid",
+      "focal": 2,
+      "pair": {
+        "single": "single|left|5||1-5",
+        "double": "double-sequence|||3|3-3",
+        "K": 7,
+        "overlap": 4
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 22,
+        "doubleRestricts": 0,
+        "equal": 3,
+        "passFlips": 0,
+        "singleActions": 84,
+        "doubleActions": 143
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": -0.16,
+          "pips": 0.2,
+          "minus": -0.04,
+          "block": 0.08
+        },
+        "min-hand-pips": {
+          "win": -0.08,
+          "pips": 0.04,
+          "minus": -0.04,
+          "block": 0.12
+        },
+        "fast-doubles": {
+          "win": 0.16,
+          "pips": -0.28,
+          "minus": 0,
+          "block": -0.08
+        }
+      }
+    },
+    {
+      "seed": 3650844,
+      "turn": 14,
+      "phase": "mid",
+      "focal": 2,
+      "pair": {
+        "single": "single|down|0||0-4",
+        "double": "double-sequence|||2|2-2",
+        "K": 5,
+        "overlap": 3
+      },
+      "uniqueAllocations": 20,
+      "immediate": {
+        "singleRestricts": 21,
+        "doubleRestricts": 3,
+        "equal": 1,
+        "passFlips": 0,
+        "singleActions": 67,
+        "doubleActions": 142
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": -0.2,
+          "pips": 1.16,
+          "minus": 0.6,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": -0.2,
+          "pips": 1.16,
+          "minus": 0.6,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.32,
+          "pips": 2,
+          "minus": 0,
+          "block": 0
+        }
+      }
+    },
+    {
+      "seed": 3650966,
+      "turn": 19,
+      "phase": "late",
+      "focal": 1,
+      "pair": {
+        "single": "single|up|0||0-4",
+        "double": "double-sequence|||2|2-2",
+        "K": 2,
+        "overlap": 0
+      },
+      "uniqueAllocations": 6,
+      "immediate": {
+        "singleRestricts": 23,
+        "doubleRestricts": 2,
+        "equal": 0,
+        "passFlips": 9,
+        "singleActions": 20,
+        "doubleActions": 90
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.28,
+          "pips": -0.56,
+          "minus": 0,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": 0.28,
+          "pips": -0.56,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.28,
+          "pips": -0.56,
+          "minus": 0,
+          "block": 0
+        }
+      }
+    },
+    {
+      "seed": 3650990,
+      "turn": 11,
+      "phase": "mid",
+      "focal": 0,
+      "pair": {
+        "single": "single|left|0||0-4",
+        "double": "double-sequence|||2|2-2",
+        "K": 4,
+        "overlap": 3
+      },
+      "uniqueAllocations": 23,
+      "immediate": {
+        "singleRestricts": 22,
+        "doubleRestricts": 1,
+        "equal": 2,
+        "passFlips": 1,
+        "singleActions": 50,
+        "doubleActions": 100
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.28,
+          "pips": -4.56,
+          "minus": 0,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": 0.12,
+          "pips": -4.32,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.12,
+          "pips": -0.8,
+          "minus": 0,
+          "block": 0
+        }
+      }
+    },
+    {
+      "seed": 3651015,
+      "turn": 7,
+      "phase": "early",
+      "focal": 0,
+      "pair": {
+        "single": "single|left|6||2-6",
+        "double": "double-sequence|||4|4-4",
+        "K": 7,
+        "overlap": 5
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 21,
+        "doubleRestricts": 1,
+        "equal": 3,
+        "passFlips": 0,
+        "singleActions": 94,
+        "doubleActions": 153
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": -0.12,
+          "pips": 1.04,
+          "minus": -0.12,
+          "block": 0.08
+        },
+        "min-hand-pips": {
+          "win": 0.12,
+          "pips": -0.16,
+          "minus": 0,
+          "block": 0.04
+        },
+        "fast-doubles": {
+          "win": -0.08,
+          "pips": -0.04,
+          "minus": 0,
+          "block": 0
+        }
+      }
+    },
+    {
+      "seed": 3651019,
+      "turn": 8,
+      "phase": "mid",
+      "focal": 1,
+      "pair": {
+        "single": "single|left|4||4-6",
+        "double": "double-sequence|||5|5-5",
+        "K": 6,
+        "overlap": 4
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 13,
+        "doubleRestricts": 7,
+        "equal": 5,
+        "passFlips": 0,
+        "singleActions": 84,
+        "doubleActions": 94
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": -0.12,
+          "pips": -0.6,
+          "minus": -0.12,
+          "block": -0.04
+        },
+        "min-hand-pips": {
+          "win": -0.12,
+          "pips": 0.4,
+          "minus": -0.08,
+          "block": 0.04
+        },
+        "fast-doubles": {
+          "win": -0.08,
+          "pips": 1.84,
+          "minus": 0,
+          "block": 0.04
+        }
+      }
+    },
+    {
+      "seed": 3651030,
+      "turn": 17,
+      "phase": "late",
+      "focal": 0,
+      "pair": {
+        "single": "single|left|0||0-4",
+        "double": "double-sequence|||2|2-2",
+        "K": 5,
+        "overlap": 4
+      },
+      "uniqueAllocations": 13,
+      "immediate": {
+        "singleRestricts": 12,
+        "doubleRestricts": 5,
+        "equal": 8,
+        "passFlips": 0,
+        "singleActions": 79,
+        "doubleActions": 91
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.44,
+          "pips": -1.44,
+          "minus": 0,
+          "block": -0.08
+        },
+        "min-hand-pips": {
+          "win": 0.44,
+          "pips": -1.44,
+          "minus": 0,
+          "block": -0.08
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0.76,
+          "minus": 0,
+          "block": -0.08
+        }
+      }
+    },
+    {
+      "seed": 3651043,
+      "turn": 9,
+      "phase": "mid",
+      "focal": 2,
+      "pair": {
+        "single": "single|left|5||1-5",
+        "double": "double-sequence|||3|3-3",
+        "K": 5,
+        "overlap": 3
+      },
+      "uniqueAllocations": 24,
+      "immediate": {
+        "singleRestricts": 15,
+        "doubleRestricts": 3,
+        "equal": 7,
+        "passFlips": 0,
+        "singleActions": 60,
+        "doubleActions": 85
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.44,
+          "pips": -4.36,
+          "minus": 0.48,
+          "block": -0.04
+        },
+        "min-hand-pips": {
+          "win": 0.12,
+          "pips": -0.92,
+          "minus": -0.2,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.04,
+          "pips": -0.4,
+          "minus": 0,
+          "block": 0.04
+        }
+      }
+    },
+    {
+      "seed": 3651088,
+      "turn": 10,
+      "phase": "mid",
+      "focal": 0,
+      "pair": {
+        "single": "single|right|5||1-5",
+        "double": "double-sequence|||3|3-3",
+        "K": 4,
+        "overlap": 2
+      },
+      "uniqueAllocations": 24,
+      "immediate": {
+        "singleRestricts": 21,
+        "doubleRestricts": 2,
+        "equal": 2,
+        "passFlips": 0,
+        "singleActions": 58,
+        "doubleActions": 98
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.2,
+          "pips": -3.28,
+          "minus": 0,
+          "block": 0.04
+        },
+        "min-hand-pips": {
+          "win": 0.2,
+          "pips": -3.28,
+          "minus": 0,
+          "block": -0.04
+        },
+        "fast-doubles": {
+          "win": 0.04,
+          "pips": -0.88,
+          "minus": 0,
+          "block": -0.08
+        }
+      }
+    },
+    {
+      "seed": 3651122,
+      "turn": 6,
+      "phase": "early",
+      "focal": 2,
+      "pair": {
+        "single": "single|left|5||1-5",
+        "double": "double-sequence|||3|3-3",
+        "K": 7,
+        "overlap": 6
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 23,
+        "doubleRestricts": 0,
+        "equal": 2,
+        "passFlips": 0,
+        "singleActions": 83,
+        "doubleActions": 139
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.08,
+          "pips": -0.44,
+          "minus": 0,
+          "block": -0.08
+        },
+        "min-hand-pips": {
+          "win": 0.16,
+          "pips": -1.48,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.08,
+          "pips": 0.4,
+          "minus": 0,
+          "block": 0.08
+        }
+      }
+    },
+    {
+      "seed": 3651205,
+      "turn": 6,
+      "phase": "early",
+      "focal": 0,
+      "pair": {
+        "single": "single|down|0||0-4",
+        "double": "double-sequence|||2|2-2",
+        "K": 8,
+        "overlap": 7
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 23,
+        "doubleRestricts": 0,
+        "equal": 2,
+        "passFlips": 0,
+        "singleActions": 97,
+        "doubleActions": 146
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.12,
+          "pips": 0.48,
+          "minus": 0,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": 0.08,
+          "pips": 0.76,
+          "minus": 0,
+          "block": 0.04
+        },
+        "fast-doubles": {
+          "win": 0.08,
+          "pips": 0.28,
+          "minus": 0,
+          "block": 0.04
+        }
+      }
+    },
+    {
+      "seed": 3651279,
+      "turn": 11,
+      "phase": "mid",
+      "focal": 2,
+      "pair": {
+        "single": "single|left|2||2-4",
+        "double": "double-sequence|||3|3-3",
+        "K": 7,
+        "overlap": 6
+      },
+      "uniqueAllocations": 22,
+      "immediate": {
+        "singleRestricts": 17,
+        "doubleRestricts": 0,
+        "equal": 8,
+        "passFlips": 0,
+        "singleActions": 92,
+        "doubleActions": 124
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.16,
+          "pips": -0.6,
+          "minus": 0.04,
+          "block": -0.04
+        },
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0.32,
+          "minus": 0,
+          "block": -0.08
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -0.2,
+          "minus": 0,
+          "block": -0.04
+        }
+      }
+    },
+    {
+      "seed": 3651324,
+      "turn": 12,
+      "phase": "mid",
+      "focal": 0,
+      "pair": {
+        "single": "single|left|4||0-4",
+        "double": "double-sequence|||2|2-2",
+        "K": 7,
+        "overlap": 6
+      },
+      "uniqueAllocations": 22,
+      "immediate": {
+        "singleRestricts": 24,
+        "doubleRestricts": 0,
+        "equal": 1,
+        "passFlips": 0,
+        "singleActions": 101,
+        "doubleActions": 166
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.36,
+          "pips": -0.96,
+          "minus": 0.16,
+          "block": -0.08
+        },
+        "min-hand-pips": {
+          "win": 0.36,
+          "pips": -1.08,
+          "minus": 0.16,
+          "block": -0.08
+        },
+        "fast-doubles": {
+          "win": 0.04,
+          "pips": -0.12,
+          "minus": 0,
+          "block": -0.08
+        }
+      }
+    },
+    {
+      "seed": 3651392,
+      "turn": 7,
+      "phase": "early",
+      "focal": 1,
+      "pair": {
+        "single": "single|left|3||1-3",
+        "double": "double-sequence|||2|2-2",
+        "K": 7,
+        "overlap": 6
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 23,
+        "doubleRestricts": 0,
+        "equal": 2,
+        "passFlips": 0,
+        "singleActions": 108,
+        "doubleActions": 172
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.04,
+          "pips": -1.08,
+          "minus": 0,
+          "block": 0.04
+        },
+        "min-hand-pips": {
+          "win": 0.08,
+          "pips": -0.12,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0.64,
+          "minus": 0,
+          "block": -0.12
+        }
+      }
+    },
+    {
+      "seed": 3651394,
+      "turn": 16,
+      "phase": "late",
+      "focal": 0,
+      "pair": {
+        "single": "single|down|3||3-5",
+        "double": "double-sequence|||4|4-4",
+        "K": 3,
+        "overlap": 1
+      },
+      "uniqueAllocations": 13,
+      "immediate": {
+        "singleRestricts": 22,
+        "doubleRestricts": 0,
+        "equal": 3,
+        "passFlips": 0,
+        "singleActions": 51,
+        "doubleActions": 135
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.28,
+          "pips": -6.8,
+          "minus": 0,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": 0.2,
+          "pips": -5.44,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.2,
+          "pips": -5.44,
+          "minus": 0,
+          "block": 0
+        }
+      }
+    },
+    {
+      "seed": 3651480,
+      "turn": 11,
+      "phase": "mid",
+      "focal": 1,
+      "pair": {
+        "single": "single|up|6||4-6",
+        "double": "double-sequence|||5|5-5",
+        "K": 5,
+        "overlap": 3
+      },
+      "uniqueAllocations": 23,
+      "immediate": {
+        "singleRestricts": 14,
+        "doubleRestricts": 5,
+        "equal": 6,
+        "passFlips": 1,
+        "singleActions": 57,
+        "doubleActions": 87
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.24,
+          "pips": -0.56,
+          "minus": 0,
+          "block": 0
+        },
+        "min-hand-pips": {
+          "win": -0.04,
+          "pips": 2.68,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0.68,
+          "minus": 0,
+          "block": 0
+        }
+      }
+    },
+    {
+      "seed": 3651509,
+      "turn": 12,
+      "phase": "mid",
+      "focal": 2,
+      "pair": {
+        "single": "single|up|0||0-4",
+        "double": "double-sequence|||2|2-2",
+        "K": 7,
+        "overlap": 6
+      },
+      "uniqueAllocations": 23,
+      "immediate": {
+        "singleRestricts": 25,
+        "doubleRestricts": 0,
+        "equal": 0,
+        "passFlips": 0,
+        "singleActions": 102,
+        "doubleActions": 155
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.2,
+          "pips": 0.36,
+          "minus": 0.04,
+          "block": -0.2
+        },
+        "min-hand-pips": {
+          "win": 0.08,
+          "pips": 0.72,
+          "minus": 0,
+          "block": -0.2
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0.2,
+          "minus": 0,
+          "block": -0.28
+        }
+      }
+    },
+    {
+      "seed": 3651538,
+      "turn": 9,
+      "phase": "mid",
+      "focal": 1,
+      "pair": {
+        "single": "single|left|3||3-5",
+        "double": "double-sequence|||4|4-4",
+        "K": 7,
+        "overlap": 5
+      },
+      "uniqueAllocations": 24,
+      "immediate": {
+        "singleRestricts": 21,
+        "doubleRestricts": 1,
+        "equal": 3,
+        "passFlips": 0,
+        "singleActions": 79,
+        "doubleActions": 111
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.36,
+          "pips": -0.72,
+          "minus": 0.08,
+          "block": 0.04
+        },
+        "min-hand-pips": {
+          "win": 0.04,
+          "pips": -0.36,
+          "minus": 0,
+          "block": 0.04
+        },
+        "fast-doubles": {
+          "win": 0.08,
+          "pips": -0.88,
+          "minus": 0,
+          "block": 0.04
+        }
+      }
+    },
+    {
+      "seed": 3651583,
+      "turn": 14,
+      "phase": "mid",
+      "focal": 2,
+      "pair": {
+        "single": "single|down|4||0-4",
+        "double": "double-sequence|||2|2-2",
+        "K": 7,
+        "overlap": 6
+      },
+      "uniqueAllocations": 20,
+      "immediate": {
+        "singleRestricts": 16,
+        "doubleRestricts": 3,
+        "equal": 6,
+        "passFlips": 0,
+        "singleActions": 120,
+        "doubleActions": 142
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.6,
+          "pips": -0.08,
+          "minus": 0.08,
+          "block": -0.2
+        },
+        "min-hand-pips": {
+          "win": 0.12,
+          "pips": -0.08,
+          "minus": 0,
+          "block": -0.12
+        },
+        "fast-doubles": {
+          "win": 0.04,
+          "pips": 0.08,
+          "minus": 0,
+          "block": -0.12
+        }
+      }
+    },
+    {
+      "seed": 3651661,
+      "turn": 5,
+      "phase": "early",
+      "focal": 1,
+      "pair": {
+        "single": "single|down|5||1-5",
+        "double": "double-sequence|||3|3-3",
+        "K": 5,
+        "overlap": 3
+      },
+      "uniqueAllocations": 25,
+      "immediate": {
+        "singleRestricts": 20,
+        "doubleRestricts": 2,
+        "equal": 3,
+        "passFlips": 0,
+        "singleActions": 101,
+        "doubleActions": 143
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": 0.24,
+          "pips": -3.92,
+          "minus": 0.04,
+          "block": 0.08
+        },
+        "min-hand-pips": {
+          "win": 0.08,
+          "pips": -0.16,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0.2,
+          "minus": 0,
+          "block": 0.04
+        }
+      }
+    }
+  ],
+  "verifiedPriorFullStrategyRounds": 180000,
+  "newFullStrategyRounds": 0,
+  "limitations": "Matched K is not matched tile identities or branch geometry. Uniform hidden allocations with replacement and no opponent-history conditioning; deterministic bots, assumed double opening, no block winner; post-action mobility is descriptive mediator, not causal adjustment. Position-level exploratory normal intervals are not pre-registered.",
+  "next": "Independent seed/policy replication and stratification by playable-identity overlap and next-opponent action multiplicity; verify Node CLI and branch semantics before human strategy claim.",
+  "timestampAsiaBaku": "2026-10-14 11:47 +04:00",
+  "validation": {
+    "v8CommonJS": {
+      "passed": true,
+      "fixture": 3603084,
+      "alternateDiscoveryFixture": 3650080,
+      "worlds": 3
+    },
+    "nodeCLI": "not executed",
+    "candidateKeysAndSourceImmutability": "checked by runner"
+  },
+  "playableOverlapGroups": {
+    "partial": {
+      "positions": 38,
+      "meanWinDelta": 0.17052631578947375
+    },
+    "full": {
+      "positions": 1,
+      "meanWinDelta": 0.12
+    },
+    "none": {
+      "positions": 1,
+      "meanWinDelta": 0.28
+    }
+  },
+  "newFinding": "Independent min-hand-pips discovery replication: retaining a double is favored under all three tested deterministic continuations, with materially different magnitudes. This does not isolate causal effect of double retention from post-action branch geometry or playable identities.",
+  "confidence": "Provisional/model-specific. Exploratory position-level intervals, first eligible selection, uniform hidden allocations with replacement, no opponent history, branch semantics assumed, block winner unassigned.",
+  "exactNextAction": "Execute Node regression and reproduce fresh run; preregister a new 50+ position independent cohort with exact playable-identity overlap and opponent mobility strata, without treating post-action mobility as randomized.",
+  "reproduce": "node qosha-research/simulator/matched-k-outcome-runner.js 3650000 3670000 40 25 min-hand-pips"
+}
