@@ -1,0 +1,129 @@
+{
+  "schema": "qosa-exact-playable-replication/v1",
+  "timestampAsiaBaku": "2026-10-14T07:50:12+04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "dealSeed": 3603084,
+  "turn": 9,
+  "focalSeat": 2,
+  "comparison": "single 2-4 placements A/B minus double 3-3 opening; equal immediate playable unknown stone identities, different branch/open state",
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "newSample": {
+    "worldSeeds": [
+      99000500,
+      99000999
+    ],
+    "worlds": 500,
+    "uniqueHiddenAllocations": 397,
+    "candidateContinuations": 4500,
+    "unresolved": 0,
+    "nextOpponentPlayPassFlips": [
+      0,
+      0
+    ],
+    "nextOpponentLegalActionCounts": [
+      {
+        "different": 489,
+        "singleMore": 0,
+        "doubleMore": 489,
+        "bothCanPlay": 500,
+        "bothPass": 0,
+        "sumSingle": 1487,
+        "sumDouble": 2741
+      },
+      {
+        "different": 489,
+        "singleMore": 0,
+        "doubleMore": 489,
+        "bothCanPlay": 500,
+        "bothPass": 0,
+        "sumSingle": 1487,
+        "sumDouble": 2741
+      }
+    ],
+    "deltasSingleMinusDouble": {
+      "closedBranchControl": {
+        "firstPlacePp": [
+          34,
+          34
+        ],
+        "remainderPips": [
+          -2.12,
+          -2.12
+        ],
+        "minusFinishPp": [
+          48,
+          48
+        ],
+        "blockPp": [
+          -1.6,
+          -1.6
+        ]
+      },
+      "minHandPips": {
+        "firstPlacePp": [
+          17.8,
+          35
+        ],
+        "remainderPips": [
+          -0.668,
+          -2.276
+        ],
+        "minusFinishPp": [
+          -0.2,
+          -0.2
+        ],
+        "blockPp": [
+          -1.8,
+          -1.8
+        ]
+      },
+      "fastDoubles": {
+        "firstPlacePp": [
+          3.6,
+          7.8
+        ],
+        "remainderPips": [
+          -0.386,
+          -0.72
+        ],
+        "minusFinishPp": [
+          0,
+          0
+        ],
+        "blockPp": [
+          -1.2,
+          -2.2
+        ]
+      }
+    }
+  },
+  "priorSample": {
+    "worldSeeds": [
+      99000000,
+      99000499
+    ],
+    "worlds": 500,
+    "uniqueHiddenAllocations": 388,
+    "firstPlaceClosedBranchControlPp": [
+      31.4,
+      31
+    ],
+    "baselineReproduced": true
+  },
+  "validation": {
+    "v8CommonJsFiveWorldReplay": true,
+    "replyCountInvariants": true,
+    "nodeCliExecuted": false
+  },
+  "newFullTournamentRounds": 0,
+  "verifiedPriorFullTournamentRounds": 180000,
+  "historicalRoundsSeparate": 4000,
+  "confidence": "single selected position; uniformly sampled worlds with replacement, prior opponent decisions unconditioned; assumed branch opening semantics; not a causal double-retention estimate",
+  "next": "find independent matched-K positions stratified by legal action count, playable identities, branch geometry, then compare paired outcomes"
+}

@@ -1,6 +1,6 @@
 'use strict';
 // Qoşa exact-playable holdout; node qosha-research/simulator/exact-playable-holdout.js test
-// node qosha-research/simulator/exact-playable-holdout.js 500
+// node qosha-research/simulator/exact-playable-holdout.js 500 99000500
 const e=require('./engine'),d=require('./turn-dispatcher'),r=require('./round-driver');
 const init=require('./initializer'),audit=require('./exact-playable-audit');
 const hidden=require('./hidden-world'),reg=require('./decision-regret');
@@ -43,19 +43,19 @@ function canReply(world,key){
  if(after.outcome)return null;
  const next=(world.currentPlayer+1)%3;
  if(after.currentPlayer!==next)throw Error('next turn mismatch');
- return d.turnOptions(after.branchState,after.openingState,after.hands[next],after.stock).phase==='play';
+ const opts=d.turnOptions(after.branchState,after.openingState,after.hands[next],after.stock);return opts.phase==='play'?opts.actions.length:0;
 }
-function run(count=500){
- if(!Number.isInteger(count)||count<1||count>5000)throw Error('invalid count');
+function run(count=500,startSeed=99000000){
+ if(!Number.isInteger(count)||count<1||count>5000||!Number.isSafeInteger(startSeed)||startSeed<0)throw Error('invalid count/startSeed');
  const {s,pairs,spec}=fixture(),before=JSON.stringify(s),seen=new Set();
  const values=Object.fromEntries(policies.map(p=>[p,pairs.map(()=>({finish:[],pips:[],minus:[],block:[]}))]));
- const passFlips=pairs.map(()=>0);let continuations=0;
+ const passFlips=pairs.map(()=>0),replyCounts=pairs.map(()=>({differentLegalActionCount:0,singleMore:0,doubleMore:0,bothCanPlay:0,bothPass:0,sumSingle:0,sumDouble:0}));let continuations=0;
  const expected=JSON.stringify(hidden.candidateKeys(s));
  for(let i=0;i<count;i++){
-  const seed=99000000+i,w=hidden.sampleWorld(spec,seed);
+  const seed=startSeed+i,w=hidden.sampleWorld(spec,seed);
   seen.add(JSON.stringify(w.hands.map(h=>h.map(e.tileKey).sort())));
   if(JSON.stringify(hidden.candidateKeys(w))!==expected)throw Error('candidate keys changed');
-  for(let j=0;j<pairs.length;j++)if(canReply(w,pairs[j].single)!==canReply(w,pairs[j].double))passFlips[j]++;
+  for(let j=0;j<pairs.length;j++){const a=canReply(w,pairs[j].single),b=canReply(w,pairs[j].double);if(a===null||b===null)throw Error('unexpected immediate finish');if((a>0)!==(b>0))passFlips[j]++;const c=replyCounts[j];c.sumSingle+=a;c.sumDouble+=b;if(a!==b)c.differentLegalActionCount++;if(a>b)c.singleMore++;if(a<b)c.doubleMore++;if(a&&b)c.bothCanPlay++;if(!a&&!b)c.bothPass++;}
   for(const p of policies){
    const ev=reg.evaluateDecisionInWorld(w,{focalPlayer:s.currentPlayer,continuationStrategy:p,seed,maxTurns:200});
    if(ev.kind!=='paired-world')throw Error('not paired');
@@ -75,15 +75,15 @@ function run(count=500){
  if(JSON.stringify(s)!==before)throw Error('state mutated');
  return {schema:'qosa-exact-playable-holdout/v1',engine:'qosa-research-0.5.3',rules:'qosa-1.0.0',
   seed:3603084,turn:9,focal:s.currentPlayer,hand:s.hands[s.currentPlayer].map(e.tileKey),
-  pairs,worldSeedRange:[99000000,99000000+count-1],hiddenWorlds:count,
+  pairs,worldSeedRange:[startSeed,startSeed+count-1],hiddenWorlds:count,
   uniqueHiddenAllocations:seen.size,candidateContinuations:continuations,
-  nextOpponentPlayPassFlips:passFlips,policies,
+  nextOpponentPlayPassFlips:passFlips,nextOpponentLegalActionCounts:replyCounts,policies,
   comparison:'single 2-4 minus double 3-3; same playable unknown tiles but different branch/open state',
   metrics:Object.fromEntries(policies.map(p=>[p,values[p].map(row=>
    Object.fromEntries(Object.entries(row).map(([k,v])=>[k,stats(v)])))])),
   newFullTournamentRounds:0,verifiedPreviousFullTournamentRounds:180000,
   limitations:'One selected position; hidden worlds sampled uniformly with replacement and without prior-decision conditioning; assumed branch rules; no causal isolation of double retention; no block winner.'};
 }
-function test(){const a=run(5),b=run(5);if(JSON.stringify(a)!==JSON.stringify(b))throw Error('replay');if(a.nextOpponentPlayPassFlips.some(Boolean))throw Error('pass flip');return {passed:true,worlds:5,pairs:a.pairs.length};}
-if(require.main===module){const arg=process.argv[2];console.log(JSON.stringify(arg==='test'?test():run(arg===undefined?500:Number(arg)),null,2));}
+function test(){const a=run(5),b=run(5);if(JSON.stringify(a)!==JSON.stringify(b))throw Error('replay');if(a.nextOpponentPlayPassFlips.some(Boolean))throw Error('pass flip');if(a.nextOpponentLegalActionCounts.some(z=>z.singleMore+z.doubleMore!==z.differentLegalActionCount||z.bothCanPlay+z.bothPass!==5))throw Error('reply-count invariants');return {passed:true,worlds:5,pairs:a.pairs.length};}
+if(require.main===module){const arg=process.argv[2];console.log(JSON.stringify(arg==='test'?test():run(arg===undefined?500:Number(arg),process.argv[3]===undefined?99000000:Number(process.argv[3])),null,2));}
 module.exports={fixture,run,test};
