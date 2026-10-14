@@ -1,0 +1,138 @@
+{
+  "schema": "qosa-matched-k-outcomes-summary/v1",
+  "timestampAsiaBaku": "2026-10-14 09:51 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "recovered qosa-1.0.0",
+  "mode": "3 players x 9 stones",
+  "sourceBranch": "qosha-research-20261014-mobility-0848",
+  "runner": "simulator/matched-k-outcome-runner.js",
+  "args": [
+    3620000,
+    3630000,
+    40,
+    25
+  ],
+  "discoveryPolicy": "closed-branch-control",
+  "dealSeedsScanned": [
+    3620000,
+    3626640
+  ],
+  "scannedDeals": 6641,
+  "selectedDealSeeds": [
+    3620067,
+    3620446,
+    3620610,
+    3620680,
+    3620743,
+    3620750,
+    3620765,
+    3620839,
+    3620912,
+    3621093,
+    3621137,
+    3621394,
+    3621558,
+    3621596,
+    3621782,
+    3622018,
+    3622262,
+    3622531,
+    3622865,
+    3623099,
+    3623297,
+    3623340,
+    3623483,
+    3623640,
+    3623901,
+    3624205,
+    3624266,
+    3624362,
+    3625309,
+    3625526,
+    3625766,
+    3625767,
+    3625801,
+    3625819,
+    3625848,
+    3626058,
+    3626440,
+    3626471,
+    3626526,
+    3626640
+  ],
+  "selectedPositions": 40,
+  "phaseCounts": {
+    "early": 0,
+    "mid": 35,
+    "late": 5
+  },
+  "worldsPerPosition": 25,
+  "hiddenWorldDraws": 1000,
+  "distinctHiddenAllocationsWithinPositions": 905,
+  "worldSeedFormula": "(1500000000 + Math.imul(dealSeed,73) + worldIndex) >>> 0",
+  "candidateContinuations": 6000,
+  "unresolvedContinuations": 0,
+  "comparison": "first eligible matched-K pair per deal: one single vs one double-opening, equal discarded pip sum, equal remaining hand size, different retained double count, equal K of distinct unknown playable stones. First pair selected by action-key lexical sort. Same visible position, hidden worlds and continuation policy.",
+  "immediateNextOpponent": {
+    "singleOffersFewerLegalActions": 698,
+    "doubleOffersFewerLegalActions": 105,
+    "equalLegalActions": 197,
+    "passStatusFlips": 21,
+    "bothCanPlay": 979,
+    "bothPass": 0,
+    "meanLegalActionsAfterSingle": 2.662,
+    "meanLegalActionsAfterDouble": 4.176
+  },
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles"
+  ],
+  "metrics": {
+    "closed-branch-control": {
+      "finishFirstDeltaPp": 14,
+      "exploratoryPositionCI95Pp": [
+        6.696,
+        21.304
+      ],
+      "meanRemainderDelta": -0.564,
+      "minusFinishDeltaPp": 13.4,
+      "blockDeltaPp": -0.3,
+      "positivePositions": 28,
+      "negativePositions": 9,
+      "tiedPositions": 3
+    },
+    "min-hand-pips": {
+      "finishFirstDeltaPp": 14.2,
+      "exploratoryPositionCI95Pp": [
+        6.026,
+        22.374
+      ],
+      "meanRemainderDelta": -0.703,
+      "minusFinishDeltaPp": 4.6,
+      "blockDeltaPp": 0.3,
+      "positivePositions": 26,
+      "negativePositions": 8,
+      "tiedPositions": 6
+    },
+    "fast-doubles": {
+      "finishFirstDeltaPp": 13.7,
+      "exploratoryPositionCI95Pp": [
+        5.478,
+        21.922
+      ],
+      "meanRemainderDelta": -0.571,
+      "minusFinishDeltaPp": 4.9,
+      "blockDeltaPp": -0.4,
+      "positivePositions": 23,
+      "negativePositions": 10,
+      "tiedPositions": 7
+    }
+  },
+  "priorValidatedFullStrategyRounds": 180000,
+  "newFullStrategyRounds": 0,
+  "historicalRoundsSeparate": 4000,
+  "validation": "V8 CommonJS deterministic fixture seed 3603084 passed; paired candidates and source-state immutability asserted; no Node CLI execution. 40-position run completed in V8.",
+  "limitations": "All effects are provisional and model-specific. K does not equal exact playable-tile identities, branch/open geometry, or opponent legal-action multiplicity. Post-action mobility is a mediator and descriptive, not causal isolation. Uniform hidden worlds with replacement are not conditioned on prior opponent decisions. First-eligible selection, mostly midgame, fixed discovery policy, deterministic bots, assumed branch opening, no block winner. Exploratory normal CI clustered by position; hidden worlds are not independent positions.",
+  "next": "Reproduce with Node, repeat on disjoint deal seeds with a different discovery policy; stratify by playable-identity overlap and opponent action count, and test whether the same direction holds with pass-history-conditioned hidden allocations."
+}
