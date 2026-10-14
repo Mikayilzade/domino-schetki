@@ -407,3 +407,17 @@
 - limits: immediate observed passes only; uniform prior conditioned on pass, not other past decisions; min-hand-pips discovery, deterministic bots, selection on pass acceptance and 2..10 legal actions, assumed branch semantics, block winner unassigned. Held-out worlds independent of training selection by index but sampled with replacement.
 - reproduce: `node qosha-research/simulator/observed-pass-posterior-test.js`; `node qosha-research/simulator/reachable-pass-heldout-runner.js test`; `node qosha-research/simulator/reachable-pass-heldout-runner.js 2800000 2820000 30 160`. Data: `runs/2026-10-13-reachable-pass-heldout-2800000.json`.
 - exact next action: replicate on disjoint seeds `2820000..` with >=30 positions, test pass severity/branch-end strata, then add full-event replay verification for multiple-pass evidence (do not silently infer unchanged hands).
+
+
+### 2026-10-14 12:45 (+04) — independent fast-doubles matched-K discovery and phase/overlap strata
+- Engine/rules: `qosa-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; no gameplay-rule changes.
+- Validation: V8 CommonJS deterministic strata fixture passed; runner assertions checked 30 selected positions, 600 hidden-world draws, 3,600 complete candidate continuations, and strata partitions; Node CLI not executed.
+- Fresh discovery seeds: `3700000..3749999`; discovery policy `fast-doubles`; 1214 scanned deals, 30 first eligible no-prior-pass positions; 20 paired hidden worlds each; seed formula `(1500000000 + Math.imul(dealSeed,73) + worldIndex) >>> 0`.
+- Matched comparison: ordinary single versus one double, equal discarded pips, equal hand size, equal K (count of playable unknown stones); **not** matched exact tile identities or post-action four-end geometry.
+- Single-minus-double first-finish deltas (position-weighted): closed-branch-control 15.33 pp; min-hand-pips 9.00 pp; fast-doubles 2.17 pp. Mean pip deltas: closed-branch-control -0.490; min-hand-pips -0.425; fast-doubles 0.075.
+- Next-opponent immediate legal-action comparison: single restricts in 408/600 worlds; double restricts in 80; equal in 112; pass flips 4. These are **descriptive post-action mediators**, not proof of causation.
+- Stratification: early 4, mid 20, late 6; K<7 20, K>=7 10; overlap >=75% 14, lower 16. Small subgroups are exploratory, no subgroup-specific gameplay rule promoted.
+- Finding/limits: independent discovery-policy test; any win advantage is model-specific and may arise from changed branch geometry, retained doubles, or opponent policies. Uniform hidden allocations ignore opponents' past choices; some worlds may duplicate; block winner unassigned; confidence intervals exploratory.
+- Scale: **0 new complete strategy deals**; previously verified **180,000** full strategy rounds unchanged (historical 4,000 separate); this run adds 600 hidden-world draws / 3,600 candidate continuations (do not mix units).
+- Reproduce: `node qosha-research/simulator/matched-k-strata-runner.js test`, then `node qosha-research/simulator/matched-k-strata-runner.js 3700000 3750000 30 20 fast-doubles`.
+- Next exact hypothesis/action: replicate on disjoint seeds with >=20 positions per overlap/K stratum; isolate first-opponent actual reply and post-action four-end geometry before interpreting any restricted-mobility effect as a rule.
