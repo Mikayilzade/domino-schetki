@@ -1,0 +1,7 @@
+# Qoşa independent-world exception retest — 2026-10-14 18:23 Asia/Baku
+
+Engine qosa-research-0.5.3 / qosa-1.0.0; 3x9. Discovery seeds 4200000..4299999; 14 positions selected from the earlier 70-position, 25-world matched-K study because opening a double won under at least two of three policies. Retested each position on 100 NEW hidden allocations (1400 draws, 1178 unique), 8400 paired candidate continuations. New seed: (0xabc12345 + Math.imul(dealSeed,193) + Math.imul(worldIndex+1,0x9e3779b9)) >>> 0.
+
+Single-minus-double finish-first delta: closed-branch +4.00 pp (previous -2.00), min-pips -2.64 pp (previous -10.29), fast-doubles -3.57 pp (previous -7.14). Opening a double still better under >=2 policies in 10/14 positions, all three in 3/14. Candidate seed 4202218 remains negative under all policies (-9/-3/-3 pp). Seed 4202188 reversed to +5/+2/+6 pp. These are selected examples, not a general advantage.
+
+Deterministic V8 CommonJS execution; 0 unresolved, identical hidden worlds for both actions, visible states unchanged; no Node CLI. No new complete strategy rounds; prior verified 180000 unchanged. Limitations: selection bias, assumed branch opening, deterministic bots, unconditioned hidden allocations, sampling with replacement, block winner unassigned. Next: persist a standalone replay runner, inspect stable counterexamples by connector count and four-end geometry, then preregister fresh-deal holdout.
