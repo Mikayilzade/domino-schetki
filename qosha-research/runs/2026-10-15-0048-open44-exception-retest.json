@@ -1,0 +1,879 @@
+{
+  "schema": "qosa-open44-independent-retest/v1",
+  "engine": "qosa-research-0.5.3",
+  "rules": "recovered qosa-1.0.0",
+  "mode": "3x9",
+  "seeds": [
+    4401931,
+    4407745,
+    4402067,
+    4405689
+  ],
+  "exceptionSeeds": [
+    4401931,
+    4407745
+  ],
+  "controlSeeds": [
+    4402067,
+    4405689
+  ],
+  "discoveryPolicy": "closed-branch-control",
+  "worldIndexRange": [
+    1000,
+    1199
+  ],
+  "worldSeedFormula": "(1500000000 + Math.imul(dealSeed,73) + worldIndex) >>> 0",
+  "policies": [
+    "closed-branch-control",
+    "min-hand-pips",
+    "fast-doubles",
+    "random-legal"
+  ],
+  "worldsPerPosition": 200,
+  "hiddenWorlds": 800,
+  "continuations": 6400,
+  "newFullStrategyRounds": 0,
+  "verifiedPriorFullStrategyRounds": 180000,
+  "positions": [
+    {
+      "dealSeed": 4401931,
+      "cohort": "exception",
+      "turn": 12,
+      "focal": 1,
+      "hand": [
+        "0-4",
+        "3-5",
+        "0-5",
+        "0-0",
+        "4-4"
+      ],
+      "pair": {
+        "single": "single|right|3||3-5",
+        "double": "double-sequence|||4|4-4",
+        "K": 3,
+        "overlap": 1
+      },
+      "ownActionsAfter": [
+        1,
+        5
+      ],
+      "fourConnectorsAfter": [
+        [
+          "0-4"
+        ],
+        [
+          "0-4"
+        ]
+      ],
+      "uniqueHiddenAllocations": 144,
+      "immediate": {
+        "singleRestricts": 145,
+        "doubleRestricts": 23,
+        "equal": 32,
+        "passFlips": 29,
+        "nextActionsSingle": 305,
+        "nextActionsDouble": 647
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": {
+            "n": 200,
+            "mean": -0.095,
+            "exploratoryWorldCI95": [
+              -0.13573949351253997,
+              -0.05426050648746003
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": 0.31,
+            "exploratoryWorldCI95": [
+              0.05479120539405219,
+              0.5652087946059479
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": -0.61,
+            "exploratoryWorldCI95": [
+              -0.6791779672712266,
+              -0.5408220327287734
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": 0.02,
+            "exploratoryWorldCI95": [
+              -0.007648853420664407,
+              0.04764885342066441
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": 2.485,
+            "exploratoryWorldCI95": [
+              2.170313080209175,
+              2.7996869197908247
+            ]
+          }
+        },
+        "min-hand-pips": {
+          "win": {
+            "n": 200,
+            "mean": -0.09,
+            "exploratoryWorldCI95": [
+              -0.12976229875158196,
+              -0.05023770124841803
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": 0.285,
+            "exploratoryWorldCI95": [
+              0.03399080038481156,
+              0.5360091996151883
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": -0.66,
+            "exploratoryWorldCI95": [
+              -0.7258174359449825,
+              -0.5941825640550176
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": 0.015,
+            "exploratoryWorldCI95": [
+              -0.010909742836804605,
+              0.040909742836804604
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": 1.925,
+            "exploratoryWorldCI95": [
+              1.6033477407519152,
+              2.246652259248085
+            ]
+          }
+        },
+        "fast-doubles": {
+          "win": {
+            "n": 200,
+            "mean": -0.035,
+            "exploratoryWorldCI95": [
+              -0.08581793494980702,
+              0.015817934949807023
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": -0.365,
+            "exploratoryWorldCI95": [
+              -0.826060798048899,
+              0.096060798048899
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": -0.44,
+            "exploratoryWorldCI95": [
+              -0.5117127940058162,
+              -0.3682872059941839
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": -0.04,
+            "exploratoryWorldCI95": [
+              -0.07633771245873447,
+              -0.0036622875412655395
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": 1.135,
+            "exploratoryWorldCI95": [
+              0.8228692868195236,
+              1.4471307131804765
+            ]
+          }
+        },
+        "random-legal": {
+          "win": {
+            "n": 200,
+            "mean": -0.035,
+            "exploratoryWorldCI95": [
+              -0.1076986635254868,
+              0.0376986635254868
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": -0.19,
+            "exploratoryWorldCI95": [
+              -0.6525682632768429,
+              0.2725682632768429
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": -0.09,
+            "exploratoryWorldCI95": [
+              -0.14046054431596344,
+              -0.03953945568403655
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": 0.02,
+            "exploratoryWorldCI95": [
+              -0.021589484561973852,
+              0.061589484561973856
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": 0.35,
+            "exploratoryWorldCI95": [
+              0.0005012634727120657,
+              0.6994987365272879
+            ]
+          }
+        }
+      }
+    },
+    {
+      "dealSeed": 4407745,
+      "cohort": "exception",
+      "turn": 10,
+      "focal": 0,
+      "hand": [
+        "4-4",
+        "1-2",
+        "0-6",
+        "3-5",
+        "0-5",
+        "2-5"
+      ],
+      "pair": {
+        "single": "single|left|3||3-5",
+        "double": "double-sequence|||4|4-4",
+        "K": 5,
+        "overlap": 3
+      },
+      "ownActionsAfter": [
+        2,
+        4
+      ],
+      "fourConnectorsAfter": [
+        [],
+        []
+      ],
+      "uniqueHiddenAllocations": 162,
+      "immediate": {
+        "singleRestricts": 182,
+        "doubleRestricts": 7,
+        "equal": 11,
+        "passFlips": 0,
+        "nextActionsSingle": 528,
+        "nextActionsDouble": 1122
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": {
+            "n": 200,
+            "mean": -0.11,
+            "exploratoryWorldCI95": [
+              -0.1669317955692043,
+              -0.0530682044307957
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": 5.1,
+            "exploratoryWorldCI95": [
+              4.216660425419475,
+              5.9833395745805245
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": 0,
+            "exploratoryWorldCI95": [
+              0,
+              0
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": 0.115,
+            "exploratoryWorldCI95": [
+              0.05576251526280058,
+              0.17423748473719944
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": 0.09,
+            "exploratoryWorldCI95": [
+              -0.2736930828218519,
+              0.45369308282185195
+            ]
+          }
+        },
+        "min-hand-pips": {
+          "win": {
+            "n": 200,
+            "mean": -0.055,
+            "exploratoryWorldCI95": [
+              -0.08958898363561321,
+              -0.02041101636438679
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": 3.675,
+            "exploratoryWorldCI95": [
+              2.943092603408103,
+              4.406907396591897
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": 0,
+            "exploratoryWorldCI95": [
+              0,
+              0
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": 0.115,
+            "exploratoryWorldCI95": [
+              0.059116289084129046,
+              0.17088371091587096
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": 0.305,
+            "exploratoryWorldCI95": [
+              -0.0004160615509054555,
+              0.6104160615509054
+            ]
+          }
+        },
+        "fast-doubles": {
+          "win": {
+            "n": 200,
+            "mean": -0.03,
+            "exploratoryWorldCI95": [
+              -0.0690766904777447,
+              0.009076690477744703
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": 2.61,
+            "exploratoryWorldCI95": [
+              1.9299295460677923,
+              3.2900704539322074
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": 0,
+            "exploratoryWorldCI95": [
+              0,
+              0
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": 0.095,
+            "exploratoryWorldCI95": [
+              0.02470437299604325,
+              0.16529562700395675
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": 0.18,
+            "exploratoryWorldCI95": [
+              -0.011395564500729094,
+              0.3713955645007291
+            ]
+          }
+        },
+        "random-legal": {
+          "win": {
+            "n": 200,
+            "mean": -0.035,
+            "exploratoryWorldCI95": [
+              -0.11527058636372274,
+              0.045270586363722734
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": 0.63,
+            "exploratoryWorldCI95": [
+              -0.42725668752511703,
+              1.687256687525117
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": 0.01,
+            "exploratoryWorldCI95": [
+              -0.003824426710332207,
+              0.023824426710332205
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": -0.04,
+            "exploratoryWorldCI95": [
+              -0.08780852933721067,
+              0.007808529337210664
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": -0.16,
+            "exploratoryWorldCI95": [
+              -0.4587839258927082,
+              0.13878392589270824
+            ]
+          }
+        }
+      }
+    },
+    {
+      "dealSeed": 4402067,
+      "cohort": "control",
+      "turn": 10,
+      "focal": 0,
+      "hand": [
+        "0-3",
+        "2-4",
+        "0-6",
+        "4-4",
+        "0-5",
+        "3-5"
+      ],
+      "pair": {
+        "single": "single|down|5||3-5",
+        "double": "double-sequence|||4|4-4",
+        "K": 4,
+        "overlap": 3
+      },
+      "ownActionsAfter": [
+        3,
+        6
+      ],
+      "fourConnectorsAfter": [
+        [
+          "2-4"
+        ],
+        [
+          "2-4"
+        ]
+      ],
+      "uniqueHiddenAllocations": 165,
+      "immediate": {
+        "singleRestricts": 181,
+        "doubleRestricts": 5,
+        "equal": 14,
+        "passFlips": 8,
+        "nextActionsSingle": 421,
+        "nextActionsDouble": 1048
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": {
+            "n": 200,
+            "mean": -0.06,
+            "exploratoryWorldCI95": [
+              -0.14177460873135272,
+              0.021774608731352715
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": 0.105,
+            "exploratoryWorldCI95": [
+              -0.45584526283478666,
+              0.6658452628347866
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": 0,
+            "exploratoryWorldCI95": [
+              0,
+              0
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": 0.125,
+            "exploratoryWorldCI95": [
+              0.07312931618731078,
+              0.17687068381268922
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": 0.955,
+            "exploratoryWorldCI95": [
+              0.6858357550606526,
+              1.2241642449393473
+            ]
+          }
+        },
+        "min-hand-pips": {
+          "win": {
+            "n": 200,
+            "mean": 0.03,
+            "exploratoryWorldCI95": [
+              -0.05554732329309359,
+              0.11554732329309358
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": 0.185,
+            "exploratoryWorldCI95": [
+              -0.2971217826092613,
+              0.6671217826092612
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": 0,
+            "exploratoryWorldCI95": [
+              0,
+              0
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": 0.125,
+            "exploratoryWorldCI95": [
+              0.06615487493667303,
+              0.18384512506332695
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": -0.105,
+            "exploratoryWorldCI95": [
+              -0.3442030986673465,
+              0.13420309866734648
+            ]
+          }
+        },
+        "fast-doubles": {
+          "win": {
+            "n": 200,
+            "mean": 0.115,
+            "exploratoryWorldCI95": [
+              0.02161209551811541,
+              0.2083879044818846
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": -0.365,
+            "exploratoryWorldCI95": [
+              -0.8590075215589172,
+              0.1290075215589172
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": 0,
+            "exploratoryWorldCI95": [
+              0,
+              0
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": 0.08,
+            "exploratoryWorldCI95": [
+              0.015785935885113567,
+              0.14421406411488644
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": -0.045,
+            "exploratoryWorldCI95": [
+              -0.25493270948702307,
+              0.1649327094870231
+            ]
+          }
+        },
+        "random-legal": {
+          "win": {
+            "n": 200,
+            "mean": -0.01,
+            "exploratoryWorldCI95": [
+              -0.08083251673585864,
+              0.06083251673585865
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": -1.115,
+            "exploratoryWorldCI95": [
+              -1.814298093316851,
+              -0.415701906683149
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": 0,
+            "exploratoryWorldCI95": [
+              0,
+              0
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": 0.04,
+            "exploratoryWorldCI95": [
+              -0.011688934305596206,
+              0.09168893430559621
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": 0.26,
+            "exploratoryWorldCI95": [
+              -0.024825079354233837,
+              0.5448250793542339
+            ]
+          }
+        }
+      }
+    },
+    {
+      "dealSeed": 4405689,
+      "cohort": "control",
+      "turn": 13,
+      "focal": 2,
+      "hand": [
+        "0-0",
+        "4-4",
+        "3-5",
+        "0-4",
+        "0-2"
+      ],
+      "pair": {
+        "single": "single|down|3||3-5",
+        "double": "double-sequence|||4|4-4",
+        "K": 6,
+        "overlap": 4
+      },
+      "ownActionsAfter": [
+        4,
+        4
+      ],
+      "fourConnectorsAfter": [
+        [
+          "0-4"
+        ],
+        [
+          "0-4"
+        ]
+      ],
+      "uniqueHiddenAllocations": 93,
+      "immediate": {
+        "singleRestricts": 176,
+        "doubleRestricts": 12,
+        "equal": 12,
+        "passFlips": 0,
+        "nextActionsSingle": 687,
+        "nextActionsDouble": 1137
+      },
+      "metrics": {
+        "closed-branch-control": {
+          "win": {
+            "n": 200,
+            "mean": 0.075,
+            "exploratoryWorldCI95": [
+              -0.013897631828545462,
+              0.16389763182854544
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": -0.22,
+            "exploratoryWorldCI95": [
+              -0.468218279689187,
+              0.028218279689186998
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": 0.045,
+            "exploratoryWorldCI95": [
+              0.007466714270018403,
+              0.08253328572998159
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": 0,
+            "exploratoryWorldCI95": [
+              0,
+              0
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": 0.07,
+            "exploratoryWorldCI95": [
+              -0.08750632371447897,
+              0.227506323714479
+            ]
+          }
+        },
+        "min-hand-pips": {
+          "win": {
+            "n": 200,
+            "mean": 0.545,
+            "exploratoryWorldCI95": [
+              0.46915631123403784,
+              0.6208436887659623
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": -1.29,
+            "exploratoryWorldCI95": [
+              -1.5014411121792497,
+              -1.0785588878207504
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": -0.015,
+            "exploratoryWorldCI95": [
+              -0.0318885855419582,
+              0.0018885855419582022
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": 0.02,
+            "exploratoryWorldCI95": [
+              0.000548299734571274,
+              0.03945170026542873
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": -1.95,
+            "exploratoryWorldCI95": [
+              -2.1256102926208253,
+              -1.7743897073791748
+            ]
+          }
+        },
+        "fast-doubles": {
+          "win": {
+            "n": 200,
+            "mean": 0.735,
+            "exploratoryWorldCI95": [
+              0.6648693380271958,
+              0.8051306619728041
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": -1.9,
+            "exploratoryWorldCI95": [
+              -2.1183624758383894,
+              -1.6816375241616102
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": 0,
+            "exploratoryWorldCI95": [
+              0,
+              0
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": -0.18,
+            "exploratoryWorldCI95": [
+              -0.23515788940685722,
+              -0.12484211059314276
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": -2.11,
+            "exploratoryWorldCI95": [
+              -2.299382872939487,
+              -1.9206171270605126
+            ]
+          }
+        },
+        "random-legal": {
+          "win": {
+            "n": 200,
+            "mean": 0.44,
+            "exploratoryWorldCI95": [
+              0.35142597451876906,
+              0.5285740254812309
+            ]
+          },
+          "pips": {
+            "n": 200,
+            "mean": -2.55,
+            "exploratoryWorldCI95": [
+              -3.0048584627172805,
+              -2.095141537282719
+            ]
+          },
+          "minus": {
+            "n": 200,
+            "mean": 0.02,
+            "exploratoryWorldCI95": [
+              -0.016655078418540473,
+              0.05665507841854048
+            ]
+          },
+          "block": {
+            "n": 200,
+            "mean": -0.015,
+            "exploratoryWorldCI95": [
+              -0.05545418278154458,
+              0.025454182781544578
+            ]
+          },
+          "turns": {
+            "n": 200,
+            "mean": -1.19,
+            "exploratoryWorldCI95": [
+              -1.4312092467205964,
+              -0.9487907532794035
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "limitations": "Selected exceptions and two nonrandom controls; 200 independent-seed draws per position, but allocations can repeat. Position selection based on previous results, so effect estimates have winner selection bias. Uniform hidden allocations not conditioned on opponent play history; fixed deterministic policies; assumed branch-opening semantics; block winner unassigned; exploratory CIs are per-world and do not imply population generalization. Immediate legal-action count is post-action descriptive mediator.",
+  "next": "If exceptions replicate, compare 4-connector identities and post-action four-end geometry with matched fresh non-exception positions; preregister a new unselected discovery holdout before promoting any human rule."
+}
