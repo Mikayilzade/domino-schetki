@@ -1,0 +1,3 @@
+# 2026-10-15 01:50 Asia/Baku
+
+Engine qosa-research-0.5.3, rules qosa-1.0.0, 3x9. Seeds 4401931,4407745,4402067,4405689; hidden-world indices 1200..1399, 200 per position; 800 worlds, 6400 paired continuations, four bot policies, zero unresolved. Single-minus-opening-4-4 finish-first delta in pp (branch/min-pips/fast/random): 4401931 -11/-11.5/-8/-10; 4407745 -8.5/-2.5/-3/+3.5; 4402067 +3/+5.5/+14.5/+10; 4405689 +10/+50.5/+68.5/+31. No new full rounds; cumulative 180000. Preliminary: greater return mobility does not guarantee better first-finish outcomes. Next: independent unselected 4-4 holdout by geometry and connectors. Limits: selected positions, uniform hidden worlds, assumed branch semantics, block winner unassigned.
