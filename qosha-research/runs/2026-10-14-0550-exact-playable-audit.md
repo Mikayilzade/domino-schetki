@@ -1,0 +1,9 @@
+# 2026-10-14 05:50 (+04) — exact playable-identity audit
+
+- Engine `qosa-research-0.5.3`, rules `qosa-1.0.0`, 3×9. Scanned **10,000 deterministic deals** (seeds `3600000..3609999`), reachable turns 4..24 with no prior pass under `closed-branch-control`. These are discovery traces, **not new complete strategy rounds**; verified prior tournament scale **180,000**, historical 4,000 separate.
+- **66** positions and **108** single-vs-one-double action pairs matched discarded pips, remaining stone count, retained-double difference and **K** (number of unknown tiles playable after the move).
+- Only **2/108 pairs**, both at **one position** (`3603084@9`), matched the **exact identities** of playable unknown tiles. Both differed in branch ends and opened numbers. Early/mid/late matched-K positions: 5/50/11.
+- Structural invariant: opening an unplayed double adds a number to `openedNumbers`; playing a single does not. Thus an exact full opening-state match between these action types is **impossible** under this kernel. Exact playable sets do not isolate the intrinsic benefit of keeping a double.
+- Validation: executed 10k-seed V8 CommonJS audit; Node CLI not run. Reproduction script `simulator/exact-playable-audit.js` is persisted; its refactored CLI form still requires independent Node execution. No hidden-world continuation or win claim this pass.
+- Confidence: high for arithmetic/structural observation within this implementation, exploratory for frequency/generalization; one policy, assumed branch semantics, no observed-history posterior. 0 new full strategy rounds, 0 new hidden-world samples.
+- **Exact next hypothesis/action:** run the same audit on disjoint seeds; for rare exact-playable-set pairs, compare identical hidden worlds under multiple continuation policies, measuring first-place/remainder/minus separately. Do not call post-action geometry matching a causal isolation of double retention.
