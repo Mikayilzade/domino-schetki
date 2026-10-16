@@ -8,7 +8,7 @@ Cohort A: deal seeds 200000..200299, first 30 eligible (selected 200000..200033 
 
 Cohort B: deal seeds 220000..220299, first 30 eligible (selected 220001..220039 with gaps); 1,200 worlds, world seeds 93000000+1000*dealSeed+j. Finish-first +24.69 pp (CI +18.62..+30.75); final pips -2.876 (CI -3.862..-1.891); minus-finish +3.90 pp (CI +0.84..+6.96). Position finish deltas: 28 positive, 1 negative, 1 tie.
 
-Independent complete-round baseline: 1,000 deal seeds 610000..610999, 3 seat rotations, 3,000 rounds; 2,898 finishes, 102 blocks, 0 unresolved; mean 24.0 turns approx (not used as a measured metric here). Closed-branch-control: 1,188/3,000 finish-first (39.60%), mean remainder 3.711, minus -10/-20/-30/-40 = 305/8/1/0. Moderate-double-hold: 913/3,000 (30.43%), remainder 5.052, minus 138/6/0/0. Min-hand-pips: 797/3,000 (26.57%), remainder 5.270, minus 104/1/0/0. Block winners unassigned.
+Independent complete-round baseline: 1,000 deal seeds 610000..610999, 3 seat rotations, 3,000 rounds; 2,898 finishes, 102 blocks, 0 unresolved; mean 25.219333 turns (measured). Closed-branch-control: 1,188/3,000 finish-first (39.60%), mean remainder 3.711, minus -10/-20/-30/-40 = 305/8/1/0. Moderate-double-hold: 913/3,000 (30.43%), remainder 5.052, minus 138/6/0/0. Min-hand-pips: 797/3,000 (26.57%), remainder 5.270, minus 104/1/0/0. Block winners unassigned.
 
 Documented complete-round scale: 180,000 from RESULTS.md, plus 3,000 in runs/2026-10-11-1946-alt-discovery-checkpoint.md, plus 3,000 this run = 186,000; historical 4,000 separate. Hidden worlds do not count as complete rounds. Do not add unverified chat-only claims.
 
