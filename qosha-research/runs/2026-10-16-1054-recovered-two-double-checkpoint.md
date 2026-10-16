@@ -1,0 +1,16 @@
+# Recovered local two-double checkpoint — 2026-10-16 10:54 Asia/Baku
+- Source: local unsaved checkpoint after GitHub write outage, branch qosha-research-20261016-pass-choice-0049.
+- Engine qosa-research-0.5.3; recovered qosa-1.0.0 3x9, provisional branch semantics.
+- Seeds 1065000..1067499 and 1067500..1069999: 5,000 unique deals.
+- Focal seat starts with exactly two non-1 doubles. Focal policy closed-branch-control vs moderate-double-hold on identical deals; opponents moderate-double-hold.
+- Eligible seats: 2,817 + 2,819 = 5,636. Complete rounds: 11,272; unresolved: 0.
+- Overall finish-first advantage: +7.38 pp (A), +10.61 pp (B); mean focal remainder delta -0.393/-0.470 pips.
+- Both doubles connected to ordinary tiles: n=2,418/2,451, advantage +7.98/+10.53 pp.
+- One connected: n=393/360, advantage +4.07/+10.83 pp.
+- Shared ordinary tile joining the two double numbers: n=840/882, advantage +7.14/+11.79 pp.
+- No shared connector: n=1,977/1,937, advantage +7.49/+10.07 pp.
+- Neither connected: n=6/8, advantage -16.67/+25.00 pp; too sparse.
+- Conclusion: no stable incremental advantage attributable to shared connector or both connected.
+- Validation: V8 CommonJS deterministic 10-seed replay and deck integrity; Node CLI not executed.
+- **Quarantine:** previous experiment runner and raw observations were not saved during the outage. This checkpoint restores the reported aggregates only; these 11,272 rounds remain separate from the verified cumulative count. Do not reclassify as fully reproducible or add to cumulative.
+- Next: independent exact double-pair/starter-matched comparisons on new seeds; investigate confounding, then rerun any candidate in Node.
