@@ -1,0 +1,511 @@
+{
+  "schema": "qosha-selfplay-opponent-composition/v1",
+  "timestampAsiaBaku": "2026-10-16 08:53 (+04)",
+  "engine": "qosa-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; 3x9; branch locking provisional",
+  "branch": "qosha-research-20261016-pass-choice-0049",
+  "mode": "3x9",
+  "reproduce": {
+    "module": "qosha-research/simulator/strategy-runner.js",
+    "call": "runTournament({strategies,startSeed,count:2500,maxTurns:200,salt:0})",
+    "configs": [
+      {
+        "label": "A1",
+        "strategies": [
+          "closed-branch-control",
+          "closed-branch-control",
+          "moderate-double-hold"
+        ],
+        "startSeed": 1050000,
+        "count": 2500
+      },
+      {
+        "label": "A2",
+        "strategies": [
+          "closed-branch-control",
+          "closed-branch-control",
+          "moderate-double-hold"
+        ],
+        "startSeed": 1052500,
+        "count": 2500
+      },
+      {
+        "label": "B1",
+        "strategies": [
+          "closed-branch-control",
+          "moderate-double-hold",
+          "moderate-double-hold"
+        ],
+        "startSeed": 1050000,
+        "count": 2500
+      },
+      {
+        "label": "B2",
+        "strategies": [
+          "closed-branch-control",
+          "moderate-double-hold",
+          "moderate-double-hold"
+        ],
+        "startSeed": 1052500,
+        "count": 2500
+      },
+      {
+        "label": "C",
+        "strategies": [
+          "closed-branch-control",
+          "closed-branch-control",
+          "closed-branch-control"
+        ],
+        "startSeed": 1050000,
+        "count": 2500
+      }
+    ],
+    "seatRotationsPerSeed": 3,
+    "defaultInitializer": "isFirstRound=false; previousWinnerIndex=seed%3; deterministic canonical opening follow-up",
+    "runtime": "JavaScript V8 CommonJS loader (not Node CLI)"
+  },
+  "validation": {
+    "deterministic40SeedReplay": true,
+    "duplicateStrategyAppearances": 240,
+    "unresolvedAllBatches": 0
+  },
+  "newUniqueDealSeeds": 5000,
+  "newSeedLineupApplications": 12500,
+  "newCompleteRounds": 37500,
+  "priorVerifiedRounds": 360000,
+  "cumulativeVerifiedRounds": 397500,
+  "summary": {
+    "A": {
+      "rounds": 15000,
+      "finishes": 14502,
+      "blocks": 498,
+      "unresolved": 0,
+      "meanTurns": 25.867933333333333,
+      "byStrategy": {
+        "closed-branch-control": {
+          "appearances": 30000,
+          "finishWins": 10617,
+          "minusWins": {
+            "0": 7777,
+            "-10": 2700,
+            "-20": 138,
+            "-30": 2,
+            "-40": 0
+          },
+          "actions": 223347,
+          "choicePoints": 168706,
+          "finishFirstRate": 0.3539,
+          "meanFinalPips": 4.7686,
+          "choiceRate": 0.7553537768584311
+        },
+        "moderate-double-hold": {
+          "appearances": 15000,
+          "finishWins": 3885,
+          "minusWins": {
+            "0": 3334,
+            "-10": 532,
+            "-20": 19,
+            "-30": 0,
+            "-40": 0
+          },
+          "actions": 103610,
+          "choicePoints": 77464,
+          "finishFirstRate": 0.259,
+          "meanFinalPips": 5.964933333333334,
+          "choiceRate": 0.7476498407489625
+        }
+      },
+      "blockRate": 0.0332
+    },
+    "B": {
+      "rounds": 15000,
+      "finishes": 14480,
+      "blocks": 520,
+      "unresolved": 0,
+      "meanTurns": 25.2308,
+      "byStrategy": {
+        "closed-branch-control": {
+          "appearances": 15000,
+          "finishWins": 5812,
+          "minusWins": {
+            "0": 4148,
+            "-10": 1588,
+            "-20": 75,
+            "-30": 1,
+            "-40": 0
+          },
+          "actions": 113439,
+          "choicePoints": 88995,
+          "finishFirstRate": 0.3874666666666667,
+          "meanFinalPips": 4.0591333333333335,
+          "choiceRate": 0.7845185518208023
+        },
+        "moderate-double-hold": {
+          "appearances": 30000,
+          "finishWins": 8668,
+          "minusWins": {
+            "0": 7350,
+            "-10": 1283,
+            "-20": 35,
+            "-30": 0,
+            "-40": 0
+          },
+          "actions": 210720,
+          "choicePoints": 163486,
+          "finishFirstRate": 0.2889333333333333,
+          "meanFinalPips": 5.2129,
+          "choiceRate": 0.7758447228549734
+        }
+      },
+      "blockRate": 0.034666666666666665
+    },
+    "C": {
+      "rounds": 7500,
+      "finishes": 7254,
+      "blocks": 246,
+      "unresolved": 0,
+      "meanTurns": 26.3224,
+      "byStrategy": {
+        "closed-branch-control": {
+          "appearances": 22500,
+          "finishWins": 7254,
+          "minusWins": {
+            "0": 5310,
+            "-10": 1827,
+            "-20": 114,
+            "-30": 3,
+            "-40": 0
+          },
+          "actions": 164637,
+          "choicePoints": 120738,
+          "finishFirstRate": 0.3224,
+          "meanFinalPips": 5.444533333333333,
+          "choiceRate": 0.7333588440022595
+        }
+      },
+      "blockRate": 0.0328
+    }
+  },
+  "batches": {
+    "A1": {
+      "engine": "qosa-research-0.5.3",
+      "startSeed": 1050000,
+      "count": 2500,
+      "maxTurns": 200,
+      "seeds": "1050000..1052499",
+      "strategies": [
+        "closed-branch-control",
+        "closed-branch-control",
+        "moderate-double-hold"
+      ],
+      "rounds": 7500,
+      "finishes": 7246,
+      "blocks": 254,
+      "unresolved": 0,
+      "turnTotal": 194102,
+      "openingPolicy": "initializer default; same deal/opening across rotations",
+      "blockWinnerPolicy": "not assigned",
+      "byStrategy": {
+        "closed-branch-control": {
+          "appearances": 15000,
+          "finishWins": 5319,
+          "choicePoints": 84209,
+          "actions": 111642,
+          "actionTypes": {
+            "single": 81929,
+            "double-sequence": 28291,
+            "mixed-finish": 1422
+          },
+          "minusWins": {
+            "0": 3889,
+            "-10": 1347,
+            "-20": 81,
+            "-30": 2,
+            "-40": 0
+          },
+          "finishWinRate": 0.3546,
+          "meanFinalPips": 4.779866666666667,
+          "medianFinalPips": 3,
+          "choiceRate": 0.754277064187313
+        },
+        "moderate-double-hold": {
+          "appearances": 7500,
+          "finishWins": 1927,
+          "choicePoints": 38784,
+          "actions": 51825,
+          "actionTypes": {
+            "single": 39213,
+            "double-sequence": 12329,
+            "mixed-finish": 283
+          },
+          "minusWins": {
+            "0": 1641,
+            "-10": 276,
+            "-20": 10,
+            "-30": 0,
+            "-40": 0
+          },
+          "finishWinRate": 0.25693333333333335,
+          "meanFinalPips": 5.981733333333334,
+          "medianFinalPips": 4,
+          "choiceRate": 0.7483646888567294
+        }
+      },
+      "meanTurns": 25.880266666666667
+    },
+    "A2": {
+      "engine": "qosa-research-0.5.3",
+      "startSeed": 1052500,
+      "count": 2500,
+      "maxTurns": 200,
+      "seeds": "1052500..1054999",
+      "strategies": [
+        "closed-branch-control",
+        "closed-branch-control",
+        "moderate-double-hold"
+      ],
+      "rounds": 7500,
+      "finishes": 7256,
+      "blocks": 244,
+      "unresolved": 0,
+      "turnTotal": 193917,
+      "openingPolicy": "initializer default; same deal/opening across rotations",
+      "blockWinnerPolicy": "not assigned",
+      "byStrategy": {
+        "closed-branch-control": {
+          "appearances": 15000,
+          "finishWins": 5298,
+          "choicePoints": 84497,
+          "actions": 111705,
+          "actionTypes": {
+            "single": 82037,
+            "double-sequence": 28264,
+            "mixed-finish": 1404
+          },
+          "minusWins": {
+            "0": 3888,
+            "-10": 1353,
+            "-20": 57,
+            "-30": 0,
+            "-40": 0
+          },
+          "finishWinRate": 0.3532,
+          "meanFinalPips": 4.757333333333333,
+          "medianFinalPips": 3,
+          "choiceRate": 0.7564298822792176
+        },
+        "moderate-double-hold": {
+          "appearances": 7500,
+          "finishWins": 1958,
+          "choicePoints": 38680,
+          "actions": 51785,
+          "actionTypes": {
+            "single": 39285,
+            "double-sequence": 12235,
+            "mixed-finish": 265
+          },
+          "minusWins": {
+            "0": 1693,
+            "-10": 256,
+            "-20": 9,
+            "-30": 0,
+            "-40": 0
+          },
+          "finishWinRate": 0.26106666666666667,
+          "meanFinalPips": 5.948133333333334,
+          "medianFinalPips": 4,
+          "choiceRate": 0.746934440475041
+        }
+      },
+      "meanTurns": 25.8556
+    },
+    "B1": {
+      "engine": "qosa-research-0.5.3",
+      "startSeed": 1050000,
+      "count": 2500,
+      "maxTurns": 200,
+      "seeds": "1050000..1052499",
+      "strategies": [
+        "closed-branch-control",
+        "moderate-double-hold",
+        "moderate-double-hold"
+      ],
+      "rounds": 7500,
+      "finishes": 7246,
+      "blocks": 254,
+      "unresolved": 0,
+      "turnTotal": 189411,
+      "openingPolicy": "initializer default; same deal/opening across rotations",
+      "blockWinnerPolicy": "not assigned",
+      "byStrategy": {
+        "closed-branch-control": {
+          "appearances": 7500,
+          "finishWins": 2964,
+          "choicePoints": 44520,
+          "actions": 56823,
+          "actionTypes": {
+            "single": 42002,
+            "double-sequence": 13981,
+            "mixed-finish": 840
+          },
+          "minusWins": {
+            "0": 2120,
+            "-10": 800,
+            "-20": 43,
+            "-30": 1,
+            "-40": 0
+          },
+          "finishWinRate": 0.3952,
+          "meanFinalPips": 4.003333333333333,
+          "medianFinalPips": 2,
+          "choiceRate": 0.783485560424476
+        },
+        "moderate-double-hold": {
+          "appearances": 15000,
+          "finishWins": 4282,
+          "choicePoints": 81633,
+          "actions": 105427,
+          "actionTypes": {
+            "single": 80510,
+            "double-sequence": 24280,
+            "mixed-finish": 637
+          },
+          "minusWins": {
+            "0": 3639,
+            "-10": 629,
+            "-20": 14,
+            "-30": 0,
+            "-40": 0
+          },
+          "finishWinRate": 0.28546666666666665,
+          "meanFinalPips": 5.243333333333333,
+          "medianFinalPips": 4,
+          "choiceRate": 0.7743082891479413
+        }
+      },
+      "meanTurns": 25.2548
+    },
+    "B2": {
+      "engine": "qosa-research-0.5.3",
+      "startSeed": 1052500,
+      "count": 2500,
+      "maxTurns": 200,
+      "seeds": "1052500..1054999",
+      "strategies": [
+        "closed-branch-control",
+        "moderate-double-hold",
+        "moderate-double-hold"
+      ],
+      "rounds": 7500,
+      "finishes": 7234,
+      "blocks": 266,
+      "unresolved": 0,
+      "turnTotal": 189051,
+      "openingPolicy": "initializer default; same deal/opening across rotations",
+      "blockWinnerPolicy": "not assigned",
+      "byStrategy": {
+        "closed-branch-control": {
+          "appearances": 7500,
+          "finishWins": 2848,
+          "choicePoints": 44475,
+          "actions": 56616,
+          "actionTypes": {
+            "single": 41819,
+            "double-sequence": 13979,
+            "mixed-finish": 818
+          },
+          "minusWins": {
+            "0": 2028,
+            "-10": 788,
+            "-20": 32,
+            "-30": 0,
+            "-40": 0
+          },
+          "finishWinRate": 0.3797333333333333,
+          "meanFinalPips": 4.114933333333333,
+          "medianFinalPips": 3,
+          "choiceRate": 0.785555320050869
+        },
+        "moderate-double-hold": {
+          "appearances": 15000,
+          "finishWins": 4386,
+          "choicePoints": 81853,
+          "actions": 105293,
+          "actionTypes": {
+            "single": 80598,
+            "double-sequence": 24021,
+            "mixed-finish": 674
+          },
+          "minusWins": {
+            "0": 3711,
+            "-10": 654,
+            "-20": 21,
+            "-30": 0,
+            "-40": 0
+          },
+          "finishWinRate": 0.2924,
+          "meanFinalPips": 5.1824666666666666,
+          "medianFinalPips": 4,
+          "choiceRate": 0.7773831118877799
+        }
+      },
+      "meanTurns": 25.2068
+    },
+    "C": {
+      "engine": "qosa-research-0.5.3",
+      "startSeed": 1050000,
+      "count": 2500,
+      "maxTurns": 200,
+      "seeds": "1050000..1052499",
+      "strategies": [
+        "closed-branch-control",
+        "closed-branch-control",
+        "closed-branch-control"
+      ],
+      "rounds": 7500,
+      "finishes": 7254,
+      "blocks": 246,
+      "unresolved": 0,
+      "turnTotal": 197418,
+      "openingPolicy": "initializer default; same deal/opening across rotations",
+      "blockWinnerPolicy": "not assigned",
+      "byStrategy": {
+        "closed-branch-control": {
+          "appearances": 22500,
+          "finishWins": 7254,
+          "choicePoints": 120738,
+          "actions": 164637,
+          "actionTypes": {
+            "single": 120042,
+            "double-sequence": 42663,
+            "mixed-finish": 1932
+          },
+          "minusWins": {
+            "0": 5310,
+            "-10": 1827,
+            "-20": 114,
+            "-30": 3,
+            "-40": 0
+          },
+          "finishWinRate": 0.3224,
+          "meanFinalPips": 5.444533333333333,
+          "medianFinalPips": 4,
+          "choiceRate": 0.7333588440022595
+        }
+      },
+      "meanTurns": 26.3224
+    }
+  },
+  "findings": {
+    "A_closed_per_seat": "35.39%",
+    "A_moderate_per_seat": "25.90%",
+    "B_closed_per_seat": "38.75%",
+    "B_moderate_per_seat": "28.89%",
+    "C_closed_per_seat": "32.24%",
+    "A_difference_pp": 9.489999999999998,
+    "B_difference_pp": 9.853333333333335
+  },
+  "interpretation": "Closed-branch-control versus moderate-double-hold under matched seeds and seat rotations, with both 2-vs-1 and 1-vs-2 lineups, plus all-closed self-play. Rates are finish-first per strategy seat appearance, not match win rates. Same-seed seat rotations correlated. No causal human-play claim.",
+  "limitations": "Branch semantics provisional; initial opening-followup default and no match scoring; block winner unassigned; no -40 observed may reflect rarity; only two deterministic bot policies; all-closed self-play gives symmetric baseline not independent competitive superiority; per-seed correlated rotations.",
+  "nextHypothesis": "Compare branch-control against improved branch-aware hybrid and quantify branch-open decision regret on same hidden-world seed sets; stratify by current open ends and retained doubles; validate block winner/score semantics before match-win claims."
+}
