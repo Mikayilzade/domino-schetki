@@ -73,7 +73,7 @@ function runTournament({strategies,startSeed=0,count=1000,maxTurns=200,salt=0}){
     }
   }
   summary.meanTurns=summary.rounds?summary.turnTotal/summary.rounds:null;
-  for(const name of strategies){
+  for(const name of new Set(strategies)){
     const m=summary.byStrategy[name];
     m.finishWinRate=m.appearances?m.finishWins/m.appearances:null;
     m.meanFinalPips=m.finalPips.length?m.finalPips.reduce((a,b)=>a+b,0)/m.finalPips.length:null;
