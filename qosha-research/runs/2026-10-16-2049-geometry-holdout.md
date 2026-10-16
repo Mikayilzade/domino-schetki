@@ -1,0 +1,8 @@
+# Qoşa independent geometry holdout, 2026-10-16 20:49 Asia/Baku
+Engine qosa-research-0.5.3 / qosa-1.0.0, 3x9. V8 CommonJS run of existing post-action-geometry-runner.js; deterministic selfTest passed, Node CLI not run.
+Equal-pip legal connector X-Y versus unrelated single, both retain X-X and another connector; same visible state and paired hidden worlds. Min-hand-pips discovery; continuation policies closed-branch-control/min-hand-pips/fast-doubles.
+A: node qosha-research/simulator/post-action-geometry-runner.js 450000 460000 50 8 20. 16 positions, 320 worlds, 3840 continuations, zero unresolved. Connector minus unrelated first-finish: -25.63/-25.94/-1.88 pp; remainder +3.86/+4.56/+1.09 pips; later X-connector access -0.669.
+B: node qosha-research/simulator/post-action-geometry-runner.js 480000 490000 50 8 20. 16 positions, 320 worlds, 4140 continuations, zero unresolved. First-finish: -13.44/-13.75/-2.81 pp; remainder +2.15/+1.80/+0.51 pips; later X-connector access -0.500.
+World seed = 42000000 + 1000*dealSeed + worldIndex, index 0..19. Quotas 8 X=0 and 8 X>0 per cohort. Every pair changes exactly two branch ends; geometry confounds connector effect. B first-finish confidence intervals include zero. Provisional model-specific finding: spending the connector reduces later access in both cohorts; not a causal human strategy rule. First-eligible bias, 20 worlds per position, bot continuation, provisional branch rules, block winners unassigned.
+0 new complete rounds; previously documented 186000 complete rounds, historical 4000 separate. 640 new hidden worlds and 7980 candidate continuations, not added to full-round total.
+Next: matched post-action geometry, counterexamples, Node CLI validation, per-position rows. No scoreboard/PWA changes.
