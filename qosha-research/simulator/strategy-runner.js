@@ -10,6 +10,9 @@ function removedPips(action){return e.pipSum(tilesFor(action));}
 function removedDoubles(action){return tilesFor(action).filter(t=>t[0]===t[1]).length;}
 function stableKey(action){return `${action.type}:${(action.numbers||[]).join(',')}:${action.side||''}:${action.to??''}:${e.tileKey(action.tile||[0,0])}`;}
 
+// Side-free fallback key is opt-in; legacy tournament behavior remains unchanged.
+// Equivalent placements are allowed to tie; stable enumeration then selects one.
+function sideFreeKey(action){return `${action.type}:${(action.numbers||[]).join(',')}:${action.to??''}:${e.tileKey(action.tile||[0,0])}`;}
 function chooseBy(name,opts,ctx={}){
   const actions=opts.actions;
   if(name==='random-legal'){
@@ -36,14 +39,14 @@ function chooseBy(name,opts,ctx={}){
       if(oa!==ob)return oa-ob;
       const p=removedPips(b)-removedPips(a);if(p)return p;
     }else throw new Error('unknown strategy '+name);
-    return stableKey(a).localeCompare(stableKey(b));
+    return (ctx.sideFree?sideFreeKey(a):stableKey(a)).localeCompare(ctx.sideFree?sideFreeKey(b):stableKey(b));
   })[0];
 }
 function median(xs){const a=[...xs].sort((x,y)=>x-y),n=a.length;return n%2?a[(n-1)/2]:(a[n/2-1]+a[n/2])/2;}
 
-function runTournament({strategies,startSeed=0,count=1000,maxTurns=200,salt=0}){
+function runTournament({strategies,startSeed=0,count=1000,maxTurns=200,salt=0,sideFree=false}){
   if(!Array.isArray(strategies)||strategies.length!==3)throw new Error('exactly 3 strategies required');
-  const summary={engine:'qosa-research-0.5.3',startSeed,count,maxTurns,seeds:`${startSeed}..${startSeed+count-1}`,strategies:[...strategies],rounds:0,finishes:0,blocks:0,unresolved:0,turnTotal:0,openingPolicy:'initializer default; same deal/opening across rotations',blockWinnerPolicy:'not assigned',byStrategy:{}};
+  const summary={engine:'qosa-research-0.5.3',startSeed,count,maxTurns,sideFree,seeds:`${startSeed}..${startSeed+count-1}`,strategies:[...strategies],rounds:0,finishes:0,blocks:0,unresolved:0,turnTotal:0,openingPolicy:'initializer default; same deal/opening across rotations',blockWinnerPolicy:'not assigned',byStrategy:{}};
   for(const s of strategies)summary.byStrategy[s]={appearances:0,finishWins:0,finalPips:[],choicePoints:0,actions:0,actionTypes:{single:0,'double-sequence':0,'mixed-finish':0},minusWins:{'0':0,'-10':0,'-20':0,'-30':0,'-40':0}};
   for(let seed=startSeed;seed<startSeed+count;seed++){
     const base=init.initializeThreePlayerRound({seed,isFirstRound:false,previousWinnerIndex:seed%3});
@@ -53,7 +56,7 @@ function runTournament({strategies,startSeed=0,count=1000,maxTurns=200,salt=0}){
       const chooser=(opts,state)=>{
         const name=seatStrategy[state.currentPlayer],m=summary.byStrategy[name];
         m.actions++;if(opts.actions.length>1)m.choicePoints++;
-        const action=chooseBy(name,opts,{seed,rotation,turns:state.turns,player:state.currentPlayer,salt});
+        const action=chooseBy(name,opts,{seed,rotation,turns:state.turns,player:state.currentPlayer,salt,sideFree});
         m.actionTypes[action.type]=(m.actionTypes[action.type]||0)+1;
         return action;
       };
