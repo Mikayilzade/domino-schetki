@@ -1,0 +1,2901 @@
+{
+  "timestampAsiaBaku": "2026-10-17 17:51:52",
+  "script": "simulator/next-opponent-pass-odds.js",
+  "scriptCommit": "2cb6ccb06486181b40a545a2cd32bdeeed7f62b6",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "primaryMode": "3 players x 9 tiles",
+  "test": "PASS exact odds, enumeration, unopened double",
+  "extraValidation": "384 brute-force hand-enumeration fixtures (128 synthetic boards x 3 opponent hand sizes) matched exact hypergeometric pass odds in V8 CommonJS; Node CLI not executed",
+  "design": "First reachable position per seeded complete round with two different ordinary tiles of equal pip sum, same number of accessible ends but different accessible end values. Both candidate moves are evaluated against the same actual next-opponent hand. Exact conditional uniform-unseen-pool probability is computed using all played tiles and focal hand, not opponent tile allocation. Discovery continuation policy: min-hand-pips. No win probability is inferred.",
+  "strategy": "min-hand-pips discovery; paired forced immediate candidate comparison; no post-candidate rollout policy",
+  "seedSets": [
+    "8100000..8100440",
+    "8200000..8200449",
+    "8300000..8300433"
+  ],
+  "totals": {
+    "positions": 900,
+    "completedDiscoveryRounds": 1325,
+    "finishes": 1281,
+    "blocks": 44,
+    "unresolved": 0,
+    "unequalPredictedOdds": 622,
+    "actualPassFlips": 62,
+    "sumActualPassGain": 56,
+    "meanAbsolutePredictedPassGap": 0.046614081452316714,
+    "meanActualPassGain": 0.06222222222222222
+  },
+  "runData": [
+    {
+      "engine": "qosa-research-0.5.3",
+      "rules": "qosa-1.0.0",
+      "mode": "3x9",
+      "seedStart": 8100000,
+      "seedMaxExclusive": 8120000,
+      "discoveryPolicy": "min-hand-pips",
+      "targetPositions": 300,
+      "completedDiscoveryRounds": 441,
+      "finishes": 432,
+      "blocks": 9,
+      "unresolved": 0,
+      "positions": 300,
+      "unequalPredictedOdds": 204,
+      "actualPassFlips": 22,
+      "sumPredictedAbsoluteGap": 12.51347394435629,
+      "sumActualPassOracleGain": 22,
+      "sumNextOpponentHand": 1960,
+      "examples": [
+        {
+          "seed": 8100000,
+          "turn": 11,
+          "nextHandSize": 5,
+          "a": {
+            "key": "single|left|4|1-4",
+            "tile": [
+              1,
+              4
+            ],
+            "side": "left",
+            "pips": 5,
+            "endCount": 4,
+            "ends": [
+              1,
+              3,
+              4,
+              5
+            ],
+            "odds": {
+              "unknown": 10,
+              "playable": 7,
+              "handSize": 5,
+              "passProbability": 0,
+              "expectedPlayableTiles": 3.5
+            },
+            "replyPass": false,
+            "replyActions": 3
+          },
+          "b": {
+            "key": "single|up|0|0-5",
+            "tile": [
+              0,
+              5
+            ],
+            "side": "up",
+            "pips": 5,
+            "endCount": 4,
+            "ends": [
+              0,
+              1,
+              1,
+              3
+            ],
+            "odds": {
+              "unknown": 10,
+              "playable": 5,
+              "handSize": 5,
+              "passProbability": 0.003968253968253968,
+              "expectedPlayableTiles": 2.5
+            },
+            "replyPass": false,
+            "replyActions": 2
+          }
+        },
+        {
+          "seed": 8100001,
+          "turn": 7,
+          "nextHandSize": 7,
+          "a": {
+            "key": "single|right|2|1-2",
+            "tile": [
+              1,
+              2
+            ],
+            "side": "right",
+            "pips": 3,
+            "endCount": 1,
+            "ends": [
+              0
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 3,
+              "handSize": 7,
+              "passProbability": 0.06993006993006994,
+              "expectedPlayableTiles": 1.6153846153846154
+            },
+            "replyPass": false,
+            "replyActions": 5
+          },
+          "b": {
+            "key": "single|up|3|0-3",
+            "tile": [
+              0,
+              3
+            ],
+            "side": "up",
+            "pips": 3,
+            "endCount": 1,
+            "ends": [
+              1
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 4,
+              "handSize": 7,
+              "passProbability": 0.02097902097902098,
+              "expectedPlayableTiles": 2.1538461538461537
+            },
+            "replyPass": false,
+            "replyActions": 2
+          }
+        },
+        {
+          "seed": 8100004,
+          "turn": 8,
+          "nextHandSize": 6,
+          "a": {
+            "key": "single|left|5|1-5",
+            "tile": [
+              1,
+              5
+            ],
+            "side": "left",
+            "pips": 6,
+            "endCount": 3,
+            "ends": [
+              0,
+              1,
+              4
+            ],
+            "odds": {
+              "unknown": 12,
+              "playable": 7,
+              "handSize": 6,
+              "passProbability": 0,
+              "expectedPlayableTiles": 3.5
+            },
+            "replyPass": false,
+            "replyActions": 3
+          },
+          "b": {
+            "key": "single|up|2|2-4",
+            "tile": [
+              2,
+              4
+            ],
+            "side": "up",
+            "pips": 6,
+            "endCount": 3,
+            "ends": [
+              0,
+              1,
+              1
+            ],
+            "odds": {
+              "unknown": 12,
+              "playable": 6,
+              "handSize": 6,
+              "passProbability": 0.0010822510822510823,
+              "expectedPlayableTiles": 3
+            },
+            "replyPass": false,
+            "replyActions": 1
+          }
+        },
+        {
+          "seed": 8100005,
+          "turn": 5,
+          "nextHandSize": 7,
+          "a": {
+            "key": "single|down|0|0-5",
+            "tile": [
+              0,
+              5
+            ],
+            "side": "down",
+            "pips": 5,
+            "endCount": 3,
+            "ends": [
+              1,
+              2,
+              6
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 8,
+              "handSize": 7,
+              "passProbability": 0,
+              "expectedPlayableTiles": 4.3076923076923075
+            },
+            "replyPass": false,
+            "replyActions": 5
+          },
+          "b": {
+            "key": "single|right|4|1-4",
+            "tile": [
+              1,
+              4
+            ],
+            "side": "right",
+            "pips": 5,
+            "endCount": 3,
+            "ends": [
+              2,
+              5,
+              6
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 8,
+              "handSize": 7,
+              "passProbability": 0,
+              "expectedPlayableTiles": 4.3076923076923075
+            },
+            "replyPass": false,
+            "replyActions": 8
+          }
+        },
+        {
+          "seed": 8100006,
+          "turn": 7,
+          "nextHandSize": 7,
+          "a": {
+            "key": "single|down|3|3-5",
+            "tile": [
+              3,
+              5
+            ],
+            "side": "down",
+            "pips": 8,
+            "endCount": 3,
+            "ends": [
+              1,
+              2,
+              5
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 8,
+              "handSize": 7,
+              "passProbability": 0,
+              "expectedPlayableTiles": 4.3076923076923075
+            },
+            "replyPass": false,
+            "replyActions": 4
+          },
+          "b": {
+            "key": "single|up|6|2-6",
+            "tile": [
+              2,
+              6
+            ],
+            "side": "up",
+            "pips": 8,
+            "endCount": 3,
+            "ends": [
+              1,
+              5,
+              5
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 5,
+              "handSize": 7,
+              "passProbability": 0.004662004662004661,
+              "expectedPlayableTiles": 2.6923076923076925
+            },
+            "replyPass": false,
+            "replyActions": 2
+          }
+        },
+        {
+          "seed": 8100011,
+          "turn": 8,
+          "nextHandSize": 6,
+          "a": {
+            "key": "single|left|2|2-3",
+            "tile": [
+              2,
+              3
+            ],
+            "side": "left",
+            "pips": 5,
+            "endCount": 1,
+            "ends": [
+              1
+            ],
+            "odds": {
+              "unknown": 12,
+              "playable": 3,
+              "handSize": 6,
+              "passProbability": 0.09090909090909088,
+              "expectedPlayableTiles": 1.5
+            },
+            "replyPass": false,
+            "replyActions": 1
+          },
+          "b": {
+            "key": "single|right|4|1-4",
+            "tile": [
+              1,
+              4
+            ],
+            "side": "right",
+            "pips": 5,
+            "endCount": 1,
+            "ends": [
+              3
+            ],
+            "odds": {
+              "unknown": 12,
+              "playable": 4,
+              "handSize": 6,
+              "passProbability": 0.0303030303030303,
+              "expectedPlayableTiles": 2
+            },
+            "replyPass": false,
+            "replyActions": 4
+          }
+        },
+        {
+          "seed": 8100013,
+          "turn": 5,
+          "nextHandSize": 5,
+          "a": {
+            "key": "single|down|3|3-5",
+            "tile": [
+              3,
+              5
+            ],
+            "side": "down",
+            "pips": 8,
+            "endCount": 2,
+            "ends": [
+              1,
+              6
+            ],
+            "odds": {
+              "unknown": 12,
+              "playable": 5,
+              "handSize": 5,
+              "passProbability": 0.026515151515151512,
+              "expectedPlayableTiles": 2.0833333333333335
+            },
+            "replyPass": false,
+            "replyActions": 3
+          },
+          "b": {
+            "key": "single|left|2|2-6",
+            "tile": [
+              2,
+              6
+            ],
+            "side": "left",
+            "pips": 8,
+            "endCount": 2,
+            "ends": [
+              1,
+              5
+            ],
+            "odds": {
+              "unknown": 12,
+              "playable": 7,
+              "handSize": 5,
+              "passProbability": 0.0012626262626262625,
+              "expectedPlayableTiles": 2.9166666666666665
+            },
+            "replyPass": false,
+            "replyActions": 6
+          }
+        },
+        {
+          "seed": 8100014,
+          "turn": 5,
+          "nextHandSize": 7,
+          "a": {
+            "key": "single|down|0|0-6",
+            "tile": [
+              0,
+              6
+            ],
+            "side": "down",
+            "pips": 6,
+            "endCount": 3,
+            "ends": [
+              1,
+              1,
+              6
+            ],
+            "odds": {
+              "unknown": 14,
+              "playable": 3,
+              "handSize": 7,
+              "passProbability": 0.09615384615384616,
+              "expectedPlayableTiles": 1.5
+            },
+            "replyPass": false,
+            "replyActions": 1
+          },
+          "b": {
+            "key": "single|left|5|1-5",
+            "tile": [
+              1,
+              5
+            ],
+            "side": "left",
+            "pips": 6,
+            "endCount": 3,
+            "ends": [
+              1,
+              6,
+              6
+            ],
+            "odds": {
+              "unknown": 14,
+              "playable": 4,
+              "handSize": 7,
+              "passProbability": 0.03496503496503496,
+              "expectedPlayableTiles": 2
+            },
+            "replyPass": false,
+            "replyActions": 2
+          }
+        },
+        {
+          "seed": 8100015,
+          "turn": 10,
+          "nextHandSize": 6,
+          "a": {
+            "key": "single|left|3|1-3",
+            "tile": [
+              1,
+              3
+            ],
+            "side": "left",
+            "pips": 4,
+            "endCount": 2,
+            "ends": [
+              1,
+              4
+            ],
+            "odds": {
+              "unknown": 11,
+              "playable": 6,
+              "handSize": 6,
+              "passProbability": 0,
+              "expectedPlayableTiles": 3.272727272727273
+            },
+            "replyPass": false,
+            "replyActions": 4
+          },
+          "b": {
+            "key": "single|up|0|0-4",
+            "tile": [
+              0,
+              4
+            ],
+            "side": "up",
+            "pips": 4,
+            "endCount": 2,
+            "ends": [
+              1,
+              1
+            ],
+            "odds": {
+              "unknown": 11,
+              "playable": 5,
+              "handSize": 6,
+              "passProbability": 0.002164502164502164,
+              "expectedPlayableTiles": 2.727272727272727
+            },
+            "replyPass": false,
+            "replyActions": 5
+          }
+        },
+        {
+          "seed": 8100017,
+          "turn": 5,
+          "nextHandSize": 7,
+          "a": {
+            "key": "single|left|3|1-3",
+            "tile": [
+              1,
+              3
+            ],
+            "side": "left",
+            "pips": 4,
+            "endCount": 2,
+            "ends": [
+              0,
+              1
+            ],
+            "odds": {
+              "unknown": 14,
+              "playable": 6,
+              "handSize": 7,
+              "passProbability": 0.0023310023310023306,
+              "expectedPlayableTiles": 3
+            },
+            "replyPass": false,
+            "replyActions": 6
+          },
+          "b": {
+            "key": "single|up|4|0-4",
+            "tile": [
+              0,
+              4
+            ],
+            "side": "up",
+            "pips": 4,
+            "endCount": 2,
+            "ends": [
+              1,
+              1
+            ],
+            "odds": {
+              "unknown": 14,
+              "playable": 2,
+              "handSize": 7,
+              "passProbability": 0.23076923076923078,
+              "expectedPlayableTiles": 1
+            },
+            "replyPass": false,
+            "replyActions": 3
+          }
+        },
+        {
+          "seed": 8100018,
+          "turn": 20,
+          "nextHandSize": 2,
+          "a": {
+            "key": "single|left|3|0-3",
+            "tile": [
+              0,
+              3
+            ],
+            "side": "left",
+            "pips": 3,
+            "endCount": 4,
+            "ends": [
+              2,
+              3,
+              3,
+              5
+            ],
+            "odds": {
+              "unknown": 3,
+              "playable": 3,
+              "handSize": 2,
+              "passProbability": 0,
+              "expectedPlayableTiles": 2
+            },
+            "replyPass": false,
+            "replyActions": 2
+          },
+          "b": {
+            "key": "single|up|1|1-2",
+            "tile": [
+              1,
+              2
+            ],
+            "side": "up",
+            "pips": 3,
+            "endCount": 4,
+            "ends": [
+              0,
+              1,
+              3,
+              5
+            ],
+            "odds": {
+              "unknown": 3,
+              "playable": 3,
+              "handSize": 2,
+              "passProbability": 0,
+              "expectedPlayableTiles": 2
+            },
+            "replyPass": false,
+            "replyActions": 3
+          }
+        },
+        {
+          "seed": 8100020,
+          "turn": 3,
+          "nextHandSize": 8,
+          "a": {
+            "key": "single|down|0|0-5",
+            "tile": [
+              0,
+              5
+            ],
+            "side": "down",
+            "pips": 5,
+            "endCount": 3,
+            "ends": [
+              1,
+              1,
+              2
+            ],
+            "odds": {
+              "unknown": 15,
+              "playable": 6,
+              "handSize": 8,
+              "passProbability": 0.0013986013986013982,
+              "expectedPlayableTiles": 3.2
+            },
+            "replyPass": false,
+            "replyActions": 2
+          },
+          "b": {
+            "key": "single|up|3|2-3",
+            "tile": [
+              2,
+              3
+            ],
+            "side": "up",
+            "pips": 5,
+            "endCount": 3,
+            "ends": [
+              1,
+              1,
+              5
+            ],
+            "odds": {
+              "unknown": 15,
+              "playable": 8,
+              "handSize": 8,
+              "passProbability": 0,
+              "expectedPlayableTiles": 4.266666666666667
+            },
+            "replyPass": false,
+            "replyActions": 4
+          }
+        }
+      ],
+      "selectedSeeds": [
+        8100000,
+        8100001,
+        8100004,
+        8100005,
+        8100006,
+        8100011,
+        8100013,
+        8100014,
+        8100015,
+        8100017,
+        8100018,
+        8100020,
+        8100024,
+        8100025,
+        8100026,
+        8100027,
+        8100028,
+        8100031,
+        8100032,
+        8100035,
+        8100036,
+        8100037,
+        8100038,
+        8100040,
+        8100041,
+        8100044,
+        8100045,
+        8100046,
+        8100047,
+        8100048,
+        8100049,
+        8100050,
+        8100051,
+        8100052,
+        8100053,
+        8100054,
+        8100055,
+        8100056,
+        8100058,
+        8100060,
+        8100062,
+        8100065,
+        8100066,
+        8100067,
+        8100068,
+        8100069,
+        8100070,
+        8100071,
+        8100073,
+        8100074,
+        8100075,
+        8100077,
+        8100078,
+        8100079,
+        8100081,
+        8100082,
+        8100083,
+        8100084,
+        8100086,
+        8100087,
+        8100089,
+        8100090,
+        8100091,
+        8100093,
+        8100095,
+        8100096,
+        8100097,
+        8100098,
+        8100099,
+        8100100,
+        8100101,
+        8100104,
+        8100106,
+        8100107,
+        8100108,
+        8100109,
+        8100110,
+        8100111,
+        8100113,
+        8100114,
+        8100115,
+        8100116,
+        8100117,
+        8100118,
+        8100119,
+        8100120,
+        8100121,
+        8100122,
+        8100124,
+        8100125,
+        8100126,
+        8100129,
+        8100130,
+        8100132,
+        8100133,
+        8100135,
+        8100137,
+        8100138,
+        8100140,
+        8100142,
+        8100143,
+        8100145,
+        8100148,
+        8100149,
+        8100150,
+        8100151,
+        8100152,
+        8100153,
+        8100154,
+        8100156,
+        8100157,
+        8100159,
+        8100160,
+        8100161,
+        8100162,
+        8100163,
+        8100164,
+        8100165,
+        8100166,
+        8100167,
+        8100169,
+        8100171,
+        8100173,
+        8100177,
+        8100178,
+        8100179,
+        8100180,
+        8100182,
+        8100183,
+        8100186,
+        8100188,
+        8100189,
+        8100190,
+        8100191,
+        8100192,
+        8100194,
+        8100195,
+        8100198,
+        8100199,
+        8100200,
+        8100201,
+        8100203,
+        8100204,
+        8100205,
+        8100206,
+        8100208,
+        8100209,
+        8100210,
+        8100211,
+        8100212,
+        8100213,
+        8100215,
+        8100216,
+        8100218,
+        8100219,
+        8100220,
+        8100221,
+        8100222,
+        8100225,
+        8100226,
+        8100227,
+        8100229,
+        8100231,
+        8100233,
+        8100234,
+        8100235,
+        8100236,
+        8100237,
+        8100239,
+        8100240,
+        8100241,
+        8100243,
+        8100244,
+        8100245,
+        8100247,
+        8100248,
+        8100249,
+        8100250,
+        8100251,
+        8100252,
+        8100253,
+        8100255,
+        8100256,
+        8100260,
+        8100261,
+        8100262,
+        8100263,
+        8100264,
+        8100266,
+        8100267,
+        8100268,
+        8100270,
+        8100271,
+        8100273,
+        8100274,
+        8100275,
+        8100277,
+        8100278,
+        8100279,
+        8100281,
+        8100282,
+        8100284,
+        8100287,
+        8100288,
+        8100289,
+        8100290,
+        8100293,
+        8100294,
+        8100295,
+        8100296,
+        8100297,
+        8100301,
+        8100302,
+        8100303,
+        8100304,
+        8100305,
+        8100306,
+        8100307,
+        8100308,
+        8100310,
+        8100313,
+        8100316,
+        8100321,
+        8100323,
+        8100324,
+        8100325,
+        8100326,
+        8100328,
+        8100329,
+        8100330,
+        8100331,
+        8100332,
+        8100333,
+        8100334,
+        8100335,
+        8100338,
+        8100339,
+        8100340,
+        8100341,
+        8100343,
+        8100345,
+        8100346,
+        8100347,
+        8100348,
+        8100349,
+        8100350,
+        8100351,
+        8100352,
+        8100353,
+        8100354,
+        8100355,
+        8100357,
+        8100358,
+        8100359,
+        8100360,
+        8100362,
+        8100363,
+        8100364,
+        8100366,
+        8100368,
+        8100373,
+        8100375,
+        8100378,
+        8100381,
+        8100384,
+        8100385,
+        8100387,
+        8100388,
+        8100392,
+        8100393,
+        8100394,
+        8100395,
+        8100396,
+        8100400,
+        8100401,
+        8100402,
+        8100403,
+        8100406,
+        8100408,
+        8100409,
+        8100411,
+        8100414,
+        8100415,
+        8100416,
+        8100417,
+        8100418,
+        8100419,
+        8100420,
+        8100422,
+        8100424,
+        8100425,
+        8100427,
+        8100428,
+        8100430,
+        8100431,
+        8100433,
+        8100436,
+        8100438,
+        8100439,
+        8100440
+      ],
+      "seedEndInclusive": 8100440,
+      "meanAbsolutePredictedPassGap": 0.04171157981452097,
+      "meanActualPassGainOracle": 0.07333333333333333,
+      "meanNextOpponentHand": 6.533333333333333
+    },
+    {
+      "engine": "qosa-research-0.5.3",
+      "rules": "qosa-1.0.0",
+      "mode": "3x9",
+      "seedStart": 8200000,
+      "seedMaxExclusive": 8220000,
+      "discoveryPolicy": "min-hand-pips",
+      "targetPositions": 300,
+      "completedDiscoveryRounds": 450,
+      "finishes": 434,
+      "blocks": 16,
+      "unresolved": 0,
+      "positions": 300,
+      "unequalPredictedOdds": 211,
+      "actualPassFlips": 17,
+      "sumPredictedAbsoluteGap": 15.396516718575526,
+      "sumActualPassOracleGain": 11,
+      "sumNextOpponentHand": 1988,
+      "examples": [
+        {
+          "seed": 8200000,
+          "turn": 9,
+          "nextHandSize": 6,
+          "a": {
+            "key": "single|left|3|3-4",
+            "tile": [
+              3,
+              4
+            ],
+            "side": "left",
+            "pips": 7,
+            "endCount": 2,
+            "ends": [
+              1,
+              5
+            ],
+            "odds": {
+              "unknown": 12,
+              "playable": 6,
+              "handSize": 6,
+              "passProbability": 0.0010822510822510823,
+              "expectedPlayableTiles": 3
+            },
+            "replyPass": false,
+            "replyActions": 3
+          },
+          "b": {
+            "key": "single|up|2|2-5",
+            "tile": [
+              2,
+              5
+            ],
+            "side": "up",
+            "pips": 7,
+            "endCount": 2,
+            "ends": [
+              1,
+              4
+            ],
+            "odds": {
+              "unknown": 12,
+              "playable": 5,
+              "handSize": 6,
+              "passProbability": 0.007575757575757574,
+              "expectedPlayableTiles": 2.5
+            },
+            "replyPass": false,
+            "replyActions": 2
+          }
+        },
+        {
+          "seed": 8200002,
+          "turn": 5,
+          "nextHandSize": 6,
+          "a": {
+            "key": "single|down|5|0-5",
+            "tile": [
+              0,
+              5
+            ],
+            "side": "down",
+            "pips": 5,
+            "endCount": 3,
+            "ends": [
+              1,
+              3,
+              6
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 8,
+              "handSize": 6,
+              "passProbability": 0,
+              "expectedPlayableTiles": 3.6923076923076925
+            },
+            "replyPass": false,
+            "replyActions": 5
+          },
+          "b": {
+            "key": "single|up|2|2-3",
+            "tile": [
+              2,
+              3
+            ],
+            "side": "up",
+            "pips": 5,
+            "endCount": 3,
+            "ends": [
+              0,
+              1,
+              6
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 8,
+              "handSize": 6,
+              "passProbability": 0,
+              "expectedPlayableTiles": 3.6923076923076925
+            },
+            "replyPass": false,
+            "replyActions": 4
+          }
+        },
+        {
+          "seed": 8200003,
+          "turn": 12,
+          "nextHandSize": 4,
+          "a": {
+            "key": "single|down|0|0-5",
+            "tile": [
+              0,
+              5
+            ],
+            "side": "down",
+            "pips": 5,
+            "endCount": 3,
+            "ends": [
+              1,
+              1,
+              3
+            ],
+            "odds": {
+              "unknown": 9,
+              "playable": 5,
+              "handSize": 4,
+              "passProbability": 0.007936507936507936,
+              "expectedPlayableTiles": 2.2222222222222223
+            },
+            "replyPass": false,
+            "replyActions": 3
+          },
+          "b": {
+            "key": "single|up|2|2-3",
+            "tile": [
+              2,
+              3
+            ],
+            "side": "up",
+            "pips": 5,
+            "endCount": 3,
+            "ends": [
+              1,
+              1,
+              5
+            ],
+            "odds": {
+              "unknown": 9,
+              "playable": 3,
+              "handSize": 4,
+              "passProbability": 0.11904761904761903,
+              "expectedPlayableTiles": 1.3333333333333333
+            },
+            "replyPass": false,
+            "replyActions": 3
+          }
+        },
+        {
+          "seed": 8200004,
+          "turn": 8,
+          "nextHandSize": 4,
+          "a": {
+            "key": "single|down|5|3-5",
+            "tile": [
+              3,
+              5
+            ],
+            "side": "down",
+            "pips": 8,
+            "endCount": 4,
+            "ends": [
+              1,
+              3,
+              5,
+              6
+            ],
+            "odds": {
+              "unknown": 10,
+              "playable": 8,
+              "handSize": 4,
+              "passProbability": 0,
+              "expectedPlayableTiles": 3.2
+            },
+            "replyPass": false,
+            "replyActions": 4
+          },
+          "b": {
+            "key": "single|left|2|2-6",
+            "tile": [
+              2,
+              6
+            ],
+            "side": "left",
+            "pips": 8,
+            "endCount": 4,
+            "ends": [
+              1,
+              2,
+              3,
+              3
+            ],
+            "odds": {
+              "unknown": 10,
+              "playable": 6,
+              "handSize": 4,
+              "passProbability": 0.0047619047619047615,
+              "expectedPlayableTiles": 2.4
+            },
+            "replyPass": false,
+            "replyActions": 4
+          }
+        },
+        {
+          "seed": 8200005,
+          "turn": 11,
+          "nextHandSize": 5,
+          "a": {
+            "key": "single|right|2|1-2",
+            "tile": [
+              1,
+              2
+            ],
+            "side": "right",
+            "pips": 3,
+            "endCount": 2,
+            "ends": [
+              3,
+              6
+            ],
+            "odds": {
+              "unknown": 10,
+              "playable": 4,
+              "handSize": 5,
+              "passProbability": 0.023809523809523808,
+              "expectedPlayableTiles": 2
+            },
+            "replyPass": false,
+            "replyActions": 1
+          },
+          "b": {
+            "key": "single|up|0|0-3",
+            "tile": [
+              0,
+              3
+            ],
+            "side": "up",
+            "pips": 3,
+            "endCount": 2,
+            "ends": [
+              1,
+              6
+            ],
+            "odds": {
+              "unknown": 10,
+              "playable": 4,
+              "handSize": 5,
+              "passProbability": 0.023809523809523808,
+              "expectedPlayableTiles": 2
+            },
+            "replyPass": false,
+            "replyActions": 1
+          }
+        },
+        {
+          "seed": 8200006,
+          "turn": 5,
+          "nextHandSize": 7,
+          "a": {
+            "key": "single|right|2|1-2",
+            "tile": [
+              1,
+              2
+            ],
+            "side": "right",
+            "pips": 3,
+            "endCount": 3,
+            "ends": [
+              3,
+              5,
+              6
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 7,
+              "handSize": 7,
+              "passProbability": 0,
+              "expectedPlayableTiles": 3.769230769230769
+            },
+            "replyPass": false,
+            "replyActions": 5
+          },
+          "b": {
+            "key": "single|up|0|0-3",
+            "tile": [
+              0,
+              3
+            ],
+            "side": "up",
+            "pips": 3,
+            "endCount": 3,
+            "ends": [
+              1,
+              5,
+              6
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 8,
+              "handSize": 7,
+              "passProbability": 0,
+              "expectedPlayableTiles": 4.3076923076923075
+            },
+            "replyPass": false,
+            "replyActions": 4
+          }
+        },
+        {
+          "seed": 8200008,
+          "turn": 6,
+          "nextHandSize": 7,
+          "a": {
+            "key": "single|down|0|0-6",
+            "tile": [
+              0,
+              6
+            ],
+            "side": "down",
+            "pips": 6,
+            "endCount": 3,
+            "ends": [
+              1,
+              1,
+              6
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 4,
+              "handSize": 7,
+              "passProbability": 0.02097902097902098,
+              "expectedPlayableTiles": 2.1538461538461537
+            },
+            "replyPass": false,
+            "replyActions": 6
+          },
+          "b": {
+            "key": "single|left|5|1-5",
+            "tile": [
+              1,
+              5
+            ],
+            "side": "left",
+            "pips": 6,
+            "endCount": 3,
+            "ends": [
+              1,
+              6,
+              6
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 4,
+              "handSize": 7,
+              "passProbability": 0.02097902097902098,
+              "expectedPlayableTiles": 2.1538461538461537
+            },
+            "replyPass": false,
+            "replyActions": 4
+          }
+        },
+        {
+          "seed": 8200009,
+          "turn": 8,
+          "nextHandSize": 6,
+          "a": {
+            "key": "single|left|0|0-3",
+            "tile": [
+              0,
+              3
+            ],
+            "side": "left",
+            "pips": 3,
+            "endCount": 2,
+            "ends": [
+              1,
+              6
+            ],
+            "odds": {
+              "unknown": 12,
+              "playable": 4,
+              "handSize": 6,
+              "passProbability": 0.0303030303030303,
+              "expectedPlayableTiles": 2
+            },
+            "replyPass": false,
+            "replyActions": 1
+          },
+          "b": {
+            "key": "single|right|2|1-2",
+            "tile": [
+              1,
+              2
+            ],
+            "side": "right",
+            "pips": 3,
+            "endCount": 2,
+            "ends": [
+              3,
+              6
+            ],
+            "odds": {
+              "unknown": 12,
+              "playable": 5,
+              "handSize": 6,
+              "passProbability": 0.007575757575757574,
+              "expectedPlayableTiles": 2.5
+            },
+            "replyPass": false,
+            "replyActions": 2
+          }
+        },
+        {
+          "seed": 8200011,
+          "turn": 3,
+          "nextHandSize": 8,
+          "a": {
+            "key": "single|left|5|1-5",
+            "tile": [
+              1,
+              5
+            ],
+            "side": "left",
+            "pips": 6,
+            "endCount": 2,
+            "ends": [
+              1,
+              4
+            ],
+            "odds": {
+              "unknown": 16,
+              "playable": 6,
+              "handSize": 8,
+              "passProbability": 0.003496503496503496,
+              "expectedPlayableTiles": 3
+            },
+            "replyPass": false,
+            "replyActions": 3
+          },
+          "b": {
+            "key": "single|up|2|2-4",
+            "tile": [
+              2,
+              4
+            ],
+            "side": "up",
+            "pips": 6,
+            "endCount": 2,
+            "ends": [
+              1,
+              1
+            ],
+            "odds": {
+              "unknown": 16,
+              "playable": 5,
+              "handSize": 8,
+              "passProbability": 0.01282051282051282,
+              "expectedPlayableTiles": 2.5
+            },
+            "replyPass": false,
+            "replyActions": 3
+          }
+        },
+        {
+          "seed": 8200012,
+          "turn": 5,
+          "nextHandSize": 7,
+          "a": {
+            "key": "single|down|5|4-5",
+            "tile": [
+              4,
+              5
+            ],
+            "side": "down",
+            "pips": 9,
+            "endCount": 2,
+            "ends": [
+              1,
+              3
+            ],
+            "odds": {
+              "unknown": 14,
+              "playable": 5,
+              "handSize": 7,
+              "passProbability": 0.01048951048951049,
+              "expectedPlayableTiles": 2.5
+            },
+            "replyPass": true,
+            "replyActions": 0
+          },
+          "b": {
+            "key": "single|up|6|3-6",
+            "tile": [
+              3,
+              6
+            ],
+            "side": "up",
+            "pips": 9,
+            "endCount": 2,
+            "ends": [
+              1,
+              4
+            ],
+            "odds": {
+              "unknown": 14,
+              "playable": 4,
+              "handSize": 7,
+              "passProbability": 0.03496503496503496,
+              "expectedPlayableTiles": 2
+            },
+            "replyPass": false,
+            "replyActions": 1
+          }
+        },
+        {
+          "seed": 8200013,
+          "turn": 5,
+          "nextHandSize": 8,
+          "a": {
+            "key": "single|down|2|2-4",
+            "tile": [
+              2,
+              4
+            ],
+            "side": "down",
+            "pips": 6,
+            "endCount": 2,
+            "ends": [
+              1,
+              6
+            ],
+            "odds": {
+              "unknown": 14,
+              "playable": 6,
+              "handSize": 8,
+              "passProbability": 0.00033300033300033295,
+              "expectedPlayableTiles": 3.4285714285714284
+            },
+            "replyPass": false,
+            "replyActions": 1
+          },
+          "b": {
+            "key": "single|right|5|1-5",
+            "tile": [
+              1,
+              5
+            ],
+            "side": "right",
+            "pips": 6,
+            "endCount": 2,
+            "ends": [
+              4,
+              6
+            ],
+            "odds": {
+              "unknown": 14,
+              "playable": 6,
+              "handSize": 8,
+              "passProbability": 0.00033300033300033295,
+              "expectedPlayableTiles": 3.4285714285714284
+            },
+            "replyPass": false,
+            "replyActions": 3
+          }
+        },
+        {
+          "seed": 8200014,
+          "turn": 5,
+          "nextHandSize": 7,
+          "a": {
+            "key": "single|down|0|0-6",
+            "tile": [
+              0,
+              6
+            ],
+            "side": "down",
+            "pips": 6,
+            "endCount": 2,
+            "ends": [
+              1,
+              6
+            ],
+            "odds": {
+              "unknown": 14,
+              "playable": 3,
+              "handSize": 7,
+              "passProbability": 0.09615384615384616,
+              "expectedPlayableTiles": 1.5
+            },
+            "replyPass": false,
+            "replyActions": 4
+          },
+          "b": {
+            "key": "single|right|5|1-5",
+            "tile": [
+              1,
+              5
+            ],
+            "side": "right",
+            "pips": 6,
+            "endCount": 2,
+            "ends": [
+              6,
+              6
+            ],
+            "odds": {
+              "unknown": 14,
+              "playable": 2,
+              "handSize": 7,
+              "passProbability": 0.23076923076923078,
+              "expectedPlayableTiles": 1
+            },
+            "replyPass": false,
+            "replyActions": 4
+          }
+        }
+      ],
+      "selectedSeeds": [
+        8200000,
+        8200002,
+        8200003,
+        8200004,
+        8200005,
+        8200006,
+        8200008,
+        8200009,
+        8200011,
+        8200012,
+        8200013,
+        8200014,
+        8200018,
+        8200019,
+        8200020,
+        8200023,
+        8200025,
+        8200028,
+        8200029,
+        8200031,
+        8200032,
+        8200035,
+        8200038,
+        8200040,
+        8200043,
+        8200047,
+        8200048,
+        8200049,
+        8200052,
+        8200055,
+        8200057,
+        8200058,
+        8200060,
+        8200062,
+        8200063,
+        8200064,
+        8200065,
+        8200067,
+        8200068,
+        8200070,
+        8200071,
+        8200072,
+        8200073,
+        8200074,
+        8200075,
+        8200076,
+        8200077,
+        8200078,
+        8200079,
+        8200080,
+        8200081,
+        8200082,
+        8200083,
+        8200084,
+        8200085,
+        8200086,
+        8200087,
+        8200088,
+        8200089,
+        8200090,
+        8200092,
+        8200093,
+        8200094,
+        8200095,
+        8200096,
+        8200097,
+        8200101,
+        8200102,
+        8200103,
+        8200104,
+        8200106,
+        8200108,
+        8200110,
+        8200111,
+        8200112,
+        8200113,
+        8200114,
+        8200117,
+        8200118,
+        8200120,
+        8200121,
+        8200122,
+        8200124,
+        8200127,
+        8200128,
+        8200129,
+        8200130,
+        8200131,
+        8200132,
+        8200133,
+        8200134,
+        8200137,
+        8200139,
+        8200140,
+        8200144,
+        8200145,
+        8200146,
+        8200147,
+        8200148,
+        8200150,
+        8200152,
+        8200154,
+        8200155,
+        8200156,
+        8200157,
+        8200160,
+        8200161,
+        8200162,
+        8200163,
+        8200164,
+        8200167,
+        8200168,
+        8200170,
+        8200171,
+        8200172,
+        8200174,
+        8200175,
+        8200176,
+        8200177,
+        8200178,
+        8200180,
+        8200181,
+        8200184,
+        8200185,
+        8200186,
+        8200187,
+        8200190,
+        8200191,
+        8200193,
+        8200195,
+        8200197,
+        8200199,
+        8200201,
+        8200203,
+        8200204,
+        8200205,
+        8200206,
+        8200208,
+        8200210,
+        8200213,
+        8200214,
+        8200215,
+        8200216,
+        8200218,
+        8200220,
+        8200221,
+        8200222,
+        8200223,
+        8200225,
+        8200226,
+        8200227,
+        8200228,
+        8200229,
+        8200231,
+        8200232,
+        8200233,
+        8200235,
+        8200236,
+        8200237,
+        8200238,
+        8200239,
+        8200241,
+        8200243,
+        8200245,
+        8200246,
+        8200247,
+        8200248,
+        8200249,
+        8200250,
+        8200251,
+        8200252,
+        8200255,
+        8200257,
+        8200259,
+        8200261,
+        8200262,
+        8200263,
+        8200264,
+        8200265,
+        8200267,
+        8200268,
+        8200269,
+        8200270,
+        8200272,
+        8200273,
+        8200275,
+        8200276,
+        8200277,
+        8200278,
+        8200280,
+        8200281,
+        8200283,
+        8200284,
+        8200286,
+        8200288,
+        8200289,
+        8200290,
+        8200291,
+        8200292,
+        8200296,
+        8200297,
+        8200298,
+        8200299,
+        8200300,
+        8200301,
+        8200302,
+        8200303,
+        8200305,
+        8200309,
+        8200310,
+        8200311,
+        8200312,
+        8200313,
+        8200314,
+        8200315,
+        8200316,
+        8200324,
+        8200326,
+        8200327,
+        8200328,
+        8200329,
+        8200331,
+        8200332,
+        8200333,
+        8200334,
+        8200335,
+        8200339,
+        8200340,
+        8200342,
+        8200343,
+        8200344,
+        8200347,
+        8200348,
+        8200349,
+        8200351,
+        8200352,
+        8200353,
+        8200354,
+        8200357,
+        8200358,
+        8200359,
+        8200360,
+        8200361,
+        8200362,
+        8200364,
+        8200366,
+        8200367,
+        8200368,
+        8200369,
+        8200371,
+        8200372,
+        8200374,
+        8200376,
+        8200377,
+        8200378,
+        8200379,
+        8200380,
+        8200381,
+        8200386,
+        8200388,
+        8200390,
+        8200392,
+        8200393,
+        8200395,
+        8200396,
+        8200398,
+        8200399,
+        8200403,
+        8200404,
+        8200405,
+        8200408,
+        8200409,
+        8200410,
+        8200411,
+        8200412,
+        8200413,
+        8200414,
+        8200417,
+        8200421,
+        8200423,
+        8200424,
+        8200425,
+        8200427,
+        8200428,
+        8200429,
+        8200430,
+        8200431,
+        8200433,
+        8200435,
+        8200436,
+        8200437,
+        8200439,
+        8200440,
+        8200441,
+        8200442,
+        8200444,
+        8200445,
+        8200446,
+        8200448,
+        8200449
+      ],
+      "seedEndInclusive": 8200449,
+      "meanAbsolutePredictedPassGap": 0.051321722395251755,
+      "meanActualPassGainOracle": 0.03666666666666667,
+      "meanNextOpponentHand": 6.626666666666667
+    },
+    {
+      "engine": "qosa-research-0.5.3",
+      "rules": "qosa-1.0.0",
+      "mode": "3x9",
+      "seedStart": 8300000,
+      "seedMaxExclusive": 8320000,
+      "discoveryPolicy": "min-hand-pips",
+      "targetPositions": 300,
+      "completedDiscoveryRounds": 434,
+      "finishes": 415,
+      "blocks": 19,
+      "unresolved": 0,
+      "positions": 300,
+      "unequalPredictedOdds": 207,
+      "actualPassFlips": 23,
+      "sumPredictedAbsoluteGap": 14.042682644153224,
+      "sumActualPassOracleGain": 23,
+      "sumNextOpponentHand": 1972,
+      "examples": [
+        {
+          "seed": 8300000,
+          "turn": 2,
+          "nextHandSize": 8,
+          "a": {
+            "key": "single|down|6|1-6",
+            "tile": [
+              1,
+              6
+            ],
+            "side": "down",
+            "pips": 7,
+            "endCount": 3,
+            "ends": [
+              1,
+              1,
+              3
+            ],
+            "odds": {
+              "unknown": 16,
+              "playable": 6,
+              "handSize": 8,
+              "passProbability": 0.003496503496503496,
+              "expectedPlayableTiles": 3
+            },
+            "replyPass": false,
+            "replyActions": 5
+          },
+          "b": {
+            "key": "single|up|4|3-4",
+            "tile": [
+              3,
+              4
+            ],
+            "side": "up",
+            "pips": 7,
+            "endCount": 3,
+            "ends": [
+              1,
+              1,
+              1
+            ],
+            "odds": {
+              "unknown": 16,
+              "playable": 5,
+              "handSize": 8,
+              "passProbability": 0.01282051282051282,
+              "expectedPlayableTiles": 2.5
+            },
+            "replyPass": false,
+            "replyActions": 6
+          }
+        },
+        {
+          "seed": 8300001,
+          "turn": 5,
+          "nextHandSize": 7,
+          "a": {
+            "key": "single|left|4|1-4",
+            "tile": [
+              1,
+              4
+            ],
+            "side": "left",
+            "pips": 5,
+            "endCount": 2,
+            "ends": [
+              1,
+              5
+            ],
+            "odds": {
+              "unknown": 14,
+              "playable": 4,
+              "handSize": 7,
+              "passProbability": 0.03496503496503496,
+              "expectedPlayableTiles": 2
+            },
+            "replyPass": false,
+            "replyActions": 1
+          },
+          "b": {
+            "key": "single|up|0|0-5",
+            "tile": [
+              0,
+              5
+            ],
+            "side": "up",
+            "pips": 5,
+            "endCount": 2,
+            "ends": [
+              1,
+              1
+            ],
+            "odds": {
+              "unknown": 14,
+              "playable": 2,
+              "handSize": 7,
+              "passProbability": 0.23076923076923078,
+              "expectedPlayableTiles": 1
+            },
+            "replyPass": false,
+            "replyActions": 4
+          }
+        },
+        {
+          "seed": 8300002,
+          "turn": 10,
+          "nextHandSize": 6,
+          "a": {
+            "key": "single|down|3|3-5",
+            "tile": [
+              3,
+              5
+            ],
+            "side": "down",
+            "pips": 8,
+            "endCount": 2,
+            "ends": [
+              1,
+              6
+            ],
+            "odds": {
+              "unknown": 11,
+              "playable": 6,
+              "handSize": 6,
+              "passProbability": 0,
+              "expectedPlayableTiles": 3.272727272727273
+            },
+            "replyPass": false,
+            "replyActions": 5
+          },
+          "b": {
+            "key": "single|up|2|2-6",
+            "tile": [
+              2,
+              6
+            ],
+            "side": "up",
+            "pips": 8,
+            "endCount": 2,
+            "ends": [
+              1,
+              5
+            ],
+            "odds": {
+              "unknown": 11,
+              "playable": 5,
+              "handSize": 6,
+              "passProbability": 0.002164502164502164,
+              "expectedPlayableTiles": 2.727272727272727
+            },
+            "replyPass": false,
+            "replyActions": 3
+          }
+        },
+        {
+          "seed": 8300003,
+          "turn": 10,
+          "nextHandSize": 6,
+          "a": {
+            "key": "single|left|0|0-3",
+            "tile": [
+              0,
+              3
+            ],
+            "side": "left",
+            "pips": 3,
+            "endCount": 3,
+            "ends": [
+              1,
+              3,
+              5
+            ],
+            "odds": {
+              "unknown": 11,
+              "playable": 6,
+              "handSize": 6,
+              "passProbability": 0,
+              "expectedPlayableTiles": 3.272727272727273
+            },
+            "replyPass": false,
+            "replyActions": 2
+          },
+          "b": {
+            "key": "single|right|2|1-2",
+            "tile": [
+              1,
+              2
+            ],
+            "side": "right",
+            "pips": 3,
+            "endCount": 3,
+            "ends": [
+              3,
+              3,
+              5
+            ],
+            "odds": {
+              "unknown": 11,
+              "playable": 6,
+              "handSize": 6,
+              "passProbability": 0,
+              "expectedPlayableTiles": 3.272727272727273
+            },
+            "replyPass": false,
+            "replyActions": 4
+          }
+        },
+        {
+          "seed": 8300004,
+          "turn": 11,
+          "nextHandSize": 5,
+          "a": {
+            "key": "single|down|1|1-4",
+            "tile": [
+              1,
+              4
+            ],
+            "side": "down",
+            "pips": 5,
+            "endCount": 4,
+            "ends": [
+              1,
+              1,
+              3,
+              4
+            ],
+            "odds": {
+              "unknown": 9,
+              "playable": 5,
+              "handSize": 5,
+              "passProbability": 0,
+              "expectedPlayableTiles": 2.7777777777777777
+            },
+            "replyPass": false,
+            "replyActions": 5
+          },
+          "b": {
+            "key": "single|up|2|2-3",
+            "tile": [
+              2,
+              3
+            ],
+            "side": "up",
+            "pips": 5,
+            "endCount": 4,
+            "ends": [
+              1,
+              2,
+              4,
+              4
+            ],
+            "odds": {
+              "unknown": 9,
+              "playable": 4,
+              "handSize": 5,
+              "passProbability": 0.007936507936507936,
+              "expectedPlayableTiles": 2.2222222222222223
+            },
+            "replyPass": false,
+            "replyActions": 4
+          }
+        },
+        {
+          "seed": 8300005,
+          "turn": 14,
+          "nextHandSize": 5,
+          "a": {
+            "key": "single|down|0|0-6",
+            "tile": [
+              0,
+              6
+            ],
+            "side": "down",
+            "pips": 6,
+            "endCount": 2,
+            "ends": [
+              1,
+              4
+            ],
+            "odds": {
+              "unknown": 9,
+              "playable": 5,
+              "handSize": 5,
+              "passProbability": 0,
+              "expectedPlayableTiles": 2.7777777777777777
+            },
+            "replyPass": false,
+            "replyActions": 4
+          },
+          "b": {
+            "key": "single|right|2|2-4",
+            "tile": [
+              2,
+              4
+            ],
+            "side": "right",
+            "pips": 6,
+            "endCount": 2,
+            "ends": [
+              1,
+              6
+            ],
+            "odds": {
+              "unknown": 9,
+              "playable": 3,
+              "handSize": 5,
+              "passProbability": 0.047619047619047616,
+              "expectedPlayableTiles": 1.6666666666666667
+            },
+            "replyPass": false,
+            "replyActions": 1
+          }
+        },
+        {
+          "seed": 8300007,
+          "turn": 5,
+          "nextHandSize": 6,
+          "a": {
+            "key": "single|right|2|1-2",
+            "tile": [
+              1,
+              2
+            ],
+            "side": "right",
+            "pips": 3,
+            "endCount": 1,
+            "ends": [
+              3
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 5,
+              "handSize": 6,
+              "passProbability": 0.016317016317016316,
+              "expectedPlayableTiles": 2.3076923076923075
+            },
+            "replyPass": false,
+            "replyActions": 2
+          },
+          "b": {
+            "key": "single|up|0|0-3",
+            "tile": [
+              0,
+              3
+            ],
+            "side": "up",
+            "pips": 3,
+            "endCount": 1,
+            "ends": [
+              1
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 2,
+              "handSize": 6,
+              "passProbability": 0.2692307692307693,
+              "expectedPlayableTiles": 0.9230769230769231
+            },
+            "replyPass": false,
+            "replyActions": 1
+          }
+        },
+        {
+          "seed": 8300008,
+          "turn": 11,
+          "nextHandSize": 4,
+          "a": {
+            "key": "single|down|0|0-5",
+            "tile": [
+              0,
+              5
+            ],
+            "side": "down",
+            "pips": 5,
+            "endCount": 3,
+            "ends": [
+              2,
+              4,
+              5
+            ],
+            "odds": {
+              "unknown": 9,
+              "playable": 5,
+              "handSize": 4,
+              "passProbability": 0.007936507936507936,
+              "expectedPlayableTiles": 2.2222222222222223
+            },
+            "replyPass": false,
+            "replyActions": 4
+          },
+          "b": {
+            "key": "single|up|3|2-3",
+            "tile": [
+              2,
+              3
+            ],
+            "side": "up",
+            "pips": 5,
+            "endCount": 3,
+            "ends": [
+              4,
+              5,
+              5
+            ],
+            "odds": {
+              "unknown": 9,
+              "playable": 3,
+              "handSize": 4,
+              "passProbability": 0.11904761904761903,
+              "expectedPlayableTiles": 1.3333333333333333
+            },
+            "replyPass": false,
+            "replyActions": 6
+          }
+        },
+        {
+          "seed": 8300009,
+          "turn": 5,
+          "nextHandSize": 7,
+          "a": {
+            "key": "single|down|2|2-5",
+            "tile": [
+              2,
+              5
+            ],
+            "side": "down",
+            "pips": 7,
+            "endCount": 3,
+            "ends": [
+              0,
+              1,
+              1
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 5,
+              "handSize": 7,
+              "passProbability": 0.004662004662004661,
+              "expectedPlayableTiles": 2.6923076923076925
+            },
+            "replyPass": false,
+            "replyActions": 3
+          },
+          "b": {
+            "key": "single|left|6|1-6",
+            "tile": [
+              1,
+              6
+            ],
+            "side": "left",
+            "pips": 7,
+            "endCount": 3,
+            "ends": [
+              0,
+              1,
+              5
+            ],
+            "odds": {
+              "unknown": 13,
+              "playable": 7,
+              "handSize": 7,
+              "passProbability": 0,
+              "expectedPlayableTiles": 3.769230769230769
+            },
+            "replyPass": false,
+            "replyActions": 3
+          }
+        },
+        {
+          "seed": 8300010,
+          "turn": 7,
+          "nextHandSize": 6,
+          "a": {
+            "key": "single|down|6|3-6",
+            "tile": [
+              3,
+              6
+            ],
+            "side": "down",
+            "pips": 9,
+            "endCount": 4,
+            "ends": [
+              1,
+              4,
+              5,
+              6
+            ],
+            "odds": {
+              "unknown": 12,
+              "playable": 7,
+              "handSize": 6,
+              "passProbability": 0,
+              "expectedPlayableTiles": 3.5
+            },
+            "replyPass": false,
+            "replyActions": 4
+          },
+          "b": {
+            "key": "single|left|5|4-5",
+            "tile": [
+              4,
+              5
+            ],
+            "side": "left",
+            "pips": 9,
+            "endCount": 4,
+            "ends": [
+              1,
+              3,
+              5,
+              5
+            ],
+            "odds": {
+              "unknown": 12,
+              "playable": 7,
+              "handSize": 6,
+              "passProbability": 0,
+              "expectedPlayableTiles": 3.5
+            },
+            "replyPass": false,
+            "replyActions": 5
+          }
+        },
+        {
+          "seed": 8300011,
+          "turn": 17,
+          "nextHandSize": 3,
+          "a": {
+            "key": "single|down|3|2-3",
+            "tile": [
+              2,
+              3
+            ],
+            "side": "down",
+            "pips": 5,
+            "endCount": 4,
+            "ends": [
+              1,
+              2,
+              3,
+              3
+            ],
+            "odds": {
+              "unknown": 5,
+              "playable": 3,
+              "handSize": 3,
+              "passProbability": 0,
+              "expectedPlayableTiles": 1.8
+            },
+            "replyPass": false,
+            "replyActions": 4
+          },
+          "b": {
+            "key": "single|right|4|1-4",
+            "tile": [
+              1,
+              4
+            ],
+            "side": "right",
+            "pips": 5,
+            "endCount": 4,
+            "ends": [
+              2,
+              2,
+              3,
+              4
+            ],
+            "odds": {
+              "unknown": 5,
+              "playable": 4,
+              "handSize": 3,
+              "passProbability": 0,
+              "expectedPlayableTiles": 2.4
+            },
+            "replyPass": false,
+            "replyActions": 5
+          }
+        },
+        {
+          "seed": 8300012,
+          "turn": 4,
+          "nextHandSize": 8,
+          "a": {
+            "key": "single|down|5|4-5",
+            "tile": [
+              4,
+              5
+            ],
+            "side": "down",
+            "pips": 9,
+            "endCount": 2,
+            "ends": [
+              1,
+              6
+            ],
+            "odds": {
+              "unknown": 14,
+              "playable": 4,
+              "handSize": 8,
+              "passProbability": 0.014985014985014982,
+              "expectedPlayableTiles": 2.2857142857142856
+            },
+            "replyPass": false,
+            "replyActions": 4
+          },
+          "b": {
+            "key": "single|up|3|3-6",
+            "tile": [
+              3,
+              6
+            ],
+            "side": "up",
+            "pips": 9,
+            "endCount": 2,
+            "ends": [
+              1,
+              4
+            ],
+            "odds": {
+              "unknown": 14,
+              "playable": 6,
+              "handSize": 8,
+              "passProbability": 0.00033300033300033295,
+              "expectedPlayableTiles": 3.4285714285714284
+            },
+            "replyPass": false,
+            "replyActions": 4
+          }
+        }
+      ],
+      "selectedSeeds": [
+        8300000,
+        8300001,
+        8300002,
+        8300003,
+        8300004,
+        8300005,
+        8300007,
+        8300008,
+        8300009,
+        8300010,
+        8300011,
+        8300012,
+        8300013,
+        8300014,
+        8300015,
+        8300017,
+        8300018,
+        8300020,
+        8300023,
+        8300024,
+        8300026,
+        8300027,
+        8300028,
+        8300029,
+        8300032,
+        8300035,
+        8300036,
+        8300038,
+        8300039,
+        8300040,
+        8300042,
+        8300043,
+        8300045,
+        8300046,
+        8300048,
+        8300050,
+        8300051,
+        8300052,
+        8300053,
+        8300054,
+        8300055,
+        8300057,
+        8300058,
+        8300059,
+        8300060,
+        8300061,
+        8300062,
+        8300063,
+        8300064,
+        8300065,
+        8300069,
+        8300070,
+        8300071,
+        8300072,
+        8300076,
+        8300077,
+        8300078,
+        8300079,
+        8300080,
+        8300081,
+        8300082,
+        8300083,
+        8300085,
+        8300086,
+        8300087,
+        8300088,
+        8300089,
+        8300090,
+        8300091,
+        8300095,
+        8300096,
+        8300097,
+        8300098,
+        8300100,
+        8300101,
+        8300103,
+        8300104,
+        8300105,
+        8300108,
+        8300109,
+        8300111,
+        8300112,
+        8300113,
+        8300116,
+        8300117,
+        8300118,
+        8300120,
+        8300122,
+        8300123,
+        8300124,
+        8300125,
+        8300126,
+        8300127,
+        8300128,
+        8300129,
+        8300131,
+        8300132,
+        8300135,
+        8300136,
+        8300137,
+        8300139,
+        8300141,
+        8300144,
+        8300145,
+        8300146,
+        8300147,
+        8300148,
+        8300149,
+        8300150,
+        8300154,
+        8300158,
+        8300160,
+        8300161,
+        8300162,
+        8300163,
+        8300165,
+        8300166,
+        8300167,
+        8300169,
+        8300170,
+        8300172,
+        8300174,
+        8300175,
+        8300176,
+        8300177,
+        8300179,
+        8300180,
+        8300183,
+        8300185,
+        8300186,
+        8300188,
+        8300190,
+        8300191,
+        8300192,
+        8300193,
+        8300195,
+        8300200,
+        8300201,
+        8300203,
+        8300205,
+        8300206,
+        8300207,
+        8300210,
+        8300211,
+        8300212,
+        8300213,
+        8300214,
+        8300217,
+        8300218,
+        8300219,
+        8300221,
+        8300222,
+        8300223,
+        8300224,
+        8300225,
+        8300226,
+        8300227,
+        8300228,
+        8300229,
+        8300230,
+        8300231,
+        8300232,
+        8300233,
+        8300235,
+        8300236,
+        8300237,
+        8300238,
+        8300239,
+        8300241,
+        8300242,
+        8300244,
+        8300246,
+        8300247,
+        8300248,
+        8300249,
+        8300251,
+        8300252,
+        8300253,
+        8300254,
+        8300256,
+        8300257,
+        8300259,
+        8300260,
+        8300262,
+        8300264,
+        8300265,
+        8300266,
+        8300267,
+        8300268,
+        8300269,
+        8300271,
+        8300272,
+        8300273,
+        8300275,
+        8300276,
+        8300277,
+        8300278,
+        8300280,
+        8300281,
+        8300285,
+        8300286,
+        8300287,
+        8300288,
+        8300289,
+        8300290,
+        8300293,
+        8300295,
+        8300297,
+        8300298,
+        8300299,
+        8300301,
+        8300302,
+        8300304,
+        8300305,
+        8300306,
+        8300307,
+        8300308,
+        8300309,
+        8300310,
+        8300312,
+        8300314,
+        8300315,
+        8300317,
+        8300318,
+        8300319,
+        8300320,
+        8300322,
+        8300323,
+        8300324,
+        8300325,
+        8300327,
+        8300328,
+        8300329,
+        8300334,
+        8300335,
+        8300336,
+        8300341,
+        8300342,
+        8300343,
+        8300344,
+        8300345,
+        8300347,
+        8300349,
+        8300350,
+        8300354,
+        8300355,
+        8300356,
+        8300358,
+        8300359,
+        8300360,
+        8300363,
+        8300365,
+        8300367,
+        8300369,
+        8300370,
+        8300371,
+        8300372,
+        8300374,
+        8300376,
+        8300377,
+        8300378,
+        8300381,
+        8300382,
+        8300385,
+        8300386,
+        8300387,
+        8300388,
+        8300389,
+        8300390,
+        8300392,
+        8300393,
+        8300394,
+        8300395,
+        8300397,
+        8300399,
+        8300400,
+        8300401,
+        8300403,
+        8300404,
+        8300406,
+        8300409,
+        8300410,
+        8300411,
+        8300412,
+        8300413,
+        8300414,
+        8300415,
+        8300416,
+        8300417,
+        8300418,
+        8300420,
+        8300421,
+        8300423,
+        8300424,
+        8300425,
+        8300427,
+        8300429,
+        8300430,
+        8300431,
+        8300433
+      ],
+      "seedEndInclusive": 8300433,
+      "meanAbsolutePredictedPassGap": 0.046808942147177415,
+      "meanActualPassGainOracle": 0.07666666666666666,
+      "meanNextOpponentHand": 6.573333333333333
+    }
+  ],
+  "interpretation": "Across 900 selected positions, the higher predicted immediate-pass-odds action yielded 56 more actual next-player passes than its paired alternative (56/900=6.22 percentage points), with 62 pairs showing an actual pass flip. This is a model-specific immediate-pass diagnostic, not a validated increase in first-place or minus finishes.",
+  "confidenceAndLimitations": [
+    "Equal-pip and equal-accessible-count matched; actual end values and opponent replies differ by construction. No exact geometry matching is possible for different tiles.",
+    "Uniform unknown-tile prior is not conditioned on opponents' earlier choices; actual simulated opponent hands are generated under deterministic policies.",
+    "First eligible per deal selection and one min-hand-pips discovery policy; cannot generalize to humans or eventual win rate.",
+    "Branch opening and double legality use recovered qosa-1.0.0 assumptions. Stock empty after initial 1-1 draw. No block winner assigned.",
+    "No new matched-strategy full-game sample: previous verified 186000 remains separate. These 1325 completed discovery rounds are tracked separately; historical 4000 rounds remain separate."
+  ],
+  "nextHypothesis": "On independent seeds and closed-branch-control discovery, the number-aware pass-odds ranking should reduce actual next-opponent legal moves and increase immediate passes; then test whether it improves finish-first, mean remainder, minus rate and paired decision regret on identical sampled hidden worlds."
+}
