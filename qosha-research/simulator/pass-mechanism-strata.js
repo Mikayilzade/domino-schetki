@@ -15,7 +15,7 @@ const groups=['highOnly','lowOnly','both','neither'];
 const mean=a=>a.length?a.reduce((s,x)=>s+x,0)/a.length:null;
 function stat(xs){
  if(!xs.length)return {n:0,mean:null,ci95:null};
- const m=mean(xs),sd=xs.length>1?Math.sqrt(xs.reduce((s,x)=>s+(x-m)**2,0)/(xs.length-1)):0);
+ const m=mean(xs),sd=xs.length>1?Math.sqrt(xs.reduce((s,x)=>s+(x-m)**2,0)/(xs.length-1)):0;
  return {n:xs.length,mean:m,ci95:xs.length>1?[m-1.96*sd/Math.sqrt(xs.length),m+1.96*sd/Math.sqrt(xs.length)]:null};
 }
 function boardSignature(t){
