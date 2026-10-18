@@ -381,3 +381,9 @@
 - New complete deals: 0; new evaluated hidden worlds: 0; no new strategy finding. Verified prior full-round cumulative baseline remains 180,000; exact hidden allocations tracked separately.
 - Confidence/limits: test scaffolding only, does not establish strategic advantage or isolate branch geometry; requires execution and independent paired-world runner.
 - Exact next action: run `node qosha-research/simulator/connector-other-matches-test.js`; if green, implement/run paired-world equal-pip comparison on fresh seeds with identical continuation worlds and three policies; record first-place, remainder, minus-finish separately.
+
+
+### 2026-10-18T21:02 +04:00 — independent exact next-player mobility holdout
+- 48 positions, 1,920 hidden worlds, 7,680 continuations, seeds 1260000..1349936; engine `qosa-research-0.5.3`, rules `qosa-1.0.0`, two matched policies; no new full rounds.
+- Conditional first-place delta when connector reduces next-opponent mobility (n=7): +53.21 / +60.71 pp; when it increases mobility (n=10): −42.00 / −44.50 pp. All 48: −1.04 / −0.31 pp. **Exploratory, not a causal or universal rule.**
+- Validation: V8 CommonJS deterministic replay and exact hypergeometric fixture passed. Full details, confidence/limitations, next hypothesis and reproducible source in `runs/2026-10-18-2054-open-number-independent.md` and linked JSON.
