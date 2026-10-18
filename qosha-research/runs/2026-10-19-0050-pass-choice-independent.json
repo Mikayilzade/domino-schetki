@@ -1,0 +1,104 @@
+{
+  "schema": "qosa-independent-pass-choice-checkpoint/v1",
+  "timestampAsiaBaku": "2026-10-19T00:50+04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9 later-round",
+  "seedScanRequested": [
+    1480000,
+    1569999
+  ],
+  "seedScanActual": [
+    1480000,
+    1515217
+  ],
+  "scannedDeals": 35218,
+  "selectedPositions": 16,
+  "selectedSeeds": [
+    1481803,
+    1482278,
+    1484164,
+    1486256,
+    1489856,
+    1494248,
+    1497586,
+    1501396,
+    1502352,
+    1503079,
+    1504699,
+    1505363,
+    1507863,
+    1508955,
+    1514761,
+    1515217
+  ],
+  "newCompleteStrategyRounds": 0,
+  "previouslyReportedFullRounds": 215520,
+  "previouslyReportedFullRoundsAudited": false,
+  "independentlyVerifiedHistoricalRoundsFromStatus": 180000,
+  "hiddenAllocations": 642,
+  "passCompatible": 381,
+  "forcedContinuations": 2568,
+  "policies": [
+    "closed-branch-control",
+    "moderate-double-hold"
+  ],
+  "comparison": "connector X-Y versus unrelated equal-pip single, X-X and another connector retained, equal number of accessible ends; end-number identities may differ",
+  "selection": "first eligible per independent seed with focal 4..5 tiles, next opponent <=3 tiles; selected before outcome evaluation",
+  "posterior": "uniform exact allocations of all remaining opponent stones, conditioned only on public prior pass events; true hidden hand used for realized outcomes only",
+  "decisionRule": "maximize first-finish rate, then minimize remainder, then maximize minus-finish frequency, then prefer control",
+  "summary": {
+    "all": {
+      "positions": 16,
+      "allAllocations": 642,
+      "passCompatible": 381,
+      "forcedContinuations": 2568,
+      "policies": {
+        "closed-branch-control": {
+          "changed": 4,
+          "favorable": 0,
+          "unfavorable": 0,
+          "ties": 4,
+          "realizedFirstDelta": 0,
+          "realizedPipsDelta": 0,
+          "realizedMinusDelta": 0,
+          "changedPosteriorFirstGain": 0
+        },
+        "moderate-double-hold": {
+          "changed": 5,
+          "favorable": 0,
+          "unfavorable": 0,
+          "ties": 5,
+          "realizedFirstDelta": 0,
+          "realizedPipsDelta": 0,
+          "realizedMinusDelta": 0,
+          "changedPosteriorFirstGain": 0.007142857142857145
+        }
+      }
+    },
+    "effectivePassFilterPositions": 10,
+    "effectivePassFilterAllAllocations": 391,
+    "effectivePassFilterCompatible": 130,
+    "endOverlap": {
+      "sameOrNear": 16,
+      "lower": 0
+    }
+  },
+  "validation": {
+    "v8CommonJSFixture": {
+      "passed": true,
+      "seed": 1481803,
+      "all": 35,
+      "compatible": 15
+    },
+    "exactTileAllocation": true,
+    "actualHandsRespectPasses": true,
+    "sourceUnmutated": true,
+    "nodeCLIExecuted": false
+  },
+  "finding": "Pass-only conditioning changed 4 or 5 decisions (depending on policy) but none changed realized finish-first, pips or minus outcome in this 16-position independent holdout; no reliable win advantage.",
+  "confidence": "Low for strategy advantage: 16 positions, only 4-5 changed decisions, two deterministic bots, no direct human evidence.",
+  "limitations": "First-eligible late-pattern selection; exact uniform hidden allocations only conditional on pass events, not all prior choices; branch-opening semantics provisional; no block winner; end numbers not identical; direct standalone runner not persisted after failed connector orchestration; only aggregate and seed list persisted.",
+  "reproduction": "Use qosha-research/simulator/late-equal-accessible-reply.js for eligible state discovery, pass-conditioned-mobility.js replay and pass constraints, equal-accessible-holdout.js forced continuations, and exact combinations of hidden hands. Independent start seed 1480000, scan up to 90000, stop at 16 selected positions. Deterministic seed list included.",
+  "nextAction": "Persist and execute a standalone independent pass-conditioned choice runner; increase independent changed-choice sample, stratify by end-number identity and opponent hand size."
+}
