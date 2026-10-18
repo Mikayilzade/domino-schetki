@@ -1,0 +1,2980 @@
+{
+  "schema": "qosa-late-connector-independent-holdout/v1",
+  "timestampAsiaBaku": "2026-10-18 14:53:14 +04",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9 later-round",
+  "seedScanRequested": [
+    1073000,
+    1074599
+  ],
+  "seedScanActual": [
+    1073000,
+    1074020
+  ],
+  "scannedDeals": 1021,
+  "selectedPositions": 80,
+  "hiddenAllocations": 4000,
+  "forcedContinuations": 16000,
+  "newFullStrategyRounds": 0,
+  "priorVerifiedFullRounds": 215520,
+  "strategies": [
+    "public-next-pass",
+    "pass-pip-0.01"
+  ],
+  "continuationPolicies": [
+    "closed-branch-control",
+    "moderate-double-hold"
+  ],
+  "selfTest": {
+    "passed": true,
+    "selectedPositions": 1,
+    "forcedContinuations": 8
+  },
+  "classificationReplayValidation": "65/65 prior archived positions reproduced exactly for transition, distinct double number, retained connector and accessible ends",
+  "selection": "one smallest-hand 1-3-stone disagreement per independent deal; discovery pass focal vs closed-branch-control opponents; evaluate pass vs pass-pip-0.01",
+  "hiddenWorldSeeds": "(Math.imul(dealSeed,1009)+Math.imul(focalSeat+1,1000003)+worldIndex+17000000)>>>0",
+  "limitations": "uniform hidden worlds ignoring action history; branch opening provisional; 1-1 later-round initialization; no block winner; fixed continuation policies; selected divergence only; uncorrected exploratory intervals; observational connector strata; exploratory uncorrected normal CIs; no human-play causal claim",
+  "reproduce": "node qosha-research/simulator/pass-pip-late-holdout.js 1073000 1600 80 50; for each selected position replay findLate(base,seat,seed), match pass/hybrid actions via actionKey, count doubles played by hybrid but not pass, classify connector in hand after applying pass action, then group position-level deltas",
+  "nextAction": "Independently compare double+connector preservation with matched same-pip ordinary alternatives and control for opening number/accessible ends; seek >=30 connector-retained examples; add explicit 1-2-stone targeted search.",
+  "summary": {
+    "all": {
+      "n": 80,
+      "closed-branch-control": {
+        "first": {
+          "mean": -0.11200000000000002,
+          "ci95": [
+            -0.18040869527971878,
+            -0.04359130472028125
+          ]
+        },
+        "pips": {
+          "mean": 0.04524999999999997,
+          "ci95": [
+            -0.49348570453470625,
+            0.5839857045347062
+          ]
+        },
+        "minus": {
+          "mean": -0.2455,
+          "ci95": [
+            -0.3125784811086842,
+            -0.1784215188913158
+          ]
+        },
+        "block": {
+          "mean": 0.00925,
+          "ci95": [
+            -0.006011062847669122,
+            0.024511062847669123
+          ]
+        },
+        "turns": {
+          "mean": 0.32124999999999987,
+          "ci95": [
+            -0.004298968209901888,
+            0.6467989682099016
+          ]
+        }
+      },
+      "moderate-double-hold": {
+        "first": {
+          "mean": -0.11225000000000004,
+          "ci95": [
+            -0.18030911130514105,
+            -0.04419088869485904
+          ]
+        },
+        "pips": {
+          "mean": 0.09275000000000001,
+          "ci95": [
+            -0.4370085045691019,
+            0.6225085045691019
+          ]
+        },
+        "minus": {
+          "mean": -0.2455,
+          "ci95": [
+            -0.3125784811086842,
+            -0.1784215188913158
+          ]
+        },
+        "block": {
+          "mean": 0.00925,
+          "ci95": [
+            -0.006090516016274356,
+            0.024590516016274357
+          ]
+        },
+        "turns": {
+          "mean": 0.3457499999999999,
+          "ci95": [
+            0.014644872882044468,
+            0.6768551271179553
+          ]
+        }
+      }
+    },
+    "single-to-double": {
+      "n": 37,
+      "closed-branch-control": {
+        "first": {
+          "mean": -0.18000000000000002,
+          "ci95": [
+            -0.2808028027638371,
+            -0.0791971972361629
+          ]
+        },
+        "pips": {
+          "mean": 0.7378378378378382,
+          "ci95": [
+            -0.06835535318495989,
+            1.5440310288606363
+          ]
+        },
+        "minus": {
+          "mean": -0.34540540540540543,
+          "ci95": [
+            -0.43116528755653577,
+            -0.2596455232542751
+          ]
+        },
+        "block": {
+          "mean": 0.014594594594594595,
+          "ci95": [
+            -0.009597040827873281,
+            0.03878623001706247
+          ]
+        },
+        "turns": {
+          "mean": 0.5951351351351352,
+          "ci95": [
+            0.21845404555604603,
+            0.9718162247142244
+          ]
+        }
+      },
+      "moderate-double-hold": {
+        "first": {
+          "mean": -0.18000000000000002,
+          "ci95": [
+            -0.2808028027638371,
+            -0.0791971972361629
+          ]
+        },
+        "pips": {
+          "mean": 0.7378378378378382,
+          "ci95": [
+            -0.06835535318495989,
+            1.5440310288606363
+          ]
+        },
+        "minus": {
+          "mean": -0.34540540540540543,
+          "ci95": [
+            -0.43116528755653577,
+            -0.2596455232542751
+          ]
+        },
+        "block": {
+          "mean": 0.014594594594594595,
+          "ci95": [
+            -0.009597040827873281,
+            0.03878623001706247
+          ]
+        },
+        "turns": {
+          "mean": 0.5951351351351352,
+          "ci95": [
+            0.21845404555604603,
+            0.9718162247142244
+          ]
+        }
+      }
+    },
+    "double-to-double": {
+      "n": 23,
+      "closed-branch-control": {
+        "first": {
+          "mean": 0.05217391304347828,
+          "ci95": [
+            -0.00659969620284203,
+            0.1109475222897986
+          ]
+        },
+        "pips": {
+          "mean": -0.2130434782608695,
+          "ci95": [
+            -0.5095055958048884,
+            0.08341863928314935
+          ]
+        },
+        "minus": {
+          "mean": -0.30347826086956514,
+          "ci95": [
+            -0.45658696849224834,
+            -0.15036955324688192
+          ]
+        },
+        "block": {
+          "mean": -0.011304347826086957,
+          "ci95": [
+            -0.031147045257316174,
+            0.008538349605142262
+          ]
+        },
+        "turns": {
+          "mean": -0.5217391304347826,
+          "ci95": [
+            -1.100944585866019,
+            0.05746632499645388
+          ]
+        }
+      },
+      "moderate-double-hold": {
+        "first": {
+          "mean": 0.05304347826086958,
+          "ci95": [
+            -0.005568157935170043,
+            0.1116551144569092
+          ]
+        },
+        "pips": {
+          "mean": -0.21826086956521737,
+          "ci95": [
+            -0.5138746726088551,
+            0.0773529334784204
+          ]
+        },
+        "minus": {
+          "mean": -0.30347826086956514,
+          "ci95": [
+            -0.45658696849224834,
+            -0.15036955324688192
+          ]
+        },
+        "block": {
+          "mean": -0.011304347826086957,
+          "ci95": [
+            -0.031147045257316174,
+            0.008538349605142262
+          ]
+        },
+        "turns": {
+          "mean": -0.5234782608695652,
+          "ci95": [
+            -1.1020843238456923,
+            0.055127802106561985
+          ]
+        }
+      }
+    },
+    "single-to-single": {
+      "n": 19,
+      "closed-branch-control": {
+        "first": {
+          "mean": -0.18421052631578946,
+          "ci95": [
+            -0.3621279083133524,
+            -0.006293144318226529
+          ]
+        },
+        "pips": {
+          "mean": -0.988421052631579,
+          "ci95": [
+            -2.490873362204938,
+            0.5140312569417801
+          ]
+        },
+        "minus": {
+          "mean": -0.0010526315789473693,
+          "ci95": [
+            -0.02058918632577538,
+            0.01848392316788064
+          ]
+        },
+        "block": {
+          "mean": 0.024210526315789477,
+          "ci95": [
+            -0.011458179453451626,
+            0.059879232085030584
+          ]
+        },
+        "turns": {
+          "mean": 0.8536842105263157,
+          "ci95": [
+            0.06252988532094439,
+            1.644838535731687
+          ]
+        }
+      },
+      "moderate-double-hold": {
+        "first": {
+          "mean": -0.18631578947368418,
+          "ci95": [
+            -0.3614197110950742,
+            -0.011211867852294166
+          ]
+        },
+        "pips": {
+          "mean": -0.7821052631578947,
+          "ci95": [
+            -2.2531995360769783,
+            0.6889890097611889
+          ]
+        },
+        "minus": {
+          "mean": -0.0010526315789473693,
+          "ci95": [
+            -0.02058918632577538,
+            0.01848392316788064
+          ]
+        },
+        "block": {
+          "mean": 0.024210526315789477,
+          "ci95": [
+            -0.012082552437669019,
+            0.06050360506924797
+          ]
+        },
+        "turns": {
+          "mean": 0.9589473684210525,
+          "ci95": [
+            0.141715736693944,
+            1.776179000148161
+          ]
+        }
+      }
+    },
+    "single-to-double|connector": {
+      "n": 12,
+      "closed-branch-control": {
+        "first": {
+          "mean": -0.34500000000000003,
+          "ci95": [
+            -0.5551658133258335,
+            -0.13483418667416655
+          ]
+        },
+        "pips": {
+          "mean": 1.861666666666667,
+          "ci95": [
+            -0.2749619514411157,
+            3.99829528477445
+          ]
+        },
+        "minus": {
+          "mean": -0.39166666666666666,
+          "ci95": [
+            -0.5847620636165483,
+            -0.19857126971678513
+          ]
+        },
+        "block": {
+          "mean": -0.011666666666666665,
+          "ci95": [
+            -0.0423581651769721,
+            0.01902483184363877
+          ]
+        },
+        "turns": {
+          "mean": 0.3883333333333334,
+          "ci95": [
+            -0.31107670694664746,
+            1.0877433736133142
+          ]
+        }
+      },
+      "moderate-double-hold": {
+        "first": {
+          "mean": -0.34500000000000003,
+          "ci95": [
+            -0.5551658133258335,
+            -0.13483418667416655
+          ]
+        },
+        "pips": {
+          "mean": 1.861666666666667,
+          "ci95": [
+            -0.2749619514411157,
+            3.99829528477445
+          ]
+        },
+        "minus": {
+          "mean": -0.39166666666666666,
+          "ci95": [
+            -0.5847620636165483,
+            -0.19857126971678513
+          ]
+        },
+        "block": {
+          "mean": -0.011666666666666665,
+          "ci95": [
+            -0.0423581651769721,
+            0.01902483184363877
+          ]
+        },
+        "turns": {
+          "mean": 0.3883333333333334,
+          "ci95": [
+            -0.31107670694664746,
+            1.0877433736133142
+          ]
+        }
+      }
+    },
+    "single-to-double|no-connector": {
+      "n": 25,
+      "closed-branch-control": {
+        "first": {
+          "mean": -0.10079999999999996,
+          "ci95": [
+            -0.19951553182757004,
+            -0.002084468172429882
+          ]
+        },
+        "pips": {
+          "mean": 0.19839999999999994,
+          "ci95": [
+            -0.3446717313848452,
+            0.741471731384845
+          ]
+        },
+        "minus": {
+          "mean": -0.3232,
+          "ci95": [
+            -0.41197682196008895,
+            -0.23442317803991103
+          ]
+        },
+        "block": {
+          "mean": 0.0272,
+          "ci95": [
+            -0.004636578710659211,
+            0.059036578710659204
+          ]
+        },
+        "turns": {
+          "mean": 0.6943999999999998,
+          "ci95": [
+            0.244387414647101,
+            1.1444125853528986
+          ]
+        }
+      },
+      "moderate-double-hold": {
+        "first": {
+          "mean": -0.10079999999999996,
+          "ci95": [
+            -0.19951553182757004,
+            -0.002084468172429882
+          ]
+        },
+        "pips": {
+          "mean": 0.19839999999999994,
+          "ci95": [
+            -0.3446717313848452,
+            0.741471731384845
+          ]
+        },
+        "minus": {
+          "mean": -0.3232,
+          "ci95": [
+            -0.41197682196008895,
+            -0.23442317803991103
+          ]
+        },
+        "block": {
+          "mean": 0.0272,
+          "ci95": [
+            -0.004636578710659211,
+            0.059036578710659204
+          ]
+        },
+        "turns": {
+          "mean": 0.6943999999999998,
+          "ci95": [
+            0.244387414647101,
+            1.1444125853528986
+          ]
+        }
+      }
+    },
+    "double-spent|connector": {
+      "n": 19,
+      "closed-branch-control": {
+        "first": {
+          "mean": -0.20736842105263156,
+          "ci95": [
+            -0.367744207516687,
+            -0.04699263458857614
+          ]
+        },
+        "pips": {
+          "mean": 1.1705263157894739,
+          "ci95": [
+            -0.24000926871354644,
+            2.581061900292494
+          ]
+        },
+        "minus": {
+          "mean": -0.3494736842105263,
+          "ci95": [
+            -0.5039749942321553,
+            -0.19497237418889737
+          ]
+        },
+        "block": {
+          "mean": -0.007368421052631578,
+          "ci95": [
+            -0.027300419945636,
+            0.012563577840372842
+          ]
+        },
+        "turns": {
+          "mean": 0.24421052631578952,
+          "ci95": [
+            -0.4548550409463141,
+            0.9432760935778932
+          ]
+        }
+      },
+      "moderate-double-hold": {
+        "first": {
+          "mean": -0.20736842105263156,
+          "ci95": [
+            -0.367744207516687,
+            -0.04699263458857614
+          ]
+        },
+        "pips": {
+          "mean": 1.1705263157894739,
+          "ci95": [
+            -0.24000926871354644,
+            2.581061900292494
+          ]
+        },
+        "minus": {
+          "mean": -0.3494736842105263,
+          "ci95": [
+            -0.5039749942321553,
+            -0.19497237418889737
+          ]
+        },
+        "block": {
+          "mean": -0.007368421052631578,
+          "ci95": [
+            -0.027300419945636,
+            0.012563577840372842
+          ]
+        },
+        "turns": {
+          "mean": 0.24421052631578952,
+          "ci95": [
+            -0.4548550409463141,
+            0.9432760935778932
+          ]
+        }
+      }
+    },
+    "double-spent|no-connector": {
+      "n": 41,
+      "closed-branch-control": {
+        "first": {
+          "mean": -0.0370731707317073,
+          "ci95": [
+            -0.1068152287423666,
+            0.03266888727895199
+          ]
+        },
+        "pips": {
+          "mean": 0.003902439024390204,
+          "ci95": [
+            -0.3549049383898055,
+            0.3627098164385859
+          ]
+        },
+        "minus": {
+          "mean": -0.32,
+          "ci95": [
+            -0.4108866160422411,
+            -0.2291133839577589
+          ]
+        },
+        "block": {
+          "mean": 0.010243902439024389,
+          "ci95": [
+            -0.012708413856274706,
+            0.033196218734323484
+          ]
+        },
+        "turns": {
+          "mean": 0.13121951219512193,
+          "ci95": [
+            -0.2661387635645427,
+            0.5285777879547865
+          ]
+        }
+      },
+      "moderate-double-hold": {
+        "first": {
+          "mean": -0.03658536585365852,
+          "ci95": [
+            -0.10634544392531745,
+            0.03317471221800041
+          ]
+        },
+        "pips": {
+          "mean": 0.0009756097560975185,
+          "ci95": [
+            -0.3577866710772157,
+            0.3597378905894107
+          ]
+        },
+        "minus": {
+          "mean": -0.32,
+          "ci95": [
+            -0.4108866160422411,
+            -0.2291133839577589
+          ]
+        },
+        "block": {
+          "mean": 0.010243902439024389,
+          "ci95": [
+            -0.012708413856274706,
+            0.033196218734323484
+          ]
+        },
+        "turns": {
+          "mean": 0.1302439024390244,
+          "ci95": [
+            -0.26699898651346454,
+            0.5274867913915133
+          ]
+        }
+      }
+    }
+  },
+  "positions": [
+    {
+      "seed": 1073001,
+      "seat": 2,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "double-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 7,
+      "pass": "double-sequence|||0|0-0",
+      "hybrid": "single|down|2||2-5",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": 0.14,
+          "turns": -0.54
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": 0.14,
+          "turns": -0.54
+        }
+      }
+    },
+    {
+      "seed": 1073040,
+      "seat": 2,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": false,
+      "accessibleEnds": 1,
+      "pipGap": 4,
+      "pass": "double-sequence|||3|3-3",
+      "hybrid": "double-sequence|||2,3|2-2,3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.06,
+          "pips": -0.24,
+          "block": 0.04,
+          "minus": -0.56,
+          "turns": -0.44
+        },
+        "moderate-double-hold": {
+          "first": 0.06,
+          "pips": -0.24,
+          "block": 0.04,
+          "minus": -0.56,
+          "turns": -0.44
+        }
+      }
+    },
+    {
+      "seed": 1073073,
+      "seat": 0,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 5,
+      "connectorAfterPass": true,
+      "accessibleEnds": 2,
+      "pipGap": 4,
+      "pass": "single|up|0||0-6",
+      "hybrid": "double-sequence|||5|5-5",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.02,
+          "pips": -0.1,
+          "block": 0,
+          "minus": -0.38,
+          "turns": 0.98
+        },
+        "moderate-double-hold": {
+          "first": 0.02,
+          "pips": -0.1,
+          "block": 0,
+          "minus": -0.38,
+          "turns": 0.98
+        }
+      }
+    },
+    {
+      "seed": 1073077,
+      "seat": 0,
+      "turn": 22,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": true,
+      "accessibleEnds": 2,
+      "pipGap": 3,
+      "pass": "single|right|3||0-3",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.68,
+          "pips": 3.12,
+          "block": 0,
+          "minus": -0.7,
+          "turns": 1.42
+        },
+        "moderate-double-hold": {
+          "first": -0.68,
+          "pips": 3.12,
+          "block": 0,
+          "minus": -0.7,
+          "turns": 1.42
+        }
+      }
+    },
+    {
+      "seed": 1073099,
+      "seat": 0,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 7,
+      "pass": "single|left|4||0-4",
+      "hybrid": "single|up|6||5-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.08,
+          "pips": -4.52,
+          "block": 0,
+          "minus": 0.12,
+          "turns": -0.82
+        },
+        "moderate-double-hold": {
+          "first": 0.08,
+          "pips": -4.52,
+          "block": 0,
+          "minus": 0.12,
+          "turns": -0.82
+        }
+      }
+    },
+    {
+      "seed": 1073102,
+      "seat": 0,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 6,
+      "connectorAfterPass": false,
+      "accessibleEnds": 3,
+      "pipGap": 5,
+      "pass": "single|up|4||3-4",
+      "hybrid": "double-sequence|||6|6-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.02,
+          "pips": 0.06,
+          "block": -0.02,
+          "minus": -0.22,
+          "turns": 0.3
+        },
+        "moderate-double-hold": {
+          "first": -0.02,
+          "pips": 0.06,
+          "block": -0.02,
+          "minus": -0.22,
+          "turns": 0.3
+        }
+      }
+    },
+    {
+      "seed": 1073103,
+      "seat": 1,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 5,
+      "connectorAfterPass": false,
+      "accessibleEnds": 3,
+      "pipGap": 8,
+      "pass": "single|up|2||0-2",
+      "hybrid": "double-sequence|||5|5-5",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.16,
+          "pips": -1.12,
+          "block": -0.08,
+          "minus": -0.2,
+          "turns": -2.04
+        },
+        "moderate-double-hold": {
+          "first": 0.16,
+          "pips": -1.12,
+          "block": -0.08,
+          "minus": -0.2,
+          "turns": -2.04
+        }
+      }
+    },
+    {
+      "seed": 1073130,
+      "seat": 2,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 6,
+      "connectorAfterPass": false,
+      "accessibleEnds": 3,
+      "pipGap": 3,
+      "pass": "single|down|4||4-5",
+      "hybrid": "double-sequence|||6|6-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.12,
+          "pips": -0.12,
+          "block": -0.04,
+          "minus": -0.28,
+          "turns": -0.2
+        },
+        "moderate-double-hold": {
+          "first": 0.12,
+          "pips": -0.12,
+          "block": -0.04,
+          "minus": -0.28,
+          "turns": -0.2
+        }
+      }
+    },
+    {
+      "seed": 1073134,
+      "seat": 1,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 4,
+      "connectorAfterPass": false,
+      "accessibleEnds": 3,
+      "pipGap": 6,
+      "pass": "single|right|2||0-2",
+      "hybrid": "double-sequence|||4|4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.34,
+          "pips": 0.82,
+          "block": 0,
+          "minus": 0,
+          "turns": -0.76
+        },
+        "moderate-double-hold": {
+          "first": -0.34,
+          "pips": 0.82,
+          "block": 0,
+          "minus": 0,
+          "turns": -0.76
+        }
+      }
+    },
+    {
+      "seed": 1073143,
+      "seat": 0,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 3,
+      "pass": "single|right|5||3-5",
+      "hybrid": "single|left|6||5-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.84,
+          "pips": 6.72,
+          "block": 0,
+          "minus": 0,
+          "turns": 1.8
+        },
+        "moderate-double-hold": {
+          "first": -0.84,
+          "pips": 6.72,
+          "block": 0,
+          "minus": 0,
+          "turns": 1.8
+        }
+      }
+    },
+    {
+      "seed": 1073156,
+      "seat": 2,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 6,
+      "pass": "single|down|1||0-1",
+      "hybrid": "single|right|4||3-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.92,
+          "pips": 0.62,
+          "block": 0.08,
+          "minus": 0,
+          "turns": 0.5
+        },
+        "moderate-double-hold": {
+          "first": -0.9,
+          "pips": 0.6,
+          "block": 0.1,
+          "minus": 0,
+          "turns": 0.5
+        }
+      }
+    },
+    {
+      "seed": 1073163,
+      "seat": 2,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 5,
+      "connectorAfterPass": false,
+      "accessibleEnds": 1,
+      "pipGap": 10,
+      "pass": "double-sequence|||2|2-2",
+      "hybrid": "double-sequence|||2,5|2-2,5-5",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.02,
+          "pips": 0.12,
+          "block": 0.02,
+          "minus": -0.42,
+          "turns": -0.98
+        },
+        "moderate-double-hold": {
+          "first": -0.02,
+          "pips": 0.12,
+          "block": 0.02,
+          "minus": -0.42,
+          "turns": -0.98
+        }
+      }
+    },
+    {
+      "seed": 1073175,
+      "seat": 2,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": true,
+      "accessibleEnds": 2,
+      "pipGap": 1,
+      "pass": "single|up|3||0-3",
+      "hybrid": "double-sequence|||2|2-2",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.26,
+          "pips": 0.46,
+          "block": 0,
+          "minus": -0.48,
+          "turns": 1.18
+        },
+        "moderate-double-hold": {
+          "first": -0.26,
+          "pips": 0.46,
+          "block": 0,
+          "minus": -0.48,
+          "turns": 1.18
+        }
+      }
+    },
+    {
+      "seed": 1073176,
+      "seat": 2,
+      "turn": 21,
+      "handSize": 2,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 8,
+      "pass": "single|up|0||0-1",
+      "hybrid": "single|left|4||4-5",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.02,
+          "pips": -0.46,
+          "block": 0,
+          "minus": 0,
+          "turns": -0.02
+        },
+        "moderate-double-hold": {
+          "first": -0.02,
+          "pips": -0.46,
+          "block": 0,
+          "minus": 0,
+          "turns": -0.02
+        }
+      }
+    },
+    {
+      "seed": 1073216,
+      "seat": 2,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": true,
+      "accessibleEnds": 2,
+      "pipGap": 1,
+      "pass": "single|left|0||0-3",
+      "hybrid": "double-sequence|||2|2-2",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.2,
+          "pips": 0.6,
+          "block": 0.04,
+          "minus": -0.56,
+          "turns": 2.24
+        },
+        "moderate-double-hold": {
+          "first": -0.2,
+          "pips": 0.6,
+          "block": 0.04,
+          "minus": -0.56,
+          "turns": 2.24
+        }
+      }
+    },
+    {
+      "seed": 1073226,
+      "seat": 0,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": true,
+      "accessibleEnds": 1,
+      "pipGap": 6,
+      "pass": "double-sequence|||0|0-0",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.12,
+          "pips": 0.6,
+          "block": 0.04,
+          "minus": 0.04,
+          "turns": 1.82
+        },
+        "moderate-double-hold": {
+          "first": -0.12,
+          "pips": 0.6,
+          "block": 0.04,
+          "minus": 0.04,
+          "turns": 1.82
+        }
+      }
+    },
+    {
+      "seed": 1073281,
+      "seat": 2,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 4,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 6,
+      "pass": "single|right|2||0-2",
+      "hybrid": "double-sequence|||4|4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.38,
+          "pips": 3.42,
+          "block": 0.3,
+          "minus": -0.68,
+          "turns": 2.12
+        },
+        "moderate-double-hold": {
+          "first": -0.38,
+          "pips": 3.42,
+          "block": 0.3,
+          "minus": -0.68,
+          "turns": 2.12
+        }
+      }
+    },
+    {
+      "seed": 1073283,
+      "seat": 1,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 4,
+      "pass": "single|right|2||0-2",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.04,
+          "pips": -0.24,
+          "block": 0,
+          "minus": -0.48,
+          "turns": 1.36
+        },
+        "moderate-double-hold": {
+          "first": 0.04,
+          "pips": -0.24,
+          "block": 0,
+          "minus": -0.48,
+          "turns": 1.36
+        }
+      }
+    },
+    {
+      "seed": 1073293,
+      "seat": 0,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 4,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 5,
+      "pass": "single|up|3||0-3",
+      "hybrid": "double-sequence|||4|4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.58,
+          "pips": 2.14,
+          "block": 0.22,
+          "minus": -0.14,
+          "turns": 2.32
+        },
+        "moderate-double-hold": {
+          "first": -0.58,
+          "pips": 2.14,
+          "block": 0.22,
+          "minus": -0.14,
+          "turns": 2.32
+        }
+      }
+    },
+    {
+      "seed": 1073304,
+      "seat": 0,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 3,
+      "pass": "single|left|3||0-3",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.54,
+          "pips": 0.9,
+          "block": 0,
+          "minus": -0.2,
+          "turns": -0.6
+        },
+        "moderate-double-hold": {
+          "first": -0.54,
+          "pips": 0.9,
+          "block": 0,
+          "minus": -0.2,
+          "turns": -0.6
+        }
+      }
+    },
+    {
+      "seed": 1073353,
+      "seat": 1,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": true,
+      "accessibleEnds": 1,
+      "pipGap": 4,
+      "pass": "double-sequence|||3|3-3",
+      "hybrid": "double-sequence|||2,3|2-2,3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -0.16,
+          "turns": -1.32
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -0.16,
+          "turns": -1.32
+        }
+      }
+    },
+    {
+      "seed": 1073359,
+      "seat": 1,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 4,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 3,
+      "pass": "single|up|0||0-5",
+      "hybrid": "double-sequence|||4|4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.06,
+          "pips": -0.18,
+          "block": 0.1,
+          "minus": -0.38,
+          "turns": 1
+        },
+        "moderate-double-hold": {
+          "first": 0.06,
+          "pips": -0.18,
+          "block": 0.1,
+          "minus": -0.38,
+          "turns": 1
+        }
+      }
+    },
+    {
+      "seed": 1073379,
+      "seat": 1,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 6,
+      "pass": "double-sequence|||0|0-0",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.5,
+          "pips": -2,
+          "block": -0.1,
+          "minus": -0.32,
+          "turns": -1.2
+        },
+        "moderate-double-hold": {
+          "first": 0.5,
+          "pips": -2,
+          "block": -0.1,
+          "minus": -0.32,
+          "turns": -1.2
+        }
+      }
+    },
+    {
+      "seed": 1073412,
+      "seat": 2,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 5,
+      "pass": "single|up|4||2-4",
+      "hybrid": "single|down|5||5-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": 0,
+          "turns": 0
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": 0,
+          "turns": 0
+        }
+      }
+    },
+    {
+      "seed": 1073417,
+      "seat": 1,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 2,
+      "pass": "single|left|3||1-3",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.78,
+          "pips": 3.36,
+          "block": 0,
+          "minus": -0.22,
+          "turns": -0.12
+        },
+        "moderate-double-hold": {
+          "first": -0.78,
+          "pips": 3.36,
+          "block": 0,
+          "minus": -0.22,
+          "turns": -0.12
+        }
+      }
+    },
+    {
+      "seed": 1073441,
+      "seat": 0,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 5,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 5,
+      "pass": "single|up|1||1-4",
+      "hybrid": "double-sequence|||5|5-5",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -1,
+          "turns": 3
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -1,
+          "turns": 3
+        }
+      }
+    },
+    {
+      "seed": 1073467,
+      "seat": 1,
+      "turn": 24,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": true,
+      "accessibleEnds": 1,
+      "pipGap": 1,
+      "pass": "single|left|0||0-3",
+      "hybrid": "double-sequence|||2|2-2",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.6,
+          "pips": 2,
+          "block": 0,
+          "minus": -0.6,
+          "turns": 0
+        },
+        "moderate-double-hold": {
+          "first": -0.6,
+          "pips": 2,
+          "block": 0,
+          "minus": -0.6,
+          "turns": 0
+        }
+      }
+    },
+    {
+      "seed": 1073469,
+      "seat": 1,
+      "turn": 23,
+      "handSize": 2,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 9,
+      "pass": "single|down|0||0-2",
+      "hybrid": "single|left|5||5-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.04,
+          "pips": 0.08,
+          "block": 0,
+          "minus": 0,
+          "turns": 2.44
+        },
+        "moderate-double-hold": {
+          "first": -0.04,
+          "pips": 0.08,
+          "block": 0,
+          "minus": 0,
+          "turns": 2.44
+        }
+      }
+    },
+    {
+      "seed": 1073477,
+      "seat": 0,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 7,
+      "pass": "single|right|2||0-2",
+      "hybrid": "single|down|6||3-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.32,
+          "pips": -5.36,
+          "block": 0,
+          "minus": 0,
+          "turns": -0.28
+        },
+        "moderate-double-hold": {
+          "first": 0.12,
+          "pips": -3.02,
+          "block": -0.02,
+          "minus": 0,
+          "turns": -0.14
+        }
+      }
+    },
+    {
+      "seed": 1073487,
+      "seat": 1,
+      "turn": 24,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 4,
+      "pass": "double-sequence|||3|3-3",
+      "hybrid": "double-sequence|||2,3|2-2,3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -1,
+          "turns": 0
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -1,
+          "turns": 0
+        }
+      }
+    },
+    {
+      "seed": 1073496,
+      "seat": 1,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 6,
+      "connectorAfterPass": false,
+      "accessibleEnds": 3,
+      "pipGap": 10,
+      "pass": "single|left|2||0-2",
+      "hybrid": "double-sequence|||6|6-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.02,
+          "pips": -0.44,
+          "block": 0,
+          "minus": -0.2,
+          "turns": 0.44
+        },
+        "moderate-double-hold": {
+          "first": 0.02,
+          "pips": -0.44,
+          "block": 0,
+          "minus": -0.2,
+          "turns": 0.44
+        }
+      }
+    },
+    {
+      "seed": 1073508,
+      "seat": 2,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 6,
+      "pass": "single|down|0||0-4",
+      "hybrid": "single|down|6||4-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.48,
+          "pips": 0.56,
+          "block": -0.02,
+          "minus": 0,
+          "turns": 1.78
+        },
+        "moderate-double-hold": {
+          "first": -0.54,
+          "pips": 1.48,
+          "block": -0.02,
+          "minus": 0,
+          "turns": 3.08
+        }
+      }
+    },
+    {
+      "seed": 1073516,
+      "seat": 1,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 6,
+      "connectorAfterPass": false,
+      "accessibleEnds": 3,
+      "pipGap": 6,
+      "pass": "single|right|2||2-4",
+      "hybrid": "double-sequence|||6|6-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.1,
+          "pips": -0.5,
+          "block": 0,
+          "minus": -0.24,
+          "turns": -0.32
+        },
+        "moderate-double-hold": {
+          "first": 0.1,
+          "pips": -0.5,
+          "block": 0,
+          "minus": -0.24,
+          "turns": -0.32
+        }
+      }
+    },
+    {
+      "seed": 1073527,
+      "seat": 0,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 4,
+      "connectorAfterPass": true,
+      "accessibleEnds": 1,
+      "pipGap": 8,
+      "pass": "double-sequence|||3|3-3",
+      "hybrid": "double-sequence|||3,4|3-3,4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.32,
+          "pips": -1.28,
+          "block": -0.02,
+          "minus": 0,
+          "turns": -2.34
+        },
+        "moderate-double-hold": {
+          "first": 0.32,
+          "pips": -1.28,
+          "block": -0.02,
+          "minus": 0,
+          "turns": -2.34
+        }
+      }
+    },
+    {
+      "seed": 1073529,
+      "seat": 1,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": true,
+      "accessibleEnds": 2,
+      "pipGap": 4,
+      "pass": "double-sequence|||3|3-3",
+      "hybrid": "double-sequence|||2,3|2-2,3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.06,
+          "pips": -0.3,
+          "block": 0,
+          "minus": -0.38,
+          "turns": -1.98
+        },
+        "moderate-double-hold": {
+          "first": 0.06,
+          "pips": -0.3,
+          "block": 0,
+          "minus": -0.38,
+          "turns": -1.98
+        }
+      }
+    },
+    {
+      "seed": 1073564,
+      "seat": 0,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 6,
+      "pass": "double-sequence|||4|4-4",
+      "hybrid": "double-sequence|||3,4|3-3,4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.02,
+          "pips": 0.12,
+          "block": 0,
+          "minus": -0.6,
+          "turns": 0.64
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -0.6,
+          "turns": 0.6
+        }
+      }
+    },
+    {
+      "seed": 1073572,
+      "seat": 1,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": true,
+      "accessibleEnds": 1,
+      "pipGap": 6,
+      "pass": "double-sequence|||6|6-6",
+      "hybrid": "double-sequence|||3,6|3-3,6-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.02,
+          "pips": 0.16,
+          "block": 0,
+          "minus": 0,
+          "turns": 0.04
+        },
+        "moderate-double-hold": {
+          "first": -0.02,
+          "pips": 0.16,
+          "block": 0,
+          "minus": 0,
+          "turns": 0.04
+        }
+      }
+    },
+    {
+      "seed": 1073574,
+      "seat": 1,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 4,
+      "pass": "double-sequence|||3|3-3",
+      "hybrid": "double-sequence|||2,3|2-2,3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.02,
+          "pips": -0.08,
+          "block": 0,
+          "minus": -0.36,
+          "turns": -0.46
+        },
+        "moderate-double-hold": {
+          "first": 0.02,
+          "pips": -0.08,
+          "block": 0,
+          "minus": -0.36,
+          "turns": -0.46
+        }
+      }
+    },
+    {
+      "seed": 1073594,
+      "seat": 2,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": false,
+      "accessibleEnds": 3,
+      "pipGap": 3,
+      "pass": "single|left|2||1-2",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.02,
+          "pips": -0.08,
+          "block": 0,
+          "minus": -0.16,
+          "turns": 0.04
+        },
+        "moderate-double-hold": {
+          "first": 0.02,
+          "pips": -0.08,
+          "block": 0,
+          "minus": -0.16,
+          "turns": 0.04
+        }
+      }
+    },
+    {
+      "seed": 1073596,
+      "seat": 2,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 2,
+      "pass": "single|down|1||1-3",
+      "hybrid": "single|left|0||0-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.34,
+          "pips": 1.28,
+          "block": 0,
+          "minus": 0,
+          "turns": 0.92
+        },
+        "moderate-double-hold": {
+          "first": -0.34,
+          "pips": 1.28,
+          "block": 0,
+          "minus": 0,
+          "turns": 0.92
+        }
+      }
+    },
+    {
+      "seed": 1073606,
+      "seat": 1,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": false,
+      "accessibleEnds": 3,
+      "pipGap": 5,
+      "pass": "single|down|0||0-1",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.02,
+          "pips": -0.2,
+          "block": 0,
+          "minus": -0.22,
+          "turns": 0.02
+        },
+        "moderate-double-hold": {
+          "first": 0.02,
+          "pips": -0.2,
+          "block": 0,
+          "minus": -0.22,
+          "turns": 0.02
+        }
+      }
+    },
+    {
+      "seed": 1073609,
+      "seat": 0,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 1,
+      "pass": "single|right|6||2-6",
+      "hybrid": "single|up|5||4-5",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.26,
+          "pips": -3.56,
+          "block": 0.04,
+          "minus": 0,
+          "turns": -0.26
+        },
+        "moderate-double-hold": {
+          "first": 0.26,
+          "pips": -3.56,
+          "block": 0.04,
+          "minus": 0,
+          "turns": -0.26
+        }
+      }
+    },
+    {
+      "seed": 1073633,
+      "seat": 2,
+      "turn": 26,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 4,
+      "connectorAfterPass": true,
+      "accessibleEnds": 3,
+      "pipGap": 6,
+      "pass": "single|right|0||0-2",
+      "hybrid": "double-sequence|||4|4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.1,
+          "pips": -1.6,
+          "block": 0,
+          "minus": 0,
+          "turns": -0.1
+        },
+        "moderate-double-hold": {
+          "first": -0.1,
+          "pips": -1.6,
+          "block": 0,
+          "minus": 0,
+          "turns": -0.1
+        }
+      }
+    },
+    {
+      "seed": 1073647,
+      "seat": 2,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 10,
+      "pass": "single|left|1||0-1",
+      "hybrid": "single|down|5||5-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.18,
+          "pips": -5.54,
+          "block": 0.34,
+          "minus": 0,
+          "turns": 0.92
+        },
+        "moderate-double-hold": {
+          "first": -0.18,
+          "pips": -5.54,
+          "block": 0.34,
+          "minus": 0,
+          "turns": 0.92
+        }
+      }
+    },
+    {
+      "seed": 1073660,
+      "seat": 0,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 6,
+      "pass": "double-sequence|||0|0-0",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.06,
+          "pips": -0.12,
+          "block": -0.02,
+          "minus": -0.08,
+          "turns": -0.42
+        },
+        "moderate-double-hold": {
+          "first": 0.06,
+          "pips": -0.12,
+          "block": -0.02,
+          "minus": -0.08,
+          "turns": -0.42
+        }
+      }
+    },
+    {
+      "seed": 1073680,
+      "seat": 2,
+      "turn": 24,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": true,
+      "accessibleEnds": 2,
+      "pipGap": 3,
+      "pass": "single|left|3||0-3",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -1,
+          "pips": 12,
+          "block": 0,
+          "minus": -0.74,
+          "turns": -1.78
+        },
+        "moderate-double-hold": {
+          "first": -1,
+          "pips": 12,
+          "block": 0,
+          "minus": -0.74,
+          "turns": -1.78
+        }
+      }
+    },
+    {
+      "seed": 1073681,
+      "seat": 1,
+      "turn": 22,
+      "handSize": 2,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 7,
+      "pass": "single|right|1||1-2",
+      "hybrid": "single|up|4||4-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.9,
+          "pips": 2,
+          "block": 0,
+          "minus": 0,
+          "turns": 2.86
+        },
+        "moderate-double-hold": {
+          "first": -0.9,
+          "pips": 2,
+          "block": 0,
+          "minus": 0,
+          "turns": 2.86
+        }
+      }
+    },
+    {
+      "seed": 1073685,
+      "seat": 2,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 4,
+      "connectorAfterPass": true,
+      "accessibleEnds": 2,
+      "pipGap": 1,
+      "pass": "single|down|2||2-5",
+      "hybrid": "double-sequence|||4|4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.2,
+          "pips": 1.28,
+          "block": 0,
+          "minus": 0,
+          "turns": 0.16
+        },
+        "moderate-double-hold": {
+          "first": -0.2,
+          "pips": 1.28,
+          "block": 0,
+          "minus": 0,
+          "turns": 0.16
+        }
+      }
+    },
+    {
+      "seed": 1073688,
+      "seat": 1,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 4,
+      "pass": "double-sequence|||5|5-5",
+      "hybrid": "double-sequence|||2,5|2-2,5-5",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.04,
+          "pips": 0.04,
+          "block": 0,
+          "minus": -0.06,
+          "turns": 0.26
+        },
+        "moderate-double-hold": {
+          "first": -0.04,
+          "pips": 0.04,
+          "block": 0,
+          "minus": -0.06,
+          "turns": 0.26
+        }
+      }
+    },
+    {
+      "seed": 1073696,
+      "seat": 0,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 4,
+      "pass": "double-sequence|||3|3-3",
+      "hybrid": "double-sequence|||2,3|2-2,3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.1,
+          "pips": -0.5,
+          "block": 0,
+          "minus": -0.62,
+          "turns": -2.08
+        },
+        "moderate-double-hold": {
+          "first": 0.1,
+          "pips": -0.5,
+          "block": 0,
+          "minus": -0.62,
+          "turns": -2.08
+        }
+      }
+    },
+    {
+      "seed": 1073714,
+      "seat": 2,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 3,
+      "pass": "single|down|1||0-1",
+      "hybrid": "double-sequence|||2|2-2",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.3,
+          "pips": 0.1,
+          "block": 0,
+          "minus": -0.34,
+          "turns": 2.28
+        },
+        "moderate-double-hold": {
+          "first": -0.3,
+          "pips": 0.1,
+          "block": 0,
+          "minus": -0.34,
+          "turns": 2.28
+        }
+      }
+    },
+    {
+      "seed": 1073721,
+      "seat": 0,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 4,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 4,
+      "pass": "single|down|3||1-3",
+      "hybrid": "double-sequence|||4|4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -0.4,
+          "turns": 1.2
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -0.4,
+          "turns": 1.2
+        }
+      }
+    },
+    {
+      "seed": 1073730,
+      "seat": 2,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 5,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 9,
+      "pass": "single|right|0||0-1",
+      "hybrid": "double-sequence|||5|5-5",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.1,
+          "pips": -0.7,
+          "block": 0,
+          "minus": -0.26,
+          "turns": 0.4
+        },
+        "moderate-double-hold": {
+          "first": 0.1,
+          "pips": -0.7,
+          "block": 0,
+          "minus": -0.26,
+          "turns": 0.4
+        }
+      }
+    },
+    {
+      "seed": 1073732,
+      "seat": 1,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 4,
+      "connectorAfterPass": false,
+      "accessibleEnds": 1,
+      "pipGap": 8,
+      "pass": "double-sequence|||6|6-6",
+      "hybrid": "double-sequence|||4,6|4-4,6-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.08,
+          "pips": 0.24,
+          "block": 0,
+          "minus": -0.26,
+          "turns": 0.22
+        },
+        "moderate-double-hold": {
+          "first": -0.08,
+          "pips": 0.24,
+          "block": 0,
+          "minus": -0.26,
+          "turns": 0.22
+        }
+      }
+    },
+    {
+      "seed": 1073734,
+      "seat": 2,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 7,
+      "pass": "single|down|0||0-3",
+      "hybrid": "single|up|6||4-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.4,
+          "pips": 1.2,
+          "block": 0,
+          "minus": -0.14,
+          "turns": 6.72
+        },
+        "moderate-double-hold": {
+          "first": -0.4,
+          "pips": 1.2,
+          "block": 0,
+          "minus": -0.14,
+          "turns": 6.72
+        }
+      }
+    },
+    {
+      "seed": 1073747,
+      "seat": 1,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 4,
+      "connectorAfterPass": true,
+      "accessibleEnds": 2,
+      "pipGap": 5,
+      "pass": "single|down|0||0-3",
+      "hybrid": "double-sequence|||4|4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.24,
+          "pips": -1.32,
+          "block": 0,
+          "minus": -0.06,
+          "turns": -0.06
+        },
+        "moderate-double-hold": {
+          "first": -0.24,
+          "pips": -1.32,
+          "block": 0,
+          "minus": -0.06,
+          "turns": -0.06
+        }
+      }
+    },
+    {
+      "seed": 1073777,
+      "seat": 1,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 4,
+      "pass": "double-sequence|||4|4-4",
+      "hybrid": "double-sequence|||2,4|2-2,4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -0.5,
+          "turns": -0.78
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -0.5,
+          "turns": -0.78
+        }
+      }
+    },
+    {
+      "seed": 1073789,
+      "seat": 2,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 6,
+      "connectorAfterPass": false,
+      "accessibleEnds": 3,
+      "pipGap": 8,
+      "pass": "single|up|0||0-4",
+      "hybrid": "double-sequence|||6|6-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.08,
+          "pips": -0.4,
+          "block": 0,
+          "minus": -0.34,
+          "turns": 0.22
+        },
+        "moderate-double-hold": {
+          "first": 0.08,
+          "pips": -0.4,
+          "block": 0,
+          "minus": -0.34,
+          "turns": 0.22
+        }
+      }
+    },
+    {
+      "seed": 1073792,
+      "seat": 2,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 4,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 3,
+      "pass": "single|up|3||2-3",
+      "hybrid": "double-sequence|||4|4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -0.36,
+          "turns": 1.08
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -0.36,
+          "turns": 1.08
+        }
+      }
+    },
+    {
+      "seed": 1073795,
+      "seat": 0,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 4,
+      "pass": "single|up|0||0-2",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.08,
+          "pips": -3.52,
+          "block": 0,
+          "minus": -0.1,
+          "turns": 0.38
+        },
+        "moderate-double-hold": {
+          "first": 0.08,
+          "pips": -3.52,
+          "block": 0,
+          "minus": -0.1,
+          "turns": 0.38
+        }
+      }
+    },
+    {
+      "seed": 1073801,
+      "seat": 1,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": true,
+      "accessibleEnds": 1,
+      "pipGap": 1,
+      "pass": "single|left|0||0-3",
+      "hybrid": "double-sequence|||2|2-2",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.28,
+          "pips": -1.68,
+          "block": -0.18,
+          "minus": -0.18,
+          "turns": -0.38
+        },
+        "moderate-double-hold": {
+          "first": 0.28,
+          "pips": -1.68,
+          "block": -0.18,
+          "minus": -0.18,
+          "turns": -0.38
+        }
+      }
+    },
+    {
+      "seed": 1073803,
+      "seat": 2,
+      "turn": 25,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": false,
+      "accessibleEnds": 1,
+      "pipGap": 6,
+      "pass": "double-sequence|||0|0-0",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.08,
+          "pips": -0.4,
+          "block": -0.2,
+          "minus": 0.32,
+          "turns": -1.22
+        },
+        "moderate-double-hold": {
+          "first": 0.08,
+          "pips": -0.4,
+          "block": -0.2,
+          "minus": 0.32,
+          "turns": -1.22
+        }
+      }
+    },
+    {
+      "seed": 1073805,
+      "seat": 0,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 5,
+      "connectorAfterPass": false,
+      "accessibleEnds": 3,
+      "pipGap": 7,
+      "pass": "single|right|0||0-3",
+      "hybrid": "double-sequence|||5|5-5",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.02,
+          "pips": -0.2,
+          "block": 0,
+          "minus": -0.72,
+          "turns": 1.7
+        },
+        "moderate-double-hold": {
+          "first": 0.02,
+          "pips": -0.2,
+          "block": 0,
+          "minus": -0.72,
+          "turns": 1.7
+        }
+      }
+    },
+    {
+      "seed": 1073836,
+      "seat": 0,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 6,
+      "pass": "double-sequence|||0|0-0",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": 0.64,
+          "turns": -1.92
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": 0.64,
+          "turns": -1.92
+        }
+      }
+    },
+    {
+      "seed": 1073839,
+      "seat": 0,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": false,
+      "accessibleEnds": 1,
+      "pipGap": 4,
+      "pass": "double-sequence|||3|3-3",
+      "hybrid": "double-sequence|||2,3|2-2,3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -0.56,
+          "turns": -0.18
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "block": 0,
+          "minus": -0.56,
+          "turns": -0.18
+        }
+      }
+    },
+    {
+      "seed": 1073842,
+      "seat": 1,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 6,
+      "pass": "double-sequence|||2|2-2",
+      "hybrid": "double-sequence|||2,3|2-2,3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.26,
+          "pips": -1.82,
+          "block": 0,
+          "minus": -0.18,
+          "turns": -3.28
+        },
+        "moderate-double-hold": {
+          "first": 0.26,
+          "pips": -1.82,
+          "block": 0,
+          "minus": -0.18,
+          "turns": -3.28
+        }
+      }
+    },
+    {
+      "seed": 1073845,
+      "seat": 1,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": true,
+      "accessibleEnds": 1,
+      "pipGap": 4,
+      "pass": "double-sequence|||3|3-3",
+      "hybrid": "double-sequence|||2,3|2-2,3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.12,
+          "pips": -0.72,
+          "block": -0.02,
+          "minus": -0.48,
+          "turns": 0.38
+        },
+        "moderate-double-hold": {
+          "first": 0.12,
+          "pips": -0.72,
+          "block": -0.02,
+          "minus": -0.48,
+          "turns": 0.38
+        }
+      }
+    },
+    {
+      "seed": 1073868,
+      "seat": 2,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 6,
+      "pass": "single|down|0||0-5",
+      "hybrid": "single|down|6||5-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.14,
+          "pips": -6.26,
+          "block": 0,
+          "minus": 0,
+          "turns": -0.76
+        },
+        "moderate-double-hold": {
+          "first": 0.14,
+          "pips": -6.26,
+          "block": 0,
+          "minus": 0,
+          "turns": -0.76
+        }
+      }
+    },
+    {
+      "seed": 1073882,
+      "seat": 1,
+      "turn": 21,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 4,
+      "connectorAfterPass": true,
+      "accessibleEnds": 1,
+      "pipGap": 8,
+      "pass": "double-sequence|||0|0-0",
+      "hybrid": "double-sequence|||4|4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.16,
+          "pips": 1.44,
+          "block": 0,
+          "minus": -0.96,
+          "turns": 3.38
+        },
+        "moderate-double-hold": {
+          "first": -0.16,
+          "pips": 1.44,
+          "block": 0,
+          "minus": -0.96,
+          "turns": 3.38
+        }
+      }
+    },
+    {
+      "seed": 1073888,
+      "seat": 2,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "double-to-double",
+      "doubleNumber": 6,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 12,
+      "pass": "double-sequence|||0|0-0",
+      "hybrid": "double-sequence|||6|6-6",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.08,
+          "pips": -0.16,
+          "block": 0,
+          "minus": -0.48,
+          "turns": -0.14
+        },
+        "moderate-double-hold": {
+          "first": 0.08,
+          "pips": -0.16,
+          "block": 0,
+          "minus": -0.48,
+          "turns": -0.14
+        }
+      }
+    },
+    {
+      "seed": 1073905,
+      "seat": 2,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 4,
+      "pass": "single|left|2||2-3",
+      "hybrid": "single|right|4||4-5",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.36,
+          "pips": -5.04,
+          "block": 0,
+          "minus": 0,
+          "turns": -0.34
+        },
+        "moderate-double-hold": {
+          "first": 0.36,
+          "pips": -5.04,
+          "block": 0,
+          "minus": 0,
+          "turns": -0.34
+        }
+      }
+    },
+    {
+      "seed": 1073911,
+      "seat": 1,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": true,
+      "accessibleEnds": 2,
+      "pipGap": 2,
+      "pass": "single|left|4||0-4",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.86,
+          "pips": 4.94,
+          "block": 0,
+          "minus": -1,
+          "turns": 2.14
+        },
+        "moderate-double-hold": {
+          "first": -0.86,
+          "pips": 4.94,
+          "block": 0,
+          "minus": -1,
+          "turns": 2.14
+        }
+      }
+    },
+    {
+      "seed": 1073937,
+      "seat": 0,
+      "turn": 23,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 2,
+      "connectorAfterPass": false,
+      "accessibleEnds": 3,
+      "pipGap": 1,
+      "pass": "single|up|3||0-3",
+      "hybrid": "double-sequence|||2|2-2",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.22,
+          "pips": 0.42,
+          "block": 0,
+          "minus": -0.48,
+          "turns": 1.24
+        },
+        "moderate-double-hold": {
+          "first": -0.22,
+          "pips": 0.42,
+          "block": 0,
+          "minus": -0.48,
+          "turns": 1.24
+        }
+      }
+    },
+    {
+      "seed": 1073942,
+      "seat": 0,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 1,
+      "pass": "single|up|4||2-4",
+      "hybrid": "single|down|3||3-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.06,
+          "pips": -0.66,
+          "block": 0.02,
+          "minus": 0,
+          "turns": 0.36
+        },
+        "moderate-double-hold": {
+          "first": -0.04,
+          "pips": 0.24,
+          "block": 0.02,
+          "minus": 0,
+          "turns": 1.08
+        }
+      }
+    },
+    {
+      "seed": 1073945,
+      "seat": 1,
+      "turn": 25,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 4,
+      "connectorAfterPass": true,
+      "accessibleEnds": 1,
+      "pipGap": 2,
+      "pass": "single|up|4||2-4",
+      "hybrid": "double-sequence|||4|4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.3,
+          "pips": 2.64,
+          "block": 0,
+          "minus": 0,
+          "turns": -1.14
+        },
+        "moderate-double-hold": {
+          "first": -0.3,
+          "pips": 2.64,
+          "block": 0,
+          "minus": 0,
+          "turns": -1.14
+        }
+      }
+    },
+    {
+      "seed": 1073998,
+      "seat": 2,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 4,
+      "connectorAfterPass": false,
+      "accessibleEnds": 2,
+      "pipGap": 1,
+      "pass": "single|up|5||2-5",
+      "hybrid": "double-sequence|||4|4-4",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.24,
+          "pips": 1.68,
+          "block": 0.1,
+          "minus": -0.46,
+          "turns": 1.92
+        },
+        "moderate-double-hold": {
+          "first": -0.24,
+          "pips": 1.68,
+          "block": 0.1,
+          "minus": -0.46,
+          "turns": 1.92
+        }
+      }
+    },
+    {
+      "seed": 1074002,
+      "seat": 1,
+      "turn": 18,
+      "handSize": 3,
+      "transition": "single-to-double",
+      "doubleNumber": 3,
+      "connectorAfterPass": false,
+      "accessibleEnds": 1,
+      "pipGap": 4,
+      "pass": "single|down|0||0-2",
+      "hybrid": "double-sequence|||3|3-3",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.06,
+          "pips": -0.24,
+          "block": 0.1,
+          "minus": 0,
+          "turns": 0.38
+        },
+        "moderate-double-hold": {
+          "first": 0.06,
+          "pips": -0.24,
+          "block": 0.1,
+          "minus": 0,
+          "turns": 0.38
+        }
+      }
+    },
+    {
+      "seed": 1074007,
+      "seat": 2,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 5,
+      "pass": "single|left|0||0-4",
+      "hybrid": "single|left|5||4-5",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.06,
+          "pips": -2.24,
+          "block": 0,
+          "minus": 0,
+          "turns": 0.16
+        },
+        "moderate-double-hold": {
+          "first": 0.2,
+          "pips": -2.6,
+          "block": 0,
+          "minus": 0,
+          "turns": 0.16
+        }
+      }
+    },
+    {
+      "seed": 1074017,
+      "seat": 1,
+      "turn": 20,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 3,
+      "pass": "single|down|0||0-6",
+      "hybrid": "single|right|4||4-5",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.26,
+          "pips": 1.88,
+          "block": 0,
+          "minus": 0,
+          "turns": 0.46
+        },
+        "moderate-double-hold": {
+          "first": -0.08,
+          "pips": 0.34,
+          "block": 0,
+          "minus": 0,
+          "turns": 0.44
+        }
+      }
+    },
+    {
+      "seed": 1074020,
+      "seat": 0,
+      "turn": 19,
+      "handSize": 3,
+      "transition": "single-to-single",
+      "doubleNumber": null,
+      "connectorAfterPass": null,
+      "accessibleEnds": null,
+      "pipGap": 5,
+      "pass": "single|down|0||0-2",
+      "hybrid": "single|down|5||2-5",
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.4,
+          "pips": 0.52,
+          "block": 0,
+          "minus": 0,
+          "turns": -0.22
+        },
+        "moderate-double-hold": {
+          "first": -0.42,
+          "pips": 2.2,
+          "block": 0,
+          "minus": 0,
+          "turns": -0.36
+        }
+      }
+    }
+  ]
+}
