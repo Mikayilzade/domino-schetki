@@ -1,0 +1,1092 @@
+{
+  "schema": "qosa-public-pass-holdout/v1",
+  "timestampAsiaBaku": "2026-10-18 03:54 +04:00",
+  "validation": "V8 CommonJS (not Node CLI)",
+  "test": {
+    "passed": true,
+    "arms": 2,
+    "rounds": 24
+  },
+  "cohorts": [
+    {
+      "engine": "qosa-research-0.5.3",
+      "rules": "qosa-1.0.0",
+      "mode": "3x9",
+      "discovery": "pre-registered pass-priority vs identical comparator without pass, both with immediate-finish and branch/pip tiebreakers",
+      "information": "only public played tiles, own hand, and opponent hand sizes; hidden tile identities not read by choice",
+      "assumptions": "uniform unknown distribution; prior opponent actions ignored; block winner unassigned; branch rules provisional",
+      "arms": [
+        {
+          "seedRange": [
+            1061000,
+            1061999
+          ],
+          "deals": 1000,
+          "rounds": 3000,
+          "finishes": 2795,
+          "blocks": 205,
+          "unresolved": 0,
+          "meanTurns": 26.682666666666666,
+          "strategies": [
+            "public-next-pass",
+            "public-no-pass",
+            "closed-branch-control"
+          ],
+          "byStrategy": {
+            "public-next-pass": {
+              "appearances": 3000,
+              "finishFirst": 1141,
+              "finishFirstRate": 0.38033333333333336,
+              "meanRemainder": 5.633666666666667,
+              "medianRemainder": 4,
+              "minus": {
+                "-10": 236,
+                "-20": 30,
+                "-30": 3,
+                "-40": 0
+              },
+              "actions": 22452,
+              "choices": 16675,
+              "openingActions": 5675,
+              "openingNumbers": 5677,
+              "meanStartingDoubles": 2.248,
+              "meanEndingDoubles": 0.007333333333333333,
+              "meanImmediatePassGap": 0,
+              "passGapDecisions": 16071,
+              "divergentFromNoPass": 4374,
+              "byStartingDoubles": {
+                "0": {
+                  "appearances": 141,
+                  "finishFirst": 20
+                },
+                "1": {
+                  "appearances": 591,
+                  "finishFirst": 147
+                },
+                "2": {
+                  "appearances": 1086,
+                  "finishFirst": 372
+                },
+                "3": {
+                  "appearances": 808,
+                  "finishFirst": 386
+                },
+                "4": {
+                  "appearances": 317,
+                  "finishFirst": 179
+                },
+                "5": {
+                  "appearances": 53,
+                  "finishFirst": 34
+                },
+                "6": {
+                  "appearances": 4,
+                  "finishFirst": 3
+                }
+              },
+              "byOwnedDouble": {
+                "0": {
+                  "appearances": 956,
+                  "finishFirst": 429
+                },
+                "1": {
+                  "appearances": 962,
+                  "finishFirst": 436
+                },
+                "2": {
+                  "appearances": 970,
+                  "finishFirst": 440
+                },
+                "3": {
+                  "appearances": 961,
+                  "finishFirst": 420
+                },
+                "4": {
+                  "appearances": 973,
+                  "finishFirst": 440
+                },
+                "5": {
+                  "appearances": 962,
+                  "finishFirst": 388
+                },
+                "6": {
+                  "appearances": 960,
+                  "finishFirst": 400
+                }
+              }
+            },
+            "public-no-pass": {
+              "appearances": 3000,
+              "finishFirst": 697,
+              "finishFirstRate": 0.23233333333333334,
+              "meanRemainder": 7.317333333333333,
+              "medianRemainder": 5,
+              "minus": {
+                "-10": 156,
+                "-20": 10,
+                "-30": 0,
+                "-40": 0
+              },
+              "actions": 21185,
+              "choices": 15164,
+              "openingActions": 5788,
+              "openingNumbers": 5790,
+              "meanStartingDoubles": 2.248,
+              "meanEndingDoubles": 0.012666666666666666,
+              "meanImmediatePassGap": 0.05044429192167311,
+              "passGapDecisions": 14764,
+              "divergentFromNoPass": 0,
+              "byStartingDoubles": {
+                "0": {
+                  "appearances": 141,
+                  "finishFirst": 4
+                },
+                "1": {
+                  "appearances": 591,
+                  "finishFirst": 78
+                },
+                "2": {
+                  "appearances": 1086,
+                  "finishFirst": 223
+                },
+                "3": {
+                  "appearances": 808,
+                  "finishFirst": 245
+                },
+                "4": {
+                  "appearances": 317,
+                  "finishFirst": 113
+                },
+                "5": {
+                  "appearances": 53,
+                  "finishFirst": 31
+                },
+                "6": {
+                  "appearances": 4,
+                  "finishFirst": 3
+                }
+              },
+              "byOwnedDouble": {
+                "0": {
+                  "appearances": 956,
+                  "finishFirst": 270
+                },
+                "1": {
+                  "appearances": 962,
+                  "finishFirst": 275
+                },
+                "2": {
+                  "appearances": 970,
+                  "finishFirst": 269
+                },
+                "3": {
+                  "appearances": 961,
+                  "finishFirst": 272
+                },
+                "4": {
+                  "appearances": 973,
+                  "finishFirst": 280
+                },
+                "5": {
+                  "appearances": 962,
+                  "finishFirst": 261
+                },
+                "6": {
+                  "appearances": 960,
+                  "finishFirst": 257
+                }
+              }
+            },
+            "closed-branch-control": {
+              "appearances": 3000,
+              "finishFirst": 957,
+              "finishFirstRate": 0.319,
+              "meanRemainder": 5.814333333333333,
+              "medianRemainder": 4,
+              "minus": {
+                "-10": 188,
+                "-20": 10,
+                "-30": 0,
+                "-40": 0
+              },
+              "actions": 21961,
+              "choices": 15889,
+              "openingActions": 5751,
+              "openingNumbers": 5752,
+              "meanStartingDoubles": 2.248,
+              "meanEndingDoubles": 0.014666666666666666,
+              "meanImmediatePassGap": null,
+              "passGapDecisions": 0,
+              "divergentFromNoPass": 0,
+              "byStartingDoubles": {
+                "0": {
+                  "appearances": 141,
+                  "finishFirst": 11
+                },
+                "1": {
+                  "appearances": 591,
+                  "finishFirst": 126
+                },
+                "2": {
+                  "appearances": 1086,
+                  "finishFirst": 321
+                },
+                "3": {
+                  "appearances": 808,
+                  "finishFirst": 310
+                },
+                "4": {
+                  "appearances": 317,
+                  "finishFirst": 156
+                },
+                "5": {
+                  "appearances": 53,
+                  "finishFirst": 30
+                },
+                "6": {
+                  "appearances": 4,
+                  "finishFirst": 3
+                }
+              },
+              "byOwnedDouble": {
+                "0": {
+                  "appearances": 956,
+                  "finishFirst": 349
+                },
+                "1": {
+                  "appearances": 962,
+                  "finishFirst": 352
+                },
+                "2": {
+                  "appearances": 970,
+                  "finishFirst": 373
+                },
+                "3": {
+                  "appearances": 961,
+                  "finishFirst": 341
+                },
+                "4": {
+                  "appearances": 973,
+                  "finishFirst": 374
+                },
+                "5": {
+                  "appearances": 962,
+                  "finishFirst": 349
+                },
+                "6": {
+                  "appearances": 960,
+                  "finishFirst": 352
+                }
+              }
+            }
+          }
+        },
+        {
+          "seedRange": [
+            1061000,
+            1061999
+          ],
+          "deals": 1000,
+          "rounds": 3000,
+          "finishes": 2803,
+          "blocks": 197,
+          "unresolved": 0,
+          "meanTurns": 26.281,
+          "strategies": [
+            "public-next-pass",
+            "public-no-pass",
+            "min-hand-pips"
+          ],
+          "byStrategy": {
+            "public-next-pass": {
+              "appearances": 3000,
+              "finishFirst": 1249,
+              "finishFirstRate": 0.41633333333333333,
+              "meanRemainder": 4.898666666666666,
+              "medianRemainder": 3,
+              "minus": {
+                "-10": 291,
+                "-20": 31,
+                "-30": 2,
+                "-40": 0
+              },
+              "actions": 22842,
+              "choices": 17556,
+              "openingActions": 5626,
+              "openingNumbers": 5628,
+              "meanStartingDoubles": 2.248,
+              "meanEndingDoubles": 0.006,
+              "meanImmediatePassGap": 0,
+              "passGapDecisions": 16866,
+              "divergentFromNoPass": 4949,
+              "byStartingDoubles": {
+                "0": {
+                  "appearances": 141,
+                  "finishFirst": 22
+                },
+                "1": {
+                  "appearances": 591,
+                  "finishFirst": 170
+                },
+                "2": {
+                  "appearances": 1086,
+                  "finishFirst": 422
+                },
+                "3": {
+                  "appearances": 808,
+                  "finishFirst": 410
+                },
+                "4": {
+                  "appearances": 317,
+                  "finishFirst": 187
+                },
+                "5": {
+                  "appearances": 53,
+                  "finishFirst": 35
+                },
+                "6": {
+                  "appearances": 4,
+                  "finishFirst": 3
+                }
+              },
+              "byOwnedDouble": {
+                "0": {
+                  "appearances": 956,
+                  "finishFirst": 483
+                },
+                "1": {
+                  "appearances": 962,
+                  "finishFirst": 477
+                },
+                "2": {
+                  "appearances": 970,
+                  "finishFirst": 449
+                },
+                "3": {
+                  "appearances": 961,
+                  "finishFirst": 438
+                },
+                "4": {
+                  "appearances": 973,
+                  "finishFirst": 452
+                },
+                "5": {
+                  "appearances": 962,
+                  "finishFirst": 433
+                },
+                "6": {
+                  "appearances": 960,
+                  "finishFirst": 453
+                }
+              }
+            },
+            "public-no-pass": {
+              "appearances": 3000,
+              "finishFirst": 849,
+              "finishFirstRate": 0.283,
+              "meanRemainder": 6.385,
+              "medianRemainder": 4,
+              "minus": {
+                "-10": 188,
+                "-20": 14,
+                "-30": 0,
+                "-40": 0
+              },
+              "actions": 21723,
+              "choices": 16155,
+              "openingActions": 5752,
+              "openingNumbers": 5754,
+              "meanStartingDoubles": 2.248,
+              "meanEndingDoubles": 0.011333333333333334,
+              "meanImmediatePassGap": 0.0488997281357992,
+              "passGapDecisions": 15669,
+              "divergentFromNoPass": 0,
+              "byStartingDoubles": {
+                "0": {
+                  "appearances": 141,
+                  "finishFirst": 11
+                },
+                "1": {
+                  "appearances": 591,
+                  "finishFirst": 93
+                },
+                "2": {
+                  "appearances": 1086,
+                  "finishFirst": 291
+                },
+                "3": {
+                  "appearances": 808,
+                  "finishFirst": 289
+                },
+                "4": {
+                  "appearances": 317,
+                  "finishFirst": 130
+                },
+                "5": {
+                  "appearances": 53,
+                  "finishFirst": 31
+                },
+                "6": {
+                  "appearances": 4,
+                  "finishFirst": 4
+                }
+              },
+              "byOwnedDouble": {
+                "0": {
+                  "appearances": 956,
+                  "finishFirst": 337
+                },
+                "1": {
+                  "appearances": 962,
+                  "finishFirst": 320
+                },
+                "2": {
+                  "appearances": 970,
+                  "finishFirst": 337
+                },
+                "3": {
+                  "appearances": 961,
+                  "finishFirst": 314
+                },
+                "4": {
+                  "appearances": 973,
+                  "finishFirst": 326
+                },
+                "5": {
+                  "appearances": 962,
+                  "finishFirst": 318
+                },
+                "6": {
+                  "appearances": 960,
+                  "finishFirst": 289
+                }
+              }
+            },
+            "min-hand-pips": {
+              "appearances": 3000,
+              "finishFirst": 705,
+              "finishFirstRate": 0.235,
+              "meanRemainder": 6.532666666666667,
+              "medianRemainder": 5,
+              "minus": {
+                "-10": 76,
+                "-20": 0,
+                "-30": 0,
+                "-40": 0
+              },
+              "actions": 20625,
+              "choices": 15341,
+              "openingActions": 5012,
+              "openingNumbers": 5899,
+              "meanStartingDoubles": 2.248,
+              "meanEndingDoubles": 0.008666666666666666,
+              "meanImmediatePassGap": null,
+              "passGapDecisions": 0,
+              "divergentFromNoPass": 0,
+              "byStartingDoubles": {
+                "0": {
+                  "appearances": 141,
+                  "finishFirst": 11
+                },
+                "1": {
+                  "appearances": 591,
+                  "finishFirst": 85
+                },
+                "2": {
+                  "appearances": 1086,
+                  "finishFirst": 220
+                },
+                "3": {
+                  "appearances": 808,
+                  "finishFirst": 234
+                },
+                "4": {
+                  "appearances": 317,
+                  "finishFirst": 129
+                },
+                "5": {
+                  "appearances": 53,
+                  "finishFirst": 23
+                },
+                "6": {
+                  "appearances": 4,
+                  "finishFirst": 3
+                }
+              },
+              "byOwnedDouble": {
+                "0": {
+                  "appearances": 956,
+                  "finishFirst": 317
+                },
+                "1": {
+                  "appearances": 962,
+                  "finishFirst": 281
+                },
+                "2": {
+                  "appearances": 970,
+                  "finishFirst": 275
+                },
+                "3": {
+                  "appearances": 961,
+                  "finishFirst": 241
+                },
+                "4": {
+                  "appearances": 973,
+                  "finishFirst": 272
+                },
+                "5": {
+                  "appearances": 962,
+                  "finishFirst": 235
+                },
+                "6": {
+                  "appearances": 960,
+                  "finishFirst": 255
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "engine": "qosa-research-0.5.3",
+      "rules": "qosa-1.0.0",
+      "mode": "3x9",
+      "discovery": "pre-registered pass-priority vs identical comparator without pass, both with immediate-finish and branch/pip tiebreakers",
+      "information": "only public played tiles, own hand, and opponent hand sizes; hidden tile identities not read by choice",
+      "assumptions": "uniform unknown distribution; prior opponent actions ignored; block winner unassigned; branch rules provisional",
+      "arms": [
+        {
+          "seedRange": [
+            1062000,
+            1062999
+          ],
+          "deals": 1000,
+          "rounds": 3000,
+          "finishes": 2812,
+          "blocks": 188,
+          "unresolved": 0,
+          "meanTurns": 26.731,
+          "strategies": [
+            "public-next-pass",
+            "public-no-pass",
+            "closed-branch-control"
+          ],
+          "byStrategy": {
+            "public-next-pass": {
+              "appearances": 3000,
+              "finishFirst": 1109,
+              "finishFirstRate": 0.36966666666666664,
+              "meanRemainder": 5.747333333333334,
+              "medianRemainder": 4,
+              "minus": {
+                "-10": 258,
+                "-20": 18,
+                "-30": 0,
+                "-40": 0
+              },
+              "actions": 22446,
+              "choices": 16724,
+              "openingActions": 5689,
+              "openingNumbers": 5689,
+              "meanStartingDoubles": 2.26,
+              "meanEndingDoubles": 0.005666666666666667,
+              "meanImmediatePassGap": 0,
+              "passGapDecisions": 16100,
+              "divergentFromNoPass": 4325,
+              "byStartingDoubles": {
+                "0": {
+                  "appearances": 120,
+                  "finishFirst": 12
+                },
+                "1": {
+                  "appearances": 625,
+                  "finishFirst": 130
+                },
+                "2": {
+                  "appearances": 1050,
+                  "finishFirst": 373
+                },
+                "3": {
+                  "appearances": 832,
+                  "finishFirst": 377
+                },
+                "4": {
+                  "appearances": 308,
+                  "finishFirst": 167
+                },
+                "5": {
+                  "appearances": 63,
+                  "finishFirst": 48
+                },
+                "6": {
+                  "appearances": 2,
+                  "finishFirst": 2
+                }
+              },
+              "byOwnedDouble": {
+                "0": {
+                  "appearances": 973,
+                  "finishFirst": 425
+                },
+                "1": {
+                  "appearances": 970,
+                  "finishFirst": 406
+                },
+                "2": {
+                  "appearances": 971,
+                  "finishFirst": 426
+                },
+                "3": {
+                  "appearances": 975,
+                  "finishFirst": 419
+                },
+                "4": {
+                  "appearances": 952,
+                  "finishFirst": 406
+                },
+                "5": {
+                  "appearances": 976,
+                  "finishFirst": 430
+                },
+                "6": {
+                  "appearances": 963,
+                  "finishFirst": 415
+                }
+              }
+            },
+            "public-no-pass": {
+              "appearances": 3000,
+              "finishFirst": 738,
+              "finishFirstRate": 0.246,
+              "meanRemainder": 7.0343333333333335,
+              "medianRemainder": 5,
+              "minus": {
+                "-10": 165,
+                "-20": 7,
+                "-30": 1,
+                "-40": 0
+              },
+              "actions": 21321,
+              "choices": 15282,
+              "openingActions": 5771,
+              "openingNumbers": 5771,
+              "meanStartingDoubles": 2.26,
+              "meanEndingDoubles": 0.015666666666666666,
+              "meanImmediatePassGap": 0.05113146278889385,
+              "passGapDecisions": 14819,
+              "divergentFromNoPass": 0,
+              "byStartingDoubles": {
+                "0": {
+                  "appearances": 120,
+                  "finishFirst": 6
+                },
+                "1": {
+                  "appearances": 625,
+                  "finishFirst": 88
+                },
+                "2": {
+                  "appearances": 1050,
+                  "finishFirst": 234
+                },
+                "3": {
+                  "appearances": 832,
+                  "finishFirst": 260
+                },
+                "4": {
+                  "appearances": 308,
+                  "finishFirst": 112
+                },
+                "5": {
+                  "appearances": 63,
+                  "finishFirst": 36
+                },
+                "6": {
+                  "appearances": 2,
+                  "finishFirst": 2
+                }
+              },
+              "byOwnedDouble": {
+                "0": {
+                  "appearances": 973,
+                  "finishFirst": 281
+                },
+                "1": {
+                  "appearances": 970,
+                  "finishFirst": 276
+                },
+                "2": {
+                  "appearances": 971,
+                  "finishFirst": 270
+                },
+                "3": {
+                  "appearances": 975,
+                  "finishFirst": 280
+                },
+                "4": {
+                  "appearances": 952,
+                  "finishFirst": 284
+                },
+                "5": {
+                  "appearances": 976,
+                  "finishFirst": 299
+                },
+                "6": {
+                  "appearances": 963,
+                  "finishFirst": 286
+                }
+              }
+            },
+            "closed-branch-control": {
+              "appearances": 3000,
+              "finishFirst": 965,
+              "finishFirstRate": 0.32166666666666666,
+              "meanRemainder": 5.671666666666667,
+              "medianRemainder": 4,
+              "minus": {
+                "-10": 173,
+                "-20": 7,
+                "-30": 0,
+                "-40": 0
+              },
+              "actions": 22053,
+              "choices": 15912,
+              "openingActions": 5766,
+              "openingNumbers": 5766,
+              "meanStartingDoubles": 2.26,
+              "meanEndingDoubles": 0.015666666666666666,
+              "meanImmediatePassGap": null,
+              "passGapDecisions": 0,
+              "divergentFromNoPass": 0,
+              "byStartingDoubles": {
+                "0": {
+                  "appearances": 120,
+                  "finishFirst": 10
+                },
+                "1": {
+                  "appearances": 625,
+                  "finishFirst": 105
+                },
+                "2": {
+                  "appearances": 1050,
+                  "finishFirst": 330
+                },
+                "3": {
+                  "appearances": 832,
+                  "finishFirst": 325
+                },
+                "4": {
+                  "appearances": 308,
+                  "finishFirst": 154
+                },
+                "5": {
+                  "appearances": 63,
+                  "finishFirst": 39
+                },
+                "6": {
+                  "appearances": 2,
+                  "finishFirst": 2
+                }
+              },
+              "byOwnedDouble": {
+                "0": {
+                  "appearances": 973,
+                  "finishFirst": 390
+                },
+                "1": {
+                  "appearances": 970,
+                  "finishFirst": 341
+                },
+                "2": {
+                  "appearances": 971,
+                  "finishFirst": 355
+                },
+                "3": {
+                  "appearances": 975,
+                  "finishFirst": 372
+                },
+                "4": {
+                  "appearances": 952,
+                  "finishFirst": 366
+                },
+                "5": {
+                  "appearances": 976,
+                  "finishFirst": 386
+                },
+                "6": {
+                  "appearances": 963,
+                  "finishFirst": 353
+                }
+              }
+            }
+          }
+        },
+        {
+          "seedRange": [
+            1062000,
+            1062999
+          ],
+          "deals": 1000,
+          "rounds": 3000,
+          "finishes": 2805,
+          "blocks": 195,
+          "unresolved": 0,
+          "meanTurns": 26.258333333333333,
+          "strategies": [
+            "public-next-pass",
+            "public-no-pass",
+            "min-hand-pips"
+          ],
+          "byStrategy": {
+            "public-next-pass": {
+              "appearances": 3000,
+              "finishFirst": 1236,
+              "finishFirstRate": 0.412,
+              "meanRemainder": 4.8293333333333335,
+              "medianRemainder": 3,
+              "minus": {
+                "-10": 323,
+                "-20": 17,
+                "-30": 0,
+                "-40": 0
+              },
+              "actions": 22869,
+              "choices": 17578,
+              "openingActions": 5621,
+              "openingNumbers": 5621,
+              "meanStartingDoubles": 2.26,
+              "meanEndingDoubles": 0.007333333333333333,
+              "meanImmediatePassGap": 0,
+              "passGapDecisions": 16867,
+              "divergentFromNoPass": 4896,
+              "byStartingDoubles": {
+                "0": {
+                  "appearances": 120,
+                  "finishFirst": 27
+                },
+                "1": {
+                  "appearances": 625,
+                  "finishFirst": 159
+                },
+                "2": {
+                  "appearances": 1050,
+                  "finishFirst": 420
+                },
+                "3": {
+                  "appearances": 832,
+                  "finishFirst": 397
+                },
+                "4": {
+                  "appearances": 308,
+                  "finishFirst": 188
+                },
+                "5": {
+                  "appearances": 63,
+                  "finishFirst": 43
+                },
+                "6": {
+                  "appearances": 2,
+                  "finishFirst": 2
+                }
+              },
+              "byOwnedDouble": {
+                "0": {
+                  "appearances": 973,
+                  "finishFirst": 476
+                },
+                "1": {
+                  "appearances": 970,
+                  "finishFirst": 468
+                },
+                "2": {
+                  "appearances": 971,
+                  "finishFirst": 466
+                },
+                "3": {
+                  "appearances": 975,
+                  "finishFirst": 448
+                },
+                "4": {
+                  "appearances": 952,
+                  "finishFirst": 428
+                },
+                "5": {
+                  "appearances": 976,
+                  "finishFirst": 443
+                },
+                "6": {
+                  "appearances": 963,
+                  "finishFirst": 440
+                }
+              }
+            },
+            "public-no-pass": {
+              "appearances": 3000,
+              "finishFirst": 856,
+              "finishFirstRate": 0.2853333333333333,
+              "meanRemainder": 6.466,
+              "medianRemainder": 5,
+              "minus": {
+                "-10": 208,
+                "-20": 12,
+                "-30": 1,
+                "-40": 0
+              },
+              "actions": 21661,
+              "choices": 16074,
+              "openingActions": 5718,
+              "openingNumbers": 5718,
+              "meanStartingDoubles": 2.26,
+              "meanEndingDoubles": 0.015666666666666666,
+              "meanImmediatePassGap": 0.049514963131923585,
+              "passGapDecisions": 15551,
+              "divergentFromNoPass": 0,
+              "byStartingDoubles": {
+                "0": {
+                  "appearances": 120,
+                  "finishFirst": 10
+                },
+                "1": {
+                  "appearances": 625,
+                  "finishFirst": 93
+                },
+                "2": {
+                  "appearances": 1050,
+                  "finishFirst": 270
+                },
+                "3": {
+                  "appearances": 832,
+                  "finishFirst": 300
+                },
+                "4": {
+                  "appearances": 308,
+                  "finishFirst": 142
+                },
+                "5": {
+                  "appearances": 63,
+                  "finishFirst": 39
+                },
+                "6": {
+                  "appearances": 2,
+                  "finishFirst": 2
+                }
+              },
+              "byOwnedDouble": {
+                "0": {
+                  "appearances": 973,
+                  "finishFirst": 334
+                },
+                "1": {
+                  "appearances": 970,
+                  "finishFirst": 337
+                },
+                "2": {
+                  "appearances": 971,
+                  "finishFirst": 327
+                },
+                "3": {
+                  "appearances": 975,
+                  "finishFirst": 319
+                },
+                "4": {
+                  "appearances": 952,
+                  "finishFirst": 323
+                },
+                "5": {
+                  "appearances": 976,
+                  "finishFirst": 334
+                },
+                "6": {
+                  "appearances": 963,
+                  "finishFirst": 334
+                }
+              }
+            },
+            "min-hand-pips": {
+              "appearances": 3000,
+              "finishFirst": 713,
+              "finishFirstRate": 0.23766666666666666,
+              "meanRemainder": 6.382,
+              "medianRemainder": 5,
+              "minus": {
+                "-10": 62,
+                "-20": 1,
+                "-30": 0,
+                "-40": 0
+              },
+              "actions": 20702,
+              "choices": 15345,
+              "openingActions": 5022,
+              "openingNumbers": 5911,
+              "meanStartingDoubles": 2.26,
+              "meanEndingDoubles": 0.008666666666666666,
+              "meanImmediatePassGap": null,
+              "passGapDecisions": 0,
+              "divergentFromNoPass": 0,
+              "byStartingDoubles": {
+                "0": {
+                  "appearances": 120,
+                  "finishFirst": 10
+                },
+                "1": {
+                  "appearances": 625,
+                  "finishFirst": 79
+                },
+                "2": {
+                  "appearances": 1050,
+                  "finishFirst": 218
+                },
+                "3": {
+                  "appearances": 832,
+                  "finishFirst": 241
+                },
+                "4": {
+                  "appearances": 308,
+                  "finishFirst": 126
+                },
+                "5": {
+                  "appearances": 63,
+                  "finishFirst": 39
+                },
+                "6": {
+                  "appearances": 2,
+                  "finishFirst": 0
+                }
+              },
+              "byOwnedDouble": {
+                "0": {
+                  "appearances": 973,
+                  "finishFirst": 322
+                },
+                "1": {
+                  "appearances": 970,
+                  "finishFirst": 270
+                },
+                "2": {
+                  "appearances": 971,
+                  "finishFirst": 288
+                },
+                "3": {
+                  "appearances": 975,
+                  "finishFirst": 266
+                },
+                "4": {
+                  "appearances": 952,
+                  "finishFirst": 266
+                },
+                "5": {
+                  "appearances": 976,
+                  "finishFirst": 270
+                },
+                "6": {
+                  "appearances": 963,
+                  "finishFirst": 255
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
