@@ -8,3 +8,11 @@ Provisional: finish-first is not scored-match win. Bot policies simple, branch s
 Cumulative full rounds: 204000, historical 4000 separate.
 Next: Node CLI replay and matched hidden-world regret; do not invent block winner rules.
 Code: simulator/public-pass-strong-mirror.js. V8 test passed.
+
+Detailed results (each row: 250 seeds, 3 focal seats, 2 policies = 1500 rounds):
+1) closed-branch-control x2, 1063000..1063249: finish-first pass/control 40.00%/32.53%; paired delta +7.47 pp (exploratory 95% seed CI 4.56..10.38); mean pips 5.34/5.05; median 3/3; blocks 6.27%/2.40%; mean turns 26.57/26.30; minus -10 78/49, -20 7/7, -30 0/0, -40 0/0.
+2) closed-branch-control x2, 1063250..1063499: finish-first 36.40%/32.27%; delta +4.13 pp (CI 1.04..7.22); mean pips 5.61/5.31; median 4/3; blocks 8.00%/3.20%; mean turns 26.69/26.28; minus -10 76/64, -20 4/4, -30 1/1, -40 0/0.
+3) moderate-double-hold x2, 1063000..1063249: finish-first 43.20%/36.80%; delta +6.40 pp (CI 2.78..10.02); mean pips 4.40/4.26; median 3/3; blocks 6.13%/4.13%; mean turns 25.75/25.35; minus -10 86/59, -20 7/4, -30 0/0, -40 0/0.
+4) moderate-double-hold x2, 1063250..1063499: finish-first 43.47%/37.87%; delta +5.60 pp (CI 2.02..9.18); mean pips 4.49/4.14; median 3/3; blocks 6.53%/4.27%; mean turns 25.50/24.93; minus -10 105/86, -20 7/3, -30 0/0, -40 0/0.
+Total 5693 finishes, 307 blocks. Mean ending doubles pass/control by row: 0.0053/0.0093, 0.0040/0.0080, 0.0067/0.0173, 0.0147/0.0240.
+CI uses independent seed clusters (3 focal seats per seed), not independent games. Same seed cohorts reused across opponent mixes, so do not count as four independent replications. Starting/specific-double values, branch-opening and full-continuation regret not re-estimated here.
