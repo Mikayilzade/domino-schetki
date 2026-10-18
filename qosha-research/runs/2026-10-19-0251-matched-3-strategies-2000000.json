@@ -1,0 +1,101 @@
+{
+  "schema": "qosa-matched-three-strategy-tournament/v1",
+  "timestampAsiaBaku": "2026-10-19T02:51+04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9 later-round",
+  "seedRange": [
+    2000000,
+    2004999
+  ],
+  "deals": 5000,
+  "seatRotations": 3,
+  "newCompleteRounds": 15000,
+  "finishes": 14499,
+  "blocks": 501,
+  "unresolved": 0,
+  "meanTurns": 25.1792,
+  "strategies": [
+    "min-hand-pips",
+    "moderate-double-hold",
+    "closed-branch-control"
+  ],
+  "byStrategy": {
+    "min-hand-pips": {
+      "appearances": 15000,
+      "finishWins": 4001,
+      "finishFirstRate": 0.2667333333333333,
+      "meanFinalPips": 5.6866666666666665,
+      "medianFinalPips": 4,
+      "choicePoints": 82173,
+      "actions": 104232,
+      "actionTypes": {
+        "single": 79320,
+        "double-sequence": 24299,
+        "mixed-finish": 613
+      },
+      "minusWins": {
+        "0": 3385,
+        "-10": 602,
+        "-20": 14,
+        "-30": 0,
+        "-40": 0
+      }
+    },
+    "moderate-double-hold": {
+      "appearances": 15000,
+      "finishWins": 4566,
+      "finishFirstRate": 0.3044,
+      "meanFinalPips": 4.8572,
+      "medianFinalPips": 3,
+      "choicePoints": 82487,
+      "actions": 106042,
+      "actionTypes": {
+        "single": 81491,
+        "double-sequence": 23855,
+        "mixed-finish": 696
+      },
+      "minusWins": {
+        "0": 3864,
+        "-10": 675,
+        "-20": 27,
+        "-30": 0,
+        "-40": 0
+      }
+    },
+    "closed-branch-control": {
+      "appearances": 15000,
+      "finishWins": 5932,
+      "finishFirstRate": 0.3954666666666667,
+      "meanFinalPips": 3.9342,
+      "medianFinalPips": 2,
+      "choicePoints": 90061,
+      "actions": 113831,
+      "actionTypes": {
+        "single": 84212,
+        "double-sequence": 27863,
+        "mixed-finish": 1756
+      },
+      "minusWins": {
+        "0": 4169,
+        "-10": 1670,
+        "-20": 90,
+        "-30": 3,
+        "-40": 0
+      }
+    }
+  },
+  "comparison": {
+    "closedMinusModerateFinishFirstPp": 9.106666666666667,
+    "closedMinusMinPipsFinishFirstPp": 12.873333333333333,
+    "closedMinusModerateMeanRemainder": -0.9229999999999996
+  },
+  "reproduction": "Run qosha-research/simulator/strategy-runner.js via runTournament({strategies:['min-hand-pips','moderate-double-hold','closed-branch-control'],startSeed:2000000,count:5000}) using the existing source, evaluated in V8 CommonJS harness; Node CLI not executed.",
+  "priorAuditedCompleteRounds": 180000,
+  "provisionalNewAuditedTotal": 195000,
+  "priorReported215520NotReconciled": true,
+  "finding": "Closed-branch-control finishes first 39.55% vs 30.44% moderate hold and 26.67% min-pips in this matched bot tournament; strong within-model replication, not a universal real-game rule.",
+  "confidence": "High for deterministic simulated comparison on 5000 unique deals x3 rotations; no position-cluster CI calculated.",
+  "limitations": "Provisional branch-opening semantics, deterministic bots, block winner unassigned, same deals reused across rotations, not independent 15000 deals; -30 rare and -40 absent.",
+  "nextAction": "Validate exact-pass-choice standalone runner (source write blocked this pass); then compare closed-branch control to a public-pass-aware hybrid on fresh matched seeds, stratified by open-end identities and next opponent hand size."
+}
