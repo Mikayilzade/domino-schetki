@@ -1,0 +1,648 @@
+{
+  "schema": "qosa-public-pass-pip-frontier/v1",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9 later-round",
+  "policies": [
+    "pass",
+    "no-pass",
+    "pass-pip-0.01",
+    "pass-pip-0.025"
+  ],
+  "opponents": [
+    "closed-branch-control",
+    "moderate-double-hold"
+  ],
+  "seedSet": [
+    [
+      1063500,
+      1063579
+    ],
+    [
+      1063580,
+      1063659
+    ]
+  ],
+  "deals": 160,
+  "rounds": 3840,
+  "assumptions": "fixed 1-1 later-round initializer; public uniform unknown-pool pass; opponent histories ignored; branch semantics provisional; no block winner assigned",
+  "design": "all policies same deal, focal seat, two identical opponents; 2 disjoint seed cohorts, but opponent mixes reuse seeds; exploratory cluster CIs over seed with 3 seats averaged; pips are raw hand remainder, not match score",
+  "groups": [
+    {
+      "opponent": "closed-branch-control",
+      "seedRange": [
+        1063500,
+        1063579
+      ],
+      "deals": 80,
+      "rounds": 960,
+      "policies": {
+        "pass": {
+          "n": 240,
+          "finishFirst": 0.37083333333333335,
+          "meanPips": 5.7375,
+          "medianPips": 3,
+          "blockRate": 0.07083333333333333,
+          "meanTurns": 26.825,
+          "meanEndingDoubles": 0.0125,
+          "minus": {
+            "-10": 18,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1326,
+          "divergencesFromPass": 0,
+          "openingNumbers": 457
+        },
+        "no-pass": {
+          "n": 240,
+          "finishFirst": 0.31666666666666665,
+          "meanPips": 5.329166666666667,
+          "medianPips": 4,
+          "blockRate": 0.05,
+          "meanTurns": 26.8,
+          "meanEndingDoubles": 0.016666666666666666,
+          "minus": {
+            "-10": 9,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1306,
+          "divergencesFromPass": 319,
+          "openingNumbers": 465
+        },
+        "pass-pip-0.01": {
+          "n": 240,
+          "finishFirst": 0.4041666666666667,
+          "meanPips": 5.145833333333333,
+          "medianPips": 3,
+          "blockRate": 0.06666666666666667,
+          "meanTurns": 26.370833333333334,
+          "meanEndingDoubles": 0.008333333333333333,
+          "minus": {
+            "-10": 12,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1277,
+          "divergencesFromPass": 152,
+          "openingNumbers": 466
+        },
+        "pass-pip-0.025": {
+          "n": 240,
+          "finishFirst": 0.375,
+          "meanPips": 5.704166666666667,
+          "medianPips": 3,
+          "blockRate": 0.058333333333333334,
+          "meanTurns": 26.041666666666668,
+          "meanEndingDoubles": 0.0125,
+          "minus": {
+            "-10": 12,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1254,
+          "divergencesFromPass": 231,
+          "openingNumbers": 465
+        }
+      },
+      "pairedVsPass": {
+        "no-pass": {
+          "finish": {
+            "mean": -0.05416666666666666,
+            "ci95": [
+              -0.10129604466003923,
+              -0.00703728867329409
+            ]
+          },
+          "pips": {
+            "mean": -0.4083333333333333,
+            "ci95": [
+              -1.2252046579005142,
+              0.4085379912338476
+            ]
+          },
+          "blocks": {
+            "mean": -0.020833333333333332,
+            "ci95": [
+              -0.06485055522187154,
+              0.02318388855520488
+            ]
+          }
+        },
+        "pass-pip-0.01": {
+          "finish": {
+            "mean": 0.03333333333333333,
+            "ci95": [
+              -0.021918347563385086,
+              0.08858501423005175
+            ]
+          },
+          "pips": {
+            "mean": -0.5916666666666667,
+            "ci95": [
+              -1.1697479770430441,
+              -0.01358535629028923
+            ]
+          },
+          "blocks": {
+            "mean": -0.004166666666666667,
+            "ci95": [
+              -0.025890536302507153,
+              0.017557202969173822
+            ]
+          }
+        },
+        "pass-pip-0.025": {
+          "finish": {
+            "mean": 0.0041666666666666675,
+            "ci95": [
+              -0.05565561761103819,
+              0.06398895094437153
+            ]
+          },
+          "pips": {
+            "mean": -0.033333333333333326,
+            "ci95": [
+              -0.7708307780832513,
+              0.7041641114165846
+            ]
+          },
+          "blocks": {
+            "mean": -0.012499999999999997,
+            "ci95": [
+              -0.0500594746371817,
+              0.02505947463718171
+            ]
+          }
+        }
+      }
+    },
+    {
+      "opponent": "closed-branch-control",
+      "seedRange": [
+        1063580,
+        1063659
+      ],
+      "deals": 80,
+      "rounds": 960,
+      "policies": {
+        "pass": {
+          "n": 240,
+          "finishFirst": 0.35833333333333334,
+          "meanPips": 6.795833333333333,
+          "medianPips": 5,
+          "blockRate": 0.06666666666666667,
+          "meanTurns": 26.225,
+          "meanEndingDoubles": 0,
+          "minus": {
+            "-10": 22,
+            "-20": 4,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1317,
+          "divergencesFromPass": 0,
+          "openingNumbers": 450
+        },
+        "no-pass": {
+          "n": 240,
+          "finishFirst": 0.3333333333333333,
+          "meanPips": 6.1625,
+          "medianPips": 4,
+          "blockRate": 0,
+          "meanTurns": 25.95,
+          "meanEndingDoubles": 0.0125,
+          "minus": {
+            "-10": 18,
+            "-20": 3,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1255,
+          "divergencesFromPass": 344,
+          "openingNumbers": 453
+        },
+        "pass-pip-0.01": {
+          "n": 240,
+          "finishFirst": 0.37083333333333335,
+          "meanPips": 6.4875,
+          "medianPips": 5,
+          "blockRate": 0.06666666666666667,
+          "meanTurns": 25.8125,
+          "meanEndingDoubles": 0.004166666666666667,
+          "minus": {
+            "-10": 16,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1255,
+          "divergencesFromPass": 156,
+          "openingNumbers": 461
+        },
+        "pass-pip-0.025": {
+          "n": 240,
+          "finishFirst": 0.375,
+          "meanPips": 6.441666666666666,
+          "medianPips": 4,
+          "blockRate": 0.06666666666666667,
+          "meanTurns": 25.8,
+          "meanEndingDoubles": 0.008333333333333333,
+          "minus": {
+            "-10": 15,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1223,
+          "divergencesFromPass": 223,
+          "openingNumbers": 463
+        }
+      },
+      "pairedVsPass": {
+        "no-pass": {
+          "finish": {
+            "mean": -0.024999999999999998,
+            "ci95": [
+              -0.07116107980026357,
+              0.021161079800263573
+            ]
+          },
+          "pips": {
+            "mean": -0.6333333333333332,
+            "ci95": [
+              -1.3826413723075914,
+              0.11597470564092516
+            ]
+          },
+          "blocks": {
+            "mean": -0.06666666666666665,
+            "ci95": [
+              -0.09828268212074763,
+              -0.03505065121258567
+            ]
+          }
+        },
+        "pass-pip-0.01": {
+          "finish": {
+            "mean": 0.012499999999999997,
+            "ci95": [
+              -0.03604127754683679,
+              0.06104127754683678
+            ]
+          },
+          "pips": {
+            "mean": -0.30833333333333335,
+            "ci95": [
+              -0.9106516755517275,
+              0.29398500888506085
+            ]
+          },
+          "blocks": {
+            "mean": 1.3877787807814458e-18,
+            "ci95": [
+              -0.025988204616407183,
+              0.025988204616407183
+            ]
+          }
+        },
+        "pass-pip-0.025": {
+          "finish": {
+            "mean": 0.016666666666666663,
+            "ci95": [
+              -0.037722616219091315,
+              0.07105594955242464
+            ]
+          },
+          "pips": {
+            "mean": -0.3541666666666667,
+            "ci95": [
+              -1.2022222517060293,
+              0.49388891837269594
+            ]
+          },
+          "blocks": {
+            "mean": 0,
+            "ci95": [
+              -0.03486683528127619,
+              0.03486683528127619
+            ]
+          }
+        }
+      }
+    },
+    {
+      "opponent": "moderate-double-hold",
+      "seedRange": [
+        1063500,
+        1063579
+      ],
+      "deals": 80,
+      "rounds": 960,
+      "policies": {
+        "pass": {
+          "n": 240,
+          "finishFirst": 0.3875,
+          "meanPips": 4.808333333333334,
+          "medianPips": 3,
+          "blockRate": 0.075,
+          "meanTurns": 25.754166666666666,
+          "meanEndingDoubles": 0.0125,
+          "minus": {
+            "-10": 24,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1405,
+          "divergencesFromPass": 0,
+          "openingNumbers": 451
+        },
+        "no-pass": {
+          "n": 240,
+          "finishFirst": 0.31666666666666665,
+          "meanPips": 4.775,
+          "medianPips": 3,
+          "blockRate": 0.0375,
+          "meanTurns": 25.0625,
+          "meanEndingDoubles": 0.029166666666666667,
+          "minus": {
+            "-10": 11,
+            "-20": 2,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1374,
+          "divergencesFromPass": 391,
+          "openingNumbers": 458
+        },
+        "pass-pip-0.01": {
+          "n": 240,
+          "finishFirst": 0.4166666666666667,
+          "meanPips": 4.229166666666667,
+          "medianPips": 3,
+          "blockRate": 0.06666666666666667,
+          "meanTurns": 25,
+          "meanEndingDoubles": 0.016666666666666666,
+          "minus": {
+            "-10": 17,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1380,
+          "divergencesFromPass": 207,
+          "openingNumbers": 457
+        },
+        "pass-pip-0.025": {
+          "n": 240,
+          "finishFirst": 0.4125,
+          "meanPips": 4.429166666666666,
+          "medianPips": 3,
+          "blockRate": 0.058333333333333334,
+          "meanTurns": 24.575,
+          "meanEndingDoubles": 0.020833333333333332,
+          "minus": {
+            "-10": 17,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1363,
+          "divergencesFromPass": 288,
+          "openingNumbers": 458
+        }
+      },
+      "pairedVsPass": {
+        "no-pass": {
+          "finish": {
+            "mean": -0.07083333333333333,
+            "ci95": [
+              -0.12858769642129583,
+              -0.013078970245370823
+            ]
+          },
+          "pips": {
+            "mean": -0.033333333333333354,
+            "ci95": [
+              -0.868893517508202,
+              0.8022268508415353
+            ]
+          },
+          "blocks": {
+            "mean": -0.0375,
+            "ci95": [
+              -0.072354726638688,
+              -0.0026452733613120047
+            ]
+          }
+        },
+        "pass-pip-0.01": {
+          "finish": {
+            "mean": 0.029166666666666664,
+            "ci95": [
+              -0.031440757344656636,
+              0.08977409067798996
+            ]
+          },
+          "pips": {
+            "mean": -0.5791666666666664,
+            "ci95": [
+              -1.2217371789225708,
+              0.06340384558923806
+            ]
+          },
+          "blocks": {
+            "mean": -0.008333333333333335,
+            "ci95": [
+              -0.0367426135270513,
+              0.020075946860384632
+            ]
+          }
+        },
+        "pass-pip-0.025": {
+          "finish": {
+            "mean": 0.024999999999999998,
+            "ci95": [
+              -0.0425443387219802,
+              0.09254433872198019
+            ]
+          },
+          "pips": {
+            "mean": -0.3791666666666666,
+            "ci95": [
+              -1.1096843046049711,
+              0.3513509712716379
+            ]
+          },
+          "blocks": {
+            "mean": -0.016666666666666666,
+            "ci95": [
+              -0.04933333333333334,
+              0.01600000000000001
+            ]
+          }
+        }
+      }
+    },
+    {
+      "opponent": "moderate-double-hold",
+      "seedRange": [
+        1063580,
+        1063659
+      ],
+      "deals": 80,
+      "rounds": 960,
+      "policies": {
+        "pass": {
+          "n": 240,
+          "finishFirst": 0.4375,
+          "meanPips": 4.470833333333333,
+          "medianPips": 3,
+          "blockRate": 0.05416666666666667,
+          "meanTurns": 25.2875,
+          "meanEndingDoubles": 0.004166666666666667,
+          "minus": {
+            "-10": 32,
+            "-20": 4,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1452,
+          "divergencesFromPass": 0,
+          "openingNumbers": 439
+        },
+        "no-pass": {
+          "n": 240,
+          "finishFirst": 0.4375,
+          "meanPips": 4.2,
+          "medianPips": 2,
+          "blockRate": 0.03333333333333333,
+          "meanTurns": 24.908333333333335,
+          "meanEndingDoubles": 0.029166666666666667,
+          "minus": {
+            "-10": 25,
+            "-20": 3,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1424,
+          "divergencesFromPass": 378,
+          "openingNumbers": 442
+        },
+        "pass-pip-0.01": {
+          "n": 240,
+          "finishFirst": 0.39166666666666666,
+          "meanPips": 4.5375,
+          "medianPips": 3.5,
+          "blockRate": 0.05416666666666667,
+          "meanTurns": 24.595833333333335,
+          "meanEndingDoubles": 0.004166666666666667,
+          "minus": {
+            "-10": 27,
+            "-20": 2,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1423,
+          "divergencesFromPass": 205,
+          "openingNumbers": 448
+        },
+        "pass-pip-0.025": {
+          "n": 240,
+          "finishFirst": 0.39166666666666666,
+          "meanPips": 4.195833333333334,
+          "medianPips": 3,
+          "blockRate": 0.05,
+          "meanTurns": 24.625,
+          "meanEndingDoubles": 0.008333333333333333,
+          "minus": {
+            "-10": 24,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "choices": 1406,
+          "divergencesFromPass": 310,
+          "openingNumbers": 454
+        }
+      },
+      "pairedVsPass": {
+        "no-pass": {
+          "finish": {
+            "mean": -1.3877787807814458e-18,
+            "ci95": [
+              -0.056937303589864416,
+              0.056937303589864416
+            ]
+          },
+          "pips": {
+            "mean": -0.27083333333333337,
+            "ci95": [
+              -0.941922424186527,
+              0.4002557575198603
+            ]
+          },
+          "blocks": {
+            "mean": -0.020833333333333332,
+            "ci95": [
+              -0.05440492381939328,
+              0.012738257152726622
+            ]
+          }
+        },
+        "pass-pip-0.01": {
+          "finish": {
+            "mean": -0.04583333333333332,
+            "ci95": [
+              -0.10593720205375554,
+              0.01427053538708889
+            ]
+          },
+          "pips": {
+            "mean": 0.06666666666666672,
+            "ci95": [
+              -0.6753773571845686,
+              0.8087106905179021
+            ]
+          },
+          "blocks": {
+            "mean": 0,
+            "ci95": [
+              -0.023244556854184126,
+              0.023244556854184126
+            ]
+          }
+        },
+        "pass-pip-0.025": {
+          "finish": {
+            "mean": -0.04583333333333333,
+            "ci95": [
+              -0.11817559833246052,
+              0.026508931665793857
+            ]
+          },
+          "pips": {
+            "mean": -0.2749999999999999,
+            "ci95": [
+              -1.1040827892609177,
+              0.5540827892609179
+            ]
+          },
+          "blocks": {
+            "mean": -0.0041666666666666675,
+            "ci95": [
+              -0.035982322173074066,
+              0.027648988839740735
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
