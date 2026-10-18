@@ -1,0 +1,4032 @@
+{
+  "schema": "qosa-late-next-third-mobility/v1",
+  "timestampAsiaBaku": "2026-10-18T21:58 +04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9 later-round",
+  "sourceBranch": "qosha-research-20261018-1853-overlap-holdout",
+  "baseRunner": "simulator/late-open-number-independent.js",
+  "reproduceBase": "node qosha-research/simulator/late-open-number-independent.js 1350000 175000 64 40",
+  "seedScanRequested": [
+    1350000,
+    1524999
+  ],
+  "seedScanActual": [
+    1350000,
+    1479037
+  ],
+  "scannedDeals": 129038,
+  "selectedPositions": 64,
+  "hiddenAllocations": 2560,
+  "forcedContinuations": 10240,
+  "newFullStrategyRounds": 0,
+  "previouslyReportedFullStrategyRounds": 215520,
+  "policies": [
+    "closed-branch-control",
+    "moderate-double-hold"
+  ],
+  "worldSeed": "(Math.imul(dealSeed,1009)+Math.imul(seat+1,1000003)+worldIndex+21000000)>>>0",
+  "comparison": "equal discarded pips and equal accessible-end count, X-X retained; connector X-Y vs unrelated single",
+  "validation": "late-open-number-independent.js test passed in V8 CommonJS harness; each selected seed/turn/seat and action pair reconstructed; exact hypergeometric next/third probabilities; no mutation of source states",
+  "additionalMetrics": "third-player exact chance of any currently legal single-tile action computed with the same uniform hidden pool and third hand size; own legal-action count immediately after forced move on the unchanged board (not own next-turn probability)",
+  "preRegisteredGroups": "next-opponent exact delta <=-0.05, >=0.05, neutral; diagnostics condition on own legal-action delta and third-opponent exact delta; exploratory groups are not independent causal contrasts",
+  "summary": {
+    "all": {
+      "n": 64,
+      "exactNextDelta": -0.045703125,
+      "exactThirdDelta": -0.05809151785714285,
+      "ownLegalActionsDelta": 0.640625,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.039453125000000006,
+          "pips": -0.716015625,
+          "minus": -0.042578124999999994
+        },
+        "moderate-double-hold": {
+          "first": 0.052343750000000015,
+          "pips": -0.9296874999999999,
+          "minus": -0.025390624999999997
+        }
+      }
+    },
+    "restrict": {
+      "n": 19,
+      "exactNextDelta": -0.39548872180451133,
+      "exactThirdDelta": -0.38552631578947366,
+      "ownLegalActionsDelta": 0.47368421052631576,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.27631578947368424,
+          "pips": -4.053947368421052,
+          "minus": 0.10526315789473684
+        },
+        "moderate-double-hold": {
+          "first": 0.2723684210526316,
+          "pips": -4.472368421052632,
+          "minus": 0.07368421052631578
+        }
+      }
+    },
+    "enable": {
+      "n": 15,
+      "exactNextDelta": 0.305952380952381,
+      "exactThirdDelta": 0.2404761904761905,
+      "ownLegalActionsDelta": 0.7333333333333333,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.21000000000000002,
+          "pips": 1.6433333333333333,
+          "minus": -0.13999999999999999
+        },
+        "moderate-double-hold": {
+          "first": -0.15,
+          "pips": 1.305,
+          "minus": -0.05166666666666667
+        }
+      }
+    },
+    "neutral": {
+      "n": 30,
+      "exactNextDelta": 0,
+      "exactThirdDelta": 0,
+      "ownLegalActionsDelta": 0.7,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.014166666666666678,
+          "pips": 0.21833333333333324,
+          "minus": -0.08749999999999997
+        },
+        "moderate-double-hold": {
+          "first": 0.01416666666666667,
+          "pips": 0.19666666666666652,
+          "minus": -0.07499999999999998
+        }
+      }
+    },
+    "restrictAndOwnNotWorse": {
+      "n": 12,
+      "exactNextDelta": -0.3836309523809523,
+      "exactThirdDelta": -0.33214285714285713,
+      "ownLegalActionsDelta": 1.4166666666666667,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.30833333333333335,
+          "pips": -4.747916666666666,
+          "minus": 0.1791666666666666
+        },
+        "moderate-double-hold": {
+          "first": 0.3083333333333334,
+          "pips": -5.239583333333334,
+          "minus": 0.13333333333333333
+        }
+      }
+    },
+    "restrictAndOwnWorse": {
+      "n": 7,
+      "exactNextDelta": -0.4158163265306123,
+      "exactThirdDelta": -0.4770408163265306,
+      "ownLegalActionsDelta": -1.1428571428571428,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.22142857142857145,
+          "pips": -2.864285714285714,
+          "minus": -0.021428571428571432
+        },
+        "moderate-double-hold": {
+          "first": 0.21071428571428572,
+          "pips": -3.157142857142857,
+          "minus": -0.028571428571428574
+        }
+      }
+    },
+    "restrictBothOpponents": {
+      "n": 17,
+      "exactNextDelta": -0.42836134453781516,
+      "exactThirdDelta": -0.4298319327731092,
+      "ownLegalActionsDelta": 0.47058823529411764,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.2882352941176471,
+          "pips": -4.122058823529412,
+          "minus": 0.10882352941176471
+        },
+        "moderate-double-hold": {
+          "first": 0.2955882352941176,
+          "pips": -4.679411764705883,
+          "minus": 0.08088235294117647
+        }
+      }
+    },
+    "restrictNextEnableThird": {
+      "n": 0,
+      "exactNextDelta": null,
+      "exactThirdDelta": null,
+      "ownLegalActionsDelta": null,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": null,
+          "pips": null,
+          "minus": null
+        },
+        "moderate-double-hold": {
+          "first": null,
+          "pips": null,
+          "minus": null
+        }
+      }
+    },
+    "byNextHandSize": {
+      "2": {
+        "restrict": {
+          "n": 1,
+          "exactNextDelta": -0.2142857142857143,
+          "exactThirdDelta": -0.2142857142857143,
+          "ownLegalActionsDelta": -1,
+          "byPolicy": {
+            "closed-branch-control": {
+              "first": 0.35,
+              "pips": -8.2,
+              "minus": -0.05
+            },
+            "moderate-double-hold": {
+              "first": 0.4,
+              "pips": -8.875,
+              "minus": 0
+            }
+          }
+        },
+        "enable": {
+          "n": 1,
+          "exactNextDelta": 0.23809523809523814,
+          "exactThirdDelta": 0.23809523809523803,
+          "ownLegalActionsDelta": 2,
+          "byPolicy": {
+            "closed-branch-control": {
+              "first": -0.225,
+              "pips": -0.35,
+              "minus": 0
+            },
+            "moderate-double-hold": {
+              "first": 0,
+              "pips": 2.4,
+              "minus": 0
+            }
+          }
+        }
+      },
+      "3": {
+        "restrict": {
+          "n": 18,
+          "exactNextDelta": -0.4055555555555556,
+          "exactThirdDelta": -0.39503968253968247,
+          "ownLegalActionsDelta": 0.5555555555555556,
+          "byPolicy": {
+            "closed-branch-control": {
+              "first": 0.2722222222222222,
+              "pips": -3.8236111111111106,
+              "minus": 0.11388888888888887
+            },
+            "moderate-double-hold": {
+              "first": 0.2652777777777778,
+              "pips": -4.227777777777778,
+              "minus": 0.07777777777777778
+            }
+          }
+        },
+        "enable": {
+          "n": 14,
+          "exactNextDelta": 0.31079931972789115,
+          "exactThirdDelta": 0.2406462585034014,
+          "ownLegalActionsDelta": 0.6428571428571429,
+          "byPolicy": {
+            "closed-branch-control": {
+              "first": -0.20892857142857144,
+              "pips": 1.785714285714286,
+              "minus": -0.14999999999999997
+            },
+            "moderate-double-hold": {
+              "first": -0.16071428571428573,
+              "pips": 1.2267857142857144,
+              "minus": -0.05535714285714287
+            }
+          }
+        }
+      }
+    }
+  },
+  "limitations": "Selection first eligible per deal; 40 hidden worlds per position; exact combinatorial next/third mobility assumes uniform hidden allocations without pass-history conditioning; own snapshot excludes intervening opponent moves; small conditional strata; two fixed bots; provisional branch rules; block winner unassigned; no causal human-play inference",
+  "finding": "Independent seed holdout tests whether restricting the next player's immediate options predicts finish-first, and whether this is offset by restricting self or third player; interpret conditional groups only if enough positions.",
+  "nextAction": "Reproduce conditional mobility association in fresh seed range with >=20 restrict positions, then condition hidden worlds on observed passes and control exact open-end number identities.",
+  "positions": [
+    {
+      "seed": 1351617,
+      "turn": 17,
+      "seat": 1,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|2||2-4",
+      "control": "single|down|0||0-6",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        6
+      ],
+      "accessibleNumbersControl": [
+        4
+      ],
+      "exact": {
+        "unknownPool": 6,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.5,
+        "control": 0.5,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": -0.025
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": -0.025
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 3,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5,
+        0.5
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1352253,
+      "turn": 18,
+      "seat": 0,
+      "x": 2,
+      "handSize": 4,
+      "nextHandSize": 3,
+      "connector": "single|up|2||2-4",
+      "control": "single|right|0||0-6",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        4,
+        6
+      ],
+      "accessibleNumbersControl": [
+        4,
+        4
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 2,
+        "connector": 0.375,
+        "control": 0.6428571428571429,
+        "delta": -0.2678571428571429
+      },
+      "empiricalNextCanPlayDelta": -0.175,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "minus": -0.2,
+          "block": 0,
+          "turns": 1.275
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "minus": -0.2,
+          "block": 0,
+          "turns": 1.275
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        3
+      ],
+      "ownLegalActionDelta": -1,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        1,
+        2
+      ],
+      "thirdExactCanPlay": [
+        0.625,
+        0.8928571428571429
+      ],
+      "thirdExactCanPlayDelta": -0.2678571428571429
+    },
+    {
+      "seed": 1359028,
+      "turn": 17,
+      "seat": 2,
+      "x": 2,
+      "handSize": 4,
+      "nextHandSize": 3,
+      "connector": "single|up|2||2-4",
+      "control": "single|down|0||0-6",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        6
+      ],
+      "accessibleNumbersControl": [
+        4
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.4285714285714285,
+        "control": 0.4285714285714285,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.025,
+          "pips": 0.075,
+          "minus": 0,
+          "block": 0,
+          "turns": -0.05
+        },
+        "moderate-double-hold": {
+          "first": -0.025,
+          "pips": 0.075,
+          "minus": 0,
+          "block": 0,
+          "turns": -0.05
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5714285714285714,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1360054,
+      "turn": 17,
+      "seat": 2,
+      "x": 0,
+      "handSize": 4,
+      "nextHandSize": 3,
+      "connector": "single|right|0||0-6",
+      "control": "single|down|2||2-4",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        4
+      ],
+      "accessibleNumbersControl": [
+        6
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 1,
+        "connector": 0.6428571428571429,
+        "control": 0.375,
+        "delta": 0.2678571428571429
+      },
+      "empiricalNextCanPlayDelta": 0.35,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.075,
+          "pips": 0.45,
+          "minus": -0.15,
+          "block": 0,
+          "turns": 0.6
+        },
+        "moderate-double-hold": {
+          "first": -0.075,
+          "pips": 0.3,
+          "minus": -0.15,
+          "block": 0,
+          "turns": 0.3
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        2
+      ],
+      "ownLegalActionDelta": 1,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        2,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.8928571428571429,
+        0.625
+      ],
+      "thirdExactCanPlayDelta": 0.2678571428571429
+    },
+    {
+      "seed": 1361579,
+      "turn": 17,
+      "seat": 1,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|up|0||0-6",
+      "control": "single|left|2||2-4",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        3,
+        4
+      ],
+      "accessibleNumbersControl": [
+        3,
+        6
+      ],
+      "exact": {
+        "unknownPool": 9,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 5,
+        "legalUnknownControl": 4,
+        "connector": 0.9523809523809523,
+        "control": 0.8809523809523809,
+        "delta": 0.0714285714285714
+      },
+      "empiricalNextCanPlayDelta": 0.15,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.1,
+          "pips": 0.125,
+          "minus": -0.05,
+          "block": 0,
+          "turns": 0.275
+        },
+        "moderate-double-hold": {
+          "first": 0.1,
+          "pips": 0.275,
+          "minus": -0.05,
+          "block": 0,
+          "turns": -0.025
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        1
+      ],
+      "ownLegalActionDelta": 2,
+      "thirdPlayerHandSize": 6,
+      "thirdLegalUnknownCounts": [
+        5,
+        4
+      ],
+      "thirdExactCanPlay": [
+        1,
+        1
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1363343,
+      "turn": 18,
+      "seat": 0,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|up|2||2-3",
+      "control": "single|down|0||0-5",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        3,
+        5
+      ],
+      "accessibleNumbersControl": [
+        3,
+        3
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 4,
+        "legalUnknownControl": 2,
+        "connector": 0.9285714285714286,
+        "control": 0.6428571428571429,
+        "delta": 0.2857142857142857
+      },
+      "empiricalNextCanPlayDelta": 0.375,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.6,
+          "pips": 4.825,
+          "minus": -0.425,
+          "block": 0,
+          "turns": -2.075
+        },
+        "moderate-double-hold": {
+          "first": -0.375,
+          "pips": 3.975,
+          "minus": 0,
+          "block": 0,
+          "turns": -2.625
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        4,
+        2
+      ],
+      "thirdExactCanPlay": [
+        1,
+        0.8928571428571429
+      ],
+      "thirdExactCanPlayDelta": 0.1071428571428571
+    },
+    {
+      "seed": 1365577,
+      "turn": 18,
+      "seat": 1,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|down|0||0-6",
+      "control": "single|left|4||2-4",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        2,
+        2
+      ],
+      "accessibleNumbersControl": [
+        2,
+        6
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 2,
+        "connector": 0.7142857142857143,
+        "control": 0.7142857142857143,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 2.7,
+          "minus": 0,
+          "block": 0,
+          "turns": -1.175
+        },
+        "moderate-double-hold": {
+          "first": 0.1,
+          "pips": 3.65,
+          "minus": 0,
+          "block": 0,
+          "turns": -1.375
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        1
+      ],
+      "ownLegalActionDelta": 2,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        2,
+        2
+      ],
+      "thirdExactCanPlay": [
+        0.8571428571428572,
+        0.8571428571428572
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1366069,
+      "turn": 17,
+      "seat": 2,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|left|0||0-6",
+      "control": "single|up|2||2-4",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        4,
+        6
+      ],
+      "accessibleNumbersControl": [
+        6,
+        6
+      ],
+      "exact": {
+        "unknownPool": 9,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 4,
+        "legalUnknownControl": 2,
+        "connector": 0.8809523809523809,
+        "control": 0.5833333333333333,
+        "delta": 0.29761904761904767
+      },
+      "empiricalNextCanPlayDelta": 0.35,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.1,
+          "pips": 0.225,
+          "minus": 0,
+          "block": 0,
+          "turns": -0.575
+        },
+        "moderate-double-hold": {
+          "first": -0.125,
+          "pips": 0.6,
+          "minus": 0,
+          "block": 0,
+          "turns": -0.475
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 6,
+      "thirdLegalUnknownCounts": [
+        4,
+        2
+      ],
+      "thirdExactCanPlay": [
+        1,
+        0.9166666666666666
+      ],
+      "thirdExactCanPlayDelta": 0.08333333333333337
+    },
+    {
+      "seed": 1368091,
+      "turn": 17,
+      "seat": 2,
+      "x": 0,
+      "handSize": 4,
+      "nextHandSize": 3,
+      "connector": "single|up|0||0-3",
+      "control": "single|left|2||1-2",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        1
+      ],
+      "accessibleNumbersControl": [
+        3
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.4285714285714285,
+        "control": 0.4285714285714285,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5714285714285714,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1369435,
+      "turn": 18,
+      "seat": 2,
+      "x": 3,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|left|3||2-3",
+      "control": "single|right|0||0-5",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        5
+      ],
+      "accessibleNumbersControl": [
+        2
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 0,
+        "legalUnknownControl": 3,
+        "connector": 0,
+        "control": 0.8857142857142857,
+        "delta": -0.8857142857142857
+      },
+      "empiricalNextCanPlayDelta": -0.95,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.475,
+          "pips": -6.175,
+          "minus": 0.5,
+          "block": 0,
+          "turns": 0.95
+        },
+        "moderate-double-hold": {
+          "first": 0.6,
+          "pips": -7.95,
+          "minus": 0,
+          "block": 0,
+          "turns": 3.675
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        0,
+        3
+      ],
+      "thirdExactCanPlay": [
+        0,
+        0.9714285714285714
+      ],
+      "thirdExactCanPlayDelta": -0.9714285714285714
+    },
+    {
+      "seed": 1377772,
+      "turn": 18,
+      "seat": 0,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|2||2-4",
+      "control": "single|down|0||0-6",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        3,
+        6
+      ],
+      "accessibleNumbersControl": [
+        3,
+        4
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 3,
+        "legalUnknownControl": 5,
+        "connector": 0.8214285714285714,
+        "control": 0.9821428571428571,
+        "delta": -0.1607142857142857
+      },
+      "empiricalNextCanPlayDelta": -0.125,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.075,
+          "pips": -1.725,
+          "minus": 0.025,
+          "block": 0,
+          "turns": 0.8
+        },
+        "moderate-double-hold": {
+          "first": 0.075,
+          "pips": -1.725,
+          "minus": 0.025,
+          "block": 0,
+          "turns": 0.8
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        3,
+        5
+      ],
+      "thirdExactCanPlay": [
+        0.9821428571428571,
+        1
+      ],
+      "thirdExactCanPlayDelta": -0.017857142857142905
+    },
+    {
+      "seed": 1377778,
+      "turn": 20,
+      "seat": 2,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 2,
+      "connector": "single|up|2||2-3",
+      "control": "single|right|0||0-5",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        5
+      ],
+      "accessibleNumbersControl": [
+        3
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 2,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 2,
+        "connector": 0.25,
+        "control": 0.4642857142857143,
+        "delta": -0.2142857142857143
+      },
+      "empiricalNextCanPlayDelta": -0.3,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.35,
+          "pips": -8.2,
+          "minus": -0.05,
+          "block": 0,
+          "turns": 3.125
+        },
+        "moderate-double-hold": {
+          "first": 0.4,
+          "pips": -8.875,
+          "minus": 0,
+          "block": 0,
+          "turns": 3.375
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        3
+      ],
+      "ownLegalActionDelta": -1,
+      "thirdPlayerHandSize": 6,
+      "thirdLegalUnknownCounts": [
+        1,
+        2
+      ],
+      "thirdExactCanPlay": [
+        0.75,
+        0.9642857142857143
+      ],
+      "thirdExactCanPlayDelta": -0.2142857142857143
+    },
+    {
+      "seed": 1382185,
+      "turn": 17,
+      "seat": 2,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|0||0-5",
+      "control": "single|up|3||2-3",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        2
+      ],
+      "accessibleNumbersControl": [
+        5
+      ],
+      "exact": {
+        "unknownPool": 6,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.5,
+        "control": 0.5,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": -0.1,
+          "minus": 0,
+          "block": 0.2,
+          "turns": 1.125
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": -0.1,
+          "minus": 0,
+          "block": 0.2,
+          "turns": 1.125
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 3,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5,
+        0.5
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1382504,
+      "turn": 21,
+      "seat": 0,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|up|0||0-5",
+      "control": "single|left|2||2-3",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        3,
+        3
+      ],
+      "accessibleNumbersControl": [
+        3,
+        5
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.4285714285714285,
+        "control": 0.4285714285714285,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.125,
+          "pips": -0.5,
+          "minus": -0.425,
+          "block": 0.025,
+          "turns": 2.5
+        },
+        "moderate-double-hold": {
+          "first": 0.125,
+          "pips": -0.5,
+          "minus": -0.425,
+          "block": 0.025,
+          "turns": 2.5
+        }
+      },
+      "ownLegalActionCount": [
+        5,
+        2
+      ],
+      "ownLegalActionDelta": 3,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5714285714285714,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1382945,
+      "turn": 17,
+      "seat": 0,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|left|2||2-5",
+      "control": "single|up|3||3-4",
+      "accessibleCount": 3,
+      "accessibleNumbersConnector": [
+        4,
+        4,
+        5
+      ],
+      "accessibleNumbersControl": [
+        4,
+        5,
+        5
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 3,
+        "connector": 0.6428571428571429,
+        "control": 0.8214285714285714,
+        "delta": -0.1785714285714285
+      },
+      "empiricalNextCanPlayDelta": -0.175,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": -0.2,
+          "minus": 0,
+          "block": 0,
+          "turns": 0.15
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": -0.3,
+          "minus": 0,
+          "block": 0.025,
+          "turns": 0.3
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        2
+      ],
+      "ownLegalActionDelta": 1,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        2,
+        3
+      ],
+      "thirdExactCanPlay": [
+        0.8928571428571429,
+        0.9821428571428571
+      ],
+      "thirdExactCanPlayDelta": -0.08928571428571419
+    },
+    {
+      "seed": 1384227,
+      "turn": 17,
+      "seat": 2,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|up|2||2-5",
+      "control": "single|left|3||3-4",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        4
+      ],
+      "accessibleNumbersControl": [
+        5
+      ],
+      "exact": {
+        "unknownPool": 9,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 3,
+        "legalUnknownControl": 2,
+        "connector": 0.761904761904762,
+        "control": 0.5833333333333333,
+        "delta": 0.17857142857142871
+      },
+      "empiricalNextCanPlayDelta": 0.325,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.025,
+          "pips": -2.675,
+          "minus": -0.05,
+          "block": -0.05,
+          "turns": -3.6
+        },
+        "moderate-double-hold": {
+          "first": 0.125,
+          "pips": -5.1,
+          "minus": -0.05,
+          "block": -0.05,
+          "turns": -3.325
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 6,
+      "thirdLegalUnknownCounts": [
+        3,
+        2
+      ],
+      "thirdExactCanPlay": [
+        0.9880952380952381,
+        0.9166666666666666
+      ],
+      "thirdExactCanPlayDelta": 0.07142857142857151
+    },
+    {
+      "seed": 1384691,
+      "turn": 17,
+      "seat": 2,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|left|2||1-2",
+      "control": "single|up|0||0-3",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        3
+      ],
+      "accessibleNumbersControl": [
+        1
+      ],
+      "exact": {
+        "unknownPool": 6,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.5,
+        "control": 0.5,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.45,
+          "pips": 6.3,
+          "minus": -0.45,
+          "block": 0,
+          "turns": -0.775
+        },
+        "moderate-double-hold": {
+          "first": -0.45,
+          "pips": 4.175,
+          "minus": -0.45,
+          "block": 0,
+          "turns": -0.3
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 3,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5,
+        0.5
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1386933,
+      "turn": 17,
+      "seat": 2,
+      "x": 0,
+      "handSize": 4,
+      "nextHandSize": 3,
+      "connector": "single|up|0||0-5",
+      "control": "single|right|2||2-3",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        3
+      ],
+      "accessibleNumbersControl": [
+        5
+      ],
+      "exact": {
+        "unknownPool": 9,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 1,
+        "connector": 0.5833333333333333,
+        "control": 0.3333333333333335,
+        "delta": 0.24999999999999978
+      },
+      "empiricalNextCanPlayDelta": 0.275,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.05,
+          "pips": 0.5,
+          "minus": 0.05,
+          "block": 0,
+          "turns": -0.325
+        },
+        "moderate-double-hold": {
+          "first": -0.05,
+          "pips": 0.5,
+          "minus": 0.05,
+          "block": 0,
+          "turns": -0.325
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        2
+      ],
+      "ownLegalActionDelta": 1,
+      "thirdPlayerHandSize": 6,
+      "thirdLegalUnknownCounts": [
+        2,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.9166666666666666,
+        0.6666666666666667
+      ],
+      "thirdExactCanPlayDelta": 0.2499999999999999
+    },
+    {
+      "seed": 1387288,
+      "turn": 17,
+      "seat": 2,
+      "x": 3,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|up|3||2-3",
+      "control": "single|right|0||0-5",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        5
+      ],
+      "accessibleNumbersControl": [
+        2
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 0,
+        "legalUnknownControl": 2,
+        "connector": 0,
+        "control": 0.7142857142857143,
+        "delta": -0.7142857142857143
+      },
+      "empiricalNextCanPlayDelta": -0.65,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.525,
+          "pips": -4.25,
+          "minus": 0,
+          "block": 0.025,
+          "turns": 3.95
+        },
+        "moderate-double-hold": {
+          "first": 0.1,
+          "pips": -2.075,
+          "minus": 0,
+          "block": -0.075,
+          "turns": 2.275
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        3
+      ],
+      "ownLegalActionDelta": -1,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        0,
+        2
+      ],
+      "thirdExactCanPlay": [
+        0,
+        0.8571428571428572
+      ],
+      "thirdExactCanPlayDelta": -0.8571428571428572
+    },
+    {
+      "seed": 1388747,
+      "turn": 18,
+      "seat": 2,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|up|0||0-5",
+      "control": "single|left|2||2-3",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        3,
+        5
+      ],
+      "accessibleNumbersControl": [
+        5,
+        5
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 4,
+        "legalUnknownControl": 2,
+        "connector": 0.9285714285714286,
+        "control": 0.6428571428571429,
+        "delta": 0.2857142857142857
+      },
+      "empiricalNextCanPlayDelta": 0.275,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.15,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": -0.75
+        },
+        "moderate-double-hold": {
+          "first": -0.2,
+          "pips": 0.2,
+          "minus": 0,
+          "block": 0,
+          "turns": -0.85
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        4,
+        2
+      ],
+      "thirdExactCanPlay": [
+        1,
+        0.8928571428571429
+      ],
+      "thirdExactCanPlayDelta": 0.1071428571428571
+    },
+    {
+      "seed": 1392064,
+      "turn": 17,
+      "seat": 0,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|up|2||2-3",
+      "control": "single|right|0||0-5",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        5
+      ],
+      "accessibleNumbersControl": [
+        3
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 0,
+        "legalUnknownControl": 3,
+        "connector": 0,
+        "control": 0.8857142857142857,
+        "delta": -0.8857142857142857
+      },
+      "empiricalNextCanPlayDelta": -0.925,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.275,
+          "pips": -4.7,
+          "minus": 0.425,
+          "block": 0,
+          "turns": 0.525
+        },
+        "moderate-double-hold": {
+          "first": 0.275,
+          "pips": -4.7,
+          "minus": 0.425,
+          "block": 0,
+          "turns": 0.525
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        0,
+        3
+      ],
+      "thirdExactCanPlay": [
+        0,
+        0.9714285714285714
+      ],
+      "thirdExactCanPlayDelta": -0.9714285714285714
+    },
+    {
+      "seed": 1392472,
+      "turn": 19,
+      "seat": 1,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|2||2-3",
+      "control": "single|down|0||0-5",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        5
+      ],
+      "accessibleNumbersControl": [
+        3
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 0,
+        "legalUnknownControl": 3,
+        "connector": 0,
+        "control": 0.8857142857142857,
+        "delta": -0.8857142857142857
+      },
+      "empiricalNextCanPlayDelta": -0.825,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.5,
+          "pips": -4.975,
+          "minus": -0.15,
+          "block": 0.025,
+          "turns": 2.725
+        },
+        "moderate-double-hold": {
+          "first": 0.725,
+          "pips": -8.05,
+          "minus": 0,
+          "block": 0.05,
+          "turns": 4.8
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        0,
+        3
+      ],
+      "thirdExactCanPlay": [
+        0,
+        0.9714285714285714
+      ],
+      "thirdExactCanPlayDelta": -0.9714285714285714
+    },
+    {
+      "seed": 1396237,
+      "turn": 20,
+      "seat": 0,
+      "x": 3,
+      "handSize": 5,
+      "nextHandSize": 2,
+      "connector": "single|right|3||1-3",
+      "control": "single|up|0||0-4",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        4
+      ],
+      "accessibleNumbersControl": [
+        1
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 2,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 1,
+        "connector": 0.5238095238095238,
+        "control": 0.2857142857142857,
+        "delta": 0.23809523809523814
+      },
+      "empiricalNextCanPlayDelta": 0.225,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.225,
+          "pips": -0.35,
+          "minus": 0,
+          "block": 0,
+          "turns": -1.65
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 2.4,
+          "minus": 0,
+          "block": 0,
+          "turns": -1.65
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        1
+      ],
+      "ownLegalActionDelta": 2,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        2,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.9523809523809523,
+        0.7142857142857143
+      ],
+      "thirdExactCanPlayDelta": 0.23809523809523803
+    },
+    {
+      "seed": 1399633,
+      "turn": 17,
+      "seat": 2,
+      "x": 0,
+      "handSize": 4,
+      "nextHandSize": 3,
+      "connector": "single|left|0||0-5",
+      "control": "single|up|2||2-3",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        3
+      ],
+      "accessibleNumbersControl": [
+        5
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 1,
+        "connector": 0.6428571428571429,
+        "control": 0.375,
+        "delta": 0.2678571428571429
+      },
+      "empiricalNextCanPlayDelta": 0.2,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.175,
+          "pips": 1.275,
+          "minus": 0.05,
+          "block": 0,
+          "turns": -0.25
+        },
+        "moderate-double-hold": {
+          "first": -0.15,
+          "pips": 1.075,
+          "minus": 0.05,
+          "block": 0,
+          "turns": -0.275
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        2
+      ],
+      "ownLegalActionDelta": 1,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        2,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.8928571428571429,
+        0.625
+      ],
+      "thirdExactCanPlayDelta": 0.2678571428571429
+    },
+    {
+      "seed": 1404894,
+      "turn": 18,
+      "seat": 1,
+      "x": 2,
+      "handSize": 4,
+      "nextHandSize": 3,
+      "connector": "single|right|2||1-2",
+      "control": "single|down|0||0-3",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        3
+      ],
+      "accessibleNumbersControl": [
+        1
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.4285714285714285,
+        "control": 0.4285714285714285,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        },
+        "moderate-double-hold": {
+          "first": -0.025,
+          "pips": 0.175,
+          "minus": 0,
+          "block": 0.025,
+          "turns": 0.05
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5714285714285714,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1406372,
+      "turn": 18,
+      "seat": 0,
+      "x": 3,
+      "handSize": 4,
+      "nextHandSize": 3,
+      "connector": "single|up|3||3-5",
+      "control": "single|right|2||2-6",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        6
+      ],
+      "accessibleNumbersControl": [
+        5
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.4285714285714285,
+        "control": 0.4285714285714285,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.025,
+          "pips": 0.175,
+          "minus": -0.525,
+          "block": 0,
+          "turns": 2.875
+        },
+        "moderate-double-hold": {
+          "first": -0.025,
+          "pips": 0.175,
+          "minus": -0.525,
+          "block": 0,
+          "turns": 2.875
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5714285714285714,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1406874,
+      "turn": 19,
+      "seat": 1,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|down|0||0-5",
+      "control": "single|up|2||2-3",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        3,
+        3
+      ],
+      "accessibleNumbersControl": [
+        3,
+        5
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 4,
+        "connector": 0.6428571428571429,
+        "control": 0.9285714285714286,
+        "delta": -0.2857142857142857
+      },
+      "empiricalNextCanPlayDelta": -0.175,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.5,
+          "pips": -4.175,
+          "minus": 0.075,
+          "block": 0.05,
+          "turns": 2.175
+        },
+        "moderate-double-hold": {
+          "first": 0.275,
+          "pips": -3.175,
+          "minus": 0.025,
+          "block": 0.025,
+          "turns": 1.925
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        1
+      ],
+      "ownLegalActionDelta": 2,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        2,
+        4
+      ],
+      "thirdExactCanPlay": [
+        0.8928571428571429,
+        1
+      ],
+      "thirdExactCanPlayDelta": -0.1071428571428571
+    },
+    {
+      "seed": 1407893,
+      "turn": 21,
+      "seat": 1,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|down|0||0-5",
+      "control": "single|up|2||2-3",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        3,
+        3
+      ],
+      "accessibleNumbersControl": [
+        3,
+        5
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 0,
+        "legalUnknownControl": 0,
+        "connector": 0,
+        "control": 0,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        }
+      },
+      "ownLegalActionCount": [
+        8,
+        3
+      ],
+      "ownLegalActionDelta": 5,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        0,
+        0
+      ],
+      "thirdExactCanPlay": [
+        0,
+        0
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1407952,
+      "turn": 18,
+      "seat": 0,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|left|0||0-5",
+      "control": "single|up|2||2-3",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        3
+      ],
+      "accessibleNumbersControl": [
+        5
+      ],
+      "exact": {
+        "unknownPool": 6,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 0,
+        "legalUnknownControl": 0,
+        "connector": 0,
+        "control": 0,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        }
+      },
+      "ownLegalActionCount": [
+        5,
+        5
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 3,
+      "thirdLegalUnknownCounts": [
+        0,
+        0
+      ],
+      "thirdExactCanPlay": [
+        0,
+        0
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1410568,
+      "turn": 21,
+      "seat": 2,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 2,
+      "connector": "single|left|0||0-6",
+      "control": "single|up|2||2-4",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        4,
+        4
+      ],
+      "accessibleNumbersControl": [
+        4,
+        6
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 2,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.2857142857142857,
+        "control": 0.2857142857142857,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.375,
+          "pips": -0.75,
+          "minus": -0.075,
+          "block": 0,
+          "turns": 2.925
+        },
+        "moderate-double-hold": {
+          "first": 0.375,
+          "pips": -0.75,
+          "minus": -0.075,
+          "block": 0,
+          "turns": 2.925
+        }
+      },
+      "ownLegalActionCount": [
+        5,
+        2
+      ],
+      "ownLegalActionDelta": 3,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.7142857142857143,
+        0.7142857142857143
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1412325,
+      "turn": 18,
+      "seat": 0,
+      "x": 3,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|left|3||2-3",
+      "control": "single|up|0||0-5",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        2,
+        5
+      ],
+      "accessibleNumbersControl": [
+        2,
+        2
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 2,
+        "connector": 0.4285714285714285,
+        "control": 0.7142857142857143,
+        "delta": -0.2857142857142858
+      },
+      "empiricalNextCanPlayDelta": -0.4,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.05,
+          "pips": -1.1,
+          "minus": 0,
+          "block": 0.05,
+          "turns": 1.275
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": -0.9,
+          "minus": 0,
+          "block": 0.025,
+          "turns": 1
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        3
+      ],
+      "ownLegalActionDelta": -1,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        2
+      ],
+      "thirdExactCanPlay": [
+        0.5714285714285714,
+        0.8571428571428572
+      ],
+      "thirdExactCanPlayDelta": -0.2857142857142858
+    },
+    {
+      "seed": 1414822,
+      "turn": 19,
+      "seat": 0,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|up|2||2-3",
+      "control": "single|down|0||0-5",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        3,
+        5
+      ],
+      "accessibleNumbersControl": [
+        3,
+        3
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 2,
+        "connector": 0.4285714285714285,
+        "control": 0.7142857142857143,
+        "delta": -0.2857142857142858
+      },
+      "empiricalNextCanPlayDelta": -0.25,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0.3,
+          "minus": 0,
+          "block": 0,
+          "turns": -0.1
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": -0.45,
+          "minus": 0,
+          "block": 0,
+          "turns": 0.1
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        3
+      ],
+      "ownLegalActionDelta": -1,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        2
+      ],
+      "thirdExactCanPlay": [
+        0.5714285714285714,
+        0.8571428571428572
+      ],
+      "thirdExactCanPlayDelta": -0.2857142857142858
+    },
+    {
+      "seed": 1417468,
+      "turn": 20,
+      "seat": 0,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|2||2-3",
+      "control": "single|down|0||0-5",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        5,
+        6
+      ],
+      "accessibleNumbersControl": [
+        3,
+        6
+      ],
+      "exact": {
+        "unknownPool": 9,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 3,
+        "connector": 0.5833333333333333,
+        "control": 0.761904761904762,
+        "delta": -0.17857142857142871
+      },
+      "empiricalNextCanPlayDelta": -0.375,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.275,
+          "pips": -1.75,
+          "minus": 0.05,
+          "block": 0,
+          "turns": 0.25
+        },
+        "moderate-double-hold": {
+          "first": 0.2,
+          "pips": -1,
+          "minus": 0,
+          "block": 0.05,
+          "turns": 0.375
+        }
+      },
+      "ownLegalActionCount": [
+        6,
+        2
+      ],
+      "ownLegalActionDelta": 4,
+      "thirdPlayerHandSize": 6,
+      "thirdLegalUnknownCounts": [
+        2,
+        3
+      ],
+      "thirdExactCanPlay": [
+        0.9166666666666666,
+        0.9880952380952381
+      ],
+      "thirdExactCanPlayDelta": -0.07142857142857151
+    },
+    {
+      "seed": 1420647,
+      "turn": 19,
+      "seat": 2,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|0||0-6",
+      "control": "single|up|2||2-4",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        4
+      ],
+      "accessibleNumbersControl": [
+        6
+      ],
+      "exact": {
+        "unknownPool": 6,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.5,
+        "control": 0.5,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.025,
+          "pips": -1.3,
+          "minus": 0,
+          "block": 0.15,
+          "turns": 1.45
+        },
+        "moderate-double-hold": {
+          "first": 0.025,
+          "pips": -1.3,
+          "minus": 0,
+          "block": 0.15,
+          "turns": 1.45
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 3,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5,
+        0.5
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1422995,
+      "turn": 17,
+      "seat": 2,
+      "x": 4,
+      "handSize": 4,
+      "nextHandSize": 3,
+      "connector": "single|up|4||2-4",
+      "control": "single|right|0||0-6",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        6
+      ],
+      "accessibleNumbersControl": [
+        2
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.4285714285714285,
+        "control": 0.4285714285714285,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.2,
+          "pips": 0.8,
+          "minus": -0.35,
+          "block": 0.125,
+          "turns": 2.8
+        },
+        "moderate-double-hold": {
+          "first": -0.125,
+          "pips": 0.5,
+          "minus": 0,
+          "block": 0.025,
+          "turns": -0.3
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5714285714285714,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1424794,
+      "turn": 17,
+      "seat": 1,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|2||2-3",
+      "control": "single|up|0||0-5",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        5
+      ],
+      "accessibleNumbersControl": [
+        3
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 2,
+        "connector": 0.375,
+        "control": 0.6428571428571429,
+        "delta": -0.2678571428571429
+      },
+      "empiricalNextCanPlayDelta": -0.2,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.675,
+          "pips": -15.05,
+          "minus": 0.6,
+          "block": 0,
+          "turns": -0.5
+        },
+        "moderate-double-hold": {
+          "first": 0.675,
+          "pips": -15.05,
+          "minus": 0.6,
+          "block": 0,
+          "turns": -0.5
+        }
+      },
+      "ownLegalActionCount": [
+        4,
+        2
+      ],
+      "ownLegalActionDelta": 2,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        1,
+        2
+      ],
+      "thirdExactCanPlay": [
+        0.625,
+        0.8928571428571429
+      ],
+      "thirdExactCanPlayDelta": -0.2678571428571429
+    },
+    {
+      "seed": 1425665,
+      "turn": 19,
+      "seat": 1,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|0||0-5",
+      "control": "single|up|2||2-3",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        3
+      ],
+      "accessibleNumbersControl": [
+        5
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 3,
+        "legalUnknownControl": 3,
+        "connector": 0.8214285714285714,
+        "control": 0.8214285714285714,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0.05,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.3,
+          "pips": 0.8,
+          "minus": -0.25,
+          "block": 0,
+          "turns": -1.4
+        },
+        "moderate-double-hold": {
+          "first": -0.35,
+          "pips": 0.55,
+          "minus": -0.25,
+          "block": 0,
+          "turns": -1.3
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        1
+      ],
+      "ownLegalActionDelta": 1,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        3,
+        3
+      ],
+      "thirdExactCanPlay": [
+        0.9821428571428571,
+        0.9821428571428571
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1428778,
+      "turn": 18,
+      "seat": 1,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|up|2||2-4",
+      "control": "single|down|0||0-6",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        6
+      ],
+      "accessibleNumbersControl": [
+        4
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 3,
+        "connector": 0.6428571428571429,
+        "control": 0.8214285714285714,
+        "delta": -0.1785714285714285
+      },
+      "empiricalNextCanPlayDelta": -0.25,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.525,
+          "pips": -11.025,
+          "minus": 0.45,
+          "block": 0,
+          "turns": 1.325
+        },
+        "moderate-double-hold": {
+          "first": 0.525,
+          "pips": -11.025,
+          "minus": 0.45,
+          "block": 0,
+          "turns": 1.325
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        1
+      ],
+      "ownLegalActionDelta": 2,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        2,
+        3
+      ],
+      "thirdExactCanPlay": [
+        0.8928571428571429,
+        0.9821428571428571
+      ],
+      "thirdExactCanPlayDelta": -0.08928571428571419
+    },
+    {
+      "seed": 1429605,
+      "turn": 17,
+      "seat": 0,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|2||2-3",
+      "control": "single|up|0||0-5",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        5,
+        5
+      ],
+      "accessibleNumbersControl": [
+        3,
+        5
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.4285714285714285,
+        "control": 0.4285714285714285,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.125,
+          "pips": -0.125,
+          "minus": 0,
+          "block": 0,
+          "turns": 0.275
+        },
+        "moderate-double-hold": {
+          "first": 0.125,
+          "pips": -0.125,
+          "minus": 0,
+          "block": 0,
+          "turns": 0.275
+        }
+      },
+      "ownLegalActionCount": [
+        5,
+        2
+      ],
+      "ownLegalActionDelta": 3,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5714285714285714,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1433504,
+      "turn": 17,
+      "seat": 1,
+      "x": 3,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|3||2-3",
+      "control": "single|left|0||0-5",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        5,
+        5
+      ],
+      "accessibleNumbersControl": [
+        2,
+        5
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 3,
+        "connector": 0.375,
+        "control": 0.8214285714285714,
+        "delta": -0.4464285714285714
+      },
+      "empiricalNextCanPlayDelta": -0.4,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.125,
+          "pips": -2.425,
+          "minus": 0,
+          "block": 0,
+          "turns": 0.475
+        },
+        "moderate-double-hold": {
+          "first": 0.325,
+          "pips": -4.75,
+          "minus": 0,
+          "block": 0.075,
+          "turns": 2.9
+        }
+      },
+      "ownLegalActionCount": [
+        5,
+        2
+      ],
+      "ownLegalActionDelta": 3,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        1,
+        3
+      ],
+      "thirdExactCanPlay": [
+        0.625,
+        0.9821428571428571
+      ],
+      "thirdExactCanPlayDelta": -0.3571428571428571
+    },
+    {
+      "seed": 1437173,
+      "turn": 17,
+      "seat": 1,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|up|2||2-3",
+      "control": "single|down|0||0-5",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        3,
+        5
+      ],
+      "accessibleNumbersControl": [
+        3,
+        3
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 4,
+        "legalUnknownControl": 2,
+        "connector": 0.9285714285714286,
+        "control": 0.6428571428571429,
+        "delta": 0.2857142857142857
+      },
+      "empiricalNextCanPlayDelta": 0.425,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.225,
+          "pips": 3,
+          "minus": 0.15,
+          "block": 0,
+          "turns": -1.825
+        },
+        "moderate-double-hold": {
+          "first": -0.175,
+          "pips": 3.225,
+          "minus": 0,
+          "block": -0.025,
+          "turns": -2.35
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        4,
+        2
+      ],
+      "thirdExactCanPlay": [
+        1,
+        0.8928571428571429
+      ],
+      "thirdExactCanPlayDelta": 0.1071428571428571
+    },
+    {
+      "seed": 1437515,
+      "turn": 17,
+      "seat": 1,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|2||2-4",
+      "control": "single|left|0||0-6",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        3,
+        6
+      ],
+      "accessibleNumbersControl": [
+        3,
+        4
+      ],
+      "exact": {
+        "unknownPool": 9,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 4,
+        "legalUnknownControl": 5,
+        "connector": 0.8809523809523809,
+        "control": 0.9523809523809523,
+        "delta": -0.0714285714285714
+      },
+      "empiricalNextCanPlayDelta": -0.1,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.275,
+          "pips": -5.225,
+          "minus": 0.125,
+          "block": 0,
+          "turns": 1.3
+        },
+        "moderate-double-hold": {
+          "first": 0.075,
+          "pips": -3.7,
+          "minus": 0,
+          "block": 0,
+          "turns": 1.575
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        2
+      ],
+      "ownLegalActionDelta": 1,
+      "thirdPlayerHandSize": 6,
+      "thirdLegalUnknownCounts": [
+        4,
+        5
+      ],
+      "thirdExactCanPlay": [
+        1,
+        1
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1437516,
+      "turn": 19,
+      "seat": 2,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|left|0||0-5",
+      "control": "single|down|2||2-3",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        3
+      ],
+      "accessibleNumbersControl": [
+        5
+      ],
+      "exact": {
+        "unknownPool": 6,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.5,
+        "control": 0.5,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.6,
+          "pips": 6,
+          "minus": -0.6,
+          "block": 0,
+          "turns": -1.075
+        },
+        "moderate-double-hold": {
+          "first": -0.6,
+          "pips": 6,
+          "minus": -0.6,
+          "block": 0,
+          "turns": -1.075
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 3,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5,
+        0.5
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1438794,
+      "turn": 17,
+      "seat": 1,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|0||0-5",
+      "control": "single|left|2||2-3",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        3,
+        3
+      ],
+      "accessibleNumbersControl": [
+        3,
+        5
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 2,
+        "connector": 0.7142857142857143,
+        "control": 0.7142857142857143,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.025,
+          "pips": 0.55,
+          "minus": 0,
+          "block": 0,
+          "turns": 0.175
+        },
+        "moderate-double-hold": {
+          "first": 0.125,
+          "pips": 0.65,
+          "minus": 0,
+          "block": 0,
+          "turns": 0.225
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        1
+      ],
+      "ownLegalActionDelta": 2,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        2,
+        2
+      ],
+      "thirdExactCanPlay": [
+        0.8571428571428572,
+        0.8571428571428572
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1439475,
+      "turn": 22,
+      "seat": 2,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 2,
+      "connector": "single|right|0||0-6",
+      "control": "single|up|2||2-4",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        4
+      ],
+      "accessibleNumbersControl": [
+        6
+      ],
+      "exact": {
+        "unknownPool": 6,
+        "nextHandSize": 2,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.33333333333333326,
+        "control": 0.33333333333333326,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.05,
+          "pips": -0.875,
+          "minus": -0.275,
+          "block": 0,
+          "turns": 1.9
+        },
+        "moderate-double-hold": {
+          "first": 0.05,
+          "pips": -0.875,
+          "minus": -0.275,
+          "block": 0,
+          "turns": 1.9
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.6666666666666667,
+        0.6666666666666667
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1441661,
+      "turn": 18,
+      "seat": 2,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|0||0-5",
+      "control": "single|up|2||2-3",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        3
+      ],
+      "accessibleNumbersControl": [
+        5
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 0,
+        "connector": 0.7142857142857143,
+        "control": 0,
+        "delta": 0.7142857142857143
+      },
+      "empiricalNextCanPlayDelta": 0.7,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.9,
+          "pips": 6.2,
+          "minus": -1,
+          "block": 0,
+          "turns": -0.2
+        },
+        "moderate-double-hold": {
+          "first": -0.625,
+          "pips": 3.125,
+          "minus": 0,
+          "block": 0.1,
+          "turns": -0.85
+        }
+      },
+      "ownLegalActionCount": [
+        5,
+        5
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        2,
+        0
+      ],
+      "thirdExactCanPlay": [
+        0.8571428571428572,
+        0
+      ],
+      "thirdExactCanPlayDelta": 0.8571428571428572
+    },
+    {
+      "seed": 1442231,
+      "turn": 18,
+      "seat": 0,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|left|0||0-5",
+      "control": "single|up|2||2-3",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        3
+      ],
+      "accessibleNumbersControl": [
+        5
+      ],
+      "exact": {
+        "unknownPool": 6,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.5,
+        "control": 0.5,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.575,
+          "pips": 5.75,
+          "minus": -0.575,
+          "block": 0,
+          "turns": -1.05
+        },
+        "moderate-double-hold": {
+          "first": -0.575,
+          "pips": 5.75,
+          "minus": -0.575,
+          "block": 0,
+          "turns": -1.05
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 3,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5,
+        0.5
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1444384,
+      "turn": 18,
+      "seat": 1,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|0||0-5",
+      "control": "single|up|2||2-3",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        3
+      ],
+      "accessibleNumbersControl": [
+        5
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 1,
+        "connector": 0.7142857142857143,
+        "control": 0.4285714285714285,
+        "delta": 0.2857142857142858
+      },
+      "empiricalNextCanPlayDelta": 0.325,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.4,
+          "pips": 2.225,
+          "minus": 0.3,
+          "block": 0,
+          "turns": -1.475
+        },
+        "moderate-double-hold": {
+          "first": 0.475,
+          "pips": 0.8,
+          "minus": 0.375,
+          "block": 0,
+          "turns": -1.275
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        1
+      ],
+      "ownLegalActionDelta": 2,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        2,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.8571428571428572,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": 0.2857142857142858
+    },
+    {
+      "seed": 1444612,
+      "turn": 17,
+      "seat": 1,
+      "x": 3,
+      "handSize": 4,
+      "nextHandSize": 3,
+      "connector": "single|up|3||3-6",
+      "control": "single|down|4||4-5",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        5
+      ],
+      "accessibleNumbersControl": [
+        6
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.4285714285714285,
+        "control": 0.4285714285714285,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5714285714285714,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1446069,
+      "turn": 17,
+      "seat": 1,
+      "x": 0,
+      "handSize": 4,
+      "nextHandSize": 3,
+      "connector": "single|right|0||0-6",
+      "control": "single|down|4||2-4",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        2
+      ],
+      "accessibleNumbersControl": [
+        6
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 3,
+        "legalUnknownControl": 3,
+        "connector": 0.8214285714285714,
+        "control": 0.8214285714285714,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0.025,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.55,
+          "pips": -2.475,
+          "minus": 0,
+          "block": -0.025,
+          "turns": 0.65
+        },
+        "moderate-double-hold": {
+          "first": 0.55,
+          "pips": -2.55,
+          "minus": 0.025,
+          "block": -0.025,
+          "turns": 0.05
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        3,
+        3
+      ],
+      "thirdExactCanPlay": [
+        0.9821428571428571,
+        0.9821428571428571
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1446709,
+      "turn": 18,
+      "seat": 2,
+      "x": 2,
+      "handSize": 4,
+      "nextHandSize": 3,
+      "connector": "single|left|2||2-4",
+      "control": "single|up|0||0-6",
+      "accessibleCount": 3,
+      "accessibleNumbersConnector": [
+        4,
+        4,
+        6
+      ],
+      "accessibleNumbersControl": [
+        4,
+        4,
+        4
+      ],
+      "exact": {
+        "unknownPool": 10,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 3,
+        "legalUnknownControl": 3,
+        "connector": 0.7083333333333334,
+        "control": 0.7083333333333334,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": -0.025,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "minus": -0.05,
+          "block": 0,
+          "turns": 0.375
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "minus": -0.05,
+          "block": 0,
+          "turns": 0.375
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        3
+      ],
+      "ownLegalActionDelta": -1,
+      "thirdPlayerHandSize": 7,
+      "thirdLegalUnknownCounts": [
+        3,
+        3
+      ],
+      "thirdExactCanPlay": [
+        0.9916666666666667,
+        0.9916666666666667
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1448342,
+      "turn": 19,
+      "seat": 0,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|down|0||0-6",
+      "control": "single|left|2||2-4",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        4
+      ],
+      "accessibleNumbersControl": [
+        6
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 1,
+        "connector": 0.7142857142857143,
+        "control": 0.4285714285714285,
+        "delta": 0.2857142857142858
+      },
+      "empiricalNextCanPlayDelta": 0.25,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.65,
+          "pips": 4.775,
+          "minus": -0.325,
+          "block": 0,
+          "turns": -1.125
+        },
+        "moderate-double-hold": {
+          "first": -0.65,
+          "pips": 5.175,
+          "minus": -0.325,
+          "block": 0,
+          "turns": -1.4
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        2
+      ],
+      "ownLegalActionDelta": 1,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        2,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.8571428571428572,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": 0.2857142857142858
+    },
+    {
+      "seed": 1448767,
+      "turn": 18,
+      "seat": 2,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|left|0||0-6",
+      "control": "single|up|2||2-4",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        4
+      ],
+      "accessibleNumbersControl": [
+        6
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 3,
+        "legalUnknownControl": 1,
+        "connector": 0.8214285714285714,
+        "control": 0.375,
+        "delta": 0.4464285714285714
+      },
+      "empiricalNextCanPlayDelta": 0.5,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.45,
+          "pips": 2.3,
+          "minus": -0.625,
+          "block": 0,
+          "turns": -1.05
+        },
+        "moderate-double-hold": {
+          "first": -0.525,
+          "pips": 1.45,
+          "minus": -0.625,
+          "block": 0.075,
+          "turns": -0.675
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        1
+      ],
+      "ownLegalActionDelta": 1,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        3,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.9821428571428571,
+        0.625
+      ],
+      "thirdExactCanPlayDelta": 0.3571428571428571
+    },
+    {
+      "seed": 1449771,
+      "turn": 18,
+      "seat": 0,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|up|2||2-4",
+      "control": "single|right|0||0-6",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        4,
+        6
+      ],
+      "accessibleNumbersControl": [
+        4,
+        4
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.4285714285714285,
+        "control": 0.4285714285714285,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        6
+      ],
+      "ownLegalActionDelta": -4,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5714285714285714,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1451543,
+      "turn": 19,
+      "seat": 0,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|down|0||0-6",
+      "control": "single|up|2||2-4",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        4
+      ],
+      "accessibleNumbersControl": [
+        6
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.4285714285714285,
+        "control": 0.4285714285714285,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 1,
+          "pips": -7.4,
+          "minus": 1,
+          "block": 0,
+          "turns": 0.15
+        },
+        "moderate-double-hold": {
+          "first": 1,
+          "pips": -7.4,
+          "minus": 1,
+          "block": 0,
+          "turns": 0.15
+        }
+      },
+      "ownLegalActionCount": [
+        4,
+        1
+      ],
+      "ownLegalActionDelta": 3,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5714285714285714,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1455565,
+      "turn": 17,
+      "seat": 2,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|2||2-6",
+      "control": "single|up|3||3-5",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        5
+      ],
+      "accessibleNumbersControl": [
+        6
+      ],
+      "exact": {
+        "unknownPool": 9,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 3,
+        "legalUnknownControl": 1,
+        "connector": 0.761904761904762,
+        "control": 0.3333333333333335,
+        "delta": 0.4285714285714285
+      },
+      "empiricalNextCanPlayDelta": 0.425,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": -0.075,
+          "pips": 1.775,
+          "minus": -0.025,
+          "block": 0,
+          "turns": 0.25
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 1.575,
+          "minus": -0.05,
+          "block": 0,
+          "turns": -0.45
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 6,
+      "thirdLegalUnknownCounts": [
+        3,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.9880952380952381,
+        0.6666666666666667
+      ],
+      "thirdExactCanPlayDelta": 0.3214285714285714
+    },
+    {
+      "seed": 1455906,
+      "turn": 18,
+      "seat": 2,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|left|2||2-3",
+      "control": "single|right|0||0-5",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        5
+      ],
+      "accessibleNumbersControl": [
+        3
+      ],
+      "exact": {
+        "unknownPool": 6,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.5,
+        "control": 0.5,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": -0.3,
+          "minus": 0,
+          "block": 0,
+          "turns": 0.225
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": -0.3,
+          "minus": 0,
+          "block": 0,
+          "turns": 0.225
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 3,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5,
+        0.5
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1462016,
+      "turn": 17,
+      "seat": 1,
+      "x": 0,
+      "handSize": 4,
+      "nextHandSize": 3,
+      "connector": "single|right|0||0-5",
+      "control": "single|up|2||2-3",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        3,
+        6
+      ],
+      "accessibleNumbersControl": [
+        5,
+        6
+      ],
+      "exact": {
+        "unknownPool": 9,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 4,
+        "legalUnknownControl": 4,
+        "connector": 0.8809523809523809,
+        "control": 0.8809523809523809,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.325,
+          "pips": -2.775,
+          "minus": -0.05,
+          "block": 0,
+          "turns": 0.25
+        },
+        "moderate-double-hold": {
+          "first": 0.3,
+          "pips": -2.6,
+          "minus": -0.05,
+          "block": 0,
+          "turns": -0.3
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        1
+      ],
+      "ownLegalActionDelta": 1,
+      "thirdPlayerHandSize": 6,
+      "thirdLegalUnknownCounts": [
+        4,
+        4
+      ],
+      "thirdExactCanPlay": [
+        1,
+        1
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1466341,
+      "turn": 17,
+      "seat": 2,
+      "x": 3,
+      "handSize": 4,
+      "nextHandSize": 3,
+      "connector": "single|up|3||2-3",
+      "control": "single|left|0||0-5",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        5
+      ],
+      "accessibleNumbersControl": [
+        2
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.4285714285714285,
+        "control": 0.4285714285714285,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        },
+        "moderate-double-hold": {
+          "first": -0.175,
+          "pips": 0.7,
+          "minus": 0,
+          "block": 0.05,
+          "turns": 0.5
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        2
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5714285714285714,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1467598,
+      "turn": 18,
+      "seat": 0,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|2||2-5",
+      "control": "single|left|4||3-4",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        3
+      ],
+      "accessibleNumbersControl": [
+        5
+      ],
+      "exact": {
+        "unknownPool": 9,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 3,
+        "connector": 0.5833333333333333,
+        "control": 0.761904761904762,
+        "delta": -0.17857142857142871
+      },
+      "empiricalNextCanPlayDelta": -0.325,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0.45,
+          "minus": 0.05,
+          "block": 0,
+          "turns": -0.45
+        },
+        "moderate-double-hold": {
+          "first": -0.05,
+          "pips": -1.45,
+          "minus": 0.075,
+          "block": 0,
+          "turns": 0.35
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        1
+      ],
+      "ownLegalActionDelta": 2,
+      "thirdPlayerHandSize": 6,
+      "thirdLegalUnknownCounts": [
+        2,
+        3
+      ],
+      "thirdExactCanPlay": [
+        0.9166666666666666,
+        0.9880952380952381
+      ],
+      "thirdExactCanPlayDelta": -0.07142857142857151
+    },
+    {
+      "seed": 1471182,
+      "turn": 18,
+      "seat": 2,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|up|2||2-3",
+      "control": "single|left|0||0-5",
+      "accessibleCount": 3,
+      "accessibleNumbersConnector": [
+        3,
+        5,
+        5
+      ],
+      "accessibleNumbersControl": [
+        3,
+        3,
+        5
+      ],
+      "exact": {
+        "unknownPool": 8,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 2,
+        "legalUnknownControl": 2,
+        "connector": 0.6428571428571429,
+        "control": 0.6428571428571429,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        3
+      ],
+      "ownLegalActionDelta": 0,
+      "thirdPlayerHandSize": 5,
+      "thirdLegalUnknownCounts": [
+        2,
+        2
+      ],
+      "thirdExactCanPlay": [
+        0.8928571428571429,
+        0.8928571428571429
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1476672,
+      "turn": 17,
+      "seat": 2,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|right|2||2-4",
+      "control": "single|left|0||0-6",
+      "accessibleCount": 1,
+      "accessibleNumbersConnector": [
+        6
+      ],
+      "accessibleNumbersControl": [
+        4
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 0,
+        "legalUnknownControl": 2,
+        "connector": 0,
+        "control": 0.7142857142857143,
+        "delta": -0.7142857142857143
+      },
+      "empiricalNextCanPlayDelta": -0.825,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.375,
+          "pips": -6.1,
+          "minus": -0.275,
+          "block": 0.025,
+          "turns": 3.85
+        },
+        "moderate-double-hold": {
+          "first": 0.5,
+          "pips": -8.625,
+          "minus": 0,
+          "block": 0.075,
+          "turns": 4.975
+        }
+      },
+      "ownLegalActionCount": [
+        2,
+        3
+      ],
+      "ownLegalActionDelta": -1,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        0,
+        2
+      ],
+      "thirdExactCanPlay": [
+        0,
+        0.8571428571428572
+      ],
+      "thirdExactCanPlayDelta": -0.8571428571428572
+    },
+    {
+      "seed": 1478207,
+      "turn": 18,
+      "seat": 2,
+      "x": 0,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|up|0||0-6",
+      "control": "single|left|2||2-4",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        4,
+        4
+      ],
+      "accessibleNumbersControl": [
+        4,
+        6
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 1,
+        "legalUnknownControl": 1,
+        "connector": 0.4285714285714285,
+        "control": 0.4285714285714285,
+        "delta": 0
+      },
+      "empiricalNextCanPlayDelta": 0,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        },
+        "moderate-double-hold": {
+          "first": 0,
+          "pips": 0,
+          "minus": 0,
+          "block": 0,
+          "turns": 0
+        }
+      },
+      "ownLegalActionCount": [
+        5,
+        2
+      ],
+      "ownLegalActionDelta": 3,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        1,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0.5714285714285714,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": 0
+    },
+    {
+      "seed": 1479037,
+      "turn": 17,
+      "seat": 0,
+      "x": 2,
+      "handSize": 5,
+      "nextHandSize": 3,
+      "connector": "single|left|2||2-3",
+      "control": "single|up|0||0-5",
+      "accessibleCount": 2,
+      "accessibleNumbersConnector": [
+        3,
+        5
+      ],
+      "accessibleNumbersControl": [
+        3,
+        3
+      ],
+      "exact": {
+        "unknownPool": 7,
+        "nextHandSize": 3,
+        "legalUnknownConnector": 0,
+        "legalUnknownControl": 1,
+        "connector": 0,
+        "control": 0.4285714285714285,
+        "delta": -0.4285714285714285
+      },
+      "empiricalNextCanPlayDelta": -0.425,
+      "byPolicy": {
+        "closed-branch-control": {
+          "first": 0.25,
+          "pips": -0.7,
+          "minus": 0.375,
+          "block": 0.1,
+          "turns": 0.3
+        },
+        "moderate-double-hold": {
+          "first": 0.475,
+          "pips": -1.175,
+          "minus": 0,
+          "block": 0.15,
+          "turns": 1.725
+        }
+      },
+      "ownLegalActionCount": [
+        3,
+        5
+      ],
+      "ownLegalActionDelta": -2,
+      "thirdPlayerHandSize": 4,
+      "thirdLegalUnknownCounts": [
+        0,
+        1
+      ],
+      "thirdExactCanPlay": [
+        0,
+        0.5714285714285714
+      ],
+      "thirdExactCanPlayDelta": -0.5714285714285714
+    }
+  ]
+}
