@@ -381,3 +381,13 @@
 - New complete deals: 0; new evaluated hidden worlds: 0; no new strategy finding. Verified prior full-round cumulative baseline remains 180,000; exact hidden allocations tracked separately.
 - Confidence/limits: test scaffolding only, does not establish strategic advantage or isolate branch geometry; requires execution and independent paired-world runner.
 - Exact next action: run `node qosha-research/simulator/connector-other-matches-test.js`; if green, implement/run paired-world equal-pip comparison on fresh seeds with identical continuation worlds and three policies; record first-place, remainder, minus-finish separately.
+
+
+### 2026-10-19 20:54 (+04) — remembered-pass posterior ablation
+- Engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`; 3×9; deterministic V8 CommonJS regression green, Node CLI not run.
+- Fresh seeds `1300000..1300199`: 200 deals × 3 focal seats × 2 opponent profiles × 5 variants = **6,000 complete continuations**, 0 unresolved; matched seeds/seats/opponents. Previous repository-validated 186,000 → **192,000** if persisted.
+- Comparing alpha12/alpha20 next-pass heuristic with/without forbidden-tile inference from observed no-stock passes: memory finish-first deltas **+0.33/+0.83 pp** vs min-pips bots, **+0.33/+0.67 pp** vs branch-control bots; all exploratory seed-cluster 95% intervals include zero.
+- Direct same-state policy changes: 30/3712, 40/3704, 34/3171, 31/3180 focal choices across respective alpha/opponent cells. Every pass-derived forbidden set checked against actual opponent hand; no contradictions.
+- Finding: memory has little observed incremental effect here, not statistically confirmed; reply-aware benefit vs pure min-pips should not be attributed to memory. Partial posterior assumes uniform allowed unseen tiles, not full history-conditioned hidden-world model.
+- Reproduce: `simulator/pass-memory-ablation.js test` then `1300000 200`; detailed linked checkpoint `runs/2026-10-19-2054-pass-memory-ablation.md`.
+- Next: fresh seeds 1300200..1300999, calibrate memory posterior on true next-pass outcomes and condition on both opponents' histories. Branch semantics provisional; no block winner.
