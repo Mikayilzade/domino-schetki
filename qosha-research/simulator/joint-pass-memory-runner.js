@@ -1,0 +1,201 @@
+'use strict';
+// Exact two-opponent pass-history posterior, 3x9 only.
+// node qosha-research/simulator/joint-pass-memory-runner.js test
+// node qosha-research/simulator/joint-pass-memory-runner.js 1301000 800
+const e=require('./engine'),d=require('./turn-dispatcher'),r=require('./round-driver');
+const init=require('./initializer'),{chooseBy}=require('./strategy-runner'),{pass}=require('./joint-pass-exact');
+const deck=e.createDoubleSixDeck(), profiles=['min-hand-pips','closed-branch-control'];
+const variants=['a20-plain','a20-one','a20-joint'];
+const key=a=>[a.type,(a.numbers||[]).join(','),a.side||'',a.to??'',e.tileKey(a.tile||[0,0])].join(':');
+const tiles=a=>a.type==='single'?[a.tile]:(a.tiles||[]);
+const mean=a=>a.reduce((x,y)=>x+y,0)/a.length;
+function playableKeys(branch,opening){
+  return new Set(deck.filter(t=>d.actionsForHand(branch,opening,[t]).length).map(e.tileKey));
+}
+function posterior(unseen,k,forbidNext,forbidOther,playable,mode){
+  const n=unseen.length;
+  if(!Number.isInteger(k)||k<0||k>n)throw Error('bad next-hand size');
+  if(mode==='plain'){
+    const m=unseen.filter(t=>playable.has(e.tileKey(t))).length;
+    return pass(n,m,k);
+  }
+  const nextAllowed=unseen.filter(t=>!forbidNext.has(e.tileKey(t)));
+  if(nextAllowed.length<k)throw Error('next-hand pass contradiction');
+  if(mode==='one'){
+    return pass(nextAllowed.length,nextAllowed.filter(t=>playable.has(e.tileKey(t))).length,k);
+  }
+  if(mode!=='joint')throw Error('unknown posterior '+mode);
+  // With no stock and exactly two hidden hands, a tile forbidden for the
+  // OTHER player is mandatory in the NEXT player's hand. Conversely, a
+  // tile forbidden for NEXT must be held by OTHER. Remaining flexible
+  // tiles are uniformly split conditional on both players' pass events.
+  let mandatory=0,flex=0,flexSafe=0,mandatoryPlayable=false;
+  for(const t of unseen){
+    const z=e.tileKey(t),a=forbidNext.has(z),b=forbidOther.has(z);
+    if(a&&b)throw Error('joint pass constraints impossible: '+z);
+    if(b){mandatory++;if(playable.has(z))mandatoryPlayable=true;}
+    else if(!a){flex++;if(!playable.has(z))flexSafe++;}
+  }
+  const draw=k-mandatory;
+  if(draw<0||draw>flex)throw Error('joint pass constraints incompatible with hand size');
+  if(mandatoryPlayable)return 0;
+  return pass(flex,flex-flexSafe,draw);
+}
+function select(opts,state,known,forbidden,variant,collectCalibration=false){
+  if(opts.actions.length===1)return {action:opts.actions[0],cal:null};
+  if(state.stock.length)throw Error('3x9 posterior expects empty stock');
+  const focal=state.currentPlayer,next=(focal+1)%3,other=(focal+2)%3;
+  const used=new Set([...known,...state.hands[focal]].map(e.tileKey));
+  const unseen=deck.filter(t=>!used.has(e.tileKey(t)));
+  const k=state.hands[next].length;
+  if(unseen.length!==k+state.hands[other].length)throw Error('unseen conservation failure');
+  for(const p of [next,other])for(const t of state.hands[p])
+    if(forbidden[p].has(e.tileKey(t)))throw Error('actual hand contradicts observed pass');
+  const mode=variant.split('-')[1],alpha=20;
+  const scored=opts.actions.map(a=>{
+    const discarded=tiles(a),pips=e.pipSum(discarded);
+    if(discarded.length===state.hands[focal].length)return {action:a,pips,score:Infinity,prob:0};
+    const tr=d.applyTurn(state.branchState,state.openingState,state.hands[focal],state.stock,a);
+    const prob=posterior(unseen,k,forbidden[next],forbidden[other],
+      playableKeys(tr.branchState,tr.openingState),mode);
+    return {action:a,pips,score:pips+alpha*prob,prob};
+  });
+  scored.sort((a,b)=>b.score-a.score||b.pips-a.pips||key(a.action).localeCompare(key(b.action)));
+  const best=scored[0];
+  let cal=null;
+  if(collectCalibration&&best.score!==Infinity){
+    const tr=d.applyTurn(state.branchState,state.openingState,state.hands[focal],state.stock,best.action);
+    const legal=playableKeys(tr.branchState,tr.openingState);
+    const y=+(!state.hands[next].some(t=>legal.has(e.tileKey(t))));
+    const p={};
+    for(const mode of ['plain','one','joint'])p[mode]=posterior(unseen,k,forbidden[next],forbidden[other],legal,mode);
+    cal={y,p,nextHistory:forbidden[next].size>0,otherHistory:forbidden[other].size>0};
+  }
+  return {action:best.action,cal};
+}
+function play(base,seat,profile,variant){
+  let state=r.cloneRoundState(base),passEvents=0,choices=0,changedVsOne=0,conditioned=0,bothConditioned=0;
+  const live=new Set([...base.hands.flat(),...base.stock].map(e.tileKey));
+  const known=deck.filter(t=>!live.has(e.tileKey(t)));
+  const forbidden=Array.from({length:3},()=>new Set());
+  const calibration=[];
+  while(!state.outcome&&state.turns<200){
+    const p=state.currentPlayer,opts=d.turnOptions(state.branchState,state.openingState,state.hands[p],state.stock);
+    let action=null;
+    if(opts.phase==='pass'&&!state.stock.length){
+      for(const k of playableKeys(state.branchState,state.openingState))forbidden[p].add(k);
+      for(const t of state.hands[p])if(forbidden[p].has(e.tileKey(t)))throw Error('pass contradiction');
+      passEvents++;
+    }
+    if(opts.phase==='play'){
+      if(p===seat){
+        if(opts.actions.length>1){
+          choices++;
+          if(forbidden[(p+1)%3].size)conditioned++;
+          if(forbidden[(p+1)%3].size&&forbidden[(p+2)%3].size)bothConditioned++;
+        }
+        const result=select(opts,state,known,forbidden,variant,variant==='a20-plain');
+        action=result.action;
+        if(result.cal)calibration.push(result.cal);
+        if(variant==='a20-joint'&&opts.actions.length>1){
+          if(key(action)!==key(select(opts,state,known,forbidden,'a20-one').action))changedVsOne++;
+        }
+      }else action=chooseBy(profile,opts);
+    }
+    state=r.stepRound(state,()=>action);
+    if(action)known.push(...tiles(action));
+  }
+  const o=state.outcome||{kind:'unresolved'};
+  return {win:+(o.kind==='finish'&&o.playerIndex===seat),pips:e.pipSum(state.hands[seat]),
+    block:+(o.kind==='block'),unresolved:+(o.kind==='unresolved'),turns:state.turns,
+    minus:o.kind==='finish'&&o.playerIndex===seat?o.minus:0,
+    passEvents,choices,conditioned,bothConditioned,changedVsOne,calibration};
+}
+function run(start=1301000,count=800){
+  if(!Number.isInteger(start)||!Number.isInteger(count)||count<2)throw Error('bad seeds');
+  const report={schema:'qosa-joint-pass-memory/v1',engine:'qosa-research-0.5.3',
+    rules:'qosa-1.0.0',mode:'3x9',startSeed:start,endSeed:start+count-1,deals:count,
+    variants,profiles:[],fullRounds:0,
+    assumptions:'No stock; all unknown tiles are partitioned into the two opponents exact current hand sizes. Pass forbids any individually playable tile in the passing hand. Uniform conditional allocation; no policy-choice likelihoods.',
+    limitations:'Provisional branch semantics, fixed deterministic bots, no block winner, finish-first not match win; exploratory deal-cluster intervals and correlated calibration decisions.'};
+  for(const profile of profiles){
+    const sums=variants.map(()=>({win:0,pips:[],block:0,unresolved:0,turns:0,passEvents:0,choices:0,
+      conditioned:0,bothConditioned:0,changedVsOne:0,minus:{'0':0,'-10':0,'-20':0,'-30':0,'-40':0}}));
+    const bySeed=variants.map(()=>[]);
+    const calibration={all:[],either:[],both:[]};
+    for(let seed=start;seed<start+count;seed++){
+      const base=init.initializeThreePlayerRound({seed,isFirstRound:false,previousWinnerIndex:seed%3});
+      if(base.kind!=='ready')throw Error('initializer unresolved '+seed);
+      const wins=variants.map(()=>[]);
+      for(let seat=0;seat<3;seat++){
+        const outcomes=variants.map(v=>play(base,seat,profile,v));
+        for(let i=0;i<variants.length;i++){
+          const x=outcomes[i],s=sums[i];s.win+=x.win;s.pips.push(x.pips);
+          for(const field of ['block','unresolved','turns','passEvents','choices','conditioned','bothConditioned','changedVsOne'])s[field]+=x[field];
+          s.minus[String(x.minus)]++;wins[i].push(x.win);report.fullRounds++;
+        }
+        for(const x of outcomes[0].calibration){
+          calibration.all.push(x);
+          if(x.nextHistory||x.otherHistory)calibration.either.push(x);
+          if(x.nextHistory&&x.otherHistory)calibration.both.push(x);
+        }
+      }
+      for(let i=0;i<variants.length;i++)bySeed[i].push(mean(wins[i]));
+    }
+    const rows=variants.map((variant,i)=>{
+      const s=sums[i],ref=i===0?0:(i===1?0:1),deltas=bySeed[i].map((v,j)=>v-bySeed[ref][j]);
+      const mu=mean(deltas),sd=Math.sqrt(deltas.reduce((x,y)=>x+(y-mu)**2,0)/(count-1)),ci=1.96*sd/Math.sqrt(count);
+      const p=[...s.pips].sort((a,b)=>a-b),mid=p.length/2;
+      return {variant,rounds:count*3,finishFirstRate:s.win/(count*3),reference:variants[ref],
+        deltaFinishFirst:mu,exploratorySeedCI95:[mu-ci,mu+ci],meanPips:mean(s.pips),
+        medianPips:(p[mid-1]+p[mid])/2,blockRate:s.block/(count*3),meanTurns:s.turns/(count*3),
+        passEvents:s.passEvents,choices:s.choices,conditioned:s.conditioned,
+        bothConditioned:s.bothConditioned,changedVsOne:s.changedVsOne,
+        minus:s.minus,unresolved:s.unresolved};
+    });
+    const cal=Object.fromEntries(Object.entries(calibration).map(([group,arr])=>[group,{
+      n:arr.length,actualPassRate:arr.length?mean(arr.map(x=>x.y)):null,
+      metrics:Object.fromEntries(['plain','one','joint'].map(m=>[m,{
+        meanPredictedPass:arr.length?mean(arr.map(x=>x.p[m])):null,
+        brier:arr.length?mean(arr.map(x=>(x.p[m]-x.y)**2)):null
+      }]))
+    }]));
+    report.profiles.push({profile,rows,calibration:cal});
+  }
+  return report;
+}
+function test(){
+  // Compare the analytic conditional probability against explicit hand allocations.
+  const ts=deck.slice(0,8),n=ts.length;
+  for(let k=1;k<n;k++)for(let x=0;x<30;x++){
+    const fa=new Set(),fb=new Set(),legal=new Set();
+    for(let i=0;i<n;i++){
+      const z=e.tileKey(ts[i]),v=(Math.imul(x+3,i+7)+i*i)%7;
+      if(v===0)fa.add(z);if(v===1)fb.add(z);if((x+i*3)%4<2)legal.add(z);
+    }
+    let numerator=0,denominator=0;
+    for(let mask=0;mask<(1<<n);mask++){
+      let pop=0;for(let i=0;i<n;i++)pop+=(mask>>i)&1;
+      if(pop!==k)continue;
+      let valid=true,passNow=true;
+      for(let i=0;i<n;i++){
+        const z=e.tileKey(ts[i]),inNext=!!(mask&(1<<i));
+        if(inNext&&fa.has(z)||!inNext&&fb.has(z))valid=false;
+        if(inNext&&legal.has(z))passNow=false;
+      }
+      if(valid){denominator++;if(passNow)numerator++;}
+    }
+    if(!denominator)continue;
+    const p=posterior(ts,k,fa,fb,legal,'joint');
+    if(Math.abs(p-numerator/denominator)>1e-12)throw Error('joint exact mismatch '+k+' '+x);
+  }
+  const a=run(1301000,2),b=run(1301000,2);
+  if(JSON.stringify(a)!==JSON.stringify(b)||a.fullRounds!==36||
+    a.profiles.some(p=>p.rows.some(row=>row.unresolved)))throw Error('replay/termination');
+  return {passed:true,fullRounds:a.fullRounds,posterior:'brute-force enumeration'};
+}
+if(require.main===module){
+  const a=process.argv.slice(2);
+  console.log(JSON.stringify(a[0]==='test'?test():run(+(a[0]||1301000),+(a[1]||800)),null,2));
+}
+module.exports={posterior,select,play,run,test};
