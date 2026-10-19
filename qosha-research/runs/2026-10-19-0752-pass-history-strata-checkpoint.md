@@ -1,0 +1,19 @@
+# Qoşa açdı — 2026-10-19 07:52 Asia/Baku — pass-history strata holdout
+
+- Engine: `qosa-research-0.5.3`; rules: `qosa-1.0.0`; 3 players × 9 stones, later-round mode.
+- Seeds: **2024000..2024999** (1,000 distinct deals); three seat rotations and two opponent mixtures = **6,000 complete rounds**. No unresolved rounds. V8 CommonJS execution; Node CLI replay pending.
+- Strategies: `public-history-pass`, `public-next-pass` (otherwise identical, ignores observed previous passes), versus `closed-branch-control` (arm A) or `min-hand-pips` (arm B). Same seed/deal set within each arm.
+- Arm A: 3,000 rounds; 301 blocks; finish-first history **1,060/3,000 = 35.333%**, uniform **851/3,000 = 28.367%**; advantage **+6.967 pp**.
+- Arm B: 3,000 rounds; 294 blocks; finish-first history **1,168/3,000 = 38.933%**, uniform **940/3,000 = 31.333%**; advantage **+7.600 pp**.
+- In history-policy multi-choice decisions, observed pass information changed the selected action in **710/16,436** (A) and **952/17,094** (B). Without forced-allocation evidence there were **zero** changes.
+- Retrospective exact one-step counterfactual: for each changed choice, apply both candidates to the same pre-action state and check whether the **actual** next opponent hand has a legal move. This hidden information is used **only for evaluation**, not for selecting the move.
+- Of 1,662 changed choices across arms, the history move caused the next opponent to pass when the uniform move would not in **34** cases; the reverse occurred in **0**; both actions had the same immediate pass outcome in **1,628** cases.
+- With **1–2 stones** in the next opponent hand: **241** changed choices, **23** immediate-pass improvements, 0 reversals. With 3–4 stones: **658** changes, 8 improvements; with 5+ stones: **763** changes, 3 improvements.
+- By prior pass count, changed choices: A 547/101/62 and B 766/138/48 for 0/1/2+ earlier passes respectively. Immediate-pass improvements: A 5/2/4, B 9/10/4.
+- Open-number strata: changed A 108/167/435, B 122/235/595 for 1–2 / 3–4 / 5–7 opened numbers. Immediate-pass improvements A 1/0/10, B 0/1/22.
+- Mean remaining pips, median, and minus frequencies were also computed in the run, but are omitted from this compact checkpoint pending executable diagnostic source persistence.
+- **New observation (provisional):** immediate next-player pass benefits concentrate in 1–2-stone endgames (23 of 34 improvements), although that stratum comprises only 241 of 1,662 changed choices. This is an observational post-hoc subgroup and does **not** prove extra wins attributable to those decisions.
+- **Confidence/limitations:** tournament effects are in-simulator, with deterministic bots, provisional branch locking, seat rotations correlated by deal; no deal-clustered CI for this run. Immediate-pass counterfactual is not long-run win regret. Pass-only posterior ignores voluntary move likelihood; no 101-match scoring; block winner unassigned.
+- **Reproduction status:** existing `simulator/public-pass-history-tournament.js` reproduces the tournament policy and metrics on these seeds. Extended diagnostic code passed a V8 pilot and full 1,000-seed execution, but GitHub blocked the attempted JS source write. Consequently exact stratification is not independently replayable from this commit yet; do not label it fully reproducible.
+- **Cumulative:** 219,000 previously documented full rounds + 6,000 new = **225,000 executed/documented**, historical 4,000 excluded; the old 215,520 figure remains unreconciled.
+- **Exact next action:** persist executable `public-pass-history-strata.js`, verify Node CLI replay, then test on independent seeds **2025000..2025999** whether using pass history *only* when the next opponent has 1–2 stones retains the full-history win advantage, with deal-clustered confidence intervals.
