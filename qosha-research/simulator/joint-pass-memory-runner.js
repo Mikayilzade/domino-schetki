@@ -136,7 +136,7 @@ function run(start=1301000,count=800,weights=[20]){
           for(const field of ['block','unresolved','turns','passEvents','choices','conditioned','bothConditioned','changedVsOne'])s[field]+=x[field];
           s.minus[String(x.minus)]++;wins[i].push(x.win);report.fullRounds++;
         }
-        for(const x of outcomes[0].calibration){
+        for(const x of outcomes[variants.indexOf('a20-plain')].calibration){
           calibration.all.push(x);
           if(x.nextHistory||x.otherHistory)calibration.either.push(x);
           if(x.nextHistory&&x.otherHistory)calibration.both.push(x);
