@@ -1,5 +1,16 @@
 # Qoşa research status
 
+## Research checkpoint — 2026-10-20 10:54 Asia/Baku (+04)
+- Engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, primary 3×9; no gameplay-rule changes.
+- Fresh independent deal seeds **1320000..1324999**: 5,000 scanned, 9 eligible late equal-pip positions, 64 matched hidden allocations each (32 train / 32 holdout), **576 allocations**, **2,944 forced continuations**, 0 unresolved. Two deterministic continuation policies: min-hand-pips and closed-branch-control. V8 CommonJS harness executed; Node CLI not run.
+- Holdout keep-connector minus break-connector finish-first: **+12.50 pp** min-pips (exploratory 95% position CI -1.65..26.65 pp); **+13.54 pp** branch-control (CI 1.72..25.36 pp). Mean focal remainder -1.20/-1.32 pips. Only 9 positions: no generalization claim.
+- **Geometry confounding remains**: 0/9 positions had equal post-action active-end multisets. The existing `simulator/geometry-identity-test.js` already encodes the structural impossibility of exact active-end matching for distinct legal non-double tiles. Across holdout hidden worlds, the next opponent's immediate legal-action count was equal under both actions only **42.36%** of the time; mean keep-minus-break next-player mobility **+0.253 actions**. Equal-mobility worlds do NOT fully match branch geometry.
+- Verified cumulative: **266,700 complete strategy rounds** unchanged (historical 4,000 separate), paired forced continuations **75,344 + 2,944 = 78,288**; do not add these to complete rounds.
+- Data: `runs/2026-10-20-1054-geometry-mobility-holdout.json`; reproduce via `simulator/connector-equal-pip-preservation-holdout.js` with `1320000 5000 64 30`; geometry `engine.applySinglePlacement`, mobility `turn-dispatcher.applyTurn` then `turnOptions` for next seat on the 32 holdout worlds, using the same seed formula.
+- Confidence/limitations: provisional, exploratory CIs, first eligible state per seed, deterministic bots, uniform pass-conditioned hidden allocations, assumed branch-number opening, first finisher not match winner and no block winner. An attempted new standalone diagnostic runner was not persisted because GitHub write safety checks blocked it; run-data and this checkpoint were saved.
+- **Exact next hypothesis/action:** run disjoint seeds **1325000..1329999** with 64 worlds and the same precommitted equal-pip criteria; pool position-level deltas only if engine and policies match; analyze mobility-matched worlds as descriptive sensitivity, not causal isolation. Add a minimal persistent geometry/mobility runner when connector writes permit. Do not create Actions or modify scoreboard/PWA files.
+
+
 ## Latest research checkpoint — 2026-10-20, 09:50 Asia/Baku (+04)
 - Source branch: qosha-research-20261020-0750; validated full-strategy rounds: **266,700**, historical 4,000 separate.
 - New equal-pip control: 28 independent late positions, 1792 matched hidden allocations, **8576** forced continuations; 0 unresolved. Prior paired continuations 66,768; cumulative **75344**.
