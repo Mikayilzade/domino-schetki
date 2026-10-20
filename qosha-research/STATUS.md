@@ -1,5 +1,17 @@
 # Qoşa research status
 
+## Additional independent holdout — 2026-10-20 11:03:44 Asia/Baku (+04)
+- Engine/rules `qosa-research-0.5.3` / `qosa-1.0.0`, 3×9; seed range **1325000..1329999** (disjoint from prior 5k).
+- **5,000** new scanned deals; 18 eligible equal-pip connector positions; 64 matched worlds each (32 train, 32 test), **1,152 hidden allocations**, **5,504 forced continuations**, 0 unresolved. Policies: min-hand-pips and closed-branch-control. V8 execution passed, Node CLI not run.
+- Held-out connector-preserving minus connector-breaking finish-first: **+10.76 pp** (95% exploratory position CI **-6.29..27.82 pp**) and **+12.50 pp** (CI **-4.28..29.28 pp**) respectively; mean focal remainder **-1.059 / -1.049** pips; minus-finish **+15.45 / +17.19 pp**.
+- Geometry: 0/18 exact active-end multiset matches. Immediate next-opponent legal action count equal in **32.47%** of held-out hidden worlds; mean mobility shift keep-minus-break **+0.0139** actions. Only 3/18 positions had mean mobility shift <0.25; within those, finish-first difference was **-5.21 pp** for both policies, an extremely small descriptive subgroup.
+- Reproduce `simulator/connector-equal-pip-preservation-holdout.js 1325000 5000 64 30`. Geometry: `engine.applySinglePlacement`, next-player mobility: `turn-dispatcher.applyTurn` then `turnOptions` on held-out worlds i=32..63, using the original runner's deterministic seed formula. A separate detailed run-data file write was blocked by connector safety checks; these aggregate metrics are persisted here.
+- **Combined independent holdout** (both disjoint 5k ranges): **10,000 scanned**, **27 eligible positions**, **1,728 hidden allocations**, **8,448 forced continuations**. Position-weighted finish-first deltas: **+11.34 pp** min-pips, **+12.85 pp** branch-control. These are exploratory and not yet statistically reliable or causal.
+- Cumulative verified complete-strategy rounds **266,700** unchanged; paired continuations **75,344 + 2,944 + 5,504 = 83,792**. Historical 4,000 separate.
+- **Exact next action:** run a third independent 10k-deal seed block with the same matched equal-pip protocol; analyze branch-end geometry and opponent-mobility distributions, and try to persist an executable diagnostic runner. Do not infer causal connector value from post-action mobility conditioning.
+- Limitations: small selected positions, intervals including zero on part 2, provisional branch-opening semantics, deterministic bots, first-finisher not full-match winner, block winner unassigned.
+
+
 ## Research checkpoint — 2026-10-20 10:54 Asia/Baku (+04)
 - Engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, primary 3×9; no gameplay-rule changes.
 - Fresh independent deal seeds **1320000..1324999**: 5,000 scanned, 9 eligible late equal-pip positions, 64 matched hidden allocations each (32 train / 32 holdout), **576 allocations**, **2,944 forced continuations**, 0 unresolved. Two deterministic continuation policies: min-hand-pips and closed-branch-control. V8 CommonJS harness executed; Node CLI not run.
