@@ -1,5 +1,13 @@
 # Qoşa research status
 
+## Latest research checkpoint — 2026-10-20 04:49 Asia/Baku
+- Source branch: qosha-research-20261020-0255; last verified cumulative matched-strategy rounds: **266,700**, historical 4,000 separate.
+- New exploratory paired-regret experiment: 43 fresh deal seeds, 258 discovery trajectories, 80 selected decision states (40 per comparison), 20 conditional hidden allocations each and two continuation policies; **6,400 forced continuations**, all resolved. These are NOT added to the 266,700 matched-strategy total.
+- Reproducibility: simulator/pass-conditioned-world.js, pass-conditioned-world-test.js, pass-disagreement-regret-runner.js; run-data summary: runs/2026-10-20-0449-paired-regret-summary.txt.
+- Finding (provisional, selection-biased): at disagreement states alpha28-one beats alpha20-one by +12.1 to +13.1 pp first-finish across two continuations; joint-history posterior shows no reliable advantage.
+- Next: independent holdout on new seeds with pre-registered state sampling, evaluate all legal actions, and improve opponent-choice likelihood modelling. Branch opening semantics remain assumption-labelled.
+- The following status is the historical 2026-10-07 snapshot, not the current cumulative count.
+
 Updated: 2026-10-07 10:56 (+04)
 
 ## Current engine state
