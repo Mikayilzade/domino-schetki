@@ -1,0 +1,11 @@
+# 2026-10-20 17:53 Asia/Baku — pass-conditioned changed-action regret
+Engine qosa-research-0.5.3; rules qosa-1.0.0 (provisional branch semantics), primary 3x9. Seed discovery 1303100..1303175 inclusive (76 scanned, first 24 changed one-vs-joint alpha28 decisions, one position per seed; intended ceiling 1303549). Discovery: a28-one focal vs min-hand-pips opponents. Fixed-visible, both-pass-conditioned uniform hidden allocations: 24 worlds/position = 576 allocations. 2 continuation policies, 5,952 candidate continuations, 0 unresolved. Exact world seed mixSeed32(dealSeed + imul(worldIndex+1, 0x9e3779b9)); shuffledDeck(seed) restricted to flexible tiles; other-opponent forbidden tiles are forced to next player, next-opponent forbidden tiles forced to other. Same worlds and policies for all candidate moves. V8 CommonJS execution, Node CLI not run.
+
+Joint-minus-one finish-first, equal-weight across 24 positions (exploratory 95% position-cluster CI):
+- min-hand-pips continuation: -2.26 percentage points (CI -6.40..+1.88), 5 positive, 11 negative, 8 tied.
+- closed-branch-control continuation: -1.22 pp (CI -7.67..+5.24), 8 positive, 9 negative, 7 tied.
+Joint-minus-one remainder: -0.16 / -0.26 pips respectively. Minus-finish differences: -2.43 / -4.51 pp, both uncertain. Average fixed-candidate oracle regret in win probability: one 4.51% / 6.77%; joint 6.77% / 7.99%.
+
+Finding: no reliable advantage of either action policy on this changed-decision sample. The prior whole-game joint-pass penalty is NOT proven causal here; changes include opening extra doubles and changing branches, and per-position signs vary. More accurate next-pass probability does not guarantee improved finish-first. No new full-deal continuations credited; 576 hidden allocations and 5,952 candidate continuations tracked separately. Prior full-continuation cumulative 264,900.
+
+Limitations: fixed bots, first changed position per deal, only 24 worlds, uniform hidden allocation conditional on observed passes but not opponent action likelihood, exploratory CIs, no block winner, provisional branch rules. Exact next action: persist executable conditional sampler and regression; rerun independent >=60 positions with 100+ worlds, stratify decisions by extra-double opening and hand size; compare matched hidden-world regret at alpha20/28/36. No scoreboard changes.
