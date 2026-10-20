@@ -1,0 +1,837 @@
+{
+  "schema": "qosa-late-double-crossfit/v1",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "seedRange": [
+    1303600,
+    1303694
+  ],
+  "requestedDeals": 300,
+  "scannedDeals": 95,
+  "eligibleStates": 28,
+  "actionCapSkips": 0,
+  "selectedPositions": 28,
+  "worldsPerPosition": 24,
+  "trainWorlds": 12,
+  "testWorlds": 12,
+  "policies": [
+    "min-hand-pips",
+    "closed-branch-control"
+  ],
+  "variants": [
+    "a20-one",
+    "a28-one",
+    "a28-joint"
+  ],
+  "forcedContinuations": 4128,
+  "unresolved": 0,
+  "selection": "First focal state >=12 turns, 2..4 hand stones, double+single legal, no mixed finish, no stock; seed%3 focal seat; seed%2 discovery opponent profile; a28-one discovery trajectory.",
+  "assumptions": "Branch-number opening provisional; uniform unseen allocation conditional on hand counts and both opponents no-stock passes. All actions compared on identical worlds; train/test world indices disjoint.",
+  "limitations": "Selected late-double states are not representative of all turns; deterministic bots; first finisher not full match winner; block winner unspecified; 12 holdout worlds/position noisy; exploratory unadjusted seed-cluster CI.",
+  "results": {
+    "min-hand-pips": {
+      "positions": 28,
+      "actionsEvaluated": 86,
+      "meanLegalActions": 3.0714285714285716,
+      "doubleMinusSingleFirst": -0.2410714285714286,
+      "doubleMinusSingleFirstCI95": [
+        -0.3702221643472666,
+        -0.11192069279559058
+      ],
+      "doubleMinusSinglePips": 1.336309523809524,
+      "doubleMinusSingleMinus": -0.2916666666666667,
+      "doubleMinusSingleBlock": -9.912705577010326e-19,
+      "doubleMinusSingleTurns": 0.625,
+      "doubleBetter": 3,
+      "singleBetter": 17,
+      "equal": 8,
+      "changed28": 0,
+      "changedJoint": 2,
+      "alpha28Minus20First": 0,
+      "jointMinusOneFirst": -0.05952380952380953,
+      "byDoubleNumber": {
+        "0": {
+          "n": 11,
+          "meanDeltaFirst": -0.23484848484848483
+        },
+        "2": {
+          "n": 11,
+          "meanDeltaFirst": -0.3106060606060606
+        },
+        "3": {
+          "n": 4,
+          "meanDeltaFirst": -0.0625
+        },
+        "4": {
+          "n": 3,
+          "meanDeltaFirst": -0.16666666666666666
+        }
+      },
+      "heldoutMinusRates": {
+        "double": 0.008928571428571428,
+        "single": 0.3005952380952381
+      },
+      "examples": [
+        {
+          "seed": 1303601,
+          "seat": 2,
+          "turn": 12,
+          "profile": "closed-branch-control",
+          "hand": [
+            "5-6",
+            "2-2",
+            "2-5"
+          ],
+          "ends": {
+            "up": 2,
+            "left": 4,
+            "right": 5,
+            "down": 4
+          },
+          "opened": [
+            0,
+            1,
+            3,
+            5,
+            6
+          ],
+          "opponentSizes": [
+            5,
+            5
+          ],
+          "actions": 3,
+          "doubleAction": "double-sequence|||2|2-2",
+          "singleAction": "single|right|2||2-5",
+          "doubleNumbers": [
+            2
+          ],
+          "deltaDoubleFirst": -0.08333333333333337,
+          "deltaDoublePips": 0.5833333333333334,
+          "deltaDoubleMinus": 0,
+          "deltaDoubleBlock": 0.08333333333333333,
+          "deltaDoubleTurns": 1.083333333333334,
+          "delta28First": 0,
+          "deltaJointFirst": 0,
+          "changed28": 0,
+          "changedJoint": 0,
+          "doubleTest": {
+            "first": 0.9166666666666666,
+            "pips": 0.5833333333333334,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0.08333333333333333,
+            "turns": 8.083333333333334
+          },
+          "singleTest": {
+            "first": 1,
+            "pips": 0,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 7
+          },
+          "choices": {
+            "a20-one": "single|right|2||2-5",
+            "a28-one": "single|right|2||2-5",
+            "a28-joint": "single|right|2||2-5"
+          }
+        },
+        {
+          "seed": 1303606,
+          "seat": 1,
+          "turn": 16,
+          "profile": "min-hand-pips",
+          "hand": [
+            "0-1",
+            "4-5",
+            "4-4",
+            "0-4"
+          ],
+          "ends": {
+            "up": 2,
+            "left": 0,
+            "right": 4,
+            "down": 2
+          },
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "opponentSizes": [
+            4,
+            2
+          ],
+          "actions": 3,
+          "doubleAction": "double-sequence|||4|4-4",
+          "singleAction": "single|left|4||0-4",
+          "doubleNumbers": [
+            4
+          ],
+          "deltaDoubleFirst": 0,
+          "deltaDoublePips": -2.666666666666667,
+          "deltaDoubleMinus": 0,
+          "deltaDoubleBlock": 0,
+          "deltaDoubleTurns": 0.41666666666666696,
+          "delta28First": 0,
+          "deltaJointFirst": 0,
+          "changed28": 0,
+          "changedJoint": 0,
+          "doubleTest": {
+            "first": 0,
+            "pips": 5.083333333333333,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 7.166666666666667
+          },
+          "singleTest": {
+            "first": 0,
+            "pips": 7.75,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 6.75
+          },
+          "choices": {
+            "a20-one": "double-sequence|||4|4-4",
+            "a28-one": "double-sequence|||4|4-4",
+            "a28-joint": "double-sequence|||4|4-4"
+          }
+        },
+        {
+          "seed": 1303607,
+          "seat": 2,
+          "turn": 22,
+          "profile": "closed-branch-control",
+          "hand": [
+            "3-4",
+            "3-3",
+            "0-2",
+            "2-5"
+          ],
+          "ends": {
+            "up": 3,
+            "left": 3,
+            "right": 0,
+            "down": 3
+          },
+          "opened": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6
+          ],
+          "opponentSizes": [
+            4,
+            1
+          ],
+          "actions": 2,
+          "doubleAction": "double-sequence|||3|3-3",
+          "singleAction": "single|right|2||0-2",
+          "doubleNumbers": [
+            3
+          ],
+          "deltaDoubleFirst": 0,
+          "deltaDoublePips": 1.083333333333334,
+          "deltaDoubleMinus": 0,
+          "deltaDoubleBlock": 0,
+          "deltaDoubleTurns": -2.25,
+          "delta28First": 0,
+          "deltaJointFirst": 0,
+          "changed28": 0,
+          "changedJoint": 0,
+          "doubleTest": {
+            "first": 0,
+            "pips": 13.083333333333334,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 4.25
+          },
+          "singleTest": {
+            "first": 0,
+            "pips": 12,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 6.5
+          },
+          "choices": {
+            "a20-one": "single|right|2||0-2",
+            "a28-one": "single|right|2||0-2",
+            "a28-joint": "single|right|2||0-2"
+          }
+        },
+        {
+          "seed": 1303614,
+          "seat": 0,
+          "turn": 18,
+          "profile": "min-hand-pips",
+          "hand": [
+            "0-0",
+            "1-2",
+            "2-4"
+          ],
+          "ends": {
+            "up": 2,
+            "left": 0,
+            "right": 0,
+            "down": 0
+          },
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "actions": 3,
+          "doubleAction": "double-sequence|||0|0-0",
+          "singleAction": "single|up|1||1-2",
+          "doubleNumbers": [
+            0
+          ],
+          "deltaDoubleFirst": -0.3333333333333333,
+          "deltaDoublePips": -0.5,
+          "deltaDoubleMinus": 0,
+          "deltaDoubleBlock": 0,
+          "deltaDoubleTurns": -0.916666666666667,
+          "delta28First": 0,
+          "deltaJointFirst": 0,
+          "changed28": 0,
+          "changedJoint": 0,
+          "doubleTest": {
+            "first": 0,
+            "pips": 3.5,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 5
+          },
+          "singleTest": {
+            "first": 0.3333333333333333,
+            "pips": 4,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 5.916666666666667
+          },
+          "choices": {
+            "a20-one": "single|up|4||2-4",
+            "a28-one": "single|up|4||2-4",
+            "a28-joint": "single|up|4||2-4"
+          }
+        },
+        {
+          "seed": 1303624,
+          "seat": 1,
+          "turn": 18,
+          "profile": "min-hand-pips",
+          "hand": [
+            "0-0",
+            "1-6",
+            "0-6"
+          ],
+          "ends": {
+            "up": 4,
+            "left": 1,
+            "right": 1,
+            "down": 0
+          },
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "opponentSizes": [
+            3,
+            3
+          ],
+          "actions": 3,
+          "doubleAction": "double-sequence|||0|0-0",
+          "singleAction": "single|left|6||1-6",
+          "doubleNumbers": [
+            0
+          ],
+          "deltaDoubleFirst": 0,
+          "deltaDoublePips": 0,
+          "deltaDoubleMinus": -1,
+          "deltaDoubleBlock": 0,
+          "deltaDoubleTurns": 3,
+          "delta28First": 0,
+          "deltaJointFirst": 0,
+          "changed28": 0,
+          "changedJoint": 0,
+          "doubleTest": {
+            "first": 1,
+            "pips": 0,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 7
+          },
+          "singleTest": {
+            "first": 1,
+            "pips": 0,
+            "minus": 1,
+            "minus10": 1,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 4
+          },
+          "choices": {
+            "a20-one": "single|left|6||1-6",
+            "a28-one": "single|left|6||1-6",
+            "a28-joint": "single|left|6||1-6"
+          }
+        }
+      ]
+    },
+    "closed-branch-control": {
+      "positions": 28,
+      "actionsEvaluated": 86,
+      "meanLegalActions": 3.0714285714285716,
+      "doubleMinusSingleFirst": -0.28273809523809523,
+      "doubleMinusSingleFirstCI95": [
+        -0.4156590431547488,
+        -0.14981714732144166
+      ],
+      "doubleMinusSinglePips": 1.75,
+      "doubleMinusSingleMinus": -0.3244047619047619,
+      "doubleMinusSingleBlock": -0.002976190476190477,
+      "doubleMinusSingleTurns": 0.5982142857142856,
+      "doubleBetter": 2,
+      "singleBetter": 19,
+      "equal": 7,
+      "changed28": 0,
+      "changedJoint": 2,
+      "alpha28Minus20First": 0,
+      "jointMinusOneFirst": -0.05952380952380953,
+      "byDoubleNumber": {
+        "0": {
+          "n": 11,
+          "meanDeltaFirst": -0.23484848484848483
+        },
+        "2": {
+          "n": 11,
+          "meanDeltaFirst": -0.37121212121212116
+        },
+        "3": {
+          "n": 4,
+          "meanDeltaFirst": -0.10416666666666667
+        },
+        "4": {
+          "n": 3,
+          "meanDeltaFirst": -0.27777777777777773
+        }
+      },
+      "heldoutMinusRates": {
+        "double": 0.017857142857142856,
+        "single": 0.34226190476190477
+      },
+      "examples": [
+        {
+          "seed": 1303601,
+          "seat": 2,
+          "turn": 12,
+          "profile": "closed-branch-control",
+          "hand": [
+            "5-6",
+            "2-2",
+            "2-5"
+          ],
+          "ends": {
+            "up": 2,
+            "left": 4,
+            "right": 5,
+            "down": 4
+          },
+          "opened": [
+            0,
+            1,
+            3,
+            5,
+            6
+          ],
+          "opponentSizes": [
+            5,
+            5
+          ],
+          "actions": 3,
+          "doubleAction": "double-sequence|||2|2-2",
+          "singleAction": "single|right|2||2-5",
+          "doubleNumbers": [
+            2
+          ],
+          "deltaDoubleFirst": -0.25,
+          "deltaDoublePips": 2.75,
+          "deltaDoubleMinus": 0,
+          "deltaDoubleBlock": 0,
+          "deltaDoubleTurns": 3.25,
+          "delta28First": 0,
+          "deltaJointFirst": 0,
+          "changed28": 0,
+          "changedJoint": 0,
+          "doubleTest": {
+            "first": 0.75,
+            "pips": 2.75,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 10.25
+          },
+          "singleTest": {
+            "first": 1,
+            "pips": 0,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 7
+          },
+          "choices": {
+            "a20-one": "single|right|2||2-5",
+            "a28-one": "single|right|2||2-5",
+            "a28-joint": "single|right|2||2-5"
+          }
+        },
+        {
+          "seed": 1303606,
+          "seat": 1,
+          "turn": 16,
+          "profile": "min-hand-pips",
+          "hand": [
+            "0-1",
+            "4-5",
+            "4-4",
+            "0-4"
+          ],
+          "ends": {
+            "up": 2,
+            "left": 0,
+            "right": 4,
+            "down": 2
+          },
+          "opened": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "opponentSizes": [
+            4,
+            2
+          ],
+          "actions": 3,
+          "doubleAction": "double-sequence|||4|4-4",
+          "singleAction": "single|left|4||0-4",
+          "doubleNumbers": [
+            4
+          ],
+          "deltaDoubleFirst": -0.3333333333333333,
+          "deltaDoublePips": -0.41666666666666696,
+          "deltaDoubleMinus": 0,
+          "deltaDoubleBlock": 0,
+          "deltaDoubleTurns": -1.166666666666667,
+          "delta28First": 0,
+          "deltaJointFirst": 0,
+          "changed28": 0,
+          "changedJoint": 0,
+          "doubleTest": {
+            "first": 0,
+            "pips": 5.083333333333333,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 7.166666666666667
+          },
+          "singleTest": {
+            "first": 0.3333333333333333,
+            "pips": 5.5,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 8.333333333333334
+          },
+          "choices": {
+            "a20-one": "double-sequence|||4|4-4",
+            "a28-one": "double-sequence|||4|4-4",
+            "a28-joint": "double-sequence|||4|4-4"
+          }
+        },
+        {
+          "seed": 1303607,
+          "seat": 2,
+          "turn": 22,
+          "profile": "closed-branch-control",
+          "hand": [
+            "3-4",
+            "3-3",
+            "0-2",
+            "2-5"
+          ],
+          "ends": {
+            "up": 3,
+            "left": 3,
+            "right": 0,
+            "down": 3
+          },
+          "opened": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6
+          ],
+          "opponentSizes": [
+            4,
+            1
+          ],
+          "actions": 2,
+          "doubleAction": "double-sequence|||3|3-3",
+          "singleAction": "single|right|2||0-2",
+          "doubleNumbers": [
+            3
+          ],
+          "deltaDoubleFirst": 0,
+          "deltaDoublePips": 1.083333333333334,
+          "deltaDoubleMinus": 0,
+          "deltaDoubleBlock": 0,
+          "deltaDoubleTurns": -2.25,
+          "delta28First": 0,
+          "deltaJointFirst": 0,
+          "changed28": 0,
+          "changedJoint": 0,
+          "doubleTest": {
+            "first": 0,
+            "pips": 13.083333333333334,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 4.25
+          },
+          "singleTest": {
+            "first": 0,
+            "pips": 12,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 6.5
+          },
+          "choices": {
+            "a20-one": "single|right|2||0-2",
+            "a28-one": "single|right|2||0-2",
+            "a28-joint": "single|right|2||0-2"
+          }
+        },
+        {
+          "seed": 1303614,
+          "seat": 0,
+          "turn": 18,
+          "profile": "min-hand-pips",
+          "hand": [
+            "0-0",
+            "1-2",
+            "2-4"
+          ],
+          "ends": {
+            "up": 2,
+            "left": 0,
+            "right": 0,
+            "down": 0
+          },
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "opponentSizes": [
+            2,
+            2
+          ],
+          "actions": 3,
+          "doubleAction": "double-sequence|||0|0-0",
+          "singleAction": "single|up|1||1-2",
+          "doubleNumbers": [
+            0
+          ],
+          "deltaDoubleFirst": -0.3333333333333333,
+          "deltaDoublePips": -0.5,
+          "deltaDoubleMinus": 0,
+          "deltaDoubleBlock": 0,
+          "deltaDoubleTurns": -0.916666666666667,
+          "delta28First": 0,
+          "deltaJointFirst": 0,
+          "changed28": 0,
+          "changedJoint": 0,
+          "doubleTest": {
+            "first": 0,
+            "pips": 3.5,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 5
+          },
+          "singleTest": {
+            "first": 0.3333333333333333,
+            "pips": 4,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 5.916666666666667
+          },
+          "choices": {
+            "a20-one": "single|up|4||2-4",
+            "a28-one": "single|up|4||2-4",
+            "a28-joint": "single|up|4||2-4"
+          }
+        },
+        {
+          "seed": 1303624,
+          "seat": 1,
+          "turn": 18,
+          "profile": "min-hand-pips",
+          "hand": [
+            "0-0",
+            "1-6",
+            "0-6"
+          ],
+          "ends": {
+            "up": 4,
+            "left": 1,
+            "right": 1,
+            "down": 0
+          },
+          "opened": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "opponentSizes": [
+            3,
+            3
+          ],
+          "actions": 3,
+          "doubleAction": "double-sequence|||0|0-0",
+          "singleAction": "single|left|6||1-6",
+          "doubleNumbers": [
+            0
+          ],
+          "deltaDoubleFirst": 0,
+          "deltaDoublePips": 0,
+          "deltaDoubleMinus": -1,
+          "deltaDoubleBlock": 0,
+          "deltaDoubleTurns": 3,
+          "delta28First": 0,
+          "deltaJointFirst": 0,
+          "changed28": 0,
+          "changedJoint": 0,
+          "doubleTest": {
+            "first": 1,
+            "pips": 0,
+            "minus": 0,
+            "minus10": 0,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 7
+          },
+          "singleTest": {
+            "first": 1,
+            "pips": 0,
+            "minus": 1,
+            "minus10": 1,
+            "minus20": 0,
+            "minus30": 0,
+            "minus40": 0,
+            "block": 0,
+            "turns": 4
+          },
+          "choices": {
+            "a20-one": "single|left|6||1-6",
+            "a28-one": "single|left|6||1-6",
+            "a28-joint": "single|left|6||1-6"
+          }
+        }
+      ]
+    }
+  },
+  "examples": []
+}
