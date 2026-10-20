@@ -391,3 +391,12 @@
 - Finding: memory has little observed incremental effect here, not statistically confirmed; reply-aware benefit vs pure min-pips should not be attributed to memory. Partial posterior assumes uniform allowed unseen tiles, not full history-conditioned hidden-world model.
 - Reproduce: `simulator/pass-memory-ablation.js test` then `1300000 200`; detailed linked checkpoint `runs/2026-10-19-2054-pass-memory-ablation.md`.
 - Next: fresh seeds 1300200..1300999, calibrate memory posterior on true next-pass outcomes and condition on both opponents' histories. Branch semantics provisional; no block winner.
+
+
+### 2026-10-20 19:53 (+04) — alpha20/alpha36 independent disagreement holdouts
+- Engine/rules: qosa-research-0.5.3 / qosa-1.0.0; 3×9, provisional branches.
+- Fresh seeds 1304800..1305799, alpha20 151 scanned / 40 positions; alpha36 133 scanned / 40 positions. 6400 hidden allocations and 60320 candidate continuations; zero unresolved, zero new full strategy rounds.
+- Strategies: alpha20 and alpha36 one-pass vs joint-pass; matched worlds within each alpha; min-hand-pips and closed-branch-control continuations.
+- Finding: see linked `runs/2026-10-20-1953-alpha20-alpha36-holdout.md`; **alpha cohorts differ and must not be compared as a matched-position alpha effect**. No human-game rule promoted; intervals exploratory.
+- Confidence/limitations: V8 CommonJS smoke green; Node CLI not run; pass-conditioned worlds uniform, fixed bots, geometry confounding, no block winner. Full strategy baseline 264900 unchanged; candidate rollouts tracked separately.
+- Exact next action: matched-position alpha20/28/36 action evaluator on fresh seeds >=1305800, with geometry/double-opening stratification.
