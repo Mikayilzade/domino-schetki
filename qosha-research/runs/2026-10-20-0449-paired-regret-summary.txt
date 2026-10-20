@@ -1,0 +1,11 @@
+2026-10-20 04:49 Asia/Baku
+Engine qosa-research-0.5.3; rules qosa-1.0.0; primary 3x9.
+Fresh discovery seeds 1303100..1303142 (43 deals); 258 complete exploratory trajectories; 1489 focal choices; 57 alpha28/20 disagreements and 58 joint/one disagreements. First 40 distinct focal trajectories per comparison retained.
+Paired regret: 20 conditional hidden worlds per position, 2 deterministic continuation policies (min-hand-pips and closed-branch-control); 3200 matched position-world-policy comparisons, 6400 forced continuations; zero unresolved. Uniform hidden allocation conditioned on hand sizes and both opponents' observed no-stock passes.
+Treatment minus control, first-finish probability:
+alpha28-one vs alpha20-one: +13.125 pp with min-pips continuation, +12.125 pp with branch-control continuation. 40 positions from 25 unique deal seeds; exploratory seed-cluster 95% CIs +3.37..+22.20 pp and +5.12..+17.82 pp. Mean pip differences -0.373 and -0.055.
+alpha28-joint vs alpha28-one: -0.875 pp with min-pips continuation, -4.00 pp with branch-control continuation. 40 positions from 31 unique deal seeds; exploratory seed-cluster CIs span zero; pip differences +0.051 and +0.179.
+Caution: first-eligible-disagreement selection and multiple tests strongly bias inference; these are conditional, non-representative positions, not overall win-rate effects. Bot and branch-rule assumptions remain provisional. Block winners unassigned. The posterior conditions on pass histories, not on opponent choice likelihoods.
+Matched-strategy cumulative remains 266700, unchanged; 258 exploratory trajectories and 6400 forced continuations tracked separately.
+Reproduction: discovery follows a28-one focal policy and each opponent profile; compare select() from joint-pass-memory-runner.js at the same state. Hidden tiles are uniformly shuffled among feasible opponent allocations respecting forbidden pass sets, with seed mixSeed32(dealSeed XOR imul(turn+1,0x9e3779b9) XOR imul(seat+1,0x85ebca6b) XOR imul(worldIndex+1,0xc2b2ae35)). Force each candidate; all subsequent moves use identical chooseBy(policy). Exact runner implementation not yet persisted.
+Next: persist executable paired-regret runner and tests; rerun on independent seeds 1303200+ and pre-registered position sampling, including all legal candidates and confidence intervals clustered by deal seed.
