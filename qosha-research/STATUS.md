@@ -1,11 +1,13 @@
 # Qoşa research status
 
-## Latest research checkpoint — 2026-10-20 04:49 Asia/Baku
-- Source branch: qosha-research-20261020-0255; last verified cumulative matched-strategy rounds: **266,700**, historical 4,000 separate.
-- New exploratory paired-regret experiment: 43 fresh deal seeds, 258 discovery trajectories, 80 selected decision states (40 per comparison), 20 conditional hidden allocations each and two continuation policies; **6,400 forced continuations**, all resolved. These are NOT added to the 266,700 matched-strategy total.
-- Reproducibility: simulator/pass-conditioned-world.js, pass-conditioned-world-test.js, pass-disagreement-regret-runner.js; run-data summary: runs/2026-10-20-0449-paired-regret-summary.txt.
-- Finding (provisional, selection-biased): at disagreement states alpha28-one beats alpha20-one by +12.1 to +13.1 pp first-finish across two continuations; joint-history posterior shows no reliable advantage.
-- Next: independent holdout on new seeds with pre-registered state sampling, evaluate all legal actions, and improve opponent-choice likelihood modelling. Branch opening semantics remain assumption-labelled.
+## Latest research checkpoint — 2026-10-20, 09:50 Asia/Baku (+04)
+- Source branch: qosha-research-20261020-0750; validated full-strategy rounds: **266,700**, historical 4,000 separate.
+- New equal-pip control: 28 independent late positions, 1792 matched hidden allocations, **8576** forced continuations; 0 unresolved. Prior paired continuations 66,768; cumulative **75344**.
+- Equal discarded pip sums for connector-preserving vs connector-breaking ordinary singles; disjoint train/test worlds; V8 deterministic self-tests passed (Node CLI not run).
+- min-pips first-finisher difference: 17.75 pp; branch-control: 21.21 pp; both exploratory, not human-game causal proof.
+- Reproduce: simulator/connector-equal-pip-preservation-holdout.js; results: runs/2026-10-20-0946-equal-pip-connector-holdout.{md,json}.
+- Next: disjoint seeds 1320000..1329999 and post-action branch-geometry matched controls. Provisional branch-opening semantics and block-winner limitation remain.
+
 - The following status is the historical 2026-10-07 snapshot, not the current cumulative count.
 
 Updated: 2026-10-07 10:56 (+04)
