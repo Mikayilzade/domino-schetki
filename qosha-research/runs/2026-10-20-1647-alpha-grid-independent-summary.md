@@ -1,0 +1,3 @@
+# Qoşa alpha-grid fresh holdout, 2026-10-20 16:47 Asia/Baku
+
+Engine qosa-research-0.5.3; rules qosa-1.0.0. Seeds 1302800..1303099, 300 deals, 16,200 continuations. Matched alpha 12/20/28 plain/one/joint, opponents min-hand-pips and closed-branch-control. V8 posterior/replay test green; zero unresolved. Finish-first plain alpha12/20/28: min-pips 39.67/42.67/44.11%; branch-control 31.11/33.44/34.67%. Joint minus one at alpha20: -0.11/-0.44 percentage points (min-pips/branch). Alpha28 joint minus one: -0.33/-0.22 points. Exploratory, bot-specific; provisional branch semantics and no block winner. Prior unique continuations 248,700, new 16,200, cumulative 264,900. No change to PWA. Next: pass-conditioned fixed-visible matched-world regret for changed actions.
