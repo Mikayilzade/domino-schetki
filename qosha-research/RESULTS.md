@@ -409,3 +409,14 @@
 - Confidence: exploratory position-level CIs, uniformly sampled hidden worlds, first-eligible selection, provisional branch semantics, block winner unassigned; V8 CommonJS test green, Node CLI not run.
 - Exact next action: On independent seeds >=1345000, oversample late focal hand <=4 and next hand <=3; compare X-X opening against equal-pip singles under the same 3 canonical bots, and inspect exceptions. Do not infer causal double-opening effect without matched post-action geometry.
 - Linked raw/code: `runs/2026-10-21-0951-equal-pip-identifiability.json`, `runs/2026-10-21-0951-equal-pip-identifiability.md`, `simulator/equal-pip-identifiability.js`.
+
+
+### 2026-10-21 10:46 (+04) — late equal-pip independent holdout
+- engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, 3×9; branch opening provisional.
+- fresh seed sets: min-pips 1345000..1346067 and branch-control 1350000..1350606 (end exclusive); 1673 deals scanned, 60 late positions, 1920 matched hidden worlds, 11520 candidate continuations, 0 unresolved, 0 full strategy rounds.
+- strategies: min-hand-pips, closed-branch-control, fast-doubles, canonical continuation; forced equal-pip opening X-X vs ordinary single.
+- key metrics: first-finisher opening-minus-single (pp): min-hand-pips -29.7917; closed-branch-control -32.9167; fast-doubles -22.7604. Next opponent immediate distinct legal tile types Δ=1.1724. Opening favorable across all three policies in 4 positions; negative in 33.
+- new finding: late exceptions exist in the model, but are exploratory and need world-seed replication.
+- confidence/limitations: position-level exploratory CI, selected late states, uniformly sampled hidden allocations, fixed bots, provisional branch rules, changed post-action geometry, no block winner; V8 CommonJS test green, Node CLI not run. Historical full strategy totals and new candidate continuations kept separate.
+- exact next action: re-evaluate opening-favorable late positions with >=200 fresh hidden worlds per position, test alternative continuation policies and connectivity mechanism; no causal inference without matched post-action geometry.
+- linked data/code: `runs/2026-10-21-1046-late-equal-pip-holdout.json`, `runs/2026-10-21-1046-late-equal-pip-holdout.md`, `simulator/late-equal-pip-holdout.js`.
