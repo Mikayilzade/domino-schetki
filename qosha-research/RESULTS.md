@@ -391,3 +391,12 @@
 - Finding: memory has little observed incremental effect here, not statistically confirmed; reply-aware benefit vs pure min-pips should not be attributed to memory. Partial posterior assumes uniform allowed unseen tiles, not full history-conditioned hidden-world model.
 - Reproduce: `simulator/pass-memory-ablation.js test` then `1300000 200`; detailed linked checkpoint `runs/2026-10-19-2054-pass-memory-ablation.md`.
 - Next: fresh seeds 1300200..1300999, calibrate memory posterior on true next-pass outcomes and condition on both opponents' histories. Branch semantics provisional; no block winner.
+
+
+### 2026-10-21 16:45 (+04) — pass-conditioned paired changed-choice regret
+- Engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, 3×9; V8 CommonJS sampler regression and deterministic replay passed (Node CLI not run).
+- Fresh discovery seeds `1303640..1304089`: **36** changed-choice positions (18 per opponent profile), **64** matched hidden worlds each, **4,608** complete counterfactual continuations; zero unresolved. No new independent full-deal baseline samples; previous verified full continuation scale **290,100** unchanged.
+- Joint-minus-one alpha20 finish-first: **−2.865 pp** vs min-hand-pips, **−14.583 pp** vs closed-branch-control; joint/one/tied positions **6/7/5** and **8/8/2**. Mean remainder joint-minus-one +0.073/+0.630 pips. These selected-position averages are exploratory and heterogeneous, **not** a general strategy rule.
+- Method: fix visible/played tiles, opponent hand sizes and both opponents' observed no-stock pass constraints; allocate hidden tiles uniformly subject to those constraints; force both moves in identical worlds, continue with identical deterministic bot policy. No block winner; provisional branch opening; ignores likelihood of prior opponent choices.
+- Reproduce: `simulator/pass-choice-regret-runner.js test`; then `1303640 450 18 64`. Raw position rows: `runs/2026-10-21-pass-choice-regret-1303640.json`; note: `runs/2026-10-21-1645-pass-choice-regret.md`.
+- Next: independent seeds `1304090..1304539`, 128 worlds/position; stratify by one/both opponents' pass histories, retest changed-action regret and run Node CLI regression.

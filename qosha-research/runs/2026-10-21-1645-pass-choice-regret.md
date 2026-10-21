@@ -12,8 +12,10 @@ Engine `qosa-research-0.5.3`, rules `qosa-1.0.0`, 3×9. GitHub source read fresh
 
 **Finding:** better joint pass-probability calibration does not automatically improve the chosen move. The mean disadvantage here is exploratory, strongly heterogeneous, and selected from alpha20-one trajectories; not a general human strategy rule.
 
-**Limitations:** provisional branch-opening semantics; uniform pass-conditioned hidden worlds ignore likelihood of opponents' earlier chosen actions; fixed bots; 64 worlds per position; no block winner; no Node CLI execution. The new runner ran in V8 but its code has **not** yet been persisted; full executable reproduction is pending.
+**Limitations:** provisional branch-opening semantics; uniform pass-conditioned hidden worlds ignore likelihood of opponents' earlier chosen actions; fixed bots; 64 worlds per position; no block winner; no Node CLI execution. The tested runner and all 36 position-level rows are now persisted as `simulator/pass-choice-regret-runner.js` and `runs/2026-10-21-pass-choice-regret-1303640.json`; Node CLI execution is still pending.
 
 **Cumulative:** prior 290,100 full continuations unchanged; 4,608 *counterfactual* continuations tracked separately; historical/quarantined samples excluded.
 
 **Next exact action:** persist the tested conditional sampler and paired-choice runner under `qosha-research/simulator/`, then independent seeds 1304090..1304539 with 128 worlds/position, stratify by one/both opponents' pass histories, test changed-action regret. No scoreboard/PWA edits.
+
+**Reproduce:** `node qosha-research/simulator/pass-choice-regret-runner.js test`; `node qosha-research/simulator/pass-choice-regret-runner.js 1303640 450 18 64`.
