@@ -420,3 +420,12 @@
 - Assumptions/limits: Selection on disagreement; exact only for small support; first selected per seed, fixed deterministic bots, no prior action likelihood, provisional branch semantics, no block winner. Position CIs exploratory, no universal causal claim.
 - Code: `simulator/both-pass-choice-holdout.js`; data: `runs/2026-10-21-both-pass-choice-1306490.json`; note: `runs/2026-10-21-202610212253-both-pass-choice.md`.
 - Exact next: independent disjoint seed set 1307090 onward, larger world samples and full-deal comparison without conditioning on changed decisions.
+
+
+### 2026-10-22 03:47 (+04) — double-number deferral holdout
+- Engine/rules: qosa-research-0.5.3 / qosa-1.0.0; 3×9, provisional branch rules.
+- Fresh seeds 1310240..1310639; **400 deals, 9,600 complete continuations**, zero unresolved; four matched focal policies against two bot profiles; V8 deterministic regression green, Node CLI not run.
+- Defer high (3–6) minus joint finish-first: min-pips **+0.92 pp**, branch-control **+1.83 pp**. Defer low (0–2): +0.42 / +0.58 pp. Higher-number policy triggers far more often, so per-double superiority is **not** established.
+- Confidence: exploratory model-specific signal only; no human rule yet. Cumulative full continuations **357,300**, separate counterfactuals 49,988.
+- Code: `simulator/double-number-deferral.js`; raw: `runs/2026-10-22-0347-double-number-deferral.json`; detailed note: `runs/2026-10-22-0347-double-number-deferral.md`.
+- Next: paired fixed-visible hidden-world test for the first optional high double, then independent 600-deal high-vs-either holdout (seeds 1310640..1311239).
