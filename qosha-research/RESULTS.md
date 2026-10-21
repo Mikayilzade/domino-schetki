@@ -400,3 +400,14 @@
 - Method: fix visible/played tiles, opponent hand sizes and both opponents' observed no-stock pass constraints; allocate hidden tiles uniformly subject to those constraints; force both moves in identical worlds, continue with identical deterministic bot policy. No block winner; provisional branch opening; ignores likelihood of prior opponent choices.
 - Reproduce: `simulator/pass-choice-regret-runner.js test`; then `1303640 450 18 64`. Raw position rows: `runs/2026-10-21-pass-choice-regret-1303640.json`; note: `runs/2026-10-21-1645-pass-choice-regret.md`.
 - Next: independent seeds `1304090..1304539`, 128 worlds/position; stratify by one/both opponents' pass histories, retest changed-action regret and run Node CLI regression.
+
+
+### 2026-10-21 20:51:28 (+04) — independent exact-support pass-choice holdout
+- Engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, primary 3×9. V8 CommonJS regression passed; Node CLI not run.
+- Fresh seeds `1305440..1305889`, 36 selected changed-choice positions, 23 exact-support positions, 13 unique-sampled positions, 2446 distinct hidden worlds, 4892 paired forced-choice continuations; zero unresolved. No new independent full-deal strategy baseline rounds.
+- Joint-minus-one finish-first: min-pips 4.04 pp (exploratory position CI -6.50..14.57 pp); branch-control -10.76 pp (CI -19.34..-2.19 pp).
+- New finding: exact enumeration of small hidden supports eliminates duplicate-world Monte Carlo artifacts; branch-control negative direction reappears in this fresh cohort but is not universal. No reliable general benefit for joint conditioning; min-pips effects are heterogeneous.
+- Confidence/limits: exact under uniform pass-constrained allocations for 23 positions, sampled distinct worlds for 13; first changed-choice selection, fixed bots, provisional branch semantics, no block winner, prior action likelihood omitted, exploratory intervals.
+- Cumulative: verified prior 290,100 full continuations unchanged; separate pass-choice counterfactual continuations 46364 (previous 41,472 + 4892); historical and quarantined data excluded.
+- Reproduce: `simulator/pass-choice-support-strata.js test`, then `1305440 450 18 128`; data `runs/2026-10-21-pass-choice-support-1305440.json`; note `runs/2026-10-21-2048-pass-choice-support.md`.
+- Exact next: full-deal matched-seat alpha20-one vs alpha20-joint policy evaluation on fresh seeds, then a separately powered both-opponent-pass stratum; avoid claiming a human-play law from changed-choice-only samples.
