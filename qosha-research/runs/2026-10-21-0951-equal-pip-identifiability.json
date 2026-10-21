@@ -1,0 +1,5361 @@
+{
+  "schema": "qosa-equal-pip-identifiability/v1",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "seedSets": {
+    "minPips": [
+      1336000,
+      1336096
+    ],
+    "branchControl": [
+      1340000,
+      1340079
+    ]
+  },
+  "dealsScanned": 175,
+  "positions": 100,
+  "worldsPerPosition": 48,
+  "hiddenAllocations": 4800,
+  "candidateContinuations": 28800,
+  "unresolved": 0,
+  "fullStrategyRoundsAdded": 0,
+  "policies": [
+    "min-hand-pips",
+    "closed-branch-control",
+    "fast-doubles"
+  ],
+  "worldSeedFormula": "mixSeed32((dealSeed + imul(worldIndex+1,0x9e3779b9)) >>> 0)",
+  "comparison": "Same reachable state, equal discarded pips, forced double X-X vs ordinary A-B, same hidden worlds and canonical continuation bots.",
+  "legalSets": "distinct playable tile keys for immediate next opponent and focal hand on each post-action board; action classes are type+played tile multiset, branch side ignored",
+  "limitations": "Exploratory position-level CIs, overlap selected on post-action variables, not causal; branch rules provisional; uniform hidden worlds without opponent-choice likelihood; first eligible position; blocks have no winner; finish-first not match win.",
+  "summary": {
+    "positions": 100,
+    "worlds": 4800,
+    "counts": {
+      "sameNext": 160,
+      "sameNextActions": 160,
+      "sameFocal": 0,
+      "bothSame": 0,
+      "sameGeometry": 0
+    },
+    "nextMobility": {
+      "n": 100,
+      "mean": 1.7977083333333335,
+      "ci95": [
+        1.6090150257596625,
+        1.9864016409070044
+      ]
+    },
+    "focalMobility": {
+      "n": 100,
+      "mean": 1.36,
+      "ci95": [
+        1.1397261429011332,
+        1.580273857098867
+      ]
+    },
+    "groups": {
+      "all": {
+        "positions": 100,
+        "win": {
+          "min-hand-pips": {
+            "n": 100,
+            "mean": -0.14770833333333339,
+            "ci95": [
+              -0.18933048311290057,
+              -0.10608618355376619
+            ]
+          },
+          "closed-branch-control": {
+            "n": 100,
+            "mean": -0.1541666666666667,
+            "ci95": [
+              -0.1940316147451155,
+              -0.1143017185882179
+            ]
+          },
+          "fast-doubles": {
+            "n": 100,
+            "mean": -0.1852083333333333,
+            "ci95": [
+              -0.24337933629630698,
+              -0.12703733037035964
+            ]
+          }
+        },
+        "pips": {
+          "min-hand-pips": {
+            "n": 100,
+            "mean": 1.1529166666666664,
+            "ci95": [
+              0.7594139809487315,
+              1.5464193523846013
+            ]
+          },
+          "closed-branch-control": {
+            "n": 100,
+            "mean": 1.369375,
+            "ci95": [
+              0.8651209134901088,
+              1.8736290865098912
+            ]
+          },
+          "fast-doubles": {
+            "n": 100,
+            "mean": 0.7902083333333334,
+            "ci95": [
+              0.4138745904472456,
+              1.1665420762194212
+            ]
+          }
+        }
+      },
+      "support0": {
+        "positions": 15,
+        "win": {
+          "min-hand-pips": {
+            "n": 15,
+            "mean": -0.2,
+            "ci95": [
+              -0.3332896456204668,
+              -0.06671035437953321
+            ]
+          },
+          "closed-branch-control": {
+            "n": 15,
+            "mean": -0.24861111111111114,
+            "ci95": [
+              -0.3695105310976703,
+              -0.127711691124552
+            ]
+          },
+          "fast-doubles": {
+            "n": 15,
+            "mean": -0.23472222222222222,
+            "ci95": [
+              -0.3784817737030727,
+              -0.09096267074137174
+            ]
+          }
+        },
+        "pips": {
+          "min-hand-pips": {
+            "n": 15,
+            "mean": 1.277777777777778,
+            "ci95": [
+              0.5123435731560232,
+              2.0432119823995327
+            ]
+          },
+          "closed-branch-control": {
+            "n": 15,
+            "mean": 1.7319444444444445,
+            "ci95": [
+              0.7226967812422886,
+              2.7411921076466004
+            ]
+          },
+          "fast-doubles": {
+            "n": 15,
+            "mean": 1.1430555555555555,
+            "ci95": [
+              0.39980698457031316,
+              1.8863041265407978
+            ]
+          }
+        }
+      },
+      "support1": {
+        "positions": 38,
+        "win": {
+          "min-hand-pips": {
+            "n": 38,
+            "mean": -0.1507675438596491,
+            "ci95": [
+              -0.21689030689659933,
+              -0.08464478082269887
+            ]
+          },
+          "closed-branch-control": {
+            "n": 38,
+            "mean": -0.12609649122807015,
+            "ci95": [
+              -0.1846784027568339,
+              -0.0675145796993064
+            ]
+          },
+          "fast-doubles": {
+            "n": 38,
+            "mean": -0.19462719298245612,
+            "ci95": [
+              -0.3006932401224612,
+              -0.08856114584245108
+            ]
+          }
+        },
+        "pips": {
+          "min-hand-pips": {
+            "n": 38,
+            "mean": 1.056469298245614,
+            "ci95": [
+              0.502326630701746,
+              1.6106119657894822
+            ]
+          },
+          "closed-branch-control": {
+            "n": 38,
+            "mean": 0.7735745614035089,
+            "ci95": [
+              -0.12355954648257961,
+              1.6707086692895974
+            ]
+          },
+          "fast-doubles": {
+            "n": 38,
+            "mean": 0.7719298245614035,
+            "ci95": [
+              0.16451405153529464,
+              1.3793455975875122
+            ]
+          }
+        }
+      },
+      "support2plus": {
+        "positions": 47,
+        "win": {
+          "min-hand-pips": {
+            "n": 47,
+            "mean": -0.12854609929078012,
+            "ci95": [
+              -0.18563931845606718,
+              -0.07145288012549306
+            ]
+          },
+          "closed-branch-control": {
+            "n": 47,
+            "mean": -0.14671985815602837,
+            "ci95": [
+              -0.20442626432552832,
+              -0.08901345198652841
+            ]
+          },
+          "fast-doubles": {
+            "n": 47,
+            "mean": -0.16179078014184398,
+            "ci95": [
+              -0.23960045281029704,
+              -0.08398110747339091
+            ]
+          }
+        },
+        "pips": {
+          "min-hand-pips": {
+            "n": 47,
+            "mean": 1.1910460992907805,
+            "ci95": [
+              0.5192757503742069,
+              1.8628164482073541
+            ]
+          },
+          "closed-branch-control": {
+            "n": 47,
+            "mean": 1.7353723404255317,
+            "ci95": [
+              1.025916926163283,
+              2.4448277546877804
+            ]
+          },
+          "fast-doubles": {
+            "n": 47,
+            "mean": 0.6923758865248226,
+            "ci95": [
+              0.10010376345697103,
+              1.2846480095926742
+            ]
+          }
+        }
+      },
+      "sameNextObserved": {
+        "positions": 43,
+        "win": {
+          "min-hand-pips": {
+            "n": 43,
+            "mean": -0.12790697674418602,
+            "ci95": [
+              -0.19349278929663194,
+              -0.06232116419174011
+            ]
+          },
+          "closed-branch-control": {
+            "n": 43,
+            "mean": -0.14970930232558138,
+            "ci95": [
+              -0.21472498420226735,
+              -0.08469362044889542
+            ]
+          },
+          "fast-doubles": {
+            "n": 43,
+            "mean": -0.17054263565891475,
+            "ci95": [
+              -0.2594019172324201,
+              -0.08168335408540939
+            ]
+          }
+        },
+        "pips": {
+          "min-hand-pips": {
+            "n": 43,
+            "mean": 0.9975775193798452,
+            "ci95": [
+              0.27829842699593565,
+              1.7168566117637547
+            ]
+          },
+          "closed-branch-control": {
+            "n": 43,
+            "mean": 1.1094961240310082,
+            "ci95": [
+              0.25797184125899486,
+              1.9610204068030215
+            ]
+          },
+          "fast-doubles": {
+            "n": 43,
+            "mean": 0.7718023255813952,
+            "ci95": [
+              0.1369162663750294,
+              1.406688384787761
+            ]
+          }
+        }
+      },
+      "bothObserved": {
+        "positions": 0,
+        "win": {
+          "min-hand-pips": {
+            "n": 0
+          },
+          "closed-branch-control": {
+            "n": 0
+          },
+          "fast-doubles": {
+            "n": 0
+          }
+        },
+        "pips": {
+          "min-hand-pips": {
+            "n": 0
+          },
+          "closed-branch-control": {
+            "n": 0
+          },
+          "fast-doubles": {
+            "n": 0
+          }
+        }
+      }
+    },
+    "sameNextConditional": {
+      "min-hand-pips": {
+        "n": 43,
+        "mean": -0.17409980200677874,
+        "ci95": [
+          -0.31039914143266756,
+          -0.037800462580889954
+        ]
+      },
+      "closed-branch-control": {
+        "n": 43,
+        "mean": -0.15355716634786404,
+        "ci95": [
+          -0.2712328478643805,
+          -0.03588148483134759
+        ]
+      },
+      "fast-doubles": {
+        "n": 43,
+        "mean": -0.13310513775630053,
+        "ci95": [
+          -0.27944679082282886,
+          0.013236515310227764
+        ]
+      }
+    },
+    "bothConditional": {
+      "min-hand-pips": {
+        "n": 0
+      },
+      "closed-branch-control": {
+        "n": 0
+      },
+      "fast-doubles": {
+        "n": 0
+      }
+    },
+    "positiveAllThree": [
+      {
+        "seed": 1336047,
+        "turn": 8,
+        "double": 4,
+        "support": 1,
+        "deltas": [
+          0.14583333333333334,
+          0.08333333333333333,
+          0.14583333333333334
+        ]
+      },
+      {
+        "seed": 1336063,
+        "turn": 10,
+        "double": 3,
+        "support": 1,
+        "deltas": [
+          0.16666666666666666,
+          0.14583333333333334,
+          0.10416666666666667
+        ]
+      },
+      {
+        "seed": 1340021,
+        "turn": 11,
+        "double": 3,
+        "support": 2,
+        "deltas": [
+          0.16666666666666666,
+          0.10416666666666667,
+          0.020833333333333332
+        ]
+      },
+      {
+        "seed": 1340037,
+        "turn": 3,
+        "double": 3,
+        "support": 1,
+        "deltas": [
+          0.14583333333333334,
+          0.20833333333333334,
+          0.3333333333333333
+        ]
+      },
+      {
+        "seed": 1340039,
+        "turn": 18,
+        "double": 3,
+        "support": 1,
+        "deltas": [
+          0.0625,
+          0.125,
+          0.0625
+        ]
+      }
+    ],
+    "negativeAllThree": 47
+  },
+  "rows": [
+    {
+      "seed": 1336000,
+      "turn": 6,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 4,
+      "support": 2,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 2,
+        "sameNextActions": 2,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.3125,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.2708333333333333,
+          "pips": 2.0625,
+          "minus": -0.25,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.2916666666666667,
+          "pips": 1.9166666666666667,
+          "minus": -0.125,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.125,
+          "pips": 0.5833333333333334,
+          "minus": -0.4166666666666667,
+          "block": 0.020833333333333332
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -0.5,
+        "closed-branch-control": 0,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336004,
+      "turn": 13,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 4,
+      "support": 2,
+      "focalHand": 5,
+      "nextHand": 5,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.3333333333333333,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.020833333333333332,
+          "pips": -2.1041666666666665,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.25,
+          "pips": 1.75,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.125,
+          "pips": 0.2708333333333333,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336007,
+      "turn": 16,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 0,
+      "focalHand": 4,
+      "nextHand": 4,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.4166666666666665,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0,
+          "minus": -0.20833333333333334,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 0,
+          "minus": -0.20833333333333334,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.14583333333333334,
+          "pips": 0.5833333333333334,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336008,
+      "turn": 1,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 1,
+      "focalHand": 9,
+      "nextHand": 9,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 2,
+        "sameNextActions": 2,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.3541666666666667,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.20833333333333334,
+          "pips": 1.0625,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.08333333333333333,
+          "pips": -0.020833333333333332,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.25,
+          "pips": 1.2291666666666667,
+          "minus": 0,
+          "block": 0.020833333333333332
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -1,
+        "closed-branch-control": 0,
+        "fast-doubles": -1
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336010,
+      "turn": 5,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 2,
+      "focalHand": 8,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.6041666666666667,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.041666666666666664,
+          "pips": -0.5208333333333334,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0.041666666666666664,
+          "pips": 0.8958333333333334,
+          "minus": 0,
+          "block": 0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.020833333333333332,
+          "pips": -2.5,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336011,
+      "turn": 11,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 1,
+      "focalHand": 6,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.0625,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.0625,
+          "pips": 0.4791666666666667,
+          "minus": 0.125,
+          "block": -0.020833333333333332
+        },
+        "closed-branch-control": {
+          "win": -0.020833333333333332,
+          "pips": 1.8333333333333333,
+          "minus": -0.041666666666666664,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.10416666666666667,
+          "pips": -0.3958333333333333,
+          "minus": 0.041666666666666664,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336014,
+      "turn": 7,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 2,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 1,
+        "sameNextActions": 1,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.4791666666666667,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.10416666666666667,
+          "pips": 0.8541666666666666,
+          "minus": -0.041666666666666664,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.3333333333333333,
+          "pips": 3.5208333333333335,
+          "minus": -0.22916666666666666,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.0625,
+          "pips": -0.5833333333333334,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -1,
+        "closed-branch-control": -1,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336015,
+      "turn": 3,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 4,
+      "support": 1,
+      "focalHand": 8,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.8333333333333333,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.08333333333333333,
+          "pips": 0.4583333333333333,
+          "minus": 0.16666666666666666,
+          "block": -0.020833333333333332
+        },
+        "closed-branch-control": {
+          "win": -0.16666666666666666,
+          "pips": -0.25,
+          "minus": 0,
+          "block": 0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.2916666666666667,
+          "pips": 1.3333333333333333,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336016,
+      "turn": 16,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 3,
+      "support": 2,
+      "focalHand": 4,
+      "nextHand": 4,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 11,
+        "sameNextActions": 11,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.7708333333333334,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.7916666666666666,
+          "pips": 8.333333333333334,
+          "minus": -0.14583333333333334,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.7916666666666666,
+          "pips": 8.333333333333334,
+          "minus": -0.14583333333333334,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.20833333333333334,
+          "pips": 3.3541666666666665,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -0.45454545454545453,
+        "closed-branch-control": -0.45454545454545453,
+        "fast-doubles": -0.2727272727272727
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336018,
+      "turn": 1,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 2,
+      "focalHand": 9,
+      "nextHand": 9,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.8958333333333334,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.10416666666666667,
+          "pips": 0.25,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.10416666666666667,
+          "pips": -1.9583333333333333,
+          "minus": 0,
+          "block": 0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.020833333333333332,
+          "pips": -0.0625,
+          "minus": 0,
+          "block": 0.020833333333333332
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336023,
+      "turn": 3,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 4,
+      "support": 1,
+      "focalHand": 8,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 3.2291666666666665,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.10416666666666667,
+          "pips": 0.4166666666666667,
+          "minus": 0,
+          "block": -0.020833333333333332
+        },
+        "closed-branch-control": {
+          "win": -0.16666666666666666,
+          "pips": 1.1458333333333333,
+          "minus": 0.041666666666666664,
+          "block": -0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": 0.0625,
+          "pips": 0.16666666666666666,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336024,
+      "turn": 4,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 4,
+      "support": 1,
+      "focalHand": 8,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.625,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.3958333333333333,
+          "pips": 2.1666666666666665,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.2708333333333333,
+          "pips": 4.4375,
+          "minus": -0.14583333333333334,
+          "block": 0.041666666666666664
+        },
+        "fast-doubles": {
+          "win": -0.625,
+          "pips": 1.3541666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336025,
+      "turn": 5,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 2,
+      "focalHand": 8,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 5,
+        "sameNextActions": 5,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.3541666666666667,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.125,
+          "pips": -2.2291666666666665,
+          "minus": 0.1875,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0.041666666666666664,
+          "pips": -0.5833333333333334,
+          "minus": 0.08333333333333333,
+          "block": -0.0625
+        },
+        "fast-doubles": {
+          "win": -0.6666666666666666,
+          "pips": 1.1041666666666667,
+          "minus": 0.08333333333333333,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0.2,
+        "closed-branch-control": -0.2,
+        "fast-doubles": -0.2
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336027,
+      "turn": 10,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 4,
+      "support": 2,
+      "focalHand": 6,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 3,
+        "sameNextActions": 3,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.6666666666666667,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.4375,
+          "pips": 2.1875,
+          "minus": 0.041666666666666664,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0.10416666666666667,
+          "pips": -1.5,
+          "minus": 0.14583333333333334,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.7916666666666666,
+          "pips": 1.375,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -0.6666666666666666,
+        "closed-branch-control": -0.3333333333333333,
+        "fast-doubles": -1
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336028,
+      "turn": 1,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 3,
+      "support": 1,
+      "focalHand": 9,
+      "nextHand": 9,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.3541666666666665,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.2916666666666667,
+          "pips": 2.5,
+          "minus": 0,
+          "block": 0.0625
+        },
+        "closed-branch-control": {
+          "win": -0.041666666666666664,
+          "pips": 0.10416666666666667,
+          "minus": -0.041666666666666664,
+          "block": 0.10416666666666667
+        },
+        "fast-doubles": {
+          "win": -0.6458333333333334,
+          "pips": 2.2291666666666665,
+          "minus": 0,
+          "block": 0.041666666666666664
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336030,
+      "turn": 3,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 3,
+      "support": 1,
+      "focalHand": 8,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.5625,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.14583333333333334,
+          "pips": 0.5625,
+          "minus": 0.0625,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.041666666666666664,
+          "pips": -1.7916666666666667,
+          "minus": -0.125,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.20833333333333334,
+          "pips": 1.2083333333333333,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336032,
+      "turn": 13,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 2,
+      "focalHand": 5,
+      "nextHand": 5,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.6458333333333333,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0,
+          "pips": -0.7708333333333334,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 0.8541666666666666,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -0.375,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336033,
+      "turn": 19,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 0,
+      "focalHand": 4,
+      "nextHand": 3,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.5416666666666667,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0,
+          "pips": -0.1875,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0,
+          "pips": -1,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -0.1875,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336037,
+      "turn": 8,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 2,
+      "focalHand": 7,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.1041666666666667,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.14583333333333334,
+          "pips": 0.5625,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.10416666666666667,
+          "pips": 1.1875,
+          "minus": -0.0625,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.2708333333333333,
+          "pips": -0.25,
+          "minus": 0,
+          "block": 0.041666666666666664
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336038,
+      "turn": 1,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 3,
+      "support": 3,
+      "focalHand": 9,
+      "nextHand": 9,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 4,
+        "sameNextActions": 4,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.6458333333333334,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.041666666666666664,
+          "pips": 0.3125,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.08333333333333333,
+          "pips": 2.7291666666666665,
+          "minus": 0,
+          "block": 0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -0.9166666666666666,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": -0.25,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336040,
+      "turn": 3,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 1,
+      "focalHand": 8,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.875,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.3333333333333333,
+          "pips": 1.125,
+          "minus": -0.020833333333333332,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.020833333333333332,
+          "pips": 0.020833333333333332,
+          "minus": -0.020833333333333332,
+          "block": 0.041666666666666664
+        },
+        "fast-doubles": {
+          "win": -0.125,
+          "pips": 0.1875,
+          "minus": -0.020833333333333332,
+          "block": 0.020833333333333332
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336042,
+      "turn": 7,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 3,
+      "support": 2,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 9,
+        "sameNextActions": 9,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.0833333333333333,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.5833333333333334,
+          "pips": 3.8333333333333335,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.5416666666666666,
+          "pips": 3.9375,
+          "minus": -0.10416666666666667,
+          "block": 0.041666666666666664
+        },
+        "fast-doubles": {
+          "win": -0.7291666666666666,
+          "pips": 2.6875,
+          "minus": 0,
+          "block": 0.020833333333333332
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -0.2222222222222222,
+        "closed-branch-control": -0.2222222222222222,
+        "fast-doubles": -0.5555555555555556
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336044,
+      "turn": 9,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 1,
+      "focalHand": 6,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.8541666666666667,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.22916666666666666,
+          "pips": 1.1458333333333333,
+          "minus": -0.1875,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.14583333333333334,
+          "pips": 1.3333333333333333,
+          "minus": -0.08333333333333333,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.041666666666666664,
+          "pips": -0.22916666666666666,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336047,
+      "turn": 8,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 4,
+      "support": 1,
+      "focalHand": 6,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": -0.20833333333333334,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.14583333333333334,
+          "pips": -0.5,
+          "minus": 0.125,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0.08333333333333333,
+          "pips": -0.2916666666666667,
+          "minus": 0.3958333333333333,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.14583333333333334,
+          "pips": -0.5833333333333334,
+          "minus": -0.0625,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336049,
+      "turn": 5,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 4,
+      "support": 2,
+      "focalHand": 8,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.7291666666666667,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0.7916666666666666,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.0625,
+          "pips": 5.5,
+          "minus": -0.041666666666666664,
+          "block": 0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": 0.020833333333333332,
+          "pips": -1.1041666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336050,
+      "turn": 12,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 0,
+      "focalHand": 5,
+      "nextHand": 5,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.8333333333333335,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.7291666666666666,
+          "pips": 3.5625,
+          "minus": -0.2708333333333333,
+          "block": 0.041666666666666664
+        },
+        "closed-branch-control": {
+          "win": -0.7291666666666666,
+          "pips": 3.5625,
+          "minus": -0.2708333333333333,
+          "block": 0.041666666666666664
+        },
+        "fast-doubles": {
+          "win": -0.7916666666666666,
+          "pips": 4.083333333333333,
+          "minus": 0.08333333333333333,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336051,
+      "turn": 7,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 3,
+      "support": 1,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 1,
+        "sameNextActions": 1,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.9791666666666666,
+      "focalMobility": -1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.125,
+          "pips": 0.8125,
+          "minus": -0.020833333333333332,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.14583333333333334,
+          "pips": 1.1875,
+          "minus": -0.10416666666666667,
+          "block": 0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.14583333333333334,
+          "pips": 1.4583333333333333,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": -1
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336054,
+      "turn": 2,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 2,
+      "focalHand": 9,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 3,
+        "sameNextActions": 3,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.8125,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.020833333333333332,
+          "pips": 1.1041666666666667,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 1.3333333333333333,
+          "minus": -0.041666666666666664,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.020833333333333332,
+          "pips": -0.875,
+          "minus": 0,
+          "block": -0.041666666666666664
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336056,
+      "turn": 7,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 4,
+      "support": 1,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.3125,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.14583333333333334,
+          "pips": 1.5833333333333333,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.041666666666666664,
+          "pips": -0.0625,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.1875,
+          "pips": 0.4583333333333333,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336057,
+      "turn": 14,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 3,
+      "focalHand": 6,
+      "nextHand": 4,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 14,
+        "sameNextActions": 14,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.9583333333333334,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 2.25,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 2.2291666666666665,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.020833333333333332,
+          "pips": -1.1458333333333333,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": 0.07142857142857142
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336058,
+      "turn": 1,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 3,
+      "support": 1,
+      "focalHand": 9,
+      "nextHand": 9,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 1,
+        "sameNextActions": 1,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.0208333333333335,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.5625,
+          "pips": 3.3125,
+          "minus": 0,
+          "block": 0.020833333333333332
+        },
+        "closed-branch-control": {
+          "win": -0.14583333333333334,
+          "pips": 1.2708333333333333,
+          "minus": 0.14583333333333334,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.4583333333333333,
+          "pips": 1.7083333333333333,
+          "minus": 0,
+          "block": 0.020833333333333332
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -1,
+        "closed-branch-control": 0,
+        "fast-doubles": 1
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336059,
+      "turn": 6,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 3,
+      "support": 2,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 2,
+        "sameNextActions": 2,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.9583333333333334,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.0625,
+          "pips": -0.4375,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.2916666666666667,
+          "pips": 1.6041666666666667,
+          "minus": -0.0625,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.20833333333333334,
+          "pips": -0.9166666666666666,
+          "minus": 0,
+          "block": -0.020833333333333332
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0.5,
+        "closed-branch-control": -1,
+        "fast-doubles": 0.5
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336061,
+      "turn": 10,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 4,
+      "support": 2,
+      "focalHand": 8,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 4,
+        "sameNextActions": 4,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.5416666666666667,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.041666666666666664,
+          "pips": 7.958333333333333,
+          "minus": 0.020833333333333332,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 4.416666666666667,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 7,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336062,
+      "turn": 11,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 3,
+      "support": 2,
+      "focalHand": 5,
+      "nextHand": 5,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 10,
+        "sameNextActions": 10,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.9791666666666666,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.020833333333333332,
+          "pips": 0.14583333333333334,
+          "minus": -0.08333333333333333,
+          "block": -0.020833333333333332
+        },
+        "closed-branch-control": {
+          "win": -0.020833333333333332,
+          "pips": 0.14583333333333334,
+          "minus": -0.08333333333333333,
+          "block": -0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": 0.041666666666666664,
+          "pips": -0.2916666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336063,
+      "turn": 10,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 3,
+      "support": 1,
+      "focalHand": 5,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 2,
+        "sameNextActions": 2,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.5625,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.16666666666666666,
+          "pips": -1.2916666666666667,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0.14583333333333334,
+          "pips": -1.1041666666666667,
+          "minus": -0.20833333333333334,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.10416666666666667,
+          "pips": -0.5416666666666666,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336065,
+      "turn": 11,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 2,
+      "focalHand": 6,
+      "nextHand": 4,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.8958333333333333,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 1.6875,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.020833333333333332,
+          "pips": 1.7083333333333333,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -0.5416666666666666,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336067,
+      "turn": 3,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 3,
+      "support": 2,
+      "focalHand": 8,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.0416666666666665,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.2916666666666667,
+          "pips": 1.5416666666666667,
+          "minus": -0.125,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.4375,
+          "pips": 2.1875,
+          "minus": -0.4791666666666667,
+          "block": 0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.2708333333333333,
+          "pips": 1.1875,
+          "minus": -0.3125,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336068,
+      "turn": 7,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 1,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 3.3333333333333335,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.4583333333333333,
+          "pips": 2.2708333333333335,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.2916666666666667,
+          "pips": 1.2083333333333333,
+          "minus": -0.4583333333333333,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.125,
+          "pips": 0.4583333333333333,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336074,
+      "turn": 8,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 4,
+      "support": 2,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.1458333333333333,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.14583333333333334,
+          "pips": 2.5625,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.1875,
+          "pips": 5.583333333333333,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.0625,
+          "pips": -0.08333333333333333,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336075,
+      "turn": 10,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 1,
+      "focalHand": 6,
+      "nextHand": 5,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.9791666666666666,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.0625,
+          "pips": -1.6666666666666667,
+          "minus": -0.0625,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.0625,
+          "pips": -1.6666666666666667,
+          "minus": -0.0625,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.020833333333333332,
+          "pips": -0.4791666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336077,
+      "turn": 4,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 5,
+      "support": 0,
+      "focalHand": 8,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.75,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.20833333333333334,
+          "pips": 0.9791666666666666,
+          "minus": 0.041666666666666664,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0.1875,
+          "pips": -0.16666666666666666,
+          "minus": 0.16666666666666666,
+          "block": -0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.5,
+          "pips": 1.8541666666666667,
+          "minus": -0.2916666666666667,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336084,
+      "turn": 8,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 4,
+      "support": 1,
+      "focalHand": 8,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.6875,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.08333333333333333,
+          "pips": 4.083333333333333,
+          "minus": 0.10416666666666667,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.22916666666666666,
+          "pips": 7.125,
+          "minus": -0.14583333333333334,
+          "block": -0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.16666666666666666,
+          "pips": 2.8541666666666665,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336086,
+      "turn": 9,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 4,
+      "support": 1,
+      "focalHand": 6,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.2083333333333335,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.2916666666666667,
+          "pips": 4.104166666666667,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.4166666666666667,
+          "pips": 5.541666666666667,
+          "minus": -0.020833333333333332,
+          "block": -0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": 0.0625,
+          "pips": -0.5,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336087,
+      "turn": 10,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 4,
+      "support": 2,
+      "focalHand": 6,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 4,
+        "sameNextActions": 4,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.7291666666666667,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.25,
+          "pips": 1.9375,
+          "minus": 0.041666666666666664,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0.08333333333333333,
+          "pips": 0.3333333333333333,
+          "minus": 0.22916666666666666,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.4791666666666667,
+          "pips": 0.8958333333333334,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -0.75,
+        "closed-branch-control": 0.25,
+        "fast-doubles": -0.75
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336088,
+      "turn": 5,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 3,
+      "support": 0,
+      "focalHand": 8,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 2,
+        "sameNextActions": 2,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.25,
+      "focalMobility": -1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.3125,
+          "pips": 3.0833333333333335,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.22916666666666666,
+          "pips": 2.75,
+          "minus": -0.20833333333333334,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.6875,
+          "pips": 4.041666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -0.5,
+        "closed-branch-control": 0,
+        "fast-doubles": -0.5
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336089,
+      "turn": 5,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 5,
+      "support": 3,
+      "focalHand": 8,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 1,
+        "sameNextActions": 1,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.5208333333333334,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0,
+          "pips": -0.041666666666666664,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.125,
+          "pips": 4.604166666666667,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0.9583333333333334,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336090,
+      "turn": 7,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 1,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 6,
+        "sameNextActions": 6,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.5625,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.041666666666666664,
+          "pips": -0.4166666666666667,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0.1875,
+          "pips": -3.5625,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -0.5833333333333334,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -0.3333333333333333,
+        "closed-branch-control": 0.8333333333333334,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336092,
+      "turn": 13,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 1,
+      "focalHand": 5,
+      "nextHand": 5,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 1,
+        "sameNextActions": 1,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.9583333333333333,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.08333333333333333,
+          "pips": 2.2083333333333335,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.10416666666666667,
+          "pips": 2.7708333333333335,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.3333333333333333,
+          "pips": -2.3541666666666665,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": 1
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336094,
+      "turn": 5,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 2,
+      "support": 2,
+      "focalHand": 8,
+      "nextHand": 5,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 3,
+        "sameNextActions": 3,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.0416666666666667,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.0625,
+          "pips": 4.479166666666667,
+          "minus": -0.020833333333333332,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.2708333333333333,
+          "pips": 3.625,
+          "minus": -0.16666666666666666,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -2.25,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1336095,
+      "turn": 10,
+      "discovery": "min-hand-pips",
+      "doubleNumber": 3,
+      "support": 2,
+      "focalHand": 6,
+      "nextHand": 5,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 5,
+        "sameNextActions": 5,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.4166666666666667,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0,
+          "pips": -1.9375,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.4166666666666667,
+          "pips": 1.3958333333333333,
+          "minus": -0.0625,
+          "block": -0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -0.14583333333333334,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": -0.6,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340000,
+      "turn": 8,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 5,
+      "support": 2,
+      "focalHand": 7,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 2,
+        "sameNextActions": 2,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": -0.125,
+      "focalMobility": 4,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.020833333333333332,
+          "pips": -1,
+          "minus": 0,
+          "block": 0.020833333333333332
+        },
+        "closed-branch-control": {
+          "win": -0.020833333333333332,
+          "pips": -0.875,
+          "minus": 0,
+          "block": -0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -0.6458333333333334,
+          "minus": 0,
+          "block": 0.020833333333333332
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340002,
+      "turn": 3,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 3,
+      "focalHand": 8,
+      "nextHand": 9,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 1,
+        "sameNextActions": 1,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.7708333333333334,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.20833333333333334,
+          "pips": 0.6041666666666666,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0.10416666666666667,
+          "pips": -1.125,
+          "minus": 0.10416666666666667,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.0625,
+          "pips": 0.020833333333333332,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340004,
+      "turn": 3,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 1,
+      "focalHand": 8,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.4791666666666665,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.041666666666666664,
+          "pips": 0.3958333333333333,
+          "minus": 0.08333333333333333,
+          "block": 0.020833333333333332
+        },
+        "closed-branch-control": {
+          "win": -0.125,
+          "pips": 1.5416666666666667,
+          "minus": 0.08333333333333333,
+          "block": 0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.020833333333333332,
+          "pips": 0.041666666666666664,
+          "minus": -0.1875,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340005,
+      "turn": 15,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 4,
+      "support": 2,
+      "focalHand": 5,
+      "nextHand": 5,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 3,
+        "sameNextActions": 3,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": -0.4791666666666667,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0.4166666666666667,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.2708333333333333,
+          "pips": 3.5833333333333335,
+          "minus": -0.08333333333333333,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.020833333333333332,
+          "pips": 0.2916666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340006,
+      "turn": 9,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 2,
+      "support": 1,
+      "focalHand": 6,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.7083333333333335,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.125,
+          "pips": 0.75,
+          "minus": -0.1875,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.041666666666666664,
+          "pips": -0.08333333333333333,
+          "minus": 0.14583333333333334,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.041666666666666664,
+          "pips": 0.375,
+          "minus": 0.5625,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340010,
+      "turn": 20,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 2,
+      "support": 1,
+      "focalHand": 3,
+      "nextHand": 3,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 8,
+        "sameNextActions": 8,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.1875,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0,
+          "minus": -1,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0,
+          "pips": 0,
+          "minus": -1,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0,
+          "minus": -1,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340013,
+      "turn": 8,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 4,
+      "support": 2,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 8,
+        "sameNextActions": 8,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.0833333333333333,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.14583333333333334,
+          "pips": 0.375,
+          "minus": 0,
+          "block": -0.020833333333333332
+        },
+        "closed-branch-control": {
+          "win": -0.0625,
+          "pips": 2,
+          "minus": 0,
+          "block": -0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -1.1666666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -0.5,
+        "closed-branch-control": -0.25,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340014,
+      "turn": 5,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 4,
+      "support": 3,
+      "focalHand": 8,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.4583333333333335,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.125,
+          "pips": 0.375,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.0625,
+          "pips": 0.625,
+          "minus": -0.041666666666666664,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.4791666666666667,
+          "pips": 1.5416666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340015,
+      "turn": 5,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 2,
+      "support": 0,
+      "focalHand": 8,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 1,
+        "sameNextActions": 1,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 3.5,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.5833333333333334,
+          "pips": 3.7291666666666665,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.3333333333333333,
+          "pips": 2.4375,
+          "minus": -0.125,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.5833333333333334,
+          "pips": 3.1458333333333335,
+          "minus": 0,
+          "block": -0.020833333333333332
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -1,
+        "closed-branch-control": -1,
+        "fast-doubles": -1
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340016,
+      "turn": 11,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 2,
+      "support": 2,
+      "focalHand": 6,
+      "nextHand": 5,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 5,
+        "sameNextActions": 5,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.375,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.2916666666666667,
+          "pips": 1.5208333333333333,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.4375,
+          "pips": 2.4791666666666665,
+          "minus": -0.10416666666666667,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.5208333333333334,
+          "pips": 1.8958333333333333,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -0.2,
+        "closed-branch-control": -0.4,
+        "fast-doubles": -0.6
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340018,
+      "turn": 2,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 3,
+      "focalHand": 9,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 3,
+        "sameNextActions": 3,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.4791666666666667,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.4583333333333333,
+          "pips": 4.520833333333333,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.25,
+          "pips": 3.7083333333333335,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.5416666666666666,
+          "pips": 3.1041666666666665,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -0.6666666666666666,
+        "closed-branch-control": 0,
+        "fast-doubles": -0.6666666666666666
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340019,
+      "turn": 5,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 5,
+      "support": 0,
+      "focalHand": 8,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 4.041666666666667,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.020833333333333332,
+          "pips": 0.6666666666666666,
+          "minus": 0.020833333333333332,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.4791666666666667,
+          "pips": 4.333333333333333,
+          "minus": -0.16666666666666666,
+          "block": 0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.041666666666666664,
+          "pips": 1.4791666666666667,
+          "minus": -0.020833333333333332,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340021,
+      "turn": 11,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 2,
+      "focalHand": 6,
+      "nextHand": 5,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 6,
+        "sameNextActions": 6,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.75,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.16666666666666666,
+          "pips": -2.1041666666666665,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0.10416666666666667,
+          "pips": -1.9791666666666667,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.020833333333333332,
+          "pips": -1.3541666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0.8333333333333334,
+        "closed-branch-control": 0.6666666666666666,
+        "fast-doubles": 0.3333333333333333
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340022,
+      "turn": 3,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 1,
+      "focalHand": 8,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.5416666666666665,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.1875,
+          "pips": 1.5416666666666667,
+          "minus": 0,
+          "block": 0.020833333333333332
+        },
+        "closed-branch-control": {
+          "win": -0.3958333333333333,
+          "pips": 1.9791666666666667,
+          "minus": -0.14583333333333334,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.3541666666666667,
+          "pips": -3.5,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340023,
+      "turn": 8,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 1,
+      "focalHand": 7,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 3.2291666666666665,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.3125,
+          "pips": 1.2916666666666667,
+          "minus": -0.20833333333333334,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.375,
+          "pips": 1.4375,
+          "minus": -0.5625,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.8125,
+          "pips": 3.1041666666666665,
+          "minus": -0.5833333333333334,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340024,
+      "turn": 3,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 2,
+      "focalHand": 8,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 2,
+        "sameNextActions": 2,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.1041666666666665,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.08333333333333333,
+          "pips": 0.4583333333333333,
+          "minus": -0.6041666666666666,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.4375,
+          "pips": 3.0208333333333335,
+          "minus": -0.7083333333333334,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.041666666666666664,
+          "pips": 0.25,
+          "minus": -0.75,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": -0.5
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340028,
+      "turn": 8,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 4,
+      "support": 2,
+      "focalHand": 7,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 3.1041666666666665,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 0.875,
+          "minus": 0,
+          "block": 0.020833333333333332
+        },
+        "closed-branch-control": {
+          "win": -0.0625,
+          "pips": 0.4583333333333333,
+          "minus": -0.020833333333333332,
+          "block": -0.041666666666666664
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -0.0625,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340029,
+      "turn": 8,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 4,
+      "support": 1,
+      "focalHand": 7,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 1,
+        "sameNextActions": 1,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.8958333333333333,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.20833333333333334,
+          "pips": -0.25,
+          "minus": -0.14583333333333334,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.4166666666666667,
+          "pips": 3.7291666666666665,
+          "minus": -0.0625,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.625,
+          "pips": 2.125,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": -1
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340030,
+      "turn": 7,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 0,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.8958333333333333,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.1875,
+          "pips": 0.020833333333333332,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.041666666666666664,
+          "pips": 0.4583333333333333,
+          "minus": -0.0625,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.020833333333333332,
+          "pips": 0.16666666666666666,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340032,
+      "turn": 8,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 4,
+      "support": 2,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.5625,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.375,
+          "pips": 1.8125,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.22916666666666666,
+          "pips": 1.5833333333333333,
+          "minus": 0,
+          "block": 0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.6458333333333334,
+          "pips": 2.1666666666666665,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340033,
+      "turn": 14,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 3,
+      "focalHand": 6,
+      "nextHand": 4,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.7916666666666667,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0,
+          "pips": 2.4375,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.08333333333333333,
+          "pips": 4.083333333333333,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0.2916666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340035,
+      "turn": 8,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 1,
+      "focalHand": 7,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.9375,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.125,
+          "pips": 0.6041666666666666,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.125,
+          "pips": 0.7708333333333334,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.020833333333333332,
+          "pips": 1.7708333333333333,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340036,
+      "turn": 19,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 0,
+      "focalHand": 3,
+      "nextHand": 5,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.3125,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.4375,
+          "pips": 0.4375,
+          "minus": -0.5625,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.4375,
+          "pips": 0.4375,
+          "minus": -0.5625,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.4375,
+          "pips": 0.4375,
+          "minus": -0.5625,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340037,
+      "turn": 3,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 1,
+      "focalHand": 8,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.375,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.14583333333333334,
+          "pips": -0.375,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0.20833333333333334,
+          "pips": -2.8333333333333335,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.3333333333333333,
+          "pips": -1.4583333333333333,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340038,
+      "turn": 5,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 1,
+      "focalHand": 8,
+      "nextHand": 9,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 3.4375,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.5833333333333334,
+          "pips": 5.833333333333333,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.3541666666666667,
+          "pips": 3,
+          "minus": -0.1875,
+          "block": 0.041666666666666664
+        },
+        "fast-doubles": {
+          "win": -0.7083333333333334,
+          "pips": 4.958333333333333,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340039,
+      "turn": 18,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 1,
+      "focalHand": 5,
+      "nextHand": 3,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 6,
+        "sameNextActions": 6,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.3541666666666667,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.0625,
+          "pips": -1.8541666666666667,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0.125,
+          "pips": -9.541666666666666,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.0625,
+          "pips": -1.8541666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -0.3333333333333333,
+        "closed-branch-control": 0,
+        "fast-doubles": -0.3333333333333333
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340040,
+      "turn": 7,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 2,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.625,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.5208333333333334,
+          "pips": 2.25,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.041666666666666664,
+          "pips": 0.10416666666666667,
+          "minus": -0.041666666666666664,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.7708333333333334,
+          "pips": 1.8541666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340042,
+      "turn": 9,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 1,
+      "focalHand": 6,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.020833333333333332,
+          "pips": 0.1875,
+          "minus": 0,
+          "block": -0.020833333333333332
+        },
+        "closed-branch-control": {
+          "win": 0.10416666666666667,
+          "pips": -0.75,
+          "minus": -0.08333333333333333,
+          "block": 0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.08333333333333333,
+          "pips": 0.4375,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340044,
+      "turn": 17,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 2,
+      "focalHand": 5,
+      "nextHand": 3,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 7,
+        "sameNextActions": 7,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.0208333333333333,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.020833333333333332,
+          "pips": 0.0625,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.020833333333333332,
+          "pips": 0.0625,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 5.479166666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -0.14285714285714285,
+        "closed-branch-control": -0.14285714285714285,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340045,
+      "turn": 9,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 3,
+      "focalHand": 8,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.4583333333333333,
+      "focalMobility": 4,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.041666666666666664,
+          "pips": 4.125,
+          "minus": 0,
+          "block": 0.020833333333333332
+        },
+        "closed-branch-control": {
+          "win": -0.08333333333333333,
+          "pips": 6.375,
+          "minus": 0,
+          "block": 0.041666666666666664
+        },
+        "fast-doubles": {
+          "win": -0.041666666666666664,
+          "pips": 7.208333333333333,
+          "minus": 0,
+          "block": -0.020833333333333332
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340047,
+      "turn": 3,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 0,
+      "focalHand": 8,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 1,
+        "sameNextActions": 1,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.8958333333333333,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.0625,
+          "pips": 0.6041666666666666,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.2916666666666667,
+          "pips": 1.8958333333333333,
+          "minus": -0.3125,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.1875,
+          "pips": 0.6458333333333334,
+          "minus": -0.14583333333333334,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340048,
+      "turn": 7,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 5,
+      "support": 1,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.1458333333333335,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.14583333333333334,
+          "pips": 4.1875,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.20833333333333334,
+          "pips": 4.916666666666667,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0.3333333333333333,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340049,
+      "turn": 5,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 2,
+      "focalHand": 8,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.5416666666666665,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.1875,
+          "pips": 0.4583333333333333,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.041666666666666664,
+          "pips": 1.0416666666666667,
+          "minus": -0.0625,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.6041666666666666,
+          "pips": 2.375,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340050,
+      "turn": 9,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 4,
+      "support": 0,
+      "focalHand": 6,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 2,
+        "sameNextActions": 2,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.2083333333333335,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.041666666666666664,
+          "pips": 0.3333333333333333,
+          "minus": 0.20833333333333334,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.2708333333333333,
+          "pips": 1.6458333333333333,
+          "minus": 0.25,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.041666666666666664,
+          "pips": 0.20833333333333334,
+          "minus": 0.041666666666666664,
+          "block": 0.041666666666666664
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0.5,
+        "closed-branch-control": 0,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340051,
+      "turn": 1,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 2,
+      "support": 3,
+      "focalHand": 9,
+      "nextHand": 9,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 4,
+        "sameNextActions": 4,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.4375,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.08333333333333333,
+          "pips": 0.8958333333333334,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.0625,
+          "pips": -1.375,
+          "minus": -0.041666666666666664,
+          "block": 0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.22916666666666666,
+          "pips": 0.5833333333333334,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -0.25,
+        "closed-branch-control": -0.5,
+        "fast-doubles": -0.25
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340054,
+      "turn": 15,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 0,
+      "focalHand": 4,
+      "nextHand": 5,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.3333333333333335,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.2708333333333333,
+          "pips": 2.75,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.3333333333333333,
+          "pips": 2.8125,
+          "minus": -0.0625,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.0625,
+          "pips": 0.14583333333333334,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340056,
+      "turn": 4,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 5,
+      "support": 1,
+      "focalHand": 8,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 3.6875,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0,
+          "pips": -0.3125,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.020833333333333332,
+          "pips": -0.08333333333333333,
+          "minus": -0.020833333333333332,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.4375,
+          "pips": 0.4166666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340058,
+      "turn": 15,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 1,
+      "focalHand": 5,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 1,
+        "sameNextActions": 1,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.6041666666666667,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.1875,
+          "pips": -1.25,
+          "minus": 0.375,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0.1875,
+          "pips": -1.25,
+          "minus": 0.375,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.8541666666666666,
+          "pips": 6,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": 0,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340059,
+      "turn": 8,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 0,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.7291666666666667,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.5,
+          "pips": 3.2708333333333335,
+          "minus": 0.0625,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.10416666666666667,
+          "pips": 0.4583333333333333,
+          "minus": 0.08333333333333333,
+          "block": 0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.08333333333333333,
+          "pips": 0.4166666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340062,
+      "turn": 5,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 5,
+      "support": 3,
+      "focalHand": 8,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.5625,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": 0.0625,
+          "pips": 0.75,
+          "minus": 0.041666666666666664,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.14583333333333334,
+          "pips": 1.5833333333333333,
+          "minus": -0.0625,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.041666666666666664,
+          "pips": 0.8958333333333334,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340065,
+      "turn": 10,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 4,
+      "support": 1,
+      "focalHand": 6,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 1,
+        "sameNextActions": 1,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.9791666666666666,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.125,
+          "pips": -0.20833333333333334,
+          "minus": -0.10416666666666667,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.4375,
+          "pips": 1.2708333333333333,
+          "minus": -0.3541666666666667,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.0625,
+          "pips": 0.10416666666666667,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 0,
+        "closed-branch-control": -1,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340067,
+      "turn": 2,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 0,
+      "focalHand": 9,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 1,
+        "sameNextActions": 1,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.9583333333333333,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.041666666666666664,
+          "pips": -0.1875,
+          "minus": -0.020833333333333332,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.14583333333333334,
+          "pips": 0.041666666666666664,
+          "minus": -0.16666666666666666,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.0625,
+          "pips": 0.125,
+          "minus": 0.0625,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": 1,
+        "closed-branch-control": 0,
+        "fast-doubles": 1
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340068,
+      "turn": 9,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 2,
+      "support": 2,
+      "focalHand": 6,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 2.5416666666666665,
+      "focalMobility": 3,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.020833333333333332,
+          "pips": 0.3333333333333333,
+          "minus": 0,
+          "block": -0.0625
+        },
+        "closed-branch-control": {
+          "win": 0.020833333333333332,
+          "pips": -0.22916666666666666,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0.041666666666666664,
+          "pips": -0.25,
+          "minus": 0,
+          "block": -0.0625
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340069,
+      "turn": 14,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 2,
+      "focalHand": 5,
+      "nextHand": 4,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 1,
+        "sameNextActions": 1,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 1.0625,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.1875,
+          "pips": -3.3541666666666665,
+          "minus": -0.125,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.1875,
+          "pips": -3.3541666666666665,
+          "minus": -0.125,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": -1.5625,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": -1,
+        "closed-branch-control": -1,
+        "fast-doubles": 0
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340072,
+      "turn": 3,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 3,
+      "support": 0,
+      "focalHand": 8,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 3.5833333333333335,
+      "focalMobility": -1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.020833333333333332,
+          "pips": 0.10416666666666667,
+          "minus": 0.20833333333333334,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.5208333333333334,
+          "pips": 6.3125,
+          "minus": -0.3541666666666667,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": 0,
+          "pips": 0,
+          "minus": -0.16666666666666666,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340074,
+      "turn": 13,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 2,
+      "support": 1,
+      "focalHand": 5,
+      "nextHand": 5,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 3.9166666666666665,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.3333333333333333,
+          "pips": 0.5416666666666666,
+          "minus": -0.3333333333333333,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.3333333333333333,
+          "pips": 0.5416666666666666,
+          "minus": -0.3333333333333333,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.8333333333333334,
+          "pips": 0.9166666666666666,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340075,
+      "turn": 13,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 2,
+      "support": 1,
+      "focalHand": 7,
+      "nextHand": 6,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 3.5,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.6666666666666666,
+          "pips": 3.6458333333333335,
+          "minus": -0.4375,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.2708333333333333,
+          "pips": 4,
+          "minus": -0.020833333333333332,
+          "block": -0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.7708333333333334,
+          "pips": 5.083333333333333,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340076,
+      "turn": 5,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 4,
+      "support": 2,
+      "focalHand": 8,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 3.0416666666666665,
+      "focalMobility": 1,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.4583333333333333,
+          "pips": 5.645833333333333,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.625,
+          "pips": 6.041666666666667,
+          "minus": 0,
+          "block": 0
+        },
+        "fast-doubles": {
+          "win": -0.5416666666666666,
+          "pips": 3.0208333333333335,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340077,
+      "turn": 7,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 2,
+      "support": 1,
+      "focalHand": 7,
+      "nextHand": 7,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 3.6041666666666665,
+      "focalMobility": 0,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.22916666666666666,
+          "pips": 1,
+          "minus": -0.20833333333333334,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": -0.3333333333333333,
+          "pips": 1.5208333333333333,
+          "minus": -0.0625,
+          "block": 0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.22916666666666666,
+          "pips": 1.5,
+          "minus": 0,
+          "block": -0.020833333333333332
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    },
+    {
+      "seed": 1340078,
+      "turn": 2,
+      "discovery": "closed-branch-control",
+      "doubleNumber": 2,
+      "support": 2,
+      "focalHand": 9,
+      "nextHand": 8,
+      "worlds": 48,
+      "counts": {
+        "sameNext": 0,
+        "sameNextActions": 0,
+        "sameFocal": 0,
+        "bothSame": 0,
+        "sameGeometry": 0
+      },
+      "nextMobility": 0.9583333333333334,
+      "focalMobility": 2,
+      "outcomes": {
+        "min-hand-pips": {
+          "win": -0.14583333333333334,
+          "pips": -0.2916666666666667,
+          "minus": 0,
+          "block": 0
+        },
+        "closed-branch-control": {
+          "win": 0.0625,
+          "pips": -2,
+          "minus": 0,
+          "block": -0.020833333333333332
+        },
+        "fast-doubles": {
+          "win": -0.020833333333333332,
+          "pips": -0.7708333333333334,
+          "minus": 0,
+          "block": 0
+        }
+      },
+      "sameNextWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      },
+      "bothSameWin": {
+        "min-hand-pips": null,
+        "closed-branch-control": null,
+        "fast-doubles": null
+      }
+    }
+  ],
+  "timestampBaku": "2026-10-21T09:55:52 +04:00",
+  "validation": "V8 CommonJS test green; Node CLI not executed",
+  "nextAction": "On independent seeds >=1345000, oversample late focal hand <=4 and next hand <=3; compare X-X opening against equal-pip singles under the same 3 canonical bots, and inspect exceptions. Do not infer causal double-opening effect without matched post-action geometry."
+}

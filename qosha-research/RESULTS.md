@@ -400,3 +400,12 @@
 - Finding: see linked `runs/2026-10-20-1953-alpha20-alpha36-holdout.md`; **alpha cohorts differ and must not be compared as a matched-position alpha effect**. No human-game rule promoted; intervals exploratory.
 - Confidence/limitations: V8 CommonJS smoke green; Node CLI not run; pass-conditioned worlds uniform, fixed bots, geometry confounding, no block winner. Full strategy baseline 264900 unchanged; candidate rollouts tracked separately.
 - Exact next action: matched-position alpha20/28/36 action evaluator on fresh seeds >=1305800, with geometry/double-opening stratification.
+
+
+### 2026-10-21T09:55:52 +04:00 — equal-pip legal-set identifiability audit
+- Engine/rules: qosa-research-0.5.3 / qosa-1.0.0, 3×9; 175 scanned deals (1336000..1336096, 1340000..1340079 end-exclusive), 100 positions, 4800 matched worlds, 28800 paired continuations, 0 unresolved, 0 full rounds.
+- Policies: min-hand-pips, closed-branch-control, fast-doubles; opening X-X vs equal-pip ordinary single; canonical tie-breaking.
+- Finding: exact next-player legal sets overlap 160/4800 worlds; exact focal legal sets 0; both 0; unordered branch-end geometry 0. The pair design cannot isolate double opening from changed branch ends. First-finisher differences: min-hand-pips -14.77 pp; closed-branch-control -15.42 pp; fast-doubles -18.52 pp. Model-specific, not causal.
+- Confidence: exploratory position-level CIs, uniformly sampled hidden worlds, first-eligible selection, provisional branch semantics, block winner unassigned; V8 CommonJS test green, Node CLI not run.
+- Exact next action: On independent seeds >=1345000, oversample late focal hand <=4 and next hand <=3; compare X-X opening against equal-pip singles under the same 3 canonical bots, and inspect exceptions. Do not infer causal double-opening effect without matched post-action geometry.
+- Linked raw/code: `runs/2026-10-21-0951-equal-pip-identifiability.json`, `runs/2026-10-21-0951-equal-pip-identifiability.md`, `simulator/equal-pip-identifiability.js`.
