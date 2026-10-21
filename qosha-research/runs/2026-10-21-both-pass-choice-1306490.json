@@ -1,0 +1,962 @@
+{
+  "schema": "qosa-both-pass-choice/v1",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "startSeed": 1306490,
+  "endSeed": 1307089,
+  "dealsScannedPerProfile": 600,
+  "diagnostics": {
+    "min-hand-pips": {
+      "scannedDeals": 600,
+      "trajectories": 1800,
+      "bothHistoryChoicePoints": 941,
+      "changedChoices": 27,
+      "selectedIndependentDealPositions": 14
+    },
+    "closed-branch-control": {
+      "scannedDeals": 600,
+      "trajectories": 1800,
+      "bothHistoryChoicePoints": 1021,
+      "changedChoices": 45,
+      "selectedIndependentDealPositions": 14
+    }
+  },
+  "selectedPositions": 28,
+  "exactPositions": 24,
+  "sampledPositions": 4,
+  "uniqueHiddenWorlds": 469,
+  "counterfactualContinuations": 938,
+  "strategies": [
+    "a20-one",
+    "a20-joint"
+  ],
+  "opponents": [
+    "min-hand-pips",
+    "closed-branch-control"
+  ],
+  "method": "One first changed-choice position per seed/profile; both opponents had previously passed; fixed visible tiles; pass-constrained uniform hidden allocations; identical worlds and bot continuation.",
+  "limitations": "Selection on disagreement; exact only for small support; first selected per seed, fixed deterministic bots, no prior action likelihood, provisional branch semantics, no block winner. Position CIs exploratory, no universal causal claim.",
+  "summaries": {
+    "min-hand-pips": {
+      "all": {
+        "positions": 14,
+        "uniqueWorlds": 243,
+        "winPP": -11.354166666666666,
+        "win95ExploratoryPP": [
+          -33.42707624560809,
+          10.718742912274761
+        ],
+        "pipsDelta": 0.4197916666666667,
+        "minusPP": 2.1726190476190474,
+        "blockPP": -7.1726190476190474,
+        "better": 4,
+        "worse": 4,
+        "tied": 6
+      },
+      "exact": {
+        "positions": 12,
+        "uniqueWorlds": 115,
+        "winPP": -11.944444444444445,
+        "win95ExploratoryPP": [
+          -37.76419468850266,
+          13.875305799613768
+        ],
+        "pipsDelta": 0.41944444444444445,
+        "minusPP": 5.138888888888889,
+        "blockPP": -8.88888888888889,
+        "better": 4,
+        "worse": 3,
+        "tied": 5
+      },
+      "sampled": {
+        "positions": 2,
+        "uniqueWorlds": 128,
+        "winPP": -7.8125,
+        "win95ExploratoryPP": [
+          -24.296875,
+          8.671874999999998
+        ],
+        "pipsDelta": 0.421875,
+        "minusPP": -15.625,
+        "blockPP": 3.125,
+        "better": 0,
+        "worse": 1,
+        "tied": 1
+      }
+    },
+    "closed-branch-control": {
+      "all": {
+        "positions": 14,
+        "uniqueWorlds": 226,
+        "winPP": 0.654761904761904,
+        "win95ExploratoryPP": [
+          -14.377407276479914,
+          15.686931086003725
+        ],
+        "pipsDelta": 0.35000000000000003,
+        "minusPP": -2.34375,
+        "blockPP": -7.366071428571429,
+        "better": 6,
+        "worse": 2,
+        "tied": 6
+      },
+      "exact": {
+        "positions": 12,
+        "uniqueWorlds": 98,
+        "winPP": 1.8055555555555547,
+        "win95ExploratoryPP": [
+          -15.43588591891416,
+          19.04699703002527
+        ],
+        "pipsDelta": 0.3458333333333334,
+        "minusPP": 0,
+        "blockPP": -8.333333333333332,
+        "better": 5,
+        "worse": 1,
+        "tied": 6
+      },
+      "sampled": {
+        "positions": 2,
+        "uniqueWorlds": 128,
+        "winPP": -6.25,
+        "win95ExploratoryPP": [
+          -32.625,
+          20.125
+        ],
+        "pipsDelta": 0.375,
+        "minusPP": -16.40625,
+        "blockPP": -1.5625,
+        "better": 1,
+        "worse": 1,
+        "tied": 0
+      }
+    }
+  },
+  "rows": [
+    {
+      "profile": "min-hand-pips",
+      "seed": 1306496,
+      "seat": 1,
+      "turn": 20,
+      "support": 3,
+      "exact": true,
+      "worlds": 3,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        3,
+        2
+      ],
+      "forbiddenSizes": [
+        9,
+        16
+      ],
+      "hand": [
+        "0-3",
+        "1-2",
+        "2-2"
+      ],
+      "one": "single|up|2||1-2",
+      "joint": "double-sequence|||2|2-2",
+      "winDelta": 0.3333333333333333,
+      "pipsDelta": -1,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1306508,
+      "seat": 2,
+      "turn": 19,
+      "support": 15,
+      "exact": true,
+      "worlds": 15,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        4,
+        4
+      ],
+      "forbiddenSizes": [
+        2,
+        8
+      ],
+      "hand": [
+        "0-4",
+        "0-6",
+        "2-2"
+      ],
+      "one": "single|down|6||0-6",
+      "joint": "single|down|4||0-4",
+      "winDelta": 0.13333333333333333,
+      "pipsDelta": -0.5333333333333333,
+      "minusDelta": 0.2,
+      "blockDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1306516,
+      "seat": 2,
+      "turn": 17,
+      "support": 28,
+      "exact": true,
+      "worlds": 28,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        4,
+        6
+      ],
+      "forbiddenSizes": [
+        2,
+        8
+      ],
+      "hand": [
+        "0-0",
+        "4-4",
+        "2-2",
+        "0-2"
+      ],
+      "one": "double-sequence|||4|4-4",
+      "joint": "double-sequence|||0,4|0-0,4-4",
+      "winDelta": 0,
+      "pipsDelta": 0,
+      "minusDelta": 0.75,
+      "blockDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1306523,
+      "seat": 0,
+      "turn": 17,
+      "support": 10,
+      "exact": true,
+      "worlds": 10,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        3,
+        4
+      ],
+      "forbiddenSizes": [
+        7,
+        7
+      ],
+      "hand": [
+        "2-2",
+        "1-2",
+        "0-4",
+        "0-3"
+      ],
+      "one": "single|left|4||0-4",
+      "joint": "double-sequence|||2|2-2",
+      "winDelta": 0.1,
+      "pipsDelta": 0.3,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1306581,
+      "seat": 1,
+      "turn": 17,
+      "support": 15,
+      "exact": true,
+      "worlds": 15,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        3,
+        4
+      ],
+      "forbiddenSizes": [
+        7,
+        8
+      ],
+      "hand": [
+        "0-6",
+        "2-4",
+        "3-3",
+        "2-3"
+      ],
+      "one": "single|up|0||0-6",
+      "joint": "double-sequence|||3|3-3",
+      "winDelta": -0.06666666666666667,
+      "pipsDelta": 3.6666666666666665,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1306638,
+      "seat": 0,
+      "turn": 16,
+      "support": 1,
+      "exact": true,
+      "worlds": 1,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        5,
+        4
+      ],
+      "forbiddenSizes": [
+        7,
+        16
+      ],
+      "hand": [
+        "2-2",
+        "3-5",
+        "2-6",
+        "0-1"
+      ],
+      "one": "single|right|1||0-1",
+      "joint": "single|up|5||3-5",
+      "winDelta": -1,
+      "pipsDelta": 1,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1306686,
+      "seat": 2,
+      "turn": 11,
+      "support": 120,
+      "exact": false,
+      "worlds": 64,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        6,
+        7
+      ],
+      "forbiddenSizes": [
+        2,
+        8
+      ],
+      "hand": [
+        "6-6",
+        "0-5",
+        "2-2",
+        "0-3",
+        "3-6",
+        "0-6"
+      ],
+      "one": "double-sequence|||6|6-6",
+      "joint": "double-sequence|||2,6|2-2,6-6",
+      "winDelta": -0.15625,
+      "pipsDelta": 0.84375,
+      "minusDelta": -0.3125,
+      "blockDelta": 0.0625
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1306700,
+      "seat": 2,
+      "turn": 23,
+      "support": 6,
+      "exact": true,
+      "worlds": 6,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        3,
+        3
+      ],
+      "forbiddenSizes": [
+        8,
+        8
+      ],
+      "hand": [
+        "3-4",
+        "0-3"
+      ],
+      "one": "single|right|3||3-4",
+      "joint": "single|down|4||3-4",
+      "winDelta": 0,
+      "pipsDelta": 0,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1306701,
+      "seat": 2,
+      "turn": 15,
+      "support": 70,
+      "exact": false,
+      "worlds": 64,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        5,
+        4
+      ],
+      "forbiddenSizes": [
+        4,
+        7
+      ],
+      "hand": [
+        "1-6",
+        "1-2",
+        "5-6"
+      ],
+      "one": "single|left|1||1-6",
+      "joint": "single|left|5||5-6",
+      "winDelta": 0,
+      "pipsDelta": 0,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1306722,
+      "seat": 0,
+      "turn": 23,
+      "support": 10,
+      "exact": true,
+      "worlds": 10,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        3,
+        3
+      ],
+      "forbiddenSizes": [
+        8,
+        14
+      ],
+      "hand": [
+        "0-3",
+        "1-3"
+      ],
+      "one": "single|down|1||1-3",
+      "joint": "single|down|0||0-3",
+      "winDelta": 0,
+      "pipsDelta": 0,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1306736,
+      "seat": 2,
+      "turn": 19,
+      "support": 10,
+      "exact": true,
+      "worlds": 10,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        4,
+        3
+      ],
+      "forbiddenSizes": [
+        7,
+        7
+      ],
+      "hand": [
+        "0-0",
+        "2-2",
+        "0-5"
+      ],
+      "one": "double-sequence|||2|2-2",
+      "joint": "double-sequence|||0,2|0-0,2-2",
+      "winDelta": 0,
+      "pipsDelta": 0,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1306738,
+      "seat": 2,
+      "turn": 15,
+      "support": 1,
+      "exact": true,
+      "worlds": 1,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        4,
+        6
+      ],
+      "forbiddenSizes": [
+        2,
+        13
+      ],
+      "hand": [
+        "0-4",
+        "3-4",
+        "0-5"
+      ],
+      "one": "single|left|0||0-5",
+      "joint": "single|down|5||0-5",
+      "winDelta": -1,
+      "pipsDelta": 4,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1306754,
+      "seat": 0,
+      "turn": 27,
+      "support": 1,
+      "exact": true,
+      "worlds": 1,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        1,
+        1
+      ],
+      "forbiddenSizes": [
+        7,
+        15
+      ],
+      "hand": [
+        "0-3",
+        "0-1"
+      ],
+      "one": "single|down|1||0-1",
+      "joint": "single|down|3||0-3",
+      "winDelta": 0,
+      "pipsDelta": -2,
+      "minusDelta": 0,
+      "blockDelta": -1
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1306766,
+      "seat": 2,
+      "turn": 19,
+      "support": 15,
+      "exact": true,
+      "worlds": 15,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        4,
+        4
+      ],
+      "forbiddenSizes": [
+        2,
+        9
+      ],
+      "hand": [
+        "2-4",
+        "0-0",
+        "3-3"
+      ],
+      "one": "double-sequence|||3|3-3",
+      "joint": "double-sequence|||0,3|0-0,3-3",
+      "winDelta": 0.06666666666666667,
+      "pipsDelta": -0.4,
+      "minusDelta": -0.3333333333333333,
+      "blockDelta": -0.06666666666666667
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1306494,
+      "seat": 2,
+      "turn": 27,
+      "support": 1,
+      "exact": true,
+      "worlds": 1,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        1,
+        1
+      ],
+      "forbiddenSizes": [
+        7,
+        11
+      ],
+      "hand": [
+        "0-5",
+        "0-3"
+      ],
+      "one": "single|down|3||0-3",
+      "joint": "single|down|5||0-5",
+      "winDelta": 0,
+      "pipsDelta": -2,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1306499,
+      "seat": 2,
+      "turn": 24,
+      "support": 6,
+      "exact": true,
+      "worlds": 6,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        3,
+        2
+      ],
+      "forbiddenSizes": [
+        13,
+        12
+      ],
+      "hand": [
+        "0-4",
+        "2-4",
+        "0-1"
+      ],
+      "one": "single|down|0||0-1",
+      "joint": "single|up|4||2-4",
+      "winDelta": 0.16666666666666666,
+      "pipsDelta": -1.1666666666666667,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1306508,
+      "seat": 0,
+      "turn": 20,
+      "support": 20,
+      "exact": true,
+      "worlds": 20,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        4,
+        3
+      ],
+      "forbiddenSizes": [
+        8,
+        2
+      ],
+      "hand": [
+        "1-3",
+        "1-2",
+        "3-6",
+        "0-3"
+      ],
+      "one": "single|left|1||1-2",
+      "joint": "single|up|6||3-6",
+      "winDelta": 0.35,
+      "pipsDelta": -1.05,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1306526,
+      "seat": 1,
+      "turn": 21,
+      "support": 4,
+      "exact": true,
+      "worlds": 4,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        3,
+        3
+      ],
+      "forbiddenSizes": [
+        1,
+        15
+      ],
+      "hand": [
+        "2-5",
+        "0-2"
+      ],
+      "one": "single|down|2||2-5",
+      "joint": "single|left|2||0-2",
+      "winDelta": 0,
+      "pipsDelta": 0,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1306544,
+      "seat": 2,
+      "turn": 20,
+      "support": 20,
+      "exact": true,
+      "worlds": 20,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        4,
+        3
+      ],
+      "forbiddenSizes": [
+        1,
+        12
+      ],
+      "hand": [
+        "3-4",
+        "2-5",
+        "0-5",
+        "4-5",
+        "0-4"
+      ],
+      "one": "single|down|2||2-5",
+      "joint": "single|down|4||4-5",
+      "winDelta": 0.15,
+      "pipsDelta": -2.8,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1306547,
+      "seat": 1,
+      "turn": 25,
+      "support": 10,
+      "exact": true,
+      "worlds": 10,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        3,
+        3
+      ],
+      "forbiddenSizes": [
+        4,
+        13
+      ],
+      "hand": [
+        "0-5",
+        "1-2",
+        "0-2",
+        "2-3"
+      ],
+      "one": "single|down|0||0-2",
+      "joint": "single|down|3||2-3",
+      "winDelta": 0.1,
+      "pipsDelta": -0.3,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1306553,
+      "seat": 2,
+      "turn": 22,
+      "support": 6,
+      "exact": true,
+      "worlds": 6,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        4,
+        3
+      ],
+      "forbiddenSizes": [
+        8,
+        9
+      ],
+      "hand": [
+        "0-5",
+        "0-3",
+        "4-6",
+        "3-4",
+        "5-6"
+      ],
+      "one": "single|left|3||3-4",
+      "joint": "single|left|6||4-6",
+      "winDelta": 0,
+      "pipsDelta": 6.166666666666667,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1306607,
+      "seat": 2,
+      "turn": 20,
+      "support": 15,
+      "exact": true,
+      "worlds": 15,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        3,
+        4
+      ],
+      "forbiddenSizes": [
+        2,
+        9
+      ],
+      "hand": [
+        "0-4",
+        "0-5",
+        "1-4"
+      ],
+      "one": "single|up|4||0-4",
+      "joint": "single|up|5||0-5",
+      "winDelta": -0.8,
+      "pipsDelta": 5.8,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1306631,
+      "seat": 0,
+      "turn": 18,
+      "support": 4,
+      "exact": true,
+      "worlds": 4,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        4,
+        4
+      ],
+      "forbiddenSizes": [
+        7,
+        9
+      ],
+      "hand": [
+        "0-6",
+        "1-3",
+        "3-4",
+        "0-4"
+      ],
+      "one": "single|left|4||3-4",
+      "joint": "single|left|1||1-3",
+      "winDelta": 0.25,
+      "pipsDelta": 2.5,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1306686,
+      "seat": 2,
+      "turn": 11,
+      "support": 120,
+      "exact": false,
+      "worlds": 64,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        6,
+        7
+      ],
+      "forbiddenSizes": [
+        2,
+        8
+      ],
+      "hand": [
+        "6-6",
+        "0-5",
+        "2-2",
+        "0-3",
+        "3-6",
+        "0-6"
+      ],
+      "one": "double-sequence|||6|6-6",
+      "joint": "double-sequence|||2,6|2-2,6-6",
+      "winDelta": -0.1875,
+      "pipsDelta": 1.28125,
+      "minusDelta": -0.3125,
+      "blockDelta": -0.03125
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1306721,
+      "seat": 0,
+      "turn": 30,
+      "support": 1,
+      "exact": true,
+      "worlds": 1,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        1,
+        1
+      ],
+      "forbiddenSizes": [
+        12,
+        19
+      ],
+      "hand": [
+        "3-4",
+        "3-6",
+        "3-5"
+      ],
+      "one": "single|down|3||3-5",
+      "joint": "single|right|6||3-6",
+      "winDelta": 0,
+      "pipsDelta": -1,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1306733,
+      "seat": 0,
+      "turn": 13,
+      "support": 252,
+      "exact": false,
+      "worlds": 64,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        6,
+        5
+      ],
+      "forbiddenSizes": [
+        3,
+        3
+      ],
+      "hand": [
+        "0-0",
+        "3-3",
+        "4-6",
+        "0-6"
+      ],
+      "one": "double-sequence|||3|3-3",
+      "joint": "double-sequence|||0,3|0-0,3-3",
+      "winDelta": 0.0625,
+      "pipsDelta": -0.53125,
+      "minusDelta": -0.015625,
+      "blockDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1306736,
+      "seat": 2,
+      "turn": 19,
+      "support": 10,
+      "exact": true,
+      "worlds": 10,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        4,
+        3
+      ],
+      "forbiddenSizes": [
+        7,
+        7
+      ],
+      "hand": [
+        "0-0",
+        "2-2",
+        "0-5"
+      ],
+      "one": "double-sequence|||2|2-2",
+      "joint": "double-sequence|||0,2|0-0,2-2",
+      "winDelta": 0,
+      "pipsDelta": 0,
+      "minusDelta": 0,
+      "blockDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1306754,
+      "seat": 0,
+      "turn": 27,
+      "support": 1,
+      "exact": true,
+      "worlds": 1,
+      "passHistories": 2,
+      "opponentHandSizes": [
+        1,
+        1
+      ],
+      "forbiddenSizes": [
+        7,
+        15
+      ],
+      "hand": [
+        "0-3",
+        "0-1"
+      ],
+      "one": "single|down|1||0-1",
+      "joint": "single|down|3||0-3",
+      "winDelta": 0,
+      "pipsDelta": -2,
+      "minusDelta": 0,
+      "blockDelta": -1
+    }
+  ]
+}

@@ -411,3 +411,12 @@
 - Cumulative: verified prior 290,100 full continuations unchanged; separate pass-choice counterfactual continuations 46364 (previous 41,472 + 4892); historical and quarantined data excluded.
 - Reproduce: `simulator/pass-choice-support-strata.js test`, then `1305440 450 18 128`; data `runs/2026-10-21-pass-choice-support-1305440.json`; note `runs/2026-10-21-2048-pass-choice-support.md`.
 - Exact next: full-deal matched-seat alpha20-one vs alpha20-joint policy evaluation on fresh seeds, then a separately powered both-opponent-pass stratum; avoid claiming a human-play law from changed-choice-only samples.
+
+
+### 2026-10-21 22:53:12 (+04) — both-opponent-pass changed-choice holdout
+- Engine/rules: qosa-research-0.5.3 / qosa-1.0.0, 3×9. Deterministic V8 CommonJS test passed; Node CLI not executed.
+- Fresh seeds 1306490..1307089, 600 deals per profile; 28 selected positions, 469 hidden allocations, 938 paired continuations, 0 unresolved. Full-deal baseline unchanged at 300,900; separate counterfactual total 47302.
+- Both-pass selection and results: min-hand-pips: 14 positions, joint-minus-one -11.35 pp; closed-branch-control: 14 positions, joint-minus-one 0.65 pp. **Exploratory changed-choice sample, not a universal improvement claim.**
+- Assumptions/limits: Selection on disagreement; exact only for small support; first selected per seed, fixed deterministic bots, no prior action likelihood, provisional branch semantics, no block winner. Position CIs exploratory, no universal causal claim.
+- Code: `simulator/both-pass-choice-holdout.js`; data: `runs/2026-10-21-both-pass-choice-1306490.json`; note: `runs/2026-10-21-202610212253-both-pass-choice.md`.
+- Exact next: independent disjoint seed set 1307090 onward, larger world samples and full-deal comparison without conditioning on changed decisions.
