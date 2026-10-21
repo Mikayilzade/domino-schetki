@@ -136,7 +136,7 @@ function run(start=1301000,count=800,weights=[20]){
           for(const field of ['block','unresolved','turns','passEvents','choices','conditioned','bothConditioned','changedVsOne'])s[field]+=x[field];
           s.minus[String(x.minus)]++;wins[i].push(x.win);report.fullRounds++;
         }
-        for(const x of outcomes[0].calibration){
+        for(const x of outcomes[variants.indexOf('a20-plain')].calibration){
           calibration.all.push(x);
           if(x.nextHistory||x.otherHistory)calibration.either.push(x);
           if(x.nextHistory&&x.otherHistory)calibration.both.push(x);
@@ -195,6 +195,13 @@ function test(){
   const a=run(1301000,2),b=run(1301000,2);
   if(JSON.stringify(a)!==JSON.stringify(b)||a.fullRounds!==36||
     a.profiles.some(p=>p.rows.some(row=>row.unresolved)))throw Error('replay/termination');
+  // Alpha grid begins at a12, but only a20-plain collects calibration.
+  const grid=run(1303100,12,[12,20,28]),single=run(1303100,12,[20]);
+  if(grid.fullRounds!==648||grid.profiles.some(p=>p.calibration.all.n===0||
+      p.calibration.either.n===0)||
+      JSON.stringify(grid.profiles.map(p=>p.calibration))!==
+      JSON.stringify(single.profiles.map(p=>p.calibration)))
+    throw Error('alpha-grid calibration indexing regression');
   return {passed:true,fullRounds:a.fullRounds,posterior:'brute-force enumeration'};
 }
 if(require.main===module){
