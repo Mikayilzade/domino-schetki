@@ -1,0 +1,1822 @@
+{
+  "schema": "qosa-pass-choice-regret/v1",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "startSeed": 1305440,
+  "endSeed": 1305889,
+  "scanCount": 450,
+  "discoveryTrajectories": {
+    "min-hand-pips": 232,
+    "closed-branch-control": 170
+  },
+  "scanned": {
+    "min-hand-pips": 78,
+    "closed-branch-control": 57
+  },
+  "sampleRule": "first joint-vs-one alpha20 changed choice per focal trajectory; first N per profile in ascending seeds",
+  "worldsPerPosition": 128,
+  "positions": 36,
+  "counterfactualContinuations": 9216,
+  "policies": [
+    "min-hand-pips",
+    "closed-branch-control"
+  ],
+  "comparison": "a20-joint minus a20-one; forced moves, identical hidden worlds, fixed continuation policy",
+  "assumptions": "Uniform hidden allocations conditional on observed no-stock passes for both opponents, ignoring policy-choice likelihood. Branch-opening semantics provisional.",
+  "limitations": "Targeted positions from a20-one trajectories; deterministic bots, no block winner, finish-first not match win; counterfactual continuations not independent full-deal baselines.",
+  "summaries": [
+    {
+      "profile": "min-hand-pips",
+      "positions": 18,
+      "worldsPerPosition": 128,
+      "continuations": 4608,
+      "jointMinusOneWinPP": 4.340277777777778,
+      "jointMinusOnePips": -0.7786458333333334,
+      "jointMinusOneMinusPP": 3.2118055555555554,
+      "jointMinusOneBlockPP": -6.380208333333333,
+      "jointMinusOneNextPassPP": 4.6875,
+      "jointBetter": 7,
+      "oneBetter": 7,
+      "tied": 4
+    },
+    {
+      "profile": "closed-branch-control",
+      "positions": 18,
+      "worldsPerPosition": 128,
+      "continuations": 4608,
+      "jointMinusOneWinPP": -10.807291666666668,
+      "jointMinusOnePips": 1.1701388888888888,
+      "jointMinusOneMinusPP": -2.473958333333333,
+      "jointMinusOneBlockPP": -0.4340277777777778,
+      "jointMinusOneNextPassPP": 0,
+      "jointBetter": 2,
+      "oneBetter": 11,
+      "tied": 5
+    }
+  ],
+  "rows": [
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305442,
+      "turn": 13,
+      "seat": 2,
+      "hand": [
+        "3-5",
+        "1-3",
+        "0-2",
+        "2-6",
+        "0-0"
+      ],
+      "opponentSizes": [
+        4,
+        4,
+        5
+      ],
+      "branchEnds": {
+        "up": 0,
+        "left": 0,
+        "right": 1,
+        "down": 6
+      },
+      "opened": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        12,
+        0
+      ],
+      "one": "single|down|2||2-6",
+      "joint": "single|right|3||1-3",
+      "oneWin": 0.140625,
+      "jointWin": 0.34375,
+      "winDelta": 0.203125,
+      "remainderDelta": -1.875,
+      "minusFinishDelta": 0.1484375,
+      "blockDelta": 0.0546875,
+      "nextPassDelta": 0.359375
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305443,
+      "turn": 12,
+      "seat": 0,
+      "hand": [
+        "1-2",
+        "1-6",
+        "1-4",
+        "3-3",
+        "2-2"
+      ],
+      "opponentSizes": [
+        5,
+        6,
+        6
+      ],
+      "branchEnds": {
+        "up": 4,
+        "left": 3,
+        "right": 1,
+        "down": 3
+      },
+      "opened": [
+        0,
+        1,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        8,
+        8
+      ],
+      "one": "single|right|4||1-4",
+      "joint": "single|right|6||1-6",
+      "oneWin": 0.8515625,
+      "jointWin": 0.9921875,
+      "winDelta": 0.140625,
+      "remainderDelta": -0.703125,
+      "minusFinishDelta": 0.0859375,
+      "blockDelta": -0.015625,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305448,
+      "turn": 22,
+      "seat": 2,
+      "hand": [
+        "0-4",
+        "0-1"
+      ],
+      "opponentSizes": [
+        1,
+        1,
+        2
+      ],
+      "branchEnds": {
+        "up": 0,
+        "left": 1,
+        "right": 5,
+        "down": 5
+      },
+      "opened": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        15,
+        0
+      ],
+      "one": "single|up|1||0-1",
+      "joint": "single|up|4||0-4",
+      "oneWin": 0,
+      "jointWin": 0,
+      "winDelta": 0,
+      "remainderDelta": -3,
+      "minusFinishDelta": 0,
+      "blockDelta": -1,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305451,
+      "turn": 16,
+      "seat": 2,
+      "hand": [
+        "0-5",
+        "0-1",
+        "2-3",
+        "0-3"
+      ],
+      "opponentSizes": [
+        4,
+        4,
+        4
+      ],
+      "branchEnds": {
+        "up": 5,
+        "left": 1,
+        "right": 1,
+        "down": 3
+      },
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        15,
+        0
+      ],
+      "one": "single|up|0||0-5",
+      "joint": "single|down|2||2-3",
+      "oneWin": 0.8359375,
+      "jointWin": 0.8359375,
+      "winDelta": 0,
+      "remainderDelta": 0,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305460,
+      "turn": 19,
+      "seat": 0,
+      "hand": [
+        "0-1",
+        "1-2",
+        "0-5"
+      ],
+      "opponentSizes": [
+        3,
+        3,
+        2
+      ],
+      "branchEnds": {
+        "up": 1,
+        "left": 0,
+        "right": 4,
+        "down": 5
+      },
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        15
+      ],
+      "one": "single|down|0||0-5",
+      "joint": "single|up|0||0-1",
+      "oneWin": 0,
+      "jointWin": 0,
+      "winDelta": 0,
+      "remainderDelta": 1.6640625,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0.3359375
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305464,
+      "turn": 16,
+      "seat": 0,
+      "hand": [
+        "0-3",
+        "0-4",
+        "0-2"
+      ],
+      "opponentSizes": [
+        3,
+        4,
+        4
+      ],
+      "branchEnds": {
+        "up": 0,
+        "left": 3,
+        "right": 3,
+        "down": 2
+      },
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        3
+      ],
+      "one": "single|down|0||0-2",
+      "joint": "single|left|0||0-3",
+      "oneWin": 0.90625,
+      "jointWin": 0.6796875,
+      "winDelta": -0.2265625,
+      "remainderDelta": 1.390625,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305465,
+      "turn": 10,
+      "seat": 1,
+      "hand": [
+        "4-4",
+        "2-2",
+        "0-1",
+        "0-5",
+        "1-4",
+        "3-4"
+      ],
+      "opponentSizes": [
+        6,
+        6,
+        5
+      ],
+      "branchEnds": {
+        "up": 4,
+        "left": 5,
+        "right": 1,
+        "down": 4
+      },
+      "opened": [
+        1,
+        3,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        12,
+        0,
+        0
+      ],
+      "one": "single|left|0||0-5",
+      "joint": "double-sequence|||4|4-4",
+      "oneWin": 0.6328125,
+      "jointWin": 0.6640625,
+      "winDelta": 0.03125,
+      "remainderDelta": -1.7890625,
+      "minusFinishDelta": 0.359375,
+      "blockDelta": -0.1015625,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305466,
+      "turn": 13,
+      "seat": 1,
+      "hand": [
+        "2-4",
+        "4-4",
+        "2-6",
+        "5-6",
+        "2-5"
+      ],
+      "opponentSizes": [
+        4,
+        5,
+        6
+      ],
+      "branchEnds": {
+        "up": 2,
+        "left": 4,
+        "right": 3,
+        "down": 4
+      },
+      "opened": [
+        0,
+        1,
+        2,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        8,
+        0,
+        3
+      ],
+      "one": "single|up|4||2-4",
+      "joint": "double-sequence|||4|4-4",
+      "oneWin": 0.2109375,
+      "jointWin": 0.3046875,
+      "winDelta": 0.09375,
+      "remainderDelta": -3.3203125,
+      "minusFinishDelta": 0,
+      "blockDelta": -0.03125,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305483,
+      "turn": 14,
+      "seat": 0,
+      "hand": [
+        "0-4",
+        "2-5",
+        "0-1",
+        "4-4",
+        "2-3"
+      ],
+      "opponentSizes": [
+        5,
+        4,
+        4
+      ],
+      "branchEnds": {
+        "up": 4,
+        "left": 0,
+        "right": 1,
+        "down": 4
+      },
+      "opened": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        8
+      ],
+      "one": "single|right|0||0-1",
+      "joint": "double-sequence|||4|4-4",
+      "oneWin": 0.0078125,
+      "jointWin": 0,
+      "winDelta": -0.0078125,
+      "remainderDelta": 0.0234375,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.1171875,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305487,
+      "turn": 11,
+      "seat": 0,
+      "hand": [
+        "2-2",
+        "0-2",
+        "0-1",
+        "1-2"
+      ],
+      "opponentSizes": [
+        4,
+        5,
+        6
+      ],
+      "branchEnds": {
+        "up": 6,
+        "left": 1,
+        "right": 1,
+        "down": 2
+      },
+      "opened": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        12
+      ],
+      "one": "single|left|2||1-2",
+      "joint": "double-sequence|||2|2-2",
+      "oneWin": 0.96875,
+      "jointWin": 0.9375,
+      "winDelta": -0.03125,
+      "remainderDelta": 0.0625,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305492,
+      "turn": 9,
+      "seat": 1,
+      "hand": [
+        "0-6",
+        "0-2",
+        "0-0",
+        "0-1",
+        "2-3",
+        "1-3"
+      ],
+      "opponentSizes": [
+        7,
+        6,
+        5
+      ],
+      "branchEnds": {
+        "up": 2,
+        "left": 4,
+        "right": 1,
+        "down": 2
+      },
+      "opened": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        8,
+        0,
+        0
+      ],
+      "one": "single|down|3||2-3",
+      "joint": "single|right|3||1-3",
+      "oneWin": 0.515625,
+      "jointWin": 0.5859375,
+      "winDelta": 0.0703125,
+      "remainderDelta": -0.3828125,
+      "minusFinishDelta": -0.0546875,
+      "blockDelta": 0.0234375,
+      "nextPassDelta": 0.1484375
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305494,
+      "turn": 20,
+      "seat": 0,
+      "hand": [
+        "3-4",
+        "0-4",
+        "2-2"
+      ],
+      "opponentSizes": [
+        3,
+        3,
+        4
+      ],
+      "branchEnds": {
+        "up": 0,
+        "left": 2,
+        "right": 2,
+        "down": 2
+      },
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        8,
+        13
+      ],
+      "one": "single|up|4||0-4",
+      "joint": "double-sequence|||2|2-2",
+      "oneWin": 0,
+      "jointWin": 0.765625,
+      "winDelta": 0.765625,
+      "remainderDelta": -5.359375,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305498,
+      "turn": 8,
+      "seat": 2,
+      "hand": [
+        "1-2",
+        "0-1",
+        "2-3",
+        "0-3",
+        "3-6",
+        "0-0",
+        "1-4"
+      ],
+      "opponentSizes": [
+        6,
+        7,
+        7
+      ],
+      "branchEnds": {
+        "up": 0,
+        "left": 3,
+        "right": 1,
+        "down": 0
+      },
+      "opened": [
+        1,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        8,
+        0
+      ],
+      "one": "single|right|0||0-1",
+      "joint": "single|right|4||1-4",
+      "oneWin": 0.234375,
+      "jointWin": 0.1875,
+      "winDelta": -0.046875,
+      "remainderDelta": -2.046875,
+      "minusFinishDelta": 0.0234375,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305501,
+      "turn": 6,
+      "seat": 0,
+      "hand": [
+        "0-6",
+        "3-5",
+        "3-3",
+        "5-6",
+        "2-2",
+        "2-6",
+        "0-2"
+      ],
+      "opponentSizes": [
+        7,
+        7,
+        8
+      ],
+      "branchEnds": {
+        "up": 2,
+        "left": 5,
+        "right": 1,
+        "down": 6
+      },
+      "opened": [
+        1,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        8
+      ],
+      "one": "single|left|6||5-6",
+      "joint": "single|down|5||5-6",
+      "oneWin": 0.6171875,
+      "jointWin": 0.671875,
+      "winDelta": 0.0546875,
+      "remainderDelta": -0.8125,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305504,
+      "turn": 5,
+      "seat": 0,
+      "hand": [
+        "4-5",
+        "1-3",
+        "1-2",
+        "0-6",
+        "1-4",
+        "5-6",
+        "4-6",
+        "0-4"
+      ],
+      "opponentSizes": [
+        8,
+        7,
+        8
+      ],
+      "branchEnds": {
+        "up": 3,
+        "left": 1,
+        "right": 1,
+        "down": 1
+      },
+      "opened": [
+        1,
+        3,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        7
+      ],
+      "one": "single|up|1||1-3",
+      "joint": "single|down|4||1-4",
+      "oneWin": 0.234375,
+      "jointWin": 0.0703125,
+      "winDelta": -0.1640625,
+      "remainderDelta": 0.1640625,
+      "minusFinishDelta": 0,
+      "blockDelta": -0.109375,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305510,
+      "turn": 2,
+      "seat": 2,
+      "hand": [
+        "0-3",
+        "2-2",
+        "1-4",
+        "0-0",
+        "0-1",
+        "4-6",
+        "1-5",
+        "3-3",
+        "0-4"
+      ],
+      "opponentSizes": [
+        8,
+        9,
+        9
+      ],
+      "branchEnds": {
+        "up": 3,
+        "left": 1,
+        "right": 1,
+        "down": 1
+      },
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        7,
+        0
+      ],
+      "one": "single|down|5||1-5",
+      "joint": "double-sequence|||3|3-3",
+      "oneWin": 0.46875,
+      "jointWin": 0.40625,
+      "winDelta": -0.0625,
+      "remainderDelta": 0.0390625,
+      "minusFinishDelta": 0.015625,
+      "blockDelta": -0.078125,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305513,
+      "turn": 19,
+      "seat": 2,
+      "hand": [
+        "3-4",
+        "2-4",
+        "4-6",
+        "3-6"
+      ],
+      "opponentSizes": [
+        2,
+        4,
+        4
+      ],
+      "branchEnds": {
+        "up": 1,
+        "left": 2,
+        "right": 6,
+        "down": 2
+      },
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        8,
+        7
+      ],
+      "one": "single|right|3||3-6",
+      "joint": "single|right|4||4-6",
+      "oneWin": 0.2421875,
+      "jointWin": 0.2421875,
+      "winDelta": 0,
+      "remainderDelta": 0.609375,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1305517,
+      "turn": 2,
+      "seat": 0,
+      "hand": [
+        "4-5",
+        "0-1",
+        "1-6",
+        "5-5",
+        "5-6",
+        "1-3",
+        "1-5",
+        "0-4",
+        "1-4"
+      ],
+      "opponentSizes": [
+        9,
+        8,
+        9
+      ],
+      "branchEnds": {
+        "up": 2,
+        "left": 1,
+        "right": 1,
+        "down": 1
+      },
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        7
+      ],
+      "one": "single|down|5||1-5",
+      "joint": "single|down|6||1-6",
+      "oneWin": 0.34375,
+      "jointWin": 0.3046875,
+      "winDelta": -0.0390625,
+      "remainderDelta": 1.3203125,
+      "minusFinishDelta": 0,
+      "blockDelta": -0.0078125,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305446,
+      "turn": 20,
+      "seat": 0,
+      "hand": [
+        "0-3",
+        "4-5",
+        "2-5",
+        "3-4"
+      ],
+      "opponentSizes": [
+        4,
+        2,
+        3
+      ],
+      "branchEnds": {
+        "up": 0,
+        "left": 2,
+        "right": 0,
+        "down": 4
+      },
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        8,
+        0,
+        3
+      ],
+      "one": "single|left|5||2-5",
+      "joint": "single|down|5||4-5",
+      "oneWin": 0,
+      "jointWin": 0,
+      "winDelta": 0,
+      "remainderDelta": 3.3984375,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305447,
+      "turn": 16,
+      "seat": 1,
+      "hand": [
+        "0-0",
+        "2-4",
+        "0-4",
+        "0-2",
+        "3-4",
+        "0-5"
+      ],
+      "opponentSizes": [
+        4,
+        6,
+        4
+      ],
+      "branchEnds": {
+        "up": 5,
+        "left": 2,
+        "right": 2,
+        "down": 2
+      },
+      "opened": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        11,
+        4,
+        0
+      ],
+      "one": "single|up|0||0-5",
+      "joint": "single|down|4||2-4",
+      "oneWin": 0.109375,
+      "jointWin": 0.109375,
+      "winDelta": 0,
+      "remainderDelta": 0,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305447,
+      "turn": 20,
+      "seat": 2,
+      "hand": [
+        "5-6",
+        "2-5",
+        "4-6",
+        "4-5"
+      ],
+      "opponentSizes": [
+        2,
+        6,
+        4
+      ],
+      "branchEnds": {
+        "up": 6,
+        "left": 6,
+        "right": 4,
+        "down": 6
+      },
+      "opened": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        15,
+        8
+      ],
+      "one": "single|down|4||4-6",
+      "joint": "single|down|5||5-6",
+      "oneWin": 0,
+      "jointWin": 0,
+      "winDelta": 0,
+      "remainderDelta": -1,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305448,
+      "turn": 12,
+      "seat": 1,
+      "hand": [
+        "1-4",
+        "3-3",
+        "4-6",
+        "1-3",
+        "0-0"
+      ],
+      "opponentSizes": [
+        6,
+        5,
+        5
+      ],
+      "branchEnds": {
+        "up": 3,
+        "left": 0,
+        "right": 6,
+        "down": 6
+      },
+      "opened": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "forbiddenSizes": [
+        3,
+        0,
+        0
+      ],
+      "one": "double-sequence|||3|3-3",
+      "joint": "double-sequence|||0,3|0-0,3-3",
+      "oneWin": 0.6328125,
+      "jointWin": 0.7890625,
+      "winDelta": 0.15625,
+      "remainderDelta": -0.8203125,
+      "minusFinishDelta": -0.1484375,
+      "blockDelta": 0.015625,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305451,
+      "turn": 15,
+      "seat": 1,
+      "hand": [
+        "0-0",
+        "0-4",
+        "3-6",
+        "0-2",
+        "2-2"
+      ],
+      "opponentSizes": [
+        5,
+        5,
+        5
+      ],
+      "branchEnds": {
+        "up": 3,
+        "left": 2,
+        "right": 0,
+        "down": 2
+      },
+      "opened": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        3,
+        9,
+        3
+      ],
+      "one": "double-sequence|||2|2-2",
+      "joint": "double-sequence|||0,2|0-0,2-2",
+      "oneWin": 0.6171875,
+      "jointWin": 0.53125,
+      "winDelta": -0.0859375,
+      "remainderDelta": 0.0546875,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.0234375,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305451,
+      "turn": 13,
+      "seat": 2,
+      "hand": [
+        "0-5",
+        "3-4",
+        "2-5",
+        "2-3",
+        "0-3",
+        "3-3"
+      ],
+      "opponentSizes": [
+        5,
+        6,
+        6
+      ],
+      "branchEnds": {
+        "up": 0,
+        "left": 4,
+        "right": 0,
+        "down": 4
+      },
+      "opened": [
+        0,
+        1,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        9,
+        8
+      ],
+      "one": "single|right|3||0-3",
+      "joint": "single|right|5||0-5",
+      "oneWin": 0.453125,
+      "jointWin": 0.234375,
+      "winDelta": -0.21875,
+      "remainderDelta": -0.609375,
+      "minusFinishDelta": -0.0234375,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305452,
+      "turn": 19,
+      "seat": 0,
+      "hand": [
+        "2-4",
+        "3-4",
+        "2-3",
+        "0-2"
+      ],
+      "opponentSizes": [
+        4,
+        3,
+        4
+      ],
+      "branchEnds": {
+        "up": 3,
+        "left": 2,
+        "right": 3,
+        "down": 3
+      },
+      "opened": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        8,
+        0,
+        4
+      ],
+      "one": "single|left|3||2-3",
+      "joint": "single|left|4||2-4",
+      "oneWin": 0.0703125,
+      "jointWin": 0,
+      "winDelta": -0.0703125,
+      "remainderDelta": 0.8828125,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305453,
+      "turn": 6,
+      "seat": 0,
+      "hand": [
+        "4-5",
+        "3-3",
+        "0-2",
+        "2-5",
+        "0-0",
+        "1-3",
+        "5-6"
+      ],
+      "opponentSizes": [
+        7,
+        7,
+        8
+      ],
+      "branchEnds": {
+        "up": 3,
+        "left": 5,
+        "right": 1,
+        "down": 4
+      },
+      "opened": [
+        1,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        9
+      ],
+      "one": "single|right|3||1-3",
+      "joint": "double-sequence|||3|3-3",
+      "oneWin": 0.5546875,
+      "jointWin": 0.2890625,
+      "winDelta": -0.265625,
+      "remainderDelta": 0.9765625,
+      "minusFinishDelta": -0.0546875,
+      "blockDelta": 0.0234375,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305455,
+      "turn": 14,
+      "seat": 2,
+      "hand": [
+        "4-5",
+        "3-4",
+        "3-6",
+        "0-2",
+        "0-3"
+      ],
+      "opponentSizes": [
+        4,
+        5,
+        5
+      ],
+      "branchEnds": {
+        "up": 2,
+        "left": 2,
+        "right": 5,
+        "down": 3
+      },
+      "opened": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        2,
+        2
+      ],
+      "one": "single|right|4||4-5",
+      "joint": "single|down|6||3-6",
+      "oneWin": 0.140625,
+      "jointWin": 0.0546875,
+      "winDelta": -0.0859375,
+      "remainderDelta": 3.3984375,
+      "minusFinishDelta": 0,
+      "blockDelta": -0.0078125,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305456,
+      "turn": 19,
+      "seat": 1,
+      "hand": [
+        "0-2",
+        "0-4",
+        "2-6"
+      ],
+      "opponentSizes": [
+        4,
+        3,
+        3
+      ],
+      "branchEnds": {
+        "up": 2,
+        "left": 0,
+        "right": 2,
+        "down": 1
+      },
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        12,
+        0,
+        0
+      ],
+      "one": "single|left|2||0-2",
+      "joint": "single|left|4||0-4",
+      "oneWin": 0.46875,
+      "jointWin": 0.46875,
+      "winDelta": 0,
+      "remainderDelta": -0.5,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305459,
+      "turn": 18,
+      "seat": 1,
+      "hand": [
+        "0-4",
+        "0-3",
+        "1-5"
+      ],
+      "opponentSizes": [
+        4,
+        3,
+        3
+      ],
+      "branchEnds": {
+        "up": 2,
+        "left": 2,
+        "right": 3,
+        "down": 4
+      },
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        8,
+        0,
+        0
+      ],
+      "one": "single|right|0||0-3",
+      "joint": "single|down|0||0-4",
+      "oneWin": 0.6953125,
+      "jointWin": 0.140625,
+      "winDelta": -0.5546875,
+      "remainderDelta": 2.109375,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305468,
+      "turn": 13,
+      "seat": 2,
+      "hand": [
+        "0-2",
+        "4-5",
+        "0-1",
+        "2-3",
+        "0-4",
+        "0-3",
+        "3-5"
+      ],
+      "opponentSizes": [
+        5,
+        5,
+        7
+      ],
+      "branchEnds": {
+        "up": 3,
+        "left": 4,
+        "right": 4,
+        "down": 2
+      },
+      "opened": [
+        1,
+        3,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        3,
+        9
+      ],
+      "one": "single|up|2||2-3",
+      "joint": "single|up|5||3-5",
+      "oneWin": 0,
+      "jointWin": 0,
+      "winDelta": 0,
+      "remainderDelta": -1.2109375,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.0234375,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305478,
+      "turn": 9,
+      "seat": 2,
+      "hand": [
+        "4-5",
+        "3-4",
+        "4-4",
+        "2-3",
+        "0-3",
+        "0-0"
+      ],
+      "opponentSizes": [
+        6,
+        7,
+        6
+      ],
+      "branchEnds": {
+        "up": 3,
+        "left": 5,
+        "right": 4,
+        "down": 5
+      },
+      "opened": [
+        1,
+        3,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        8,
+        0
+      ],
+      "one": "single|up|4||3-4",
+      "joint": "double-sequence|||4|4-4",
+      "oneWin": 0.8828125,
+      "jointWin": 0.796875,
+      "winDelta": -0.0859375,
+      "remainderDelta": 0.7578125,
+      "minusFinishDelta": -0.0859375,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305483,
+      "turn": 13,
+      "seat": 2,
+      "hand": [
+        "0-5",
+        "0-6",
+        "2-6",
+        "2-4",
+        "3-5"
+      ],
+      "opponentSizes": [
+        5,
+        5,
+        5
+      ],
+      "branchEnds": {
+        "up": 5,
+        "left": 5,
+        "right": 6,
+        "down": 4
+      },
+      "opened": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        12,
+        2
+      ],
+      "one": "single|right|0||0-6",
+      "joint": "single|left|3||3-5",
+      "oneWin": 0.3671875,
+      "jointWin": 0.2578125,
+      "winDelta": -0.109375,
+      "remainderDelta": 1.859375,
+      "minusFinishDelta": 0,
+      "blockDelta": -0.1171875,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305487,
+      "turn": 17,
+      "seat": 0,
+      "hand": [
+        "0-2",
+        "0-1",
+        "1-2"
+      ],
+      "opponentSizes": [
+        3,
+        3,
+        5
+      ],
+      "branchEnds": {
+        "up": 5,
+        "left": 5,
+        "right": 0,
+        "down": 5
+      },
+      "opened": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "forbiddenSizes": [
+        7,
+        0,
+        10
+      ],
+      "one": "single|right|1||0-1",
+      "joint": "single|right|2||0-2",
+      "oneWin": 0.921875,
+      "jointWin": 0.6171875,
+      "winDelta": -0.3046875,
+      "remainderDelta": 1.296875,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305489,
+      "turn": 13,
+      "seat": 0,
+      "hand": [
+        "3-6",
+        "0-4",
+        "1-5",
+        "4-5",
+        "3-5",
+        "0-5",
+        "0-0"
+      ],
+      "opponentSizes": [
+        7,
+        5,
+        5
+      ],
+      "branchEnds": {
+        "up": 4,
+        "left": 2,
+        "right": 2,
+        "down": 3
+      },
+      "opened": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "forbiddenSizes": [
+        3,
+        0,
+        3
+      ],
+      "one": "single|up|5||4-5",
+      "joint": "single|down|6||3-6",
+      "oneWin": 0.0390625,
+      "jointWin": 0,
+      "winDelta": -0.0390625,
+      "remainderDelta": 8.15625,
+      "minusFinishDelta": -0.0390625,
+      "blockDelta": -0.03125,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305493,
+      "turn": 10,
+      "seat": 1,
+      "hand": [
+        "3-3",
+        "0-0",
+        "0-1",
+        "0-2",
+        "0-4",
+        "2-5"
+      ],
+      "opponentSizes": [
+        9,
+        6,
+        6
+      ],
+      "branchEnds": {
+        "up": 4,
+        "left": 6,
+        "right": 3,
+        "down": 0
+      },
+      "opened": [
+        1,
+        5
+      ],
+      "forbiddenSizes": [
+        11,
+        0,
+        0
+      ],
+      "one": "double-sequence|||3|3-3",
+      "joint": "double-sequence|||0,3|0-0,3-3",
+      "oneWin": 0.21875,
+      "jointWin": 0.265625,
+      "winDelta": 0.046875,
+      "remainderDelta": 0.171875,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.015625,
+      "nextPassDelta": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1305496,
+      "turn": 7,
+      "seat": 1,
+      "hand": [
+        "1-4",
+        "3-4",
+        "0-1",
+        "0-2",
+        "2-6",
+        "1-5",
+        "2-2"
+      ],
+      "opponentSizes": [
+        8,
+        7,
+        7
+      ],
+      "branchEnds": {
+        "up": 1,
+        "left": 3,
+        "right": 4,
+        "down": 2
+      },
+      "opened": [
+        1,
+        6
+      ],
+      "forbiddenSizes": [
+        8,
+        0,
+        0
+      ],
+      "one": "single|up|4||1-4",
+      "joint": "single|up|5||1-5",
+      "oneWin": 0.6484375,
+      "jointWin": 0.3203125,
+      "winDelta": -0.328125,
+      "remainderDelta": 2.140625,
+      "minusFinishDelta": -0.09375,
+      "blockDelta": -0.0234375,
+      "nextPassDelta": 0
+    }
+  ],
+  "runAt": "2026-10-23 00:53 Asia/Baku (+04:00)",
+  "validation": {
+    "sampler": {
+      "passed": true,
+      "deterministic": true,
+      "hiddenCount": 16
+    },
+    "commonJsV8": true,
+    "nodeCliExecuted": false,
+    "unresolved": 0,
+    "integrity": "runner enforces 28 unique tiles, no forbidden hidden tiles, source state unchanged"
+  },
+  "diagnostic": {
+    "byProfile": {
+      "min-hand-pips": {
+        "exploratoryPositionCI95PP": [
+          -5.153,
+          13.834
+        ],
+        "mostInfluential": [
+          {
+            "seed": 1305494,
+            "seat": 0,
+            "turn": 20,
+            "winDeltaPP": 76.5625,
+            "hand": [
+              "3-4",
+              "0-4",
+              "2-2"
+            ],
+            "one": "single|up|4||0-4",
+            "joint": "double-sequence|||2|2-2"
+          },
+          {
+            "seed": 1305464,
+            "seat": 0,
+            "turn": 16,
+            "winDeltaPP": -22.65625,
+            "hand": [
+              "0-3",
+              "0-4",
+              "0-2"
+            ],
+            "one": "single|down|0||0-2",
+            "joint": "single|left|0||0-3"
+          },
+          {
+            "seed": 1305442,
+            "seat": 2,
+            "turn": 13,
+            "winDeltaPP": 20.3125,
+            "hand": [
+              "3-5",
+              "1-3",
+              "0-2",
+              "2-6",
+              "0-0"
+            ],
+            "one": "single|down|2||2-6",
+            "joint": "single|right|3||1-3"
+          }
+        ],
+        "trimTopOneWinDeltaPP": 0.09191176470588235,
+        "passHistoryStrata": {
+          "1-opponents-with-pass": {
+            "positions": 15,
+            "winDeltaPP": -1.4583333333333333,
+            "meanRemainderDelta": -0.30885416666666665
+          },
+          "2-opponents-with-pass": {
+            "positions": 3,
+            "winDeltaPP": 33.33333333333333,
+            "meanRemainderDelta": -3.1276041666666665
+          }
+        }
+      },
+      "closed-branch-control": {
+        "exploratoryPositionCI95PP": [
+          -18.599,
+          -3.016
+        ],
+        "mostInfluential": [
+          {
+            "seed": 1305459,
+            "seat": 1,
+            "turn": 18,
+            "winDeltaPP": -55.46875,
+            "hand": [
+              "0-4",
+              "0-3",
+              "1-5"
+            ],
+            "one": "single|right|0||0-3",
+            "joint": "single|down|0||0-4"
+          },
+          {
+            "seed": 1305496,
+            "seat": 1,
+            "turn": 7,
+            "winDeltaPP": -32.8125,
+            "hand": [
+              "1-4",
+              "3-4",
+              "0-1",
+              "0-2",
+              "2-6",
+              "1-5",
+              "2-2"
+            ],
+            "one": "single|up|4||1-4",
+            "joint": "single|up|5||1-5"
+          },
+          {
+            "seed": 1305487,
+            "seat": 0,
+            "turn": 17,
+            "winDeltaPP": -30.46875,
+            "hand": [
+              "0-2",
+              "0-1",
+              "1-2"
+            ],
+            "one": "single|right|1||0-1",
+            "joint": "single|right|2||0-2"
+          }
+        ],
+        "trimTopOneWinDeltaPP": -8.180147058823529,
+        "passHistoryStrata": {
+          "1-opponents-with-pass": {
+            "positions": 17,
+            "winDeltaPP": -10.9375,
+            "meanRemainderDelta": 1.2357536764705883
+          },
+          "2-opponents-with-pass": {
+            "positions": 1,
+            "winDeltaPP": -8.59375,
+            "meanRemainderDelta": 0.0546875
+          }
+        }
+      }
+    }
+  },
+  "interpretation": "Independent changed-choice holdout. No robust strategy conclusion unless confidence excludes zero and direction replicates across opponent policies; position clusters are the uncertainty unit. Immediate-finish nextPass is encoded as null by runner and should not be used as a calibrated pass probability.",
+  "limitationsExtra": "Averaging position-level win deltas does not account for selection of first changed choice. The runner's conditionalWorld sampler uniformly shuffles flexible unseen tiles; posterior ignores likelihood of past opponent actions. No block winner; branch semantics provisional.",
+  "cumulative": {
+    "previousFullContinuations": 290100,
+    "newIndependentFullContinuations": 0,
+    "totalFullContinuations": 290100,
+    "previousSavedPairedContinuations": 41472,
+    "newPairedContinuations": 9216,
+    "totalSavedPairedContinuations": 50688,
+    "unpersistedEarlierClaimsExcluded": true
+  },
+  "nextHypothesis": "Explain sign-reversing high-leverage positions by replaying matched hidden worlds; preregister opponent-pass-count and candidate action-type strata on disjoint seeds 1305890..1306339, and run Node CLI regression in executable checkout."
+}
