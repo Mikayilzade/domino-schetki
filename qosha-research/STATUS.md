@@ -1,5 +1,13 @@
 # Qoşa research status
 
+## Current research checkpoint — 2026-10-22 05:50 (+04)
+
+- Engine: qosa-research-0.5.3; recovered qosa-1.0.0; 3×9.
+- Cumulative: **389,700 full continuations**, **54,084 separate counterfactual continuations**; historical/quarantined excluded.
+- Latest: runs/2026-10-22-0550-single-high-double-holdout.md, JSON same stem, simulator/single-high-double-holdout.js. Independent 600 deals / 18,000 continuations, zero unresolved; V8 deterministic replay green; Node CLI not run.
+- No universal single-double rule: 3-3 and 5-5 selected-position gains did not replicate as a full-deal benefit.
+- Next: 1311840 onward, >=25 paired positions per number/profile and 128 matched hidden worlds, with multiplicity correction.
+
 ## Current research checkpoint — 2026-10-22T04:58:01+04:00
 
 - Engine: `qosa-research-0.5.3`; 3×9. **371,700** full continuations, **54,084** separate counterfactual continuations, historical/quarantined excluded.
