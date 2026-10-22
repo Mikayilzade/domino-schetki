@@ -1,3 +1,11 @@
+# Current research checkpoint — 2026-10-22 13:59:35 (+04)
+- Engine qosa-research-0.5.3 / qosa-1.0.0, 3×9, provisional branch semantics.
+- Verified cumulative: 389700 full + 397922 separate counterfactual continuations.
+- Fresh seeds 1334840..1343839: 30 matched pairs, 60 positions, 7033 hidden allocations, 42198 forced continuations, zero unresolved. V8 deterministic test green; Node CLI not run.
+- Extra retained connector matched first-place contrast +4.71/+6.17/+1.25 pp (min-pips/branch-control/fast-doubles), all exploratory 3SE intervals cross zero; no reliable rule. Immediate pass contrast -0.03 pp.
+- Files: simulator/connector-held-matched-holdout.js and runs/2026-10-22-1359-connector-held-matched.json/.md.
+- Next: independent seeds >=1343840; exact hand-size controls and within-position future mobility.
+
 # Current research checkpoint — 2026-10-22 12:50 (+04)
 - Engine qosa-research-0.5.3 / qosa-1.0.0, 3×9 provisional branch rules.
 - Cumulative **389700 full** + **355724 separate counterfactual** continuations.

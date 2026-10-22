@@ -456,3 +456,13 @@
 - Limits: provisional branches, no block winner, selection bias, fixed bots, omitted prior-action likelihood, exploratory 3SE, no multiplicity correction.
 - Cumulative 389700 full + 355724 counterfactual. Code `simulator/connector-signed-gap-holdout.js`; data `runs/2026-10-22-1250-connector-signed-gap.json`; note `.md`.
 - Next: fresh seeds >=1334840, endpoint-pair reversal and matched full-deal policy validation; Node CLI.
+
+
+### 2026-10-22 13:59:35 (+04) — independent matched held-connector holdout
+- Engine/rules: qosa-research-0.5.3 / qosa-1.0.0, 3×9. Fresh disjoint seeds 1334840..1343839; 30 pre-outcome matched pairs, 60 positions, 57 selected seeds, 7033 pass-compatible hidden allocations, 42198 forced continuations, zero unresolved; no full-deal additions. V8 deterministic test green; Node CLI not run.
+- Exact matching: discovery bot, double number, signed pip gap (alternative endpoint), focal hand-size bucket; 15 negative and 15 positive sign pairs. Hidden worlds identical within positions, not across held/not-held pairs.
+- Connector vs nonconnector first-place advantage, extra X-linked stone held vs none: min-pips +4.03 vs -0.68 pp (difference +4.71, 3SE [-6.78,+16.20]); branch-control +2.70 vs -3.47 (difference +6.17, [-6.98,+19.32]); fast-doubles +2.64 vs +1.39 (difference +1.25, [-8.42,+10.93]).
+- Immediate next-pass advantage: +18.17 vs +18.20 pp (difference -0.03 pp). All first-place intervals cross zero; no reliable general rule or causal conclusion. Between-position hand/geometry/history confounding, provisional branches, no block winner, fixed bots, no prior-action likelihood, exploratory intervals.
+- Cumulative 389700 full + 397922 separate counterfactual continuations, historical/quarantined excluded.
+- Code simulator/connector-held-matched-holdout.js; raw runs/2026-10-22-1359-connector-held-matched.json; note same-stem .md.
+- Next: seeds >=1343840, exact focal/next-hand-size matching and within-position future mobility; Node CLI tests.
