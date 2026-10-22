@@ -491,3 +491,12 @@
 - Reproduce: `node qosha-research/simulator/mobility-broad-full.js test`; then `node qosha-research/simulator/mobility-broad-full.js 1355140 2000`. Data: `runs/2026-10-22-1649-mobility-broad.json`; details: `runs/2026-10-22-1649-mobility-broad.md`.
 - Exact next hypothesis/action: **ablate cross-side placements** on fresh seeds `1357140..`, compare same-side-only mobility versus unrestricted mobility and baseline on matched deals/seats; separately measure *realized* next-own-turn playable actions/pass rather than only immediate projected mobility, and execute Node CLI regression. Do not promote a general rule until geometry-controlled out-of-sample replication.
 
+
+
+### 2026-10-22T18:00:37.932+04:00 — same-side mobility and retained-pair ablation
+- Engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, 3×9 provisional branches. Independent seeds `1357140..1358139`: **1000 deals, 24000 complete continuations**, zero unresolved; 4 policies × 3 seats × 2 bot profiles.
+- Same-side pair mobility vs min-pips baseline: **+2.20 / +1.50 pp** (min-pips/branch-control opponents); unrestricted pair: **+2.90 / +1.97 pp**. Generic same-side mobility *without* retained-pair requirement: **+2.57 / +2.27 pp**. Incremental pair-specific benefit **not established**.
+- Same-side pair minus generic mobility: **−0.37 / −0.77 pp**; unrestricted minus same-side: **+0.70 / +0.47 pp**. Exploratory seed-cluster 3SE crosses zero for both increments; selection/trigger-frequency and endpoint confounding remain. Next-own-turn playable/legal/pass metrics instrumented, descriptive only.
+- V8 deterministic replay, same-side restriction and old-runner compatibility green; Node CLI not run. Fixed bots, provisional branches, no block winner, no human-play generalization.
+- Cumulative **447300 full + 440060 separate counterfactual continuations**; historical/quarantined excluded. Runner `simulator/mobility-side-ablation.js`, data `runs/2026-10-22-1800-mobility-side-ablation.json`, note `runs/2026-10-22-1800-mobility-side-ablation.md`.
+- Exact next: fresh seeds >=1358140, same-side/endpoint and equal-trigger matched decision-point controls; Node CLI tests.

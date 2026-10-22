@@ -1,3 +1,11 @@
+# Current research checkpoint — 2026-10-22T18:00:37.932+04:00
+- Engine qosa-research-0.5.3 / qosa-1.0.0, 3×9 provisional branches.
+- Verified cumulative **447300 full** + **440060 separate counterfactual** continuations; historical/quarantined excluded.
+- Fresh seeds 1357140..1358139: 1000 deals, 24000 complete continuations, 0 unresolved; V8 replay and compatibility green; Node CLI not run.
+- Same-side retained-pair mobility +2.20/+1.50 pp vs baseline, but generic same-side mobility +2.57/+2.27 pp. Pair-specific benefit not demonstrated. Cross-side increment +0.70/+0.47 pp, uncertain.
+- Runner simulator/mobility-side-ablation.js; data runs/2026-10-22-1800-mobility-side-ablation.json/.md.
+- Next: seeds >=1358140; matched side/endpoint/pip-gap and equal override budget; Node CLI tests.
+
 # Current research checkpoint — 2026-10-22T14:59:45 +04:00
 - Engine qosa-research-0.5.3 / qosa-1.0.0; 3×9 provisional branch semantics.
 - Verified cumulative: 389700 full + 440060 separate counterfactual continuations.
