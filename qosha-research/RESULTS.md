@@ -429,3 +429,11 @@
 - Confidence: exploratory model-specific signal only; no human rule yet. Cumulative full continuations **357,300**, separate counterfactuals 49,988.
 - Code: `simulator/double-number-deferral.js`; raw: `runs/2026-10-22-0347-double-number-deferral.json`; detailed note: `runs/2026-10-22-0347-double-number-deferral.md`.
 - Next: paired fixed-visible hidden-world test for the first optional high double, then independent 600-deal high-vs-either holdout (seeds 1310640..1311239).
+
+
+### 2026-10-22 07:54 (+04) — independent high-double cross-policy holdout
+- Engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, 3×9; 80 selected positions, 4270 distinct hidden worlds, 17080 paired counterfactual continuations, 0 new independent full-deal strategy rounds. Seeds `1313840..1315439` (discovery stops at quotas).
+- Two discovery bots × predeclared 3-3/5-5 × two continuation bots; seed-cluster Bonferroni 95% exploratory intervals. min-hand-pips/3-3/min-hand-pips: 7.30 pp [-2.62, 17.22]; min-hand-pips/3-3/closed-branch-control: 11.85 pp [2.01, 21.7]; min-hand-pips/5-5/min-hand-pips: 6.69 pp [-6.43, 19.81]; min-hand-pips/5-5/closed-branch-control: 11.89 pp [0.7, 23.08]; closed-branch-control/3-3/min-hand-pips: 7.13 pp [-4.9, 19.17]; closed-branch-control/3-3/closed-branch-control: 11.51 pp [-3.43, 26.44]; closed-branch-control/5-5/min-hand-pips: 6.64 pp [-9.68, 22.96]; closed-branch-control/5-5/closed-branch-control: 15.86 pp [0.06, 31.66].
+- New finding: cross-policy robustness quantified; selected-position signal is bot-dependent and not a universal game rule. Retained connector X-Y strata are post hoc/descriptive. V8 replay green, Node CLI not run; provisional branch rules, no block winner, omitted prior-action likelihood.
+- Cumulative: 389,700 full continuations (unchanged), 164534 separate counterfactual continuations. Data `runs/2026-10-22-0754-high-double-cross-policy.json`; note `runs/2026-10-22-0754-high-double-cross-policy.md`; code `simulator/high-double-cross-policy.js`.
+- Exact next: independent matched X-Y connector versus nonconnector controls, 30+ positions per stratum and 128 worlds, alternate continuation bots, Node CLI test.
