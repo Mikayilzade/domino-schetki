@@ -1,5 +1,13 @@
 # Qoşa research status
 
+## Current research checkpoint — 2026-10-22T04:58:01+04:00
+
+- Engine: `qosa-research-0.5.3`; 3×9. **371,700** full continuations, **54,084** separate counterfactual continuations, historical/quarantined excluded.
+- Latest: `runs/2026-10-22-0450-high-double-paired.md`, paired data `runs/2026-10-22-0450-high-double-paired.json`, full-deal holdout `runs/2026-10-22-0450-double-number-holdout.json`.
+- New paired high-double runner `simulator/high-double-paired.js` passed deterministic V8 regression; Node CLI not run. 3-3 and 5-5 show provisional conditional benefits against branch-control bots on only 8 positions each; **not** a universal rule.
+- Next: independent 1311240..1311839 single-number deferral holdout, then >=25 positions/number/profile with 128 pass-constrained worlds on disjoint seeds.
+
+
 Updated: 2026-10-07 10:56 (+04)
 
 ## Current engine state
