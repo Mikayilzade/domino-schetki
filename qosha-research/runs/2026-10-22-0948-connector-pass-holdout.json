@@ -1,0 +1,116 @@
+{
+  "schema": "qosa-connector-pass-independent-holdout/v1",
+  "timestampAsiaBaku": "2026-10-22T09:48:23+04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "sourceCommit": "a9aced30d41205b59d2e533dfcb4e3b502aae669",
+  "seedRange": [
+    1316840,
+    1322839
+  ],
+  "scannedSeeds": {
+    "minPips": 1434,
+    "branchControl": 580
+  },
+  "selectedPositions": 120,
+  "positionsPerNumberAndDiscoveryProfile": 30,
+  "distinctHiddenWorlds": 6630,
+  "exactPositions": 29,
+  "continuations": 39780,
+  "strategies": {
+    "discovery": [
+      "min-hand-pips",
+      "closed-branch-control"
+    ],
+    "continuation": [
+      "min-hand-pips",
+      "closed-branch-control"
+    ],
+    "forced": [
+      "open X-X",
+      "connector X-Y",
+      "nonconnector U-Y"
+    ]
+  },
+  "overall": {
+    "minPips": {
+      "winPP": -2.218502,
+      "seedCluster3SEPP": [
+        -7.705693,
+        3.268689
+      ],
+      "nextPassPP": 14.634425,
+      "finalPipsDelta": 0.001465,
+      "connectorVsOpenWinPP": 13.177331,
+      "nonconnectorVsOpenWinPP": 15.395833
+    },
+    "branchControl": {
+      "winPP": 0.386078,
+      "seedCluster3SEPP": [
+        -5.249573,
+        6.02173
+      ],
+      "nextPassPP": 14.634425,
+      "finalPipsDelta": -0.227989,
+      "connectorVsOpenWinPP": 17.24256,
+      "nonconnectorVsOpenWinPP": 16.856481
+    }
+  },
+  "exploratoryStrata": {
+    "passGainAtLeast25": {
+      "n": 28,
+      "passPP": 56.441327,
+      "winPP": {
+        "minPips": -1.710247,
+        "branchControl": 0.466093
+      }
+    },
+    "passGainZeroOrNegative": {
+      "n": 78,
+      "passPP": 0,
+      "winPP": {
+        "minPips": -3.030945,
+        "branchControl": -0.460101
+      }
+    },
+    "pipGap1": {
+      "n": 58,
+      "winPP": {
+        "minPips": -1.816759,
+        "branchControl": 3.726481
+      }
+    },
+    "pipGapAtLeast2": {
+      "n": 62,
+      "winPP": {
+        "minPips": -2.594326,
+        "branchControl": -2.738815
+      }
+    },
+    "double3": {
+      "n": 60,
+      "passPP": 19.763641,
+      "winPP": {
+        "minPips": -1.929563,
+        "branchControl": 2.232143
+      }
+    },
+    "double5": {
+      "n": 60,
+      "passPP": 9.505208,
+      "winPP": {
+        "minPips": -2.50744,
+        "branchControl": -1.459987
+      }
+    }
+  },
+  "cumulative": {
+    "full": 389700,
+    "counterfactual": 220796
+  },
+  "validation": "V8 CommonJS deterministic self-test passed; Node CLI not run; zero unresolved",
+  "limitations": "Selected first eligible positions; pip/endpoint confounding; uniform pass-constrained worlds; prior action likelihood omitted; provisional branch semantics; no block winner; two deterministic bots; post-hoc strata exploratory",
+  "reproduce": "node qosha-research/simulator/connector-lock-control.js 1316840 6000 30 64",
+  "next": "Independent >=128-world endpoint/action-count stratification with multiple-comparison correction on seeds >=1322840."
+}
