@@ -466,3 +466,15 @@
 - Cumulative 389700 full + 397922 separate counterfactual continuations, historical/quarantined excluded.
 - Code simulator/connector-held-matched-holdout.js; raw runs/2026-10-22-1359-connector-held-matched.json; note same-stem .md.
 - Next: seeds >=1343840, exact focal/next-hand-size matching and within-position future mobility; Node CLI tests.
+
+
+### 2026-10-22T14:59:45 +04:00 — exact hand-size / immediate mobility independent holdout
+- Engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`; 3×9; provisional branch opening. Fresh seeds `1343840..1353839`; 30 exact-size matched held/no-extra pairs (60 positions), 7023 distinct pass-compatible allocations, 42138 forced continuations, 13 exact-enumeration positions; 0 new full-deal rounds. 3 deterministic continuation policies, matched worlds within each position.
+- Exact before-outcome matching: discovery policy, double number, signed pip gap, **exact focal and next-opponent hand sizes**; balanced 15 negative and 15 positive pairs. Third-player size, hand contents, geometry and history remain imperfectly controlled.
+- Held vs no-extra *difference of within-position connector-minus-nonconnector effects* (first-place): min-pips **2.18 pp** (exploratory 3SE [-9.06, 13.42]); branch-control **5.54 pp** ([-8.19, 19.26]); fast-doubles **-1.47 pp** ([-14.65, 11.70]).
+- Immediate focal *playable tile count* contrast (held minus none) **-0.20 tiles**; next opponent legal-action difference **-0.19**. These are immediate post-move measures, **not** realized next-turn mobility or causal mediation.
+- Finding: no reliable general advantage established under tighter hand-size matching; avoid universal rule. V8 CommonJS deterministic replay and exact-match invariants green; Node CLI not run.
+- Confidence/limits: exploratory matched-position differences (not randomized), selected positions, fixed bot policies, provisional branch semantics, no block winner, uniform pass-compatible worlds omit prior-action likelihood, no multiplicity correction. Position/pair-level 3SE is descriptive, not a formal significance claim.
+- Cumulative verified: **389700 full** + **440060 separate counterfactual continuations** (previous 397922 + 42138); historical/quarantined excluded.
+- Code: `simulator/connector-exact-size-mobility-holdout.js`; data: `runs/2026-10-22-1455-connector-exact-size-mobility.json`; test: `node qosha-research/simulator/connector-exact-size-mobility-holdout.js test`.
+- Exact next: independently test a **full-deal** mobility-conditioned connector policy vs baseline on matched seeds/seats, and execute Node CLI test. Do not promote selected-position associations to strategy rules.

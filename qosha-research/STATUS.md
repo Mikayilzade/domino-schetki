@@ -1,3 +1,11 @@
+# Current research checkpoint — 2026-10-22T14:59:45 +04:00
+- Engine qosa-research-0.5.3 / qosa-1.0.0; 3×9 provisional branch semantics.
+- Verified cumulative: 389700 full + 440060 separate counterfactual continuations.
+- Independent seeds 1343840..1353839: 30 exact-size held/no-extra pairs, 60 positions, 7023 hidden allocations, 42138 continuations; V8 deterministic replay and matching tests green, Node CLI not run.
+- First-place held-minus-none matched effect: min-pips 2.18 pp, branch-control 5.54 pp, fast-doubles -1.47 pp; exploratory intervals in JSON. No general causal claim.
+- Files: simulator/connector-exact-size-mobility-holdout.js; runs/2026-10-22-1455-connector-exact-size-mobility.json.
+- Next: full-deal mobility-conditioned policy on fresh seeds, Node CLI regression.
+
 # Current research checkpoint — 2026-10-22 13:59:35 (+04)
 - Engine qosa-research-0.5.3 / qosa-1.0.0, 3×9, provisional branch semantics.
 - Verified cumulative: 389700 full + 397922 separate counterfactual continuations.
