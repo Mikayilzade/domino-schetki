@@ -1,3 +1,10 @@
+# Current research checkpoint — 2026-10-22T20:55:57+04:00
+- Engine qosa-research-0.5.3 / qosa-1.0.0, 3×9; 1500 fresh deals 1360840..1362339, 9000 complete baseline continuations, 847 shared-trigger positions, 1694 forced suffixes; zero unresolved.
+- Pair−generic first-place -0.67 / -0.29 pp (min-pips / branch-control); stratified signed endpoint, hand size, abs gap and initial end in linked JSON. No general rule promoted.
+- V8 replay/strata partitions green, Node CLI not executed; provisional branches and endpoint/pip confounding.
+- Cumulative 494100 complete + 443372 separate forced suffix continuations, historical/quarantined excluded.
+- Next independent 1362340..1363839 pre-registered signed-gap/hand-size replication and Node CLI tests.
+
 # Current research checkpoint — 2026-10-22T20:00:48+04:00
 - Engine qosa-research-0.5.3 / qosa-1.0.0, 3×9 provisional branches.
 - 1500 independent deals 1359340..1360839: 9000 full baseline continuations, 809 first-divergence positions, 1618 forced suffix continuations, 0 unresolved.

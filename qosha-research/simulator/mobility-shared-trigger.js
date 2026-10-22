@@ -123,7 +123,37 @@ function run(start=1359340,count=1500){
   for(const x of tt){const gap=x.pairEnd-x.genericEnd;
    endpointGapCounts[gap]=(endpointGapCounts[gap]||0)+1;
    handSizes[x.handSize]=(handSizes[x.handSize]||0)+1;}
-  summary[bot]={seatRounds:n,triggeredSeatRounds:t.length,triggerRate:t.length/n,
+  const lookup=new Map(tt.map(x=>[x.seed+':'+x.seat,x]));
+  const joined=t.map(row=>({row,meta:lookup.get(row.seed+':'+row.seat)}));
+  if(joined.some(x=>!x.meta))throw Error('strata join missing trigger');
+  function stratum(items){
+   const n=items.length;if(!n)return {n:0,seedClusters:0,winDeltaPP:null,exploratorySeed3SEPP:null};
+   const perSeed=new Map();
+   for(const x of items){const z=perSeed.get(x.row.seed)||[];z.push(x.row.pair.win-x.row.generic.win);perSeed.set(x.row.seed,z);}
+   const clusters=[...perSeed.values()].map(z=>mean(z,x=>x)),mu=mean(clusters,x=>x);
+   const se=clusters.length>1?Math.sqrt(sum(clusters,x=>(x-mu)**2)/(clusters.length*(clusters.length-1))):null;
+   const returned=items.filter(x=>x.row.pair.return&&x.row.generic.return);
+   return{n,seedClusters:clusters.length,
+    winDeltaPP:100*mean(items,x=>x.row.pair.win-x.row.generic.win),
+    seedWeightedWinDeltaPP:100*mu,
+    exploratorySeed3SEPP:se===null?null:[100*(mu-3*se),100*(mu+3*se)],
+    remainderDelta:mean(items,x=>x.row.pair.pips-x.row.generic.pips),
+    pairMinusGenericNextOwnPassPP:returned.length?100*mean(returned,x=>x.row.pair.return.pass-x.row.generic.return.pass):null,
+    pairMinusGenericNextOwnPlayable:returned.length?mean(returned,x=>x.row.pair.return.playable-x.row.generic.return.playable):null,
+    observedBothReturns:returned.length,
+    changedWinOutcomes:sum(items,x=>+(x.row.pair.win!==x.row.generic.win))};
+  }
+  const strata={
+   signedEndpointGap:{
+    negative:stratum(joined.filter(x=>x.meta.pairEnd<x.meta.genericEnd)),
+    positive:stratum(joined.filter(x=>x.meta.pairEnd>x.meta.genericEnd))},
+   absoluteEndpointGap:Object.fromEntries([1,2,3].map(k=>[String(k),stratum(joined.filter(x=>Math.abs(x.meta.pairEnd-x.meta.genericEnd)===k))])),
+   handSize:{'at-most-7':stratum(joined.filter(x=>x.meta.handSize<=7)),
+    '8-or-9':stratum(joined.filter(x=>x.meta.handSize>=8))},
+   initialEnd:{one:stratum(joined.filter(x=>x.meta.endBefore===1)),
+    other:stratum(joined.filter(x=>x.meta.endBefore!==1))}
+  };
+  summary[bot]={strata,seatRounds:n,triggeredSeatRounds:t.length,triggerRate:t.length/n,
    arm,contrasts,triggerProperties:{meanPairMinusGenericPlayables:mean(tt,x=>x.pairPlayables-x.genericPlayables),
     meanPairMinusGenericConnections:mean(tt,x=>x.pairConnections-x.genericConnections),
     meanPairMinusGenericDiscardedPips:mean(tt,x=>x.genericCost-x.pairCost),
@@ -141,6 +171,13 @@ function test(){
  if(JSON.stringify(a)!==JSON.stringify(b)||a.fullBaselineContinuations!==390||
     a.triggeredPositions<1)throw Error('replay');
  for(const bot of BOTS)if(a.summary[bot].triggeredSeatRounds<1)throw Error('profile missing');
+ for(const bot of BOTS){
+  const s=a.summary[bot],v=s.strata;
+  if(v.signedEndpointGap.negative.n+v.signedEndpointGap.positive.n!==s.triggeredSeatRounds||
+   v.handSize['at-most-7'].n+v.handSize['8-or-9'].n!==s.triggeredSeatRounds||
+   Object.values(v.absoluteEndpointGap).reduce((n,x)=>n+x.n,0)!==s.triggeredSeatRounds)
+   throw Error('strata partition regression');
+ }
  return{passed:true,triggeredPositions:a.triggeredPositions};
 }
 if(require.main===module){

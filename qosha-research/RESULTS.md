@@ -529,3 +529,16 @@
 - Cumulative **485100 full** + **441678 separate counterfactual** continuations, historical 4000/quarantined excluded. Runner: `simulator/mobility-shared-trigger.js` (`test`, then `1359340 1500`); data: `runs/2026-10-22-1954-shared-trigger.json`.
 - Exact next hypothesis/action: independent seeds **1360840..1362339**, signed endpoint/pip-gap and hand-size stratification, Node CLI regression; seek replicated effect before promoting rule.
 
+
+
+### 2026-10-22T20:55:57+04:00 — independent signed-endpoint and hand-size shared-trigger holdout
+- Engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, primary 3×9; provisional branch-opening semantics. Fresh disjoint seeds **1360840..1362339**: **1500 deals**, **9000 complete baseline continuations**, **847 shared-trigger positions**, **1694 matched forced suffix continuations**, zero unresolved. Historical and quarantined samples excluded.
+- Arms: same-side one-shot retained-double-connector (`pair`) vs generic immediate mobility (`generic`), shared pre-action eligibility and one forced action per arm, then min-hand-pips continuation; opponents `min-hand-pips` / `closed-branch-control`. Full baseline vs forced suffix accounting remains separate.
+- min-hand-pips: triggered 444; pair−generic first-place -0.67 pp, exploratory seed 3SE [-1.41, 0.07] pp; signed endpoint negative 210 positions / -2.38 pp, positive 234 / -10.68 pp.
+- closed-branch-control: triggered 403; pair−generic first-place -0.29 pp, exploratory seed 3SE [-0.97, 0.39] pp; signed endpoint negative 183 positions / 0.00 pp, positive 220 / -5.91 pp.
+- Signed endpoint gap equals signed discarded-pip difference for distinct ordinary same-side actions; this stratification **does not** isolate endpoint from pip cost. Pre-action hand-size <=7 vs 8–9, absolute gap 1/2/3 and initial end=1 vs other are recorded with n, seed-cluster exploratory 3SE, win, remainder and next-own-turn pass/playability in linked JSON. Small strata and many exploratory splits must not be treated as confirmatory.
+- Validation: patched runner deterministic replay on 65 prior seeds, partition invariants and 28-tile conservation passed in V8 CommonJS; new 1500-seed run resolved. Node CLI **not** executed; no changes to game rules or scoreboard.
+- Finding: The independent contrast is measured, but any apparent subgroup effect is exploratory; no general pair-specific advantage is established without replicated, pre-registered strata. No causal human-play claim. Block winner unassigned, fixed bots, one-shot intervention, post-action endpoint/pip confounding, no multiplicity adjustment.
+- Cumulative **494100 complete continuations** (485100 + 9000) + **443372 separate forced counterfactual suffix continuations** (441678 + 1694); historical 4000 and quarantined excluded.
+- Reproduce: `node qosha-research/simulator/mobility-shared-trigger.js test`, then `node qosha-research/simulator/mobility-shared-trigger.js 1360840 1500`; JSON `runs/2026-10-22-2053-shared-trigger-strata.json`.
+- Exact next action: independent **1362340..1363839** pre-registered sign and hand-size strata, compare return-pass/finish-first in equal-trigger positions; if sign effects fail replication, focus generic mobility rather than double-connector retention. Run Node CLI tests in an executable checkout before promoting any strategy.
