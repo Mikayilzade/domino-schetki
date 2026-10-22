@@ -1,5 +1,16 @@
 # Qoşa research status
 
+## Current research checkpoint — 2026-10-22T11:52:37 +04:00
+
+- Engine `qosa-research-0.5.3` / rules `qosa-1.0.0`; primary 3×9, provisional branch semantics.
+- **389,700 full continuations** + **313232 separate counterfactual continuations** (historical/quarantined excluded).
+- New independent pre-action subgroup holdout: 80 positions, 3485 distinct hidden allocations, 20910 paired continuations; deterministic V8 replay green; Node CLI not run.
+- New files: simulator/connector-prestate-strata.js, runs/2026-10-22-1149-connector-prestate-strata.json/.md.
+- No general rule promoted from next-opponent pass rates; winning advantage unconfirmed. Strata exploratory and pip-gap/endpoint confounded.
+- Next: balanced pip-gap sign and endpoint controls on independent seeds >=1331840; 128 worlds/position, 3 continuation bots, Node CLI checks.
+
+# Qoşa research status
+
 ## Current research checkpoint — 2026-10-22 05:50 (+04)
 
 - Engine: qosa-research-0.5.3; recovered qosa-1.0.0; 3×9.

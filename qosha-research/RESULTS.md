@@ -437,3 +437,10 @@
 - New finding: cross-policy robustness quantified; selected-position signal is bot-dependent and not a universal game rule. Retained connector X-Y strata are post hoc/descriptive. V8 replay green, Node CLI not run; provisional branch rules, no block winner, omitted prior-action likelihood.
 - Cumulative: 389,700 full continuations (unchanged), 164534 separate counterfactual continuations. Data `runs/2026-10-22-0754-high-double-cross-policy.json`; note `runs/2026-10-22-0754-high-double-cross-policy.md`; code `simulator/high-double-cross-policy.js`.
 - Exact next: independent matched X-Y connector versus nonconnector controls, 30+ positions per stratum and 128 worlds, alternate continuation bots, Node CLI test.
+
+
+### 2026-10-22T11:52:37 +04:00 — connector pre-action strata
+- 80 positions, 3485 hidden allocations, 20910 paired continuations; independent seeds 1328840..1331839; V8 deterministic regression green, Node CLI not run.
+- Overall min-pips / branch-control / fast-doubles connector-minus-nonconnector first-place (pp): 1.00 / -1.29 / 0.75; next-pass (pp): 13.19. Pre-action subgroup results exploratory; no universal rule promoted.
+- Cumulative 389700 full, 313232 counterfactual; code simulator/connector-prestate-strata.js; raw runs/2026-10-22-1149-connector-prestate-strata.json; note runs/2026-10-22-1149-connector-prestate-strata.md.
+- Next: balanced signed pip-gap and endpoint controls on fresh seeds >=1331840, >=128 worlds, three bots; Node CLI regression.
