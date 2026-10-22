@@ -1,3 +1,12 @@
+# Current research checkpoint — 2026-10-22T20:00:48+04:00
+- Engine qosa-research-0.5.3 / qosa-1.0.0, 3×9 provisional branches.
+- 1500 independent deals 1359340..1360839: 9000 full baseline continuations, 809 first-divergence positions, 1618 forced suffix continuations, 0 unresolved.
+- Equal-budget same-side pair-vs-generic one-shot win deltas -0.31 / -0.09 pp (min-pips / branch-control opponents), exploratory intervals include zero. No reliable pair-specific rule.
+- Corrected next-own-turn pass measurement includes pass turns. V8 deterministic replay green; Node CLI not run.
+- Cumulative 485100 full + 441678 separate counterfactual continuations; historical/quarantined excluded.
+- Code simulator/mobility-shared-trigger.js; data runs/2026-10-22-1954-shared-trigger.json.
+- Next: independent 1360840..1362339, signed endpoint-gap and hand-size strata; Node CLI tests.
+
 # Current research checkpoint — 2026-10-22T18:00:37.932+04:00
 - Engine qosa-research-0.5.3 / qosa-1.0.0, 3×9 provisional branches.
 - Verified cumulative **447300 full** + **440060 separate counterfactual** continuations; historical/quarantined excluded.
