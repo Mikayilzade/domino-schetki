@@ -444,3 +444,15 @@
 - Overall min-pips / branch-control / fast-doubles connector-minus-nonconnector first-place (pp): 1.00 / -1.29 / 0.75; next-pass (pp): 13.19. Pre-action subgroup results exploratory; no universal rule promoted.
 - Cumulative 389700 full, 313232 counterfactual; code simulator/connector-prestate-strata.js; raw runs/2026-10-22-1149-connector-prestate-strata.json; note runs/2026-10-22-1149-connector-prestate-strata.md.
 - Next: balanced signed pip-gap and endpoint controls on fresh seeds >=1331840, >=128 worlds, three bots; Node CLI regression.
+
+
+### 2026-10-22 12:50 (+04) — balanced signed-gap connector holdout
+- Engine/rules: qosa-research-0.5.3 / qosa-1.0.0, 3×9. Fresh seeds 1331840..1334839, 78 sign-balanced positions, 7082 hidden allocations, 42492 paired continuations, 0 unresolved; 0 full-deal additions. V8 deterministic replay green; Node CLI not run.
+- Equal |pip gap|=1 and equal +/- counts within (discovery bot, double 3/5); same hidden worlds and 3 bots, different resulting endpoint numbers.
+- min-hand-pips: connector-minus-nonconnector first-place, +1 pip gap -2.72 pp (n=39), -1 pip gap 2.69 pp (n=39); overall -0.02 pp; next-pass 26.83 pp; remainder -0.03 pips.
+- closed-branch-control: connector-minus-nonconnector first-place, +1 pip gap 1.31 pp (n=39), -1 pip gap 1.81 pp (n=39); overall 1.56 pp; next-pass 26.83 pp; remainder 0.05 pips.
+- fast-doubles: connector-minus-nonconnector first-place, +1 pip gap -2.32 pp (n=39), -1 pip gap 4.66 pp (n=39); overall 1.17 pp; next-pass 26.83 pp; remainder 0.10 pips.
+- New finding: no universally reliable first-place gain; pip gap and endpoint geometry confounded. Exploratory intervals in JSON; not a causal or human-play rule.
+- Limits: provisional branches, no block winner, selection bias, fixed bots, omitted prior-action likelihood, exploratory 3SE, no multiplicity correction.
+- Cumulative 389700 full + 355724 counterfactual. Code `simulator/connector-signed-gap-holdout.js`; data `runs/2026-10-22-1250-connector-signed-gap.json`; note `.md`.
+- Next: fresh seeds >=1334840, endpoint-pair reversal and matched full-deal policy validation; Node CLI.

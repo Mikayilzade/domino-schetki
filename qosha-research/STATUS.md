@@ -1,3 +1,11 @@
+# Current research checkpoint — 2026-10-22 12:50 (+04)
+- Engine qosa-research-0.5.3 / qosa-1.0.0, 3×9 provisional branch rules.
+- Cumulative **389700 full** + **355724 separate counterfactual** continuations.
+- New: 78 sign-balanced positions, 7082 hidden worlds, 42492 forced continuations. V8 deterministic replay green; Node CLI not run.
+- |pip gap|=1 balanced by sign, double, discovery policy. Endpoint geometry not controlled; no general win rule established.
+- Files: simulator/connector-signed-gap-holdout.js; runs/2026-10-22-1250-connector-signed-gap.json/.md.
+- Next: seeds >=1334840, endpoint-pair reversal and independent full-deal validation; Node CLI.
+
 # Qoşa research status
 
 ## Current research checkpoint — 2026-10-22T11:52:37 +04:00
