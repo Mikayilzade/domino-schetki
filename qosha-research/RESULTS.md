@@ -489,3 +489,18 @@
 - Reproduce: `node qosha-research/simulator/pass-changed-geometry-runner.js test`, then `node qosha-research/simulator/pass-changed-geometry-runner.js 1321940 4500 350 256 30`; `node qosha-research/simulator/pass-changed-geometry-runner.js 1326440 4500 350 256 30`; `node qosha-research/simulator/pass-changed-geometry-runner.js 1330940 4500 350 256 30`. These deterministic commands reproduce full per-position rows.
 - Cumulative: **290,100** independent full continuations unchanged; **471,680** paired counterfactual continuations (previous 437,888 + 33792); historical 4,000 separate.
 - Exact next action: oversample positions with clockwise-opponent pass history and evaluate under alternate continuation policies; independently validate opening/locking semantics with a real-play fixture before elevating any heuristic.
+
+ 
+### 2026-10-23 21:52 (+04) — clockwise-opponent pass targeted geometry holdout
+- Engine: `qosa-research-0.5.3`; rules: recovered `qosa-1.0.0`, branch opening provisional. Primary 3×9.
+- Fresh discovery seeds: `1352940..1357439` and `1357440..1361939` (9,000 scanned); same-tile geometry changed-choice positions **only with previous clockwise-opponent pass**.
+- Positions: **22**, hidden allocations: **5,632**, paired forced continuations: **11,264**; independent baseline rounds added: **0**. Strategies/continuations: min-hand-pips and closed-branch-control; joint pass-conditioned vs uniform unseen-tile placement on identical conditional worlds.
+- All positions: joint−uniform finish-first **+4.74 pp**, exploratory position-level 95% half-width **±11.54 pp**; remainder **+0.17 pips**, immediate next pass **+0.07 pp**.
+- Next-only n=13: finish-first **+11.21 pp** (±16.91 pp); both-history n=9: **−4.60 pp** (±12.80 pp). Profiles disagree: min-hand-pips n=11 **−5.50 pp** (±7.14 pp); closed-branch-control n=11 **+14.99 pp** (±20.67 pp).
+- Validation: deterministic replay test passed; 22×256 conditional worlds and forced paired continuations completed with no unresolved outcomes. Recovered rule/branch semantics remain provisional.
+- Finding: observed clockwise-opponent pass is **not** sufficient for a reliable universal choice rule; direction changes by bot and whether the other opponent also passed.
+- Limitations: rare selected changed-choice states, correlated hidden worlds, exploratory intervals, provisional branch geometry, opponent policy-likelihood ignored, block winner unassigned; finish-first is not match win.
+- Cumulative verified: **290,100** independent full continuations; **526,464** paired counterfactual continuations (previous 515,200 + 11,264); historical 4,000 excluded.
+- Reproduce: `node qosha-research/simulator/pass-next-history-runner.js test`; `node qosha-research/simulator/pass-next-history-runner.js 1352940 4500 400 256 30`; repeat with start `1357440`.
+- Run data: `runs/2026-10-23-2152-next-opponent-pass-geometry.json`; script: `simulator/pass-next-history-runner.js`.
+- Next: fresh disjoint-seed validation of next-only vs both-history effects, whether immediate-pass gain predicts finish-first; validate branch locking/opening with a real-play fixture.
