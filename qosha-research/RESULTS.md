@@ -400,3 +400,12 @@
 - Method: fix visible/played tiles, opponent hand sizes and both opponents' observed no-stock pass constraints; allocate hidden tiles uniformly subject to those constraints; force both moves in identical worlds, continue with identical deterministic bot policy. No block winner; provisional branch opening; ignores likelihood of prior opponent choices.
 - Reproduce: `simulator/pass-choice-regret-runner.js test`; then `1303640 450 18 64`. Raw position rows: `runs/2026-10-21-pass-choice-regret-1303640.json`; note: `runs/2026-10-21-1645-pass-choice-regret.md`.
 - Next: independent seeds `1304090..1304539`, 128 worlds/position; stratify by one/both opponents' pass histories, retest changed-action regret and run Node CLI regression.
+
+
+### 2026-10-23 10:47 (+04) — equal-pip hashed-pair holdout / next-opponent mobility
+- Engine/rules: `qosa-research-0.5.3` / `qosa-1.0.0`, 3×9. New executable runner `simulator/equal-pip-paired-runner.js` (V8 CommonJS test passed; Node CLI not run).
+- Independent seeds `1311890..1312289`, 60 selected positions, 2880 hidden allocations, 5760 paired continuations; 0 new independent baseline rounds.
+- Same-pip single-vs-one-double, deterministic hashed pair selection: min-hand-pips: double−single first-place -15.76 pp, remainder 1.61 pips, next-pass -7.71 pp; closed-branch-control: double−single first-place -11.32 pp, remainder 0.54 pips, next-pass -11.53 pp.
+- Next-opponent mobility strata are post-action descriptive and do not prove a causal mechanism. Branch opening is provisional, hidden-world sampling ignores opponent policy-choice likelihood, block winner not assigned, finish-first is not match win. No universal strategy rule claimed.
+- Cumulative: **290,100** full continuations (unchanged), **312448** paired counterfactual continuations (historical 4,000 separate).
+- Data/method: `runs/2026-10-23-1047-equal-pip-hashed-1311890.json`, `runs/2026-10-23-1047-equal-pip-hashed-1311890.md`. Next: pre-action openness/hand-size stratification and independent larger holdout; branch fixture validation.
