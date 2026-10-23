@@ -1,0 +1,195 @@
+{
+  "schema": "qosa-next-pass-tiebreak-independent-holdouts/v1",
+  "timestampBaku": "2026-10-24 00:53 (+04)",
+  "engine": "qosa-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; branch opening provisional",
+  "validation": {
+    "deterministicReplay": true,
+    "regressionRounds": 36
+  },
+  "newDeals": 800,
+  "newFullContinuations": 9600,
+  "newCounterfactualHiddenWorldContinuations": 0,
+  "cohorts": [
+    {
+      "schema": "qosa-next-pass-same-tile-tiebreak/v1",
+      "engine": "qosa-research-0.5.3",
+      "rules": "recovered qosa-1.0.0; branch opening provisional",
+      "mode": "3x9",
+      "timestampBaku": "2026-10-24 00:53 (+04)",
+      "seedRange": [
+        1371240,
+        1371639
+      ],
+      "deals": 400,
+      "fullContinuations": 4800,
+      "matchedSeats": 2400,
+      "profiles": [
+        "min-hand-pips",
+        "closed-branch-control"
+      ],
+      "strategies": "Focal min-hand-pips versus same-tile alternative with maximum exact hypergeometric P(clockwise next player passes), other players use profile. No knowledge of opponent tile identities used in choice.",
+      "seedProtocol": "same initializer/deal and focal seat for both policies; clockwise previous winner seed % 3; deterministic choices.",
+      "assumptions": "Uniform unknown tile allocation without conditioning on prior passes or earlier action likelihood; provisional branch locking; no block winner; finish-first not match victory.",
+      "findingRule": "Do not promote if seed-cluster uncertainty includes zero or sign changes across profiles.",
+      "next": "Retest any apparent advantage on disjoint seeds and check locked/open branch rules against a real-game fixture; if inconclusive, test next-pass only as secondary tie-break after own mobility.",
+      "summaries": {
+        "min-hand-pips": {
+          "deals": 400,
+          "pairedSeats": 1200,
+          "plainFinishFirstRate": 0.3225,
+          "smartFinishFirstRate": 0.3325,
+          "smartMinusPlainFinishFirstPP": 1,
+          "exploratorySeedCluster95HalfWidthPP": 1.1977405629519071,
+          "smartMinusPlainPips": -0.03,
+          "smartMinusPlainTurns": 0.065,
+          "smartMinusPlainBlockPP": 0.8333333333333334,
+          "meanPlainPips": 4.049166666666666,
+          "meanSmartPips": 4.019166666666667,
+          "branchTieOpportunities": 800,
+          "changedPlacements": 233,
+          "changedTrajectories": 220,
+          "meanPredictedNextPassGainPPPerChange": 18.409761435512525,
+          "observedNextPassGainPPPerChange": 17.167381974248926,
+          "minusPlain": {
+            "0": 1135,
+            "-10": 65,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "minusSmart": {
+            "0": 1132,
+            "-10": 68,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "closed-branch-control": {
+          "deals": 400,
+          "pairedSeats": 1200,
+          "plainFinishFirstRate": 0.2175,
+          "smartFinishFirstRate": 0.2225,
+          "smartMinusPlainFinishFirstPP": 0.5,
+          "exploratorySeedCluster95HalfWidthPP": 0.7297162256524835,
+          "smartMinusPlainPips": -0.05,
+          "smartMinusPlainTurns": 0.04,
+          "smartMinusPlainBlockPP": 2,
+          "meanPlainPips": 6.35,
+          "meanSmartPips": 6.3,
+          "branchTieOpportunities": 422,
+          "changedPlacements": 127,
+          "changedTrajectories": 119,
+          "meanPredictedNextPassGainPPPerChange": 33.69137424255535,
+          "observedNextPassGainPPPerChange": 27.559055118110237,
+          "minusPlain": {
+            "0": 1159,
+            "-10": 38,
+            "-20": 3,
+            "-30": 0,
+            "-40": 0
+          },
+          "minusSmart": {
+            "0": 1159,
+            "-10": 38,
+            "-20": 3,
+            "-30": 0,
+            "-40": 0
+          }
+        }
+      }
+    },
+    {
+      "schema": "qosa-next-pass-same-tile-tiebreak/v1",
+      "engine": "qosa-research-0.5.3",
+      "rules": "recovered qosa-1.0.0; branch opening provisional",
+      "mode": "3x9",
+      "timestampBaku": "2026-10-24 00:53 (+04)",
+      "seedRange": [
+        1371640,
+        1372039
+      ],
+      "deals": 400,
+      "fullContinuations": 4800,
+      "matchedSeats": 2400,
+      "profiles": [
+        "min-hand-pips",
+        "closed-branch-control"
+      ],
+      "strategies": "Focal min-hand-pips versus same-tile alternative with maximum exact hypergeometric P(clockwise next player passes), other players use profile. No knowledge of opponent tile identities used in choice.",
+      "seedProtocol": "same initializer/deal and focal seat for both policies; clockwise previous winner seed % 3; deterministic choices.",
+      "assumptions": "Uniform unknown tile allocation without conditioning on prior passes or earlier action likelihood; provisional branch locking; no block winner; finish-first not match victory.",
+      "findingRule": "Do not promote if seed-cluster uncertainty includes zero or sign changes across profiles.",
+      "next": "Retest any apparent advantage on disjoint seeds and check locked/open branch rules against a real-game fixture; if inconclusive, test next-pass only as secondary tie-break after own mobility.",
+      "summaries": {
+        "min-hand-pips": {
+          "deals": 400,
+          "pairedSeats": 1200,
+          "plainFinishFirstRate": 0.325,
+          "smartFinishFirstRate": 0.3375,
+          "smartMinusPlainFinishFirstPP": 1.25,
+          "exploratorySeedCluster95HalfWidthPP": 1.1842390076713565,
+          "smartMinusPlainPips": -0.11,
+          "smartMinusPlainTurns": 0.09083333333333334,
+          "smartMinusPlainBlockPP": 1.4166666666666665,
+          "meanPlainPips": 4.058333333333334,
+          "meanSmartPips": 3.9483333333333333,
+          "branchTieOpportunities": 816,
+          "changedPlacements": 227,
+          "changedTrajectories": 208,
+          "meanPredictedNextPassGainPPPerChange": 22.34858509087585,
+          "observedNextPassGainPPPerChange": 23.348017621145374,
+          "minusPlain": {
+            "0": 1136,
+            "-10": 64,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "minusSmart": {
+            "0": 1136,
+            "-10": 63,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "closed-branch-control": {
+          "deals": 400,
+          "pairedSeats": 1200,
+          "plainFinishFirstRate": 0.225,
+          "smartFinishFirstRate": 0.22583333333333333,
+          "smartMinusPlainFinishFirstPP": 0.08333333333333334,
+          "exploratorySeedCluster95HalfWidthPP": 0.6333267158780145,
+          "smartMinusPlainPips": -0.07583333333333334,
+          "smartMinusPlainTurns": 0.060833333333333336,
+          "smartMinusPlainBlockPP": 1.0833333333333335,
+          "meanPlainPips": 6.1866666666666665,
+          "meanSmartPips": 6.110833333333333,
+          "branchTieOpportunities": 451,
+          "changedPlacements": 127,
+          "changedTrajectories": 120,
+          "meanPredictedNextPassGainPPPerChange": 32.376567002551276,
+          "observedNextPassGainPPPerChange": 30.708661417322833,
+          "minusPlain": {
+            "0": 1161,
+            "-10": 38,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "minusSmart": {
+            "0": 1162,
+            "-10": 37,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          }
+        }
+      }
+    }
+  ],
+  "limits": "Uniform hidden allocation, no pass history or action likelihood, provisional locked/open branch rules, block winner not assigned, finish-first not match win; exploratory seed-cluster intervals. The same deal is paired within profile; two opponent profiles on same seeds are not independent.",
+  "next": "Test secondary pass tiebreak only after preserving own post-action mobility; obtain real-game branch fixture."
+}
