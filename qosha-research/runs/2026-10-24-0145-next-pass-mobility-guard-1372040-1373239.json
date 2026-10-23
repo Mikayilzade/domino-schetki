@@ -1,0 +1,183 @@
+{
+  "schema": "qosa-next-pass-mobility-guard/v1",
+  "engine": "qosa-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; branch opening provisional",
+  "mode": "3x9",
+  "timestampBaku": "2026-10-24 01:45 (+04)",
+  "seedRange": [
+    1372040,
+    1373239
+  ],
+  "deals": 1200,
+  "fullContinuations": 21600,
+  "matchedSeats": 7200,
+  "profiles": [
+    "min-hand-pips",
+    "closed-branch-control"
+  ],
+  "modes": [
+    "baseline",
+    "unrestricted",
+    "mobility-guard"
+  ],
+  "ownMobilityDefinition": "number of distinct remaining hand tiles with at least one legal placement on post-action branch/opening state; excludes already played tile",
+  "seedProtocol": "same initialized deal and focal seat across three policies; opponents fixed profile; previous winner seed%3",
+  "limitations": "Branch locking provisional; uniform unknown allocation; no opponent prior-choice likelihood; only same-tile geometry changes; fixed bots; no block winner; finish-first not match win; exploratory uncorrected intervals.",
+  "summaries": {
+    "min-hand-pips": {
+      "byMode": {
+        "baseline": {
+          "appearances": 3600,
+          "finishFirstRate": 0.3225,
+          "meanFinalPips": 4.084722222222222,
+          "medianFinalPips": 3,
+          "meanTurns": 23.9925,
+          "blockRate": 0.0325,
+          "minusFinishCounts": {
+            "0": 965,
+            "-10": 193,
+            "-20": 3,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 0,
+          "changedPlacements": 0,
+          "predictedPassGainPPPerChange": null,
+          "observedPassGainPPPerChange": null,
+          "ownMobilityDeltaPerChange": null
+        },
+        "unrestricted": {
+          "appearances": 3600,
+          "finishFirstRate": 0.3372222222222222,
+          "meanFinalPips": 3.973611111111111,
+          "medianFinalPips": 3,
+          "meanTurns": 24.065277777777776,
+          "blockRate": 0.04666666666666667,
+          "minusFinishCounts": {
+            "0": 1012,
+            "-10": 199,
+            "-20": 3,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 2428,
+          "changedPlacements": 709,
+          "predictedPassGainPPPerChange": 21.301194887231578,
+          "observedPassGainPPPerChange": 23.413258110014105,
+          "ownMobilityDeltaPerChange": -0.01692524682651622
+        },
+        "mobility-guard": {
+          "appearances": 3600,
+          "finishFirstRate": 0.3386111111111111,
+          "meanFinalPips": 3.983888888888889,
+          "medianFinalPips": 3,
+          "meanTurns": 24.021944444444443,
+          "blockRate": 0.0375,
+          "minusFinishCounts": {
+            "0": 1013,
+            "-10": 203,
+            "-20": 3,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 2446,
+          "changedPlacements": 494,
+          "predictedPassGainPPPerChange": 20.788363121359094,
+          "observedPassGainPPPerChange": 21.86234817813765,
+          "ownMobilityDeltaPerChange": 0.46963562753036436
+        }
+      },
+      "contrasts": {
+        "unrestricted": {
+          "finishFirstGainPP": 1.4722222222222228,
+          "exploratorySeedCluster95HalfWidthPP": 0.6860680368653704,
+          "finalPipsDelta": -0.1111111111111111
+        },
+        "mobility-guard": {
+          "finishFirstGainPP": 1.6111111111111114,
+          "exploratorySeedCluster95HalfWidthPP": 0.5845942755047434,
+          "finalPipsDelta": -0.10083333333333333
+        }
+      },
+      "guardedVsUnrestrictedSuppressedTrajectories": 188
+    },
+    "closed-branch-control": {
+      "byMode": {
+        "baseline": {
+          "appearances": 3600,
+          "finishFirstRate": 0.23833333333333334,
+          "meanFinalPips": 6.2575,
+          "medianFinalPips": 5,
+          "meanTurns": 25.809722222222224,
+          "blockRate": 0.03722222222222222,
+          "minusFinishCounts": {
+            "0": 746,
+            "-10": 108,
+            "-20": 4,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 0,
+          "changedPlacements": 0,
+          "predictedPassGainPPPerChange": null,
+          "observedPassGainPPPerChange": null,
+          "ownMobilityDeltaPerChange": null
+        },
+        "unrestricted": {
+          "appearances": 3600,
+          "finishFirstRate": 0.24583333333333332,
+          "meanFinalPips": 6.208888888888889,
+          "medianFinalPips": 5,
+          "meanTurns": 25.873055555555556,
+          "blockRate": 0.050833333333333335,
+          "minusFinishCounts": {
+            "0": 768,
+            "-10": 113,
+            "-20": 4,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 1236,
+          "changedPlacements": 381,
+          "predictedPassGainPPPerChange": 31.67895534037267,
+          "observedPassGainPPPerChange": 31.233595800524935,
+          "ownMobilityDeltaPerChange": -0.31496062992125984
+        },
+        "mobility-guard": {
+          "appearances": 3600,
+          "finishFirstRate": 0.2436111111111111,
+          "meanFinalPips": 6.191944444444444,
+          "medianFinalPips": 5,
+          "meanTurns": 25.845833333333335,
+          "blockRate": 0.041666666666666664,
+          "minusFinishCounts": {
+            "0": 762,
+            "-10": 111,
+            "-20": 4,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 1250,
+          "changedPlacements": 218,
+          "predictedPassGainPPPerChange": 33.79681735186324,
+          "observedPassGainPPPerChange": 32.11009174311926,
+          "ownMobilityDeltaPerChange": 0.37155963302752293
+        }
+      },
+      "contrasts": {
+        "unrestricted": {
+          "finishFirstGainPP": 0.7499999999999999,
+          "exploratorySeedCluster95HalfWidthPP": 0.4883625685205055,
+          "finalPipsDelta": -0.04861111111111111
+        },
+        "mobility-guard": {
+          "finishFirstGainPP": 0.5277777777777776,
+          "exploratorySeedCluster95HalfWidthPP": 0.41013132399410346,
+          "finalPipsDelta": -0.06555555555555556
+        }
+      },
+      "guardedVsUnrestrictedSuppressedTrajectories": 149
+    }
+  },
+  "next": "On fresh seeds, stratify guarded benefit by mobility difference and check whether opponent two gets extra legal replies; obtain real-play branch-lock fixture."
+}
