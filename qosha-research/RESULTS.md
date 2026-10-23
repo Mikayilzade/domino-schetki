@@ -504,3 +504,15 @@
 - Reproduce: `node qosha-research/simulator/pass-next-history-runner.js test`; `node qosha-research/simulator/pass-next-history-runner.js 1352940 4500 400 256 30`; repeat with start `1357440`.
 - Run data: `runs/2026-10-23-2152-next-opponent-pass-geometry.json`; script: `simulator/pass-next-history-runner.js`.
 - Next: fresh disjoint-seed validation of next-only vs both-history effects, whether immediate-pass gain predicts finish-first; validate branch locking/opening with a real-play fixture.
+
+
+### 2026-10-23 22:53 (+04) — independent next-opponent-pass geometry holdouts
+- Engine/rules: `qosa-research-0.5.3` / recovered `qosa-1.0.0`, provisional branch-opening semantics; primary 3×9. V8 CommonJS deterministic replay regression passed (2 positions / 12 paired continuations).
+- Fresh disjoint discovery seeds: `1361940..1366439` and `1366440..1370939`; **9,000** discovery seeds scanned. Matched same-tile geometry changed-choice positions with recorded clockwise-opponent pass; profiles `min-hand-pips` and `closed-branch-control`.
+- **12 selected positions**, **3,072 conditional hidden allocations**, **6,144 forced paired continuations** (256 worlds per position), **0** new independent baseline rounds. Uniform hidden-tile choice versus joint pass-conditioned choice under identical hidden worlds and continuation policies.
+- Overall joint−uniform finish-first: **+2.80 pp**, exploratory position-level 95% half-width **±12.82 pp**; remaining-pips improvement **−0.57** (negative means worse). Next-opponent-only history n=9: **−0.74 pp** (±15.95); both-opponents history n=3: **+13.41 pp** (±16.48). Min-hand-pips n=4: **+9.67 pp** (±10.95); closed-branch-control n=8: **−0.63 pp** (±18.50).
+- Finding: **no statistically reliable new strategy rule**. Signs vary by bot and pass-history subgroup, and the selected sample is small. In particular, immediate next-pass gain was only +0.13 pp and does not establish downstream advantage.
+- Confidence/limitations: targeted rare changed-choice positions, correlated hidden worlds, exploratory uncorrected normal intervals, fixed bots, uniform allocations conditioned on no-stock passes without opponent earlier action-likelihood, provisional branch rules, unassigned block winners; finish-first ≠ match win.
+- Reproduce: `node qosha-research/simulator/pass-next-history-runner.js test`, then `node qosha-research/simulator/pass-next-history-runner.js 1361940 4500 400 256 30` and repeat with start `1366440`. Raw rows/seed-level summaries: `runs/2026-10-23-2250-next-pass-holdouts-1361940-1370939.json` (commit `19bdd060b3d7cb8315dc3e0a39ff344610a42113`).
+- Verified cumulative: **290,100** independent full continuations unchanged; **532,608** paired counterfactual continuations (prior 526,464 + 6,144); historical 4,000 excluded.
+- Exact next action: on fresh disjoint seeds, test whether immediate clockwise-opponent pass probability predicts finish-first; obtain a real-game locked/open branch fixture before elevating any pass-based recommendation.
