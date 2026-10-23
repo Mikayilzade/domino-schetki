@@ -1,17 +1,17 @@
 # Qoşa research status
 
-Updated: 2026-10-24 01:45 (+04)
+Updated: 2026-10-24 02:51 (+04)
 
 ## Verified scale
-- 324,900 independent full continuations under the current research engine, plus 532,608 paired hidden-world counterfactual continuations.
-- Historical 4,000 rounds kept separate; quarantined older pre-fix run excluded.
-- Latest engine `qosa-research-0.5.3`; recovered `qosa-1.0.0` rules, 3×9 primary.
-- Full-round seed stability/invariants validated, but branch locking/opening still provisional pending a real-play fixture.
+- **335,700** independent full continuations under current research engine, plus **532,608** paired hidden-world counterfactual continuations.
+- Historical 4,000 rounds separate; quarantined pre-fix run excluded.
+- Engine `qosa-research-0.5.3`; recovered `qosa-1.0.0` rules, primary 3×9.
+- Deterministic round invariants and matched-seed replay passed; branch locking/opening remains provisional pending real-play fixture.
 
 ## Latest checkpoint
-- `simulator/next-pass-mobility-guard-holdout.js` compares baseline, unrestricted next-pass same-tile tie-break, and tie-break guarded by own immediate legal-tile mobility.
-- Fresh seeds 1372040..1373239; 1,200 deals, 21,600 full continuations, deterministic test green.
-- Mobility guard does not reliably beat unrestricted tie-break across opponent profiles. No new universal strategy claim.
+- `simulator/next-pass-second-opponent-audit.js` checks whether pass-oriented side selection changes the SECOND opponent's actual legal replies (audit only, not policy).
+- Seeds 1373240..1373839: 600 deals, 10,800 full matched continuations, replay green.
+- In 565 unrestricted changed placements, second opponent lost playable tiles 358 times vs gained 24; however win gains remain small and exploratory. No universal strategy rule established.
 
 ## NEXT ACTION
-Stratify decisions by second opponent reply accessibility and own mobility sacrifice; evaluate on fresh disjoint seeds and validate a real-play branch-lock fixture. Do not edit live scoreboard/PWA files.
+Validate own-mobility sacrifice and second-opponent accessibility strata on independent seeds 1373840+, then obtain a real-game branch opening/locking fixture. Do not edit live scoreboard/PWA files.
