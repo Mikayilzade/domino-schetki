@@ -433,3 +433,17 @@
 - Cumulative: **290,100** independent full continuations unchanged; paired counterfactual continuations **343,168** (previous 320,128 + new 23,040); 11,520 new hidden allocations. Historical 4,000 separate. No new independent full strategy deals credited.
 - Reproduce: `node qosha-research/simulator/same-tile-geometry-runner.js test`; `node qosha-research/simulator/same-tile-geometry-runner.js 1312940 650 60 48`; repeat with `1313590 650 60 48`. Full position-level rows and seed formula: `runs/2026-10-23-1248-same-tile-geometry-1312940-1313590.json`.
 - Exact next hypothesis/action: isolate counterexamples where higher own mobility helps the opponent more; stratify by **pre-action** focal/opponent hand sizes and matched-world next-opponent legal access, validate branch-opening semantics with externally confirmed fixture, then retest on fresh disjoint seeds.
+
+
+### 2026-10-23 15:51:40 +04:00 — pre-action visible opponent-access holdout
+- Engine/rules: `qosa-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; unchanged. Deterministic V8 CommonJS regression passed (Node CLI not run).
+- Fresh disjoint seed windows `1316840..1317489` and `1317490..1318139`; 240 selected positions, 11520 matched hidden allocations, 23040 paired forced continuations, 0 independent baseline deals.
+- New pre-action visible-only risk: count K playable among N unseen double-six stones after each legal placement; expected clockwise opponent playable stones = next hand size × K/N. The risk split uses predicted difference >0 vs <=0, without seeing opponents' hidden hands or rollout outcomes.
+- Min-hand-pips: predicted opponent more access n=55, higher-own-mobility first-place -1.67 pp; predicted not-more-access n=65, 3.11 pp. Overall 0.92 pp.
+- Closed-branch-control: predicted opponent more access n=60, -1.04 pp; predicted not-more-access n=60, 19.10 pp. Overall 9.03 pp.
+- Finding: under the tested branch-control bot, choosing the side preserving more own moves is useful primarily when it does NOT predict more immediate moves for the clockwise opponent. The direction of this split replicated on both fresh cohorts; no universal human rule is established. Min-pips effect is less stable across cohorts.
+- Calibration caveat: visible vs sampled next-playable correlations 0.970 / 0.966 are largely expected from the uniform hidden-world sampler and are NOT independent evidence of human-world calibration.
+- Confidence/limitations: exploratory position-level intervals without multiplicity correction, correlated worlds, first-eligible selection, simple deterministic bots, ignores pass constraints in visible risk and earlier choice likelihood in hidden worlds, branch-opening semantics provisional, block winner unassigned; finish-first != match win.
+- Cumulative: 290,100 independent full continuations unchanged; 412288 paired counterfactual continuations (historical 4,000 separate).
+- Reproduce: `simulator/visible-access-holdout.js` test and both seed commands; position-level data `runs/2026-10-23-1547-visible-access-holdout.json`.
+- Exact next action: compare pass-conditioned vs uniform visible opponent-access risk on new disjoint seeds and validate branch semantics with a real-game fixture.
