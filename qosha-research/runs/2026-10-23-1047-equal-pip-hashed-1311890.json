@@ -1,0 +1,2956 @@
+{
+  "schema": "qosa-equal-pip-paired/v1",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0",
+  "mode": "3x9",
+  "startSeed": 1311890,
+  "endSeed": 1312289,
+  "scanCount": 400,
+  "scanned": {
+    "min-hand-pips": 44,
+    "closed-branch-control": 64
+  },
+  "discoveryTrajectories": {
+    "min-hand-pips": 132,
+    "closed-branch-control": 190
+  },
+  "sampleRule": "first eligible equal-pip single/double position per focal trajectory; deterministic hashed pair selection",
+  "pairMode": "hashed",
+  "worldsPerPosition": 48,
+  "positions": 60,
+  "counterfactualContinuations": 5760,
+  "policies": [
+    "min-hand-pips",
+    "closed-branch-control"
+  ],
+  "comparison": "one legal ordinary single vs one legal 1-tile double-sequence, same pip sum, same hidden worlds, same bot policy",
+  "assumptions": "Uniform hidden allocations conditional on observed no-stock passes; no opponent policy-choice likelihood. Provisional branch opening.",
+  "limitations": "Next-opponent mobility strata are post-action descriptive, not causal mediation; first-eligible trajectories; no block winner; finish-first not match win; correlated worlds; no multiple-test correction.",
+  "summaries": [
+    {
+      "profile": "min-hand-pips",
+      "positions": 30,
+      "worldsPerPosition": 48,
+      "continuations": 2880,
+      "doubleMinusSingleWinPP": -15.763888888888891,
+      "doubleMinusSinglePips": 1.611805555555555,
+      "doubleMinusSingleMinusPP": 1.5277777777777775,
+      "doubleMinusSingleBlockPP": 0.4861111111111111,
+      "doubleMinusSingleNextPassPP": -7.708333333333335,
+      "doubleMinusSingleNextPlayableTiles": 1.4638888888888888,
+      "unlockWorlds": 129,
+      "unchangedWorlds": 1293,
+      "blocksWorlds": 18,
+      "winDeltaUnlockPP": -3.875968992248062,
+      "winDeltaUnchangedPP": -17.633410672853827,
+      "winDeltaBlocksPP": 33.333333333333336,
+      "doubleBetter": 6,
+      "singleBetter": 20,
+      "tied": 4
+    },
+    {
+      "profile": "closed-branch-control",
+      "positions": 30,
+      "worldsPerPosition": 48,
+      "continuations": 2880,
+      "doubleMinusSingleWinPP": -11.319444444444446,
+      "doubleMinusSinglePips": 0.5388888888888889,
+      "doubleMinusSingleMinusPP": -9.02777777777778,
+      "doubleMinusSingleBlockPP": 2.7083333333333335,
+      "doubleMinusSingleNextPassPP": -11.52777777777778,
+      "doubleMinusSingleNextPlayableTiles": 1.590277777777778,
+      "unlockWorlds": 174,
+      "unchangedWorlds": 1258,
+      "blocksWorlds": 8,
+      "winDeltaUnlockPP": -31.60919540229885,
+      "winDeltaUnchangedPP": -8.585055643879173,
+      "winDeltaBlocksPP": 0,
+      "doubleBetter": 8,
+      "singleBetter": 18,
+      "tied": 4
+    }
+  ],
+  "rows": [
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311890,
+      "turn": 16,
+      "seat": 0,
+      "hand": [
+        "2-6",
+        "0-4",
+        "2-2",
+        "4-5",
+        "0-0",
+        "0-5"
+      ],
+      "opponentSizes": [
+        6,
+        4,
+        2
+      ],
+      "opened": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        8,
+        0,
+        0
+      ],
+      "single": "single|right|0||0-4",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 1,
+      "singleWin": 0,
+      "doubleWin": 0.22916666666666666,
+      "winDelta": 0.22916666666666666,
+      "remainderDelta": -6.208333333333334,
+      "minusFinishDelta": 0.14583333333333334,
+      "blockDelta": 0,
+      "nextPassDelta": -0.22916666666666666,
+      "nextPlayableTileDelta": 2.0625,
+      "unlockWorlds": 11,
+      "unchangedWorlds": 37,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 2,
+      "unchangedWinDeltaSum": 9,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311890,
+      "turn": 3,
+      "seat": 2,
+      "hand": [
+        "5-5",
+        "0-6",
+        "3-5",
+        "3-4",
+        "4-6",
+        "1-2",
+        "3-3",
+        "2-5"
+      ],
+      "opponentSizes": [
+        8,
+        8,
+        8
+      ],
+      "opened": [
+        1,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|up|0||0-6",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 1,
+      "singleWin": 0.4791666666666667,
+      "doubleWin": 0.25,
+      "winDelta": -0.22916666666666669,
+      "remainderDelta": 2.0208333333333335,
+      "minusFinishDelta": 0,
+      "blockDelta": -0.041666666666666664,
+      "nextPassDelta": -0.020833333333333332,
+      "nextPlayableTileDelta": 1.8125,
+      "unlockWorlds": 1,
+      "unchangedWorlds": 47,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": -1,
+      "unchangedWinDeltaSum": -10,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311892,
+      "turn": 6,
+      "seat": 0,
+      "hand": [
+        "0-6",
+        "5-6",
+        "3-3",
+        "2-5",
+        "4-6",
+        "0-3",
+        "3-4"
+      ],
+      "opponentSizes": [
+        7,
+        7,
+        7
+      ],
+      "opened": [
+        1,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|left|0||0-6",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 1,
+      "singleWin": 0.5,
+      "doubleWin": 0.2916666666666667,
+      "winDelta": -0.20833333333333331,
+      "remainderDelta": 0.4375,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.0625,
+      "nextPassDelta": -0.0625,
+      "nextPlayableTileDelta": 1.375,
+      "unlockWorlds": 3,
+      "unchangedWorlds": 45,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -10,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311893,
+      "turn": 9,
+      "seat": 1,
+      "hand": [
+        "3-3",
+        "0-6",
+        "0-3",
+        "1-5",
+        "4-5"
+      ],
+      "opponentSizes": [
+        6,
+        5,
+        6
+      ],
+      "opened": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|right|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 3,
+      "singleWin": 0.8541666666666666,
+      "doubleWin": 0.7291666666666666,
+      "winDelta": -0.125,
+      "remainderDelta": 0.625,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": -0.0625,
+      "nextPlayableTileDelta": 1.5000000000000002,
+      "unlockWorlds": 3,
+      "unchangedWorlds": 45,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -6,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311895,
+      "turn": 14,
+      "seat": 0,
+      "hand": [
+        "4-4",
+        "0-0",
+        "2-4",
+        "2-6",
+        "3-6"
+      ],
+      "opponentSizes": [
+        5,
+        5,
+        4
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        7,
+        3,
+        0
+      ],
+      "single": "single|up|6||2-6",
+      "double": "double-sequence|||4|4-4",
+      "discardedPips": 8,
+      "pairCount": 1,
+      "singleWin": 1,
+      "doubleWin": 0.20833333333333334,
+      "winDelta": -0.7916666666666666,
+      "remainderDelta": 5.041666666666667,
+      "minusFinishDelta": 0.020833333333333332,
+      "blockDelta": 0,
+      "nextPassDelta": -0.20833333333333334,
+      "nextPlayableTileDelta": 2.291666666666667,
+      "unlockWorlds": 10,
+      "unchangedWorlds": 38,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": -7,
+      "unchangedWinDeltaSum": -31,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311895,
+      "turn": 10,
+      "seat": 2,
+      "hand": [
+        "4-6",
+        "2-2",
+        "3-4",
+        "0-4",
+        "1-2",
+        "5-6"
+      ],
+      "opponentSizes": [
+        5,
+        5,
+        6
+      ],
+      "opened": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|down|0||0-4",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 1,
+      "singleWin": 0.10416666666666667,
+      "doubleWin": 0,
+      "winDelta": -0.10416666666666667,
+      "remainderDelta": 2.020833333333333,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.020833333333333343,
+      "nextPassDelta": -0.041666666666666664,
+      "nextPlayableTileDelta": 2.1875,
+      "unlockWorlds": 2,
+      "unchangedWorlds": 46,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": -1,
+      "unchangedWinDeltaSum": -4,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311898,
+      "turn": 9,
+      "seat": 2,
+      "hand": [
+        "2-3",
+        "2-6",
+        "3-5",
+        "0-3",
+        "0-6",
+        "4-4",
+        "3-3",
+        "4-6"
+      ],
+      "opponentSizes": [
+        5,
+        6,
+        8
+      ],
+      "opened": [
+        1,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        8
+      ],
+      "single": "single|left|0||0-6",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 2,
+      "singleWin": 0.14583333333333334,
+      "doubleWin": 0.3541666666666667,
+      "winDelta": 0.20833333333333334,
+      "remainderDelta": 0.8125,
+      "minusFinishDelta": 0,
+      "blockDelta": -0.020833333333333332,
+      "nextPassDelta": 0.125,
+      "nextPlayableTileDelta": -0.125,
+      "unlockWorlds": 9,
+      "unchangedWorlds": 24,
+      "blocksWorlds": 15,
+      "unlockWinDeltaSum": 2,
+      "unchangedWinDeltaSum": 4,
+      "blocksWinDeltaSum": 4
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311902,
+      "turn": 2,
+      "seat": 0,
+      "hand": [
+        "3-5",
+        "2-6",
+        "3-6",
+        "6-6",
+        "1-5",
+        "5-6",
+        "2-4",
+        "5-5",
+        "3-3"
+      ],
+      "opponentSizes": [
+        9,
+        8,
+        8
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|right|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 2,
+      "singleWin": 0.6041666666666666,
+      "doubleWin": 0.08333333333333333,
+      "winDelta": -0.5208333333333333,
+      "remainderDelta": 9.041666666666666,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.0625,
+      "nextPassDelta": -0.08333333333333333,
+      "nextPlayableTileDelta": 1.4583333333333333,
+      "unlockWorlds": 4,
+      "unchangedWorlds": 44,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": -3,
+      "unchangedWinDeltaSum": -22,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311905,
+      "turn": 11,
+      "seat": 2,
+      "hand": [
+        "0-6",
+        "0-3",
+        "2-5",
+        "3-3",
+        "0-2",
+        "1-3"
+      ],
+      "opponentSizes": [
+        4,
+        5,
+        6
+      ],
+      "opened": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|right|0||0-6",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 1,
+      "singleWin": 0,
+      "doubleWin": 0,
+      "winDelta": 0,
+      "remainderDelta": 1.041666666666667,
+      "minusFinishDelta": 0,
+      "blockDelta": -0.041666666666666664,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 0,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": 0,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311906,
+      "turn": 6,
+      "seat": 1,
+      "hand": [
+        "4-6",
+        "2-3",
+        "3-3",
+        "4-4",
+        "1-2",
+        "0-6",
+        "6-6"
+      ],
+      "opponentSizes": [
+        6,
+        7,
+        8
+      ],
+      "opened": [
+        0,
+        1,
+        5
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        4
+      ],
+      "single": "single|down|6||0-6",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 1,
+      "singleWin": 0.75,
+      "doubleWin": 0.2708333333333333,
+      "winDelta": -0.4791666666666667,
+      "remainderDelta": 1.7916666666666665,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": -0.020833333333333332,
+      "nextPlayableTileDelta": 2.9375,
+      "unlockWorlds": 1,
+      "unchangedWorlds": 47,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": -1,
+      "unchangedWinDeltaSum": -22,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311908,
+      "turn": 5,
+      "seat": 1,
+      "hand": [
+        "2-6",
+        "2-2",
+        "2-5",
+        "0-0",
+        "3-5",
+        "1-2",
+        "1-3",
+        "2-3"
+      ],
+      "opponentSizes": [
+        7,
+        8,
+        8
+      ],
+      "opened": [
+        1,
+        4
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        7
+      ],
+      "single": "single|left|3||1-3",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 2,
+      "singleWin": 0.4583333333333333,
+      "doubleWin": 0.6041666666666666,
+      "winDelta": 0.14583333333333331,
+      "remainderDelta": -0.7291666666666665,
+      "minusFinishDelta": 0.22916666666666666,
+      "blockDelta": -0.0625,
+      "nextPassDelta": -0.04166666666666667,
+      "nextPlayableTileDelta": 0.08333333333333326,
+      "unlockWorlds": 5,
+      "unchangedWorlds": 40,
+      "blocksWorlds": 3,
+      "unlockWinDeltaSum": 5,
+      "unchangedWinDeltaSum": 0,
+      "blocksWinDeltaSum": 2
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311908,
+      "turn": 18,
+      "seat": 2,
+      "hand": [
+        "3-6",
+        "4-5",
+        "0-5",
+        "0-6",
+        "4-6",
+        "3-3",
+        "3-4"
+      ],
+      "opponentSizes": [
+        3,
+        3,
+        7
+      ],
+      "opened": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        14
+      ],
+      "single": "single|left|0||0-6",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 1,
+      "singleWin": 0,
+      "doubleWin": 0,
+      "winDelta": 0,
+      "remainderDelta": 7.458333333333332,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": -0.4791666666666667,
+      "nextPlayableTileDelta": 1.0416666666666665,
+      "unlockWorlds": 23,
+      "unchangedWorlds": 25,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": 0,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311909,
+      "turn": 8,
+      "seat": 0,
+      "hand": [
+        "4-5",
+        "2-4",
+        "0-6",
+        "0-5",
+        "2-6",
+        "5-5",
+        "4-4"
+      ],
+      "opponentSizes": [
+        7,
+        5,
+        6
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|up|6||2-6",
+      "double": "double-sequence|||4|4-4",
+      "discardedPips": 8,
+      "pairCount": 1,
+      "singleWin": 0.2916666666666667,
+      "doubleWin": 0.020833333333333332,
+      "winDelta": -0.27083333333333337,
+      "remainderDelta": 4.125,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.375,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 0.9583333333333335,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -13,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311909,
+      "turn": 6,
+      "seat": 1,
+      "hand": [
+        "3-5",
+        "3-4",
+        "2-5",
+        "3-3",
+        "2-3",
+        "2-2",
+        "1-5"
+      ],
+      "opponentSizes": [
+        7,
+        7,
+        7
+      ],
+      "opened": [
+        1,
+        4,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|right|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 1,
+      "singleWin": 0.4375,
+      "doubleWin": 0.625,
+      "winDelta": 0.1875,
+      "remainderDelta": -0.5416666666666665,
+      "minusFinishDelta": 0.10416666666666667,
+      "blockDelta": 0.020833333333333336,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 0.8333333333333335,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": 9,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311911,
+      "turn": 1,
+      "seat": 2,
+      "hand": [
+        "6-6",
+        "1-3",
+        "2-5",
+        "0-4",
+        "2-6",
+        "0-5",
+        "0-0",
+        "0-2",
+        "2-2"
+      ],
+      "opponentSizes": [
+        9,
+        8,
+        9
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|right|3||1-3",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 3,
+      "singleWin": 0.625,
+      "doubleWin": 0.20833333333333334,
+      "winDelta": -0.41666666666666663,
+      "remainderDelta": 1.7499999999999998,
+      "minusFinishDelta": -0.125,
+      "blockDelta": 0.020833333333333332,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 0.4583333333333335,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -20,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311912,
+      "turn": 3,
+      "seat": 1,
+      "hand": [
+        "4-5",
+        "2-4",
+        "1-4",
+        "5-6",
+        "4-4",
+        "2-2",
+        "1-3",
+        "0-5"
+      ],
+      "opponentSizes": [
+        8,
+        8,
+        8
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|right|3||1-3",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 1,
+      "singleWin": 0.6458333333333334,
+      "doubleWin": 0.3958333333333333,
+      "winDelta": -0.25000000000000006,
+      "remainderDelta": 1.125,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": -0.10416666666666667,
+      "nextPlayableTileDelta": 2.229166666666667,
+      "unlockWorlds": 5,
+      "unchangedWorlds": 43,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -12,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311915,
+      "turn": 9,
+      "seat": 0,
+      "hand": [
+        "2-2",
+        "3-5",
+        "0-5",
+        "4-4",
+        "0-0",
+        "2-6"
+      ],
+      "opponentSizes": [
+        6,
+        6,
+        6
+      ],
+      "opened": [
+        1,
+        3,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|right|3||3-5",
+      "double": "double-sequence|||4|4-4",
+      "discardedPips": 8,
+      "pairCount": 2,
+      "singleWin": 0.9583333333333334,
+      "doubleWin": 0.9583333333333334,
+      "winDelta": 0,
+      "remainderDelta": 0.10416666666666669,
+      "minusFinishDelta": -0.10416666666666667,
+      "blockDelta": -0.020833333333333332,
+      "nextPassDelta": -0.020833333333333332,
+      "nextPlayableTileDelta": 0.7083333333333335,
+      "unlockWorlds": 1,
+      "unchangedWorlds": 47,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": 0,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311916,
+      "turn": 7,
+      "seat": 0,
+      "hand": [
+        "1-5",
+        "0-4",
+        "5-6",
+        "4-5",
+        "3-3",
+        "2-4",
+        "1-2"
+      ],
+      "opponentSizes": [
+        7,
+        7,
+        8
+      ],
+      "opened": [
+        1,
+        4,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        7
+      ],
+      "single": "single|right|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 3,
+      "singleWin": 0.6458333333333334,
+      "doubleWin": 0.5208333333333334,
+      "winDelta": -0.125,
+      "remainderDelta": 1.1458333333333333,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.041666666666666664,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 1,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -6,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311919,
+      "turn": 4,
+      "seat": 1,
+      "hand": [
+        "4-4",
+        "1-4",
+        "2-3",
+        "1-3",
+        "2-2",
+        "1-5",
+        "0-6",
+        "2-4"
+      ],
+      "opponentSizes": [
+        7,
+        8,
+        8
+      ],
+      "opened": [
+        1,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|left|3||1-3",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 2,
+      "singleWin": 0.3125,
+      "doubleWin": 0.14583333333333334,
+      "winDelta": -0.16666666666666666,
+      "remainderDelta": 2.5833333333333335,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.020833333333333332,
+      "nextPassDelta": -0.0625,
+      "nextPlayableTileDelta": 1.2291666666666665,
+      "unlockWorlds": 3,
+      "unchangedWorlds": 45,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 1,
+      "unchangedWinDeltaSum": -9,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311921,
+      "turn": 1,
+      "seat": 1,
+      "hand": [
+        "0-6",
+        "0-3",
+        "3-4",
+        "0-0",
+        "3-3",
+        "1-5",
+        "4-4",
+        "0-1",
+        "2-2"
+      ],
+      "opponentSizes": [
+        8,
+        9,
+        9
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|down|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 3,
+      "singleWin": 0.8125,
+      "doubleWin": 0.8541666666666666,
+      "winDelta": 0.04166666666666663,
+      "remainderDelta": -0.3333333333333333,
+      "minusFinishDelta": 0.02083333333333333,
+      "blockDelta": -0.020833333333333332,
+      "nextPassDelta": -0.020833333333333332,
+      "nextPlayableTileDelta": 1,
+      "unlockWorlds": 1,
+      "unchangedWorlds": 47,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 1,
+      "unchangedWinDeltaSum": 1,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311922,
+      "turn": 11,
+      "seat": 0,
+      "hand": [
+        "0-3",
+        "0-1",
+        "2-2",
+        "1-3",
+        "2-5",
+        "0-6"
+      ],
+      "opponentSizes": [
+        6,
+        6,
+        5
+      ],
+      "opened": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        7,
+        0
+      ],
+      "single": "single|right|3||1-3",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 1,
+      "singleWin": 0.3333333333333333,
+      "doubleWin": 0.2708333333333333,
+      "winDelta": -0.0625,
+      "remainderDelta": 0.8125,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": -0.4166666666666667,
+      "nextPlayableTileDelta": 2,
+      "unlockWorlds": 20,
+      "unchangedWorlds": 28,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 1,
+      "unchangedWinDeltaSum": -4,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311922,
+      "turn": 7,
+      "seat": 2,
+      "hand": [
+        "1-2",
+        "0-5",
+        "0-4",
+        "2-6",
+        "3-3",
+        "3-4",
+        "4-4"
+      ],
+      "opponentSizes": [
+        7,
+        6,
+        7
+      ],
+      "opened": [
+        1,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|up|2||2-6",
+      "double": "double-sequence|||4|4-4",
+      "discardedPips": 8,
+      "pairCount": 1,
+      "singleWin": 0.25,
+      "doubleWin": 0.10416666666666667,
+      "winDelta": -0.14583333333333331,
+      "remainderDelta": 1.541666666666667,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.08333333333333334,
+      "nextPassDelta": -0.0625,
+      "nextPlayableTileDelta": 1.4583333333333333,
+      "unlockWorlds": 3,
+      "unchangedWorlds": 45,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 1,
+      "unchangedWinDeltaSum": -8,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311923,
+      "turn": 13,
+      "seat": 0,
+      "hand": [
+        "2-6",
+        "3-3",
+        "2-2",
+        "2-5",
+        "0-2",
+        "2-4"
+      ],
+      "opponentSizes": [
+        6,
+        4,
+        4
+      ],
+      "opened": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        7,
+        0,
+        0
+      ],
+      "single": "single|right|2||2-4",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 1,
+      "singleWin": 0.3125,
+      "doubleWin": 0.4166666666666667,
+      "winDelta": 0.10416666666666669,
+      "remainderDelta": 0.8958333333333333,
+      "minusFinishDelta": 0.08333333333333333,
+      "blockDelta": -0.3125,
+      "nextPassDelta": -0.020833333333333332,
+      "nextPlayableTileDelta": 1.7708333333333335,
+      "unlockWorlds": 1,
+      "unchangedWorlds": 47,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": 5,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311923,
+      "turn": 5,
+      "seat": 1,
+      "hand": [
+        "0-6",
+        "2-3",
+        "5-6",
+        "4-6",
+        "1-3",
+        "1-2",
+        "5-5",
+        "0-0"
+      ],
+      "opponentSizes": [
+        8,
+        8,
+        7
+      ],
+      "opened": [
+        1,
+        6
+      ],
+      "forbiddenSizes": [
+        7,
+        0,
+        0
+      ],
+      "single": "single|down|4||4-6",
+      "double": "double-sequence|||5|5-5",
+      "discardedPips": 10,
+      "pairCount": 1,
+      "singleWin": 0.6666666666666666,
+      "doubleWin": 0.3125,
+      "winDelta": -0.35416666666666663,
+      "remainderDelta": 1.8541666666666667,
+      "minusFinishDelta": 0.16666666666666666,
+      "blockDelta": 0,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 2.0625,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -17,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311924,
+      "turn": 1,
+      "seat": 2,
+      "hand": [
+        "0-4",
+        "0-6",
+        "0-0",
+        "2-6",
+        "6-6",
+        "3-3",
+        "1-5",
+        "0-1",
+        "1-6"
+      ],
+      "opponentSizes": [
+        9,
+        8,
+        9
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|right|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 3,
+      "singleWin": 0.7291666666666666,
+      "doubleWin": 0.4375,
+      "winDelta": -0.29166666666666663,
+      "remainderDelta": 0.7916666666666667,
+      "minusFinishDelta": -0.020833333333333343,
+      "blockDelta": 0,
+      "nextPassDelta": -0.14583333333333334,
+      "nextPlayableTileDelta": 2.4166666666666665,
+      "unlockWorlds": 7,
+      "unchangedWorlds": 41,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": -2,
+      "unchangedWinDeltaSum": -12,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311926,
+      "turn": 14,
+      "seat": 1,
+      "hand": [
+        "2-6",
+        "2-2",
+        "2-4",
+        "0-4",
+        "3-3"
+      ],
+      "opponentSizes": [
+        3,
+        5,
+        5
+      ],
+      "opened": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        2
+      ],
+      "single": "single|up|4||0-4",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 1,
+      "singleWin": 0.3541666666666667,
+      "doubleWin": 0,
+      "winDelta": -0.3541666666666667,
+      "remainderDelta": 5.125,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": -0.08333333333333333,
+      "nextPlayableTileDelta": 2.0833333333333335,
+      "unlockWorlds": 4,
+      "unchangedWorlds": 44,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": -2,
+      "unchangedWinDeltaSum": -15,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311927,
+      "turn": 7,
+      "seat": 0,
+      "hand": [
+        "1-3",
+        "0-4",
+        "0-3",
+        "4-5",
+        "2-2",
+        "5-6",
+        "3-3"
+      ],
+      "opponentSizes": [
+        7,
+        6,
+        6
+      ],
+      "opened": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|right|3||1-3",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 1,
+      "singleWin": 0.7708333333333334,
+      "doubleWin": 0.2916666666666667,
+      "winDelta": -0.4791666666666667,
+      "remainderDelta": 3.2916666666666665,
+      "minusFinishDelta": 0,
+      "blockDelta": 0,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 2.7083333333333335,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -23,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311928,
+      "turn": 11,
+      "seat": 2,
+      "hand": [
+        "3-3",
+        "2-4",
+        "0-3",
+        "1-3",
+        "2-6",
+        "0-2"
+      ],
+      "opponentSizes": [
+        4,
+        4,
+        6
+      ],
+      "opened": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|right|2||2-4",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 2,
+      "singleWin": 0,
+      "doubleWin": 0,
+      "winDelta": 0,
+      "remainderDelta": 0.6041666666666661,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.020833333333333332,
+      "nextPassDelta": -0.20833333333333334,
+      "nextPlayableTileDelta": 0.9375000000000002,
+      "unlockWorlds": 10,
+      "unchangedWorlds": 38,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": 0,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311932,
+      "turn": 3,
+      "seat": 1,
+      "hand": [
+        "0-3",
+        "5-5",
+        "3-6",
+        "4-6",
+        "2-4",
+        "2-6",
+        "1-3",
+        "0-2"
+      ],
+      "opponentSizes": [
+        8,
+        8,
+        8
+      ],
+      "opened": [
+        1,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|down|4||4-6",
+      "double": "double-sequence|||5|5-5",
+      "discardedPips": 10,
+      "pairCount": 1,
+      "singleWin": 0.22916666666666666,
+      "doubleWin": 0.125,
+      "winDelta": -0.10416666666666666,
+      "remainderDelta": 0.1875,
+      "minusFinishDelta": 0,
+      "blockDelta": -0.0625,
+      "nextPassDelta": -0.020833333333333332,
+      "nextPlayableTileDelta": 2.3958333333333335,
+      "unlockWorlds": 1,
+      "unchangedWorlds": 47,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -5,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "min-hand-pips",
+      "seed": 1311933,
+      "turn": 2,
+      "seat": 2,
+      "hand": [
+        "3-6",
+        "3-3",
+        "2-6",
+        "4-5",
+        "3-5",
+        "0-0",
+        "1-5",
+        "0-6",
+        "1-6"
+      ],
+      "opponentSizes": [
+        8,
+        8,
+        9
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|left|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 2,
+      "singleWin": 0.4583333333333333,
+      "doubleWin": 0.2916666666666667,
+      "winDelta": -0.16666666666666663,
+      "remainderDelta": -0.0625,
+      "minusFinishDelta": -0.06249999999999997,
+      "blockDelta": 0,
+      "nextPassDelta": -0.020833333333333332,
+      "nextPlayableTileDelta": 1.041666666666667,
+      "unlockWorlds": 1,
+      "unchangedWorlds": 47,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": -1,
+      "unchangedWinDeltaSum": -7,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311891,
+      "turn": 7,
+      "seat": 0,
+      "hand": [
+        "0-2",
+        "4-6",
+        "2-3",
+        "1-2",
+        "2-2",
+        "5-5",
+        "0-5"
+      ],
+      "opponentSizes": [
+        7,
+        7,
+        7
+      ],
+      "opened": [
+        1,
+        3,
+        4
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|down|6||4-6",
+      "double": "double-sequence|||5|5-5",
+      "discardedPips": 10,
+      "pairCount": 1,
+      "singleWin": 0.3541666666666667,
+      "doubleWin": 0.5,
+      "winDelta": 0.14583333333333331,
+      "remainderDelta": -0.6875,
+      "minusFinishDelta": 0,
+      "blockDelta": -0.020833333333333332,
+      "nextPassDelta": -0.08333333333333333,
+      "nextPlayableTileDelta": 2.895833333333333,
+      "unlockWorlds": 4,
+      "unchangedWorlds": 44,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": 7,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311902,
+      "turn": 2,
+      "seat": 0,
+      "hand": [
+        "3-5",
+        "2-6",
+        "3-6",
+        "6-6",
+        "1-5",
+        "5-6",
+        "2-4",
+        "5-5",
+        "3-3"
+      ],
+      "opponentSizes": [
+        9,
+        8,
+        8
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|right|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 2,
+      "singleWin": 0.5208333333333334,
+      "doubleWin": 0.5208333333333334,
+      "winDelta": 0,
+      "remainderDelta": -2,
+      "minusFinishDelta": -0.20833333333333334,
+      "blockDelta": 0,
+      "nextPassDelta": -0.08333333333333333,
+      "nextPlayableTileDelta": 1.4583333333333333,
+      "unlockWorlds": 4,
+      "unchangedWorlds": 44,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": 0,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311909,
+      "turn": 3,
+      "seat": 1,
+      "hand": [
+        "3-5",
+        "3-4",
+        "2-5",
+        "3-3",
+        "2-3",
+        "3-6",
+        "2-2",
+        "1-5"
+      ],
+      "opponentSizes": [
+        8,
+        8,
+        8
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|right|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 1,
+      "singleWin": 0.625,
+      "doubleWin": 0.20833333333333334,
+      "winDelta": -0.41666666666666663,
+      "remainderDelta": 4.9375,
+      "minusFinishDelta": -0.14583333333333334,
+      "blockDelta": 0.0625,
+      "nextPassDelta": -0.1875,
+      "nextPlayableTileDelta": 1.1458333333333333,
+      "unlockWorlds": 11,
+      "unchangedWorlds": 35,
+      "blocksWorlds": 2,
+      "unlockWinDeltaSum": -8,
+      "unchangedWinDeltaSum": -12,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311910,
+      "turn": 11,
+      "seat": 0,
+      "hand": [
+        "3-5",
+        "0-1",
+        "1-2",
+        "3-3",
+        "1-3",
+        "0-6"
+      ],
+      "opponentSizes": [
+        6,
+        5,
+        5
+      ],
+      "opened": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|left|0||0-6",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 1,
+      "singleWin": 0.6875,
+      "doubleWin": 0.041666666666666664,
+      "winDelta": -0.6458333333333334,
+      "remainderDelta": 2.125,
+      "minusFinishDelta": -0.20833333333333334,
+      "blockDelta": 0.020833333333333332,
+      "nextPassDelta": -0.2708333333333333,
+      "nextPlayableTileDelta": 1.5,
+      "unlockWorlds": 13,
+      "unchangedWorlds": 35,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": -7,
+      "unchangedWinDeltaSum": -24,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311911,
+      "turn": 2,
+      "seat": 0,
+      "hand": [
+        "3-3",
+        "0-3",
+        "1-4",
+        "5-5",
+        "1-5",
+        "4-5",
+        "5-6",
+        "0-6",
+        "3-5"
+      ],
+      "opponentSizes": [
+        9,
+        8,
+        8
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|left|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 2,
+      "singleWin": 0.14583333333333334,
+      "doubleWin": 0.0625,
+      "winDelta": -0.08333333333333334,
+      "remainderDelta": 1.958333333333333,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.04166666666666667,
+      "nextPassDelta": -0.14583333333333334,
+      "nextPlayableTileDelta": 1.4583333333333335,
+      "unlockWorlds": 7,
+      "unchangedWorlds": 41,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 1,
+      "unchangedWinDeltaSum": -5,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311911,
+      "turn": 1,
+      "seat": 2,
+      "hand": [
+        "6-6",
+        "1-3",
+        "2-5",
+        "0-4",
+        "2-6",
+        "0-5",
+        "0-0",
+        "0-2",
+        "2-2"
+      ],
+      "opponentSizes": [
+        9,
+        8,
+        9
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|left|3||1-3",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 3,
+      "singleWin": 0.4791666666666667,
+      "doubleWin": 0.2916666666666667,
+      "winDelta": -0.1875,
+      "remainderDelta": 0.8333333333333335,
+      "minusFinishDelta": -0.14583333333333334,
+      "blockDelta": 0.041666666666666664,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 0.4583333333333335,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -9,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311912,
+      "turn": 3,
+      "seat": 1,
+      "hand": [
+        "4-5",
+        "2-4",
+        "1-4",
+        "5-6",
+        "4-4",
+        "2-2",
+        "1-3",
+        "0-5"
+      ],
+      "opponentSizes": [
+        8,
+        8,
+        8
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|right|3||1-3",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 1,
+      "singleWin": 0.4166666666666667,
+      "doubleWin": 0.4166666666666667,
+      "winDelta": 0,
+      "remainderDelta": 0.375,
+      "minusFinishDelta": -0.0625,
+      "blockDelta": 0.020833333333333332,
+      "nextPassDelta": -0.10416666666666667,
+      "nextPlayableTileDelta": 2.229166666666667,
+      "unlockWorlds": 5,
+      "unchangedWorlds": 43,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 3,
+      "unchangedWinDeltaSum": -3,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311915,
+      "turn": 9,
+      "seat": 0,
+      "hand": [
+        "2-2",
+        "3-5",
+        "0-5",
+        "4-4",
+        "0-0",
+        "2-6"
+      ],
+      "opponentSizes": [
+        6,
+        6,
+        6
+      ],
+      "opened": [
+        1,
+        3,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|left|3||3-5",
+      "double": "double-sequence|||4|4-4",
+      "discardedPips": 8,
+      "pairCount": 2,
+      "singleWin": 0.8958333333333334,
+      "doubleWin": 0.8958333333333334,
+      "winDelta": 0,
+      "remainderDelta": 0.22916666666666663,
+      "minusFinishDelta": 0.27083333333333337,
+      "blockDelta": -0.020833333333333332,
+      "nextPassDelta": -0.020833333333333332,
+      "nextPlayableTileDelta": 0.7083333333333335,
+      "unlockWorlds": 1,
+      "unchangedWorlds": 47,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 1,
+      "unchangedWinDeltaSum": -1,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311916,
+      "turn": 7,
+      "seat": 0,
+      "hand": [
+        "1-5",
+        "0-4",
+        "5-6",
+        "4-5",
+        "3-3",
+        "2-4",
+        "1-2"
+      ],
+      "opponentSizes": [
+        7,
+        7,
+        9
+      ],
+      "opened": [
+        1,
+        4
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        9
+      ],
+      "single": "single|right|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 2,
+      "singleWin": 0.1875,
+      "doubleWin": 0.2708333333333333,
+      "winDelta": 0.08333333333333331,
+      "remainderDelta": -1.354166666666667,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.06250000000000001,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 0.9166666666666665,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": 4,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311917,
+      "turn": 7,
+      "seat": 0,
+      "hand": [
+        "2-2",
+        "0-6",
+        "3-3",
+        "4-5",
+        "3-4",
+        "0-0",
+        "0-1"
+      ],
+      "opponentSizes": [
+        7,
+        7,
+        6
+      ],
+      "opened": [
+        1,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|down|0||0-6",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 2,
+      "singleWin": 0.625,
+      "doubleWin": 0.4791666666666667,
+      "winDelta": -0.14583333333333331,
+      "remainderDelta": 0.10416666666666652,
+      "minusFinishDelta": 0.0625,
+      "blockDelta": 0.125,
+      "nextPassDelta": -0.020833333333333332,
+      "nextPlayableTileDelta": 1.6666666666666665,
+      "unlockWorlds": 1,
+      "unchangedWorlds": 47,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -7,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311919,
+      "turn": 4,
+      "seat": 1,
+      "hand": [
+        "4-4",
+        "1-4",
+        "2-3",
+        "1-3",
+        "2-2",
+        "1-5",
+        "0-6",
+        "2-4"
+      ],
+      "opponentSizes": [
+        7,
+        8,
+        8
+      ],
+      "opened": [
+        1,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|left|3||1-3",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 2,
+      "singleWin": 0.4375,
+      "doubleWin": 0.16666666666666666,
+      "winDelta": -0.27083333333333337,
+      "remainderDelta": 4.020833333333334,
+      "minusFinishDelta": -0.125,
+      "blockDelta": -0.08333333333333333,
+      "nextPassDelta": -0.0625,
+      "nextPlayableTileDelta": 1.2291666666666665,
+      "unlockWorlds": 3,
+      "unchangedWorlds": 45,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -13,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311921,
+      "turn": 1,
+      "seat": 1,
+      "hand": [
+        "0-6",
+        "0-3",
+        "3-4",
+        "0-0",
+        "3-3",
+        "1-5",
+        "4-4",
+        "0-1",
+        "2-2"
+      ],
+      "opponentSizes": [
+        8,
+        9,
+        9
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|left|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 3,
+      "singleWin": 0.3958333333333333,
+      "doubleWin": 0.2916666666666667,
+      "winDelta": -0.10416666666666663,
+      "remainderDelta": 0.6875,
+      "minusFinishDelta": -0.041666666666666664,
+      "blockDelta": 0.14583333333333334,
+      "nextPassDelta": -0.020833333333333332,
+      "nextPlayableTileDelta": 1,
+      "unlockWorlds": 1,
+      "unchangedWorlds": 47,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": -1,
+      "unchangedWinDeltaSum": -4,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311922,
+      "turn": 5,
+      "seat": 0,
+      "hand": [
+        "0-3",
+        "4-6",
+        "0-1",
+        "5-6",
+        "2-2",
+        "1-3",
+        "2-5",
+        "0-6"
+      ],
+      "opponentSizes": [
+        8,
+        7,
+        7
+      ],
+      "opened": [
+        1,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|right|3||1-3",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 1,
+      "singleWin": 0.0625,
+      "doubleWin": 0.020833333333333332,
+      "winDelta": -0.04166666666666667,
+      "remainderDelta": 1.541666666666667,
+      "minusFinishDelta": 0,
+      "blockDelta": -0.08333333333333333,
+      "nextPassDelta": -0.125,
+      "nextPlayableTileDelta": 2.604166666666667,
+      "unlockWorlds": 6,
+      "unchangedWorlds": 42,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -2,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311923,
+      "turn": 5,
+      "seat": 1,
+      "hand": [
+        "0-6",
+        "2-3",
+        "5-6",
+        "4-6",
+        "1-3",
+        "1-2",
+        "5-5",
+        "0-0"
+      ],
+      "opponentSizes": [
+        8,
+        8,
+        7
+      ],
+      "opened": [
+        1,
+        6
+      ],
+      "forbiddenSizes": [
+        7,
+        0,
+        0
+      ],
+      "single": "single|down|4||4-6",
+      "double": "double-sequence|||5|5-5",
+      "discardedPips": 10,
+      "pairCount": 1,
+      "singleWin": 0.125,
+      "doubleWin": 0.3333333333333333,
+      "winDelta": 0.20833333333333331,
+      "remainderDelta": -3.708333333333333,
+      "minusFinishDelta": -0.020833333333333336,
+      "blockDelta": 0,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 2.0625,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": 10,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311924,
+      "turn": 1,
+      "seat": 2,
+      "hand": [
+        "0-4",
+        "0-6",
+        "0-0",
+        "2-6",
+        "6-6",
+        "3-3",
+        "1-5",
+        "0-1",
+        "1-6"
+      ],
+      "opponentSizes": [
+        9,
+        8,
+        9
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|down|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 3,
+      "singleWin": 0.4375,
+      "doubleWin": 0.5625,
+      "winDelta": 0.125,
+      "remainderDelta": -2.1458333333333335,
+      "minusFinishDelta": 0.04166666666666666,
+      "blockDelta": 0.020833333333333332,
+      "nextPassDelta": -0.14583333333333334,
+      "nextPlayableTileDelta": 2.4166666666666665,
+      "unlockWorlds": 7,
+      "unchangedWorlds": 41,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 3,
+      "unchangedWinDeltaSum": 3,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311932,
+      "turn": 17,
+      "seat": 0,
+      "hand": [
+        "0-4",
+        "0-6",
+        "3-3",
+        "0-5"
+      ],
+      "opponentSizes": [
+        4,
+        3,
+        4
+      ],
+      "opened": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        12
+      ],
+      "single": "single|right|0||0-6",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 1,
+      "singleWin": 0.125,
+      "doubleWin": 0.22916666666666666,
+      "winDelta": 0.10416666666666666,
+      "remainderDelta": -0.41666666666666696,
+      "minusFinishDelta": -0.041666666666666664,
+      "blockDelta": 0,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 0.8541666666666667,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": 5,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311933,
+      "turn": 2,
+      "seat": 2,
+      "hand": [
+        "3-6",
+        "3-3",
+        "2-6",
+        "4-5",
+        "3-5",
+        "0-0",
+        "1-5",
+        "0-6",
+        "1-6"
+      ],
+      "opponentSizes": [
+        8,
+        8,
+        9
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|left|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 2,
+      "singleWin": 0.20833333333333334,
+      "doubleWin": 0.10416666666666667,
+      "winDelta": -0.10416666666666667,
+      "remainderDelta": 0.625,
+      "minusFinishDelta": -0.0625,
+      "blockDelta": -0.020833333333333332,
+      "nextPassDelta": -0.020833333333333332,
+      "nextPlayableTileDelta": 1.041666666666667,
+      "unlockWorlds": 1,
+      "unchangedWorlds": 47,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -5,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311935,
+      "turn": 14,
+      "seat": 2,
+      "hand": [
+        "0-4",
+        "1-4",
+        "0-3",
+        "0-0",
+        "2-2"
+      ],
+      "opponentSizes": [
+        4,
+        5,
+        5
+      ],
+      "opened": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        7,
+        0
+      ],
+      "single": "single|left|0||0-4",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 1,
+      "singleWin": 0.875,
+      "doubleWin": 0.14583333333333334,
+      "winDelta": -0.7291666666666666,
+      "remainderDelta": 2.2916666666666665,
+      "minusFinishDelta": -0.14583333333333331,
+      "blockDelta": 0.08333333333333334,
+      "nextPassDelta": -1,
+      "nextPlayableTileDelta": 3.1458333333333335,
+      "unlockWorlds": 48,
+      "unchangedWorlds": 0,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": -35,
+      "unchangedWinDeltaSum": 0,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311937,
+      "turn": 2,
+      "seat": 1,
+      "hand": [
+        "5-6",
+        "0-1",
+        "1-5",
+        "1-6",
+        "3-3",
+        "1-2",
+        "0-3",
+        "2-6",
+        "2-4"
+      ],
+      "opponentSizes": [
+        8,
+        9,
+        8
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|left|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 2,
+      "singleWin": 0.1875,
+      "doubleWin": 0.125,
+      "winDelta": -0.0625,
+      "remainderDelta": 1.166666666666666,
+      "minusFinishDelta": -0.041666666666666664,
+      "blockDelta": 0,
+      "nextPassDelta": -0.27083333333333337,
+      "nextPlayableTileDelta": 1.5,
+      "unlockWorlds": 14,
+      "unchangedWorlds": 33,
+      "blocksWorlds": 1,
+      "unlockWinDeltaSum": -2,
+      "unchangedWinDeltaSum": -1,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311937,
+      "turn": 6,
+      "seat": 2,
+      "hand": [
+        "4-5",
+        "5-5",
+        "2-3",
+        "4-6",
+        "0-4",
+        "0-2"
+      ],
+      "opponentSizes": [
+        7,
+        7,
+        6
+      ],
+      "opened": [
+        1,
+        4,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|up|6||4-6",
+      "double": "double-sequence|||5|5-5",
+      "discardedPips": 10,
+      "pairCount": 1,
+      "singleWin": 0.5833333333333334,
+      "doubleWin": 0.6041666666666666,
+      "winDelta": 0.02083333333333326,
+      "remainderDelta": 0.08333333333333304,
+      "minusFinishDelta": -0.020833333333333332,
+      "blockDelta": 0,
+      "nextPassDelta": -0.020833333333333332,
+      "nextPlayableTileDelta": 1.6875,
+      "unlockWorlds": 1,
+      "unchangedWorlds": 47,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 1,
+      "unchangedWinDeltaSum": 0,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311938,
+      "turn": 20,
+      "seat": 0,
+      "hand": [
+        "0-1",
+        "2-2",
+        "0-4"
+      ],
+      "opponentSizes": [
+        3,
+        4,
+        4
+      ],
+      "opened": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        8,
+        9
+      ],
+      "single": "single|up|4||0-4",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 2,
+      "singleWin": 1,
+      "doubleWin": 1,
+      "winDelta": 0,
+      "remainderDelta": 0,
+      "minusFinishDelta": -1,
+      "blockDelta": 0,
+      "nextPassDelta": 0.041666666666666664,
+      "nextPlayableTileDelta": -0.10416666666666674,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 46,
+      "blocksWorlds": 2,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": 0,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311940,
+      "turn": 5,
+      "seat": 0,
+      "hand": [
+        "2-6",
+        "0-2",
+        "1-5",
+        "1-3",
+        "4-6",
+        "2-5",
+        "4-4",
+        "3-6"
+      ],
+      "opponentSizes": [
+        8,
+        7,
+        8
+      ],
+      "opened": [
+        1,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        7
+      ],
+      "single": "single|down|2||2-6",
+      "double": "double-sequence|||4|4-4",
+      "discardedPips": 8,
+      "pairCount": 1,
+      "singleWin": 0.375,
+      "doubleWin": 0.020833333333333332,
+      "winDelta": -0.3541666666666667,
+      "remainderDelta": 1.104166666666666,
+      "minusFinishDelta": -0.08333333333333333,
+      "blockDelta": 0.020833333333333336,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 2.6875,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -17,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311940,
+      "turn": 19,
+      "seat": 2,
+      "hand": [
+        "3-5",
+        "3-3",
+        "0-6",
+        "5-6"
+      ],
+      "opponentSizes": [
+        5,
+        4,
+        4
+      ],
+      "opened": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        8,
+        7,
+        7
+      ],
+      "single": "single|left|6||0-6",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 1,
+      "singleWin": 0.5208333333333334,
+      "doubleWin": 0.5833333333333334,
+      "winDelta": 0.0625,
+      "remainderDelta": -1.8541666666666665,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.20833333333333331,
+      "nextPassDelta": -0.20833333333333334,
+      "nextPlayableTileDelta": 2.916666666666667,
+      "unlockWorlds": 10,
+      "unchangedWorlds": 38,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 3,
+      "unchangedWinDeltaSum": 0,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311941,
+      "turn": 17,
+      "seat": 1,
+      "hand": [
+        "2-6",
+        "2-2",
+        "0-4",
+        "4-5"
+      ],
+      "opponentSizes": [
+        4,
+        4,
+        5
+      ],
+      "opened": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        7,
+        2,
+        9
+      ],
+      "single": "single|right|0||0-4",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 2,
+      "singleWin": 0.7708333333333334,
+      "doubleWin": 0.2916666666666667,
+      "winDelta": -0.4791666666666667,
+      "remainderDelta": 3.833333333333334,
+      "minusFinishDelta": -0.2708333333333333,
+      "blockDelta": 0.08333333333333333,
+      "nextPassDelta": -0.2916666666666667,
+      "nextPlayableTileDelta": 0.8333333333333334,
+      "unlockWorlds": 17,
+      "unchangedWorlds": 28,
+      "blocksWorlds": 3,
+      "unlockWinDeltaSum": -9,
+      "unchangedWinDeltaSum": -14,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311946,
+      "turn": 9,
+      "seat": 1,
+      "hand": [
+        "0-0",
+        "2-3",
+        "0-4",
+        "2-2",
+        "1-3"
+      ],
+      "opponentSizes": [
+        6,
+        5,
+        6
+      ],
+      "opened": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|left|0||0-4",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 2,
+      "singleWin": 0.6458333333333334,
+      "doubleWin": 0.6041666666666666,
+      "winDelta": -0.04166666666666674,
+      "remainderDelta": 0.2708333333333335,
+      "minusFinishDelta": -0.020833333333333315,
+      "blockDelta": 0.0625,
+      "nextPassDelta": -0.020833333333333332,
+      "nextPlayableTileDelta": 1.5416666666666665,
+      "unlockWorlds": 1,
+      "unchangedWorlds": 47,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": -1,
+      "unchangedWinDeltaSum": -1,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311948,
+      "turn": 4,
+      "seat": 2,
+      "hand": [
+        "1-4",
+        "0-1",
+        "4-6",
+        "5-5",
+        "2-4",
+        "0-4",
+        "1-2",
+        "1-3"
+      ],
+      "opponentSizes": [
+        9,
+        7,
+        8
+      ],
+      "opened": [
+        1,
+        6
+      ],
+      "forbiddenSizes": [
+        8,
+        0,
+        0
+      ],
+      "single": "single|down|4||4-6",
+      "double": "double-sequence|||5|5-5",
+      "discardedPips": 10,
+      "pairCount": 1,
+      "singleWin": 0.4791666666666667,
+      "doubleWin": 0.2708333333333333,
+      "winDelta": -0.20833333333333337,
+      "remainderDelta": -0.08333333333333348,
+      "minusFinishDelta": -0.3333333333333333,
+      "blockDelta": 0,
+      "nextPassDelta": -0.375,
+      "nextPlayableTileDelta": 3.708333333333333,
+      "unlockWorlds": 18,
+      "unchangedWorlds": 30,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": -3,
+      "unchangedWinDeltaSum": -7,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311950,
+      "turn": 9,
+      "seat": 0,
+      "hand": [
+        "4-4",
+        "0-3",
+        "5-6",
+        "1-4",
+        "3-5",
+        "0-6"
+      ],
+      "opponentSizes": [
+        6,
+        6,
+        6
+      ],
+      "opened": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|up|3||3-5",
+      "double": "double-sequence|||4|4-4",
+      "discardedPips": 8,
+      "pairCount": 2,
+      "singleWin": 0.16666666666666666,
+      "doubleWin": 0.10416666666666667,
+      "winDelta": -0.062499999999999986,
+      "remainderDelta": 0.4166666666666665,
+      "minusFinishDelta": 0,
+      "blockDelta": 0.020833333333333343,
+      "nextPassDelta": -0.020833333333333332,
+      "nextPlayableTileDelta": 0.520833333333333,
+      "unlockWorlds": 1,
+      "unchangedWorlds": 47,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": -1,
+      "unchangedWinDeltaSum": -2,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311950,
+      "turn": 5,
+      "seat": 2,
+      "hand": [
+        "3-6",
+        "1-2",
+        "1-3",
+        "1-5",
+        "4-6",
+        "5-5",
+        "2-4",
+        "2-2"
+      ],
+      "opponentSizes": [
+        7,
+        7,
+        8
+      ],
+      "opened": [
+        0,
+        1,
+        6
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        0
+      ],
+      "single": "single|left|3||1-3",
+      "double": "double-sequence|||2|2-2",
+      "discardedPips": 4,
+      "pairCount": 2,
+      "singleWin": 0.3958333333333333,
+      "doubleWin": 0.2708333333333333,
+      "winDelta": -0.125,
+      "remainderDelta": 2.1041666666666665,
+      "minusFinishDelta": 0.04166666666666667,
+      "blockDelta": 0.041666666666666664,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 0.5416666666666665,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -6,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311952,
+      "turn": 2,
+      "seat": 1,
+      "hand": [
+        "1-4",
+        "6-6",
+        "0-2",
+        "5-6",
+        "3-3",
+        "4-4",
+        "2-5",
+        "1-5",
+        "0-1"
+      ],
+      "opponentSizes": [
+        9,
+        9,
+        8
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        7,
+        0,
+        0
+      ],
+      "single": "single|down|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 3,
+      "singleWin": 0.5416666666666666,
+      "doubleWin": 0.3333333333333333,
+      "winDelta": -0.20833333333333331,
+      "remainderDelta": 1.2083333333333333,
+      "minusFinishDelta": -0.25,
+      "blockDelta": 0,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 1.7500000000000004,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": -10,
+      "blocksWinDeltaSum": 0
+    },
+    {
+      "profile": "closed-branch-control",
+      "seed": 1311953,
+      "turn": 4,
+      "seat": 0,
+      "hand": [
+        "1-5",
+        "4-4",
+        "1-2",
+        "5-6",
+        "3-5",
+        "3-3",
+        "1-6",
+        "0-4"
+      ],
+      "opponentSizes": [
+        8,
+        8,
+        8
+      ],
+      "opened": [
+        1
+      ],
+      "forbiddenSizes": [
+        0,
+        0,
+        9
+      ],
+      "single": "single|right|5||1-5",
+      "double": "double-sequence|||3|3-3",
+      "discardedPips": 6,
+      "pairCount": 1,
+      "singleWin": 0.4166666666666667,
+      "doubleWin": 0.5416666666666666,
+      "winDelta": 0.12499999999999994,
+      "remainderDelta": -1.5000000000000004,
+      "minusFinishDelta": 0.10416666666666667,
+      "blockDelta": -0.020833333333333332,
+      "nextPassDelta": 0,
+      "nextPlayableTileDelta": 1.3333333333333335,
+      "unlockWorlds": 0,
+      "unchangedWorlds": 48,
+      "blocksWorlds": 0,
+      "unlockWinDeltaSum": 0,
+      "unchangedWinDeltaSum": 6,
+      "blocksWinDeltaSum": 0
+    }
+  ]
+}
