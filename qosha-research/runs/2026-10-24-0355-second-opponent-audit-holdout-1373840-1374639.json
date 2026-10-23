@@ -1,0 +1,664 @@
+{
+  "schema": "qosa-second-opponent-audit/v1",
+  "timestampBaku": "2026-10-24 03:55 (+04)",
+  "engine": "qosa-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; provisional branch opening",
+  "mode": "3x9",
+  "seedRange": [
+    1373840,
+    1374639
+  ],
+  "deals": 800,
+  "fullContinuations": 14400,
+  "pairedHiddenWorldContinuations": 0,
+  "profiles": [
+    "min-hand-pips",
+    "closed-branch-control"
+  ],
+  "modes": [
+    "baseline",
+    "unrestricted",
+    "mobility-guard"
+  ],
+  "method": "matched initial deals, focal seats and opponent policies; classify FIRST changed same-stone side choice; evaluate actual next and second opponent legal-tile counts post hoc (never used by policy)",
+  "limitations": "Selected first-change strata; outcome comparisons include later trajectory divergence; seed-cluster CIs exploratory, no multiplicity correction; provisional branch semantics; uniform unseen tile allocation; no block winner; finish-first not match win",
+  "summaries": {
+    "min-hand-pips": {
+      "byMode": {
+        "baseline": {
+          "appearances": 2400,
+          "finishFirstRate": 0.31708333333333333,
+          "meanFinalPips": 4.041666666666667,
+          "medianFinalPips": 3,
+          "meanTurns": 24.095,
+          "blockRate": 0.04875,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.011666666666666667,
+          "minusFinishCounts": {
+            "0": 630,
+            "-10": 130,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 0,
+          "changes": 0,
+          "otherWorsened": 0,
+          "otherImproved": 0,
+          "nextImproved": 0,
+          "ownLost": 0,
+          "predictedNextPassGainPPPerChange": null
+        },
+        "unrestricted": {
+          "appearances": 2400,
+          "finishFirstRate": 0.31833333333333336,
+          "meanFinalPips": 4.055833333333333,
+          "medianFinalPips": 3,
+          "meanTurns": 24.13083333333333,
+          "blockRate": 0.06625,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.012083333333333333,
+          "minusFinishCounts": {
+            "0": 631,
+            "-10": 132,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 1555,
+          "changes": 440,
+          "otherWorsened": 17,
+          "otherImproved": 281,
+          "nextImproved": 289,
+          "ownLost": 139,
+          "predictedNextPassGainPPPerChange": 23.005524147569602
+        },
+        "mobility-guard": {
+          "appearances": 2400,
+          "finishFirstRate": 0.3225,
+          "meanFinalPips": 4.0025,
+          "medianFinalPips": 3,
+          "meanTurns": 24.105,
+          "blockRate": 0.0575,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.012083333333333333,
+          "minusFinishCounts": {
+            "0": 637,
+            "-10": 136,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 1573,
+          "changes": 305,
+          "otherWorsened": 16,
+          "otherImproved": 203,
+          "nextImproved": 202,
+          "ownLost": 0,
+          "predictedNextPassGainPPPerChange": 23.91975510827971
+        }
+      },
+      "contrasts": {
+        "unrestricted": {
+          "finishFirstDeltaPP": 0.12499999999999989,
+          "exploratorySeedCluster95HalfWidthPP": 0.7880098358904846,
+          "pipsDelta": 0.014166666666666666
+        },
+        "mobility-guard": {
+          "finishFirstDeltaPP": 0.5416666666666666,
+          "exploratorySeedCluster95HalfWidthPP": 0.6678333320058717,
+          "pipsDelta": -0.03916666666666667
+        }
+      },
+      "strata": {
+        "unrestricted": {
+          "own": {
+            "no-change": {
+              "focalAppearances": 1992,
+              "distinctSeeds": 797,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "own-lost": {
+              "focalAppearances": 130,
+              "distinctSeeds": 122,
+              "finishFirstDeltaPP": -6.153846153846154,
+              "exploratorySeedCluster95HalfWidthPP": 8.300510756253452,
+              "pipsDelta": 0.8846153846153846
+            },
+            "own-same": {
+              "focalAppearances": 183,
+              "distinctSeeds": 168,
+              "finishFirstDeltaPP": 4.918032786885246,
+              "exploratorySeedCluster95HalfWidthPP": 6.962641494445402,
+              "pipsDelta": -0.1092896174863388
+            },
+            "own-gained": {
+              "focalAppearances": 95,
+              "distinctSeeds": 95,
+              "finishFirstDeltaPP": 2.1052631578947367,
+              "exploratorySeedCluster95HalfWidthPP": 10.152071507955139,
+              "pipsDelta": -0.6421052631578947
+            }
+          },
+          "other": {
+            "no-change": {
+              "focalAppearances": 1992,
+              "distinctSeeds": 797,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "other-more": {
+              "focalAppearances": 17,
+              "distinctSeeds": 17,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 23.76849125356063,
+              "pipsDelta": -0.7647058823529411
+            },
+            "other-same": {
+              "focalAppearances": 132,
+              "distinctSeeds": 127,
+              "finishFirstDeltaPP": 3.0303030303030303,
+              "exploratorySeedCluster95HalfWidthPP": 7.543107996137996,
+              "pipsDelta": 0.1893939393939394
+            },
+            "other-less": {
+              "focalAppearances": 259,
+              "distinctSeeds": 231,
+              "finishFirstDeltaPP": -0.3861003861003861,
+              "exploratorySeedCluster95HalfWidthPP": 6.440127800975754,
+              "pipsDelta": 0.08494208494208494
+            }
+          },
+          "next": {
+            "no-change": {
+              "focalAppearances": 1992,
+              "distinctSeeds": 797,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "next-more": {
+              "focalAppearances": 14,
+              "distinctSeeds": 14,
+              "finishFirstDeltaPP": -14.285714285714285,
+              "exploratorySeedCluster95HalfWidthPP": 27.999999999999996,
+              "pipsDelta": 0.6428571428571429
+            },
+            "next-same": {
+              "focalAppearances": 133,
+              "distinctSeeds": 130,
+              "finishFirstDeltaPP": -3.7593984962406015,
+              "exploratorySeedCluster95HalfWidthPP": 8.123511038073815,
+              "pipsDelta": 0.3609022556390977
+            },
+            "next-less": {
+              "focalAppearances": 261,
+              "distinctSeeds": 237,
+              "finishFirstDeltaPP": 3.8314176245210727,
+              "exploratorySeedCluster95HalfWidthPP": 6.094477033583134,
+              "pipsDelta": -0.08812260536398467
+            }
+          },
+          "phase": {
+            "no-change": {
+              "focalAppearances": 1992,
+              "distinctSeeds": 797,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "late-1to4": {
+              "focalAppearances": 189,
+              "distinctSeeds": 170,
+              "finishFirstDeltaPP": 1.0582010582010581,
+              "exploratorySeedCluster95HalfWidthPP": 6.40842110183208,
+              "pipsDelta": 0.24867724867724866
+            },
+            "early-5plus": {
+              "focalAppearances": 219,
+              "distinctSeeds": 201,
+              "finishFirstDeltaPP": 0.45662100456621,
+              "exploratorySeedCluster95HalfWidthPP": 7.073256167367246,
+              "pipsDelta": -0.0593607305936073
+            }
+          }
+        },
+        "mobility-guard": {
+          "own": {
+            "no-change": {
+              "focalAppearances": 2109,
+              "distinctSeeds": 800,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "own-same": {
+              "focalAppearances": 194,
+              "distinctSeeds": 176,
+              "finishFirstDeltaPP": 5.154639175257731,
+              "exploratorySeedCluster95HalfWidthPP": 6.764039577424037,
+              "pipsDelta": -0.15979381443298968
+            },
+            "own-gained": {
+              "focalAppearances": 97,
+              "distinctSeeds": 97,
+              "finishFirstDeltaPP": 3.0927835051546393,
+              "exploratorySeedCluster95HalfWidthPP": 10.136713817475297,
+              "pipsDelta": -0.6494845360824743
+            }
+          },
+          "other": {
+            "no-change": {
+              "focalAppearances": 2109,
+              "distinctSeeds": 800,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "other-more": {
+              "focalAppearances": 16,
+              "distinctSeeds": 16,
+              "finishFirstDeltaPP": -6.25,
+              "exploratorySeedCluster95HalfWidthPP": 21.6839994773412,
+              "pipsDelta": -0.5625
+            },
+            "other-same": {
+              "focalAppearances": 83,
+              "distinctSeeds": 81,
+              "finishFirstDeltaPP": 6.024096385542169,
+              "exploratorySeedCluster95HalfWidthPP": 10.127974752160448,
+              "pipsDelta": -0.46987951807228917
+            },
+            "other-less": {
+              "focalAppearances": 192,
+              "distinctSeeds": 175,
+              "finishFirstDeltaPP": 4.6875,
+              "exploratorySeedCluster95HalfWidthPP": 7.282475264428401,
+              "pipsDelta": -0.23958333333333334
+            }
+          },
+          "next": {
+            "no-change": {
+              "focalAppearances": 2109,
+              "distinctSeeds": 800,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "next-more": {
+              "focalAppearances": 14,
+              "distinctSeeds": 14,
+              "finishFirstDeltaPP": -14.285714285714285,
+              "exploratorySeedCluster95HalfWidthPP": 27.999999999999996,
+              "pipsDelta": 0.7857142857142857
+            },
+            "next-same": {
+              "focalAppearances": 86,
+              "distinctSeeds": 84,
+              "finishFirstDeltaPP": 1.1627906976744187,
+              "exploratorySeedCluster95HalfWidthPP": 9.08762932196513,
+              "pipsDelta": -0.046511627906976744
+            },
+            "next-less": {
+              "focalAppearances": 191,
+              "distinctSeeds": 178,
+              "finishFirstDeltaPP": 7.329842931937172,
+              "exploratorySeedCluster95HalfWidthPP": 7.313985567083414,
+              "pipsDelta": -0.5287958115183246
+            }
+          },
+          "phase": {
+            "no-change": {
+              "focalAppearances": 2109,
+              "distinctSeeds": 800,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "late-1to4": {
+              "focalAppearances": 145,
+              "distinctSeeds": 128,
+              "finishFirstDeltaPP": 6.206896551724138,
+              "exploratorySeedCluster95HalfWidthPP": 7.379668375780252,
+              "pipsDelta": -0.08275862068965517
+            },
+            "early-5plus": {
+              "focalAppearances": 146,
+              "distinctSeeds": 139,
+              "finishFirstDeltaPP": 2.73972602739726,
+              "exploratorySeedCluster95HalfWidthPP": 8.542205511591794,
+              "pipsDelta": -0.5616438356164384
+            }
+          }
+        }
+      }
+    },
+    "closed-branch-control": {
+      "byMode": {
+        "baseline": {
+          "appearances": 2400,
+          "finishFirstRate": 0.23833333333333334,
+          "meanFinalPips": 6.2820833333333335,
+          "medianFinalPips": 5,
+          "meanTurns": 25.90125,
+          "blockRate": 0.03166666666666667,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.01125,
+          "minusFinishCounts": {
+            "0": 512,
+            "-10": 60,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 0,
+          "changes": 0,
+          "otherWorsened": 0,
+          "otherImproved": 0,
+          "nextImproved": 0,
+          "ownLost": 0,
+          "predictedNextPassGainPPPerChange": null
+        },
+        "unrestricted": {
+          "appearances": 2400,
+          "finishFirstRate": 0.23958333333333334,
+          "meanFinalPips": 6.25875,
+          "medianFinalPips": 5,
+          "meanTurns": 25.963333333333335,
+          "blockRate": 0.04416666666666667,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.01,
+          "minusFinishCounts": {
+            "0": 517,
+            "-10": 58,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 887,
+          "changes": 260,
+          "otherWorsened": 6,
+          "otherImproved": 154,
+          "nextImproved": 196,
+          "ownLost": 99,
+          "predictedNextPassGainPPPerChange": 34.15561895369586
+        },
+        "mobility-guard": {
+          "appearances": 2400,
+          "finishFirstRate": 0.24208333333333334,
+          "meanFinalPips": 6.242083333333333,
+          "medianFinalPips": 5,
+          "meanTurns": 25.92375,
+          "blockRate": 0.035833333333333335,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.010416666666666666,
+          "minusFinishCounts": {
+            "0": 518,
+            "-10": 63,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 892,
+          "changes": 158,
+          "otherWorsened": 7,
+          "otherImproved": 99,
+          "nextImproved": 117,
+          "ownLost": 0,
+          "predictedNextPassGainPPPerChange": 36.27784135695528
+        }
+      },
+      "contrasts": {
+        "unrestricted": {
+          "finishFirstDeltaPP": 0.125,
+          "exploratorySeedCluster95HalfWidthPP": 0.6276261500307881,
+          "pipsDelta": -0.023333333333333334
+        },
+        "mobility-guard": {
+          "finishFirstDeltaPP": 0.375,
+          "exploratorySeedCluster95HalfWidthPP": 0.4392946988405696,
+          "pipsDelta": -0.04
+        }
+      },
+      "strata": {
+        "unrestricted": {
+          "own": {
+            "no-change": {
+              "focalAppearances": 2160,
+              "distinctSeeds": 800,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "own-lost": {
+              "focalAppearances": 91,
+              "distinctSeeds": 87,
+              "finishFirstDeltaPP": -5.4945054945054945,
+              "exploratorySeedCluster95HalfWidthPP": 11.240766507344706,
+              "pipsDelta": 0.23076923076923078
+            },
+            "own-same": {
+              "focalAppearances": 107,
+              "distinctSeeds": 101,
+              "finishFirstDeltaPP": 1.8691588785046727,
+              "exploratorySeedCluster95HalfWidthPP": 8.20231054308906,
+              "pipsDelta": -0.028037383177570093
+            },
+            "own-gained": {
+              "focalAppearances": 42,
+              "distinctSeeds": 39,
+              "finishFirstDeltaPP": 14.285714285714285,
+              "exploratorySeedCluster95HalfWidthPP": 15.339150093441312,
+              "pipsDelta": -1.7619047619047619
+            }
+          },
+          "other": {
+            "no-change": {
+              "focalAppearances": 2160,
+              "distinctSeeds": 800,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "other-more": {
+              "focalAppearances": 6,
+              "distinctSeeds": 6,
+              "finishFirstDeltaPP": 16.666666666666664,
+              "exploratorySeedCluster95HalfWidthPP": 32.66666666666667,
+              "pipsDelta": 0
+            },
+            "other-same": {
+              "focalAppearances": 92,
+              "distinctSeeds": 88,
+              "finishFirstDeltaPP": -2.1739130434782608,
+              "exploratorySeedCluster95HalfWidthPP": 11.361299393970967,
+              "pipsDelta": 0.11956521739130435
+            },
+            "other-less": {
+              "focalAppearances": 142,
+              "distinctSeeds": 132,
+              "finishFirstDeltaPP": 2.8169014084507045,
+              "exploratorySeedCluster95HalfWidthPP": 7.283491147825859,
+              "pipsDelta": -0.47183098591549294
+            }
+          },
+          "next": {
+            "no-change": {
+              "focalAppearances": 2160,
+              "distinctSeeds": 800,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "next-more": {
+              "focalAppearances": 6,
+              "distinctSeeds": 6,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 3.3333333333333335
+            },
+            "next-same": {
+              "focalAppearances": 53,
+              "distinctSeeds": 52,
+              "finishFirstDeltaPP": -1.8867924528301887,
+              "exploratorySeedCluster95HalfWidthPP": 11.405808613340144,
+              "pipsDelta": -0.11320754716981132
+            },
+            "next-less": {
+              "focalAppearances": 181,
+              "distinctSeeds": 170,
+              "finishFirstDeltaPP": 2.209944751381215,
+              "exploratorySeedCluster95HalfWidthPP": 7.525407915614295,
+              "pipsDelta": -0.3867403314917127
+            }
+          },
+          "phase": {
+            "no-change": {
+              "focalAppearances": 2160,
+              "distinctSeeds": 800,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "late-1to4": {
+              "focalAppearances": 150,
+              "distinctSeeds": 143,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 8.449126885188251,
+              "pipsDelta": 0.24
+            },
+            "early-5plus": {
+              "focalAppearances": 90,
+              "distinctSeeds": 83,
+              "finishFirstDeltaPP": 3.3333333333333335,
+              "exploratorySeedCluster95HalfWidthPP": 9.533569442923936,
+              "pipsDelta": -1.0222222222222221
+            }
+          }
+        },
+        "mobility-guard": {
+          "own": {
+            "no-change": {
+              "focalAppearances": 2247,
+              "distinctSeeds": 800,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "own-same": {
+              "focalAppearances": 109,
+              "distinctSeeds": 103,
+              "finishFirstDeltaPP": 1.834862385321101,
+              "exploratorySeedCluster95HalfWidthPP": 8.042534768909738,
+              "pipsDelta": -0.07339449541284404
+            },
+            "own-gained": {
+              "focalAppearances": 44,
+              "distinctSeeds": 41,
+              "finishFirstDeltaPP": 15.909090909090908,
+              "exploratorySeedCluster95HalfWidthPP": 15.154975740940888,
+              "pipsDelta": -2
+            }
+          },
+          "other": {
+            "no-change": {
+              "focalAppearances": 2247,
+              "distinctSeeds": 800,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "other-more": {
+              "focalAppearances": 7,
+              "distinctSeeds": 7,
+              "finishFirstDeltaPP": 14.285714285714285,
+              "exploratorySeedCluster95HalfWidthPP": 28.000000000000004,
+              "pipsDelta": 0
+            },
+            "other-same": {
+              "focalAppearances": 51,
+              "distinctSeeds": 49,
+              "finishFirstDeltaPP": 7.8431372549019605,
+              "exploratorySeedCluster95HalfWidthPP": 13.40397950858874,
+              "pipsDelta": -0.13725490196078433
+            },
+            "other-less": {
+              "focalAppearances": 95,
+              "distinctSeeds": 91,
+              "finishFirstDeltaPP": 4.2105263157894735,
+              "exploratorySeedCluster95HalfWidthPP": 8.750437201437713,
+              "pipsDelta": -0.9368421052631579
+            }
+          },
+          "next": {
+            "no-change": {
+              "focalAppearances": 2247,
+              "distinctSeeds": 800,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "next-more": {
+              "focalAppearances": 5,
+              "distinctSeeds": 5,
+              "finishFirstDeltaPP": 20,
+              "exploratorySeedCluster95HalfWidthPP": 39.20000000000001,
+              "pipsDelta": 1.4
+            },
+            "next-same": {
+              "focalAppearances": 35,
+              "distinctSeeds": 34,
+              "finishFirstDeltaPP": -2.857142857142857,
+              "exploratorySeedCluster95HalfWidthPP": 13.0455843345623,
+              "pipsDelta": -0.42857142857142855
+            },
+            "next-less": {
+              "focalAppearances": 113,
+              "distinctSeeds": 108,
+              "finishFirstDeltaPP": 7.964601769911504,
+              "exploratorySeedCluster95HalfWidthPP": 8.535257343803496,
+              "pipsDelta": -0.7787610619469026
+            }
+          },
+          "phase": {
+            "no-change": {
+              "focalAppearances": 2247,
+              "distinctSeeds": 800,
+              "finishFirstDeltaPP": 0,
+              "exploratorySeedCluster95HalfWidthPP": 0,
+              "pipsDelta": 0
+            },
+            "late-1to4": {
+              "focalAppearances": 104,
+              "distinctSeeds": 100,
+              "finishFirstDeltaPP": 3.8461538461538463,
+              "exploratorySeedCluster95HalfWidthPP": 9.037300705432125,
+              "pipsDelta": -0.057692307692307696
+            },
+            "early-5plus": {
+              "focalAppearances": 49,
+              "distinctSeeds": 44,
+              "finishFirstDeltaPP": 10.204081632653061,
+              "exploratorySeedCluster95HalfWidthPP": 12.391623202042393,
+              "pipsDelta": -1.836734693877551
+            }
+          }
+        }
+      }
+    }
+  },
+  "next": "Pre-register and test a hidden-information second-opponent access tradeoff policy on fresh disjoint seeds 1374640+, with matched baseline, unrestricted and own-mobility guard; independently obtain a real-play branch-opening/locking fixture.",
+  "replayTest": {
+    "passed": true,
+    "continuations": 54
+  },
+  "cumulative": {
+    "fullContinuations": 350100,
+    "pairedHiddenWorldContinuations": 532608,
+    "historicalSeparate": 4000
+  },
+  "finding": "Independent holdout of first-change own mobility and second-opponent access strata; these are selected descriptive comparisons, not causal evidence for a human rule."
+}
