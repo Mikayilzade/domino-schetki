@@ -1,0 +1,89 @@
+{
+  "schema": "qosa-pass-conditioned-visible-access-batch/v1",
+  "timestampBaku": "2026-10-23T16:47:14+04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "qosa-1.0.0; branch opening provisional",
+  "mode": "3x9",
+  "validation": {
+    "v8CommonJSReplay": true,
+    "positions": 4,
+    "pairedContinuations": 24,
+    "nodeCLIExecuted": false
+  },
+  "method": "Same non-double tile on two legal branches, higher versus lower own mobility; identical sampled worlds, fixed continuation bot. Visible uniform next-opponent can-play risk versus exact two-opponent posterior conditioned on observed no-stock passes. Policy chooses higher own mobility unless predicted next-opponent can-play risk increases; ties choose higher.",
+  "cohorts": [
+    {
+      "seeds": [
+        1318140,
+        1318789
+      ],
+      "positions": 120,
+      "hiddenAllocations": 5760,
+      "pairedContinuations": 11520,
+      "profiles": {
+        "min-hand-pips": {
+          "n": 60,
+          "historyN": 11,
+          "changed": 4,
+          "jointMinusUniformFinishFirstPP": -0.5555555555555554,
+          "exploratory95HalfWidthPP": 1.1600952719352475,
+          "historyDeltaPP": -3.03030303030303,
+          "historyPassDeltaMAEUniform": 0.11329529056801789,
+          "historyPassDeltaMAEJoint": 0.019047619047619105
+        },
+        "closed-branch-control": {
+          "n": 60,
+          "historyN": 34,
+          "changed": 2,
+          "jointMinusUniformFinishFirstPP": 0.27777777777777773,
+          "exploratory95HalfWidthPP": 0.544444444444444,
+          "historyDeltaPP": 0.49019607843137253,
+          "historyPassDeltaMAEUniform": 0.1203546861635098,
+          "historyPassDeltaMAEJoint": 0.025865270350564566
+        }
+      }
+    },
+    {
+      "seeds": [
+        1318790,
+        1319439
+      ],
+      "positions": 120,
+      "hiddenAllocations": 5760,
+      "pairedContinuations": 11520,
+      "profiles": {
+        "min-hand-pips": {
+          "n": 60,
+          "historyN": 13,
+          "changed": 2,
+          "jointMinusUniformFinishFirstPP": 0.06944444444444438,
+          "exploratory95HalfWidthPP": 1.2653482810011965,
+          "historyDeltaPP": 0.32051282051282026,
+          "historyPassDeltaMAEUniform": 0.10497718093871947,
+          "historyPassDeltaMAEJoint": 0.01809782098243646
+        },
+        "closed-branch-control": {
+          "n": 60,
+          "historyN": 34,
+          "changed": 5,
+          "jointMinusUniformFinishFirstPP": 1.180555555555555,
+          "exploratory95HalfWidthPP": 1.8804251568896115,
+          "historyDeltaPP": 2.0833333333333326,
+          "historyPassDeltaMAEUniform": 0.10218331505096223,
+          "historyPassDeltaMAEJoint": 0.02847981267098925
+        }
+      }
+    }
+  ],
+  "total": {
+    "positions": 240,
+    "hiddenAllocations": 11520,
+    "pairedContinuations": 23040,
+    "changedChoices": 13,
+    "cumulativeFull": 290100,
+    "cumulativePaired": 435328
+  },
+  "confidence": "Exploratory: 13 changed choices, no robust finish-first improvement across both profiles/cohorts; joint calibration is against worlds sampled from its own posterior, not external human outcomes.",
+  "limitations": "First eligible positions; correlated sampled worlds; deterministic bots; uncorrected intervals; policy-choice likelihood ignored; branch semantics provisional; no block winner; finish-first not match win. Position-level raw rows not persisted in this checkpoint, but exact deterministic runner/seed commands reproduce them.",
+  "next": "Target positions with changed decisions on independent seeds, >=128 matched worlds each, alternative continuation policies, and real-game locked/open-branch fixture."
+}

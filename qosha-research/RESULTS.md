@@ -447,3 +447,18 @@
 - Cumulative: 290,100 independent full continuations unchanged; 412288 paired counterfactual continuations (historical 4,000 separate).
 - Reproduce: `simulator/visible-access-holdout.js` test and both seed commands; position-level data `runs/2026-10-23-1547-visible-access-holdout.json`.
 - Exact next action: compare pass-conditioned vs uniform visible opponent-access risk on new disjoint seeds and validate branch semantics with a real-game fixture.
+
+
+### 2026-10-23 16:47 (+04) — joint pass-conditioned visible-access holdouts
+- Engine/rules: `qosa-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; no gameplay changes. New V8 CommonJS deterministic replay test passed (Node CLI not run).
+- Fresh disjoint discovery seeds **1318140..1318789** and **1318790..1319439**; **240** same-tile branch positions, **11,520** matched hidden allocations, **23,040** paired continuations, 0 new independent baseline full rounds. Same hidden worlds and bot policy for each pair.
+- Test: choose placement retaining more playable stones unless predicted next opponent can play more. Compare uniform unseen-tile hypergeometric to joint posterior conditioned on both opponents' observed no-stock passes. Identical seed sets, forced candidate actions and continuation policies.
+- Cohort 1 min-pips: 60 positions (11 with pass history), 4 choices changed; joint−uniform finish-first **−0.56 pp** (exploratory 95% half-width 1.16 pp); conditional-world next-pass-delta MAE uniform/joint **0.113/0.019** (pass-history subset).
+- Cohort 1 branch-control: 60 positions (34 with pass history), 2 choices changed; finish-first **+0.28 pp** (half-width 0.54 pp); conditional-world MAE **0.120/0.026**.
+- Cohort 2 min-pips: 60 positions (13 with pass history), 2 choices changed; finish-first **+0.07 pp** (half-width 1.27 pp); conditional-world MAE **0.105/0.018**.
+- Cohort 2 branch-control: 60 positions (34 with pass history), 5 choices changed; finish-first **+1.18 pp** (half-width 1.88 pp); conditional-world MAE **0.102/0.028**.
+- Finding: conditioning on pass history changed **13/240** choices, but **no reliable new winning rule**: gains do not consistently exceed exploratory uncertainty. Better agreement of joint probabilities with worlds sampled from the joint posterior is expected and **not independent calibration against human play**.
+- Limitations: provisional branch-opening rules; prior opponent policy-choice likelihood omitted; first-eligible position selection; only 13 changed choices; correlated worlds; uncorrected exploratory intervals; fixed bots; block winner unassigned; finish-first is not match win. Raw position rows not persisted, but deterministic runner can regenerate them.
+- Reproduce: `node qosha-research/simulator/pass-conditioned-access-runner.js test`; `node qosha-research/simulator/pass-conditioned-access-runner.js 1318140 650 60 48`; `node qosha-research/simulator/pass-conditioned-access-runner.js 1318790 650 60 48`. Linked compact metrics: `runs/2026-10-23-1647-pass-conditioned-visible-access.json`.
+- Cumulative: **290,100** full continuations unchanged; **435,328** paired counterfactual continuations (prior 412,288 + 23,040); historical 4,000 separate.
+- Exact next hypothesis/action: oversample positions where pass conditioning changes the recommendation, >=128 matched worlds per position on independent seeds, add alternative continuation policies and verify real-game branch-opening semantics.
