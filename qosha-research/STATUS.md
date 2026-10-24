@@ -1,17 +1,17 @@
 # Qoşa research status
 
-Updated: 2026-10-25 01:55:34 +04
+Updated: 2026-10-25 03:48:59 +04
 
 ## Verified scale
-- **687,700** complete full-round continuations; **920,880** forced hidden-world counterfactual continuations; historical 4,000 separate.
+- **701,200** complete full-round continuations; **932,432** forced hidden-world counterfactual continuations; historical 4,000 separate.
 - Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; authentic four-branch number locking **PROVISIONAL**.
-- Fresh seeds consumed through **1458239**, next **>=1458240**.
+- Fresh seeds consumed through **1471739**; next **>=1471740**.
 
 ## Latest checkpoint
-- Independent holdout `simulator/pass-independent-holdout.js`: 1,800 fresh deals, 1,800 pseudo-uniform selected decision states (405 pass-constrained), 72 plain-vs-joint posterior policy changes.
-- Exact joint pass conditioning improved **same-action** next-pass Brier error in constrained states from **0.11020 to 0.04349**. This predicts passes better; **no statistically reliable finish-first advantage** on 72 changed choices.
-- 576 conditioned hidden allocations; 2,304 paired forced continuations; 0 unresolved. Deterministic V8 tests green; Node CLI not run.
-- Raw/aggregate JSON: `runs/2026-10-25-pass-independent-holdout-1456440.json`; full details in `RESULTS.md`. Scoreboard/PWA untouched.
+- Fresh independent **random-legal** discovery holdout: 6,000 deals; 1,003 pass-constrained selected positions, 164 joint-versus-plain changed choices; 1,312 conditioned hidden allocations; 5,248 forced continuations; 0 unresolved.
+- Same-action constrained next-pass Brier **0.08721 plain → 0.02817 joint**; forecast improves but there is **no established win-rate advantage**. Joint-minus-plain finish-first on changed choices: random-legal **−4.50 ±3.71 pp**, min-hand-pips **−2.06 ±4.63 pp** (exploratory 95% position-cluster intervals). Previous min-hand-pips discovery: 197 changed positions; cross-policy changed total 361, not a pooled match-win estimate.
+- Deterministic V8 CommonJS replay/accounting test green; Node CLI not run. Raw aggregate: `runs/2026-10-25-random-discovery-1465740.json`; full details in `RESULTS.md`. Live scoreboard/PWA untouched.
 
 ## NEXT ACTION
-Fresh disjoint seeds **>=1458240**: repeat under different discovery policies, collect >=150 changed-choice positions for adequate decision comparison. Authenticate real four-branch number locking and block-winner/loneZero/bust/101 scoring before translating to human match advice.
+- Disjoint seeds **>=1471740**: evaluate a conservative pass-aware *tie-break* or opening-risk guard against both plain/joint aggressive `pips+20×P(pass)` under matched hidden worlds and two continuation policies.
+- Authenticate four-branch number locking and block-winner/loneZero/bust/101 scoring before translating simulator effects into real-match advice.
