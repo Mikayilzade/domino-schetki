@@ -1,0 +1,104 @@
+{
+  "schema": "qosa-score-contract-baseline/v1",
+  "timestampBaku": "2026-10-24 13:53 (+04)",
+  "engine": "qosa-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; four-branch opening provisional",
+  "test": {
+    "passed": true,
+    "assertions": 1056,
+    "runner": "node qosha-research/simulator/scoring-contract-test.js",
+    "runtime": "V8 CommonJS harness; Node CLI not executed"
+  },
+  "simulation": {
+    "startSeed": 1392440,
+    "endSeed": 1395439,
+    "deals": 3000,
+    "matchedSeatRotations": 3,
+    "fullContinuations": 9000,
+    "forcedHiddenWorldContinuations": 0,
+    "opponentProfiles": "random-legal vs min-hand-pips vs fast-doubles; rotate all three seats for every seed",
+    "maxTurns": 200,
+    "finishes": 8632,
+    "blocks": 368,
+    "unresolved": 0,
+    "meanTurns": 24.325555555555557,
+    "strategies": {
+      "random-legal": {
+        "appearances": 9000,
+        "finishFirst": 3462,
+        "finishFirstRate": 0.38466666666666666,
+        "meanRemainingPips": 5.546444444444444,
+        "medianRemainingPips": 4,
+        "minus": {
+          "0": 3260,
+          "-10": 199,
+          "-20": 3,
+          "-30": 0,
+          "-40": 0
+        },
+        "actions": 66942,
+        "choicePoints": 56199
+      },
+      "min-hand-pips": {
+        "appearances": 9000,
+        "finishFirst": 3167,
+        "finishFirstRate": 0.35188888888888886,
+        "meanRemainingPips": 3.546777777777778,
+        "medianRemainingPips": 3,
+        "minus": {
+          "0": 2858,
+          "-10": 307,
+          "-20": 2,
+          "-30": 0,
+          "-40": 0
+        },
+        "actions": 65591,
+        "choicePoints": 55804
+      },
+      "fast-doubles": {
+        "appearances": 9000,
+        "finishFirst": 2003,
+        "finishFirstRate": 0.22255555555555556,
+        "meanRemainingPips": 5.156777777777778,
+        "medianRemainingPips": 4,
+        "minus": {
+          "0": 1968,
+          "-10": 35,
+          "-20": 0,
+          "-30": 0,
+          "-40": 0
+        },
+        "actions": 64362,
+        "choicePoints": 55417
+      }
+    }
+  },
+  "clusterAudit": {
+    "groupSizeSeeds": 100,
+    "independentSeedGroups": 30,
+    "randomMinusMinPipsFinishFirstPP": 3.2777777777777786,
+    "exploratory95HalfWidthPP": 1.3308797475774081,
+    "minPipsMinusRandomMeanRemainingPips": -1.9996666666666665,
+    "exploratory95HalfWidthPips": 0.13655133761649177,
+    "formula": "1.96*sample_sd(group_differences)/sqrt(30); 30 disjoint 100-seed groups, each rotated through all seats; descriptive uncorrected interval"
+  },
+  "findings": "In this specific three-bot rotation, random legal finishes first more often, but min-hand-pips leaves about 2 fewer pips. These optimize different objectives; not a human-play recommendation.",
+  "limitations": [
+    "four-branch opening/locking assumption remains provisional",
+    "block winner deliberately unassigned; finish-first is not 101-point match victory",
+    "loneZero=10 and bust=101 not validated",
+    "only one opponent triad and one fresh seed window",
+    "seat rotations and trajectories within seed are correlated; cluster half-width exploratory",
+    "no sampled hidden-world counterfactuals this run"
+  ],
+  "cumulative": {
+    "fullContinuations": 440700,
+    "forcedHiddenWorldContinuations": 811968,
+    "historicalSeparate": 4000
+  },
+  "reproduce": [
+    "node qosha-research/simulator/scoring-contract-test.js",
+    "node -e \"const r=require('./qosha-research/simulator/strategy-runner'); console.log(JSON.stringify(r.runMatchedBaseline({startSeed:1392440,count:3000,maxTurns:200}),null,2))\""
+  ],
+  "next": "Obtain authentic locked/open four-branch fixture; resolve block winner and loneZero/bust match semantics before computing 101-point match wins. Independently compare finish-first vs pip-minimization under additional opponent profiles on fresh disjoint seeds >=1395440."
+}

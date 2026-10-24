@@ -1,19 +1,17 @@
 # Qoşa research status
 
-Updated: 2026-10-24 12:51 (+04)
+Updated: 2026-10-24 13:53 (+04)
 
 ## Verified scale
-- **431700** independent matched full continuations unchanged; **811968** forced hidden-world counterfactual continuations (+55808).
+- **440700** independent matched full continuations (+9000); **811968** forced hidden-world counterfactual continuations unchanged.
 - Historical 4000 separate; quarantined pre-fix run excluded.
 - Engine `qosa-research-0.5.3`; recovered `qosa-1.0.0`, primary 3×9; real four-branch locking/opening provisional.
 
 ## Latest checkpoint
-- Fresh requested seeds 1390240..1392439, actual 248 deals (1390240..1390487). **109 discordant positions**, **27904 matched hidden allocations**, **55808 forced continuations**, 0 full rounds.
-- Own-mobility minus next-risk finish-first: min-pips **+1.68 pp ±6.89**, branch-control **−1.64 pp ±6.90** (exploratory position-cluster half-widths).
-- Exact opponent-size/opened-number matched 2-vs-3 interaction: min-pips 5 sparse strata / 6 effective pairs (+9.67 pp); branch-control 6 strata / 10 pairs (−0.51 pp). Not reliable.
-- New four-side kernel regression passed in V8 CommonJS, including synthetic −40; **does not establish authentic locking rules**. Node CLI not executed.
-- **No reliable new human-play rule**; block winner and match wins unassigned.
-- Raw: `runs/2026-10-24-1251-late-opponent-strata-1390240.json`.
+- Fresh seeds 1392440..1395439: **3000 deals**, 3 rotations = **9000 full continuations**; 8632 finishes, 368 blocks, 0 unresolved.
+- Random/min-pips/fast-doubles finish-first: **38.47% / 35.19% / 22.26%**; mean remainder **5.55 / 3.55 / 5.16** pips. Random beats min-pips in finish-first by +3.28 pp ±1.33 exploratory seed-cluster half-width; min-pips leaves 2.00 ±0.14 fewer pips.
+- New scoring-contract regression: **1056 assertions passed** in V8 CommonJS; 3-pass block, 0-0 zero-pip block, finish precedence/minus, score floor. **Block winner not assigned; loneZero and bust remain unresolved; no 101-point match-win claims**.
+- Raw: `runs/2026-10-24-1353-scoring-baseline-1392440.json`. Test: `simulator/scoring-contract-test.js`.
 
 ## NEXT ACTION
-Obtain authentic four-branch locked/open fixture; validate block/match scoring; continue disjoint seeds >=1392440 only after preregistering adequately powered comparison. Keep research inside `qosha-research/`.
+Obtain authentic four-branch locked/open fixture; resolve block winner, loneZero=10 and bust=101; then evaluate 101-point match outcomes. For new seed experiments use >=1395440. Keep research inside `qosha-research/`.
