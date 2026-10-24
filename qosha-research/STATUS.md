@@ -1,18 +1,19 @@
 # Qoşa research status
 
-Updated: 2026-10-24 09:50 (+04)
+Updated: 2026-10-24 10:53 (+04)
 
 ## Verified scale
-- **431700** independent matched full continuations unchanged; **647104** sampled hidden-world forced counterfactual continuations (+40960 this run).
+- **431700** independent matched full continuations unchanged; **698816** sampled hidden-world forced counterfactual continuations (+51712 this run).
 - Historical 4000 separate; quarantined pre-fix run excluded.
 - Engine `qosa-research-0.5.3`; recovered `qosa-1.0.0`, primary 3×9. Four-branch locking/opening remains provisional.
-- New late-discordant runner deterministic replay test passed in V8 CommonJS (Node CLI not run).
+- Existing late-side and late-discordant deterministic replay tests passed in V8 CommonJS (Node CLI not run).
 
 ## Latest checkpoint
-- 261 unique deals examined (seeds 1383640..1383900), 80 discordant pre-action 2–3-stone positions, 20480 matched hidden allocations, 40960 forced continuations; no new full strategy rounds.
-- Min-pips continuation own-mobility minus next-risk finish-first: +2.861 pp ±6.143 pp exploratory 95% half-width; closed-branch-control +1.699 pp ±7.570 pp.
-- 2-stone positions favored own mobility, 3-stone positions favored next-risk in this exploratory sample, but intervals are broad and effect not preregistered. No robust general rule.
-- New runner: `simulator/late-discordant-holdout.js`; raw data: `runs/2026-10-24-0950-late-discordant-holdout-1383640.json`.
+- Requested seeds 1385840..1388039; actual **265 unique deals scanned**, seeds 1385840..1386104 (early stop). **101 discordant pre-action positions**, 25856 matched hidden allocations, 51712 forced continuations, 256 worlds/position; 0 new full rounds.
+- Min-pips own-minus-risk finish-first: 2 stones +4.88 pp ±6.87 (n=14), 3 stones +4.26 pp ±9.36 (n=47); interaction +0.63 pp ±11.61.
+- Branch-control own-minus-risk: 2 stones +18.97 pp ±22.24 (n=9), 3 stones +3.81 pp ±11.80 (n=31); interaction +15.16 pp ±25.17.
+- **Earlier 2-vs-3 sign reversal did not replicate; no reliable new rule.** Position-cluster normal 95% half-widths are exploratory, uncorrected. These are finish-first comparisons, not match victories; no block winner.
+- Raw: `runs/2026-10-24-1053-late-discordant-hand-size-1385840.json`.
 
 ## NEXT ACTION
-Preregister and independently test the 2-vs-3 stone interaction on fresh seeds >=1385840, two continuation policies and >=256 matched hidden worlds per discordant position. Obtain authentic locked/open four-branch fixture before human recommendations. Do not modify scoreboard/PWA files.
+On fresh disjoint seeds >=1388040, match/stratify both opponents' hand sizes and opened branches to test whether the 2-vs-3 interaction survives confounding. Obtain authentic locked/open four-branch fixture. Do not modify scoreboard/PWA files.
