@@ -1,0 +1,1674 @@
+{
+  "schema": "qosa-sacrifice-event-audit/v1",
+  "timestampBaku": "2026-10-24 06:53:42 (+04)",
+  "engine": "qosa-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; branch opening provisional",
+  "mode": "3x9",
+  "seedRange": [
+    1376040,
+    1377639
+  ],
+  "deals": 1600,
+  "fullContinuations": 19200,
+  "pairedHiddenWorldContinuations": 0,
+  "profiles": [
+    "min-hand-pips",
+    "closed-branch-control"
+  ],
+  "modes": [
+    "mobility-guard",
+    "conditional-sacrifice"
+  ],
+  "threshold": {
+    "nextPassGain": 0.2,
+    "otherPassGain": 0.15,
+    "opponentLegalTileReductionPerOwnLoss": 1.5
+  },
+  "method": "Same seed/seat/profile guard vs conditional-sacrifice; audit conditional-only accepted sacrifice placements against counterfactual guard action at identical pre-move state. Actual opponent hands used only AFTER move choice for audit; never in policy.",
+  "limitations": "Provisional four-branch opening; selected rare events and correlated repeated choices; outcomes from full divergent trajectories, not isolated causal effects; simple bots; uniform unknown allocation without prior-action likelihood; no block winner; finish-first != match victory; seed-cluster CI exploratory and uncorrected.",
+  "summaries": {
+    "min-hand-pips": {
+      "byMode": {
+        "mobility-guard": {
+          "appearances": 4800,
+          "finishFirstRate": 0.336875,
+          "meanFinalPips": 4.029166666666667,
+          "medianFinalPips": 3,
+          "meanTurns": 24.02,
+          "blockRate": 0.036041666666666666,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.013958333333333333,
+          "minusFinishCounts": {
+            "0": 1327,
+            "-10": 289,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "changes": 646,
+          "sacrifices": 0,
+          "unexplainedDifferences": 0
+        },
+        "conditional-sacrifice": {
+          "appearances": 4800,
+          "finishFirstRate": 0.33729166666666666,
+          "meanFinalPips": 4.0275,
+          "medianFinalPips": 3,
+          "meanTurns": 24.029375,
+          "blockRate": 0.03666666666666667,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.013541666666666667,
+          "minusFinishCounts": {
+            "0": 1331,
+            "-10": 287,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "changes": 677,
+          "sacrifices": 30,
+          "unexplainedDifferences": 0
+        }
+      },
+      "paired": {
+        "finishFirstDeltaPP": 0.041666666666666664,
+        "exploratorySeedCluster95HalfWidthPP": 0.11551216342250735,
+        "meanFinalPipsDelta": -0.0016666666666666668
+      },
+      "audit": {
+        "acceptedEvents": 30,
+        "affectedTrajectories": 30,
+        "affectedSeeds": 30,
+        "ownLossMagnitude": {
+          "1": {
+            "events": 30,
+            "affectedTrajectories": 30
+          }
+        },
+        "handSize": {
+          "1-3": {
+            "events": 8,
+            "affectedTrajectories": 8
+          },
+          "4-6": {
+            "events": 18,
+            "affectedTrajectories": 18
+          },
+          "7+": {
+            "events": 4,
+            "affectedTrajectories": 4
+          }
+        },
+        "nextAccessWorse": 27,
+        "nextAccessBetter": 0,
+        "otherAccessWorse": 25,
+        "otherAccessBetter": 0,
+        "bothOpponentsRestricted": 22,
+        "meanNextPassGainPP": 53.16026566026566,
+        "meanOtherPassGainPP": 49.93238243238243,
+        "affectedTrajectoryFinishFirstDeltaPP": 6.666666666666667
+      },
+      "events": [
+        {
+          "seed": 1376070,
+          "seat": 1,
+          "turn": 17,
+          "handSize": 4,
+          "nextHandSize": 4,
+          "otherHandSize": 2,
+          "tile": "1-2",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -3,
+          "otherActualLegalDeltaVsGuard": 0,
+          "nextPassGainPPVsGuard": 33.33333333333333,
+          "otherPassGainPPVsGuard": 60.00000000000001,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376132,
+          "seat": 1,
+          "turn": 24,
+          "handSize": 2,
+          "nextHandSize": 3,
+          "otherHandSize": 2,
+          "tile": "2-6",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 100,
+          "otherPassGainPPVsGuard": 90,
+          "finishFirstDiff": -1,
+          "finalPipsDiff": 7
+        },
+        {
+          "seed": 1376196,
+          "seat": 1,
+          "turn": 17,
+          "handSize": 3,
+          "nextHandSize": 3,
+          "otherHandSize": 2,
+          "tile": "0-5",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 40,
+          "otherPassGainPPVsGuard": 50.000000000000014,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376212,
+          "seat": 1,
+          "turn": 8,
+          "handSize": 7,
+          "nextHandSize": 8,
+          "otherHandSize": 6,
+          "tile": "1-6",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -3,
+          "otherActualLegalDeltaVsGuard": 0,
+          "nextPassGainPPVsGuard": 41.35864135864136,
+          "otherPassGainPPVsGuard": 50.14985014985015,
+          "finishFirstDiff": 1,
+          "finalPipsDiff": -6
+        },
+        {
+          "seed": 1376215,
+          "seat": 2,
+          "turn": 5,
+          "handSize": 8,
+          "nextHandSize": 7,
+          "otherHandSize": 8,
+          "tile": "1-5",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 24.801864801864806,
+          "otherPassGainPPVsGuard": 19.300699300699304,
+          "finishFirstDiff": 1,
+          "finalPipsDiff": -3
+        },
+        {
+          "seed": 1376300,
+          "seat": 0,
+          "turn": 19,
+          "handSize": 4,
+          "nextHandSize": 4,
+          "otherHandSize": 2,
+          "tile": "2-6",
+          "sides": [
+            "left",
+            "left",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 33.33333333333333,
+          "otherPassGainPPVsGuard": 60.00000000000001,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376373,
+          "seat": 1,
+          "turn": 11,
+          "handSize": 6,
+          "nextHandSize": 6,
+          "otherHandSize": 5,
+          "tile": "3-4",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 93.93939393939394,
+          "otherPassGainPPVsGuard": 87.87878787878788,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376536,
+          "seat": 1,
+          "turn": 13,
+          "handSize": 5,
+          "nextHandSize": 4,
+          "otherHandSize": 2,
+          "tile": "0-6",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 100,
+          "otherPassGainPPVsGuard": 80,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376708,
+          "seat": 2,
+          "turn": 5,
+          "handSize": 8,
+          "nextHandSize": 7,
+          "otherHandSize": 7,
+          "tile": "1-6",
+          "sides": [
+            "left",
+            "left",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": 0,
+          "otherActualLegalDeltaVsGuard": -3,
+          "nextPassGainPPVsGuard": 46.50349650349651,
+          "otherPassGainPPVsGuard": 46.50349650349651,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376728,
+          "seat": 2,
+          "turn": 18,
+          "handSize": 2,
+          "nextHandSize": 3,
+          "otherHandSize": 3,
+          "tile": "0-5",
+          "sides": [
+            "left",
+            "left",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 20,
+          "otherPassGainPPVsGuard": 20,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376732,
+          "seat": 1,
+          "turn": 7,
+          "handSize": 7,
+          "nextHandSize": 7,
+          "otherHandSize": 6,
+          "tile": "1-4",
+          "sides": [
+            "left",
+            "left",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 44.05594405594405,
+          "otherPassGainPPVsGuard": 48.951048951048946,
+          "finishFirstDiff": 1,
+          "finalPipsDiff": -12
+        },
+        {
+          "seed": 1376771,
+          "seat": 0,
+          "turn": 16,
+          "handSize": 4,
+          "nextHandSize": 4,
+          "otherHandSize": 2,
+          "tile": "0-6",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 100,
+          "otherPassGainPPVsGuard": 80,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 6
+        },
+        {
+          "seed": 1376801,
+          "seat": 2,
+          "turn": 13,
+          "handSize": 5,
+          "nextHandSize": 3,
+          "otherHandSize": 4,
+          "tile": "0-5",
+          "sides": [
+            "left",
+            "left",
+            "right"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 54.28571428571429,
+          "otherPassGainPPVsGuard": 42.85714285714286,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 5
+        },
+        {
+          "seed": 1376861,
+          "seat": 0,
+          "turn": 18,
+          "handSize": 2,
+          "nextHandSize": 4,
+          "otherHandSize": 2,
+          "tile": "1-2",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 100,
+          "otherPassGainPPVsGuard": 80,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376873,
+          "seat": 0,
+          "turn": 17,
+          "handSize": 4,
+          "nextHandSize": 2,
+          "otherHandSize": 1,
+          "tile": "0-6",
+          "sides": [
+            "right",
+            "right",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 100,
+          "otherPassGainPPVsGuard": 66.66666666666667,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": -9
+        },
+        {
+          "seed": 1376896,
+          "seat": 1,
+          "turn": 13,
+          "handSize": 4,
+          "nextHandSize": 5,
+          "otherHandSize": 4,
+          "tile": "0-5",
+          "sides": [
+            "left",
+            "left",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -3,
+          "otherActualLegalDeltaVsGuard": 0,
+          "nextPassGainPPVsGuard": 43.65079365079365,
+          "otherPassGainPPVsGuard": 51.58730158730158,
+          "finishFirstDiff": -1,
+          "finalPipsDiff": 4
+        },
+        {
+          "seed": 1376900,
+          "seat": 0,
+          "turn": 19,
+          "handSize": 3,
+          "nextHandSize": 3,
+          "otherHandSize": 4,
+          "tile": "2-3",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 54.28571428571429,
+          "otherPassGainPPVsGuard": 42.85714285714286,
+          "finishFirstDiff": -1,
+          "finalPipsDiff": 3
+        },
+        {
+          "seed": 1376934,
+          "seat": 2,
+          "turn": 13,
+          "handSize": 5,
+          "nextHandSize": 4,
+          "otherHandSize": 4,
+          "tile": "0-5",
+          "sides": [
+            "left",
+            "left",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": 0,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 42.85714285714286,
+          "otherPassGainPPVsGuard": 42.85714285714286,
+          "finishFirstDiff": 1,
+          "finalPipsDiff": -3
+        },
+        {
+          "seed": 1376955,
+          "seat": 0,
+          "turn": 15,
+          "handSize": 5,
+          "nextHandSize": 4,
+          "otherHandSize": 4,
+          "tile": "3-4",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 21.428571428571423,
+          "otherPassGainPPVsGuard": 21.428571428571423,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376979,
+          "seat": 2,
+          "turn": 10,
+          "handSize": 6,
+          "nextHandSize": 5,
+          "otherHandSize": 5,
+          "tile": "2-6",
+          "sides": [
+            "left",
+            "left",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 21.825396825396826,
+          "otherPassGainPPVsGuard": 21.825396825396826,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1377015,
+          "seat": 2,
+          "turn": 16,
+          "handSize": 4,
+          "nextHandSize": 2,
+          "otherHandSize": 3,
+          "tile": "2-6",
+          "sides": [
+            "left",
+            "left",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 50.000000000000014,
+          "otherPassGainPPVsGuard": 40,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": -1
+        },
+        {
+          "seed": 1377229,
+          "seat": 2,
+          "turn": 11,
+          "handSize": 6,
+          "nextHandSize": 5,
+          "otherHandSize": 5,
+          "tile": "3-6",
+          "sides": [
+            "left",
+            "left",
+            "right"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 47.61904761904761,
+          "otherPassGainPPVsGuard": 47.61904761904761,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1377306,
+          "seat": 2,
+          "turn": 9,
+          "handSize": 6,
+          "nextHandSize": 5,
+          "otherHandSize": 6,
+          "tile": "3-5",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 25.974025974025977,
+          "otherPassGainPPVsGuard": 17.965367965367964,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": -5
+        },
+        {
+          "seed": 1377324,
+          "seat": 1,
+          "turn": 16,
+          "handSize": 5,
+          "nextHandSize": 4,
+          "otherHandSize": 3,
+          "tile": "2-3",
+          "sides": [
+            "down",
+            "down",
+            "right"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -3,
+          "otherActualLegalDeltaVsGuard": 0,
+          "nextPassGainPPVsGuard": 97.14285714285714,
+          "otherPassGainPPVsGuard": 88.57142857142857,
+          "finishFirstDiff": 1,
+          "finalPipsDiff": -2
+        },
+        {
+          "seed": 1377365,
+          "seat": 1,
+          "turn": 14,
+          "handSize": 5,
+          "nextHandSize": 3,
+          "otherHandSize": 3,
+          "tile": "0-6",
+          "sides": [
+            "left",
+            "left",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 20,
+          "otherPassGainPPVsGuard": 20,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 11
+        },
+        {
+          "seed": 1377514,
+          "seat": 2,
+          "turn": 16,
+          "handSize": 4,
+          "nextHandSize": 4,
+          "otherHandSize": 5,
+          "tile": "2-4",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 26.984126984126988,
+          "otherPassGainPPVsGuard": 16.666666666666664,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1377525,
+          "seat": 0,
+          "turn": 20,
+          "handSize": 3,
+          "nextHandSize": 2,
+          "otherHandSize": 3,
+          "tile": "0-6",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 50.000000000000014,
+          "otherPassGainPPVsGuard": 40,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1377574,
+          "seat": 0,
+          "turn": 14,
+          "handSize": 4,
+          "nextHandSize": 4,
+          "otherHandSize": 4,
+          "tile": "3-5",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 21.428571428571423,
+          "otherPassGainPPVsGuard": 21.428571428571423,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": -3
+        },
+        {
+          "seed": 1377575,
+          "seat": 1,
+          "turn": 18,
+          "handSize": 3,
+          "nextHandSize": 4,
+          "otherHandSize": 3,
+          "tile": "3-4",
+          "sides": [
+            "down",
+            "down",
+            "right"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -3,
+          "otherActualLegalDeltaVsGuard": 0,
+          "nextPassGainPPVsGuard": 97.14285714285714,
+          "otherPassGainPPVsGuard": 88.57142857142857,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1377577,
+          "seat": 2,
+          "turn": 16,
+          "handSize": 3,
+          "nextHandSize": 4,
+          "otherHandSize": 3,
+          "tile": "0-5",
+          "sides": [
+            "right",
+            "right",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": 0,
+          "otherActualLegalDeltaVsGuard": -3,
+          "nextPassGainPPVsGuard": 42.85714285714286,
+          "otherPassGainPPVsGuard": 54.28571428571429,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        }
+      ]
+    },
+    "closed-branch-control": {
+      "byMode": {
+        "mobility-guard": {
+          "appearances": 4800,
+          "finishFirstRate": 0.245,
+          "meanFinalPips": 6.2925,
+          "medianFinalPips": 5,
+          "meanTurns": 25.8825,
+          "blockRate": 0.044375,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.011458333333333333,
+          "minusFinishCounts": {
+            "0": 1024,
+            "-10": 151,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "changes": 294,
+          "sacrifices": 0,
+          "unexplainedDifferences": 0
+        },
+        "conditional-sacrifice": {
+          "appearances": 4800,
+          "finishFirstRate": 0.24583333333333332,
+          "meanFinalPips": 6.285625,
+          "medianFinalPips": 5,
+          "meanTurns": 25.888958333333335,
+          "blockRate": 0.045625,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.011458333333333333,
+          "minusFinishCounts": {
+            "0": 1029,
+            "-10": 150,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "changes": 327,
+          "sacrifices": 37,
+          "unexplainedDifferences": 0
+        }
+      },
+      "paired": {
+        "finishFirstDeltaPP": 0.08333333333333333,
+        "exploratorySeedCluster95HalfWidthPP": 0.12910210918734927,
+        "meanFinalPipsDelta": -0.006875
+      },
+      "audit": {
+        "acceptedEvents": 37,
+        "affectedTrajectories": 37,
+        "affectedSeeds": 36,
+        "ownLossMagnitude": {
+          "1": {
+            "events": 37,
+            "affectedTrajectories": 37
+          }
+        },
+        "handSize": {
+          "1-3": {
+            "events": 10,
+            "affectedTrajectories": 10
+          },
+          "4-6": {
+            "events": 18,
+            "affectedTrajectories": 18
+          },
+          "7+": {
+            "events": 9,
+            "affectedTrajectories": 9
+          }
+        },
+        "nextAccessWorse": 35,
+        "nextAccessBetter": 0,
+        "otherAccessWorse": 33,
+        "otherAccessBetter": 0,
+        "bothOpponentsRestricted": 31,
+        "meanNextPassGainPP": 51.45215145215146,
+        "meanOtherPassGainPP": 53.99681399681401,
+        "affectedTrajectoryFinishFirstDeltaPP": 10.81081081081081
+      },
+      "events": [
+        {
+          "seed": 1376064,
+          "seat": 2,
+          "turn": 20,
+          "handSize": 3,
+          "nextHandSize": 2,
+          "otherHandSize": 2,
+          "tile": "2-6",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 50,
+          "otherPassGainPPVsGuard": 50,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376073,
+          "seat": 2,
+          "turn": 11,
+          "handSize": 7,
+          "nextHandSize": 5,
+          "otherHandSize": 5,
+          "tile": "4-6",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 91.66666666666667,
+          "otherPassGainPPVsGuard": 91.66666666666667,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376190,
+          "seat": 1,
+          "turn": 16,
+          "handSize": 4,
+          "nextHandSize": 4,
+          "otherHandSize": 3,
+          "tile": "0-5",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 42.85714285714286,
+          "otherPassGainPPVsGuard": 54.28571428571429,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 1
+        },
+        {
+          "seed": 1376193,
+          "seat": 2,
+          "turn": 19,
+          "handSize": 5,
+          "nextHandSize": 3,
+          "otherHandSize": 2,
+          "tile": "2-3",
+          "sides": [
+            "left",
+            "left",
+            "right"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 40,
+          "otherPassGainPPVsGuard": 60.00000000000001,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 4
+        },
+        {
+          "seed": 1376215,
+          "seat": 2,
+          "turn": 5,
+          "handSize": 8,
+          "nextHandSize": 7,
+          "otherHandSize": 8,
+          "tile": "1-5",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 24.801864801864806,
+          "otherPassGainPPVsGuard": 19.300699300699304,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376224,
+          "seat": 0,
+          "turn": 22,
+          "handSize": 4,
+          "nextHandSize": 3,
+          "otherHandSize": 1,
+          "tile": "0-5",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 25,
+          "otherPassGainPPVsGuard": 50,
+          "finishFirstDiff": 1,
+          "finalPipsDiff": -13
+        },
+        {
+          "seed": 1376265,
+          "seat": 2,
+          "turn": 19,
+          "handSize": 4,
+          "nextHandSize": 3,
+          "otherHandSize": 2,
+          "tile": "0-4",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 40,
+          "otherPassGainPPVsGuard": 60.00000000000001,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376413,
+          "seat": 1,
+          "turn": 12,
+          "handSize": 4,
+          "nextHandSize": 5,
+          "otherHandSize": 5,
+          "tile": "4-6",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": 0,
+          "otherActualLegalDeltaVsGuard": -3,
+          "nextPassGainPPVsGuard": 47.61904761904761,
+          "otherPassGainPPVsGuard": 47.61904761904761,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376450,
+          "seat": 0,
+          "turn": 17,
+          "handSize": 5,
+          "nextHandSize": 3,
+          "otherHandSize": 3,
+          "tile": "4-5",
+          "sides": [
+            "right",
+            "right",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 50,
+          "otherPassGainPPVsGuard": 50,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": -2
+        },
+        {
+          "seed": 1376479,
+          "seat": 1,
+          "turn": 8,
+          "handSize": 7,
+          "nextHandSize": 6,
+          "otherHandSize": 6,
+          "tile": "5-6",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -3,
+          "otherActualLegalDeltaVsGuard": 0,
+          "nextPassGainPPVsGuard": 21.969696969696976,
+          "otherPassGainPPVsGuard": 21.969696969696976,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376485,
+          "seat": 1,
+          "turn": 18,
+          "handSize": 3,
+          "nextHandSize": 3,
+          "otherHandSize": 3,
+          "tile": "0-4",
+          "sides": [
+            "right",
+            "right",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 50,
+          "otherPassGainPPVsGuard": 50,
+          "finishFirstDiff": 1,
+          "finalPipsDiff": -1
+        },
+        {
+          "seed": 1376487,
+          "seat": 2,
+          "turn": 17,
+          "handSize": 3,
+          "nextHandSize": 4,
+          "otherHandSize": 3,
+          "tile": "2-4",
+          "sides": [
+            "left",
+            "left",
+            "right"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 42.85714285714286,
+          "otherPassGainPPVsGuard": 54.28571428571429,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376593,
+          "seat": 1,
+          "turn": 14,
+          "handSize": 6,
+          "nextHandSize": 4,
+          "otherHandSize": 4,
+          "tile": "3-4",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 48.57142857142857,
+          "otherPassGainPPVsGuard": 48.57142857142857,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376669,
+          "seat": 1,
+          "turn": 8,
+          "handSize": 7,
+          "nextHandSize": 6,
+          "otherHandSize": 6,
+          "tile": "4-6",
+          "sides": [
+            "left",
+            "left",
+            "right"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 46.96969696969696,
+          "otherPassGainPPVsGuard": 46.96969696969696,
+          "finishFirstDiff": 1,
+          "finalPipsDiff": -4
+        },
+        {
+          "seed": 1376708,
+          "seat": 2,
+          "turn": 5,
+          "handSize": 8,
+          "nextHandSize": 7,
+          "otherHandSize": 7,
+          "tile": "1-6",
+          "sides": [
+            "left",
+            "left",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": 0,
+          "otherActualLegalDeltaVsGuard": -3,
+          "nextPassGainPPVsGuard": 46.50349650349651,
+          "otherPassGainPPVsGuard": 46.50349650349651,
+          "finishFirstDiff": -1,
+          "finalPipsDiff": 4
+        },
+        {
+          "seed": 1376730,
+          "seat": 2,
+          "turn": 17,
+          "handSize": 3,
+          "nextHandSize": 3,
+          "otherHandSize": 3,
+          "tile": "0-6",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 50,
+          "otherPassGainPPVsGuard": 50,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376755,
+          "seat": 2,
+          "turn": 20,
+          "handSize": 4,
+          "nextHandSize": 5,
+          "otherHandSize": 2,
+          "tile": "0-5",
+          "sides": [
+            "left",
+            "left",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 100,
+          "otherPassGainPPVsGuard": 71.42857142857143,
+          "finishFirstDiff": 1,
+          "finalPipsDiff": -8
+        },
+        {
+          "seed": 1376783,
+          "seat": 2,
+          "turn": 22,
+          "handSize": 4,
+          "nextHandSize": 3,
+          "otherHandSize": 1,
+          "tile": "0-5",
+          "sides": [
+            "left",
+            "left",
+            "right"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 25,
+          "otherPassGainPPVsGuard": 50,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376897,
+          "seat": 0,
+          "turn": 16,
+          "handSize": 4,
+          "nextHandSize": 4,
+          "otherHandSize": 4,
+          "tile": "2-3",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 21.428571428571423,
+          "otherPassGainPPVsGuard": 21.428571428571423,
+          "finishFirstDiff": 1,
+          "finalPipsDiff": -4
+        },
+        {
+          "seed": 1376980,
+          "seat": 1,
+          "turn": 16,
+          "handSize": 4,
+          "nextHandSize": 4,
+          "otherHandSize": 3,
+          "tile": "2-4",
+          "sides": [
+            "left",
+            "left",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 42.85714285714286,
+          "otherPassGainPPVsGuard": 54.28571428571429,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1376982,
+          "seat": 1,
+          "turn": 14,
+          "handSize": 5,
+          "nextHandSize": 4,
+          "otherHandSize": 4,
+          "tile": "4-5",
+          "sides": [
+            "left",
+            "left",
+            "right"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 48.57142857142857,
+          "otherPassGainPPVsGuard": 48.57142857142857,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": -4
+        },
+        {
+          "seed": 1377000,
+          "seat": 1,
+          "turn": 21,
+          "handSize": 3,
+          "nextHandSize": 3,
+          "otherHandSize": 2,
+          "tile": "2-4",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 100,
+          "otherPassGainPPVsGuard": 90,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1377026,
+          "seat": 2,
+          "turn": 19,
+          "handSize": 3,
+          "nextHandSize": 3,
+          "otherHandSize": 2,
+          "tile": "0-6",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": 0,
+          "nextPassGainPPVsGuard": 40,
+          "otherPassGainPPVsGuard": 50.000000000000014,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1377065,
+          "seat": 2,
+          "turn": 12,
+          "handSize": 5,
+          "nextHandSize": 5,
+          "otherHandSize": 5,
+          "tile": "2-4",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 47.61904761904761,
+          "otherPassGainPPVsGuard": 47.61904761904761,
+          "finishFirstDiff": 1,
+          "finalPipsDiff": -5
+        },
+        {
+          "seed": 1377159,
+          "seat": 1,
+          "turn": 17,
+          "handSize": 4,
+          "nextHandSize": 3,
+          "otherHandSize": 3,
+          "tile": "0-5",
+          "sides": [
+            "left",
+            "left",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 50,
+          "otherPassGainPPVsGuard": 50,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 3
+        },
+        {
+          "seed": 1377162,
+          "seat": 2,
+          "turn": 10,
+          "handSize": 6,
+          "nextHandSize": 6,
+          "otherHandSize": 5,
+          "tile": "3-5",
+          "sides": [
+            "down",
+            "down",
+            "right"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 93.93939393939394,
+          "otherPassGainPPVsGuard": 87.87878787878788,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1377196,
+          "seat": 2,
+          "turn": 25,
+          "handSize": 3,
+          "nextHandSize": 3,
+          "otherHandSize": 3,
+          "tile": "0-5",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 95,
+          "otherPassGainPPVsGuard": 95,
+          "finishFirstDiff": -1,
+          "finalPipsDiff": 6
+        },
+        {
+          "seed": 1377235,
+          "seat": 0,
+          "turn": 8,
+          "handSize": 7,
+          "nextHandSize": 6,
+          "otherHandSize": 6,
+          "tile": "4-5",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -3,
+          "otherActualLegalDeltaVsGuard": 0,
+          "nextPassGainPPVsGuard": 21.969696969696976,
+          "otherPassGainPPVsGuard": 21.969696969696976,
+          "finishFirstDiff": 1,
+          "finalPipsDiff": -7
+        },
+        {
+          "seed": 1377249,
+          "seat": 2,
+          "turn": 20,
+          "handSize": 2,
+          "nextHandSize": 3,
+          "otherHandSize": 2,
+          "tile": "3-6",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 100,
+          "otherPassGainPPVsGuard": 90,
+          "finishFirstDiff": -1,
+          "finalPipsDiff": 5
+        },
+        {
+          "seed": 1377305,
+          "seat": 1,
+          "turn": 9,
+          "handSize": 7,
+          "nextHandSize": 6,
+          "otherHandSize": 6,
+          "tile": "3-4",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -3,
+          "otherActualLegalDeltaVsGuard": 0,
+          "nextPassGainPPVsGuard": 21.969696969696976,
+          "otherPassGainPPVsGuard": 21.969696969696976,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1377369,
+          "seat": 2,
+          "turn": 19,
+          "handSize": 5,
+          "nextHandSize": 3,
+          "otherHandSize": 2,
+          "tile": "0-5",
+          "sides": [
+            "down",
+            "down",
+            "right"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 40,
+          "otherPassGainPPVsGuard": 60.00000000000001,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": -6
+        },
+        {
+          "seed": 1377396,
+          "seat": 0,
+          "turn": 11,
+          "handSize": 7,
+          "nextHandSize": 5,
+          "otherHandSize": 5,
+          "tile": "5-6",
+          "sides": [
+            "left",
+            "left",
+            "right"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 47.61904761904761,
+          "otherPassGainPPVsGuard": 47.61904761904761,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": -5
+        },
+        {
+          "seed": 1377400,
+          "seat": 0,
+          "turn": 22,
+          "handSize": 3,
+          "nextHandSize": 2,
+          "otherHandSize": 2,
+          "tile": "0-6",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 100,
+          "otherPassGainPPVsGuard": 100,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 3
+        },
+        {
+          "seed": 1377400,
+          "seat": 1,
+          "turn": 8,
+          "handSize": 7,
+          "nextHandSize": 6,
+          "otherHandSize": 6,
+          "tile": "4-5",
+          "sides": [
+            "down",
+            "down",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 21.969696969696976,
+          "otherPassGainPPVsGuard": 21.969696969696976,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1377504,
+          "seat": 0,
+          "turn": 23,
+          "handSize": 2,
+          "nextHandSize": 3,
+          "otherHandSize": 3,
+          "tile": "2-5",
+          "sides": [
+            "down",
+            "down",
+            "left"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 95,
+          "otherPassGainPPVsGuard": 95,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1377571,
+          "seat": 2,
+          "turn": 8,
+          "handSize": 5,
+          "nextHandSize": 6,
+          "otherHandSize": 6,
+          "tile": "5-6",
+          "sides": [
+            "down",
+            "down",
+            "right"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -2,
+          "otherActualLegalDeltaVsGuard": -1,
+          "nextPassGainPPVsGuard": 21.969696969696976,
+          "otherPassGainPPVsGuard": 21.969696969696976,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        },
+        {
+          "seed": 1377639,
+          "seat": 1,
+          "turn": 19,
+          "handSize": 4,
+          "nextHandSize": 3,
+          "otherHandSize": 3,
+          "tile": "2-4",
+          "sides": [
+            "left",
+            "left",
+            "up"
+          ],
+          "ownLossVsBaseline": 1,
+          "ownDeltaVsGuard": -1,
+          "nextActualLegalDeltaVsGuard": -1,
+          "otherActualLegalDeltaVsGuard": -2,
+          "nextPassGainPPVsGuard": 50,
+          "otherPassGainPPVsGuard": 50,
+          "finishFirstDiff": 0,
+          "finalPipsDiff": 0
+        }
+      ]
+    }
+  },
+  "next": "Do not retune thresholds on this holdout; use event strata to formulate a genuinely new predeclared hypothesis, then validate with independent seeds. Obtain real locked/open branch fixture."
+}
