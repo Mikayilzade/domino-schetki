@@ -1,19 +1,19 @@
 # Qoşa research status
 
-Updated: 2026-10-24 19:57:54 +04
+Updated: 2026-10-24 20:54:05 +04
 
 ## Verified scale
-- **595500** full-round continuations; **839664** forced hidden-world counterfactual continuations. Historical 4,000 separate.
-- Engine `qosa-research-0.5.3`; recovered `qosa-1.0.0`, primary 3×9; real four-branch locking/opening **provisional**.
-- Fresh research seeds used through **1409239**; next independent seed >= **1409240**.
+- **641100** full-round continuations; **850992** forced hidden-world counterfactual continuations. Historical 4,000 separate.
+- Engine qosa-research-0.5.3 / recovered qosa-1.0.0; primary 3×9. Real four-branch number locking PROVISIONAL.
+- Fresh seeds used through **1411639**; next independent seed >= **1411640**.
 
 ## Latest checkpoint
-- Three-stone double–connector–double chain ablation: 45600 full-round continuations, 91 matched late positions (84 chain), 10416 hidden-world forced continuations.
-- **Important methodological fix:** strategy tournaments now use all six seat permutations, not just three cyclic rotations; earlier cyclic-only finish-first comparisons may be confounded by relative clockwise order.
-- Direct balanced triad chain/fewest/max-pips finish-first: 34.06% / 28.78% / 34.22%; these are not match wins.
-- Within-position chain select-minus-many: finish-first -10.22 pp; minus frequency 37.95 pp, provisional number-lock model.
-- Tests: chain/nonchain gating, ordinary exclusion, six-permutation balance, deterministic replay, accounting passed in V8 CommonJS; Node CLI not run.
-- Code: `simulator/three-stone-chain-preservation.js`; data: `runs/2026-10-24-1950-three-stone-chain-1406840.json`.
+- Independent six-permutation holdout: **45600** full continuations, **95** forced 3-stone positions (88 chain), **11328** hidden-world forced continuations; 0 unresolved.
+- Chain versus max-pips finish-first **34.24% vs 34.44%** in balanced tournament; chain preservation raises minus-finish frequency **+37.59 pp** but reduces finish-first **−12.41 pp** within eligible same-world chain positions (model-only).
+- **Policy-alias correction:** closed-branch-control and pip-late-fewest-forced-doubles made identical decisions in **13182** reachable comparisons. Their apparent replication is not independent.
+- Next opponent two stones: n=8, chain preserve minus max-pips finish-first −42.71 pp; exploratory, not a recommendation.
+- Code: `simulator/chain-independent-holdout.js`; complete data: `runs/2026-10-24-2048-chain-independent-1409240.json`. V8 tests passed; Node CLI not run.
+- Scoreboard/PWA untouched.
 
 ## NEXT ACTION
-Hold out on fresh seeds >=1409240; null-policy symmetry test and recheck earlier cyclic-only findings; authenticate real branch opening and block winner/loneZero/bust before match scoring. All changes restricted to `qosha-research/`.
+Fresh seeds >=1411640: genuinely different continuation policy, immediate next-opponent finish threat for each forced choice, larger 2-stone subgroup. Authenticate branch lock and block winner/loneZero/bust before match scoring.
