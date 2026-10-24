@@ -1,18 +1,18 @@
 # Qoşa research status
 
-Updated: 2026-10-24 05:56 (+04)
+Updated: 2026-10-24 06:53 (+04)
 
 ## Verified scale
-- **383,700** full matched continuations under current research engine, plus **532,608** paired hidden-world counterfactual continuations.
+- **402,900** full matched continuations under current research engine, plus **532,608** paired sampled hidden-world counterfactual continuations.
 - Historical 4,000 separate; quarantined pre-fix run excluded.
 - Engine `qosa-research-0.5.3`; recovered `qosa-1.0.0`, primary 3×9.
-- Deterministic replay and guard regression passed; branch locking/opening remains provisional pending real-play fixture.
+- Deterministic replay and prior-run guard/conditional regression passed; branch locking/opening remains provisional pending real-play fixture.
 
 ## Latest checkpoint
-- Fresh disjoint seeds 1375240..1376039, 800 deals, 19,200 continuations; `runs/2026-10-24-0554-conditional-sacrifice-1375240-1376039.json`.
-- min-hand-pips: conditional vs strict guard **0.00 pp ±0.20 pp** finish-first; 10 accepted own-mobility sacrifices.
-- closed-branch-control: conditional vs strict guard **0.04 pp ±0.18 pp** finish-first; 18 accepted own-mobility sacrifices.
-- No reliable new general rule confirmed.
+- Fresh disjoint seeds **1376040..1377639**, 1,600 deals, 19,200 matched full continuations.
+- New audit runner: `simulator/sacrifice-event-audit.js`; raw rows: `runs/2026-10-24-accepted-sacrifice-event-audit-1376040-1377639.json`.
+- 67 accepted one-tile own-mobility sacrifices; 53 reduced both opponents' immediate legal-tile access. Finish-first conditional vs guard: min-hand-pips **+0.042 pp ±0.116 pp**, branch-control **+0.083 pp ±0.129 pp**. No reliable win advantage.
+- Opponent hands used only for retrospective audit; no hidden-hand policy leakage.
 
 ## NEXT ACTION
-Independent accepted-sacrifice event-level analysis on fresh disjoint seeds 1376040+; obtain a real-game locked/open branch fixture. Never edit live scoreboard/PWA files.
+Obtain a real-game four-branch opening/locking fixture. Then predeclare and test late-game (≤3 stones) conditional-sacrifice vs strict guard on fresh disjoint seeds 1377640+, using matched hidden-world continuations without threshold tuning. Never edit live scoreboard/PWA files.
