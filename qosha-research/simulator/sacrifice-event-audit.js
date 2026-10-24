@@ -40,8 +40,8 @@ function trace(base,seat,profile,mode){
       if(action.type!=='single'||guard.type!=='single'||baseline.type!=='single'||key(action.tile)!==key(guard.tile)||key(action.tile)!==key(baseline.tile))throw Error('not same-tile geometry');
       const a=inspect(s,known,action),g=inspect(s,known,guard),b=inspect(s,known,baseline);
       const ownLoss=Math.max(0,b.own-a.own);
-      if(ownLoss===0){unexplainedDifferences++;continue;}
-      events.push({turn:s.turns,handSize:s.hands[f].length,nextHandSize:s.hands[(f+1)%3].length,
+      if(ownLoss===0){unexplainedDifferences++;}
+      else events.push({turn:s.turns,handSize:s.hands[f].length,nextHandSize:s.hands[(f+1)%3].length,
        otherHandSize:s.hands[(f+2)%3].length,tile:key(action.tile),sides:[baseline.side,guard.side,action.side],
        ownLossVsBaseline:ownLoss,ownDeltaVsGuard:a.own-g.own,
        nextActualLegalDeltaVsGuard:a.next-g.next,otherActualLegalDeltaVsGuard:a.other-g.other,
