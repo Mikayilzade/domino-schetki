@@ -1,0 +1,303 @@
+{
+  "schema": "qosa-conditional-sacrifice-holdout/v1",
+  "timestampBaku": "2026-10-24 04:51 (+04)",
+  "engine": "qosa-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; branch opening provisional",
+  "mode": "3x9",
+  "seedRange": [
+    1374640,
+    1375239
+  ],
+  "deals": 600,
+  "fullContinuations": 14400,
+  "pairedHiddenWorldContinuations": 0,
+  "profiles": [
+    "min-hand-pips",
+    "closed-branch-control"
+  ],
+  "modes": [
+    "baseline",
+    "unrestricted",
+    "mobility-guard",
+    "conditional-sacrifice"
+  ],
+  "threshold": {
+    "nextPassGain": 0.2,
+    "otherPassGain": 0.15,
+    "opponentLegalTileReductionPerOwnLoss": 1.5
+  },
+  "method": "matched deal/seat/opponent policy; min-hand-pips baseline; same-stone side tie-break; allow own-mobility sacrifice only if both opponents predicted pass gains and combined expected opponent legal-tile reduction exceed fixed thresholds; no opponent identities used in choice",
+  "limitations": "Provisional opening/locking; uniform hidden allocations ignore past action likelihood; thresholds exploratory; opponent hand access only for post-selection audit; block winner unassigned; finish-first is not match victory; normal seed-cluster 95% intervals exploratory and uncorrected",
+  "summaries": {
+    "min-hand-pips": {
+      "byMode": {
+        "baseline": {
+          "appearances": 1800,
+          "finishFirstRate": 0.3211111111111111,
+          "meanFinalPips": 4.03,
+          "medianFinalPips": 3,
+          "meanTurns": 23.946666666666665,
+          "blockRate": 0.03666666666666667,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.015,
+          "minusFinishCounts": {
+            "0": 487,
+            "-10": 90,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 0,
+          "changes": 0,
+          "sacrifices": 0,
+          "rejectedSacrifices": 0,
+          "ownLossSum": 0,
+          "nextPassGainPPPerChange": null,
+          "otherPassGainPPPerChange": null,
+          "observedNextLegalDeltaPerChange": null,
+          "observedOtherLegalDeltaPerChange": null
+        },
+        "unrestricted": {
+          "appearances": 1800,
+          "finishFirstRate": 0.3333333333333333,
+          "meanFinalPips": 3.945,
+          "medianFinalPips": 3,
+          "meanTurns": 24.065,
+          "blockRate": 0.059444444444444446,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.011666666666666667,
+          "minusFinishCounts": {
+            "0": 500,
+            "-10": 99,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 1215,
+          "changes": 331,
+          "sacrifices": 114,
+          "rejectedSacrifices": 0,
+          "ownLossSum": 133,
+          "nextPassGainPPPerChange": 22.386734195646582,
+          "otherPassGainPPPerChange": 22.444118905599268,
+          "observedNextLegalDeltaPerChange": -0.9214501510574018,
+          "observedOtherLegalDeltaPerChange": -0.7915407854984894
+        },
+        "mobility-guard": {
+          "appearances": 1800,
+          "finishFirstRate": 0.33555555555555555,
+          "meanFinalPips": 3.937222222222222,
+          "medianFinalPips": 3,
+          "meanTurns": 23.99388888888889,
+          "blockRate": 0.04555555555555556,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.012777777777777779,
+          "minusFinishCounts": {
+            "0": 499,
+            "-10": 104,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 1223,
+          "changes": 221,
+          "sacrifices": 0,
+          "rejectedSacrifices": 341,
+          "ownLossSum": 0,
+          "nextPassGainPPPerChange": 23.537741795660352,
+          "otherPassGainPPPerChange": 22.707385625937665,
+          "observedNextLegalDeltaPerChange": -0.9457013574660633,
+          "observedOtherLegalDeltaPerChange": -0.8778280542986425
+        },
+        "conditional-sacrifice": {
+          "appearances": 1800,
+          "finishFirstRate": 0.33611111111111114,
+          "meanFinalPips": 3.9355555555555557,
+          "medianFinalPips": 3,
+          "meanTurns": 23.999444444444446,
+          "blockRate": 0.04666666666666667,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.012222222222222223,
+          "minusFinishCounts": {
+            "0": 501,
+            "-10": 103,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 1221,
+          "changes": 227,
+          "sacrifices": 6,
+          "rejectedSacrifices": 335,
+          "ownLossSum": 6,
+          "nextPassGainPPPerChange": 24.766525080401735,
+          "otherPassGainPPPerChange": 24.020524874049105,
+          "observedNextLegalDeltaPerChange": -0.9427312775330396,
+          "observedOtherLegalDeltaPerChange": -0.9074889867841409
+        }
+      },
+      "contrasts": {
+        "unrestricted": {
+          "finishFirstDeltaPP": 1.2222222222222219,
+          "exploratorySeedCluster95HalfWidthPP": 0.8525067682651946,
+          "pipsDelta": -0.085
+        },
+        "mobility-guard": {
+          "finishFirstDeltaPP": 1.444444444444444,
+          "exploratorySeedCluster95HalfWidthPP": 0.7461200311533698,
+          "pipsDelta": -0.09277777777777778
+        },
+        "conditional-sacrifice": {
+          "finishFirstDeltaPP": 1.4999999999999998,
+          "exploratorySeedCluster95HalfWidthPP": 0.7533409500536706,
+          "pipsDelta": -0.09444444444444444
+        },
+        "conditionalVsGuard": {
+          "finishFirstDeltaPP": 0.05555555555555555,
+          "exploratorySeedCluster95HalfWidthPP": 0.10888888888888916,
+          "pipsDelta": -0.0016666666666666668
+        }
+      }
+    },
+    "closed-branch-control": {
+      "byMode": {
+        "baseline": {
+          "appearances": 1800,
+          "finishFirstRate": 0.23555555555555555,
+          "meanFinalPips": 6.39,
+          "medianFinalPips": 5,
+          "meanTurns": 25.80611111111111,
+          "blockRate": 0.025,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.011111111111111112,
+          "minusFinishCounts": {
+            "0": 360,
+            "-10": 62,
+            "-20": 2,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 0,
+          "changes": 0,
+          "sacrifices": 0,
+          "rejectedSacrifices": 0,
+          "ownLossSum": 0,
+          "nextPassGainPPPerChange": null,
+          "otherPassGainPPPerChange": null,
+          "observedNextLegalDeltaPerChange": null,
+          "observedOtherLegalDeltaPerChange": null
+        },
+        "unrestricted": {
+          "appearances": 1800,
+          "finishFirstRate": 0.23944444444444443,
+          "meanFinalPips": 6.336111111111111,
+          "medianFinalPips": 5,
+          "meanTurns": 25.859444444444446,
+          "blockRate": 0.04111111111111111,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.010555555555555556,
+          "minusFinishCounts": {
+            "0": 366,
+            "-10": 64,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 647,
+          "changes": 187,
+          "sacrifices": 66,
+          "rejectedSacrifices": 0,
+          "ownLossSum": 82,
+          "nextPassGainPPPerChange": 34.50838080517227,
+          "otherPassGainPPPerChange": 34.47763318084174,
+          "observedNextLegalDeltaPerChange": -1.0802139037433156,
+          "observedOtherLegalDeltaPerChange": -0.7593582887700535
+        },
+        "mobility-guard": {
+          "appearances": 1800,
+          "finishFirstRate": 0.24166666666666667,
+          "meanFinalPips": 6.336666666666667,
+          "medianFinalPips": 5,
+          "meanTurns": 25.824444444444445,
+          "blockRate": 0.03166666666666667,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.010555555555555556,
+          "minusFinishCounts": {
+            "0": 368,
+            "-10": 66,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 651,
+          "changes": 121,
+          "sacrifices": 0,
+          "rejectedSacrifices": 148,
+          "ownLossSum": 0,
+          "nextPassGainPPPerChange": 33.631400738838764,
+          "otherPassGainPPPerChange": 33.514625869997765,
+          "observedNextLegalDeltaPerChange": -1.0413223140495869,
+          "observedOtherLegalDeltaPerChange": -0.8429752066115702
+        },
+        "conditional-sacrifice": {
+          "appearances": 1800,
+          "finishFirstRate": 0.24222222222222223,
+          "meanFinalPips": 6.333333333333333,
+          "medianFinalPips": 5,
+          "meanTurns": 25.83,
+          "blockRate": 0.03388888888888889,
+          "meanStartingDoubles": 2,
+          "meanEndingDoubles": 0.010555555555555556,
+          "minusFinishCounts": {
+            "0": 369,
+            "-10": 66,
+            "-20": 1,
+            "-30": 0,
+            "-40": 0
+          },
+          "opportunities": 651,
+          "changes": 142,
+          "sacrifices": 21,
+          "rejectedSacrifices": 129,
+          "ownLossSum": 21,
+          "nextPassGainPPPerChange": 37.316259640203334,
+          "otherPassGainPPPerChange": 37.04283197240943,
+          "observedNextLegalDeltaPerChange": -1.1126760563380282,
+          "observedOtherLegalDeltaPerChange": -0.9154929577464789
+        }
+      },
+      "contrasts": {
+        "unrestricted": {
+          "finishFirstDeltaPP": 0.38888888888888884,
+          "exploratorySeedCluster95HalfWidthPP": 0.7139490244158405,
+          "pipsDelta": -0.05388888888888889
+        },
+        "mobility-guard": {
+          "finishFirstDeltaPP": 0.6111111111111112,
+          "exploratorySeedCluster95HalfWidthPP": 0.5641565992161834,
+          "pipsDelta": -0.05333333333333334
+        },
+        "conditional-sacrifice": {
+          "finishFirstDeltaPP": 0.6666666666666667,
+          "exploratorySeedCluster95HalfWidthPP": 0.6332088836910033,
+          "pipsDelta": -0.056666666666666664
+        },
+        "conditionalVsGuard": {
+          "finishFirstDeltaPP": 0.05555555555555555,
+          "exploratorySeedCluster95HalfWidthPP": 0.2436454962580326,
+          "pipsDelta": -0.0033333333333333335
+        }
+      }
+    }
+  },
+  "next": "Independent disjoint-seed retest if promising; compare conditional gate with strict own-mobility guard and unrestricted; seek real-play branch opening/locking fixture",
+  "replayTest": {
+    "passed": true,
+    "continuations": 72
+  },
+  "cumulative": {
+    "fullContinuations": 364500,
+    "pairedHiddenWorldContinuations": 532608,
+    "historicalSeparate": 4000
+  }
+}
