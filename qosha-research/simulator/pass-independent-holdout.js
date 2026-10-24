@@ -33,6 +33,13 @@ function choose(s,mem,mode,alpha=20){
  rows.sort((a,b)=>b.score-a.score||b.pips-a.pips||a.k.localeCompare(b.k));
  return rows[0];
 }
+function probFor(s,mem,a,mode){
+ const p=s.currentPlayer,n=(p+1)%3,o=(p+2)%3;
+ const pool=h.hiddenPool({focalHand:s.hands[p],knownTiles:late.knownTiles(s)});
+ const tr=d.applyTurn(s.branchState,s.openingState,s.hands[p],[],a);
+ const legal=new Set(deck.filter(t=>d.actionsForHand(tr.branchState,tr.openingState,[t]).length).map(key));
+ return posterior(pool,s.hands[n].length,mem[n],mem[o],legal,mode);
+}
 function metricDiff(x,y){return{finishPP:100*(x.first-y.first),pips:x.pips-y.pips,
  minusPP:100*(x.minus-y.minus),blockPP:100*(x.block-y.block)};}
 function run(start=1456440,count=3000,worlds=12,every=6){
@@ -66,6 +73,7 @@ function run(start=1456440,count=3000,worlds=12,every=6){
   const p=st.currentPlayer,n=(p+1)%3,o=(p+2)%3;
   const plain=choose(st,m,'plain'),joint=choose(st,m,'joint');
   const changed=plain.k!==joint.k;
+  const plainJointProb=probFor(st,m,plain.a,'joint');
   disc.selected++;if(hit.constrained)disc.selectedConstrained++;if(changed)disc.changed++;
   const spec={visibleState:st,focalPlayer:p,focalHand:st.hands[p],
    knownTiles:late.knownTiles(st),hiddenHandSizes:st.hands.map(x=>x.length),stockSize:0};
@@ -74,7 +82,7 @@ function run(start=1456440,count=3000,worlds=12,every=6){
   const row={seed,turn:st.turns,focal:p,nextSize:st.hands[n].length,otherSize:st.hands[o].length,
    constrained:hit.constrained,changed,actions:d.turnOptions(st.branchState,st.openingState,st.hands[p],[]).actions.length,
    plain:{key:plain.k,prob:plain.prob,pips:plain.pips},joint:{key:joint.k,prob:joint.prob,pips:joint.pips},
-   actualPass,metrics:Object.fromEntries(POLICIES.map(z=>[z,{finishPP:0,pips:0,minusPP:0,blockPP:0}]))};
+   actualPass,plainJointProb,metrics:Object.fromEntries(POLICIES.map(z=>[z,{finishPP:0,pips:0,minusPP:0,blockPP:0}]))};
   if(changed){
    for(let i=0;i<worlds;i++){
     const ws=(3800000000+(seed-start)*128+i)>>>0,world=ph.sample(spec,m,ws);
@@ -96,10 +104,9 @@ function run(start=1456440,count=3000,worlds=12,every=6){
   actualNextPassRate:ci(sub.map(x=>x.actualPass)),
   plainPassBrier:ci(sub.map(x=>(x.plain.prob-x.actualPass)**2)),
   jointPassBrier:ci(sub.map(x=>(x.joint.prob-x.actualPass)**2)),
-  plainChosenJointCalibrationBrier:ci(sub.map(x=>{
-   // For chosen plain action, re-evaluate conditional probability separately in the selected state.
-   return x.plainJointBrier??NaN;
-  }).filter(Number.isFinite)),
+  sameActionPlainBrier:ci(sub.map(x=>(x.plain.prob-x.actualPass)**2)),
+  sameActionJointBrier:ci(sub.map(x=>(x.plainJointProb-x.actualPass)**2)),
+  sameActionJointMinusPlainPassPP:ci(sub.map(x=>100*(x.plainJointProb-x.plain.prob))),
   policies:Object.fromEntries(POLICIES.map(z=>[z,Object.fromEntries(
    ['finishPP','pips','minusPP','blockPP'].map(k=>[k,ci(sub.map(x=>x.metrics[z][k]))]))]))});
  const stamp=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Baku',year:'numeric',
