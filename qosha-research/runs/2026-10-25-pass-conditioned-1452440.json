@@ -1,0 +1,7779 @@
+{
+  "schema": "qosha-pass-conditioned-hidden-worlds/v1",
+  "timestampBaku": "2026-10-25 00:51:37 +04",
+  "engine": "qosa-research-0.5.3",
+  "rules": "recovered qosa-1.0.0, 3x9, provisional number-lock geometry",
+  "seedStart": 1452440,
+  "seedEnd": 1456439,
+  "uniqueDeals": 4000,
+  "discovery": {
+    "rounds": 4000,
+    "finishes": 3851,
+    "blocks": 149,
+    "unresolved": 0,
+    "passes": 12047,
+    "eligibleConstrained": 2745,
+    "shortNext1": 11,
+    "shortNext1WithUnseenPassConstraint": 0
+  },
+  "positions": 200,
+  "worldsPerPosition": 12,
+  "conditionalAllocations": 2400,
+  "uniformControlAllocations": 2400,
+  "fullRoundContinuations": 4000,
+  "forcedCounterfactualContinuations": 9600,
+  "policies": [
+    "random-legal",
+    "min-hand-pips"
+  ],
+  "strategies": [
+    "homogeneous max-pips discovery",
+    "min-hand-pips baseline",
+    "joint posterior max-next-pass alternative"
+  ],
+  "worldSeedFormula": "(3700000000+(dealSeed-seedStart)*128+worldIndex)>>>0",
+  "selection": "First constrained multi-choice state per deal; first limit positions; baseline min-pips, alternative maximizes joint next-pass probability",
+  "sampler": "Exact uniform conditional allocation of unseen tiles after both opponents no-stock passes, mandatory-next/mandatory-other/flexible; ignores earlier policy-choice likelihood",
+  "summary": {
+    "all": {
+      "positions": 200,
+      "uniformInvalid": {
+        "n": 200,
+        "mean": 0.737916666666667,
+        "halfWidth95": 0.029208719599975872
+      },
+      "unseenRestrictions": {
+        "n": 200,
+        "mean": 2.19,
+        "halfWidth95": 0.13711555190008307
+      },
+      "baselinePlainBrier": {
+        "n": 200,
+        "mean": 0.02614295377983184,
+        "halfWidth95": 0.010520047640997727
+      },
+      "baselineJointBrier": {
+        "n": 200,
+        "mean": 0.0006208616780045352,
+        "halfWidth95": 0.0010957473388785706
+      },
+      "alternativePlainBrier": {
+        "n": 200,
+        "mean": 0.029883047721535622,
+        "halfWidth95": 0.010202874127308054
+      },
+      "alternativeJointBrier": {
+        "n": 200,
+        "mean": 0.008130032057588877,
+        "halfWidth95": 0.007792962967002042
+      },
+      "baselineJointMinusPlainPassPP": {
+        "n": 200,
+        "mean": -6.902919547772484,
+        "halfWidth95": 1.973306529467584
+      },
+      "policies": {
+        "random-legal": {
+          "finishPP": {
+            "n": 200,
+            "mean": -2.1666666666666665,
+            "halfWidth95": 2.8343187172107926
+          },
+          "pips": {
+            "n": 200,
+            "mean": 0.7395833333333331,
+            "halfWidth95": 0.3041283458915116
+          },
+          "minusPP": {
+            "n": 200,
+            "mean": -0.3333333333333334,
+            "halfWidth95": 1.0789670805523641
+          },
+          "blockPP": {
+            "n": 200,
+            "mean": 0.29166666666666663,
+            "halfWidth95": 1.4386007717035958
+          }
+        },
+        "min-hand-pips": {
+          "finishPP": {
+            "n": 200,
+            "mean": 1.7916666666666665,
+            "halfWidth95": 4.137356121437967
+          },
+          "pips": {
+            "n": 200,
+            "mean": 0.43541666666666656,
+            "halfWidth95": 0.3335430131449485
+          },
+          "minusPP": {
+            "n": 200,
+            "mean": -0.5416666666666667,
+            "halfWidth95": 2.1539467851389733
+          },
+          "blockPP": {
+            "n": 200,
+            "mean": 1.624999999999999,
+            "halfWidth95": 1.9672964064303498
+          }
+        }
+      }
+    },
+    "next1": {
+      "positions": 3,
+      "uniformInvalid": {
+        "n": 3,
+        "mean": 0.5555555555555556,
+        "halfWidth95": 0.1440464602690721
+      },
+      "unseenRestrictions": {
+        "n": 3,
+        "mean": 1,
+        "halfWidth95": 0
+      },
+      "baselinePlainBrier": {
+        "n": 3,
+        "mean": 0.20370370370370372,
+        "halfWidth95": 0.09074074074074073
+      },
+      "baselineJointBrier": {
+        "n": 3,
+        "mean": 0,
+        "halfWidth95": 0
+      },
+      "alternativePlainBrier": {
+        "n": 3,
+        "mean": 0.12037037037037036,
+        "halfWidth95": 0.14174156819238004
+      },
+      "alternativeJointBrier": {
+        "n": 3,
+        "mean": 0,
+        "halfWidth95": 0
+      },
+      "baselineJointMinusPlainPassPP": {
+        "n": 3,
+        "mean": -44.444444444444436,
+        "halfWidth95": 10.888888888888891
+      },
+      "policies": {
+        "random-legal": {
+          "finishPP": {
+            "n": 3,
+            "mean": 0,
+            "halfWidth95": 0
+          },
+          "pips": {
+            "n": 3,
+            "mean": 0.3333333333333333,
+            "halfWidth95": 0.6533333333333334
+          },
+          "minusPP": {
+            "n": 3,
+            "mean": 0,
+            "halfWidth95": 0
+          },
+          "blockPP": {
+            "n": 3,
+            "mean": 0,
+            "halfWidth95": 0
+          }
+        },
+        "min-hand-pips": {
+          "finishPP": {
+            "n": 3,
+            "mean": 0,
+            "halfWidth95": 0
+          },
+          "pips": {
+            "n": 3,
+            "mean": 0.3333333333333333,
+            "halfWidth95": 0.6533333333333334
+          },
+          "minusPP": {
+            "n": 3,
+            "mean": 0,
+            "halfWidth95": 0
+          },
+          "blockPP": {
+            "n": 3,
+            "mean": 0,
+            "halfWidth95": 0
+          }
+        }
+      }
+    },
+    "next2": {
+      "positions": 9,
+      "uniformInvalid": {
+        "n": 9,
+        "mean": 0.6388888888888888,
+        "halfWidth95": 0.13880664231447026
+      },
+      "unseenRestrictions": {
+        "n": 9,
+        "mean": 1.2222222222222223,
+        "halfWidth95": 0.2880929205381442
+      },
+      "baselinePlainBrier": {
+        "n": 9,
+        "mean": 0.13766943814562863,
+        "halfWidth95": 0.13910125271299772
+      },
+      "baselineJointBrier": {
+        "n": 9,
+        "mean": 0.012345679012345682,
+        "halfWidth95": 0.024197530864197535
+      },
+      "alternativePlainBrier": {
+        "n": 9,
+        "mean": 0.1441068279163517,
+        "halfWidth95": 0.12258188079965586
+      },
+      "alternativeJointBrier": {
+        "n": 9,
+        "mean": 0.0771604938271605,
+        "halfWidth95": 0.15123456790123457
+      },
+      "baselineJointMinusPlainPassPP": {
+        "n": 9,
+        "mean": -14.33862433862434,
+        "halfWidth95": 20.86442749526273
+      },
+      "policies": {
+        "random-legal": {
+          "finishPP": {
+            "n": 9,
+            "mean": 15.740740740740742,
+            "halfWidth95": 17.942819939462492
+          },
+          "pips": {
+            "n": 9,
+            "mean": 1.4351851851851851,
+            "halfWidth95": 1.6576026162716162
+          },
+          "minusPP": {
+            "n": 9,
+            "mean": 0,
+            "halfWidth95": 0
+          },
+          "blockPP": {
+            "n": 9,
+            "mean": 1.851851851851852,
+            "halfWidth95": 8.065213452749331
+          }
+        },
+        "min-hand-pips": {
+          "finishPP": {
+            "n": 9,
+            "mean": 25.925925925925924,
+            "halfWidth95": 32.48974724846072
+          },
+          "pips": {
+            "n": 9,
+            "mean": 1.8055555555555556,
+            "halfWidth95": 2.711721413547372
+          },
+          "minusPP": {
+            "n": 9,
+            "mean": 0,
+            "halfWidth95": 0
+          },
+          "blockPP": {
+            "n": 9,
+            "mean": 11.111111111111109,
+            "halfWidth95": 21.77777777777777
+          }
+        }
+      }
+    },
+    "next3plus": {
+      "positions": 188,
+      "uniformInvalid": {
+        "n": 188,
+        "mean": 0.7455673758865248,
+        "halfWidth95": 0.030018298403938687
+      },
+      "unseenRestrictions": {
+        "n": 188,
+        "mean": 2.25531914893617,
+        "halfWidth95": 0.14014718117590963
+      },
+      "baselinePlainBrier": {
+        "n": 188,
+        "mean": 0.017970503731620218,
+        "halfWidth95": 0.0077664838034555645
+      },
+      "baselineJointBrier": {
+        "n": 188,
+        "mean": 0.00006947459834997828,
+        "halfWidth95": 0.00013617021276595705
+      },
+      "alternativePlainBrier": {
+        "n": 188,
+        "mean": 0.022970941393344952,
+        "halfWidth95": 0.008194504568561443
+      },
+      "alternativeJointBrier": {
+        "n": 188,
+        "mean": 0.004955116846134739,
+        "halfWidth95": 0.004122555448879317
+      },
+      "baselineJointMinusPlainPassPP": {
+        "n": 188,
+        "mean": -5.947888070072049,
+        "halfWidth95": 1.7208720633713754
+      },
+      "policies": {
+        "random-legal": {
+          "finishPP": {
+            "n": 188,
+            "mean": -3.058510638297873,
+            "halfWidth95": 2.846392211739357
+          },
+          "pips": {
+            "n": 188,
+            "mean": 0.7127659574468085,
+            "halfWidth95": 0.31379520223045426
+          },
+          "minusPP": {
+            "n": 188,
+            "mean": -0.3546099290780143,
+            "halfWidth95": 1.1479539418216282
+          },
+          "blockPP": {
+            "n": 188,
+            "mean": 0.22163120567375877,
+            "halfWidth95": 1.4856699498286885
+          }
+        },
+        "min-hand-pips": {
+          "finishPP": {
+            "n": 188,
+            "mean": 0.664893617021277,
+            "halfWidth95": 4.07640794721071
+          },
+          "pips": {
+            "n": 188,
+            "mean": 0.37145390070921985,
+            "halfWidth95": 0.3299702656906599
+          },
+          "minusPP": {
+            "n": 188,
+            "mean": -0.5762411347517732,
+            "halfWidth95": 2.2917110342007945
+          },
+          "blockPP": {
+            "n": 188,
+            "mean": 1.1968085106382975,
+            "halfWidth95": 1.8212794983590619
+          }
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "seed": 1452440,
+      "turn": 1,
+      "focal": 2,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|5||1-5",
+        "plain": 0.04117647058823528,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|3||1-3",
+        "plain": 0.04117647058823528,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -25,
+          "pips": 2.833333333333333,
+          "minusPP": 8.333333333333334,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": 1.0833333333333333,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452442,
+      "turn": 8,
+      "focal": 1,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 6,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|right|3||3-6",
+        "plain": 0.22727272727272732,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.0010822510822510823,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 2.9999999999999996,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": -0.16666666666666674,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452443,
+      "turn": 1,
+      "focal": 0,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "single|down|2||1-2",
+        "plain": 0.01470588235294118,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-1",
+        "plain": 0.01470588235294118,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 16.666666666666668,
+          "pips": 1.6666666666666663,
+          "minusPP": 0,
+          "blockPP": -16.666666666666668
+        },
+        "min-hand-pips": {
+          "finishPP": 33.333333333333336,
+          "pips": -4.750000000000001,
+          "minusPP": 0,
+          "blockPP": -16.666666666666668
+        }
+      }
+    },
+    {
+      "seed": 1452445,
+      "turn": 8,
+      "focal": 2,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 6,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|up|4||4-6",
+        "plain": 0.22727272727272732,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|0||0-6",
+        "plain": 0.09090909090909088,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 2.0833333333333335,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": -0.3333333333333334,
+          "minusPP": 8.333333333333334,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452446,
+      "turn": 19,
+      "focal": 0,
+      "handSize": 4,
+      "nextSize": 4,
+      "otherSize": 1,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|right|3||3-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-1",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 3,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": 1.0000000000000002,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 33.333333333333336,
+          "pips": 0.25,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452447,
+      "turn": 10,
+      "focal": 2,
+      "handSize": 6,
+      "nextSize": 6,
+      "otherSize": 7,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|up|3||3-6",
+        "plain": 0.1223776223776224,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|2||2-6",
+        "plain": 0.2692307692307693,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 2.3333333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": -1,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452448,
+      "turn": 18,
+      "focal": 1,
+      "handSize": 3,
+      "nextSize": 2,
+      "otherSize": 4,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|up|3||2-3",
+        "plain": 0.6666666666666667,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|0||0-2",
+        "plain": 0.2,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 3.7499999999999996,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 25,
+          "pips": 2.583333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452449,
+      "turn": 19,
+      "focal": 1,
+      "handSize": 3,
+      "nextSize": 2,
+      "otherSize": 3,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|1||0-1",
+        "plain": 0.6000000000000001,
+        "joint": 1,
+        "actual": 1
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 50.00000000000001,
+          "pips": -1.6666666666666663,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 99.99999999999999,
+          "pips": -1,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452450,
+      "turn": 14,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 5,
+      "otherSize": 5,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.023809523809523808,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|2||2-5",
+        "plain": 1,
+        "joint": 1,
+        "actual": 1
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 50.00000000000001,
+          "pips": -2.0833333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.4166666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452451,
+      "turn": 13,
+      "focal": 0,
+      "handSize": 5,
+      "nextSize": 5,
+      "otherSize": 4,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|left|0||0-5",
+        "plain": 0.007936507936507936,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-5",
+        "plain": 0.007936507936507936,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.25,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": 0.5,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452453,
+      "turn": 4,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|right|4||1-4",
+        "plain": 0.03846153846153845,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-1",
+        "plain": 0.09999999999999999,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 16.666666666666668,
+          "pips": 1.1666666666666665,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": 2.833333333333333,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452454,
+      "turn": 4,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||4,5|4-4,5-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.0006993006993006993,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 1.1666666666666665,
+          "minusPP": 8.333333333333334,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.33333333333333337,
+          "minusPP": -16.666666666666668,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452456,
+      "turn": 4,
+      "focal": 0,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "single|right|4||1-4",
+        "plain": 0.09999999999999999,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 2,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 25,
+          "pips": -2.1666666666666665,
+          "minusPP": 8.333333333333334,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452458,
+      "turn": 19,
+      "focal": 0,
+      "handSize": 3,
+      "nextSize": 3,
+      "otherSize": 1,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|left|5||0-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|2||0-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 3,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 3,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452459,
+      "turn": 2,
+      "focal": 1,
+      "handSize": 9,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.12352941176470589,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0.020361990950226245,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -33.333333333333336,
+          "pips": 4.75,
+          "minusPP": -16.666666666666668,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": 1.7500000000000002,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452461,
+      "turn": 20,
+      "focal": 1,
+      "handSize": 4,
+      "nextSize": 3,
+      "otherSize": 2,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|left|0||0-2",
+        "plain": 1,
+        "joint": 1,
+        "actual": 1
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0.6666666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": 2.6666666666666665,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452462,
+      "turn": 18,
+      "focal": 0,
+      "handSize": 4,
+      "nextSize": 3,
+      "otherSize": 3,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|right|3||0-3",
+        "plain": 0.5,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|2||0-2",
+        "plain": 0.19999999999999998,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 0.49999999999999994,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": -2.8333333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452463,
+      "turn": 20,
+      "focal": 1,
+      "handSize": 1,
+      "nextSize": 3,
+      "otherSize": 4,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|down|6||5-6",
+        "plain": 0.2857142857142857,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|6||5-6",
+        "plain": 0.2857142857142857,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 5,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452464,
+      "turn": 5,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||4,6|4-4,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.018648018648018648,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": -1.25,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 1.9166666666666665,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452465,
+      "turn": 2,
+      "focal": 1,
+      "handSize": 9,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|5||1-5",
+        "plain": 0.05294117647058823,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-1",
+        "plain": 0.05294117647058823,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -25,
+          "pips": 1.3333333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": 0.7499999999999999,
+          "minusPP": -8.333333333333334,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452468,
+      "turn": 9,
+      "focal": 2,
+      "handSize": 6,
+      "nextSize": 6,
+      "otherSize": 7,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|right|6||1-6",
+        "plain": 0.5384615384615384,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0.004079254079254079,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 1.6666666666666665,
+          "minusPP": 0,
+          "blockPP": -16.666666666666668
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666664,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452470,
+      "turn": 7,
+      "focal": 1,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 7,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||4,5,6|4-4,5-5,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||4,5|4-4,5-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -25,
+          "pips": 0.9166666666666667,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        },
+        "min-hand-pips": {
+          "finishPP": 33.333333333333336,
+          "pips": -0.8333333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452472,
+      "turn": 18,
+      "focal": 0,
+      "handSize": 3,
+      "nextSize": 4,
+      "otherSize": 3,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|3||2-3",
+        "plain": 0.14285714285714285,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 33.333333333333336,
+          "pips": -2.166666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452474,
+      "turn": 8,
+      "focal": 0,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 7,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0.1223776223776224,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|2||1-2",
+        "plain": 0.2692307692307693,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 3,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 25,
+          "pips": -1.2499999999999998,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 25,
+          "pips": -0.6666666666666669,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452476,
+      "turn": 4,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||6|6-6",
+        "plain": 0.0000777000777000777,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|3||1-3",
+        "plain": 0.09999999999999999,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": -0.25,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": -0.5000000000000002,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452477,
+      "turn": 4,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||6|6-6",
+        "plain": 0.003496503496503496,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-1",
+        "plain": 0.09999999999999999,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -1.8333333333333328,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": 5.166666666666666,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452478,
+      "turn": 4,
+      "focal": 0,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||6|6-6",
+        "plain": 0.003496503496503496,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-1",
+        "plain": 0.09999999999999999,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": -0.16666666666666696,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": 2.833333333333333,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452479,
+      "turn": 26,
+      "focal": 0,
+      "handSize": 1,
+      "nextSize": 1,
+      "otherSize": 2,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|down|1||1-3",
+        "plain": 0.3333333333333333,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|1||1-3",
+        "plain": 0.3333333333333333,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452481,
+      "turn": 22,
+      "focal": 0,
+      "handSize": 2,
+      "nextSize": 2,
+      "otherSize": 2,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|right|3||3-4",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|3||0-3",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 33.333333333333336,
+          "pips": -1,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 33.333333333333336,
+          "pips": -1,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452482,
+      "turn": 2,
+      "focal": 2,
+      "handSize": 9,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.05294117647058823,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||1-2",
+        "plain": 0.05294117647058823,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -4.166666666666667,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 2.6666666666666665,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452484,
+      "turn": 3,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||2,6|2-2,6-6",
+        "plain": 0.00037021801727684083,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.05294117647058823,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 1.0833333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": -0.0833333333333334,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452486,
+      "turn": 5,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||0,5|0-0,5-5",
+        "plain": 0.0001554001554001554,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0.005594405594405593,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": -1.6666666666666665,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -25,
+          "pips": 2.5,
+          "minusPP": -25,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452489,
+      "turn": 1,
+      "focal": 0,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.10294117647058826,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||1-2",
+        "plain": 0.10294117647058826,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 25,
+          "pips": -0.24999999999999972,
+          "minusPP": 8.333333333333334,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -33.333333333333336,
+          "pips": 1.1666666666666665,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        }
+      }
+    },
+    {
+      "seed": 1452490,
+      "turn": 19,
+      "focal": 1,
+      "handSize": 2,
+      "nextSize": 3,
+      "otherSize": 2,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|4||4-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|0||0-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452492,
+      "turn": 8,
+      "focal": 1,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 7,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||2,6|2-2,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|2||2-5",
+        "plain": 1,
+        "joint": 1,
+        "actual": 1
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.8333333333333334,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 33.333333333333336,
+          "pips": -1.5833333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452493,
+      "turn": 1,
+      "focal": 2,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.2352941176470588,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-1",
+        "plain": 0.10294117647058826,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -25,
+          "pips": 2.583333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -33.333333333333336,
+          "pips": 2.416666666666667,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        }
+      }
+    },
+    {
+      "seed": 1452496,
+      "turn": 1,
+      "focal": 1,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|5||1-5",
+        "plain": 0.04117647058823528,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||1-2",
+        "plain": 0.10294117647058826,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 3.083333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 33.333333333333336,
+          "pips": -1.2499999999999998,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452497,
+      "turn": 22,
+      "focal": 0,
+      "handSize": 2,
+      "nextSize": 4,
+      "otherSize": 2,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|3||1-3",
+        "plain": 0.06666666666666665,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|1||1-3",
+        "plain": 1,
+        "joint": 1,
+        "actual": 1
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -50.00000000000001,
+          "pips": 4.5,
+          "minusPP": 0,
+          "blockPP": 91.66666666666666
+        },
+        "min-hand-pips": {
+          "finishPP": -50.00000000000001,
+          "pips": 4.5,
+          "minusPP": 0,
+          "blockPP": 99.99999999999999
+        }
+      }
+    },
+    {
+      "seed": 1452498,
+      "turn": 19,
+      "focal": 1,
+      "handSize": 3,
+      "nextSize": 3,
+      "otherSize": 1,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|down|0||0-6",
+        "plain": 0.25,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-1",
+        "plain": 0.25,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 3,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 3.7499999999999996,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 4.249999999999999,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452500,
+      "turn": 11,
+      "focal": 2,
+      "handSize": 6,
+      "nextSize": 5,
+      "otherSize": 5,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|right|6||3-6",
+        "plain": 0.5,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.003968253968253968,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 2.166666666666666,
+          "minusPP": -8.333333333333334,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": 2.2500000000000004,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452501,
+      "turn": 15,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 5,
+      "otherSize": 3,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|left|0||0-2",
+        "plain": 0.10714285714285712,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|0||0-2",
+        "plain": 0.10714285714285712,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452502,
+      "turn": 17,
+      "focal": 0,
+      "handSize": 4,
+      "nextSize": 3,
+      "otherSize": 3,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-4",
+        "plain": 0.05,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0.41666666666666663,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452503,
+      "turn": 13,
+      "focal": 0,
+      "handSize": 5,
+      "nextSize": 5,
+      "otherSize": 4,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|6||3-6",
+        "plain": 0.16666666666666666,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|4||3-4",
+        "plain": 0.007936507936507936,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": 0.8333333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": -1.0833333333333335,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452504,
+      "turn": 22,
+      "focal": 1,
+      "handSize": 1,
+      "nextSize": 2,
+      "otherSize": 1,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|left|1||1-4",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|1||1-4",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 3,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452505,
+      "turn": 4,
+      "focal": 0,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||3,5,6|3-3,5-5,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|2||1-2",
+        "plain": 0.5,
+        "joint": 0.5714285714285714,
+        "actual": 1
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.5833333333333334,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666668,
+          "pips": -0.6666666666666665,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452506,
+      "turn": 9,
+      "focal": 0,
+      "handSize": 6,
+      "nextSize": 6,
+      "otherSize": 7,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||2,6|2-2,6-6",
+        "plain": 0.0005827505827505828,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.016317016317016316,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -33.333333333333336,
+          "pips": 1.7499999999999998,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -33.333333333333336,
+          "pips": 0.08333333333333326,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452507,
+      "turn": 12,
+      "focal": 2,
+      "handSize": 6,
+      "nextSize": 7,
+      "otherSize": 4,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|2||2-4",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|2||2-4",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 1,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452508,
+      "turn": 7,
+      "focal": 2,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 7,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||4,5|4-4,5-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.0023310023310023306,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -33.333333333333336,
+          "pips": 1.3333333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 2.0833333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452510,
+      "turn": 13,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 6,
+      "otherSize": 4,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|4||4-6",
+        "plain": 0.004761904761904762,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|3||3-6",
+        "plain": 0.4,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 16.666666666666664,
+          "pips": -0.6666666666666666,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": 1.25,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452511,
+      "turn": 12,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 5,
+      "otherSize": 6,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||3,6|3-3,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0.04545454545454545,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -1.0833333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": -0.9166666666666669,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452512,
+      "turn": 4,
+      "focal": 0,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||6|6-6",
+        "plain": 0.0006993006993006993,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-1",
+        "plain": 0.23333333333333336,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 50.00000000000001,
+          "pips": -2.9999999999999996,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666668,
+          "pips": 1.8333333333333333,
+          "minusPP": -33.333333333333336,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452513,
+      "turn": 1,
+      "focal": 2,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.10294117647058826,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-1",
+        "plain": 0.10294117647058826,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0.9999999999999998,
+          "minusPP": -8.333333333333334,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 41.66666666666667,
+          "pips": -0.49999999999999983,
+          "minusPP": 8.333333333333334,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452516,
+      "turn": 11,
+      "focal": 2,
+      "handSize": 6,
+      "nextSize": 6,
+      "otherSize": 6,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||0,5|0-0,5-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0.007575757575757574,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 3,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 1,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -25,
+          "pips": 2.083333333333333,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        }
+      }
+    },
+    {
+      "seed": 1452517,
+      "turn": 20,
+      "focal": 1,
+      "handSize": 5,
+      "nextSize": 3,
+      "otherSize": 2,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|6||4-6",
+        "plain": 0.09999999999999999,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-4",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 3.5,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": -9,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452518,
+      "turn": 4,
+      "focal": 0,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "single|right|4||1-4",
+        "plain": 0.03846153846153845,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|2||1-2",
+        "plain": 0.03846153846153845,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -25,
+          "pips": 2.333333333333333,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": -0.9166666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452519,
+      "turn": 16,
+      "focal": 1,
+      "handSize": 4,
+      "nextSize": 3,
+      "otherSize": 4,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||0,2|0-0,2-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -58.33333333333334,
+          "pips": 4.083333333333334,
+          "minusPP": 25,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -41.66666666666667,
+          "pips": 2.916666666666667,
+          "minusPP": 58.33333333333334,
+          "blockPP": 25
+        }
+      }
+    },
+    {
+      "seed": 1452521,
+      "turn": 8,
+      "focal": 1,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 5,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|5||2-5",
+        "plain": 0.060606060606060594,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-2",
+        "plain": 0.18181818181818182,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 2.9999999999999996,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 7.666666666666666,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        }
+      }
+    },
+    {
+      "seed": 1452522,
+      "turn": 11,
+      "focal": 1,
+      "handSize": 6,
+      "nextSize": 5,
+      "otherSize": 6,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|up|4||4-5",
+        "plain": 0.04545454545454545,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|3||3-5",
+        "plain": 0.27272727272727276,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": 0.25000000000000006,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666668,
+          "pips": -0.08333333333333293,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452523,
+      "turn": 5,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||6|6-6",
+        "plain": 0.018648018648018648,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|0||0-1",
+        "plain": 0.2666666666666667,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.4999999999999999,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.4166666666666666,
+          "minusPP": -16.666666666666668,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452524,
+      "turn": 17,
+      "focal": 0,
+      "handSize": 3,
+      "nextSize": 4,
+      "otherSize": 5,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|right|5||5-6",
+        "plain": 0.11904761904761903,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.5833333333333334,
+          "minusPP": -41.66666666666667,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": 1.1666666666666667,
+          "minusPP": -33.333333333333336,
+          "blockPP": 16.666666666666668
+        }
+      }
+    },
+    {
+      "seed": 1452525,
+      "turn": 13,
+      "focal": 0,
+      "handSize": 3,
+      "nextSize": 4,
+      "otherSize": 5,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|left|2||2-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 16.666666666666668,
+          "pips": -0.8333333333333334,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 50.00000000000001,
+          "pips": -2.25,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452526,
+      "turn": 13,
+      "focal": 0,
+      "handSize": 6,
+      "nextSize": 5,
+      "otherSize": 5,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|down|3||2-3",
+        "plain": 0.22222222222222224,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|3||2-3",
+        "plain": 0.22222222222222224,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 4,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": -1.0833333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 1,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452527,
+      "turn": 23,
+      "focal": 1,
+      "handSize": 3,
+      "nextSize": 1,
+      "otherSize": 1,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|down|1||1-2",
+        "plain": 0.5,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 1,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 1,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452528,
+      "turn": 4,
+      "focal": 0,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "double-sequence|||6|6-6",
+        "plain": 0.0000777000777000777,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-1",
+        "plain": 0.23333333333333336,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 25,
+          "pips": -2.25,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.8333333333333333,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452529,
+      "turn": 3,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0.0018510900863842042,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|5||1-5",
+        "plain": 0.05294117647058823,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 1,
+          "minusPP": -8.333333333333334,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 75,
+          "pips": -6.666666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452530,
+      "turn": 5,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|left|5||1-5",
+        "plain": 0.2666666666666667,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|2||1-2",
+        "plain": 0.2666666666666667,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 2.5833333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 2.1666666666666665,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452532,
+      "turn": 1,
+      "focal": 0,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.2352941176470588,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-1",
+        "plain": 0.2352941176470588,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 4,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 2.9166666666666665,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 2,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452533,
+      "turn": 16,
+      "focal": 1,
+      "handSize": 4,
+      "nextSize": 5,
+      "otherSize": 2,
+      "unseenRestrictions": 5,
+      "baseline": {
+        "key": "single|left|5||0-5",
+        "plain": 0.047619047619047616,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -75,
+          "pips": 6.333333333333333,
+          "minusPP": -16.666666666666668,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -99.99999999999999,
+          "pips": 5,
+          "minusPP": -99.99999999999999,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452536,
+      "turn": 15,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 6,
+      "otherSize": 4,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|0||0-6",
+        "plain": 0.033333333333333326,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 16.666666666666664,
+          "pips": 0.5833333333333333,
+          "minusPP": 0,
+          "blockPP": -16.666666666666668
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": -0.75,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452537,
+      "turn": 7,
+      "focal": 1,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 6,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||6|6-6",
+        "plain": 0.02097902097902098,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|2||1-2",
+        "plain": 1,
+        "joint": 1,
+        "actual": 1
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.5833333333333334,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 58.33333333333334,
+          "pips": -2.0833333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452538,
+      "turn": 5,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||3,5,6|3-3,5-5,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3,5|3-3,5-5",
+        "plain": 0.0001554001554001554,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": -0.5833333333333333,
+          "minusPP": -8.333333333333334,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.08333333333333333,
+          "minusPP": -8.333333333333334,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452539,
+      "turn": 16,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 4,
+      "otherSize": 3,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|4||0-4",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|4||0-4",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": -0.16666666666666666,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452540,
+      "turn": 16,
+      "focal": 1,
+      "handSize": 4,
+      "nextSize": 4,
+      "otherSize": 4,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|up|0||0-6",
+        "plain": 0.21428571428571425,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.4166666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 99.99999999999999,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452541,
+      "turn": 7,
+      "focal": 1,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 7,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||4,5|4-4,5-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.0023310023310023306,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 33.333333333333336,
+          "pips": -3,
+          "minusPP": 0,
+          "blockPP": -16.666666666666668
+        },
+        "min-hand-pips": {
+          "finishPP": -33.333333333333336,
+          "pips": 0.9166666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452542,
+      "turn": 1,
+      "focal": 0,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.04117647058823528,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|5||1-5",
+        "plain": 0.01470588235294118,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 2.1666666666666665,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.4999999999999999,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452544,
+      "turn": 13,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 4,
+      "otherSize": 4,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "single|up|4||3-4",
+        "plain": 0.014285714285714285,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|0||0-3",
+        "plain": 0.014285714285714285,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": -0.6666666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": -1,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452545,
+      "turn": 3,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0.00678733031674208,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|0||0-1",
+        "plain": 0.12352941176470589,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": 0.6666666666666667,
+          "minusPP": 0,
+          "blockPP": -16.666666666666668
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.8333333333333333,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452546,
+      "turn": 17,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 3,
+      "otherSize": 2,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|left|6||3-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||2-4",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 1.1666666666666667,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 6,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452547,
+      "turn": 4,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||3,5|3-3,5-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0.003496503496503496,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.16666666666666663,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": 0.9166666666666667,
+          "minusPP": -8.333333333333334,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452548,
+      "turn": 13,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 4,
+      "otherSize": 5,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||0,4|0-0,4-4",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0.007936507936507936,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -33.333333333333336,
+          "pips": -0.3333333333333334,
+          "minusPP": 16.666666666666668,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -91.66666666666666,
+          "pips": 4.333333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452549,
+      "turn": 2,
+      "focal": 0,
+      "handSize": 9,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.020361990950226245,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|4||1-4",
+        "plain": 0.05294117647058823,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 2.25,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": -1.916666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452552,
+      "turn": 18,
+      "focal": 1,
+      "handSize": 3,
+      "nextSize": 3,
+      "otherSize": 2,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|1||1-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|1||1-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452553,
+      "turn": 1,
+      "focal": 0,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.10294117647058826,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||1-2",
+        "plain": 0.04117647058823528,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -25,
+          "pips": 2.3333333333333335,
+          "minusPP": 8.333333333333334,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666668,
+          "pips": -1.2500000000000002,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452554,
+      "turn": 2,
+      "focal": 2,
+      "handSize": 9,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.00678733031674208,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||1-2",
+        "plain": 0.05294117647058823,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -2.583333333333333,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -41.66666666666667,
+          "pips": 2,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452555,
+      "turn": 15,
+      "focal": 1,
+      "handSize": 5,
+      "nextSize": 2,
+      "otherSize": 5,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|up|2||2-6",
+        "plain": 0.7142857142857143,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.47619047619047616,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 5.333333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -41.66666666666667,
+          "pips": 9.25,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452556,
+      "turn": 5,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||5,6|5-5,6-6",
+        "plain": 0.0001554001554001554,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||5|5-5",
+        "plain": 0.018648018648018648,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666664,
+          "pips": 5,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": -1.3333333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452557,
+      "turn": 18,
+      "focal": 1,
+      "handSize": 1,
+      "nextSize": 3,
+      "otherSize": 4,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|right|2||0-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|2||0-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452558,
+      "turn": 7,
+      "focal": 0,
+      "handSize": 6,
+      "nextSize": 7,
+      "otherSize": 7,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|up|6||4-6",
+        "plain": 0.23076923076923078,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|2||2-4",
+        "plain": 0.03496503496503496,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 16.666666666666668,
+          "pips": 0.08333333333333309,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 33.333333333333336,
+          "pips": -2.1666666666666665,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452559,
+      "turn": 5,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||2,5|2-2,5-5",
+        "plain": 0.0001554001554001554,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.005594405594405593,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 2.7499999999999996,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 1.4166666666666667,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452560,
+      "turn": 14,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 5,
+      "otherSize": 3,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|3||0-3",
+        "plain": 0.017857142857142856,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -1.6666666666666672,
+          "minusPP": 8.333333333333334,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 58.33333333333334,
+          "pips": -3.75,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452561,
+      "turn": 5,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||4,6|4-4,6-6",
+        "plain": 0.0012432012432012434,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.018648018648018648,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -25,
+          "pips": 4.333333333333334,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 2.333333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452562,
+      "turn": 19,
+      "focal": 1,
+      "handSize": 3,
+      "nextSize": 3,
+      "otherSize": 2,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|up|4||0-4",
+        "plain": 0.4,
+        "joint": 1,
+        "actual": 1
+      },
+      "alternative": {
+        "key": "single|up|3||0-3",
+        "plain": 0.09999999999999999,
+        "joint": 0.25,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": 1.25,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 3.583333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452563,
+      "turn": 7,
+      "focal": 0,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 6,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||6|6-6",
+        "plain": 0.06993006993006994,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-1",
+        "plain": 1,
+        "joint": 1,
+        "actual": 1
+      },
+      "invalidUniform": 4,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 25,
+          "pips": -0.41666666666666663,
+          "minusPP": 8.333333333333334,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": 0,
+          "minusPP": -25,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452564,
+      "turn": 4,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0.0006993006993006993,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|4||1-4",
+        "plain": 0.23333333333333336,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 25,
+          "pips": -4.416666666666667,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666668,
+          "pips": -4.5,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452565,
+      "turn": 16,
+      "focal": 1,
+      "handSize": 4,
+      "nextSize": 4,
+      "otherSize": 3,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|right|0||0-6",
+        "plain": 0.02857142857142857,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||2-3",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 1.0000000000000002,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -58.33333333333334,
+          "pips": 4.333333333333334,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452566,
+      "turn": 4,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||0,6|0-0,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0.003496503496503496,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -33.333333333333336,
+          "pips": 3.1666666666666665,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -33.333333333333336,
+          "pips": 0.6666666666666665,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452567,
+      "turn": 8,
+      "focal": 0,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 6,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|left|3||3-6",
+        "plain": 1,
+        "joint": 1,
+        "actual": 1
+      },
+      "alternative": {
+        "key": "single|left|2||2-6",
+        "plain": 0.4999999999999999,
+        "joint": 0.5454545454545453,
+        "actual": 1
+      },
+      "invalidUniform": 4,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -33.333333333333336,
+          "pips": 3.0833333333333335,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.5833333333333334,
+          "minusPP": 8.333333333333334,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452568,
+      "turn": 21,
+      "focal": 2,
+      "handSize": 4,
+      "nextSize": 3,
+      "otherSize": 2,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|up|5||0-5",
+        "plain": 0.09999999999999999,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|3||0-3",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 2.583333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 2,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452569,
+      "turn": 7,
+      "focal": 1,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 7,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||3,5|3-3,5-5",
+        "plain": 0.0002913752913752914,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0.09615384615384616,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666664,
+          "pips": 0.6666666666666666,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666664,
+          "pips": -0.5833333333333334,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452572,
+      "turn": 16,
+      "focal": 0,
+      "handSize": 3,
+      "nextSize": 5,
+      "otherSize": 4,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.007936507936507936,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-6",
+        "plain": 0.047619047619047616,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 4,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 33.333333333333336,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 41.66666666666667,
+          "pips": -1.6666666666666665,
+          "minusPP": 50.00000000000001,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452573,
+      "turn": 23,
+      "focal": 2,
+      "handSize": 2,
+      "nextSize": 1,
+      "otherSize": 1,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|down|1||0-1",
+        "plain": 0.5,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|1||0-1",
+        "plain": 0.5,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 5,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452575,
+      "turn": 10,
+      "focal": 2,
+      "handSize": 6,
+      "nextSize": 6,
+      "otherSize": 6,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||0,2|0-0,2-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0.0010822510822510823,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -33.333333333333336,
+          "pips": 3.666666666666667,
+          "minusPP": 8.333333333333334,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -58.33333333333334,
+          "pips": 0.9999999999999999,
+          "minusPP": 16.666666666666668,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452576,
+      "turn": 11,
+      "focal": 2,
+      "handSize": 6,
+      "nextSize": 4,
+      "otherSize": 6,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|2||2-5",
+        "plain": 1,
+        "joint": 1,
+        "actual": 1
+      },
+      "alternative": {
+        "key": "double-sequence|||0,3|0-0,3-3",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 3.552713678800501e-15,
+          "pips": 0.9166666666666666,
+          "minusPP": 8.333333333333334,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -99.99999999999999,
+          "pips": 2.4166666666666665,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452578,
+      "turn": 16,
+      "focal": 0,
+      "handSize": 4,
+      "nextSize": 4,
+      "otherSize": 3,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|4||0-4",
+        "plain": 0.14285714285714285,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 16.666666666666664,
+          "pips": -1.3333333333333335,
+          "minusPP": 8.333333333333334,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.4166666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452580,
+      "turn": 5,
+      "focal": 0,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||2,5|2-2,5-5",
+        "plain": 0.005594405594405593,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.018648018648018648,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -25,
+          "pips": 2.9166666666666665,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -33.333333333333336,
+          "pips": 6,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452582,
+      "turn": 8,
+      "focal": 0,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 7,
+      "unseenRestrictions": 5,
+      "baseline": {
+        "key": "double-sequence|||3,4,5|3-3,4-4,5-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3,4|3-3,4-4",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.25,
+          "minusPP": -33.333333333333336,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -58.33333333333334,
+          "pips": 2.9166666666666665,
+          "minusPP": -83.33333333333333,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452584,
+      "turn": 8,
+      "focal": 2,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 7,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|left|5||1-5",
+        "plain": 0.1223776223776224,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|0||0-1",
+        "plain": 0.04895104895104895,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 1.5000000000000004,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": 0.6666666666666665,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452586,
+      "turn": 8,
+      "focal": 1,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 5,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|3||3-6",
+        "plain": 0.060606060606060594,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-6",
+        "plain": 0.18181818181818182,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": -0.5,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": -0.4166666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452587,
+      "turn": 17,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 5,
+      "otherSize": 3,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|2||2-4",
+        "plain": 0.10714285714285712,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|2||2-4",
+        "plain": 0.10714285714285712,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": -1.0833333333333333,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 1.3333333333333333,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        }
+      }
+    },
+    {
+      "seed": 1452589,
+      "turn": 2,
+      "focal": 2,
+      "handSize": 9,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.2647058823529412,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-1",
+        "plain": 0.2647058823529412,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 3.333333333333334,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.2500000000000001,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452590,
+      "turn": 18,
+      "focal": 0,
+      "handSize": 3,
+      "nextSize": 3,
+      "otherSize": 3,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|6||3-6",
+        "plain": 0.05,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.3333333333333333,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        },
+        "min-hand-pips": {
+          "finishPP": 41.66666666666667,
+          "pips": -1.6666666666666665,
+          "minusPP": 0,
+          "blockPP": -41.66666666666667
+        }
+      }
+    },
+    {
+      "seed": 1452591,
+      "turn": 7,
+      "focal": 1,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 7,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||0,4|0-0,4-4",
+        "plain": 0.0002913752913752914,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0.03496503496503496,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": -1.2499999999999998,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -58.33333333333334,
+          "pips": 1.916666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452595,
+      "turn": 7,
+      "focal": 0,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 7,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||0,6|0-0,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0.01048951048951049,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 5,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.08333333333333337,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.8333333333333333,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        }
+      }
+    },
+    {
+      "seed": 1452596,
+      "turn": 13,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 5,
+      "otherSize": 4,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.007936507936507936,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|0||0-2",
+        "plain": 0.047619047619047616,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 25,
+          "pips": 0.16666666666666669,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 50.00000000000001,
+          "pips": 0.5000000000000001,
+          "minusPP": 0,
+          "blockPP": 33.333333333333336
+        }
+      }
+    },
+    {
+      "seed": 1452600,
+      "turn": 4,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||2,4,6|2-2,4-4,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|5||1-5",
+        "plain": 1,
+        "joint": 1,
+        "actual": 1
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.25,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 25,
+          "pips": -1,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452601,
+      "turn": 13,
+      "focal": 1,
+      "handSize": 5,
+      "nextSize": 6,
+      "otherSize": 4,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||3,4|3-3,4-4",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 3,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666664,
+          "pips": 0.8333333333333333,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666668,
+          "pips": -0.16666666666666666,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452602,
+      "turn": 4,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "double-sequence|||2,6|2-2,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.003496503496503496,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.9166666666666666,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": 1.3333333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452604,
+      "turn": 22,
+      "focal": 1,
+      "handSize": 2,
+      "nextSize": 2,
+      "otherSize": 1,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|4||4-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-3",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 50.00000000000001,
+          "pips": 1.5,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 99.99999999999999,
+          "pips": -3,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452605,
+      "turn": 5,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||5,6|5-5,6-6",
+        "plain": 0.0012432012432012434,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||5|5-5",
+        "plain": 0.018648018648018648,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 4.416666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 1.0833333333333333,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452606,
+      "turn": 16,
+      "focal": 1,
+      "handSize": 3,
+      "nextSize": 5,
+      "otherSize": 4,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|right|0||0-3",
+        "plain": 0.007936507936507936,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|0||0-3",
+        "plain": 0.007936507936507936,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.6666666666666666,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452607,
+      "turn": 16,
+      "focal": 0,
+      "handSize": 3,
+      "nextSize": 4,
+      "otherSize": 4,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|down|2||2-3",
+        "plain": 0.07142857142857142,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-3",
+        "plain": 0.07142857142857142,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 33.333333333333336,
+          "pips": -1,
+          "minusPP": 0,
+          "blockPP": -25
+        },
+        "min-hand-pips": {
+          "finishPP": 91.66666666666666,
+          "pips": -6.583333333333333,
+          "minusPP": 0,
+          "blockPP": -91.66666666666666
+        }
+      }
+    },
+    {
+      "seed": 1452609,
+      "turn": 17,
+      "focal": 1,
+      "handSize": 4,
+      "nextSize": 4,
+      "otherSize": 4,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|down|6||2-6",
+        "plain": 0.5,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-4",
+        "plain": 0.07142857142857142,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 5,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 2.3333333333333335,
+          "minusPP": -41.66666666666667,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": -25,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452611,
+      "turn": 13,
+      "focal": 2,
+      "handSize": 4,
+      "nextSize": 5,
+      "otherSize": 5,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|up|4||4-5",
+        "plain": 0.08333333333333331,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|1||1-5",
+        "plain": 0.5,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 3.3333333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 25,
+          "pips": -1.416666666666667,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452612,
+      "turn": 4,
+      "focal": 0,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||6|6-6",
+        "plain": 0.0006993006993006993,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-1",
+        "plain": 0.09999999999999999,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -4.083333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 2.9166666666666665,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452613,
+      "turn": 2,
+      "focal": 2,
+      "handSize": 9,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.0018510900863842042,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|5||1-5",
+        "plain": 0.05294117647058823,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 41.66666666666667,
+          "pips": -5.5,
+          "minusPP": 0,
+          "blockPP": -16.666666666666668
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0.5833333333333334,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452614,
+      "turn": 13,
+      "focal": 1,
+      "handSize": 5,
+      "nextSize": 5,
+      "otherSize": 4,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|right|3||2-3",
+        "plain": 0.007936507936507936,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|1||1-2",
+        "plain": 0.4444444444444444,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 5,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 0.16666666666666652,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 25,
+          "pips": -0.4166666666666667,
+          "minusPP": 25,
+          "blockPP": -16.666666666666668
+        }
+      }
+    },
+    {
+      "seed": 1452615,
+      "turn": 15,
+      "focal": 0,
+      "handSize": 4,
+      "nextSize": 4,
+      "otherSize": 4,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|up|3||3-4",
+        "plain": 0.07142857142857142,
+        "joint": 0.11428571428571428,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|0||0-4",
+        "plain": 0.5,
+        "joint": 0.5714285714285715,
+        "actual": 1
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 16.666666666666664,
+          "pips": -1.25,
+          "minusPP": 0,
+          "blockPP": -33.333333333333336
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": 0.1666666666666668,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        }
+      }
+    },
+    {
+      "seed": 1452617,
+      "turn": 12,
+      "focal": 0,
+      "handSize": 5,
+      "nextSize": 5,
+      "otherSize": 5,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||0,4|0-0,4-4",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0.003968253968253968,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -50.00000000000001,
+          "pips": 2.0833333333333335,
+          "minusPP": 8.333333333333334,
+          "blockPP": 25
+        },
+        "min-hand-pips": {
+          "finishPP": -66.66666666666667,
+          "pips": 1.4166666666666667,
+          "minusPP": 0,
+          "blockPP": 25
+        }
+      }
+    },
+    {
+      "seed": 1452618,
+      "turn": 13,
+      "focal": 0,
+      "handSize": 6,
+      "nextSize": 3,
+      "otherSize": 6,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|right|5||5-6",
+        "plain": 0.11904761904761904,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||0-2",
+        "plain": 0.4166666666666667,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 5.583333333333333,
+          "minusPP": -8.333333333333334,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 66.66666666666667,
+          "pips": -7.333333333333334,
+          "minusPP": 16.666666666666668,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452619,
+      "turn": 8,
+      "focal": 2,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 7,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||5,6|5-5,6-6",
+        "plain": 0.004079254079254079,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|6||3-6",
+        "plain": 1,
+        "joint": 1,
+        "actual": 1
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 41.66666666666667,
+          "pips": -4.083333333333334,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 33.333333333333336,
+          "pips": -1.9166666666666665,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452620,
+      "turn": 18,
+      "focal": 2,
+      "handSize": 4,
+      "nextSize": 4,
+      "otherSize": 2,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "single|up|6||0-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|3||0-3",
+        "plain": 0.06666666666666665,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": -2.166666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 5,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452621,
+      "turn": 19,
+      "focal": 0,
+      "handSize": 3,
+      "nextSize": 2,
+      "otherSize": 3,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.1,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|2||1-2",
+        "plain": 0.6000000000000001,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 41.66666666666667,
+          "pips": -0.5,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 41.66666666666667,
+          "pips": 0.5,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452622,
+      "turn": 4,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.003496503496503496,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-1",
+        "plain": 0.23333333333333336,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 16.666666666666668,
+          "pips": -3.25,
+          "minusPP": 8.333333333333334,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 41.66666666666667,
+          "pips": -1.25,
+          "minusPP": 41.66666666666667,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452624,
+      "turn": 2,
+      "focal": 1,
+      "handSize": 9,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|4||1-4",
+        "plain": 0.12352941176470589,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.0018510900863842042,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 2.833333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": -0.4166666666666665,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452627,
+      "turn": 1,
+      "focal": 0,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.10294117647058826,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||1-2",
+        "plain": 0.04117647058823528,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -1.5,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666668,
+          "pips": -1.9166666666666665,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452629,
+      "turn": 15,
+      "focal": 0,
+      "handSize": 4,
+      "nextSize": 2,
+      "otherSize": 5,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|down|2||2-6",
+        "plain": 0.47619047619047616,
+        "joint": 0.6666666666666666,
+        "actual": 1
+      },
+      "alternative": {
+        "key": "single|down|0||0-6",
+        "plain": 0.7142857142857143,
+        "joint": 0.8333333333333334,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 4.5,
+          "minusPP": 0,
+          "blockPP": 33.333333333333336
+        },
+        "min-hand-pips": {
+          "finishPP": -25,
+          "pips": 7.916666666666666,
+          "minusPP": 0,
+          "blockPP": 99.99999999999999
+        }
+      }
+    },
+    {
+      "seed": 1452630,
+      "turn": 21,
+      "focal": 2,
+      "handSize": 4,
+      "nextSize": 3,
+      "otherSize": 2,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|left|5||3-5",
+        "plain": 0.4,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|1||1-3",
+        "plain": 0.09999999999999999,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 2.833333333333333,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 2,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452632,
+      "turn": 10,
+      "focal": 2,
+      "handSize": 6,
+      "nextSize": 6,
+      "otherSize": 6,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "single|up|5||3-5",
+        "plain": 0.22727272727272732,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|4||3-4",
+        "plain": 0.09090909090909088,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 16.666666666666668,
+          "pips": 0.5833333333333333,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 66.66666666666667,
+          "pips": -6.666666666666666,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452633,
+      "turn": 5,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||3,4,6|3-3,4-4,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3,4|3-3,4-4",
+        "plain": 0.0012432012432012434,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0.6666666666666665,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -33.333333333333336,
+          "pips": 1.6666666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452634,
+      "turn": 5,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||2,4,5|2-2,4-4,5-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2,4|2-2,4-4",
+        "plain": 0.0012432012432012434,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -41.66666666666667,
+          "pips": 4.833333333333333,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666664,
+          "pips": 1.6666666666666667,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452635,
+      "turn": 16,
+      "focal": 0,
+      "handSize": 4,
+      "nextSize": 4,
+      "otherSize": 2,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|left|5||3-5",
+        "plain": 0.06666666666666665,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 1.5833333333333333,
+          "minusPP": 0,
+          "blockPP": -25
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666664,
+          "pips": -4.416666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452636,
+      "turn": 1,
+      "focal": 1,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "single|down|4||1-4",
+        "plain": 0.01470588235294118,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-1",
+        "plain": 0.01470588235294118,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": 0.9999999999999998,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": 3.2499999999999996,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452637,
+      "turn": 3,
+      "focal": 0,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||6|6-6",
+        "plain": 0.0018510900863842042,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|2||1-2",
+        "plain": 0.12352941176470589,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.9166666666666666,
+          "minusPP": 8.333333333333334,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -8.33333333333333,
+          "pips": 1,
+          "minusPP": -41.66666666666667,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452638,
+      "turn": 16,
+      "focal": 2,
+      "handSize": 4,
+      "nextSize": 5,
+      "otherSize": 3,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|left|2||2-3",
+        "plain": 0.017857142857142856,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|2||2-3",
+        "plain": 0.017857142857142856,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.25,
+          "minusPP": 0,
+          "blockPP": -25
+        }
+      }
+    },
+    {
+      "seed": 1452639,
+      "turn": 2,
+      "focal": 2,
+      "handSize": 9,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.2647058823529412,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0.00678733031674208,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -2.220446049250313e-16,
+          "minusPP": 8.333333333333334,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 2.25,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452640,
+      "turn": 5,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||4,5,6|4-4,5-5,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||4,5|4-4,5-5",
+        "plain": 0.0012432012432012434,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -25,
+          "pips": 0.9166666666666666,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666668,
+          "pips": 0.16666666666666666,
+          "minusPP": 0,
+          "blockPP": -16.666666666666668
+        }
+      }
+    },
+    {
+      "seed": 1452642,
+      "turn": 4,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||5,6|5-5,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||5|5-5",
+        "plain": 0.01282051282051282,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 0.9999999999999999,
+          "minusPP": -16.666666666666668,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -8.33333333333333,
+          "pips": 0.1666666666666666,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452644,
+      "turn": 20,
+      "focal": 2,
+      "handSize": 4,
+      "nextSize": 2,
+      "otherSize": 1,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||0-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 5,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 1,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 1,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452645,
+      "turn": 5,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||6|6-6",
+        "plain": 0.018648018648018648,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|4||1-4",
+        "plain": 0.05128205128205128,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": 2.916666666666667,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666668,
+          "pips": -1.1666666666666667,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452647,
+      "turn": 1,
+      "focal": 0,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|5||1-5",
+        "plain": 0.10294117647058826,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||1-2",
+        "plain": 0.04117647058823528,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": -1.4166666666666665,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666664,
+          "pips": 0.16666666666666674,
+          "minusPP": 8.333333333333334,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452648,
+      "turn": 8,
+      "focal": 2,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 7,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||2,6|2-2,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.004079254079254079,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -25,
+          "pips": -0.08333333333333325,
+          "minusPP": 0,
+          "blockPP": -16.666666666666668
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": 1.25,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452649,
+      "turn": 12,
+      "focal": 1,
+      "handSize": 4,
+      "nextSize": 5,
+      "otherSize": 7,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|down|3||3-5",
+        "plain": 0.5833333333333333,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|3||3-5",
+        "plain": 0.5833333333333333,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.16666666666666666,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452650,
+      "turn": 17,
+      "focal": 1,
+      "handSize": 4,
+      "nextSize": 3,
+      "otherSize": 2,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "single|down|4||4-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|1||0-1",
+        "plain": 0.09999999999999999,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 4.916666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 1.5000000000000002,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452652,
+      "turn": 13,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 5,
+      "otherSize": 5,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|left|5||3-5",
+        "plain": 0.023809523809523808,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|left|2||2-3",
+        "plain": 0.22222222222222224,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 33.333333333333336,
+          "pips": -3.6666666666666665,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 25,
+          "pips": -0.9166666666666667,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452653,
+      "turn": 12,
+      "focal": 1,
+      "handSize": 5,
+      "nextSize": 5,
+      "otherSize": 6,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||6|6-6",
+        "plain": 0.04545454545454545,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|2||2-5",
+        "plain": 0.5454545454545453,
+        "joint": 0.6666666666666665,
+        "actual": 1
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.5833333333333334,
+          "minusPP": 16.666666666666664,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": -8.333333333333334,
+          "blockPP": 16.666666666666668
+        }
+      }
+    },
+    {
+      "seed": 1452655,
+      "turn": 1,
+      "focal": 2,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.04117647058823528,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|3||1-3",
+        "plain": 0.10294117647058826,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 1.5833333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 33.333333333333336,
+          "pips": -1.3333333333333333,
+          "minusPP": 33.333333333333336,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452656,
+      "turn": 7,
+      "focal": 0,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 7,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||5,6|5-5,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||5|5-5",
+        "plain": 0.0023310023310023306,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0.08333333333333337,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 33.333333333333336,
+          "pips": -0.6666666666666669,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452658,
+      "turn": 4,
+      "focal": 0,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "double-sequence|||5,6|5-5,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||5|5-5",
+        "plain": 0.0000777000777000777,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666664,
+          "pips": 2.333333333333334,
+          "minusPP": 8.333333333333334,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": -0.41666666666666685,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452659,
+      "turn": 10,
+      "focal": 0,
+      "handSize": 6,
+      "nextSize": 6,
+      "otherSize": 6,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "single|down|2||2-5",
+        "plain": 0.22727272727272732,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.0010822510822510823,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -33.333333333333336,
+          "pips": 4,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666668,
+          "pips": -1.1666666666666667,
+          "minusPP": 8.333333333333334,
+          "blockPP": 25
+        }
+      }
+    },
+    {
+      "seed": 1452660,
+      "turn": 5,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||2,3,5|2-2,3-3,5-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2,3|2-2,3-3",
+        "plain": 0.0001554001554001554,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.3333333333333333,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.3333333333333333,
+          "minusPP": -25,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452663,
+      "turn": 5,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||5,6|5-5,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||5|5-5",
+        "plain": 0.005594405594405593,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": 1.9999999999999998,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": 1.5833333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452665,
+      "turn": 9,
+      "focal": 0,
+      "handSize": 6,
+      "nextSize": 6,
+      "otherSize": 7,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||5,6|5-5,6-6",
+        "plain": 0.0005827505827505828,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||5|5-5",
+        "plain": 0.016317016317016316,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 33.333333333333336,
+          "pips": -2.8333333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 25,
+          "pips": -2.25,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452669,
+      "turn": 15,
+      "focal": 1,
+      "handSize": 3,
+      "nextSize": 5,
+      "otherSize": 5,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|up|0||0-5",
+        "plain": 0.023809523809523808,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.003968253968253968,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": -50.00000000000001,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452670,
+      "turn": 6,
+      "focal": 0,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "single|right|6||1-6",
+        "plain": 0.2666666666666667,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.0012432012432012434,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.33333333333333,
+          "pips": 5.25,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -33.333333333333336,
+          "pips": 3,
+          "minusPP": -16.666666666666668,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452671,
+      "turn": 18,
+      "focal": 1,
+      "handSize": 2,
+      "nextSize": 3,
+      "otherSize": 3,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|right|5||3-5",
+        "plain": 0.19999999999999998,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-3",
+        "plain": 0.5,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.6666666666666666,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452673,
+      "turn": 1,
+      "focal": 1,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.04117647058823528,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|3||1-3",
+        "plain": 0.04117647058823528,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 16.666666666666668,
+          "pips": -4.583333333333333,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 25,
+          "pips": -0.5833333333333333,
+          "minusPP": 8.333333333333334,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452674,
+      "turn": 4,
+      "focal": 1,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||3,6|3-3,6-6",
+        "plain": 0.0000777000777000777,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0.01282051282051282,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -41.66666666666667,
+          "pips": 1.1666666666666667,
+          "minusPP": -16.666666666666668,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": 0.25,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452678,
+      "turn": 3,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||4,5|4-4,5-5",
+        "plain": 0.000041135335252982315,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.00678733031674208,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -33.333333333333336,
+          "pips": 3.5833333333333335,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0.16666666666666663,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452680,
+      "turn": 1,
+      "focal": 1,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.2352941176470588,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|3||1-3",
+        "plain": 0.10294117647058826,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 1.5833333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666668,
+          "pips": -0.08333333333333325,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452683,
+      "turn": 10,
+      "focal": 1,
+      "handSize": 6,
+      "nextSize": 5,
+      "otherSize": 5,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|3||3-4",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||2-4",
+        "plain": 0.003968253968253968,
+        "joint": 0.017857142857142856,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": -1.5833333333333335,
+          "minusPP": 8.333333333333334,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666664,
+          "pips": -0.8333333333333334,
+          "minusPP": 25,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452684,
+      "turn": 8,
+      "focal": 0,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 6,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||0,6|0-0,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0.09090909090909088,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -50.00000000000001,
+          "pips": 1.1666666666666665,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -25,
+          "pips": -0.33333333333333337,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452685,
+      "turn": 3,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||2,6|2-2,6-6",
+        "plain": 0.00037021801727684083,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.00678733031674208,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 16.666666666666668,
+          "pips": -3.4999999999999996,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -33.333333333333336,
+          "pips": 2.75,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452687,
+      "turn": 7,
+      "focal": 1,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 5,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.0012626262626262623,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|2||0-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -2,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 4.333333333333333,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452688,
+      "turn": 13,
+      "focal": 1,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 3,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|left|2||2-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 1.4999999999999998,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0.08333333333333348,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452691,
+      "turn": 5,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||3,4,5|3-3,4-4,5-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3,4|3-3,4-4",
+        "plain": 0.0012432012432012434,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -33.333333333333336,
+          "pips": 6.083333333333333,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666664,
+          "pips": 1.5833333333333333,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452692,
+      "turn": 12,
+      "focal": 0,
+      "handSize": 6,
+      "nextSize": 6,
+      "otherSize": 4,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|4||4-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|3||3-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 25,
+          "pips": -1.0833333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": -0.75,
+          "minusPP": -8.333333333333334,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452694,
+      "turn": 22,
+      "focal": 2,
+      "handSize": 2,
+      "nextSize": 3,
+      "otherSize": 1,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|right|5||0-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|3||0-3",
+        "plain": 0.25,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 2,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 2,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452696,
+      "turn": 7,
+      "focal": 2,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 7,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||3,5|3-3,5-5",
+        "plain": 0.0002913752913752914,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0.01048951048951049,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -33.333333333333336,
+          "pips": 1.0833333333333333,
+          "minusPP": 8.333333333333334,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0.16666666666666669,
+          "minusPP": -25,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452697,
+      "turn": 12,
+      "focal": 0,
+      "handSize": 5,
+      "nextSize": 5,
+      "otherSize": 6,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||5|5-5",
+        "plain": 0.012987012987012984,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||2-4",
+        "plain": 0.27272727272727276,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 7,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 16.666666666666664,
+          "pips": -1.1666666666666665,
+          "minusPP": -8.333333333333334,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": -33.333333333333336,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452698,
+      "turn": 2,
+      "focal": 2,
+      "handSize": 9,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.2647058823529412,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-1",
+        "plain": 0.12352941176470589,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": -0.6666666666666669,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 25,
+          "pips": -1.1666666666666663,
+          "minusPP": 8.333333333333334,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452699,
+      "turn": 7,
+      "focal": 0,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 7,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||3,6|3-3,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0.0023310023310023306,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 4,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -16.666666666666668,
+          "pips": 1.7500000000000002,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        },
+        "min-hand-pips": {
+          "finishPP": -25,
+          "pips": 4.083333333333333,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452700,
+      "turn": 19,
+      "focal": 0,
+      "handSize": 3,
+      "nextSize": 3,
+      "otherSize": 2,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|left|4||4-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|1||0-1",
+        "plain": 0.09999999999999999,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 33.333333333333336,
+          "pips": 3.1666666666666665,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        },
+        "min-hand-pips": {
+          "finishPP": 99.99999999999999,
+          "pips": -1,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452701,
+      "turn": 15,
+      "focal": 2,
+      "handSize": 3,
+      "nextSize": 5,
+      "otherSize": 4,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "single|down|5||4-5",
+        "plain": 0.047619047619047616,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||2-4",
+        "plain": 0.007936507936507936,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 2,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 66.66666666666667,
+          "pips": -4,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452702,
+      "turn": 4,
+      "focal": 0,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||0,5,6|0-0,5-5,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|3||1-3",
+        "plain": 0.5,
+        "joint": 0.5714285714285714,
+        "actual": 1
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -25,
+          "pips": 1.3333333333333333,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 0.4166666666666667,
+          "minusPP": 16.666666666666668,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452703,
+      "turn": 7,
+      "focal": 0,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 6,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|right|4||1-4",
+        "plain": 0.19230769230769235,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|2||1-2",
+        "plain": 0.19230769230769235,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 2.166666666666667,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 1.1666666666666665,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        }
+      }
+    },
+    {
+      "seed": 1452704,
+      "turn": 3,
+      "focal": 0,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|left|5||1-5",
+        "plain": 0.12352941176470589,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||0|0-0",
+        "plain": 0.0018510900863842042,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0.16666666666666669,
+          "minusPP": -8.333333333333334,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": 0.75,
+          "minusPP": -16.666666666666668,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452705,
+      "turn": 8,
+      "focal": 0,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 6,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||2,3|2-2,3-3",
+        "plain": 0.0010822510822510823,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.09090909090909088,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": 1.5833333333333333,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -41.66666666666667,
+          "pips": 1.3333333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452709,
+      "turn": 1,
+      "focal": 0,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.10294117647058826,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|3||1-3",
+        "plain": 0.04117647058823528,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 16.666666666666668,
+          "pips": -1.25,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": 0.6666666666666666,
+          "minusPP": -8.333333333333334,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452710,
+      "turn": 2,
+      "focal": 0,
+      "handSize": 9,
+      "nextSize": 8,
+      "otherSize": 9,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.05294117647058823,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|2||1-2",
+        "plain": 0.05294117647058823,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 3.333333333333333,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": 0.16666666666666677,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452711,
+      "turn": 5,
+      "focal": 0,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||3,6|3-3,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||3|3-3",
+        "plain": 0.005594405594405593,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": 2.916666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": -33.333333333333336,
+          "pips": 3.583333333333334,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452712,
+      "turn": 1,
+      "focal": 2,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|6||1-6",
+        "plain": 0.10294117647058826,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-1",
+        "plain": 0.10294117647058826,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -41.66666666666667,
+          "pips": 5.833333333333333,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": 2.3333333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452713,
+      "turn": 4,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 8,
+      "otherSize": 8,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "double-sequence|||6|6-6",
+        "plain": 0.003496503496503496,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|right|0||0-1",
+        "plain": 0.09999999999999999,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 12,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -3.416666666666667,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -16.666666666666668,
+          "pips": -0.41666666666666646,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452714,
+      "turn": 11,
+      "focal": 1,
+      "handSize": 6,
+      "nextSize": 5,
+      "otherSize": 6,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|right|0||0-5",
+        "plain": 0.12121212121212119,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|up|0||0-5",
+        "plain": 0.12121212121212119,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": -0.08333333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 0,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452715,
+      "turn": 7,
+      "focal": 2,
+      "handSize": 7,
+      "nextSize": 7,
+      "otherSize": 7,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||4,6|4-4,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||4|4-4",
+        "plain": 0.0023310023310023306,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 3,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -33.333333333333336,
+          "pips": 1.3333333333333333,
+          "minusPP": 0,
+          "blockPP": 16.666666666666668
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666668,
+          "pips": -0.24999999999999994,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452716,
+      "turn": 1,
+      "focal": 2,
+      "handSize": 9,
+      "nextSize": 9,
+      "otherSize": 9,
+      "unseenRestrictions": 4,
+      "baseline": {
+        "key": "single|down|5||1-5",
+        "plain": 0.04117647058823528,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|3||1-3",
+        "plain": 0.01470588235294118,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -25,
+          "pips": 2.1666666666666665,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": -8.333333333333334,
+          "pips": 1.5833333333333333,
+          "minusPP": 8.333333333333334,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452717,
+      "turn": 5,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "double-sequence|||2,5|2-2,5-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||2|2-2",
+        "plain": 0.005594405594405593,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 9,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": 0.6666666666666667,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 16.666666666666668,
+          "pips": -1.3877787807814457e-17,
+          "minusPP": 0,
+          "blockPP": 8.333333333333334
+        }
+      }
+    },
+    {
+      "seed": 1452719,
+      "turn": 17,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 3,
+      "otherSize": 2,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|1||1-2",
+        "plain": 0.09999999999999999,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-2",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 8,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 0,
+          "pips": 0.3333333333333335,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": 2.9166666666666674,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452720,
+      "turn": 8,
+      "focal": 2,
+      "handSize": 7,
+      "nextSize": 6,
+      "otherSize": 6,
+      "unseenRestrictions": 3,
+      "baseline": {
+        "key": "double-sequence|||6|6-6",
+        "plain": 0.0010822510822510823,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-5",
+        "plain": 0.22727272727272732,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 11,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": -8.333333333333334,
+          "pips": -0.6666666666666665,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 0,
+          "pips": -1.0000000000000002,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452723,
+      "turn": 11,
+      "focal": 2,
+      "handSize": 5,
+      "nextSize": 5,
+      "otherSize": 5,
+      "unseenRestrictions": 2,
+      "baseline": {
+        "key": "single|down|6||3-6",
+        "plain": 0.08333333333333331,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "single|down|0||0-3",
+        "plain": 0.22222222222222224,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 10,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": -1.0000000000000002,
+          "minusPP": 0,
+          "blockPP": 0
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": 2.3333333333333335,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    },
+    {
+      "seed": 1452725,
+      "turn": 5,
+      "focal": 2,
+      "handSize": 8,
+      "nextSize": 7,
+      "otherSize": 8,
+      "unseenRestrictions": 1,
+      "baseline": {
+        "key": "double-sequence|||4,5,6|4-4,5-5,6-6",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "alternative": {
+        "key": "double-sequence|||4,5|4-4,5-5",
+        "plain": 0,
+        "joint": 0,
+        "actual": 0
+      },
+      "invalidUniform": 6,
+      "invalidConditional": 0,
+      "metrics": {
+        "random-legal": {
+          "finishPP": 8.333333333333334,
+          "pips": 0.4166666666666665,
+          "minusPP": 0,
+          "blockPP": -8.333333333333334
+        },
+        "min-hand-pips": {
+          "finishPP": 8.333333333333334,
+          "pips": -0.08333333333333333,
+          "minusPP": 0,
+          "blockPP": 0
+        }
+      }
+    }
+  ],
+  "limitations": "Selection biased; exploratory uncorrected position-cluster CI; correlated hidden worlds; authentic branch lock and block winner/loneZero/bust/101 match unresolved; finish-first != match win.",
+  "nextAction": "Fresh seeds >= 1456440: independently sample decision states for pass calibration; preregistered policy holdout and authenticate real four-branch opening."
+}
