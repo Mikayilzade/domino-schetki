@@ -1,17 +1,19 @@
 # Qoşa research status
 
-Updated: 2026-10-25 20:49 +04 (Asia/Baku)
+Updated: 2026-10-25 21:57 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **909,735** complete full-round discovery/tournament continuations.
-- **1,295,616** forced matched hidden-world counterfactual continuations; historical 4,000 separate.
+- **921,735** complete full-round discovery/tournament continuations.
+- **1,295,872** forced matched hidden-world counterfactual continuations; historical 4,000 separate.
 - Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`; primary 3×9; number-lock/four-branch semantics **PROVISIONAL**.
-- Latest disjoint seed window **1547740..1550939** (3,200 deals). Next fresh seed **>=1550940**.
+- Latest disjoint seed window **1550940..1554939** (4,000 deals). Next fresh seed **>=1554940**.
 
 ## Latest checkpoint
-- Reused `simulator/connector-high-x-broad-runner.js`; deterministic V8 CommonJS test green (Node CLI not run). **3,200 unique deals, 9,600 full trajectories, 1,569 selected legal-choice positions, 18,828 matched hidden worlds, 75,312 forced continuations**, zero unresolved. Full raw rows and summary: [2026-10-25 20:49 independent holdout](runs/2026-10-25-2049-high-x-broad-holdout-1547740.json).
-- 6-6 selected **508** positions; next clockwise opponent 2–4 stones only **5**, versus 5–8 stones **503**. For 5–8: playing 6-6 rather than legal same-X connector (positive pip advantage to double) reduced focal finish-first **14.99 ±2.01 pp** under min-pips bots and **16.00 ±2.18 pp** under closed-branch-control bots (exploratory uncorrected deal-cluster 95% normal half-width). Across all 508: **−14.99 / −15.98 pp**. For 2–4 stones: **−15.00 ±33.63 / −13.33 ±26.64 pp** (n=5; no reliable conclusion).
-- Third independent broad-state 6-6 cohort confirms *within-model early-position direction*, **not** a causal effect of unlocking or validated human advice. The legal actions change tile identity and retained hand, and branch locking remains unverified. Finish-first ≠ 101-point match win. Live scoreboard/PWA unchanged.
+- New `simulator/connector-six-late-runner.js`: targeted reachable 6-6 vs same-X connector positions with next opponent exactly 2–4 stones; explicit gate/selection accounting, no synthetic hands. V8 CommonJS fixture/replay green; Node CLI not run.
+- **4,000 distinct deals, 12,000 full trajectories** (11,628 finishes, 372 blocks, 0 unresolved); **4 eligible late positions** from 4 distinct seeds, **64 pass-consistent hidden worlds**, **256 forced continuations**. Data: [2026-10-25 21:57 targeted late 6-6](runs/2026-10-25-2155-six-late-1550940.json).
+- **Main methodological finding:** in min-hand-pips discovery, 6-6 was held on only 2 of 16,727 focal late-turn observations and yielded **0 legal same-X connector pairs**; closed-branch-control: 41/16,971 late-turn observations held 6-6, with 4 legal pairs. These are turn-level counts, not independent game samples. This explains the late-game sampling bottleneck under current bots.
+- With n=4, double-minus-connector focal finish-first estimates −1.56 / −12.50 pp for min-pips / closed-branch continuation, exploratory uncertainty far too large for a reliable late-game claim. Next opponent playable count +1.672; no human advice. Provisional geometry, changed retained tiles/pips, no block winner/loneZero/bust/101-point validation.
+- Source, raw data, RESULTS checkpoint saved; live scoreboard/PWA untouched.
 
 ## NEXT ACTION
-- On fresh seeds >=1550940, create a **late-6-6 targeted reachable-state selector** (next opponent 2–4 stones), with deterministic tests and explicit selection accounting; do not mix early/late populations. Seek real-table four-branch locked/open fixture and block-winner rule. Run Node CLI regressions when feasible; never promote causal/human advice from provisional kernel.
+- On **fresh seeds >=1554940**, preregister and test a legal `moderate-double-hold` discovery-policy enrichment of *late* 6-6 positions, with independent deal clusters and explicit eligibility rates; seek >=30 late positions before making tactical claims. Independently validate real four-branch locked/open and block-winner rules; execute Node CLI tests when available.
