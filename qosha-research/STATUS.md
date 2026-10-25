@@ -1,18 +1,18 @@
 # Qoşa research status
 
-Updated: 2026-10-25 13:07:42 +04
+Updated: 2026-10-25 13:48 +04
 
 ## Verified cumulative scale
-- **766,692** complete full-round discovery/tournament continuations (**757,717** prior + **8,975** new).
-- **1,057,920** forced hidden-world counterfactual continuations (**1,056,384** prior + **1,536** new). Historical 4,000 separate; unpersisted pilot excluded.
+- **773,021** complete full-round discovery/tournament continuations (**766,692** prior + **6,329** new).
+- **1,064,640** forced hidden-world counterfactual continuations (**1,057,920** prior + **6,720** new). Historical 4,000 separate.
 - Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; four-branch number locking **PROVISIONAL**.
-- Latest fresh disjoint seed window **1499540..1502539**; next seed **>=1502540**.
+- Latest reserved disjoint seed windows `1502540..1503739` and `1503740..1504939`; next seed **>=1504940**.
 
 ## Latest checkpoint
-- New `simulator/branch-legal-structure.js` V8 CommonJS deterministic test green; Node CLI not run. 8975 complete discovery trajectories, 24 selected legal equal-pip positions, 768 matched hidden allocations, 1536 forced continuations; 0 unresolved.
-- Double-opening minus ordinary single finish-first **-10.55 ±7.74 pp** (exploratory position CI), next opponent playable +1.04. Next-1 subgroup n=4 is too small for inference.
-- Retained X-Y connector subgroup: zero n=6, >=1 n=18; confounded, not causal. Equal-pip ordinary X-Y vs X-X comparison is algebraically impossible, since X+Y=2X requires X=Y. New design must control pip gap rather than demand equality.
-- Reproduce from `runs/2026-10-25-1251-legal-structure-1499540.json`; scoreboard/PWA untouched.
+- New `simulator/connector-pip-gap-runner.js`: deterministic V8 CommonJS replay green; Node CLI not run. **2,142 distinct deal seeds scanned**, **6,329** complete discovery continuations, **70** selected next-opponent-one-stone positions, **3,360** matched hidden allocations, **6,720** forced continuations; zero unresolved.
+- Legal same-X comparison: play unopened `X-X` double or legal ordinary `X-Y` connector retaining X-X, with **pip difference X-Y**, so exact pip matching is impossible. Double minus connector next opponent immediate finish **+50.06 pp** (cohorts +47.86/+52.14 pp); focal finish-first **−23.13 pp** (cohorts −34.25/−12.62 pp), exploratory intervals; mean pip gap **−2.69** (65/70 negative).
+- **Not causal real-game advice**: different discarded pips, retained hand, branch geometry; selected positions, provisional branch locks, no block winner/loneZero/bust/101 scoring validation. Positive-gap group n=5 only.
+- Raw per-position data and reproducibility: `runs/2026-10-25-connector-pip-gap-1502540-1503740.json`; detailed checkpoint appended to `RESULTS.md`. Live scoreboard/PWA untouched.
 
 ## NEXT ACTION
-- Fresh seeds >=1502540: independent connector-pattern study using pip-gap controls and larger one-stone cohort; validate authentic branch locking and block-winner scoring.
+- Fresh seeds **>=1504940**: oversample **positive X-Y pip-gap** same-X pairs, balance absolute pip gap and retained X-connectors; independent matched-world holdout. Obtain authentic four-branch lock/open fixture and block winner rule; run Node CLI regressions.
