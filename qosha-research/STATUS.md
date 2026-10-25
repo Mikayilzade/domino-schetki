@@ -1,21 +1,22 @@
 # Qoşa research status
 
-Updated: 2026-10-26 00:48:14 +04 (Asia/Baku)
+Updated: 2026-10-26 01:52:36 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **957735** complete full-round discovery/tournament/policy-swap continuations.
+- **990135** complete full-round discovery/tournament/policy-swap continuations.
 - **1314736** forced matched hidden-world continuations; historical 4,000 separate.
 - Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; number-lock/four-branch semantics **PROVISIONAL**.
-- Latest fresh unique seed window **1556140..1556939** (800 deals; late analysis uses first 400). Next fresh seed **>=1556940**.
+- Latest disjoint seed window **1556940..1558139** (1,200 deals, discovery 600 + holdout 600). Next fresh seed **>=1558140**.
 
 ## Latest checkpoint
-- New deterministic `simulator/six-pair-opponent-mixes.js` compares **six-pair-hold vs closed-branch-control** on identical seeded deals and focal seats against three fixed opponent mixes.
-- **14,400** full policy-swap rounds, 13,947 finishes, 453 blocks, zero unresolved. Six-pair-hold finish-first deltas: **−5.21 ±1.64 pp** vs closed+closed, **−9.33 ±2.24 pp** vs min+min, **−5.00 ±2.01 pp** vs closed+min. Focal remainder **+2.35 / +2.60 / +2.10 pips**. Exploratory deal-cluster normal 95% half-widths.
-- Initial **6-6 + >=2 connectors** subgroup: 484 seed/seat observations per mix; finish-first deltas **−3.51 ±5.26 / −0.21 ±5.42 / −1.86 ±5.27 pp**, not significant; remainder still **+1.59 to +1.93 pips**. This does not establish a beneficial exception.
-- Independent late 6-6 selected cohort: **400** fresh deals, **4,800** discovery rounds, **124** legal paired positions (**123 distinct deals**), **3,968** forced continuations, zero unresolved. Double-minus-connector finish-first **−22.51 ±6.18 pp** (min-pips continuation) / **−26.52 ±6.33 pp** (closed control). After-double connectors >=2 only n=21, exploratory, not a proven tactical rule.
-- V8 CommonJS deterministic tests passed; Node CLI not executed. No live scoreboard/PWA changes.
-- Run data: `runs/2026-10-26-0048-six-pair-policy-swap-1556140.json`, `runs/2026-10-26-0048-six-late-strata-1556140.json`.
+- Added `simulator/six-conditional-hold.js` with deterministic matched-deal three-arm policy test. The conditional policy protects 6-6 ONLY with >=2 other 6-Y connectors and BOTH opponents holding >4 stones, provided a non-6 legal move exists; otherwise closed-branch-control. Comparator `six-pair-hold` is the earlier unconditional policy.
+- **32,400** complete full rounds: **31,333 finishes**, **1,067 blocks**, **0 unresolved**. Conditional gate eligible at **4,946** focal decisions and changed the control choice at **3,553**; these are decisions, not independent deals.
+- **No verified conditional win-rate improvement over closed-branch-control.** Conditional-minus-control finish-first deltas by opponent mix (closed+closed / min+min / closed+min): **−0.53 ±0.78 / −0.19 ±0.85 / ~0.00 ±0.82 pp**. Focal remainder **+0.194 / +0.089 / +0.158 pips**, worse in all three mixes. Exploratory uncorrected deal-cluster 95% normal half-widths.
+- Discovery/holdout finish-first deltas do **not** reproduce a positive sign across opponent mixes. The initial 6-6 plus >=2 connectors stratum has **716 deal/seat observations per mix** and no supported positive win-rate delta; remainder worse by **+0.98 / +0.45 / +0.79 pips**.
+- Conditional strategy **does improve on unconditional six-pair-hold**, by **+5.08 / +6.58 / +6.19 pp** finish-first and **−2.14 / −2.48 / −2.29 pips**. This is evidence against indiscriminate holding, not evidence conditional beats control.
+- Deterministic V8 CommonJS fixtures and 8-deal replay passed; Node CLI not executed. Live scoreboard/PWA untouched.
+- Full row-level reproducible data: `runs/2026-10-26-0152-conditional-six-hold-1556940.json`.
 
 ## NEXT ACTION
-- On disjoint seeds >=1556940, test a **conditional** 6-6 retention policy (preserve 6-6 only when >=2 other 6-Y connectors remain AND both opponents have >4 stones), matched against closed-branch-control and the unconditional six-pair-hold, with deal-cluster uncertainty.
-- Seek authenticated human fixtures for four-branch lock/open, block winner, loneZero and 101-point scoring before giving definitive human-play advice.
+- On fresh seeds >=1558140, test a **more selective tactical retention rule** tied to the *immediate legal next-opponent response/branch geometry*, not just number of connectors or opponents' hand sizes; first isolate an invariant legal-choice metric from provisional opening rules if possible.
+- Obtain authentic human four-branch locked/open, block-winner, loneZero and 101-point scoring fixtures before promoting human-game advice.
