@@ -161,7 +161,13 @@ function test(){
  if(no.length)throw Error('false equal pip');
  const c=collect(1487540,20,1),z=collect(1487540,20,1);
  if(JSON.stringify(c)!==JSON.stringify(z)||c.unresolved)throw Error('deterministic discovery');
- return{passed:true,discoveryRounds:c.fullRounds,positions:c.positions.length};
+ const x=run(1487540,200,1,3),y=run(1487540,200,1,3);
+ delete x.timestampBaku;delete y.timestampBaku;
+ if(!x.positions||x.discoveryUnresolved||JSON.stringify(x)!==JSON.stringify(y)||
+    x.rows.some(q=>!Number.isInteger(q.discardedPips))||
+    x.forcedCounterfactualContinuations!==x.positions*6)throw Error('forced equal-pip replay');
+ return{passed:true,discoveryRounds:c.fullRounds,positions:c.positions,
+  replayPositions:x.positions,replayForced:x.forcedCounterfactualContinuations};
 }
 if(require.main===module){const a=process.argv.slice(2);
  console.log(JSON.stringify(a[0]==='test'?test():run(+(a[0]||1487540),
