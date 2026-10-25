@@ -3,6 +3,7 @@
 // Run: node qosha-research/simulator/pass-conservative-tiebreak.js 1471740 3000 8 random-legal
 // Test: node qosha-research/simulator/pass-conservative-tiebreak.js test
 // All branch-number locking conclusions PROVISIONAL until authenticated.
+// Discovery accepts any BUILTIN_STRATEGIES; continuation policies remain the two fixed POLICY entries.
 const e=require('./engine'),d=require('./turn-dispatcher'),r=require('./round-driver');
 const init=require('./initializer'),b=require('./strategy-runner'),h=require('./hidden-world');
 const late=require('./late-forced-double-paired'),reg=require('./decision-regret');
@@ -36,7 +37,7 @@ function metricRow(){return Object.fromEntries(POLICY.map(p=>[p,{
  }]));}
 function run(start=1471740,count=3000,worlds=8,discoveryPolicy='random-legal'){
  if(![start,count,worlds].every(Number.isInteger)||count<1||worlds<1||worlds>64||
-    !POLICY.includes(discoveryPolicy))throw Error('arguments');
+    !b.BUILTIN_STRATEGIES.includes(discoveryPolicy))throw Error('arguments');
  const rows=[],discovery={rounds:0,finishes:0,blocks:0,unresolved:0,passes:0,
   choiceStates:0,constrainedChoiceStates:0,selected:0,selectedConstrained:0,
   anyChanged:0,jointPlainChanged:0,tiePlainChanged:0,tieJointChanged:0,tieMaxPipsChanged:0};
@@ -125,6 +126,11 @@ function run(start=1471740,count=3000,worlds=8,discoveryPolicy='random-legal'){
 }
 function test(){
  const a=run(1471740,80,3,'random-legal'),z=run(1471740,80,3,'random-legal');
+ const branch=run(1477740,60,2,'closed-branch-control');
+ if(branch.discovery.rounds!==60||branch.discovery.unresolved||
+    branch.discovery.selected!==60||
+    branch.conditionalAllocations!==branch.discovery.anyChanged*2)
+  throw Error('alternate discovery replay/accounting');
  delete a.timestampBaku;delete z.timestampBaku;
  if(JSON.stringify(a)!==JSON.stringify(z)||a.discovery.unresolved||a.discovery.selected!==80||
     a.conditionalAllocations!==a.discovery.anyChanged*3||
