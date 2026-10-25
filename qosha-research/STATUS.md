@@ -1,17 +1,16 @@
 # Qoşa research status
 
-Updated: 2026-10-25 03:48:59 +04
+Updated: 2026-10-25 04:53:45 +04
 
 ## Verified scale
-- **701,200** complete full-round continuations; **932,432** forced hidden-world counterfactual continuations; historical 4,000 separate.
-- Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; authentic four-branch number locking **PROVISIONAL**.
-- Fresh seeds consumed through **1471739**; next **>=1471740**.
+- **704200** complete full-round continuations; **954736** forced hidden-world counterfactual continuations; historical 4,000 separate.
+- Engine qosa-research-0.5.3 / recovered qosa-1.0.0; primary 3×9; authentic branch-number locking PROVISIONAL.
+- Fresh seeds consumed through **1474739**; next **>=1474740**.
 
 ## Latest checkpoint
-- Fresh independent **random-legal** discovery holdout: 6,000 deals; 1,003 pass-constrained selected positions, 164 joint-versus-plain changed choices; 1,312 conditioned hidden allocations; 5,248 forced continuations; 0 unresolved.
-- Same-action constrained next-pass Brier **0.08721 plain → 0.02817 joint**; forecast improves but there is **no established win-rate advantage**. Joint-minus-plain finish-first on changed choices: random-legal **−4.50 ±3.71 pp**, min-hand-pips **−2.06 ±4.63 pp** (exploratory 95% position-cluster intervals). Previous min-hand-pips discovery: 197 changed positions; cross-policy changed total 361, not a pooled match-win estimate.
-- Deterministic V8 CommonJS replay/accounting test green; Node CLI not run. Raw aggregate: `runs/2026-10-25-random-discovery-1465740.json`; full details in `RESULTS.md`. Live scoreboard/PWA untouched.
+- Conservative pass-posterior tie-break independent random-legal discovery: 3000 deals; 534 pass-constrained selected positions; 686 positions where at least two of four strategies disagree; 5488 conditional hidden allocations; 22304 forced continuations.
+- Tie-break versus aggressive joint pass policy, among any-changed positions: random-legal finish-first -6.16 ±1.55 pp, min-hand-pips -6.92 ±1.60 pp (exploratory position-cluster 95% intervals). Tie-break versus pure max-pips: 0.67 ±1.06 pp under random-legal (inconclusive). No human-play conclusion; see RESULTS.md and run JSON.
+- Deterministic V8 replay/accounting passed; Node CLI not run. Live scoreboard/PWA untouched.
 
 ## NEXT ACTION
-- Disjoint seeds **>=1471740**: evaluate a conservative pass-aware *tie-break* or opening-risk guard against both plain/joint aggressive `pips+20×P(pass)` under matched hidden worlds and two continuation policies.
-- Authenticate four-branch number locking and block-winner/loneZero/bust/101 scoring before translating simulator effects into real-match advice.
+- Fresh seeds >=1474740: independent min-hand-pips discovery holdout, especially positions where tie-only differs from joint aggressive; validate authentic branch opening and 101-point scoring before recommending a human rule.
