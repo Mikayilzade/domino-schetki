@@ -1,20 +1,18 @@
 # Qoşa research status
 
-Updated: 2026-10-25 11:51:07 +04
+Updated: 2026-10-25 13:07:42 +04
 
 ## Verified cumulative scale
-- **757,717** complete full-round discovery/tournament continuations (**721,807** prior + **35,910** new).
-- **1,056,384** forced hidden-world counterfactual continuations (**1,051,200** prior + **5,184** new). Historical 4,000 baseline separate; exploratory 600-deal pilot excluded.
-- Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`; 3×9 primary; four-branch number locking **PROVISIONAL**.
-- Fresh disjoint 12,000 deal seeds `1487540..1499539`; next fresh seed **>=1499540**.
+- **766,692** complete full-round discovery/tournament continuations (**757,717** prior + **8,975** new).
+- **1,057,920** forced hidden-world counterfactual continuations (**1,056,384** prior + **1,536** new). Historical 4,000 separate; unpersisted pilot excluded.
+- Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; four-branch number locking **PROVISIONAL**.
+- Latest fresh disjoint seed window **1499540..1502539**; next seed **>=1502540**.
 
 ## Latest checkpoint
-- Added `simulator/branch-legal-equal-pip.js`; two independent cohorts, 35,910 complete discovery trajectories (0 unresolved), **81 selected late legal-choice positions**, **2,592 matched hidden allocations**, **5,184 forced continuations**.
-- Both arms are legal within the provisional engine: single tile versus newly number-opening one-double; **discarded pips exactly equal**. Tile identity, remaining doubles and hand shape differ, so this is NOT a pure branch-opening effect.
-- Next opponent **1 stone** (33 positions): immediate finish probability **+33.71 ±16.03 pp** for double; focal finish-first **−13.26 ±10.31 pp**.
-- Next opponent **2–4 stones** (48 positions): focal finish-first **−14.78 ±6.26 pp**, mean remaining pips **+1.404 ±0.633**, next-opponent playable tiles **+1.233 ±0.254**. Two independent seed cohorts and both continuation bots showed the same direction, but selection/confounding remain.
-- Uncorrected exploratory 95% position-cluster intervals; 101-point scoring, real four-branch lock, block-winner, loneZero/bust not validated. No human-play claim yet.
-- Data: `runs/2026-10-25-1147-legal-equal-pip-1487540.json` and `runs/2026-10-25-1147-legal-equal-pip-holdout-1493540.json`. V8 CommonJS tests/replay passed, Node CLI not run. No scoreboard/PWA edits.
+- New `simulator/branch-legal-structure.js` V8 CommonJS deterministic test green; Node CLI not run. 8975 complete discovery trajectories, 24 selected legal equal-pip positions, 768 matched hidden allocations, 1536 forced continuations; 0 unresolved.
+- Double-opening minus ordinary single finish-first **-10.55 ±7.74 pp** (exploratory position CI), next opponent playable +1.04. Next-1 subgroup n=4 is too small for inference.
+- Retained X-Y connector subgroup: zero n=6, >=1 n=18; confounded, not causal. Equal-pip ordinary X-Y vs X-X comparison is algebraically impossible, since X+Y=2X requires X=Y. New design must control pip gap rather than demand equality.
+- Reproduce from `runs/2026-10-25-1251-legal-structure-1499540.json`; scoreboard/PWA untouched.
 
 ## NEXT ACTION
-- On seeds **>=1499540**, increase exact-pip one-stone positions and stratify by next-opponent mobility and retained double/connector geometry. Seek real-table branch-lock fixture independently.
+- Fresh seeds >=1502540: independent connector-pattern study using pip-gap controls and larger one-stone cohort; validate authentic branch locking and block-winner scoring.
