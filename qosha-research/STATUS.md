@@ -1,18 +1,19 @@
 # Qoşa research status
 
-Updated: 2026-10-25 15:58:26 +04
+Updated: 2026-10-25 16:56:32 +04
 
 ## Verified cumulative scale
-- **826,232** complete full-round discovery/tournament continuations.
-- **1,073,472** forced hidden-world continuations. Historical 4,000 separate.
-- Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; four-branch number locking **PROVISIONAL**.
-- Reserved fresh seed windows `1516940..1519939`, `1519940..1522939`; next fresh seed **>=1522940**.
+- **861735** complete full-round discovery/tournament continuations.
+- **1077568** forced hidden-world continuations. Historical 4,000 separate.
+- Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; number locking **PROVISIONAL**.
+- Fresh disjoint cohorts `1522940..1528939`, `1528940..1534939`; next seed **>=1534940**.
 
 ## Latest checkpoint
-- 6000 fresh distinct deals; 17701 complete discovery continuations, 0 unresolved; 18 positive X>Y positions, 18 observational negative-gap controls, 3456 forced continuations.
-- Positive gap immediate-next-opponent finish double-minus-connector **66.90 pp** (exploratory position-cluster half-width 13.38 pp); focal finish-first **-23.96 pp**. Cohort estimates 63.75 / 70.83 pp.
-- By X, gap, retained connectors, focal hand size and profile: `runs/2026-10-25-positive-gap-strata-1516940.json`. Small groups provisional; not causal or authenticated real-game strategy.
-- Deterministic V8 CommonJS test passed; Node CLI not run; scoreboard/PWA untouched.
+- 12,000 distinct deals, 35503 complete discovery continuations, 32 positive-gap and 32 observational negative-gap controls, 4096 forced continuations.
+- Positive-gap next-opponent immediate finish **+61.52 ±8.03 pp**, focal finish-first **-26.95 ±13.24 pp**; exploratory uncorrected position-cluster normal half-widths. Both independent cohorts same direction.
+- By X: 2-2 n=20, 3-3 n=9, 4-4 n=2, 5-5 n=1, 6-6 n=0. High X underpowered, no human-play rule.
+- Full raw rows, metrics, seed formula and strata: `qosha-research/runs/2026-10-25-1650-positive-gap-x-strata-1522940.json`. Reproduce `node qosha-research/simulator/connector-positive-gap-runner.js test`; `node qosha-research/simulator/connector-positive-gap-runner.js 1522940 6000 32`; repeat with `1528940`.
+- Deterministic V8 CommonJS regression passed; Node CLI not executed; live scoreboard/PWA untouched.
 
 ## NEXT ACTION
-Fresh seeds **>=1522940**: oversample X/connector strata and alternate continuation bot; authenticate real-table four-branch locking and block winner. No human-play rule yet.
+Fresh seeds **>=1534940**: oversample eligible late legal positive-gap positions X>=4 rather than selecting only the first eligible one-stone state; independent holdout and alternate continuation policy; authenticate real four-branch number locking and block winner. Finish-first != 101-point match win.
