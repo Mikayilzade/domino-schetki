@@ -1,17 +1,19 @@
 # Qoşa research status
 
-Updated: 2026-10-25 07:56:15 +04
+Updated: 2026-10-25 09:50:50 +04
 
-## Verified scale
-- **716416** complete full-round continuations; **1016640** forced hidden-world counterfactual continuations; historical 4,000 separate.
-- Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`; primary 3×9; authentic four-branch number locking **PROVISIONAL**.
-- New 200 distinct discovery deal seeds in disjoint windows `1482740..1482839` and `1483240..1483339`. Reserved through `1483739`; next fresh **>=1483740**.
+## Verified cumulative scale
+- **718,014** full-round discovery/tournament continuations (**716,626** prior + **1,388** new).
+- **1,045,056** forced hidden-world counterfactual continuations (**1,035,840** prior + **9,216** new). Historical 4,000 baseline remains separate.
+- Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`; primary 3×9; authentic four-branch number-lock semantics **PROVISIONAL**.
+- This checkpoint scanned **488 distinct deal seeds** (min-pips `1483740..1483944`; branch-control `1484540..1484822`) from two disjoint reserved windows `1483740..1484539` and `1484540..1485339`. Next fresh seed **>=1485340**.
 
 ## Latest checkpoint
-- New `simulator/branch-unlock-delay-ablation.js`: **200 positions, 9,600 matched pass-conditioned worlds, 19,200 forced continuations**, plus 216 complete discovery trajectories.
-- Both arms play the **same double** and remove identical pips; a **nonlegal, one-opponent-turn artificial unlock delay** isolates the immediate opening mechanism. Immediate unlock increases next opponent individually playable tiles **+1.466 / +1.563** and reduces next-pass rate **8.667 / 10.646 pp** (min-pips / branch-control).
-- Finish-first effects **+0.125 ±1.483 / +0.354 ±1.974 pp**: **not reliable**. No practical strategy recommendation.
-- V8 deterministic replay and synthetic four-branch fixture passed; Node CLI not run. No scoreboard/PWA changes. Full JSON in `runs/2026-10-25-0755-branch-one-turn-delay-1482740.json`.
+- New `simulator/branch-late-hand-strata.js` with deterministic selector/replay test. **72 late positions**, deliberately balanced at **12 positions each** for next opponent hand sizes 1, 2, and 3–4, per profile. **4,608** matched pass-conditioned hidden-world allocations, **9,216** forced continuations; **1,388** full discovery trajectories.
+- When the next opponent has **one tile**, artificially opening a number for their next turn raises their **immediate finish chance by +26.17 ±11.82 pp** (min-pips) or **+44.79 ±25.45 pp** (branch-control), exploratory 95% position-cluster intervals, n=12 positions per profile. This is a within-model mechanism, **NOT** a legal action comparison.
+- With **two tiles**, corresponding effect is **+1.43 ±2.81 / +3.78 ±7.40 pp**; with 3–4 tiles, zero immediate finishes in these selected states. The one-tile stratum is enriched by design and must NOT be pooled naively.
+- No statistically reliable effect on focal finish-first probability. Provisional number locking, synthetic previous winner, simplified bots, unvalidated 101-point match scoring and block-winner logic. No human-play recommendation from the artificial delayed arm.
+- Exact reproducible data: `runs/2026-10-25-0948-branch-late-hand-strata-1483740.json`. V8 deterministic replay passed; Node CLI not run. No scoreboard/PWA changes.
 
 ## NEXT ACTION
-- Fresh seeds **>=1483740**: independent holdout stratified by next opponent hand size, then authenticate real four-branch lock/open geometry and match scoring before human-play advice.
+- On disjoint seeds **>=1485340**, repeat the **one-stone** finish-threat contrast and compare *actually legal* candidate moves (not artificial delay), holding removed pips and opponent hidden worlds fixed where possible. Independently obtain a real-play fixture validating branch lock/open geometry.
