@@ -1,16 +1,17 @@
 # Qoşa research status
 
-Updated: 2026-10-25 04:53:45 +04
+Updated: 2026-10-25 05:50:15 +04
 
 ## Verified scale
-- **704200** complete full-round continuations; **954736** forced hidden-world counterfactual continuations; historical 4,000 separate.
+- **707200** complete full-round continuations; **973616** forced hidden-world counterfactual continuations; historical 4,000 separate.
 - Engine qosa-research-0.5.3 / recovered qosa-1.0.0; primary 3×9; authentic branch-number locking PROVISIONAL.
-- Fresh seeds consumed through **1474739**; next **>=1474740**.
+- Fresh seeds consumed through **1477739**; next **>=1477740**.
 
 ## Latest checkpoint
-- Conservative pass-posterior tie-break independent random-legal discovery: 3000 deals; 534 pass-constrained selected positions; 686 positions where at least two of four strategies disagree; 5488 conditional hidden allocations; 22304 forced continuations.
-- Tie-break versus aggressive joint pass policy, among any-changed positions: random-legal finish-first -6.16 ±1.55 pp, min-hand-pips -6.92 ±1.60 pp (exploratory position-cluster 95% intervals). Tie-break versus pure max-pips: 0.67 ±1.06 pp under random-legal (inconclusive). No human-play conclusion; see RESULTS.md and run JSON.
-- Deterministic V8 replay/accounting passed; Node CLI not run. Live scoreboard/PWA untouched.
+- Independent min-hand-pips discovery holdout: 3,000 deals, 490 pass-constrained selected decisions, 582 any-disagreement positions, 219 conservative/max-pips disagreements, 4,656 matched conditional hidden allocations, 18,880 forced continuations.
+- Conservative tie-break vs pure max-pips on 219 disagreements: finish-first **+4.51 ±3.25 pp** random-legal continuation, **+4.45 ±3.72 pp** min-hand-pips (exploratory uncorrected position-cluster 95% half-widths).
+- Across two disjoint discovery cohorts, 406 conservative/max-pips disagreements: **+3.57 ±2.50 / +3.73 ±2.63 pp**, exploratory within-model only. No real-game claim.
+- V8 deterministic replay passed; Node CLI not run. Live scoreboard/PWA untouched. Details in RESULTS.md and `qosha-research/runs/2026-10-25-conservative-minhand-1474740.json`.
 
 ## NEXT ACTION
-- Fresh seeds >=1474740: independent min-hand-pips discovery holdout, especially positions where tie-only differs from joint aggressive; validate authentic branch opening and 101-point scoring before recommending a human rule.
+- Fresh seeds >=1477740: unchanged-policy third holdout against max-pips discovery and separate visible branch-opening threat guard; independently authenticate branch locking and 101-point scoring.
