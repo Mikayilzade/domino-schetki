@@ -1,19 +1,21 @@
 # Qoşa research status
 
-Updated: 2026-10-26 04:50:13 +04 (Asia/Baku)
+Updated: 2026-10-26 05:55:13 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **1056735** complete full-round discovery/tournament/policy-swap continuations.
+- **1065375** complete full-round discovery/tournament/policy-swap continuations.
 - **1314736** forced matched hidden-world continuations; historical 4,000 separate.
 - Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; four-branch number-lock **PROVISIONAL**.
-- Latest fresh seeds **1559740..1560339**, 600 deals; next fresh seed **>=1560340**.
+- Latest fresh seeds **1560340..1560579**, 240 deals; next fresh seed **>=1560580**.
 
 ## Latest checkpoint
-- Added `simulator/broad-policy-contract-audit.js` and `runs/2026-10-26-0450-broad-policy-contract-1559740.json`.
-- **21,600** matched complete rounds, 20,883 finishes, 717 blocks, 0 unresolved; four focal policies × three seats × three opponent mixes, 300/300 discovery/holdout.
-- Across three opponent mixes, `fast-doubles` minus `closed-branch-control` focal finish-first: **−15.39 / −19.44 / −12.33 pp**, with mean remainder **+1.93 / +1.38 / +1.05 pips**. Same direction in both seed halves. Within-model finding only.
-- Reachable-state audit: 36 regression rounds (not credited), 835 turns, 3,070 legal alternatives; tile conservation, source immutability, branch isolation and opening monotonicity passed. Four-side synthetic −40 and scoring contract passed.
-- V8 CommonJS deterministic replay passed; Node CLI not executed. No authenticated real-game tactical claim. Live scoreboard/PWA untouched.
+- New `simulator/random-opponent-policy-holdout.js` and `runs/2026-10-26-0553-random-opponent-holdout-1560340.json`.
+- **8640** matched complete rounds, 8326 finishes, 314 blocks, 0 unresolved; four focal policies × three seats × three opponent mixes; 120/120 discovery/holdout.
+- random-legal+random-legal: fast−closed finish-first -18.89 ±4.13 pp, discovery -18.89, holdout -18.89 pp; remainder +1.49 pips; min−closed -8.06 pp; moderate−closed -7.36 pp.
+random-legal+closed-branch-control: fast−closed finish-first -18.33 ±4.04 pp, discovery -17.22, holdout -19.44 pp; remainder +2.12 pips; min−closed -9.44 pp; moderate−closed -7.08 pp.
+random-legal+min-hand-pips: fast−closed finish-first -19.72 ±4.14 pp, discovery -17.50, holdout -21.94 pp; remainder +1.28 pips; min−closed -10.69 pp; moderate−closed -7.36 pp.
+- Deterministic replay, four-branch synthetic and score/block contract tests passed. Node CLI not executed; V8 CommonJS execution. No live scoreboard/PWA edits.
+- Within-model findings only. Opening geometry, block winner, loneZero, bust, and 101-point match scoring remain unvalidated.
 
 ## NEXT ACTION
-- Test branch-control robustness on disjoint seeds **>=1560340** against alternative opponent policies including random legal; obtain authentic four-branch lock/open and block-winner fixtures. Keep block winner/loneZero/bust/101-match unresolved.
+- Independent seeds **>=1560580**: test branch-control robustness against a stronger tempo/mobility hybrid and mixed random opponents, then obtain authentic four-branch lock/open and block-winner fixtures. Do not promote real-game tactical claims before geometry validation.
