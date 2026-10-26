@@ -1,21 +1,19 @@
 # Qoşa research status
 
-Updated: 2026-10-26 12:15:22 +04 (Asia/Baku)
+Updated: 2026-10-26 12:59:02 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **1075815** complete full rounds; historical 4,000 separate.
-- **1408408** forced matched hidden-world continuations.
+- **1079415** complete full rounds; historical 4,000 separate.
+- **1413656** forced matched hidden-world continuations.
 - **4,900** separate full-known-world diagnostics.
 - Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`, 3×9; four-side number-lock **PROVISIONAL**.
-- Fresh seeds **1561320..1561479**; next unused seed **>=1561480**.
+- Fresh seeds **1561480..1562079**; next unused seed **>=1562080**.
 
 ## Latest checkpoint
-- `simulator/pass-conditioned-mobility.js` v2, `runs/2026-10-26-1215-pass-history-strata-1561320.json`.
-- 960 complete baseline rounds; 643 post-pass changed-choice positions; 10288 pass-conditioned and 10288 uniform hidden worlds; 41152 forced continuations.
-- Mobility hybrid vs closed control conditional first-place -2.45 ±2.83 pp; tempo -2.62 ±3.05 pp. Both exploratory intervals include zero; no verified winning hybrid.
-- Next-only / other-only / both active constraints: mobility 177/147/4; tempo 168/145/2. Both-history active exclusions are rare.
-- Uniform worlds violate passes in 71.13–71.31% of worlds. Two-opponent forced-allocation and exhaustive strata regressions passed in V8 CommonJS; Node CLI not run.
-- Real four-branch opening and blocked-round winner remain unresolved. Live scoreboard/PWA untouched.
+- `simulator/pass-two-sided-ablation.js`, `runs/2026-10-26-1254-two-sided-ablation-1561480.json`.
+- 3600 complete baseline rounds; 82 two-sided pass-constrained changed-choice positions; 2624 allocations across four posterior modes and 5248 paired continuations.
+- Exploratory posterior ablation none/next-only/other-only/both; independent discovery/holdout seed halves and clustered intervals in JSON.
+- Selected rare positions and provisional branch opening prohibit a validated human tactic. Real four-branch opening and blocked-round winner unresolved. Live scoreboard/PWA untouched.
 
 ## NEXT ACTION
-- Enrich both-opponent active pass constraints; next-only vs other-only vs both within-position ablation on disjoint seeds >=1561480; authenticate branch and block fixtures.
+- Larger independent two-sided pass holdout on unused seeds >= 1562080; validate real branch opening and block-winner fixtures.
