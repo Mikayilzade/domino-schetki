@@ -70,6 +70,17 @@ function summary(rows){
   out.bySwitch[tag]={positions:sub.length,condFirstPP:mean(sub.map(x=>x.condFirstPP)),
    uniformFirstPP:mean(sub.map(x=>x.uniformFirstPP)),posteriorShiftPP:mean(sub.map(x=>x.posteriorShiftPP))};
  }
+ out.byPassConstraint={};
+ for(const kind of ['next-only','other-only','both']){
+  const sub=rows.filter(x=>kind==='next-only'?x.forbiddenNextUnknown>0&&x.forbiddenOtherUnknown===0:
+   kind==='other-only'?x.forbiddenNextUnknown===0&&x.forbiddenOtherUnknown>0:
+   x.forbiddenNextUnknown>0&&x.forbiddenOtherUnknown>0);
+  out.byPassConstraint[kind]={positions:sub.length,deals:new Set(sub.map(x=>x.seed)).size,
+   openingSwitches:sub.filter(x=>x.switch).length,
+   uniformInvalidRate:mean(sub.map(x=>x.uniformInvalidRate)),
+   condFirstPP:ciSeed(sub,'condFirstPP'),uniformFirstPP:ciSeed(sub,'uniformFirstPP'),
+   posteriorShiftPP:ciSeed(sub,'posteriorShiftPP'),condPips:ciSeed(sub,'condPips')};
+ }
  return out;
 }
 function run(start=1561220,count=120,worlds=8){
@@ -92,7 +103,9 @@ function run(start=1561220,count=120,worlds=8){
      const n=(seat+1)%3,o=(seat+2)%3,vis=u.visibleFromState(s,seat);
      const known=new Set([...vis.focalHand,...vis.played].map(e.tileKey));
      const unknown=DECK.filter(t=>!known.has(e.tileKey(t)));
-     const restricted=unknown.filter(t=>mem[n].has(e.tileKey(t))||mem[o].has(e.tileKey(t))).length;
+     const forbiddenNext=unknown.filter(t=>mem[n].has(e.tileKey(t))).length;
+     const forbiddenOther=unknown.filter(t=>mem[o].has(e.tileKey(t))).length;
+     const restricted=forbiddenNext+forbiddenOther;
      if(restricted){
       eligible++;
       const ctrl=h.choose('closed-branch-control',opts,s,seed,seat);
@@ -118,6 +131,7 @@ function run(start=1561220,count=120,worlds=8){
        const v=(label,k)=>mean(data[label].map(x=>x[k]));
        rows.push({seed,seat,mix:mi,arm,turn:s.turns,worlds,handSize:s.hands[seat].length,
         nextSize:s.hands[n].length,otherSize:s.hands[o].length,forbiddenUnknown:restricted,
+        forbiddenNextUnknown:forbiddenNext,forbiddenOtherUnknown:forbiddenOther,
         nextHistory:mem[n].size>0,otherHistory:mem[o].size>0,
         switch:(ctrl.type==='double-sequence')!==(alt.type==='double-sequence'),
         uniformInvalidRate:invalid/worlds,condFirstPP:v('cond','first'),uniformFirstPP:v('uniform','first'),
@@ -142,7 +156,7 @@ function run(start=1561220,count=120,worlds=8){
  }
  const stamp=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Baku',year:'numeric',month:'2-digit',
   day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date())+' +04';
- return{schema:'qosha-pass-conditioned-mobility/v1',timestampAsiaBaku:stamp,engine:'qosa-research-0.5.3',
+ return{schema:'qosha-pass-conditioned-mobility/v2',timestampAsiaBaku:stamp,engine:'qosa-research-0.5.3',
   rules:'recovered qosa-1.0.0 3x9; number-lock PROVISIONAL',seedStart:start,seedEnd:start+count-1,
   deals:count,baselineRounds,finishes,blocks,unresolved:0,minusFinishes:minus,passEvents,
   eligibleStates:eligible,positions:rows.length,worldsPerPosition:worlds,
@@ -171,6 +185,14 @@ function test(){
  delete t.timestampAsiaBaku;delete v.timestampAsiaBaku;
  assert(JSON.stringify(t)===JSON.stringify(v),'deterministic replay');
  assert(t.baselineRounds===12&&t.forcedHiddenWorldContinuations===4*t.conditionalAllocations,'accounting');
+ assert(t.rows.every(x=>x.forbiddenUnknown===x.forbiddenNextUnknown+x.forbiddenOtherUnknown),'pass-strata partition');
+ assert(t.rows.every(x=>x.forbiddenUnknown>0),'active pass constraints');
+ assert(ARMS.every(arm=>Object.values(t.summary.combined[arm].byPassConstraint)
+  .reduce((n,x)=>n+x.positions,0)===t.summary.combined[arm].positions),'strata exhaustive');
+ const m2=[new Set(),new Set(),new Set()],kn=e.tileKey(s.hands[n][0]),ko=e.tileKey(s.hands[o][0]);
+ m2[n].add(ko);m2[o].add(kn);
+ const both=conditionalWorld(s,f,m2,456);
+ assert(both.hands[n].some(t=>e.tileKey(t)===kn)&&both.hands[o].some(t=>e.tileKey(t)===ko),'both-opponent forced assignments');
  return{passed:true,fixtureSeed:1561220,baselineRounds:t.baselineRounds,positions:t.positions,
   forced:t.forcedHiddenWorldContinuations};
 }
