@@ -1,19 +1,18 @@
 # Qoşa research status
 
-Updated: 2026-10-27 01:54:12 +04 (Asia/Baku)
+Updated: 2026-10-27 02:57:01 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **1161375** complete full rounds; historical 4,000 separate.
-- **1688352** matched hidden-world forced continuations.
+- **1166175** complete full rounds; historical 4,000 separate.
+- **1704536** matched hidden-world forced continuations.
 - **4,900** separate full-known-world diagnostics.
 - Engine qosa-research-0.5.3 / recovered qosa-1.0.0, 3×9; four-side number-lock **PROVISIONAL**.
-- Fresh seeds **1575340..1575739**; next unused seed **>=1575740**.
+- Fresh seeds **1575740..1576539**; next unused seed **>=1576540**.
 
 ## Latest checkpoint
-- 400 deals, 2400 full rounds, 37632 forced continuations; V8 CommonJS deterministic 6-check regression passed, Node CLI not run.
-- Same-end 400 positions/4800 worlds: canonical permutation-equivariant policy identical in 4800/4800; legacy label-sensitive identical in 4248/4800.
-- Different-end 384 positions/4608 worlds: canonical identical in 1737/4608; numerical side choices can change outcomes, but no tactical advantage established.
-- Raw runs/2026-10-27-0149-side-equivariant-1575340.json, runner simulator/side-equivariant-holdout.js. Scoreboard/PWA untouched.
+- 800 deals, 4800 complete rounds, 16184 forced continuations, 289 selected different-end side pairs with informative opponent passes. 6-check deterministic V8 CommonJS test passed; Node CLI not run.
+- Conditional-vs-uniform trained first-finish on matched pass-compatible holdout: **1.73 ± 1.18 pp** (exploratory 95% deal-cluster half-width); 62 choice switches. No confirmed human-play rule.
+- Runner `simulator/pass-conditioned-side.js`; raw `runs/2026-10-27-pass-conditioned-side-1575740.json`. Scoreboard/PWA untouched.
 
 ## NEXT ACTION
-- Pass-condition hidden worlds, compare different-end placements on matched numerical geometry with new seeds; authenticate branch opening and block winner.
+- Independent seeds >=1576540, 16+ training worlds and stronger opponent policies; isolate one-vs-two pass histories and validate authentic branch locking and block winner.
