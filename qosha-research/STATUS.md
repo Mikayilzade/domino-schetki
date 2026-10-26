@@ -1,20 +1,19 @@
 # Qoşa research status
 
-Updated: 2026-10-26 08:50:09 +04 (Asia/Baku)
+Updated: 2026-10-26 09:51:30 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **1,073,535** complete full rounds, historical 4,000 separate.
-- **1,324,720** forced matched hidden-world continuations.
-- **4,900** forced full-known-world diagnostics tracked separately.
-- Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; four-branch number-lock **PROVISIONAL**.
-- Fresh seeds **1561060..1561099**, 40 deals; next unused fresh seed **>=1561100**.
+- **1,074,255** complete full rounds; historical 4,000 separate.
+- **1,353,880** forced matched hidden-world continuations.
+- **4,900** separate full-known-world diagnostics.
+- Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`, 3×9; number-lock **PROVISIONAL**.
+- Fresh seeds **1561100..1561219**; next unused seed **>=1561220**.
 
 ## Latest checkpoint
-- `simulator/hidden-world-mobility.js` and `runs/2026-10-26-0847-hidden-world-mobility-1561060.json`.
-- 240 baseline rounds; 416 first-divergence decisions; 4,992 sampled hidden worlds; 9,984 paired forced continuations.
-- Hybrid-minus-control finish-first: mobility **−9.68 ±4.18 pp**, tempo **−6.63 ±3.07 pp** (deal-cluster exploratory 95% half-width). Discovery/holdout negative for both.
-- Most negative selected-decision contrasts occur when a hybrid changes a double-opening vs non-double action. This is a provisional, non-causal diagnostic.
-- Hidden allocations preserve visible focal hand, public played stones and opponent/stock counts, but are uniform rather than pass-history-conditioned. Deterministic V8 replay, hidden-assignment invariance and contract fixtures passed; Node CLI not executed. Scoreboard/PWA untouched.
+- Independent fixed-visible Monte Carlo opening-switch replication using `simulator/hidden-world-mobility.js` and `runs/2026-10-26-0948-hidden-world-switch-holdout-1561100.json`.
+- 720 complete baseline rounds; 1215 selected changed-choice positions; 14580 sampled hidden worlds; 29160 forced paired continuations.
+- Hybrid minus closed-control finish-first: mobility -3.55 ±1.88 pp; tempo -3.25 ±1.96 pp (exploratory deal-cluster 95% half-widths). Opening-switch versus same-type subgroups in JSON; not causal.
+- Deterministic V8 CommonJS replay and synthetic branch/scoring tests passed; Node CLI not executed. Uniform unknown allocations do not condition on pass history. Scoreboard/PWA untouched.
 
 ## NEXT ACTION
-- Fresh seeds >=1561100: enlarge independent matched-world sample; stratify opening-type switches, then incorporate observed pass/draw constraints into hidden-world posterior. Obtain authentic four-side locking and block-winner fixtures.
+- Add exact no-stock pass-conditioned hidden-world allocation to first-divergence sampler, verify deterministic replay and invariants; independent seeds >=1561220. Authenticate four-side locking and block-winner fixtures.
