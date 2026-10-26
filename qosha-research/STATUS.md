@@ -1,21 +1,20 @@
 # Qoşa research status
 
-Updated: 2026-10-26 13:52:35 +04 (Asia/Baku)
+Updated: 2026-10-26 14:51:25 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **1085415** complete full rounds; historical 4,000 separate.
-- **1446296** forced matched hidden-world continuations.
+- **1093575** complete full rounds; historical 4,000 separate.
+- **1459712** forced matched hidden-world continuations.
 - **4,900** separate full-known-world diagnostics.
 - Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`, 3×9; four-side number-lock **PROVISIONAL**.
-- Fresh seeds **1562080..1563079**; next unused seed **>=1563080**.
+- Fresh seeds **1563080..1564439**; next unused seed **>=1564440**.
 
 ## Latest checkpoint
-- `simulator/pass-posterior-contract-test.js`, `qosha-research/runs/2026-10-26-1352-two-sided-holdout-1562080.json`.
-- 6000 complete baseline rounds, 170 rare both-pass constrained changed decisions, 16320 allocations, 32640 forced continuations.
-- mobility-hybrid: n=49 changed-choice positions / 41 deal clusters; both-pass alternative−control finish-first -6.20 ±8.86 pp; discovery -5.37, holdout -6.91 pp; both-pass posterior interaction 1.52 ±5.91 pp; 84.1% uniform worlds violate a known pass.
-- tempo-hybrid: n=65 changed-choice positions / 54 deal clusters; both-pass alternative−control finish-first -1.43 ±6.63 pp; discovery -4.78, holdout 1.93 pp; both-pass posterior interaction -4.09 ±6.26 pp; 83.3% uniform worlds violate a known pass.
-- min-hand-pips: n=56 changed-choice positions / 44 deal clusters; both-pass alternative−control finish-first -6.39 ±7.10 pp; discovery -7.24, holdout -5.62 pp; both-pass posterior interaction -0.80 ±4.71 pp; 84.4% uniform worlds violate a known pass.
-- Exploratory confidence intervals include zero; no validated winning hybrid. Posterior contract tests passed in V8 CommonJS, Node CLI not run. Live scoreboard/PWA untouched.
+- New `simulator/pass-aware-advisor.js` and two reproducible run JSONs; V8 CommonJS deterministic adviser, posterior, four-branch and scoring-contract tests passed; Node CLI not run. Scoreboard/PWA untouched.
+- Pilot: 2160 baseline rounds, 24 positions, 1536 forced continuations (8 training, 16 evaluation worlds).
+- Independent larger holdout: 6000 baseline rounds, 81 positions, 11880 forced continuations (24 training, 24 evaluation worlds).
+- Larger cohort conditional−control finish-first: 3.95 ± 2.79 pp; discovery 2.78 ± 3.45 pp, holdout 5.01 ± 4.33 pp. Conditional−uniform-trained: 3.37 ± 3.52 pp (interval crosses zero).
+- Candidate-limited and exploratory: no validated pass-conditioned tactical rule; four-side number-lock and match scoring unconfirmed.
 
 ## NEXT ACTION
-- On unused seeds >=1563080, test posterior-aware move selection and regret; authenticate real branch opening and blocked-round winner.
+- Fresh seeds >=1564440 with 48+ training worlds; preregister conditional-vs-uniform, opening-switch/pass-strength strata; authentic branch/block-winner fixtures.
