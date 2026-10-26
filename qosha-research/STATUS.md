@@ -1,19 +1,21 @@
 # Qoşa research status
 
-Updated: 2026-10-26 18:26:27 +04 (Asia/Baku)
+Updated: 2026-10-26 18:59:19 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **1104375** complete full rounds; historical 4,000 separate.
-- **1512216** forced matched hidden-world continuations.
+- **1106175** complete full rounds; historical 4,000 separate.
+- **1532016** forced matched hidden-world continuations.
 - **4,900** separate full-known-world diagnostics.
 - Engine qosa-research-0.5.3 / recovered qosa-1.0.0, 3×9; four-side number-lock **PROVISIONAL**.
-- Fresh seeds **1566040..1566239**; next unused seed **>=1566240**.
+- Fresh seeds **1566240..1566539**; next unused seed **>=1566540**.
 
 ## Latest checkpoint
-- New simulator/pass-aware-altbots.js, alternative opponent continuation policies and up to 8 legal candidate actions; V8 deterministic replay/9 checks passed; Node CLI not run. Scoreboard/PWA untouched.
-- 1200 new baseline rounds, 66 both-pass selected positions across 38 deal clusters, 17688 forced matched hidden-world continuations.
-- Conditional−uniform-trained finish-first: **2.74 ± 3.47 pp**, discovery **4.17 ± 6.17 pp**, holdout **0.98 ± 1.49 pp**.
-- Simulation-only, exploratory: provisional number-lock, candidate cap, selected states, simple bots, unvalidated match scoring.
+- New simulator/pass-aware-candidate-ablation.js, strict matched four-policy proposals vs up-to-eight legal alternatives; V8 deterministic 11-check suite passed; Node CLI not run. Live scoreboard/PWA untouched.
+- 1800 full rounds, 85 both-pass selected positions (50 deal clusters), 19800 forced matched hidden-world continuations.
+- Candidate expansion occurred in **81/85** positions; changed conditional action in **18**. Mean policy-only candidates 1.32, expanded 3.24.
+- Conditional expanded-minus-policy-only finish-first: **2.24 ±1.91 pp**, discovery 3.28 ±3.22 pp, holdout 0.79 ±0.77 pp. Conditional-vs-uniform with expanded candidates: 2.89 ±2.34 pp.
+- This is simulation-only; exploratory deal-cluster 95% normal intervals, provisional branch geometry, selected positions, simple bots. Finish-first != match win.
+- Raw run data: `runs/2026-10-26-1854-candidate-ablation-1566240.json`.
 
 ## NEXT ACTION
-- Seeds >=1566240; replicate against alternative bots and compare 4 vs 8 candidates on matched worlds. Validate real four-branch locking and blocked-round winner before human tactical recommendations.
+- Fresh seeds >=1566540: enrich >4-candidate positions and repeat same-world comparison; obtain authentic four-side branch lock and blocked-round winner fixtures before recommending human tactics.
