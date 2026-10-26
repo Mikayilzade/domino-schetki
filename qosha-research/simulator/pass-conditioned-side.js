@@ -6,6 +6,7 @@
 const e=require('./engine'),d=require('./turn-dispatcher'),r=require('./round-driver');
 const init=require('./initializer'),b=require('./strategy-runner'),side=require('./side-equivariant-holdout');
 const MIXES=[['min-hand-pips','min-hand-pips'],['fast-doubles','min-hand-pips']];
+const STRONG_MIXES=[['closed-branch-control','closed-branch-control'],['closed-branch-control','min-hand-pips']];
 const check=(x,msg)=>{if(!x)throw Error('pass-conditioned-side: '+msg);};
 const avg=a=>a.length?a.reduce((s,x)=>s+x,0)/a.length:null;
 const med=a=>{const z=[...a].sort((x,y)=>x-y);return z.length?(z.length%2?z[(z.length-1)/2]:(z[z.length/2-1]+z[z.length/2])/2):null;};
@@ -66,7 +67,8 @@ function select(scores,actions){
  sorted.sort((x,y)=>y.first-x.first||x.pips-y.pips||x.id.localeCompare(y.id));
  return sorted[0].i;
 }
-function run(start=1575740,count=600,train=8,evalN=12){
+function run(start=1575740,count=600,train=8,evalN=12,mixes=MIXES){
+ check(Array.isArray(mixes)&&mixes.length>0&&mixes.every(p=>p.length===2&&p.every(n=>['min-hand-pips','fast-doubles','closed-branch-control'].includes(n))),'opponent mixes');
  check([start,count,train,evalN].every(Number.isInteger)&&count>=2&&count%2===0&&count<=1200&&train>=2&&evalN>=2&&train<=64&&evalN<=64,'arguments');
  const rows=[],focal=[],minus={'-10':0,'-20':0,'-30':0,'-40':0};
  let rounds=0,finishes=0,blocks=0,turnTotal=0,passEvents=0,forced=0,eligible=0;
@@ -74,9 +76,9 @@ function run(start=1575740,count=600,train=8,evalN=12){
   const base=init.initializeThreePlayerRound({seed,isFirstRound:false,previousWinnerIndex:seed%3});
   check(base.kind==='ready','initialization');
   let selected=false;
-  for(let seat=0;seat<3;seat++)for(let mix=0;mix<MIXES.length;mix++){
+  for(let seat=0;seat<3;seat++)for(let mix=0;mix<mixes.length;mix++){
    const profiles=[];profiles[seat]='closed-branch-control';
-   profiles[(seat+1)%3]=MIXES[mix][0];profiles[(seat+2)%3]=MIXES[mix][1];
+   profiles[(seat+1)%3]=mixes[mix][0];profiles[(seat+2)%3]=mixes[mix][1];
    const mem=[new Set(),new Set(),new Set()];
    if(base.openingPassed){remember(mem,base,base.starter);passEvents++;}
    let s=r.cloneRoundState(base);
@@ -142,11 +144,11 @@ function run(start=1575740,count=600,train=8,evalN=12){
   unresolved:0,meanRoundTurns:turnTotal/rounds,blockRate:blocks/rounds,minusFinishes:minus,
   passEvents,selectedPositions:eligible,trainWorldsPerMode:train,evalWorldsPerPosition:evalN,
   forcedHiddenWorldContinuations:forced,strategies:['closed-branch-control','min-hand-pips','fast-doubles'],
-  opponentMixes:MIXES,baseline:{finishFirst:avg(focal.map(z=>z.first)),
+  opponentMixes:mixes,baseline:{finishFirst:avg(focal.map(z=>z.first)),
    meanRemainingPips:avg(focal.map(z=>z.pips)),medianRemainingPips:med(focal.map(z=>z.pips)),
    meanStartingDoubles:avg(focal.map(z=>z.starting)),meanEndingDoubles:avg(focal.map(z=>z.ending))},
   discovery:summary(rows.filter(z=>z.seed<half)),holdout:summary(rows.filter(z=>z.seed>=half)),
-  combined:summary(rows),rows,
+  combined:summary(rows),passStrata:{oneOpponent:summary(rows.filter(z=>!(z.forbiddenNext>0&&z.forbiddenOther>0))),bothOpponents:summary(rows.filter(z=>z.forbiddenNext>0&&z.forbiddenOther>0))},rows,
   design:'At most first no-stock same-tile/different-numerical-end side pair per deal with >=1 informative observed opponent pass. Train each of two side choices on identical 8/8 conditional/uniform hidden-world allocations per mode; evaluate on independent matched conditional worlds with permutation-equivariant continuation bots. First-finisher primary; pips/minus/block secondary. No opponent hidden-hand leakage into selection.',
   posterior:'Uniform over remaining hidden allocations conditioned on observed no-stock passes; opponent action likelihood ignored. Deterministic seed salts for training conditional/uniform and independent evaluation.',
   limitations:'Four-side number-lock PROVISIONAL; no authentic block winner/loneZero/bust/101-match. First eligible position per deal, simple continuation bots, training overfit risk, multiple exploratory tests; finish-first != match victory. Never promote an unreplicated tactic.',
@@ -166,8 +168,10 @@ function test(){
  check(x.baselineRounds===12,'baseline count');
  check(x.forcedHiddenWorldContinuations===x.selectedPositions*12,'continuation accounting');
  check(x.rows.every(z=>z.forbiddenNext+z.forbiddenOther>0),'pass gate');
- return{passed:true,checks:6,replayDeals:2,positions:x.selectedPositions};
+ const strong=run(1576540,2,2,2,STRONG_MIXES);
+ check(strong.baselineRounds===12&&strong.opponentMixes.length===2,'strong mix replay');
+ return{passed:true,checks:7,replayDeals:2,positions:x.selectedPositions,strongPositions:strong.selectedPositions};
 }
 if(require.main===module){const a=process.argv.slice(2);
- console.log(JSON.stringify(a[0]==='test'?test():run(+(a[0]||1575740),+(a[1]||600),+(a[2]||8),+(a[3]||12)),null,2));}
-module.exports={run,test,world,remember,summary};
+ console.log(JSON.stringify(a[0]==='test'?test():run(+(a[0]||1575740),+(a[1]||600),+(a[2]||8),+(a[3]||12),a[4]==='strong'?STRONG_MIXES:MIXES),null,2));}
+module.exports={run,test,world,remember,summary,STRONG_MIXES};
