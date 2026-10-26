@@ -1,19 +1,19 @@
 # Qoşa research status
 
-Updated: 2026-10-27 00:57:56 +04 (Asia/Baku)
+Updated: 2026-10-27 01:54:12 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **1,158,975** complete full rounds; historical 4,000 separate.
-- **1,650,720** matched hidden-world forced continuations.
+- **1161375** complete full rounds; historical 4,000 separate.
+- **1688352** matched hidden-world forced continuations.
 - **4,900** separate full-known-world diagnostics.
 - Engine qosa-research-0.5.3 / recovered qosa-1.0.0, 3×9; four-side number-lock **PROVISIONAL**.
-- Fresh seeds **1573340..1575339**; next unused seed **>=1575340**.
+- Fresh seeds **1575340..1575739**; next unused seed **>=1575740**.
 
 ## Latest checkpoint
-- 2,000 deals, 12,000 rounds, 15,072 forced continuations. Strict exact 4-vs-8: 19 positions / 13 clusters; 2 trained choices changed; 0.00 pp held-out first-finish difference.
-- Five disjoint cohorts: 5,000 deals, 40 strict positions / 28 clusters; 3 choices changed; +0.074 ±0.146 pp (exploratory).
-- Side pairs: 128 pooled positions (105 same-end, 23 different-end). Under provisional kernel same-tile same-numerical-end placements preserve end multiset and side-free legal actions. Side-label bot artifacts possible.
-- New `simulator/side-symmetry-audit.js` (7 V8 checks), raw `qosha-research/runs/2026-10-27-0053-side-symmetry-1573340-1575339.json`. Node CLI not run; scoreboard/PWA untouched.
+- 400 deals, 2400 full rounds, 37632 forced continuations; V8 CommonJS deterministic 6-check regression passed, Node CLI not run.
+- Same-end 400 positions/4800 worlds: canonical permutation-equivariant policy identical in 4800/4800; legacy label-sensitive identical in 4248/4800.
+- Different-end 384 positions/4608 worlds: canonical identical in 1737/4608; numerical side choices can change outcomes, but no tactical advantage established.
+- Raw runs/2026-10-27-0149-side-equivariant-1575340.json, runner simulator/side-equivariant-holdout.js. Scoreboard/PWA untouched.
 
 ## NEXT ACTION
-- Fresh seeds >=1575340: permutation-equivariant side-pair continuation or joint side-label randomization, plus authentic branch lock/open and blocked-round winner fixtures.
+- Pass-condition hidden worlds, compare different-end placements on matched numerical geometry with new seeds; authenticate branch opening and block winner.
