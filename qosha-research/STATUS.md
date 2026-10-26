@@ -1,19 +1,21 @@
 # Qoşa research status
 
-Updated: 2026-10-26 09:51:30 +04 (Asia/Baku)
+Updated: 2026-10-26 10:52:19 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **1,074,255** complete full rounds; historical 4,000 separate.
-- **1,353,880** forced matched hidden-world continuations.
+- **1,074,855** complete full rounds; historical 4,000 separate.
+- **1,367,256** forced matched hidden-world continuations.
 - **4,900** separate full-known-world diagnostics.
-- Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`, 3×9; number-lock **PROVISIONAL**.
-- Fresh seeds **1561100..1561219**; next unused seed **>=1561220**.
+- Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0`, 3×9; four-side number-lock **PROVISIONAL**.
+- Fresh seeds **1561220..1561319**; next unused seed **>=1561320**.
 
 ## Latest checkpoint
-- Independent fixed-visible Monte Carlo opening-switch replication using `simulator/hidden-world-mobility.js` and `runs/2026-10-26-0948-hidden-world-switch-holdout-1561100.json`.
-- 720 complete baseline rounds; 1215 selected changed-choice positions; 14580 sampled hidden worlds; 29160 forced paired continuations.
-- Hybrid minus closed-control finish-first: mobility -3.55 ±1.88 pp; tempo -3.25 ±1.96 pp (exploratory deal-cluster 95% half-widths). Opening-switch versus same-type subgroups in JSON; not causal.
-- Deterministic V8 CommonJS replay and synthetic branch/scoring tests passed; Node CLI not executed. Uniform unknown allocations do not condition on pass history. Scoreboard/PWA untouched.
+- Pass-conditioned Monte Carlo: `simulator/pass-conditioned-mobility.js`, `runs/2026-10-26-1050-pass-conditioned-mobility-1561220.json`.
+- 600 baseline rounds; 418 changed-choice post-pass positions; 3344 pass-conditioned allocations and 3344 uniform-control allocations; 13376 forced continuations.
+- Mobility vs closed finish-first (conditional): 0.37 ±4.70 pp; uniform: -2.61 ±3.92 pp.
+- Tempo vs closed finish-first (conditional): -5.62 ±5.65 pp; uniform: 0.78 ±4.81 pp.
+- Uniform-world pass contradictions: mobility 72.5%; tempo 70.0%; conditional sampler enforces all observed no-stock passes.
+- Deterministic V8 CommonJS regression green; Node CLI not executed. Uncorrected exploratory deal-cluster intervals; first eligible changed decisions, simple bots, authentic branch opening/block winner unresolved. Live scoreboard/PWA untouched.
 
 ## NEXT ACTION
-- Add exact no-stock pass-conditioned hidden-world allocation to first-divergence sampler, verify deterministic replay and invariants; independent seeds >=1561220. Authenticate four-side locking and block-winner fixtures.
+- Independent holdout seeds >=1561320 with more pass-conditioned worlds and both-opponent pass-history strata; confirm real four-side lock/open and block-winner examples before human advice.
