@@ -1463,3 +1463,25 @@
 - **Reproduce/data:** \`node qosha-research/simulator/branch-current-full-round.js test\`; \`node qosha-research/simulator/branch-current-full-round.js 1601340 800\`; \`qosha-research/runs/2026-10-27-1856-branch-current-full-round-1601340-1602139.json\` (per-policy first-finisher, mean/median remainder, starting/ending doubles, block ties, paired outcomes and assumptions).
 - **Verified cumulative:** **1,337,775 global model rounds** + **19,200 one-side-only counterfactual rounds** + **4,800 all-current counterfactual rounds** = **1,361,775 model-rounds across incompatible rule assumptions** (workload scale ONLY). **1,898,856** forced matched hidden-world continuations unchanged; **14,082** next-pass labels and **4,900** known-world diagnostics unchanged; historical 4,000 rounds separate. Next unused seed **>=1602140**.
 - **Exact next hypothesis/action:** isolate the minimal publicly observable branch-history fixture that distinguishes *global-ever-open* from *all-current-only*: after playing N-N on one side, a different side reaches N later—can a non-double extend that second side without another N-N? Compare with any archived authentic qosa-1.0.0 game trace (read-only) before further tactical simulations. In parallel add explicit block-tie scoring fixtures, without inventing a winner rule.
+
+
+### 2026-10-27 19:53:44 +04 (Asia/Baku) — branch-tie audit checkpoint (linked run data)
+
+- **Engine/rules:** `qosa-research-0.5.3+tie-probe` / recovered `qosa-1.0.0`, four branch models PROVISIONAL.
+- **Fresh seeds:** 1602140..1602939, 800 deals × 2 policy mixes × 3 rotations × 4 models = **19,200 model-rounds**; no unresolved. Global 159/4800 blocks (3.31%) with 6 tied minima; all-current 4453/4800 blocks (92.77%) with 257 tied minima; one-side first/last 4716/4735 blocks with 245/239 tied minima. No blocked winner assigned.
+- **Finding:** synthetic late-arrival fixture distinguishes global-ever-open from all-current-only, but authentic play trace is unavailable. No reliable tactical rule; block ties remain unresolved.
+- **Confidence:** deterministic V8 pilot (96 model-rounds) and full matched simulation; Node CLI not executed, branch rules unverified.
+- **Raw and detailed record:** `runs/2026-10-27-1951-branch-tie-probe.md` and `runs/2026-10-27-1951-branch-tie-probe-1602140-1602939.json`.
+- **Cumulative:** 1,380,975 model-rounds across incompatible assumptions; 1,898,856 forced continuations unchanged. Next seed >=1602940.
+
+
+### 2026-10-27T20:53:08+04:00 (Asia/Baku) — rule-invariant first-round opening and bridge supply
+
+- **Engine/rules:** `qosa-research-0.5.3` deal kernel + `opening-pattern-baseline-1.0`; recovered `qosa-1.0.0` first-round 1-1 opening. No branch/block scoring assumption.
+- **Seeds/deals/strategies:** **1602940..1662939**; **60,000 deterministic deals**, 180,000 initial 9-stone hands; 2,117 first-round stock-1-1 reshuffles excluded, leaving **57,883 valid starter positions**. No strategy policy, **0 new full model-rounds** and 0 hidden-world continuations.
+- **New exact finding:** after placing 1-1 and drawing stock, probability of no 1-X connector (forced pass on the follow-up) is **C(21,9)/C(27,9)=6.2714%**; observed **3,647/57,883=6.3006%**. Probability of >=2 connectors: exact **67.6781%**, observed **39,120/57,883=67.5846%**. This is confirmed-opening availability, not win probability.
+- **Pattern supply:** **72,824/180,000=40.4578%** initial hands contain at least one X-X,Y-Y,X-Y bridge; **156,566/180,000=86.9811%** have some double X-X and >=2 X-connectors. Starter hands after 1-1 and stock: **19,509/57,883=33.7042%** contain a bridge. No tactic implied.
+- **Validation/limits:** 28 distinct tiles per deal, exact hypergeometric calibration, deterministic seeded shuffle and hand-feature checks; calculations run in V8 with documented engine-equivalent shuffle; Node CLI test not run here. Three hands per deal are dependent. Authentic late-arrival legality and block-tie scoring remain unknown.
+- **Reproduce:** `node qosha-research/simulator/opening-pattern-baseline.js test`; `node qosha-research/simulator/opening-pattern-baseline.js 1602940 60000`. Raw `runs/2026-10-27-opening-pattern-baseline-1602940-1662939.json`.
+- **Cumulative:** **1,380,975** full model-rounds (incompatible models not pooled) unchanged; **1,898,856** matched hidden-world continuations unchanged; new 60,000 deals tracked separately. Next fresh seed >=**1662940**.
+- **Exact next hypothesis/action:** check authentic starter-pass and late-arrival examples; then compare preserve-X-X + X-Y connector policies on matched deals only after branch legality validation, keeping block winner unresolved.

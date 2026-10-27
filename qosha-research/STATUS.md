@@ -1,23 +1,21 @@
 # Qoşa research status
 
-Updated: 2026-10-27T19:53:44+04:00 (Asia/Baku)
+Updated: 2026-10-27T20:53:08+04:00 (Asia/Baku)
 
 ## Verified cumulative
-- Global provisional rounds: **1,342,575**; one-side counterfactual: **28,800**; current-all counterfactual: **9,600**.
-- **1,380,975** total model-rounds across incompatible assumptions, workload ONLY; historical 4,000 separate.
+- Global provisional rounds **1,342,575**; one-side counterfactual **28,800**; all-current counterfactual **9,600**.
+- **1,380,975** full model-rounds across incompatible assumptions (workload only); historical 4,000 separate.
 - **1,898,856** forced hidden-world continuations, **14,082** next-pass labels, **4,900** known-world diagnostics (unchanged).
-- Engine `qosa-research-0.5.3+tie-probe`; recovered `qosa-1.0.0`; branch unlock and blocked winner **UNVALIDATED**.
-- Fresh seeds **1602140..1602939**; next >=**1602940**.
+- **60,000 new rule-invariant opening deals**, 180,000 initial hands, 57,883 valid first-round starters. Do NOT add these deals to full model-round cumulative.
+- Engine `qosa-research-0.5.3` + `opening-pattern-baseline-1.0`; recovered `qosa-1.0.0`; branch opening and blocked winner UNVALIDATED.
+- Fresh seeds **1602940..1662939**; next >=**1662940**.
 
 ## Latest checkpoint
-- 800 deals × 2 mixes × 3 rotations × 4 models = **19,200 complete model-rounds**; zero unresolved. V8 CommonJS test/replay passed, Node CLI not executed.
-- **global:** 159/4800 blocks (3.31%); 6 tied minima (5 two-way, 1 three-way), 0 zero-pip ties; minus −10/−20/−30/−40 763/37/0/0; mean 25.24 turns.
-- **currentAll:** 4453/4800 blocks (92.77%); 257 tied minima (255 two-way, 2 three-way), 0 zero-pip ties; minus −10/−20/−30/−40 39/6/0/0; mean 23.33 turns.
-- **localFirst:** 4716/4800 blocks (98.25%); 245 tied minima (240 two-way, 5 three-way), 0 zero-pip ties; minus −10/−20/−30/−40 3/0/0/0; mean 20.54 turns.
-- **localLast:** 4735/4800 blocks (98.65%); 239 tied minima (231 two-way, 8 three-way), 0 zero-pip ties; minus −10/−20/−30/−40 1/2/0/0; mean 20.40 turns.
-- Minimal SYNTHETIC late-arrival probe distinguishes global-ever-open (left 5-6 YES) from all-current-only (NO). No authentic move-by-move trace archived; block tie winners remain unknown.
-- Source `simulator/branch-tie-probe.js`, raw `runs/2026-10-27-1951-branch-tie-probe-1602140-1602939.json`, checkpoint `runs/2026-10-27-1951-branch-tie-probe.md`.
-- Live scoreboard/PWA and GitHub Actions untouched.
+- Exact probability of a starter forced pass immediately after 1-1 + stock draw: **6.2714%**; observed **3,647/57,883 = 6.3006%**.
+- At least two 1-X connectors: exact **67.6781%**, observed **67.5846%**.
+- **40.4578%** of 180,000 initial 9-stone hands contain X-X,Y-Y,X-Y bridge; descriptive, not a winning tactic.
+- Script `simulator/opening-pattern-baseline.js`, raw `runs/2026-10-27-opening-pattern-baseline-1602940-1662939.json`. Node CLI not run.
+- Scoreboard/PWA and GitHub Actions untouched.
 
 ## NEXT ACTION
-- Verify actual late-arrival legality and block-tie scoring from real play before human strategy rankings; otherwise focus on ambiguity-invariant hypotheses.
+- Authenticate late-side legality and blocked-round tie convention from real traces; otherwise continue ambiguity-invariant opening/pattern work. Only rank connector-preservation strategies under validated rules.
