@@ -1,18 +1,20 @@
 # Qoşa research status
 
-Updated: 2026-10-27 09:55:39 +04 (Asia/Baku)
+Updated: 2026-10-27 10:50:30 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **1212975** complete rounds; historical 4,000 separate.
-- **1898856** matched forced hidden-world continuations (unchanged this run).
-- **4900** separate known-world diagnostics; **2884** counterfactual immediate next-opponent pass labels.
+- **1234575** complete rounds; historical 4,000 separate.
+- **1898856** matched forced hidden-world continuations (unchanged).
+- **4900** separate known-world diagnostics; **5734** counterfactual immediate next-opponent pass labels.
 - Engine qosa-research-0.5.3 / recovered qosa-1.0.0 3×9; four-side number-lock PROVISIONAL.
-- Latest fresh seeds 1581940..1584339; next >=1584340.
+- Latest fresh seeds 1584340..1587939; next >=1587940.
 
 ## Latest checkpoint
-- 2400 deals, 14400 complete baseline rounds, 942 selected positions; Brier uniform 0.09609 vs conditional 0.02150; gain 0.07459 ± 0.00784.
-- Holdout gain 0.07512 ± 0.01099; BOTH-pass n=73. Non-certain n=416, Brier gain 0.00760; 1468 certain forecasts, 0 errors (model constraints, not human guarantees).
-- 7 deterministic V8 CommonJS checks passed; Node CLI not executed. Source unchanged. Data and limitations: `qosha-research/runs/2026-10-27-0954-next-pass-replication-1581940-1584339.md`, `qosha-research/runs/2026-10-27-0954-next-pass-replication-1581940-1584339.json`. Scoreboard/PWA untouched.
+- 3600 deals, 21600 baseline rounds, 1425 selected positions and 2850 next-pass labels.
+- Non-certain: 607 labels, uniform Brier 0.11849 vs conditional 0.10327; gain 0.01662 ± 0.00921 (exploratory 95% position-cluster).
+- Independent holdout gain 0.01552 ± 0.01264 (334 labels); BOTH-pass non-certain only 15 labels, gain 0.01020 ± 0.09405.
+- 2243 model-certain labels, 0 errors. No new confirmed human-play tactic. Policy-choice likelihood not modeled.
+- 4-check deterministic V8 CommonJS replay passed; Node CLI not executed. Data/report: `qosha-research/runs/2026-10-27-1050-next-pass-uncertain-1584340-1587939.json`, `qosha-research/runs/2026-10-27-1050-next-pass-uncertain-1584340-1587939.md`. Scoreboard/PWA untouched.
 
 ## NEXT ACTION
-- Fresh seeds >=1584340; policy-choice-aware posterior calibration especially non-certain and BOTH-pass strata; authenticate branch locking and blocked winner before tactics.
+- Fresh seeds >=1587940: explicitly model prior opponent choice likelihood and hold out non-certain/BOTH-pass forecasts; authenticate branch locking and blocked winner.
