@@ -4,7 +4,7 @@ Updated: 2026-10-27T19:53:44+04:00 (Asia/Baku)
 
 ## Verified cumulative
 - Global provisional rounds: **1,342,575**; one-side counterfactual: **28,800**; current-all counterfactual: **9,600**.
-- **1,361,775** total model-rounds across incompatible assumptions, workload ONLY; historical 4,000 separate.
+- **1,380,975** total model-rounds across incompatible assumptions, workload ONLY; historical 4,000 separate.
 - **1,898,856** forced hidden-world continuations, **14,082** next-pass labels, **4,900** known-world diagnostics (unchanged).
 - Engine `qosa-research-0.5.3+tie-probe`; recovered `qosa-1.0.0`; branch unlock and blocked winner **UNVALIDATED**.
 - Fresh seeds **1602140..1602939**; next >=**1602940**.

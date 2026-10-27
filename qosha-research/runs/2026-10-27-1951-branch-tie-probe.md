@@ -12,5 +12,5 @@
 - **Finding:** block tie interpretation matters under the restricted models, but no authentic tie-break rule or late-side gameplay observation is available. **No reliable new human-play tactic.**
 - **Limitations:** synthetic policies, provisional branch rules, unresolved blocked winner/101 match/loneZero, divergent paths after different legal moves; model-specific results must not be pooled for rankings.
 - **Reproduce:** `node qosha-research/simulator/branch-tie-probe.js test`; `node qosha-research/simulator/branch-tie-probe.js 1602140 800`. Raw `runs/2026-10-27-1951-branch-tie-probe-1602140-1602939.json`.
-- **Verified cumulative:** **1,361,775** model-rounds across incompatible rules (workload only), comprising global 1,342,575, one-side 28,800, current-all 9,600; **1,898,856** matched hidden-world continuations unchanged. Next unused seed >=1602940.
+- **Verified cumulative:** **1,380,975** model-rounds across incompatible rules (workload only), comprising global 1,342,575, one-side 28,800, current-all 9,600; **1,898,856** matched hidden-world continuations unchanged. Next unused seed >=1602940.
 - **Exact next action:** acquire a real late-arrival observation and authentic block-tie scoring convention, or restrict strategy tests to ambiguity-invariant positions.
