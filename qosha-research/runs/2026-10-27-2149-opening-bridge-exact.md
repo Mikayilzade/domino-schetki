@@ -1,0 +1,14 @@
+# 2026-10-27 — exact bridge supply conditional on starter connectors
+
+- **Timestamp (Asia/Baku):** 2026-10-27T21:49:54+04:00
+- **Engine/rules:** `qosa-research-0.5.3 deal semantics + opening-bridge-exact-1.0`; recovered `qosa-1.0.0`, confirmed 3×9 first-round 1-1 opening and stock draw only. Branch unlock and block winner remain provisional.
+- **Deals/seeds/strategies:** **0 new random deals**, **0 new full model rounds**, **0 new forced continuations**. Exact exhaustive coverage of **6,906,900** possible 9-tile hands; the **4,686,825** hands excluding 1-1 represent the starter's post-draw 9-tile distribution. These are overlapping combinatorial populations, not additive simulated rounds. No strategies.
+- **Definition:** bridge = at least one set `X-X, Y-Y, X-Y` for distinct X,Y. For d selected doubles, bridge-free hands exclude `C(d,2)` connecting non-double tiles. Formula: `1 - sum_d C(7,d)*C(21-C(d,2),9-d)/C(28,9)`; after 1-1 is placed, replace 7 by 6 and 28 by 27.
+- **Exact all-hand frequency:** **2,798,705/6,906,900 = 40.5204%**. Previous 60k-deal observation was 72,824/180,000 = 40.4578%.
+- **Exact starter after 1-1 + draw:** **1,590,830/4,686,825 = 33.9426%**. Previous observed 19,509/57,883 = 33.7042%.
+- **Key conditional finding:** if the starter has **zero 1-X connectors** and must pass after opening, **178,435/293,930 = 60.7066%** of those hands contain a bridge among the other numbers. If starter has **two or more 1-X connectors**, the bridge rate is only **26.4422%**. This is a composition effect: no 1-X stones leaves more of the 9 slots for other tiles, **not** evidence that a forced pass is advantageous.
+- **Validation:** independent 28-bit combination enumeration of all 6,906,900 hands in V8 agrees exactly with the combinatorial formula and every 0..6 connector stratum. `node qosha-research/simulator/opening-bridge-exact.js test` reproduces it; Node CLI not run in this connector pass. Exact integer counts, no sampling CI.
+- **Confidence/limitations:** exact for the stated uniform-hand model and confirmed starter mechanics; no authentic late-side rule, blocked winner/tie, loneZero/bust/101 scoring. Do not generalize this starter-specific pass signal to later turns or to human win probability.
+- **Reproduce/data:** `simulator/opening-bridge-exact.js`; `runs/2026-10-27-2149-opening-bridge-exact.json`. No scoreboard/PWA or GitHub Actions changes.
+- **Verified cumulative unchanged:** **1,380,975** full model-rounds across incompatible rules; **1,898,856** matched forced hidden-world continuations; historical 4,000 separate; last simulated seeds 1602940..1662939; next fresh >=1662940.
+- **Exact next hypothesis/action:** calibrate the hidden-world sampler against these conditional starter-hand bridge frequencies, then test a bridge-preservation decision on matched seeds only when the relevant branch legality is authenticated.

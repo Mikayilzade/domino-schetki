@@ -1485,3 +1485,13 @@
 - **Reproduce:** `node qosha-research/simulator/opening-pattern-baseline.js test`; `node qosha-research/simulator/opening-pattern-baseline.js 1602940 60000`. Raw `runs/2026-10-27-opening-pattern-baseline-1602940-1662939.json`.
 - **Cumulative:** **1,380,975** full model-rounds (incompatible models not pooled) unchanged; **1,898,856** matched hidden-world continuations unchanged; new 60,000 deals tracked separately. Next fresh seed >=**1662940**.
 - **Exact next hypothesis/action:** check authentic starter-pass and late-arrival examples; then compare preserve-X-X + X-Y connector policies on matched deals only after branch legality validation, keeping block winner unresolved.
+
+
+### 2026-10-27T21:49:54+04:00 (Asia/Baku) — exact bridge enumeration and conditional starter-pass composition
+
+- Exact exhaustive **6,906,900** possible 9-stone hands, of which **4,686,825** exclude 1-1 and correspond to the post-draw starter hand distribution. **0 new random deals / 0 new model-rounds / 0 new forced continuations**. No seed or strategy applicable; next simulation seed >=1662940.
+- Bridge `X-X,Y-Y,X-Y`: exact **2,798,705/6,906,900 = 40.5204%** in arbitrary hands; **1,590,830/4,686,825 = 33.9426%** after starter 1-1 + draw.
+- Conditional starter bridge prevalence: **60.7066%** with zero 1-X connectors (forced pass), versus **26.4422%** with >=2 connectors. This is a hand-composition effect, **not** evidence passing improves win chances.
+- Engine/rules: `qosa-research-0.5.3+opening-bridge-exact-1.0` / confirmed first-round subset of recovered `qosa-1.0.0`; no branch/block assumptions. Independent 6,906,900-hand V8 enumeration matched exact formula and each 0..6 connector stratum; Node CLI not run. Counts are exact, no sampling uncertainty; real-game tactical impact unknown.
+- **Cumulative unchanged:** **1,380,975** incompatible-rule model-rounds, **1,898,856** forced hidden-world continuations; 60,000 prior random opening deals separate. Reproduce: `simulator/opening-bridge-exact.js test`; linked `runs/2026-10-27-2149-opening-bridge-exact.json` and `runs/2026-10-27-2149-opening-bridge-exact.md`.
+- **Exact next hypothesis/action:** calibrate hidden-world starter sampler against exact connector/bridge counts; authenticate late-arrival branch legality and blocked winner/ties before matched bridge-preservation strategy comparisons.
