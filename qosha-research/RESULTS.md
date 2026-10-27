@@ -1522,3 +1522,13 @@
 - **Cumulative:** **1,380,975** model rounds across incompatible branch assumptions, **1,898,856** forced continuations unchanged; **340,000 prior + 15,000 new = 355,000** opening hidden-world allocations (separate from model rounds); historical 4,000 rounds excluded. Next unused seed **>=2018000**.
 - **Exact next action:** generalize posterior to known played tiles, asymmetric opponent hand sizes and real midgame pass observations with exact small-world benchmarks; obtain authentic branch-lock and block-tie fixtures before ranking tactical double-bridge decisions.
 
+
+
+### 2026-10-28 02:58:10 +04:00 — chronological public-history pass replay
+- Engine/rules: `qosa-research-0.5.3 + public-history-replay-1.0` / recovered `qosa-1.0.0` 3×9; **global-ever-open PROVISIONAL**.
+- Seeds `2042000..2053999`; **12,000** new hidden allocations, **0** new complete model rounds/deals, **0** forced strategic continuations; no strategies compared. Synthetic trace 1-1 → stock draw → 1-2 → 2-2 → observed pass reconstructs ten legal-tile exclusions chronologically, exact **5,005/24,310** compatible hidden partitions; 3-6 ownership **7,137/12,000 = 59.475%** vs exact **60%** (z=−1.174).
+- Tests: V8 CommonJS-compatible **10** negative guards, forced opening pass, multi-double, 100 deterministic replays, conservation, exact posterior and a synthetic late-arrival move whose legality differs across provisional branch models. Node CLI not run.
+- Finding: **pass-mask provenance can be reconstructed from a public event sequence instead of asserted board ends**, but no authentic game trace and **no confirmed winning tactic**. Passes remain observed claims, not privately verifiable. Block winner/ties, branch legality, 101 scoring unresolved.
+- Cumulative: **1,380,975** model rounds across incompatible assumptions, **1,898,856** forced continuations (both unchanged); **391,000** separate hidden-world allocations; historical 4,000 separate. Next fresh seed >=**2054000**.
+- Reproduce: `simulator/public-history-replay.js test`; `simulator/public-history-replay.js 2042000 12000`; details `qosha-research/runs/2026-10-28-0257-public-history-replay.md`; raw `qosha-research/runs/2026-10-28-0257-public-history-replay-2042000-2053999.json`.
+- Exact next hypothesis/action: authenticate the public late-arrival 2-4-on-left fixture against real play, then confirm block ties before strategy comparisons.

@@ -1,21 +1,22 @@
 # Qoşa research status
 
-Updated: 2026-10-28 01:49:18 +04:00 (Asia/Baku)
+Updated: 2026-10-28 02:58:10 +04:00 (Asia/Baku)
 
 ## Verified cumulative
 - **1,380,975** full model-rounds across incompatible branch assumptions (workload only); historical 4,000 separate.
 - **1,898,856** forced hidden-world continuations, **14,082** next-pass labels, **4,900** known-world diagnostics (unchanged).
 - **60,000** random opening deals; **6,906,900** exact 9-stone hands enumerated (previous).
-- **379,000** synthetic hidden-world allocations: 355,000 opening + 12,000 prior midgame + **12,000 new pass-evidence audit**; NOT model rounds.
-- Engine `qosa-research-0.5.3 + pass-evidence-audit-1.0`; recovered `qosa-1.0.0`. Branch unlock, block winner/ties and 101 scoring UNVALIDATED.
-- Last seed range **2030000..2041999**; next fresh >=**2042000**.
+- **391,000** synthetic hidden-world allocations: 379,000 prior + **12,000 new chronological-replay posterior worlds**; NOT model rounds.
+- Engine `qosa-research-0.5.3 + public-history-replay-1.0`; recovered `qosa-1.0.0`. Branch unlock, block winner/ties and 101 scoring UNVALIDATED.
+- Last seed range **2042000..2053999**; next fresh >=**2054000**.
 
 ## Latest checkpoint
-- **Important qualification of previous result:** prior synthetic pass masks forbidding every 2-X/6-X tile cannot be derived as authentic legal masks under the provisional global-ever-open model without publicly played 2-2/6-6. Previous 21/24,310 is still an exact *hypothetical-mask* count, not a real-match deduction.
-- Added `simulator/pass-evidence-audit.js`: derive no-stock pass exclusions from explicit pass-time ends and opened-number double evidence; reject missing doubles, stock, intervening acquisition and unsupported provenance. Still **not** a full chronological replay.
-- New internally consistent synthetic snapshot: exact **5,005/24,310** hidden allocations; **12,000** seeded samples; 3-6 held by passing seat **59.70%** vs exact **60%**, z=−0.671. Seven invalid-evidence guards and 100 seed replay checks passed in V8 CommonJS-compatible execution (Node CLI not run).
-- Data `runs/2026-10-28-0149-pass-evidence-audit.md`; **no reliable new winning tactic**.
+- `simulator/public-history-replay.js` reconstructs public 1-1 opening/draw, played tiles, branch ends, opened doubles, turn order, passes and pass-time legal masks from events. No caller-supplied board/pass mask is trusted.
+- Synthetic 1-1/draw/1-2/2-2/pass yields **10 excluded tiles** and exact **5,005/24,310** hidden partitions. **12,000** fresh seeded worlds: seat 1 owns 3-6 in **59.475%** versus exact **60%** (z=−1.174).
+- Synthetic late arrival: a left branch reaches 2 *after* 2-2 opened on up; subsequent 2-4 is legal in provisional global-ever-open but locked under all-current-only. Authentic legality unknown.
+- V8 CommonJS-compatible tests passed: **10** negative guards, forced opening pass, multi-double, **100** deterministic seed replays, 28-tile conservation and exact partition calibration. Node CLI not run. **No reliable winning tactic.**
+- Data `qosha-research/runs/2026-10-28-0257-public-history-replay.md` and `qosha-research/runs/2026-10-28-0257-public-history-replay-2042000-2053999.json`.
 - Scoreboard/PWA and GitHub Actions untouched.
 
 ## NEXT ACTION
-- Chronologically replay public moves, draws and passes to validate pass-time legal ends and the absence of later acquisition; authenticate late-arrival branch unlock and blocked tie scoring before tactical recommendations.
+- Validate an authentic chronological public game trace, especially late arrival at a previously doubled number, and authenticate blocked-round tie scoring before tactical advice.
