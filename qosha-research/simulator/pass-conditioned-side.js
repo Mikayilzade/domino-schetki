@@ -11,6 +11,12 @@ const check=(x,msg)=>{if(!x)throw Error('pass-conditioned-side: '+msg);};
 const avg=a=>a.length?a.reduce((s,x)=>s+x,0)/a.length:null;
 const med=a=>{const z=[...a].sort((x,y)=>x-y);return z.length?(z.length%2?z[(z.length-1)/2]:(z[z.length/2-1]+z[z.length/2])/2):null;};
 const key=a=>[a.type,a.side||'',a.to??'',(a.numbers||[]).join(','),e.tileKey(a.tile||[0,0])].join(':');
+// Exact fraction of uniform allocations compatible with remembered no-stock passes.
+function choose(n,k){if(k<0||k>n)return 0;k=Math.min(k,n-k);let z=1;for(let i=1;i<=k;i++)z=z*(n-k+i)/i;return z;}
+function passSupport(n,o,forbiddenNext,forbiddenOther){
+ const N=n+o,free=N-forbiddenNext-forbiddenOther;
+ return choose(free,n-forbiddenOther)/choose(N,n);
+}
 function legalKeys(s){
  const z=new Set();for(const tile of e.createDoubleSixDeck())
   if(d.actionsForHand(s.branchState,s.openingState,[tile]).length)z.add(e.tileKey(tile));
@@ -54,6 +60,8 @@ function cluster(rows,field){
 function summary(rows){
  const out={positions:rows.length,deals:new Set(rows.map(x=>x.seed)).size,
   choiceSwitches:rows.filter(x=>x.switch).length,
+  meanPassInformationBits:avg(rows.map(x=>x.passInformationBits)),
+  strongPassInformationPositions:rows.filter(x=>x.passInformationBits>=2).length,
   informativeBoth:rows.filter(x=>x.forbiddenNext>0&&x.forbiddenOther>0).length};
  for(const field of ['conditionalMinusUniformFirstPP','conditionalMinusUniformPips',
   'conditionalMinusUniformMinusPP','conditionalMinusUniformBlockPP','pairAbsFirstPP',
@@ -112,6 +120,9 @@ function run(start=1575740,count=600,train=8,evalN=12,mixes=MIXES){
        const bestFirst=Math.max(m(0,'first'),m(1,'first'));
        rows.push({seed,seat,mix,turn:s.turns,handSize:s.hands[seat].length,forbiddenNext:fn,forbiddenOther:fo,
         actions:actions.map(key),train,evalWorlds:evalN,chosenConditional:c,chosenUniform:u,switch:c!==u,
+        opponentHandSizes:[s.hands[n].length,s.hands[o].length],
+        uniformPassCompatibility:passSupport(s.hands[n].length,s.hands[o].length,fn,fo),
+        passInformationBits:-Math.log2(passSupport(s.hands[n].length,s.hands[o].length,fn,fo)),
         conditionalMinusUniformFirstPP:100*(m(c,'first')-m(u,'first')),
         conditionalMinusUniformPips:m(c,'pips')-m(u,'pips'),
         conditionalMinusUniformMinusPP:100*(m(c,'minus')-m(u,'minus')),
@@ -138,7 +149,7 @@ function run(start=1575740,count=600,train=8,evalN=12,mixes=MIXES){
  }
  const half=start+count/2,stamp=new Intl.DateTimeFormat('sv-SE',
   {timeZone:'Asia/Baku',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date())+' +04';
- return{schema:'qosha-pass-conditioned-side/v1',timestampAsiaBaku:stamp,
+ return{schema:'qosha-pass-conditioned-side/v2',timestampAsiaBaku:stamp,
   engine:'qosa-research-0.5.3',rules:'recovered qosa-1.0.0 3x9; four-side number-lock PROVISIONAL',
   seedStart:start,seedEnd:start+count-1,deals:count,baselineRounds:rounds,finishes,blocks,
   unresolved:0,meanRoundTurns:turnTotal/rounds,blockRate:blocks/rounds,minusFinishes:minus,
@@ -148,7 +159,9 @@ function run(start=1575740,count=600,train=8,evalN=12,mixes=MIXES){
    meanRemainingPips:avg(focal.map(z=>z.pips)),medianRemainingPips:med(focal.map(z=>z.pips)),
    meanStartingDoubles:avg(focal.map(z=>z.starting)),meanEndingDoubles:avg(focal.map(z=>z.ending))},
   discovery:summary(rows.filter(z=>z.seed<half)),holdout:summary(rows.filter(z=>z.seed>=half)),
-  combined:summary(rows),passStrata:{oneOpponent:summary(rows.filter(z=>!(z.forbiddenNext>0&&z.forbiddenOther>0))),bothOpponents:summary(rows.filter(z=>z.forbiddenNext>0&&z.forbiddenOther>0))},rows,
+  combined:summary(rows),passStrata:{oneOpponent:summary(rows.filter(z=>!(z.forbiddenNext>0&&z.forbiddenOther>0))),bothOpponents:summary(rows.filter(z=>z.forbiddenNext>0&&z.forbiddenOther>0))},
+  passStrengthStrata:{weakBelow2Bits:summary(rows.filter(z=>z.passInformationBits<2)),
+   strongAtLeast2Bits:summary(rows.filter(z=>z.passInformationBits>=2))},rows,
   design:'At most first no-stock same-tile/different-numerical-end side pair per deal with >=1 informative observed opponent pass. Train each of two side choices on identical 8/8 conditional/uniform hidden-world allocations per mode; evaluate on independent matched conditional worlds with permutation-equivariant continuation bots. First-finisher primary; pips/minus/block secondary. No opponent hidden-hand leakage into selection.',
   posterior:'Uniform over remaining hidden allocations conditioned on observed no-stock passes; opponent action likelihood ignored. Deterministic seed salts for training conditional/uniform and independent evaluation.',
   limitations:'Four-side number-lock PROVISIONAL; no authentic block winner/loneZero/bust/101-match. First eligible position per deal, simple continuation bots, training overfit risk, multiple exploratory tests; finish-first != match victory. Never promote an unreplicated tactic.',
@@ -168,10 +181,13 @@ function test(){
  check(x.baselineRounds===12,'baseline count');
  check(x.forcedHiddenWorldContinuations===x.selectedPositions*12,'continuation accounting');
  check(x.rows.every(z=>z.forbiddenNext+z.forbiddenOther>0),'pass gate');
+ check(Math.abs(passSupport(4,5,1,0)-5/9)<1e-12,'single next pass support');
+ check(Math.abs(passSupport(4,5,0,1)-4/9)<1e-12,'single other pass support');
+ check(Math.abs(passSupport(4,5,1,1)-35/126)<1e-12,'two pass support');
  const strong=run(1576540,2,2,2,STRONG_MIXES);
  check(strong.baselineRounds===12&&strong.opponentMixes.length===2,'strong mix replay');
- return{passed:true,checks:7,replayDeals:2,positions:x.selectedPositions,strongPositions:strong.selectedPositions};
+ return{passed:true,checks:10,replayDeals:2,positions:x.selectedPositions,strongPositions:strong.selectedPositions};
 }
 if(require.main===module){const a=process.argv.slice(2);
  console.log(JSON.stringify(a[0]==='test'?test():run(+(a[0]||1575740),+(a[1]||600),+(a[2]||8),+(a[3]||12),a[4]==='strong'?STRONG_MIXES:MIXES),null,2));}
-module.exports={run,test,world,remember,summary,STRONG_MIXES};
+module.exports={run,test,world,remember,summary,passSupport,STRONG_MIXES};
