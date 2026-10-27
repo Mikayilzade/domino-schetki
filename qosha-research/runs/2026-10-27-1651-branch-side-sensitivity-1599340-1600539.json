@@ -1,0 +1,215 @@
+{
+  "schema": "qosha-branch-side-one-step-sensitivity/v1",
+  "timestampAsiaBaku": "2026-10-27T16:51:41+04:00",
+  "engine": "qosa-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; global number unlock PROVISIONAL",
+  "startSeed": 1599340,
+  "endSeed": 1600539,
+  "deals": 1200,
+  "rounds": 7200,
+  "finishes": 6946,
+  "blocks": 254,
+  "unresolved": 0,
+  "mixes": [
+    [
+      "random-legal",
+      "min-hand-pips",
+      "closed-branch-control"
+    ],
+    [
+      "fast-doubles",
+      "moderate-double-hold",
+      "closed-branch-control"
+    ]
+  ],
+  "seatRotations": 3,
+  "meanTurns": 25.32125,
+  "minusFinishes": {
+    "0": 5807,
+    "-10": 1091,
+    "-20": 47,
+    "-30": 1,
+    "-40": 0
+  },
+  "totalUnlockEvents": 43017,
+  "multiSideEvents": 15848,
+  "roundsWithMultiSideEvent": 7072,
+  "analyzedNonterminalMultiSideEvents": 14758,
+  "nextPlayerGlobalActionTotal": 61451,
+  "localActionTotalMin": 35863,
+  "localActionTotalMax": 35863,
+  "eventsWithAnyLocalActionLoss": 12338,
+  "eventsWithAllLocalActionLoss": 12338,
+  "eventsWithAnyTileGroupChoiceChange": 112,
+  "eventsWithAllTileGroupChoiceChange": 0,
+  "eventsWithAnySideChoiceChange": 6732,
+  "eventsWithAnyPassFlip": 0,
+  "eventsWithAnyMixedFinishLoss": 9,
+  "bySideCount": {
+    "2": 9767,
+    "3": 4477,
+    "4": 1604
+  },
+  "examples": [
+    {
+      "seed": 1599340,
+      "mix": 0,
+      "rotation": 0,
+      "turn": 16,
+      "number": 5,
+      "sides": [
+        "left",
+        "down"
+      ],
+      "nextPlayerPolicy": "random-legal",
+      "globalActions": 6,
+      "localActionCounts": [
+        3,
+        3
+      ]
+    },
+    {
+      "seed": 1599340,
+      "mix": 0,
+      "rotation": 0,
+      "turn": 21,
+      "number": 0,
+      "sides": [
+        "up",
+        "right",
+        "down"
+      ],
+      "nextPlayerPolicy": "closed-branch-control",
+      "globalActions": 4,
+      "localActionCounts": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "seed": 1599340,
+      "mix": 0,
+      "rotation": 2,
+      "turn": 8,
+      "number": 6,
+      "sides": [
+        "right",
+        "down"
+      ],
+      "nextPlayerPolicy": "random-legal",
+      "globalActions": 2,
+      "localActionCounts": [
+        1,
+        1
+      ]
+    },
+    {
+      "seed": 1599340,
+      "mix": 0,
+      "rotation": 2,
+      "turn": 12,
+      "number": 0,
+      "sides": [
+        "right",
+        "down"
+      ],
+      "nextPlayerPolicy": "min-hand-pips",
+      "globalActions": 2,
+      "localActionCounts": [
+        1,
+        1
+      ]
+    },
+    {
+      "seed": 1599340,
+      "mix": 0,
+      "rotation": 2,
+      "turn": 14,
+      "number": 3,
+      "sides": [
+        "up",
+        "left",
+        "down"
+      ],
+      "nextPlayerPolicy": "random-legal",
+      "globalActions": 6,
+      "localActionCounts": [
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "seed": 1599340,
+      "mix": 1,
+      "rotation": 0,
+      "turn": 19,
+      "number": 5,
+      "sides": [
+        "left",
+        "right",
+        "down"
+      ],
+      "nextPlayerPolicy": "fast-doubles",
+      "globalActions": 7,
+      "localActionCounts": [
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "seed": 1599340,
+      "mix": 1,
+      "rotation": 2,
+      "turn": 8,
+      "number": 6,
+      "sides": [
+        "right",
+        "down"
+      ],
+      "nextPlayerPolicy": "fast-doubles",
+      "globalActions": 2,
+      "localActionCounts": [
+        1,
+        1
+      ]
+    },
+    {
+      "seed": 1599340,
+      "mix": 1,
+      "rotation": 2,
+      "turn": 12,
+      "number": 0,
+      "sides": [
+        "right",
+        "down"
+      ],
+      "nextPlayerPolicy": "moderate-double-hold",
+      "globalActions": 2,
+      "localActionCounts": [
+        1,
+        1
+      ]
+    }
+  ],
+  "assumptions": [
+    "All comparisons are instantaneous on a GLOBAL-model trajectory, not independent local-model game rollouts.",
+    "Counterfactual: a played double unlocks exactly ONE of the matching sides; enumerate every matching side, do not guess which one.",
+    "Only the newly opened number is side-restricted; all other already-opened numbers remain global.",
+    "The next player is inspected with the same known hand; no unseen-world inference and no 101-match winner."
+  ],
+  "blockRate": 0.035277777777777776,
+  "multiSideRoundRate": 0.9822222222222222,
+  "meanGlobalActionsAtAnalyzedEvent": 4.163911099064914,
+  "meanLocalActionsMin": 2.430071825450603,
+  "meanLocalActionsMax": 2.430071825450603,
+  "validation": {
+    "passed": true,
+    "fixture": "two 5-ends; global 2 ordinary placements versus local 1",
+    "pilotDeals": 6,
+    "pilotRounds": 36
+  },
+  "notes": "Nonterminal next-player one-step exposure on GLOBAL trajectories; NOT independent side-local full games. No authentic rule confirmation."
+}
