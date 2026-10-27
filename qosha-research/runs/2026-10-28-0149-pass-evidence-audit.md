@@ -1,0 +1,16 @@
+# Pass-evidence legal-mask audit — 2026-10-28 01:49 (+04)
+
+- **Timestamp (Asia/Baku):** 2026-10-28 01:49:18 +04:00
+- **Engine/rules:** `qosa-research-0.5.3 + pass-evidence-audit-1.0`; recovered `qosa-1.0.0` 3×9, **provisional global-ever-open number unlock**. Not an authenticated physical-game rule.
+- **Seeds:** `2030000..2041999`; **12,000** deterministic conditional hidden-world allocations, **0** new complete deals/model rounds, **0** forced strategic continuations. No bot strategies compared.
+- **Audit:** a claimed pass at a 2/6 end is not automatically evidence against every 2-X/6-X tile. In the provisional global-number model, 2-X ordinary moves need the publicly played 2-2; 6-X ordinary moves need 6-6. The previous 2026-10-28 00:45 synthetic masks were deliberately hypothetical and **cannot be authenticated as such legal masks from their played-tile history**, which lacks both doubles. The previous 21/24,310 conditional allocation count remains mathematically valid **under those artificial masks**, not a demonstrated real-game posterior.
+- **New internally consistent synthetic snapshot:** played `1-1, 1-2, 2-2`, four branch ends `2,1,1,1`, opened numbers `1,2`, stock=0, focal 8 tiles, opponents 9/8. Single-tile action enumeration derives ten currently playable 1-X/2-X exclusions (eight already in focal hand; two in unknown pool). No further tile acquisition by the passing opponent is **asserted**, not reconstructed from an event log.
+- **Independent exact posterior:** `C(15,9)=5,005` compatible allocations among `C(17,9)=24,310` unrestricted allocations (**20.588%**, synthetic fixture only). Conditional seat-1 ownership of 3-6 is **9/15=60%** exactly.
+- **Sample calibration:** 12,000 seeded worlds, 4,559 distinct seat-1 hands; seat-1 3-6 in **7,164/12,000=59.70%** (z=**−0.671** vs exact 60%). Deterministic replay 100 seeds, 28-tile conservation, seven negative evidence guards, and previous synthetic mask rejection passed in V8 CommonJS-compatible execution; Node CLI not executed.
+- **Finding:** **evidence-quality safeguard**, not a winning strategy. Never turn arbitrary hypothetical touching-number pass masks into claimed authentic hidden-stone deductions without proving double-opening and pass-time board legality.
+- **Confidence/limitations:** exact combinatorics and deterministic posterior calibration for the declared synthetic snapshot. Pass snapshot not chronologically replayed; branch model unverified; later draws ruled out by caller assertion only; opponent policies ignored; blocked winner/ties, loneZero, bust and match scoring unresolved.
+- **Cumulative:** **1,380,975** model-rounds across incompatible assumptions (unchanged); **1,898,856** forced continuations (unchanged); **379,000** hidden-world allocations (**367,000 previous + 12,000 new**), separate from rounds; historical 4,000 separate. Next fresh seed >=**2042000**.
+- **Reproduce:** `node qosha-research/simulator/pass-evidence-audit.js test`; `node qosha-research/simulator/pass-evidence-audit.js 2030000 12000`.
+- **Exact next action:** build chronological public play/draw/pass replay that reconstructs pass-time ends and verifies no subsequent acquisition; obtain authentic late-arrival branch unlock and blocked-tie examples before using posterior to rank tactical moves.
+
+Scoreboard/PWA and GitHub Actions untouched.
