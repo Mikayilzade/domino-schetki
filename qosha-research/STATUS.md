@@ -1,21 +1,21 @@
 # Qoşa research status
 
-Updated: 2026-10-27 11:53:48 +04 (Asia/Baku)
+Updated: 2026-10-27 12:51:20 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **1,248,975** complete rounds; historical 4,000 separate.
+- **1,270,575** complete rounds; historical 4,000 separate.
 - **1,898,856** matched forced hidden-world continuations (unchanged).
-- **4,900** separate known-world diagnostics; **7,558** immediate next-opponent pass labels.
-- Engine qosa-research-0.5.3 / recovered qosa-1.0.0 3×9; four-side number-lock **PROVISIONAL**.
-- Latest disjoint fresh seeds 1587940..1590339; next >=1590340.
+- **4,900** separate known-world diagnostics; **10,248** immediate next-opponent pass labels.
+- Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0` 3×9; four-side number-lock **PROVISIONAL**.
+- Fresh disjoint seeds **1590340..1593939**; next >=**1593940**.
 
 ## Latest checkpoint
-- 2,400 deals, 14,400 complete baseline rounds, 912 selected positions, 1,824 next-pass labels, 87,552 sampled hidden allocations (96/position); 0 new forced full continuations.
-- Earlier chosen opponent tile groups reconstructed from public play history; explicit softmax likelihood with 10% lapse, last 3 opponent choices, **known synthetic opponent profiles** (oracle assumption).
-- Non-certain 366 labels / 269 clusters: exact pass-only Brier **0.08939** vs choice-weighted **0.07068**; cluster gain **0.02044 ± 0.01038** exploratory 95% half-width.
-- Disjoint cohort gains **0.01734 ± 0.01190** and **0.02370 ± 0.01728**. BOTH-pass non-certain only 4 labels / 3 positions; no conclusion.
-- 7-check deterministic V8 CommonJS replay passed; Node CLI not run. No confirmed real-game tactic; no changes to scoreboard/PWA.
-- Source: `qosha-research/simulator/pass-choice-posterior.js`; raw data: `runs/2026-10-27-1152-choice-posterior-1587940.json`, `runs/2026-10-27-1153-choice-posterior-1589140.json`.
+- 3,600 deals, 21,600 complete baseline rounds, 1,345 selected positions, 2,690 immediate next-pass labels, 129,120 sampled hidden allocations (96/position); 0 new forced continuations.
+- Added profile-blind 50/50 latent per-opponent policy-choice mixture, retaining previous oracle-profile calculation as diagnostic only.
+- Non-certain 524 labels / 374 clusters: exact pass-only Brier **0.10869** versus blind **0.08685**; exploratory 95% cluster gain **+0.02185 ± 0.00831**.
+- Independent two-cohort holdout 366 labels / 252 clusters: Brier **0.11220 → 0.09689**, gain **+0.01622 ± 0.00970**. BOTH-pass non-certain 9 labels / 7 clusters, inconclusive.
+- 8-check deterministic V8 CommonJS pilot passed; Node CLI not run. No confirmed real-game tactic; no scoreboard/PWA changes.
+- Code: `qosha-research/simulator/pass-choice-profile-blind.js`; raw and pooled files: `runs/2026-10-27-1246-profile-blind-*.json`.
 
 ## NEXT ACTION
-- Fresh seeds >=1590340: compare **profile-blind** choice mixture to pass-only with non-certain holdout, oversample BOTH-pass without hidden-hand peeking; authenticate branch locking and blocked winner.
+- Fresh seeds >=1593940: **out-of-family opponent policy** test (random/tempo/anti-minus) of blind choice posterior vs exact pass-only, non-certain holdout and prior sensitivity. Authenticate branch locking and blocked winner.
