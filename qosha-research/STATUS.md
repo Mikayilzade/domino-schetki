@@ -1,20 +1,19 @@
 # Qoşa research status
 
-Updated: 2026-10-27 04:55:51 +04 (Asia/Baku)
+Updated: 2026-10-27 05:49:42 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **1174575** complete rounds; historical 4,000 separate.
-- **1767928** matched forced hidden-world continuations.
+- **1179375** complete rounds; historical 4,000 separate.
+- **1804552** matched forced hidden-world continuations.
 - **4,900** separate known-world diagnostics.
 - Engine qosa-research-0.5.3 / recovered qosa-1.0.0 3×9; four-side number-lock PROVISIONAL.
-- Latest seeds 1576940..1577939; next >= 1577940.
+- Latest seeds 1577940..1578739; next >= 1578740.
 
 ## Latest checkpoint
-- 1000 deals, 6000 baseline rounds, 45584 forced continuations, 407 eligible positions.
-- Conditional−uniform first-finish: 407 positions / 407 deals; +1.218 ± 0.954 pp; holdout: 205 positions / 205 deals; +1.057 ± 1.354 pp.
-- Pass information weak/strong positions: 278/129.
-- 10 deterministic V8 CommonJS checks; Node CLI not executed.
-- Raw runs/2026-10-27-pass-strength-1576940.json; details runs/2026-10-27-pass-strength-1576940.md. Scoreboard/PWA untouched.
+- 800 deals, 4800 baseline rounds, 36624 forced continuations; 327 selected positions (21 both-opponent informative passes).
+- Conditional−uniform finish-first: 1.287 ± 0.889 pp (327 positions/327 deals); held-out 1.198 ± 1.303 pp (167 positions/167 deals).
+- 8 deterministic V8 CommonJS checks; Node CLI not executed.
+- Raw runs/2026-10-27-0547-pass-targeted-two-opponent-1577940.json; details runs/2026-10-27-0547-pass-targeted-two-opponent-1577940.md. Scoreboard/PWA untouched.
 
 ## NEXT ACTION
-- Fresh seeds >= 1577940; strong pass-history strata, then authenticate branch locking and block winner.
+- Fresh seeds >= 1578740; independent targeted BOTH-pass replication and >=3-bit stratification; authenticate branch locking and block winner.
