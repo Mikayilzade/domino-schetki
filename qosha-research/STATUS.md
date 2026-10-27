@@ -1,21 +1,20 @@
 # Qoşa research status
 
-Updated: 2026-10-27 12:51:20 +04 (Asia/Baku)
+Updated: 2026-10-27 13:59:14 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **1,270,575** complete rounds; historical 4,000 separate.
+- **1,292,175** complete rounds; historical 4,000 separate.
 - **1,898,856** matched forced hidden-world continuations (unchanged).
-- **4,900** separate known-world diagnostics; **10,248** immediate next-opponent pass labels.
+- **4,900** separate known-world diagnostics; **12,534** immediate next-opponent pass labels.
 - Engine `qosa-research-0.5.3` / recovered `qosa-1.0.0` 3×9; four-side number-lock **PROVISIONAL**.
-- Fresh disjoint seeds **1590340..1593939**; next >=**1593940**.
+- Fresh disjoint seeds **1593940..1595739**; next >=**1595740**.
 
 ## Latest checkpoint
-- 3,600 deals, 21,600 complete baseline rounds, 1,345 selected positions, 2,690 immediate next-pass labels, 129,120 sampled hidden allocations (96/position); 0 new forced continuations.
-- Added profile-blind 50/50 latent per-opponent policy-choice mixture, retaining previous oracle-profile calculation as diagnostic only.
-- Non-certain 524 labels / 374 clusters: exact pass-only Brier **0.10869** versus blind **0.08685**; exploratory 95% cluster gain **+0.02185 ± 0.00831**.
-- Independent two-cohort holdout 366 labels / 252 clusters: Brier **0.11220 → 0.09689**, gain **+0.01622 ± 0.00970**. BOTH-pass non-certain 9 labels / 7 clusters, inconclusive.
-- 8-check deterministic V8 CommonJS pilot passed; Node CLI not run. No confirmed real-game tactic; no scoreboard/PWA changes.
-- Code: `qosha-research/simulator/pass-choice-profile-blind.js`; raw and pooled files: `runs/2026-10-27-1246-profile-blind-*.json`.
+- Out-of-family policy robustness: 1,800 deals / 21,600 complete rounds, 1,143 selected positions, 2,286 next-pass labels, 73,152 sampled hidden allocations (64 per position); 0 new forced full continuations.
+- Four opponent mixes: random/random, tempo-open/tempo-open, anti-minus/anti-minus, random/tempo-open. Focal closed-branch-control. No hidden-hand policy leakage.
+- Non-certain 312 positions / 423 labels: exact pass-only Brier **0.112781**, profile-blind 50/50 **0.112993**; position-cluster gain **+0.002218 ± 0.009891**. Independent 900-deal holdout gain **+0.002519 ± 0.015665**. **No reliable benefit** under policy mismatch; 80/20 prior also inconclusive.
+- BOTH-pass non-certain 16 positions / 18 labels, inconclusive. 8-check deterministic pilot, 1,056 scoring assertions, synthetic four-branch −40 regression and core integration tests passed via V8; Node CLI not run.
+- New code: `simulator/pass-choice-outfamily.js`; raw and pooled data: `runs/2026-10-27-1351-outfamily-*.json`. No scoreboard/PWA changes, no GitHub Actions.
 
 ## NEXT ACTION
-- Fresh seeds >=1593940: **out-of-family opponent policy** test (random/tempo/anti-minus) of blind choice posterior vs exact pass-only, non-certain holdout and prior sensitivity. Authenticate branch locking and blocked winner.
+- Fresh seeds >=1595740: test public-history mismatch guard vs exact pass-only on untouched out-of-family holdout; authenticate branch opening/locking and blocked winner.
