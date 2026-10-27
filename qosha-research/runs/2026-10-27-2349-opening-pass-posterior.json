@@ -1,0 +1,185 @@
+{
+  "schema": "qosha-opening-pass-posterior/v1",
+  "timestampAsiaBaku": "2026-10-27T23:49:13+04:00",
+  "engine": "qosa-research-0.5.3 + opening-pass-posterior-1.0",
+  "rules": "recovered qosa-1.0.0; confirmed first-round 3x9 1-1+draw, starter forced pass, then first clockwise opponent forced pass on four 1-ends",
+  "discoverySeeds": [
+    2002940,
+    2002942
+  ],
+  "sampleSeedRange": [
+    2003000,
+    2017999
+  ],
+  "deals": 0,
+  "modelRounds": 0,
+  "forcedContinuationRollouts": 0,
+  "hiddenWorlds": 15000,
+  "strategies": "none; exact 18-choose-9 posterior and uniform conditional hidden allocation",
+  "exactFirstOpponentPassGivenStarterPass": 0.004524886877828055,
+  "exactStarterPass": 0.06271409749670619,
+  "exactJointOpeningTwoPassProbability": 0.0002837741968176751,
+  "inference": "If starter has no 1-X and passes, and first clockwise opponent also passes before any other tile is played, the remaining opponent must hold all six 1-X connectors.",
+  "fixtures": [
+    {
+      "discoverySeed": 2002940,
+      "focalHand": [
+        "4-5",
+        "3-3",
+        "0-2",
+        "0-5",
+        "2-2",
+        "0-0",
+        "2-6",
+        "4-6",
+        "2-5"
+      ],
+      "exact": {
+        "unconditional": 48620,
+        "pass": 220,
+        "passBridge": 84,
+        "otherBridge": 1,
+        "unconditionalBridge": 5005,
+        "passProbability": 0.004524886877828055,
+        "passBridgeRate": 0.38181818181818183,
+        "otherBridgeRate": 0.004545454545454545,
+        "unconditionalBridgeRate": 0.10294117647058823,
+        "otherConnectorsAfterPass": 6
+      },
+      "sampleSeedStart": 2003000,
+      "sampleSeedEnd": 2007999,
+      "sampleWorlds": 5000,
+      "rates": [
+        {
+          "name": "passingOpponentBridge",
+          "hits": 1921,
+          "observed": 0.3842,
+          "exact": 0.38181818181818183,
+          "z": 0.34666276123634643
+        },
+        {
+          "name": "otherOpponentBridge",
+          "hits": 14,
+          "observed": 0.0028,
+          "exact": 0.004545454545454545,
+          "z": -1.8348229730591867
+        }
+      ]
+    },
+    {
+      "discoverySeed": 2002941,
+      "focalHand": [
+        "4-4",
+        "3-4",
+        "4-5",
+        "0-4",
+        "2-6",
+        "5-6",
+        "2-5",
+        "6-6",
+        "2-3"
+      ],
+      "exact": {
+        "unconditional": 48620,
+        "pass": 220,
+        "passBridge": 187,
+        "otherBridge": 4,
+        "unconditionalBridge": 16600,
+        "passProbability": 0.004524886877828055,
+        "passBridgeRate": 0.85,
+        "otherBridgeRate": 0.01818181818181818,
+        "unconditionalBridgeRate": 0.3414232825997532,
+        "otherConnectorsAfterPass": 6
+      },
+      "sampleSeedStart": 2008000,
+      "sampleSeedEnd": 2012999,
+      "sampleWorlds": 5000,
+      "rates": [
+        {
+          "name": "passingOpponentBridge",
+          "hits": 4237,
+          "observed": 0.8474,
+          "exact": 0.85,
+          "z": -0.5148767223478579
+        },
+        {
+          "name": "otherOpponentBridge",
+          "hits": 111,
+          "observed": 0.0222,
+          "exact": 0.01818181818181818,
+          "z": 2.126573491515123
+        }
+      ]
+    },
+    {
+      "discoverySeed": 2002942,
+      "focalHand": [
+        "3-5",
+        "2-3",
+        "0-4",
+        "2-5",
+        "4-5",
+        "4-4",
+        "0-5",
+        "0-2",
+        "2-6"
+      ],
+      "exact": {
+        "unconditional": 48620,
+        "pass": 220,
+        "passBridge": 187,
+        "otherBridge": 4,
+        "unconditionalBridge": 16600,
+        "passProbability": 0.004524886877828055,
+        "passBridgeRate": 0.85,
+        "otherBridgeRate": 0.01818181818181818,
+        "unconditionalBridgeRate": 0.3414232825997532,
+        "otherConnectorsAfterPass": 6
+      },
+      "sampleSeedStart": 2013000,
+      "sampleSeedEnd": 2017999,
+      "sampleWorlds": 5000,
+      "rates": [
+        {
+          "name": "passingOpponentBridge",
+          "hits": 4305,
+          "observed": 0.861,
+          "exact": 0.85,
+          "z": 2.1783245945486853
+        },
+        {
+          "name": "otherOpponentBridge",
+          "hits": 84,
+          "observed": 0.0168,
+          "exact": 0.01818181818181818,
+          "z": -0.7313103409735261
+        }
+      ]
+    }
+  ],
+  "maxAbsCalibrationZ": 2.1783245945486853,
+  "validation": {
+    "passed": true,
+    "nodeCLI": true,
+    "exactPartitionsPerFixture": 48620,
+    "validPassPartitionsPerFixture": 220,
+    "seedReplay": true,
+    "knownHandGuards": true,
+    "seatSymmetry": true,
+    "conservation": true
+  },
+  "confidence": "Exact enumeration over all 48,620 hidden partitions for each fixed known starter hand, cross-checked against 15,000 seeded conditional allocations; sampling z gate 5",
+  "limitations": [
+    "Very rare conditional opening event; not an ordinary midgame pass",
+    "The first clockwise opponent has not drawn any tile: stock was taken by starter",
+    "No opponent policy, branch history beyond untouched 1 ends, blocked winner or full-match scoring",
+    "Conditional sampling is uniform over hidden allocations and does not model human choice biases",
+    "No real-game strategy win rate or minus-frequency claim"
+  ],
+  "cumulativeModelRounds": 1380975,
+  "cumulativeForcedContinuations": 1898856,
+  "priorOpeningHiddenWorlds": 340000,
+  "openingHiddenWorldsTotal": 355000,
+  "nextUnusedSeed": 2018000,
+  "nextAction": "Extend to a known midgame public tile history and pass-compatible hidden hand sizes; validate branch-lock semantics from authentic records before tactical ranking"
+}
