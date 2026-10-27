@@ -1,22 +1,25 @@
 # Qoşa research status
 
-Updated: 2026-10-27T22:49:46+04:00 (Asia/Baku)
+Updated: 2026-10-27T23:49:13+04:00 (Asia/Baku)
 
 ## Verified cumulative
 - Global provisional rounds **1,342,575**; one-side counterfactual **28,800**; all-current counterfactual **9,600**.
 - **1,380,975** full model-rounds across incompatible assumptions (workload only); historical 4,000 separate.
 - **1,898,856** forced hidden-world continuations, **14,082** next-pass labels, **4,900** known-world diagnostics (unchanged).
-- **60,000** previous random opening deals; **6,906,900** exhaustively enumerated 9-stone hands (overlapping 4,686,825 starter subsets); **340,000** NEW sampled synthetic opening hidden-world allocations, tracked separately, not model rounds.
-- Engine `qosa-research-0.5.3` + `opening-hidden-calibration-1.0`; recovered `qosa-1.0.0`; branch opening and blocked winner UNVALIDATED.
-- Last seed range **1662940..2002939**; next fresh >=**2002940**.
+- **60,000** prior random opening deals; **6,906,900** exhaustively enumerated 9-stone hands (4,686,825 overlapping starter subsets).
+- **355,000** synthetic opening hidden-world allocations (340,000 previous + 15,000 new), NOT model rounds.
+- Engine `qosa-research-0.5.3` + `opening-pass-posterior-1.0`; recovered `qosa-1.0.0`; branch opening and blocked winner UNVALIDATED.
+- Last seed range **2002940..2017999** (discovery 2002940..2002942, sampled 2003000..2017999); next fresh >=**2018000**.
 
 ## Latest checkpoint
-- Exact vs sampled unconditional bridge: **33.943% vs 34.086%**.
-- Starter forced pass (0 1-X): **60.707% vs 60.265%**.
-- Starter 2+ 1-X: **26.442% vs 26.616%**.
-- All 7 conditional strata within 5-sigma gate (max |z| 1.28); 270 deterministic fixture worlds passed in V8, Node CLI not run.
-- Script `simulator/opening-hidden-calibration.js`, data `runs/2026-10-27-2248-opening-hidden-calibration.json`.
-- No strategic finding; scoreboard/PWA and GitHub Actions untouched.
+- Starter forced pass after 1-1+stock, then first clockwise opponent also passes on unchanged 1 ends: exact **220 / 48,620 = 0.45249%** conditional on starter pass.
+- Combined opening two-pass probability **0.0283774%**; all **six** remaining 1-X connectors must belong to the third player (exact conditional inference).
+- Three known-hand fixtures × 48,620 exact allocations, 15,000 sampled conditional worlds. Six bridge-frequency calibration checks max |z| **2.18** < 5.
+- Node 22 CLI test and run passed: seed replay, 28-tile conservation, pass constraints, known-hand rejection, exact seat symmetry.
+- Code `simulator/opening-pass-posterior.js`, data `runs/2026-10-27-2349-opening-pass-posterior.json`.
+- **No new reliable winning strategy.** The exact event is rare and limited to the confirmed opening; not a midgame inference.
+- Scoreboard/PWA and GitHub Actions untouched.
 
 ## NEXT ACTION
-- Add known-focal tiles and observed opponent-pass constraints; compare small-world exact posterior counts to sampled allocations. Authenticate late-side legality and blocked-round tie convention before tactical claims.
+- Extend conditional hidden-world sampler to midgame public tile histories, asymmetric hidden hand sizes and multiple observed pass constraints; validate on small exact enumerations.
+- Authenticate late-side branch unlocking and blocked-round tie convention before tactical rankings.
