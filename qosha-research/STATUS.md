@@ -1,20 +1,21 @@
 # Qoşa research status
 
-Updated: 2026-10-27 10:50:30 +04 (Asia/Baku)
+Updated: 2026-10-27 11:53:48 +04 (Asia/Baku)
 
 ## Verified cumulative scale
-- **1234575** complete rounds; historical 4,000 separate.
-- **1898856** matched forced hidden-world continuations (unchanged).
-- **4900** separate known-world diagnostics; **5734** counterfactual immediate next-opponent pass labels.
-- Engine qosa-research-0.5.3 / recovered qosa-1.0.0 3×9; four-side number-lock PROVISIONAL.
-- Latest fresh seeds 1584340..1587939; next >=1587940.
+- **1,248,975** complete rounds; historical 4,000 separate.
+- **1,898,856** matched forced hidden-world continuations (unchanged).
+- **4,900** separate known-world diagnostics; **7,558** immediate next-opponent pass labels.
+- Engine qosa-research-0.5.3 / recovered qosa-1.0.0 3×9; four-side number-lock **PROVISIONAL**.
+- Latest disjoint fresh seeds 1587940..1590339; next >=1590340.
 
 ## Latest checkpoint
-- 3600 deals, 21600 baseline rounds, 1425 selected positions and 2850 next-pass labels.
-- Non-certain: 607 labels, uniform Brier 0.11849 vs conditional 0.10327; gain 0.01662 ± 0.00921 (exploratory 95% position-cluster).
-- Independent holdout gain 0.01552 ± 0.01264 (334 labels); BOTH-pass non-certain only 15 labels, gain 0.01020 ± 0.09405.
-- 2243 model-certain labels, 0 errors. No new confirmed human-play tactic. Policy-choice likelihood not modeled.
-- 4-check deterministic V8 CommonJS replay passed; Node CLI not executed. Data/report: `qosha-research/runs/2026-10-27-1050-next-pass-uncertain-1584340-1587939.json`, `qosha-research/runs/2026-10-27-1050-next-pass-uncertain-1584340-1587939.md`. Scoreboard/PWA untouched.
+- 2,400 deals, 14,400 complete baseline rounds, 912 selected positions, 1,824 next-pass labels, 87,552 sampled hidden allocations (96/position); 0 new forced full continuations.
+- Earlier chosen opponent tile groups reconstructed from public play history; explicit softmax likelihood with 10% lapse, last 3 opponent choices, **known synthetic opponent profiles** (oracle assumption).
+- Non-certain 366 labels / 269 clusters: exact pass-only Brier **0.08939** vs choice-weighted **0.07068**; cluster gain **0.02044 ± 0.01038** exploratory 95% half-width.
+- Disjoint cohort gains **0.01734 ± 0.01190** and **0.02370 ± 0.01728**. BOTH-pass non-certain only 4 labels / 3 positions; no conclusion.
+- 7-check deterministic V8 CommonJS replay passed; Node CLI not run. No confirmed real-game tactic; no changes to scoreboard/PWA.
+- Source: `qosha-research/simulator/pass-choice-posterior.js`; raw data: `runs/2026-10-27-1152-choice-posterior-1587940.json`, `runs/2026-10-27-1153-choice-posterior-1589140.json`.
 
 ## NEXT ACTION
-- Fresh seeds >=1587940: explicitly model prior opponent choice likelihood and hold out non-certain/BOTH-pass forecasts; authenticate branch locking and blocked winner.
+- Fresh seeds >=1590340: compare **profile-blind** choice mixture to pass-only with non-certain holdout, oversample BOTH-pass without hidden-hand peeking; authenticate branch locking and blocked winner.
