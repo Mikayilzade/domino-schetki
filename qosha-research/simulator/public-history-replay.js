@@ -114,12 +114,35 @@ function replay(spec){
    throw Error('events after a player finished');
  }
  if(pendingDraw)throw Error('unresolved draw event at end of trace');
+ // Retrospective evidence: the current known hand must not contain a tile that
+ // would have made its owner's earlier no-acquisition pass impossible.
+ // A known draw identity is private evidence, NOT implied by a public draw event.
+ const knownOpponentTiles={1:clone((spec.knownOpponentTiles||{})[1]||[]),
+  2:clone((spec.knownOpponentTiles||{})[2]||[])};
+ if(spec.focalHand){
+  const focalKeys=new Set(spec.focalHand.map(key));
+  for(const p of passes)if(p.player===0&&acquisitions[0]===p.acquisitionsAtPass)
+   for(const k of focalKeys)if(p.forbiddenSet.has(k))
+    throw Error('known focal hand contradicts observed no-acquisition pass: '+k);
+  for(const [k,owner] of knownDraws)if(!playedKeys.has(k)){
+   if(owner===0){
+    if(!focalKeys.has(k))throw Error('known focal draw absent from final hand: '+k);
+   }else{
+    const other=owner===1?2:1;
+    if(knownOpponentTiles[other].some(t=>key(t)===k))
+     throw Error('known draw assigned to wrong opponent: '+k);
+    if(!knownOpponentTiles[owner].some(t=>key(t)===k))
+     knownOpponentTiles[owner].push(k.split('-').map(Number));
+   }
+  }
+ }
  const passObservations=passes.filter(p=>p.stockSizeAtPass===0&&acquisitions[p.player]===p.acquisitionsAtPass)
   .map(p=>({player:p.player,forbiddenTiles:clone(p.forbiddenTiles),noInterveningDraw:true,
    source:'chronological public pass at event '+p.eventIndex+'; provisional global-ever-open'}));
  const result={model:spec.model,playedTiles:clone(played),handSizes:handSizes.slice(),stockSize,
   branchEnds:Object.fromEntries(SIDES.map(s=>[s,branch.branches[s].end])),
   openedNumbers:[...opening.openedNumbers].sort((a,b)=>a-b),currentPlayer,
+  knownDrawAudit:[...knownDraws].map(([tile,owner])=>({tile,owner,stillHeld:!playedKeys.has(tile)})),
   passCount:passes.length,activeNoStockPasses:passObservations.length,
   discardedPasses:passes.length-passObservations.length,passObservations,
   passAudit:passes.map(p=>({player:p.player,eventIndex:p.eventIndex,openingPass:p.openingPass,
@@ -130,7 +153,7 @@ function replay(spec){
  if(spec.focalHand){
   if(!Array.isArray(spec.focalHand)||spec.focalHand.length!==handSizes[0])throw Error('focal hand count mismatch');
   result.posteriorSpec={playedTiles:clone(played),focalHand:clone(spec.focalHand),
-   knownOpponentTiles:spec.knownOpponentTiles||{1:[],2:[]},
+   knownOpponentTiles,
    handSizes:handSizes.slice(),stockSize,passObservations};
   // Fail closed if known hand contradicts played history or inferred pass evidence.
   post.prepare(result.posteriorSpec);
@@ -164,7 +187,23 @@ function test(){
   events:[{player:0,type:'single',tile:[1,3],side:'left'},
    {player:1,type:'double-sequence',numbers:[2,3]}]});
  if(!same(multi.openedNumbers,[1,2,3])||multi.eventCounts.double!==2)throw Error('multi-double chronology failed');
+ const knownDraw=fixture();knownDraw.opening.drawnTile=[3,6];
+ const knownReplay=replay(knownDraw),knownPosterior=post.prepare(knownReplay.posteriorSpec);
+ if(knownPosterior.total!==2002n||!knownReplay.posteriorSpec.knownOpponentTiles[2].some(t=>key(t)==='3-6'))
+  throw Error('known drawn tile must constrain hidden allocations');
+ const playedDraw=fixture();playedDraw.opening.drawnTile=[1,2];
+ if(post.prepare(replay(playedDraw).posteriorSpec).total!==5005n)
+  throw Error('known draw played on opening must not remain fixed in hand');
+ const badFocalPass={model:'provisional-global-ever-open',
+  opening:{starter:2,stockDraw:true,followup:{tile:[1,2],side:'up'}},
+  events:[{player:0,type:'pass'}],focalHand:fixture().focalHand.concat([[0,6]])};
+ const badKnownFocalDraw={model:'provisional-global-ever-open',
+  opening:{starter:0,stockDraw:true,drawnTile:[3,6],followup:{tile:[1,2],side:'up'}},
+  events:[],focalHand:fixture().focalHand};
+ const badKnownOwner=fixture();badKnownOwner.opening.drawnTile=[3,6];
+ badKnownOwner.knownOpponentTiles={1:[[3,6]],2:[]};
  const bad=[
+  badFocalPass,badKnownFocalDraw,badKnownOwner,
   {...fixture(),events:[{player:1,type:'pass'}]},
   {...fixture(),opening:{starter:2,stockDraw:true,followup:{tile:[3,4],side:'up'}}},
   {...fixture(),events:[{player:0,type:'single',tile:[2,3],side:'up'}]},
@@ -189,7 +228,8 @@ function test(){
  return {passed:true,chronologicalPassMask:10,exactCompatible:Number(p.total),
   lateArrivalDiagnostics:late.lateArrivals.length,allCurrentDivergentMoves:late.modelDivergences.length,
   openingPassesChecked:2,
-  multiDoubleSequenceChecked:true,negativeGuards:rejected,seedReplay:100};
+  multiDoubleSequenceChecked:true,knownDrawPartitions:Number(knownPosterior.total),
+  knownDrawOwner:2,retrospectiveFocalPassGuard:true,negativeGuards:rejected,seedReplay:100};
 }
 function run(start=2042000,count=12000){
  if(!Number.isInteger(start)||start<0||!Number.isInteger(count)||count<100)throw Error('seed range');
