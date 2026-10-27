@@ -1,0 +1,74 @@
+{
+  "schema": "qosha-midgame-exact-posterior/v1",
+  "timestampBaku": "2026-10-28 00:47:25 +04:00",
+  "engine": "qosa-research-0.5.3 + midgame-exact-posterior-1.0",
+  "rules": "recovered qosa-1.0.0; tile conservation only; hypothetical documented no-stock pass masks, no geometry inference",
+  "seedRange": [
+    2018000,
+    2029999
+  ],
+  "deals": 0,
+  "modelRounds": 0,
+  "forcedContinuations": 0,
+  "hiddenWorldAllocations": 12000,
+  "strategies": "none; exact uniform conditional allocation",
+  "publicFixture": {
+    "played": [
+      "1-1",
+      "0-0",
+      "0-1",
+      "0-2",
+      "0-3",
+      "0-4"
+    ],
+    "focal": [
+      "1-2",
+      "1-3",
+      "1-4",
+      "1-5",
+      "2-6"
+    ],
+    "handSizes": [
+      5,
+      9,
+      8
+    ],
+    "stockSize": 0,
+    "passSeat1": "all 6-X forbidden",
+    "passSeat2": "all 2-X forbidden",
+    "assumption": "both passes were genuine no-stock passes; no intervening draw or acquisition"
+  },
+  "exact": {
+    "unconstrainedPartitions": 24310,
+    "passCompatiblePartitions": 21,
+    "conditionalFraction": 0.0008638420403126285,
+    "flexible34Seat1": "15/21",
+    "distinctWorlds": 21
+  },
+  "sampled": {
+    "seedCount": 12000,
+    "distinctWorlds": 21,
+    "seat1Has34": 8565,
+    "rate": 0.71375,
+    "expected": 0.7142857142857143,
+    "z": -0.12990381056767072
+  },
+  "tests": {
+    "passed": true,
+    "exactPartitions": 24310,
+    "validConditional": 21,
+    "flexibleTileSeat1Exact": "15/21",
+    "stockAndFixedOpponentFixture": true,
+    "replaySeeds": 200,
+    "rejectedInvalidSpecs": 3
+  },
+  "confidence": "Exact independent 17-choose-9 enumeration plus seeded calibration; no authentic game-state validation",
+  "limitations": [
+    "Synthetic legal-tile masks, not an observed authentic match",
+    "Pass constraints require no subsequent tile acquisition",
+    "Opponent choice policy ignored; conditional allocations uniform",
+    "Branch unlock and block-tie scoring still unresolved",
+    "Not a winning strategy or naturally occurring position frequency"
+  ],
+  "nextAction": "Wire posterior to public played-tile histories and pass-time legal masks in a validated branch model; verify authentic late-arrival rule before tactical rollouts"
+}
