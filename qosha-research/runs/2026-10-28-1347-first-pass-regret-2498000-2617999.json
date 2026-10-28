@@ -1,0 +1,231 @@
+{
+  "schema": "qosha-opening-first-pass-exact-regret/v1",
+  "timestampAsiaBaku": "2026-10-28T13:47:15+04:00",
+  "engine": "qosa-research-0.5.3 + opening-first-pass-exact-regret-1.0",
+  "rules": "recovered qosa-1.0.0 confirmed first-round 3x9 opening only; no late-arrival assumption",
+  "dealSeeds": [
+    2498000,
+    2597999
+  ],
+  "worldSeeds": [
+    2598000,
+    2617999
+  ],
+  "deals": 100000,
+  "valid": 96332,
+  "reshuffle": 3668,
+  "forcedPass": 6047,
+  "playable": 90285,
+  "multiChoice": 65123,
+  "mixedOwnership": 35901,
+  "strictRegret": 19901,
+  "strictMorePips": 19901,
+  "strategies": [
+    "min-pip first legal 1-X",
+    "maximize exact first-opponent forced-pass probability, then min-pip"
+  ],
+  "exactFormula": "P(pass | c connectors, chosen X) = C(18-[6-c+I(X-X not in focal hand)],9) / C(18,9); first opponent has nine of 18 unknown stones",
+  "exactMeans": {
+    "minPipPass": 0.03822353898428371,
+    "maxPass": 0.05175347197428049,
+    "gain": 0.013529932989971844,
+    "gainStrict": 0.061381337621205366,
+    "extraPips": 0.6410145649886471
+  },
+  "byConnectors": {
+    "1": {
+      "n": 25162,
+      "strict": 0,
+      "regret": 0,
+      "extraPips": 0,
+      "meanRegret": 0,
+      "meanExtraPips": 0
+    },
+    "2": {
+      "n": 35678,
+      "strict": 8346,
+      "regret": 220.92352941178783,
+      "extraPips": 22390,
+      "meanRegret": 0.006192150047978805,
+      "meanExtraPips": 0.6275575985200964
+    },
+    "3": {
+      "n": 22295,
+      "strict": 8268,
+      "regret": 510.67058823529953,
+      "extraPips": 24715,
+      "meanRegret": 0.022905162064826172,
+      "meanExtraPips": 1.108544516707782
+    },
+    "4": {
+      "n": 6365,
+      "strict": 2897,
+      "regret": 383.4264705882194,
+      "extraPips": 9409,
+      "meanRegret": 0.06023982255902897,
+      "meanExtraPips": 1.478240377062058
+    },
+    "5": {
+      "n": 760,
+      "strict": 376,
+      "regret": 99.52941176470617,
+      "extraPips": 1304,
+      "meanRegret": 0.1309597523219818,
+      "meanExtraPips": 1.7157894736842105
+    },
+    "6": {
+      "n": 25,
+      "strict": 14,
+      "regret": 7,
+      "extraPips": 56,
+      "meanRegret": 0.28,
+      "meanExtraPips": 2.24
+    }
+  },
+  "byPipGap": {
+    "0": {
+      "n": 70384,
+      "strict": 0,
+      "regret": 0,
+      "extraPips": 0,
+      "meanRegret": 0,
+      "meanExtraPips": 0
+    },
+    "1": {
+      "n": 3962,
+      "strict": 3962,
+      "regret": 193.1911764705933,
+      "extraPips": 3962,
+      "meanRegret": 0.04876102384416792,
+      "meanExtraPips": 1
+    },
+    "2": {
+      "n": 5255,
+      "strict": 5255,
+      "regret": 321.7323529411688,
+      "extraPips": 10510,
+      "meanRegret": 0.061224044327529745,
+      "meanExtraPips": 2
+    },
+    "3": {
+      "n": 4320,
+      "strict": 4320,
+      "regret": 271.84411764705885,
+      "extraPips": 12960,
+      "meanRegret": 0.06292687908496733,
+      "meanExtraPips": 3
+    },
+    "4": {
+      "n": 2981,
+      "strict": 2981,
+      "regret": 198.35882352941286,
+      "extraPips": 11924,
+      "meanRegret": 0.06654103439430153,
+      "meanExtraPips": 4
+    },
+    "5": {
+      "n": 1780,
+      "strict": 1780,
+      "regret": 126.48823529411825,
+      "extraPips": 8900,
+      "meanRegret": 0.07106080634501026,
+      "meanExtraPips": 5
+    },
+    "6": {
+      "n": 1603,
+      "strict": 1603,
+      "regret": 109.93529411764725,
+      "extraPips": 9618,
+      "meanRegret": 0.06858096950570633,
+      "meanExtraPips": 6
+    }
+  },
+  "bySign": {
+    "same-choice": {
+      "n": 70384,
+      "strict": 0,
+      "regret": 0,
+      "extraPips": 0,
+      "meanRegret": 0,
+      "meanExtraPips": 0
+    },
+    "best-higher-pip": {
+      "n": 19901,
+      "strict": 19901,
+      "regret": 1221.549999999608,
+      "extraPips": 57874,
+      "meanRegret": 0.061381337621205366,
+      "meanExtraPips": 2.9080950705994675
+    }
+  },
+  "sample": {
+    "positions": 500,
+    "worldsPerPosition": 40,
+    "hiddenAllocations": 20000,
+    "basePass": 909,
+    "bestPass": 2187,
+    "observedImprovement": 1278,
+    "expectedImprovement": 1256.1176470588205,
+    "z": 0.6506678192377895,
+    "nonNestedViolations": 0,
+    "byConnectors": {
+      "2": {
+        "positions": 206,
+        "observed": 226,
+        "expected": 218.1176470588241
+      },
+      "3": {
+        "positions": 208,
+        "observed": 528,
+        "expected": 513.8823529411791
+      },
+      "4": {
+        "positions": 73,
+        "observed": 396,
+        "expected": 386.47058823529426
+      },
+      "5": {
+        "positions": 13,
+        "observed": 128,
+        "expected": 137.64705882352942
+      }
+    }
+  },
+  "tests": {
+    "deck28": 100000,
+    "exact48620": [
+      {
+        "seed": 2498001,
+        "partitions": 48620,
+        "basePass": 715,
+        "bestPass": 2002
+      },
+      {
+        "seed": 2498003,
+        "partitions": 48620,
+        "basePass": 2002,
+        "bestPass": 5005
+      },
+      {
+        "seed": 2500526,
+        "partitions": 48620,
+        "basePass": 5005,
+        "bestPass": 11440
+      }
+    ],
+    "seedReplay": 100,
+    "calibrationZ": 0.6506678192377895,
+    "nested": true
+  },
+  "fullModelRounds": 0,
+  "forcedFullContinuations": 0,
+  "finding": "Exact first-opponent pass advantage for own X-X connector is structural: it removes X-X from unknown opponent tiles. All owned-double connector choices tie on this single objective at fixed c. This is not a full-game strategy or proof that retaining X-X wins.",
+  "limitations": [
+    "Only first clockwise opponent forced pass, not second turn or full game.",
+    "Uniform hidden distribution conditional on known starter hand, not behavioral opponent posterior.",
+    "Optimizing forced pass can require playing a higher-pip connector, so win/score regret is unmeasured.",
+    "Late-arrival branch unlocking, block tie, loneZero/bust, 101 scoring remain unvalidated.",
+    "First 500 strict-regret positions sampled for Monte Carlo; exact all-deal means use all playable seeded hands."
+  ],
+  "nextAction": "On disjoint seeds, compare equal ownership connector choices (same first-pass probability) on two-turn tempo and future mobility; seek authentic late-arrival and block-tie trace before full-game ranking."
+}
