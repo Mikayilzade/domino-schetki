@@ -1,6 +1,6 @@
 # Qoşa research status
 
-Updated: 2026-10-29 02:56:19 +04:00 (Asia/Baku)
+Updated: 2026-10-29T03:54:15+04:00 (Asia/Baku)
 
 ## Verified cumulative (incompatible models kept separate)
 - **1,380,975** complete model rounds across incompatible branch assumptions; historical 4,000 separate.
@@ -10,7 +10,12 @@ Updated: 2026-10-29 02:56:19 +04:00 (Asia/Baku)
 - Engine `qosa-research-0.5.3 + double-five-fourth-cohort-1.0` (analysis only), recovered `qosa-1.0.0` 3×9; both branch models **PROVISIONAL**.
 - Latest new hidden seeds `2813544..2815591`; next unused >= `2815592`.
 
-## Latest checkpoint — fourth disjoint 5-5 cohort + paired policy outcomes
+## Latest checkpoint — chronological branch-order identifiability
+- [Exact regression](simulator/branch-order-history-test.js), [checkpoint](runs/2026-10-29-0352-branch-order-history.md).
+- Two legal synthetic histories have identical played tiles and final four ends, yet under all-current-only opening the late-arrival history forbids 0-2, 2-5 and 2-6 while early arrival allows them; global-ever-open permits them in both. No new deals or strategy wins.
+- Physical late-arrival rule and blocked ties still unresolved; snapshot-only inference is insufficient. Cumulative and next seed unchanged.
+
+## Previous checkpoint — fourth disjoint 5-5 cohort + paired policy outcomes
 - [Run record](runs/2026-10-29-0254-double-five-fourth-cohort.md), [reproducible runner](simulator/double-five-fourth-cohort.js), [raw](runs/2026-10-29-0254-double-five-fourth-cohort.json).
 - **32 new hands**, indices 24..31 per connector stratum; **29,568** exact conditional partitions and **2,048** new seeded hidden allocations. **0** new full model rounds.
 - 5-5 association with `chain06/high` robust second-return mobility positive in **4/4** strata, equal-stratum gap **+25.13 pp**. Tiny 5-5 cells; structural correlation only.

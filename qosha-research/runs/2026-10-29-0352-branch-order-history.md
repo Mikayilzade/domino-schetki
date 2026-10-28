@@ -1,0 +1,14 @@
+# 2026-10-29T03:54:15+04:00 — chronological branch-order identifiability regression
+
+- **Engine/rules:** `qosa-research-0.5.3 + branch-order-history-test-1.0`; recovered `qosa-1.0.0` 3×9; **global-ever-open and all-current-only BOTH PROVISIONAL**.
+- **Work:** independent chronological two-history exact regression, using the persisted engine's branch-state geometry. **2 synthetic event histories**, **0** new deals/model-rounds/hidden allocations/forced continuations. No seeds or policies applicable.
+- **Construction:** histories use exactly the same seven played stones (`1-1, 1-2, 1-3, 2-2, 2-3, 2-4, 3-3`) and finish with the same four ends (`up=4, left=2, right=1, down=1`). The only difference is whether `2-2` is placed before or after `2-3` brings the *other* branch to 2.
+- **Exact finding:** under global-ever-open both histories have **8** legal remaining tile types. Under all-current-only, early-arrival has **8**, late-arrival **5**; only `0-2, 2-5, 2-6` become unavailable after the late arrival. In particular `2-6` on the left is legal in both global histories but not in the late all-current history.
+- **Why this matters:** the same visible end values and played tiles can imply different pass constraints in one provisional model. **A photo/snapshot alone cannot authenticate late-arrival legality or justify hidden-tile certainty**; the order of the physical moves must be observed. This is a rule-identifiability finding, **not a winning strategy**.
+- **Validation:** deterministic V8 CommonJS execution of `branch-order-history-test.js` against fetched `engine.js` passed; final-state identity, all moves legal in both models, exact masks, illegal-step and duplicate guards, deterministic replay. **Node CLI not run.**
+- **Read-only scoreboard audit:** `qosha-rules.js` and `qosha-101.js` implement scorekeeping and 101 outcomes, not branch-placement history; they cannot settle the physical late-arrival rule or blocked tie winner.
+- **Confidence/limitations:** high for exact synthetic counterexample and code-level invariants; real physical rule, block ties, loneZero, 101 match scoring remain unverified. No branch-model win rates pooled.
+- **Cumulative unchanged:** **1,380,975** complete model-rounds across incompatible rules; **1,898,856** forced continuations; **490,000** opening deals; **744,592** separate seeded hidden allocations; historical 4,000 separate. Next unused seed **>=2815592**.
+- **Exact next action:** obtain an authentic chronological example with `2-2` played on one branch and a different branch reaching 2 later; verify whether `2-6` can then extend that second branch. Also establish a real blocked-tie scoring example. Only then rank full-game preserve-double strategies under a single validated ruleset.
+
+Reproduce: `node qosha-research/simulator/branch-order-history-test.js`. No scoreboard/PWA or GitHub Actions changed.
