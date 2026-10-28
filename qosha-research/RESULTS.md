@@ -1556,3 +1556,17 @@
 - **Cumulative:** **1,380,975** incompatible-rule complete model-rounds and **1,898,856** forced continuations unchanged; **439,000** separate synthetic hidden allocations (415,000 previous + 24,000 new); historical 4,000 rounds separate. Next fresh seed **>=2090000**.
 - **Reproduce:** `node qosha-research/simulator/branch-pass-ablation.js test`; `node qosha-research/simulator/branch-pass-ablation.js 2078000 12000`; raw `runs/2026-10-28-0554-branch-pass-ablation-2078000-2089999.json`. No scoreboard/PWA or GitHub Actions changes.
 - **Exact next hypothesis/action:** authenticate the physical-game case of a *different side reaching a previously doubled number later* and whether it can be extended. Only after this, use real chronological passes to rank preserve-double/connector moves on matched hidden worlds.
+
+
+### 2026-10-28T10:57:39.752+04:00 (Asia/Baku) — optional multi-double two-opponent holdout
+
+- Engine/rules: `qosa-research-0.5.3 + opening-two-opponent-chain-1.0` / recovered `qosa-1.0.0` 3×9; both branch models provisional.
+- New independent deal seeds **2300000..2349999**: **50,000** opening deals; **48192** valid starters, **17830** candidate hands. World seeds **2350000..2365999**: **500** selected fixed hands × **32** allocations = **16,000** new hidden worlds. 0 new complete model-rounds and 0 forced full-game continuations.
+- Matched owned-X-X vs unowned-Y-Y starter connector choice; high-/low-pip opponent selection; one-stone vs optional greedy consecutive multi-double response, max 4 doubles. High-pip opponent stones owned−unowned **-0.24050** with chains versus **-0.09463** without; low-pip **-0.20631** versus **-0.09825**. High-chain paired position-cluster exploratory 95% interval [-0.24972, -0.23128].
+- Extra chained opponent doubles high policy **0.00000** vs **0.14588**; low policy **0.00000** vs **0.10806**. High-chain focal return mobility difference **0.49444** stones.
+- Connector-stratified high-chain tempo owned−unowned: c=2 **-0.2001** (n=253), c=3 **-0.2478** (n=171), c>=4 **-0.3586** (n=76). Candidate X/Y pips and ownership are confounded; strata descriptive, not causal.
+- Finding: the earlier two-turn tempo direction replicates on disjoint seeds even when opponents may play optional multi-double chains; retaining X-X denies that exact double to opponents and the comparator can give them chain opportunities. **No validated win-rate or universal gameplay rule**.
+- Validation: executable V8 CommonJS deterministic two-double fixture, ordinary+double rejection, four independent exact 48,620-way checks, 100 seed replays, 28-tile conservation; Node CLI not run. Late-arrival branch legality, blocked winner/ties, 101 match scoring unverified. First 500 eligible hands, 32 worlds each; confidence intervals exploratory.
+- Reproduce: `simulator/opening-two-opponent-chain.js test`, then `simulator/opening-two-opponent-chain.js 2300000 50000 2350000 32 500`. Data: `runs/2026-10-28-1055-opening-two-opponent-chain-2300000-2365999.json`.
+- Cumulative: **1,380,975** incompatible-model complete rounds and **1,898,856** forced continuations unchanged; **230,000** separate opening deals, **555,000** separate hidden allocations; historical 4,000 separate. Next seed >= **2366000**.
+- Exact next hypothesis/action: validate multi-double/late-arrival physical rules, then run equal-pip and connector-balanced matched-world comparisons and full-game scoring after resolving block ties.
