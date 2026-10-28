@@ -1,0 +1,171 @@
+{
+  "schema": "qosha-opening-owned-double-paired/v1",
+  "timestampAsiaBaku": "2026-10-28T08:50:09+04:00",
+  "engine": "qosa-research-0.5.3 deal kernel + opening-owned-double-paired-1.0",
+  "rules": "recovered qosa-1.0.0, first-round 1-1 with stock draw; one-ply four-branch lock only",
+  "strategies": "matched candidate 1-X with own X-X vs 1-Y with unseen Y-Y; minimum-X representative per group; no game policy",
+  "fullModelRounds": 0,
+  "forcedContinuations": 0,
+  "stats": {
+    "seeds": [
+      2120000,
+      2179999
+    ],
+    "deals": 60000,
+    "reshuffles": 2046,
+    "valid": 57954,
+    "forcedStarterPass": 3492,
+    "oneChoice": 15034,
+    "multipleChoice": 39428,
+    "pairedHands": 21929,
+    "pairedCandidatePairs": 37775,
+    "ownedCandidateHands": 29959,
+    "unownedCandidateHands": 46432,
+    "byConnectors": [
+      {
+        "c": 0,
+        "valid": 3492,
+        "paired": 0,
+        "passOwn": 0.004524886877828055,
+        "passUnowned": 0.0011312217194570137,
+        "pairedPipCostSum": 0,
+        "pairedPassLiftSum": 0
+      },
+      {
+        "c": 1,
+        "valid": 15034,
+        "paired": 0,
+        "passOwn": 0.014705882352941176,
+        "passUnowned": 0.004524886877828055,
+        "pairedPipCostSum": 0,
+        "pairedPassLiftSum": 0
+      },
+      {
+        "c": 2,
+        "valid": 21867,
+        "paired": 10366,
+        "passOwn": 0.041176470588235294,
+        "passUnowned": 0.014705882352941176,
+        "pairedPipCostSum": -325,
+        "pairedPassLiftSum": 274.39411764707097
+      },
+      {
+        "c": 3,
+        "valid": 13273,
+        "paired": 8603,
+        "passOwn": 0.10294117647058823,
+        "passUnowned": 0.041176470588235294,
+        "pairedPipCostSum": 5131,
+        "pairedPassLiftSum": 531.3617647058702
+      },
+      {
+        "c": 4,
+        "valid": 3831,
+        "paired": 2644,
+        "passOwn": 0.23529411764705882,
+        "passUnowned": 0.10294117647058823,
+        "pairedPipCostSum": 3852,
+        "pairedPassLiftSum": 349.941176470574
+      },
+      {
+        "c": 5,
+        "valid": 437,
+        "paired": 302,
+        "passOwn": 0.5,
+        "passUnowned": 0.23529411764705882,
+        "pairedPipCostSum": 621,
+        "pairedPassLiftSum": 79.94117647058846
+      },
+      {
+        "c": 6,
+        "valid": 20,
+        "paired": 14,
+        "passOwn": 1,
+        "passUnowned": 0.5,
+        "pairedPipCostSum": 41,
+        "pairedPassLiftSum": 7
+      }
+    ],
+    "pipCostSum": 9320,
+    "pipCostPositive": 12141,
+    "pipCostNegative": 9788,
+    "pipCostZero": 0,
+    "passOwnSum": 2099.555882352376,
+    "passUnownedSum": 856.9176470586557,
+    "passLiftSum": 1242.6382352936716
+  },
+  "summary": {
+    "pairedShareValid": 0.3783863063809228,
+    "pairedSharePlayable": 0.40264771767470897,
+    "meanPassOwned": 0.09574334818516012,
+    "meanPassUnowned": 0.039076913997841016,
+    "meanPassLift": 0.05666643418731687,
+    "meanMinCandidatePipCost": 0.42500798030005926,
+    "pipCostPositiveShare": 0.5536504172556889
+  },
+  "world": {
+    "seeds": [
+      2180000,
+      2199999
+    ],
+    "allocations": 20000,
+    "positions": 1000,
+    "worldsPerPosition": 20,
+    "passOwned": 2050,
+    "passUnowned": 855,
+    "expectedOwned": 2005.5882352936228,
+    "expectedUnowned": 825.999999999855,
+    "expectedLift": 1179.5882352937315,
+    "varianceOwned": 1630.3762975780214,
+    "varianceUnowned": 752.4951557094231,
+    "varianceLift": 1061.9510380623874,
+    "violations": 0,
+    "zOwned": 1.0999022837681145,
+    "zUnowned": 1.0571731968733513,
+    "zLift": 0.47293354892991707
+  },
+  "tests": {
+    "passed": true,
+    "independentBrute": [
+      {
+        "seed": 2120002,
+        "connectors": 3,
+        "partitions": 48620,
+        "passOwned": 5005,
+        "passUnowned": 2002
+      },
+      {
+        "seed": 2120004,
+        "connectors": 3,
+        "partitions": 48620,
+        "passOwned": 5005,
+        "passUnowned": 2002
+      },
+      {
+        "seed": 2120005,
+        "connectors": 3,
+        "partitions": 48620,
+        "passOwned": 5005,
+        "passUnowned": 2002
+      },
+      {
+        "seed": 2120007,
+        "connectors": 4,
+        "partitions": 48620,
+        "passOwned": 11440,
+        "passUnowned": 5005
+      }
+    ],
+    "seedReplay": 100,
+    "deckConservation": 60000,
+    "formula": "C(18 - (6-c + indicator(X-X unseen)),9)/C(18,9)"
+  },
+  "finding": "Owning X-X removes one possible opponent reply after 1-X; paired pass advantage is exact, but its pip cost and future win impact are not resolved.",
+  "limitations": [
+    "No future win-rate inference or branch-late-arrival rule assumed",
+    "Uniform unseen worlds; next player pass only; no opponent strategy modeling",
+    "Paired candidates chosen as minimum pip X within each class; descriptive deal frequencies",
+    "No Node CLI execution; V8 tests and exhaustive four-hand check only"
+  ],
+  "nextAction": "Test the observed immediate-pass advantage against 2-turn opponent response and retained X-X tempo under both explicitly provisional branch models, using matched deals; authenticate late-arrival branch opening and block ties before win claims."
+}
