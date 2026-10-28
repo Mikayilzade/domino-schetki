@@ -1,22 +1,22 @@
 # Qoşa research status
 
-Updated: 2026-10-28T14:48:34+04:00 (Asia/Baku)
+Updated: 2026-10-28 15:48:37 +04:00 (Asia/Baku)
 
 ## Verified cumulative
 - **1,380,975** complete model-rounds across incompatible branch assumptions; historical 4,000 separate.
 - **1,898,856** forced hidden-world continuations; **14,082** next-pass labels; **4,900** known-world diagnostics (unchanged).
-- **490000** deterministic opening deals (430,000 previous + 60000 new), separate from model rounds.
-- **626200** synthetic hidden-world allocations (607,000 previous + 19200 new), separate from rounds.
-- Engine `qosa-research-0.5.3 + opening-both-doubles-owned-1.0`; recovered `qosa-1.0.0`.
+- **490,000** deterministic opening deals (unchanged); **638,200** separate synthetic hidden-world allocations (626,200 previous + 12,000 new).
+- New exact enumeration: **1,820** possible focal hands × **924** hidden opponent partitions each = **1,681,680** conditional hand-world combinations, NOT added to sampled allocation totals.
+- Engine `qosa-research-0.5.3 + standalone midgame-end-collapse-1.0`; recovered `qosa-1.0.0` 3×9.
 - Late-arrival branch legality, blocked winner/ties, loneZero/bust and 101 scoring remain **UNVALIDATED**.
-- New deal seeds **2618000..2677999**; world seeds **2678000..2697199**; next unused **>=2697200**.
+- Fresh world seeds **2697200..2709199**; next unused **>=2709200**.
 
-## Latest checkpoint — both doubles owned
-- 60000 deterministic deals, 5661 eligible, 600 paired positions × 32 matched hidden allocations.
-- Both candidate connectors are legal and both doubles are owned. Exact first-pass probability ties: 3 independent 48,620-partition checks.
-- High-chain lower-minus-higher opponent moves: **0.00000**, exploratory cluster CI **[0.00000, 0.00000]**; low-chain **0.00000**.
-- First-pass difference is exactly zero. Lower/higher choices differ in pip value and geometry, so **not proof of a universal winning tactic**.
-- Source: `simulator/opening-both-doubles-owned.js`; data `runs/2026-10-28-1448-both-doubles-owned-2618000-2697199.json`; summary `runs/2026-10-28-1448-both-doubles-owned.md`.
+## Latest checkpoint — midgame branch-end collapse
+- Same 2-3 tile, same pip cost, legal on either of two fully open branches under both provisional models.
+- Exact immediate next-opponent pass **37.50%** collapsing ends versus **2.62%** preserving 2 and 3; this is NOT a game win-rate effect.
+- Own no-playable-hand frequency **1001/1820** vs **210/1820**: large tactical downside to collapsing.
+- 12,000 seeded worlds calibration z=-1.41; 3 exact brute checks and conservation passed.
+- Code: `simulator/midgame-end-collapse-exact.js`; data: `runs/2026-10-28-1548-midgame-end-collapse-2697200-2709199.json`; report: `runs/2026-10-28-1548-midgame-end-collapse.md`.
 
 ## NEXT ACTION
-- Compare pip/geometry-matched legal choices in a rule-invariant window; authenticate late-arrival branch and block ties before full-game win-rate claims.
+- Compare two-opponent continuation and focal-return mobility on matched midgame hidden worlds; authenticate late-arrival branch unlocking and block ties before win-rate claims.

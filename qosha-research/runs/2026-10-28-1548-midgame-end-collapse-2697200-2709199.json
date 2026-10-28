@@ -1,0 +1,188 @@
+{
+  "schema": "qosha-midgame-end-collapse-exact/v1",
+  "timestampAsiaBaku": "2026-10-28 15:48:37 +04:00",
+  "engine": "qosa-research-0.5.3 + standalone midgame-end-collapse-1.0",
+  "rules": "recovered qosa-1.0.0 3x9; both provisional branch models agree in this window",
+  "publicTrace": [
+    "1-1",
+    "1-2",
+    "2-2",
+    "1-3",
+    "1-4",
+    "4-4",
+    "3-4",
+    "1-5",
+    "5-5",
+    "3-5",
+    "3-3"
+  ],
+  "playedTiles": 11,
+  "branchModels": {
+    "global-ever-open": {
+      "ends": [
+        2,
+        3,
+        3,
+        3
+      ],
+      "locked": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "all-current-only": {
+      "ends": [
+        2,
+        3,
+        3,
+        3
+      ],
+      "locked": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "opened": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "knownFocalTile": "2-3",
+  "focalHandSize": 5,
+  "opponentHandSizes": [
+    6,
+    6
+  ],
+  "stock": 0,
+  "actions": [
+    "up: 2-3 on 2 => ends 3,3,3,3",
+    "left: 2-3 on 3 => ends 2,2,3,3"
+  ],
+  "exact": {
+    "hands": 1820,
+    "partitionsPerHand": 924,
+    "passCollapse": 0.3750000000000058,
+    "passSpread": 0.02622377622377663,
+    "passGain": 0.34877622377622913,
+    "strictGainHands": 1819,
+    "equalHands": 1,
+    "ownPlayableCollapse": 0.5,
+    "ownPlayableSpread": 1.5,
+    "ownNoPlayCollapse": 1001,
+    "ownNoPlaySpread": 210,
+    "strata": {
+      "noOwn3": {
+        "hands": 1001,
+        "passCollapse": 0.22727272727272554,
+        "passSpread": 0.015893197711379696,
+        "ownPlayableCollapse": 0,
+        "ownPlayableSpread": 1.1428571428571428
+      },
+      "oneOwn3": {
+        "hands": 728,
+        "passCollapse": 0.5,
+        "passSpread": 0.03496503496503526,
+        "ownPlayableCollapse": 1,
+        "ownPlayableSpread": 1.8571428571428572
+      },
+      "twoOwn3": {
+        "hands": 91,
+        "passCollapse": 1,
+        "passSpread": 0.0699300699300699,
+        "ownPlayableCollapse": 2,
+        "ownPlayableSpread": 2.5714285714285716
+      },
+      "atLeastOneOwn3": {
+        "hands": 819,
+        "passCollapse": 0.5555555555555556,
+        "passSpread": 0.03885003885003911,
+        "ownPlayableCollapse": 1.1111111111111112,
+        "ownPlayableSpread": 1.9365079365079365
+      }
+    }
+  },
+  "brute": [
+    {
+      "hand": [
+        "2-3",
+        "0-0",
+        "0-1",
+        "0-2",
+        "0-3"
+      ],
+      "partitions": 924,
+      "passCollapse": 462,
+      "passSpread": 28
+    },
+    {
+      "hand": [
+        "2-3",
+        "0-2",
+        "0-4",
+        "1-6",
+        "5-6"
+      ],
+      "partitions": 924,
+      "passCollapse": 210,
+      "passSpread": 7
+    },
+    {
+      "hand": [
+        "2-3",
+        "4-5",
+        "4-6",
+        "5-6",
+        "6-6"
+      ],
+      "partitions": 924,
+      "passCollapse": 210,
+      "passSpread": 1
+    }
+  ],
+  "observed": {
+    "worlds": 12000,
+    "seedRange": [
+      2697200,
+      2709199
+    ],
+    "collapsePasses": 4417,
+    "spreadPasses": 332,
+    "collapseRate": 0.3680833333333333,
+    "spreadRate": 0.027666666666666666,
+    "pairedGain": 0.34041666666666665,
+    "expectedCollapse": 0.3721818181817825,
+    "expectedSpread": 0.02610777417026982,
+    "expectedGain": 0.34607404401151265,
+    "calibrationZ": -1.407727846993588
+  },
+  "fullRounds": 0,
+  "forcedContinuations": 0,
+  "hiddenAllocations": 12000,
+  "strategies": [
+    "same tile, collapse ends",
+    "same tile, retain two values"
+  ],
+  "finding": "Immediate opponent pass probability improves by collapsing ends, but own follow-up mobility often disappears.",
+  "confidence": "Exact 1820 known hands x 924 hidden allocations; seeded Monte Carlo calibration; identical tile/pips.",
+  "limitations": [
+    "Synthetic chronological public trace, not physically authenticated.",
+    "Uniform hidden worlds; no pass/choice-history conditioning.",
+    "No two-opponent rollout or finish-first/match win/score claims.",
+    "Blocked ties, loneZero, bust and 101 scoring unresolved."
+  ],
+  "nextAction": "Matched two-opponent midgame continuation and focal-return mobility, both provisional branch models, then authentic branch and block-tie fixtures."
+}
