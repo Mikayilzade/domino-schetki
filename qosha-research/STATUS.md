@@ -1,22 +1,23 @@
 # Qoşa research status
 
-Updated: 2026-10-28 15:48:37 +04:00 (Asia/Baku)
+Updated: 2026-10-28 16:56 +04:00 (Asia/Baku)
 
 ## Verified cumulative
 - **1,380,975** complete model-rounds across incompatible branch assumptions; historical 4,000 separate.
 - **1,898,856** forced hidden-world continuations; **14,082** next-pass labels; **4,900** known-world diagnostics (unchanged).
-- **490,000** deterministic opening deals (unchanged); **638,200** separate synthetic hidden-world allocations (626,200 previous + 12,000 new).
-- New exact enumeration: **1,820** possible focal hands × **924** hidden opponent partitions each = **1,681,680** conditional hand-world combinations, NOT added to sampled allocation totals.
-- Engine `qosa-research-0.5.3 + standalone midgame-end-collapse-1.0`; recovered `qosa-1.0.0` 3×9.
+- **490,000** deterministic opening deals (unchanged); **678,200** separate synthetic hidden-world allocations (**638,200** previous + **40,000** new).
+- Earlier exact **1,820** focal hands × **924** hidden partitions = **1,681,680** conditional combinations, NOT added to sampled allocation totals.
+- Engine `qosa-research-0.5.3 + midgame-two-opponent-return-1.0`; recovered `qosa-1.0.0` 3×9.
 - Late-arrival branch legality, blocked winner/ties, loneZero/bust and 101 scoring remain **UNVALIDATED**.
-- Fresh world seeds **2697200..2709199**; next unused **>=2709200**.
+- Fresh world seeds **2709200..2749199** (two disjoint 20,000-world cohorts); next unused **>=2749200**.
 
-## Latest checkpoint — midgame branch-end collapse
-- Same 2-3 tile, same pip cost, legal on either of two fully open branches under both provisional models.
-- Exact immediate next-opponent pass **37.50%** collapsing ends versus **2.62%** preserving 2 and 3; this is NOT a game win-rate effect.
-- Own no-playable-hand frequency **1001/1820** vs **210/1820**: large tactical downside to collapsing.
-- 12,000 seeded worlds calibration z=-1.41; 3 exact brute checks and conservation passed.
-- Code: `simulator/midgame-end-collapse-exact.js`; data: `runs/2026-10-28-1548-midgame-end-collapse-2697200-2709199.json`; report: `runs/2026-10-28-1548-midgame-end-collapse.md`.
+## Latest checkpoint — midgame two-opponent return
+- Same legal 2-3 tile on two sides, same 5 discarded pips, identical focal hand and two hidden opponents. Both provisional branch models and highest/lowest-pip one-stone opponent policies.
+- Collapse vs spread: opponent stones over next two turns **−0.44 to −0.57**, replicated in both independent seed cohorts.
+- Own no-playable-hand probability on return **+1.48 to +22.42 percentage points** depending on branch model/policy; **no increase** in the own-3-connector stratum, much greater risk without a 3 connector.
+- Immediate pass calibration against previous exact enumeration passed; Node 22 deterministic test and full 40,000-world run executed.
+- **No demonstrated win-rate advantage.** This is a synthetic, rule-sensitive two-turn mobility comparison, not a match outcome.
+- Code: `simulator/midgame-two-opponent-return.js`; linked checkpoint: `runs/2026-10-28-1656-midgame-two-opponent-return.md`.
 
 ## NEXT ACTION
-- Compare two-opponent continuation and focal-return mobility on matched midgame hidden worlds; authenticate late-arrival branch unlocking and block ties before win-rate claims.
+- Examine own-3-connector counterexamples and opponent access under matched multi-double-aware continuations. Authenticate late-arrival branch unlocking and blocked ties before full-game scoring/regret claims.
