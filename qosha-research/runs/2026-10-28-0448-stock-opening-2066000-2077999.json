@@ -1,0 +1,72 @@
+{
+  "schema": "qosha-stock-opening-audit/v1",
+  "timestampBaku": "2026-10-28 04:49:19 +04:00",
+  "engine": "qosa-research-0.5.3 + public-history-replay-1.2",
+  "rules": "recovered qosa-1.0.0 3x9; confirmed later-round 1-1 from stock; provisional global-ever-open branch model",
+  "seedRange": [
+    2066000,
+    2077999
+  ],
+  "deals": 0,
+  "modelRounds": 0,
+  "forcedContinuations": 0,
+  "independentHiddenAllocations": 12000,
+  "pairedEquivalenceChecks": 12000,
+  "strategies": "none; opening provenance and exact conditional hidden-world validation",
+  "openingModes": [
+    {
+      "source": "hand-1-1-with-draw",
+      "draws": 1
+    },
+    {
+      "source": "stock-1-1-previous-winner",
+      "draws": 0
+    }
+  ],
+  "exact": {
+    "compatiblePartitionsPerMode": 5005,
+    "seat1Has36": 0.6
+  },
+  "sampled": {
+    "worlds": 12000,
+    "pairedChecks": 12000,
+    "distinctSeat1Hands": 4527,
+    "seat1Has36": 7183,
+    "rate": 0.5985833333333334,
+    "z": -0.31677629681246017
+  },
+  "tests": {
+    "passed": true,
+    "publicHistory": {
+      "passed": true,
+      "chronologicalPassMask": 10,
+      "exactCompatible": 5005,
+      "lateArrivalDiagnostics": 1,
+      "allCurrentDivergentMoves": 1,
+      "openingPassesChecked": 2,
+      "multiDoubleSequenceChecked": true,
+      "knownDrawPartitions": 2002,
+      "knownDrawOwner": 2,
+      "retrospectiveFocalPassGuard": true,
+      "stockOpeningExactPartitions": 5005,
+      "stockOpeningProvenance": true,
+      "negativeGuards": 18,
+      "seedReplay": 100
+    },
+    "exactPartitionsEach": 5005,
+    "pairedSeeds": 100,
+    "draws": {
+      "handOpening": 1,
+      "stockOpening": 0
+    }
+  },
+  "finding": "Later-round stock-1-1 opening by previous winner is now represented without falsely inventing a replacement draw; equal resulting public states have identical conditional posterior worlds.",
+  "confidence": "Confirmed opening-source rule plus deterministic 5005-partition exact benchmark; synthetic public trace only",
+  "limitations": [
+    "Public trace synthetic, not authenticated physical play",
+    "Branch unlocking and blocked-round winner/ties/101 scoring unvalidated",
+    "Equal post-opening states imply equal posterior, not a new strategy advantage",
+    "No real-game win-rate or minus-risk claim"
+  ],
+  "nextAction": "Validate a real recorded midgame late-arrival branch opening and block-tie fixture; then compare paired double/connector tactics on confirmed legal moves"
+}

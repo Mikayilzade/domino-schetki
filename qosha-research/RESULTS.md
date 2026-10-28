@@ -1532,3 +1532,14 @@
 - Cumulative: **1,380,975** model rounds across incompatible assumptions, **1,898,856** forced continuations (both unchanged); **391,000** separate hidden-world allocations; historical 4,000 separate. Next fresh seed >=**2054000**.
 - Reproduce: `simulator/public-history-replay.js test`; `simulator/public-history-replay.js 2042000 12000`; details `qosha-research/runs/2026-10-28-0257-public-history-replay.md`; raw `qosha-research/runs/2026-10-28-0257-public-history-replay-2042000-2053999.json`.
 - Exact next hypothesis/action: authenticate the public late-arrival 2-4-on-left fixture against real play, then confirm block ties before strategy comparisons.
+
+
+### 2026-10-28 04:49:19 +04:00 (Asia/Baku) — later-round stock 1-1 public-history audit
+- **Engine/rules:** `qosa-research-0.5.3 + public-history-replay-1.2` / recovered `qosa-1.0.0` 3×9; branch global-ever-open provisional. Later-round stock-1-1 opening by previous winner now supported without fabricated replacement draw.
+- **Seeds:** 2066000..2077999; **12,000** independent conditional hidden allocations + 12,000 matched-equivalence checks (same worlds, not double-counted); **0** new complete rounds / 0 forced continuations; no strategies.
+- **Key metrics:** exact posterior **5,005** partitions in each opening provenance; sampled seat-1 3-6 **7183/12,000 (59.858%)** vs exact 60%, z=-0.317; 12,000/12,000 paired world equivalence, 28-tile conservation; 18 negative guards passed (V8 CommonJS; Node CLI not run).
+- **Finding:** confirmed later-round stock-1-1 opening must not invent a replacement draw; equal public post-opening states have equal conditional posterior. **No confirmed gameplay advantage**.
+- **Confidence/limits:** exact combinatorial fixture and deterministic paired checks; synthetic trace only, branch late-arrival and block winner/tie/101 match scoring unvalidated.
+- **Cumulative:** 1,380,975 incompatible-rule model-rounds, 1,898,856 forced continuations unchanged; **415,000** separate hidden allocations (403,000 prior + 12,000). Historical 4,000 separate; next unused seed >=2078000.
+- **Data/reproduce:** `simulator/public-history-stock-opening-audit.js test`; `simulator/public-history-stock-opening-audit.js 2066000 12000`; `runs/2026-10-28-0448-stock-opening-audit.md`, `runs/2026-10-28-0448-stock-opening-2066000-2077999.json`.
+- **Exact next action:** authenticate late-arrival branch and blocked tie rules; then compare matched X-X/X-Y retention actions under confirmed legality.

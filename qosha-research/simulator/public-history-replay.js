@@ -16,15 +16,19 @@ function fixture(){
 function replay(spec){
  if(!spec||spec.model!=='provisional-global-ever-open')throw Error('explicit provisional branch model required');
  const o=spec.opening;
- if(!o||!Number.isInteger(o.starter)||o.starter<0||o.starter>2||
-  o.stockDraw!==true||!Array.isArray(spec.events))throw Error('confirmed 3x9 opening and event log required');
+ const fromStock=o&&o.fromStock===true;
+ if(!o||!Number.isInteger(o.starter)||o.starter<0||o.starter>2||!Array.isArray(spec.events)||
+  (fromStock
+   ? (o.stockDraw!==false||o.isFirstRound!==false||o.previousWinnerIndex!==o.starter||o.drawnTile!==undefined)
+   : o.stockDraw!==true))
+  throw Error('confirmed 3x9 opening provenance and event log required');
  if(o.followup&&o.passed)throw Error('opening cannot both play and pass');
  if(!o.followup&&o.passed!==true)throw Error('explicit opening follow-up or pass required');
  let branch=e.createBranchState([1,1]),opening=e.createOpeningState([1]);
  const handSizes=[9,9,9],acquisitions=[0,0,0],played=[[1,1]],playedKeys=new Set(['1-1']);
  let stockSize=1,currentPlayer=(o.starter+1)%3,pendingDraw=null;
  const passes=[],lateArrivals=[],modelDivergences=[],openedAtDouble=new Map([[1,new Set(SIDES)]]);
- const knownDraws=new Map(),eventCounts={single:0,double:0,mixed:0,pass:0,draw:1};
+ const knownDraws=new Map(),eventCounts={single:0,double:0,mixed:0,pass:0,draw:fromStock?0:1,openingFromStock:fromStock?1:0};
  function invariant(){
   if(handSizes.some(n=>n<0)||stockSize<0||played.length+handSizes.reduce((a,b)=>a+b,0)+stockSize!==28)
    throw Error('28-tile count or hand size mismatch');
@@ -73,11 +77,16 @@ function replay(spec){
    ends:Object.fromEntries(SIDES.map(s=>[s,branch.branches[s].end])),
    openedNumbers:[...opening.openedNumbers].sort((a,b)=>a-b)});
  }
- // First-round opening: 1-1 leaves starter's hand, the sole stock tile is drawn.
- handSizes[o.starter]--;handSizes[o.starter]++;stockSize--;acquisitions[o.starter]++;
- if(o.drawnTile){
-  const k=key(o.drawnTile);if(k==='1-1')throw Error('drawn 1-1 was already played');
-  knownDraws.set(k,o.starter);
+ // Two CONFIRMED opening sources. A later-round stock 1-1 is played by the
+ // previous winner, without a replacement draw; no private tile identity is inferred.
+ if(fromStock){
+  stockSize--;
+ }else{
+  handSizes[o.starter]--;handSizes[o.starter]++;stockSize--;acquisitions[o.starter]++;
+  if(o.drawnTile){
+   const k=key(o.drawnTile);if(k==='1-1')throw Error('drawn 1-1 was already played');
+   knownDraws.set(k,o.starter);
+  }
  }
  if(o.followup){
   placeSingle(o.followup.tile,o.followup.side,o.starter,-1);
@@ -139,7 +148,7 @@ function replay(spec){
  const passObservations=passes.filter(p=>p.stockSizeAtPass===0&&acquisitions[p.player]===p.acquisitionsAtPass)
   .map(p=>({player:p.player,forbiddenTiles:clone(p.forbiddenTiles),noInterveningDraw:true,
    source:'chronological public pass at event '+p.eventIndex+'; provisional global-ever-open'}));
- const result={model:spec.model,playedTiles:clone(played),handSizes:handSizes.slice(),stockSize,
+ const result={model:spec.model,openingSource:fromStock?'stock-1-1-previous-winner':'hand-1-1-with-draw',playedTiles:clone(played),handSizes:handSizes.slice(),stockSize,
   branchEnds:Object.fromEntries(SIDES.map(s=>[s,branch.branches[s].end])),
   openedNumbers:[...opening.openedNumbers].sort((a,b)=>a-b),currentPlayer,
   knownDrawAudit:[...knownDraws].map(([tile,owner])=>({tile,owner,stillHeld:!playedKeys.has(tile)})),
@@ -191,6 +200,15 @@ function test(){
  const knownReplay=replay(knownDraw),knownPosterior=post.prepare(knownReplay.posteriorSpec);
  if(knownPosterior.total!==2002n||!knownReplay.posteriorSpec.knownOpponentTiles[2].some(t=>key(t)==='3-6'))
   throw Error('known drawn tile must constrain hidden allocations');
+ const stockCase=fixture();
+ stockCase.opening={starter:2,fromStock:true,stockDraw:false,isFirstRound:false,previousWinnerIndex:2,
+  followup:{tile:[1,2],side:'up'}};
+ const stockReplay=replay(stockCase),stockPosterior=post.prepare(stockReplay.posteriorSpec);
+ if(stockReplay.openingSource!=='stock-1-1-previous-winner'||
+  stockReplay.eventCounts.draw!==0||stockReplay.eventCounts.openingFromStock!==1||
+  !same(stockReplay.playedTiles,r.playedTiles)||!same(stockReplay.handSizes,r.handSizes)||
+  stockPosterior.total!==p.total||!same(stockReplay.passAudit,r.passAudit))
+  throw Error('later-round stock-1-1 opening provenance or posterior mismatch');
  const playedDraw=fixture();playedDraw.opening.drawnTile=[1,2];
  if(post.prepare(replay(playedDraw).posteriorSpec).total!==5005n)
   throw Error('known draw played on opening must not remain fixed in hand');
@@ -204,6 +222,11 @@ function test(){
  badKnownOwner.knownOpponentTiles={1:[[3,6]],2:[]};
  const bad=[
   badFocalPass,badKnownFocalDraw,badKnownOwner,
+  {...stockCase,opening:{...stockCase.opening,isFirstRound:true}},
+  {...stockCase,opening:{...stockCase.opening,previousWinnerIndex:1}},
+  {...stockCase,opening:{...stockCase.opening,drawnTile:[3,6]}},
+  {...stockCase,opening:{...stockCase.opening,stockDraw:true}},
+  {...stockCase,opening:{...stockCase.opening,previousWinnerIndex:null}},
   {...fixture(),events:[{player:1,type:'pass'}]},
   {...fixture(),opening:{starter:2,stockDraw:true,followup:{tile:[3,4],side:'up'}}},
   {...fixture(),events:[{player:0,type:'single',tile:[2,3],side:'up'}]},
@@ -229,7 +252,7 @@ function test(){
   lateArrivalDiagnostics:late.lateArrivals.length,allCurrentDivergentMoves:late.modelDivergences.length,
   openingPassesChecked:2,
   multiDoubleSequenceChecked:true,knownDrawPartitions:Number(knownPosterior.total),
-  knownDrawOwner:2,retrospectiveFocalPassGuard:true,negativeGuards:rejected,seedReplay:100};
+  knownDrawOwner:2,retrospectiveFocalPassGuard:true,stockOpeningExactPartitions:Number(stockPosterior.total),stockOpeningProvenance:true,negativeGuards:rejected,seedReplay:100};
 }
 function run(start=2042000,count=12000){
  if(!Number.isInteger(start)||start<0||!Number.isInteger(count)||count<100)throw Error('seed range');
