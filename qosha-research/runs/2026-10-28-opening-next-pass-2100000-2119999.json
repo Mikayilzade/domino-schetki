@@ -1,0 +1,121 @@
+{
+  "schema": "qosha-opening-next-pass/v1",
+  "timestampAsiaBaku": "2026-10-28T07:49:11+04:00",
+  "engine": "qosa-research-0.5.3 + opening-next-pass-exact-1.0",
+  "rules": "recovered qosa-1.0.0; confirmed first-round 1-1 and opened/locked branches before any later double",
+  "seeds": [
+    2100000,
+    2119999
+  ],
+  "deals": 0,
+  "modelRounds": 0,
+  "forcedContinuations": 0,
+  "hiddenAllocations": 20000,
+  "strategies": "none; matched one-ply candidate comparison on uniform hidden worlds",
+  "fixture": {
+    "played": [
+      "1-1"
+    ],
+    "focalHand": [
+      "1-2",
+      "1-5",
+      "1-3",
+      "0-0",
+      "0-2",
+      "2-2",
+      "3-4",
+      "4-5",
+      "5-6"
+    ],
+    "unknownPool": [
+      "0-1",
+      "0-3",
+      "0-4",
+      "0-5",
+      "0-6",
+      "1-4",
+      "1-6",
+      "2-3",
+      "2-4",
+      "2-5",
+      "2-6",
+      "3-3",
+      "3-5",
+      "3-6",
+      "4-4",
+      "4-6",
+      "5-5",
+      "6-6"
+    ],
+    "opponentHandSize": 9,
+    "stock": 0,
+    "candidates": [
+      "1-2",
+      "1-3",
+      "1-5"
+    ],
+    "assumption": "after starter plays one 1-X on an unused 1 branch, all other 1 ends remain open; new X end is locked until X-X, which is itself playable"
+  },
+  "exact": {
+    "partitions": 48620,
+    "passCounts": {
+      "2": 5005,
+      "3": 2002,
+      "5": 2002
+    },
+    "passBoth35": 715,
+    "paired2pass3plays": 3003,
+    "paired3pass2plays": 0,
+    "closedForm": {
+      "passAfter12": "C(15,9)/C(18,9)",
+      "passAfter13or15": "C(14,9)/C(18,9)",
+      "both13and15": "C(13,9)/C(18,9)"
+    }
+  },
+  "sampled": {
+    "rates": {
+      "2": {
+        "passCount": 2010,
+        "rate": 0.1005,
+        "exactCount": 5005,
+        "exactRate": 0.10294117647058823,
+        "z": -1.136080611976392
+      },
+      "3": {
+        "passCount": 836,
+        "rate": 0.0418,
+        "exactCount": 2002,
+        "exactRate": 0.041176470588235294,
+        "z": 0.44379054048188976
+      },
+      "5": {
+        "passCount": 827,
+        "rate": 0.04135,
+        "exactCount": 2002,
+        "exactRate": 0.041176470588235294,
+        "z": 0.12350774475675173
+      }
+    },
+    "paired": {
+      "pass2Play3": 1174,
+      "pass3Play2": 0,
+      "pass3And5": 294
+    },
+    "maxAbsZ": 1.136080611976392
+  },
+  "tests": {
+    "passed": true,
+    "exactPartitions": 48620,
+    "formulaChecks": 7,
+    "deterministicSeedReplays": 100
+  },
+  "finding": "For this known starter hand, playing 1-2 (own 2-2 retained) leaves next opponent unable to move in 10.2941% of hidden allocations, versus 4.1176% after 1-3 or 1-5. Difference is availability of opponent X-X; NOT a win-rate claim.",
+  "confidence": "Exact independent 48,620-hand enumeration, closed-form combinatorics and 20,000 matched seeded hidden worlds",
+  "limitations": [
+    "Synthetic starter hand, not representative of all games",
+    "Opponent next-turn availability only; no subsequent turns or winning odds",
+    "Pass inferred only when stock empty, no double opening has yet occurred",
+    "Future branch semantics, block ties and 101 scoring unvalidated"
+  ],
+  "nextAction": "Extend matched first-turn pass-risk test across deterministic real dealt starter hands; stratify by owned X-X versus opponent-available X-X and compare eventual win only after branch rule validation."
+}
