@@ -1,24 +1,25 @@
 # Qoşa research status
 
-Updated: 2026-10-28T10:57:39.752+04:00 (Asia/Baku)
+Updated: 2026-10-28T11:45:35+04:00 (Asia/Baku)
 
 ## Verified cumulative
-- **1,380,975** complete model-rounds across incompatible branch assumptions (workload only); historical 4,000 separate.
+- **1,380,975** complete model-rounds across incompatible branch assumptions; historical 4,000 separate.
 - **1,898,856** forced hidden-world continuations; **14,082** next-pass labels; **4,900** known-world diagnostics (unchanged).
-- **230,000** random deterministic opening deals (180,000 previous + **50,000 new**), tracked separately from model-rounds.
-- **555,000** separate synthetic hidden-world allocations (539,000 previous + **16,000 new**); not complete rounds.
-- Engine `qosa-research-0.5.3 + opening-two-opponent-chain-1.0`; recovered `qosa-1.0.0`.
-- Authentic late-arrival branch unlock, blocked winner/ties, loneZero/bust and 101 scoring **UNVALIDATED**.
-- New deal seeds **2300000..2349999**, hidden allocation seeds **2350000..2365999**; next unused **>=2366000**.
+- **280,000** deterministic opening deals (230,000 previous + 50,000 new), separate from rounds.
+- **571,000** synthetic hidden allocations (555,000 previous + 16,000 new), separate from rounds.
+- Engine `qosa-research-0.5.3 + fixed-connector-ownership-1.0`; recovered `qosa-1.0.0`.
+- Late-arrival branch, blocked winner/ties, loneZero/bust and 101 scoring **UNVALIDATED**.
+- Fresh deal seeds **2366000..2415999**, world seeds **2416000..2431999**; next unused **>=2432000**.
 
-## Latest checkpoint — optional multi-double response policy
-- 50,000 independent opening deal seeds, 48192 valid starters, 17830 eligible paired hands; **500** fixed hands × **32** matched hidden worlds = **16,000** allocations. Two bot policies (highest/lowest pip first), each with one-stone and optional double-chain variants. 0 new complete strategy rounds.
-- Under **high-pip with chains**, opponent stones over two turns: **1.85275** (starter retains owned X-X) vs **2.09325** (comparison Y-Y not held), delta **-0.24050**. With one-stone turns delta **-0.09463**. Additional opponent doubles in chain policy: **0.00000** vs **0.14588** per world.
-- Under **low-pip with chains**, opponent stones delta **-0.20631** vs **-0.09825** without chains. Focal return legal stones difference **0.49444** (high-chain) and **0.49456** (low-chain).
-- High-chain tempo by connector count: c=2 **-0.2001** (n=253); c=3 **-0.2478** (n=171); c>=4 **-0.3586** (n=76). Immediate pip cost is confounded by different X/Y candidates; stratification in JSON.
-- **Interpretation:** owning X-X both keeps it out of opponents' hands and can suppress their optional double chains. This is a model-specific two-turn tempo observation, **NOT a proven win-rate improvement or a causal estimate of saving a double**. Greedy multi-double continuation is only one optional policy.
-- Deterministic chain/ordinary guard, four exact 48,620-partition first-pass checks, 100 seed replays, conservation, two provisional branch models: V8 execution passed. Node CLI not run; no authentic late-arrival fixture.
-- Reproduce: `node qosha-research/simulator/opening-two-opponent-chain.js test`; `node qosha-research/simulator/opening-two-opponent-chain.js 2300000 50000 2350000 32 500`. Raw `runs/2026-10-28-1055-opening-two-opponent-chain-2300000-2365999.json`.
+## Latest checkpoint — fixed 1-X connector, hypothetical ownership swap
+- 50,000 new deals, 24844 eligible, 500 balanced hands (250 X>Y and 250 X<Y) × 32 matched worlds = **16,000** allocations; 0 full model-rounds.
+- Same 1-X and identical opening pip cost/geometry. Compare focal X-X vs synthetic exchange for unseen Y-Y (X-X moves to an opponent). **Not a legal game move**; focal and opponent hand pip sums change.
+- High-pip optional chain: opponent stones in two turns **1.88194 vs 2.07063**, paired delta **-0.18869**, exploratory position-cluster 95% CI **[-0.19906, -0.17831]**.
+- Low-pip chain paired delta **-0.15350**; exact first-opponent pass delta **0.04525** versus sampled **0.04594**.
+- Two exhaustive 48,620-way checks, 100 seed replays, conservation, multi-double/no-ordinary-append and pass calibration passed. 0/16,000 return-mobility disagreements under two provisional branch models.
+- **Audit warning:** prior `opening-two-opponent-chain.js` removed connector via noncanonical `1-X` string; for X=0 this fails to remove `0-1` in focal return-mobility. Opponent-move metrics do not use focal hand and are unaffected; X=0 return-mobility needs correction.
+- **Finding:** fixed-connector comparison removes earlier different-X opening-pip confound, but only measures synthetic ownership sensitivity; no confirmed winning tactic.
+- Script: `simulator/opening-fixed-connector-ownership.js`; data: `runs/2026-10-28-1145-fixed-connector-ownership-2366000-2431999.json`.
 
 ## NEXT ACTION
-- Validate optional double-series and late-arrival branch rules against authentic trace; then test matched equal-pip/connector-balanced alternatives and full-game finish/score, keeping blocked ties unresolved.
+- Compare actual legal 1-X versus 1-Y choices on matched worlds, stratify pip gap and connector count; audit prior X=0 return-mobility; authenticate late-arrival branch and block ties.
