@@ -1,21 +1,22 @@
 # Qoşa research status
 
-Updated: 2026-10-29 01:48 +04:00 (Asia/Baku)
+Updated: 2026-10-29 02:56:19 +04:00 (Asia/Baku)
 
 ## Verified cumulative (incompatible models kept separate)
 - **1,380,975** complete model rounds across incompatible branch assumptions; historical 4,000 separate.
 - **1,898,856** forced hidden-world continuations; **14,082** next-pass labels; **4,900** known-world diagnostics (unchanged).
 - **490,000** deterministic opening deals (unchanged).
-- **742,544** separate synthetic hidden-world allocations (**740,496 + 2,048** fresh). The 29,568 exact opponent partitions for this run are conditional combinatorial evaluations, not extra random allocations.
-- Engine `qosa-research-0.5.3 + double-five-preregistered-1.0` (analysis only), recovered `qosa-1.0.0` 3×9; both branch models **PROVISIONAL**.
-- Latest new hidden seeds `2811496..2813543`; next unused >= `2813544`.
+- **744,592** separate synthetic seeded hidden-world allocations (**742,544 + 2,048** fresh). Fourth cohort's 29,568 exact conditional partitions are not additional independent random allocations.
+- Engine `qosa-research-0.5.3 + double-five-fourth-cohort-1.0` (analysis only), recovered `qosa-1.0.0` 3×9; both branch models **PROVISIONAL**.
+- Latest new hidden seeds `2813544..2815591`; next unused >= `2815592`.
 
-## Latest checkpoint — pre-registered 5-5 predictor, third disjoint cohort
-- [Run record with runnable exact reproduction](runs/2026-10-29-0148-double-five-preregistered.md).
-- **32 unseen hash-ranked focal hands**, indices 16..23 per zero/six connector stratum; **29,568** exact conditional opponent partitions + **2,048** fresh seeded allocations. **0** new complete model rounds or full-game forced continuations.
-- Prediction recorded in previous status **before this cohort**: 5-5 presence predicts higher robust second-return mobility under `chain06/high` within each stratum. All **4/4** stratum gaps positive; equal-stratum difference **+23.91 pp**, exploratory hand-level bootstrap interval **[+9.72, +38.08] pp**. Smaller than earlier +36.58/+35.22 pp; replicates direction only.
-- **NOT a winning tactic:** `chain06/high` is safer than `single0/low` on only **1/32** hands (tie 1/32); pooled robust safety **39.10% vs 92.94%**. A 5-5 hand has only **31/924** safe partitions. Both branch models and greedy continuations are provisional.
-- Tests: existing baseline and connector-strata regression suites, exact partitions, disjoint selection and deterministic seed replay passed in V8 CommonJS-compatible execution; Node CLI not executed. No scoreboard/PWA or GitHub Actions changed.
+## Latest checkpoint — fourth disjoint 5-5 cohort + paired policy outcomes
+- [Run record](runs/2026-10-29-0254-double-five-fourth-cohort.md), [reproducible runner](simulator/double-five-fourth-cohort.js), [raw](runs/2026-10-29-0254-double-five-fourth-cohort.json).
+- **32 new hands**, indices 24..31 per connector stratum; **29,568** exact conditional partitions and **2,048** new seeded hidden allocations. **0** new full model rounds.
+- 5-5 association with `chain06/high` robust second-return mobility positive in **4/4** strata, equal-stratum gap **+25.13 pp**. Tiny 5-5 cells; structural correlation only.
+- **Matched within-hand:** `single0/low` robust safety **90.39%** vs `chain06/high` **32.00%**. Of 29,568 exact partitions, **17,946** single-only safe, **682** chain-only safe. Chain safer on **0/32 hands**, including **0/9** hands containing 5-5.
+- Tests: baseline and connector-strata regression, exact contingency invariants, disjoint cohort, seeded replay passed in V8 CommonJS-compatible execution; **Node CLI not run**. No scoreboard/PWA or GitHub Actions changed.
+- **No confirmed real-game win, minus, block or regret claim**: branch late-arrival, blocked tie, optional double timing, loneZero and 101 scoring unverified.
 
 ## NEXT ACTION
-Prioritize **within-hand matched-policy comparison** for the 5-5 subset and authentic late-arrival branch and blocked-tie fixtures. If still unresolved, pre-register fourth unseen hash cohort (indices 24..31 per stratum), seed >=2813544; no win/minus claims until full rules are validated.
+Prioritize **authentic late-arrival branch and blocked-tie physical fixtures**, then compare same-hand candidate policies on pass-conditioned real-history worlds. Do not infer a universal keep-double tactic from this synthetic mobility metric; avoid additional 5-5-only cohorts without new rules/positions.
