@@ -1,6 +1,7 @@
 'use strict';
 // Reproducible first-round 3x9 two-opponent response window. Node 22, no dependencies.
 // Does not establish full-game win rates or authenticate late-arrival branch semantics.
+// Canonical 0-1 connector removal corrected (2026-10-28); opponent-move metrics unchanged.
 const run=function run(dealStart=2300000,dealCount=50000,worldStart=2350000,worldsPerPosition=32,positionLimit=500){
  const deck=[];for(let a=0;a<=6;a++)for(let b=a;b<=6;b++)deck.push([a,b]);
  const key=t=>t[0]+"-"+t[1],other=t=>t[0]===1?t[1]:t[0],pips=t=>t[0]+t[1];
@@ -116,7 +117,7 @@ const run=function run(dealStart=2300000,dealCount=50000,worldStart=2350000,worl
    for(let j=0;j<worldsPerPosition;j++){
     const seed=worldStart+pi*worldsPerPosition+j,unknown=shuffle(pos.pool,seed),h1=unknown.slice(0,9),h2=unknown.slice(9);
     if(new Set(h1.concat(h2).map(key)).size!==18)throw Error("hidden conservation");
-    const ownHand=pos.hand.filter(t=>key(t)!=="1-"+pos.own),unHand=pos.hand.filter(t=>key(t)!=="1-"+pos.unowned);
+    const ownHand=pos.hand.filter(t=>key(t)!==(pos.own===0?"0-1":"1-"+pos.own)),unHand=pos.hand.filter(t=>key(t)!==(pos.unowned===0?"0-1":"1-"+pos.unowned));
     const own=window(pos.own,ownHand,h1,h2,p,true,multi),un=window(pos.unowned,unHand,h1,h2,p,true,multi);
     const ownSide=window(pos.own,ownHand,h1,h2,p,false,multi),unSide=window(pos.unowned,unHand,h1,h2,p,false,multi);
     if(own.firstPass<un.firstPass)nonNested++;
