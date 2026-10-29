@@ -1,6 +1,6 @@
 # Qoşa research status
 
-Updated: 2026-10-29T16:50:13+04:00 (Asia/Baku)
+Updated: 2026-10-29T17:56:45+04:00 (Asia/Baku)
 
 ## Verified cumulative (incompatible models kept separate)
 - **1,380,975** complete model rounds across incompatible branch assumptions; historical 4,000 separate (unchanged).
@@ -10,7 +10,13 @@ Updated: 2026-10-29T16:50:13+04:00 (Asia/Baku)
 - Engine `qosa-research-0.5.3 + opening-pip-margin-holdout-1.0` (analysis only); recovered `qosa-1.0.0` 3×9. Both late-arrival branch models **PROVISIONAL**.
 - Next unused random seed **>=2924520**.
 
-## Latest checkpoint — exact third-turn return mobility (16:50 +04)
+## Latest checkpoint — ordinary versus double return mobility (2026-10-29T17:56:45+04:00)
+- [Executable audit](simulator/opening-ordinary-mobility-audit.js); [detailed checkpoint](runs/2026-10-29-1754-opening-ordinary-mobility-audit.md).
+- **No new deals/worlds/rounds**; reanalysis of the same 24 hands and 1,166,880 exact partitions, not counted again.
+- The previous **+0.7611 / +0.7306** gain in playable stones is driven by playable doubles **+1.0096 / +1.0073**. Ordinary (non-double) playable stones instead change by **−0.2485 / −0.2767** (high-/low-pip opponents). Derived from published rounded metrics, not independently rerun here.
+- No proven win-rate benefit. Next: assess whether playing an available double is worth reduced ordinary flexibility; physical late-arrival and blocked ties remain unresolved.
+
+## Previous checkpoint — exact third-turn return mobility (16:50 +04)
 - [Executable source](simulator/opening-third-return-exact.js); [detailed checkpoint](runs/2026-10-29-1650-opening-third-return-exact.md).
 - Reused 24 balanced starter hands from 20,000 seeded opening deals; exact 1,166,880 hidden partitions, **0 new seeded deals/worlds/full rounds**.
 - Keeping a matching double improved **distinct playable stones** on return by +0.761 (high-pip opponents) / +0.731 (low-pip), but changed **branch placements** by −0.332 / +0.100. Two low-policy hands reversed the legal-stone effect despite higher opponent pass probability.
@@ -43,4 +49,4 @@ Updated: 2026-10-29T16:50:13+04:00 (Asia/Baku)
 - [Four-model blocked-tie audit](runs/2026-10-27-1951-branch-tie-probe.md): tied minima occur in synthetic blocked rounds, but the actual winner/tie convention is unconfirmed.
 
 ## NEXT ACTION
-Authenticate physical late-arrival branch reopening and blocked-tie scoring. Then compare same-hand moves on fixed visible histories and matched hidden worlds with first-finish, minus and regret metrics. Do not promote two-turn pip-margin effects into a general win tactic.
+Authenticate physical late-arrival branch reopening and blocked-tie scoring. Evaluate double-play follow-up versus ordinary-play alternatives on matched hidden worlds under explicitly labelled models; do not treat short-window playable-double count as a win-rate advantage.
