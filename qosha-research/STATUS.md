@@ -1,8 +1,13 @@
 # Qoşa research status
 
-Updated: 2026-10-29T21:46:38+04:00 (Asia/Baku)
+Updated: 2026-10-29 22:53:27+04:00 (Asia/Baku)
 
-## Latest checkpoint — chain-policy break-even and second-opponent residual (2026-10-29 21:46 +04)
+## Latest checkpoint — independent per-turn chain choices (2026-10-29 22:53:27 +04)
+- [Reproducible source](simulator/multi-double-turn-mixture.js) and [checkpoint](runs/2026-10-29-2253-per-turn-chain-mixture.md). Reused **49,152 existing worlds**; **0 new deals/worlds/rounds**.
+- Evaluated all four combinations of single versus greedy multi-double response for the two opponents. First opponent's chain policy has larger short-window impact. The per-turn interaction is **zero in every world**, so independent per-turn mixture break-even remains **24.44%** (high-pip) / **47.55%** (low-pip), exactly the whole-world thresholds *in this provisional kernel*.
+- V8 CommonJS full regression passed; Node clean-checkout execution pending. No win-rate claim; next independent per-double stopping and physical branch/tie authentication.
+
+## Previous checkpoint — chain-policy break-even and second-opponent residual (2026-10-29 21:46 +04)
 - [Reproducible run audit](runs/2026-10-29-2146-chain-policy-break-even-audit.md) and [updated chain script](simulator/multi-double-response-sensitivity.js). Replayed the same **49,152** hidden worlds in the JavaScript research runtime; **0 new deals/worlds/rounds**.
 - For a whole-world mixture of one-tile versus greedy multi-double opponent policies, the double-minus-ordinary opponent throughput changes sign at **24.44%** chain worlds (high-pip bots) or **47.55%** (low-pip). Not a per-turn independent mixture estimate.
 - Decomposition finds **−277** (high) / **−153** (low) net second-opponent first-move contributions beyond extra double tiles, showing that chain effects propagate between opponents.
