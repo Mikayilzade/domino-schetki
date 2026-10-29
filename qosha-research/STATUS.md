@@ -1,16 +1,22 @@
 # Qoşa research status
 
-Updated: 2026-10-29T12:55:52+04:00 (Asia/Baku)
+Updated: 2026-10-29T16:50:13+04:00 (Asia/Baku)
 
 ## Verified cumulative (incompatible models kept separate)
 - **1,380,975** complete model rounds across incompatible branch assumptions; historical 4,000 separate (unchanged).
 - **1,898,856** forced hidden-world continuations; **14,082** next-pass labels; **4,900** known-world diagnostics (unchanged).
-- **550,000** separate deterministic opening deals (**520,000 + 30,000**).
+- **570,000** separate deterministic opening deals (prior 550,000 + 20,000 holdout).
 - **775,568** separate synthetic seeded hidden-world allocations (**756,368 + 19,200**); exact partitions not counted as seeded worlds.
 - Engine `qosa-research-0.5.3 + opening-pip-margin-holdout-1.0` (analysis only); recovered `qosa-1.0.0` 3×9. Both late-arrival branch models **PROVISIONAL**.
-- Next unused random seed **>=2904520**.
+- Next unused random seed **>=2924520**.
 
-## Latest checkpoint — exact one-opponent-turn pip-margin census
+## Latest checkpoint — exact third-turn return mobility (16:50 +04)
+- [Executable source](simulator/opening-third-return-exact.js); [detailed checkpoint](runs/2026-10-29-1650-opening-third-return-exact.md).
+- Reused 24 balanced starter hands from 20,000 seeded opening deals; exact 1,166,880 hidden partitions, **0 new seeded deals/worlds/full rounds**.
+- Keeping a matching double improved **distinct playable stones** on return by +0.761 (high-pip opponents) / +0.731 (low-pip), but changed **branch placements** by −0.332 / +0.100. Two low-policy hands reversed the legal-stone effect despite higher opponent pass probability.
+- No proven win-rate benefit; both late-arrival branch models still provisional. Next: physical late-arrival and blocked-tie rule authentication before full-game claims.
+
+## Earlier checkpoint — exact one-opponent-turn pip-margin census
 - [Reproducible source](simulator/opening-first-turn-exact.js); [run checkpoint](runs/2026-10-29-1252-opening-first-turn-exact.md).
 - **0 new seeded deals/hidden worlds/full rounds**; exact combinatorial analysis of **4,686,825** post-draw starter hands and **969,475** pip-conflict choices. Two independent exhaustive **48,620-world** fixture checks (97,240 partitions); no samples added to cumulative.
 - With 1–2 immediate pip sacrifice, the one-turn relative pip-margin difference (retain matching X-X minus shed larger Y) is **+1.230** against high-pip opponent but **−0.872** against low-pip. With 3+ sacrifice it is **−1.068** and **−3.385**, respectively, despite a ~6 pp first-pass advantage in both groups.
