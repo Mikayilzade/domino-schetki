@@ -1,6 +1,6 @@
 # Qoşa research status
 
-Updated: 2026-10-29T10:53:49+04:00 (Asia/Baku)
+Updated: 2026-10-29T11:54:50+04:00 (Asia/Baku)
 
 ## Verified cumulative (incompatible models kept separate)
 - **1,380,975** complete model rounds across incompatible branch assumptions; historical 4,000 separate (unchanged).
@@ -10,7 +10,13 @@ Updated: 2026-10-29T10:53:49+04:00 (Asia/Baku)
 - Engine `qosa-research-0.5.3 + opening-pip-margin-holdout-1.0` (analysis only); recovered `qosa-1.0.0` 3×9. Both late-arrival branch models **PROVISIONAL**.
 - Next unused random seed **>=2904520**.
 
-## Latest checkpoint — opponent pip margin versus opening double retention
+## Latest checkpoint — policy-mixture sensitivity (reanalysis only)
+- [Executable audit](simulator/opening-policy-mixture-audit.js); [checkpoint](runs/2026-10-29-1153-opening-policy-mixture-audit.md).
+- **No new deals/worlds/rounds**; the previous 30,000 deals and 19,200 worlds are reused, not counted again. Six arithmetic policy-mixture comparisons with exact branch-model consistency checks.
+- Single-tile opponents: high-pip-policy share required for positive short-window margin is **9.49%** for 1–2 pip sacrifice versus **56.64%** for 3+; optional double chains **0%** versus **38.93%**. Descriptive threshold only, not a win-rate claim.
+- Next: independent gap-balanced holdout and physical late-arrival/blocked-tie rule authentication.
+
+## Previous checkpoint — opponent pip margin versus opening double retention
 - [Executable source](simulator/opening-pip-margin-holdout.js); [detailed checkpoint](runs/2026-10-29-1053-opening-pip-margin-holdout.md); [raw JSON](runs/2026-10-29-1053-opening-pip-margin-holdout.json).
 - Independent **30,000** opening deal seeds and **19,200** matched hidden worlds, 600 selected same-hand conflicts. No new full rounds.
 - Keeping matching X-X suppresses opponent stone tempo, but relative remaining-pip margin is **policy-dependent**: high-single **+3.56**, high-chain **+4.76**, low-single **−1.81**, low-chain **−0.97**, seeded-random single **−0.60**, random chain **+0.07** (95% exploratory interval crosses zero), all owned minus higher-pip choice.

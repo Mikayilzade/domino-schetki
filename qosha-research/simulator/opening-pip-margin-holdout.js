@@ -1,6 +1,6 @@
 'use strict';
 // Independent holdout: immediate pip sacrifice versus opponents' pip shedding in the next two turns. No full-game scoring claims.
-// node qosha-research/simulator/opening-cost-matched.js [dealStart] [dealCount] [worldStart] [worldsPerPosition] [positionsPerBucket]
+// node qosha-research/simulator/opening-pip-margin-holdout.js [test|dealStart] [dealCount] [worldStart] [worldsPerPosition] [positionsPerBucket]
 const run=function run(ds=2855320,dn=30000,ws=2885320,wpp=32,perBucket=300){
  const check=(v,m)=>{if(!v)throw Error('opening-cost-matched: '+m);};
  const key=t=>Math.min(...t)+'-'+Math.max(...t),pip=t=>t[0]+t[1],other=t=>t[0]===1?t[1]:t[0];
@@ -77,7 +77,7 @@ const run=function run(ds=2855320,dn=30000,ws=2885320,wpp=32,perBucket=300){
   newHiddenAllocations:positions.length*wpp,newCompleteRounds:0,newForcedContinuations:0,
   strategies:['same-hand 1-X with matching X-X held, maximum owned X','same-hand 1-Y highest pip Y, unowned Y-Y, Y>X'],
   opponentPolicies:['highest-pip, lowest-pip, seeded random legal; single tile or optional greedy/seeded double chain (max 4)'],
-  positionSelection:'first 120 eligible conflict hands each for sacrifice 1-2 and 3+; nonrepresentative',immediatePipSacrificeMean:positions.reduce((s,p)=>s+p.gap,0)/positions.length,relativePipMarginDefinition:'sum of two opponents remaining pips minus focal remaining pips, after exactly two opponent turns; positive owned-minus-high means owned connector improved relative pip margin',
+  positionSelection:'first '+perBucket+' eligible conflict hands each for sacrifice 1-2 and 3+; nonrepresentative',immediatePipSacrificeMean:positions.reduce((s,p)=>s+p.gap,0)/positions.length,relativePipMarginDefinition:'sum of two opponents remaining pips minus focal remaining pips, after exactly two opponent turns; positive owned-minus-high means owned connector improved relative pip margin',
   modes,modelSensitivity,tests:{deck28:true,legalLocked:true,doubleChain:true,noOrdinaryAppend:true,conservation:true,seedReplay:20,firstPassCalibrated:true},
   limitations:['Two opponent turns only; no win/minus/complete-game regret','Two branch models are provisional; separately reported','Connector pip and geometry confounded with double ownership','First-eligible seed selection; simplistic deterministic opponent policies','Block ties, loneZero, bust, 101 unresolved'],
   nextAction:'Authenticate physical late-arrival and blocked-tie rules; compare paired full-round first-finish and minus regret on confirmed rules. Test neutral policies and pip-balanced connector controls.'};
