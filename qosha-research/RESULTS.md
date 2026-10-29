@@ -1681,3 +1681,14 @@
 - **Limitations:** deliberately balanced 24-hand selection, non-representative of all starters; pip value and branch geometry confounded; optional multi-double chains and mixed finish excluded; physical late-arrival branch reopening, blocked ties, `loneZero`, bust and 101 match scoring unresolved. No new full-game first-place, median remainder, −10/−20/−30/−40, block or regret evidence.
 - **Cumulative (separate populations):** **1,380,975** complete model rounds across incompatible rules (unchanged); **1,898,856** forced full-game continuations (unchanged); **600,000** seeded opening deals (570,000 + 30,000); **1,021,328** seeded random hidden-world allocations (972,176 + 49,152). Historical 4,000 rounds and exact enumerations excluded. Next unused random seed **>=3200280**.
 - **Exact next hypothesis/action:** run the committed Node script in a fresh checkout; test **optional multi-double replies** on these same paired worlds (do not recount the worlds); compare double-versus-ordinary effects after conditioning on immediate pip cost, then authenticate physical late-arrival branch and blocked-tie rules before full-game strategy rankings.
+
+
+### 2026-10-29 23:51 +04 (Asia/Baku) — exact per-double voluntary-stop sensitivity
+
+- Engine: `qosa-research-0.5.3 + multi-double-per-double-stop-1.0`, recovered `qosa-1.0.0` 3×9, both branch models provisional.
+- **0 new deals/worlds/rounds**; reused 24 selected hands and 49,152 matched worlds, deal seeds `3121128..3151127`, world seeds `3151128..3200279`; high/low pip opponents and focal double-vs-ordinary paired actions.
+- Exact high-pip throughput difference: `(3853 - 13730p - 2034p²)/49152`; low-pip: `(7205 - 12597p - 2555p²)/49152`, where `p` is the independent probability to continue **after each double** when another legal double exists.
+- **Finding:** break-even shifts to **26.98%** high / **51.76%** low, versus prior per-turn-mixture **24.44% / 47.55%**. This is a short-window conditional model effect, not a win-rate advantage or human propensity estimate.
+- Validation: V8 exact replay and endpoint regressions passed; clean Node execution pending. Physical late-arrival branch and blocked-tie rules remain unresolved.
+- [Reproducible script](simulator/multi-double-per-double-stop.js), [detailed run and confidence](runs/2026-10-29-2351-per-double-stop.md), [machine-readable output](runs/2026-10-29-2351-per-double-stop.json).
+- Next: new hand-level holdout under per-double stops, independent Node replay, authenticate physical branches and ties.

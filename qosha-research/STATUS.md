@@ -1,6 +1,11 @@
 # Qoşa research status
 
-Updated: 2026-10-29 22:53:27+04:00 (Asia/Baku)
+Updated: 2026-10-29 23:51 +04 (Asia/Baku)
+
+## Latest checkpoint — independent per-double stopping
+- [Reproducible source](simulator/multi-double-per-double-stop.js), [full checkpoint](runs/2026-10-29-2351-per-double-stop.md), [JSON](runs/2026-10-29-2351-per-double-stop.json). **0 new deals/worlds/rounds**; reused **49,152** worlds from 24 prior starter hands.
+- **Finding:** independent continuation decisions after *each* double yield nonlinear throughput differences: high `(3853-13730p-2034p²)/49152`, low `(7205-12597p-2555p²)/49152`; sign changes at **26.98%** and **51.76%** (previous per-turn mixture: 24.44% / 47.55%). No win-rate claim.
+- V8 regression and deterministic replay passed; clean-checkout Node execution pending. Both physical branch models and blocked ties remain provisional.
 
 ## Latest checkpoint — independent per-turn chain choices (2026-10-29 22:53:27 +04)
 - [Reproducible source](simulator/multi-double-turn-mixture.js) and [checkpoint](runs/2026-10-29-2253-per-turn-chain-mixture.md). Reused **49,152 existing worlds**; **0 new deals/worlds/rounds**.

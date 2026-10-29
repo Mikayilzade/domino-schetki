@@ -1,0 +1,18 @@
+# Independent stop after each double — 2026-10-29 23:51 +04 (Asia/Baku)
+
+- **Engine/rules:** `qosa-research-0.5.3 + multi-double-per-double-stop-1.0`; recovered `qosa-1.0.0` first-round 3×9. Both late-arrival branch models **PROVISIONAL**. No blocked tie, match scoring, or full-round inference.
+- **Source:** [`simulator/multi-double-per-double-stop.js`](../simulator/multi-double-per-double-stop.js). Reproduce `node qosha-research/simulator/multi-double-per-double-stop.js test` and `node qosha-research/simulator/multi-double-per-double-stop.js 2048`. Matching source functions were executed in V8 with deterministic smoke and full evaluation, **not** Node from a fresh checkout.
+- **Accounting:** **0 new deals, 0 new hidden worlds, 0 new complete rounds, 0 new forced continuations**. Reused **24** selected starter hands from deal seeds **3121128..3151127** and **49,152** previously counted hidden allocations, seed formula `3151128 + fixtureIndex*2048 + worldIndex` (through 3200279). Same hidden opponents for focal double vs ordinary.
+- **Policy:** each opponent first chooses a high- or low-pip legal tile. If it is a double, after **each** played double, independently continue to the highest-/lowest-pip legal double with probability `p`, or stop with `1-p`. Maximum four doubles; an ordinary-first turn never chains. This differs from the previous per-**turn** single/greedy mixture. Full-round finish/mixed-finish conditions are out of scope; in these short-window hands opponents retain at least four tiles.
+- **Exact mean opponent stone-throughput difference, focal double minus ordinary**, identical for both provisional branch models:
+
+| Opponent policy | Polynomial in continuation probability p | p=0 | p=.25 | p=.5 | p=1 | Sign-change threshold |
+|---|---|---:|---:|---:|---:|---:|
+| High-pip | (3853 - 13730p - 2034p²)/49152 | 0.07839 | 0.00597 | -0.07162 | -0.24233 | **26.98%** |
+| Low-pip | (7205 - 12597p - 2555p²)/49152 | 0.14659 | 0.07927 | 0.00545 | -0.16168 | **51.76%** |
+
+- **Finding:** allowing a fresh continue/stop decision **after each double** creates a genuine quadratic response, unlike the earlier linear per-turn policy mixture. Thresholds shift from **24.44% to 26.98%** (high) and **47.55% to 51.76%** (low). Nonlinear coefficients are nonzero in **2,175** high-pip and **3,197** low-pip paired worlds. This is a model sensitivity finding, **not a measured human propensity or win-rate advantage**.
+- **Hand-level exploratory intervals at p=.5:** high **[-0.12121, -0.02204]** (20/24 hands negative); low **[-0.04869, 0.05958]** (15/24 negative). Only 24 balanced hands; world observations within hands are not independent hand replicates.
+- **Validation:** 28-tile uniqueness, fixed selected seed census, same-world paired legal moves, deterministic 48-world replay, exact polynomial construction via each optional-stop path, p=0 and p=1 regression against the prior 49,152-world study (**3853 / −11911**, **7205 / −7947**), agreement of two provisional branch models. V8 execution passed; Node fresh-checkout execution still outstanding.
+- **Cumulative unchanged:** **1,380,975** complete model rounds under incompatible branch rules, **1,898,856** forced continuations, **600,000** seeded opening deals, **1,021,328** seeded random hidden allocations. Historical 4,000 and exact enumerations excluded; next unused seed **>=3200280**.
+- **Next hypothesis/action:** compare the per-double stop curve on **new hand-level holdout** with independent seed selection; test whether physical late-arrival branch locking or blocked-tie conventions invalidate the short-window model. Run the committed Node CLI from a clean checkout before treating it as independently verified.
