@@ -1,6 +1,6 @@
 # Qoşa research status
 
-Updated: 2026-10-29T11:54:50+04:00 (Asia/Baku)
+Updated: 2026-10-29T12:55:52+04:00 (Asia/Baku)
 
 ## Verified cumulative (incompatible models kept separate)
 - **1,380,975** complete model rounds across incompatible branch assumptions; historical 4,000 separate (unchanged).
@@ -10,7 +10,13 @@ Updated: 2026-10-29T11:54:50+04:00 (Asia/Baku)
 - Engine `qosa-research-0.5.3 + opening-pip-margin-holdout-1.0` (analysis only); recovered `qosa-1.0.0` 3×9. Both late-arrival branch models **PROVISIONAL**.
 - Next unused random seed **>=2904520**.
 
-## Latest checkpoint — policy-mixture sensitivity (reanalysis only)
+## Latest checkpoint — exact one-opponent-turn pip-margin census
+- [Reproducible source](simulator/opening-first-turn-exact.js); [run checkpoint](runs/2026-10-29-1252-opening-first-turn-exact.md).
+- **0 new seeded deals/hidden worlds/full rounds**; exact combinatorial analysis of **4,686,825** post-draw starter hands and **969,475** pip-conflict choices. Two independent exhaustive **48,620-world** fixture checks (97,240 partitions); no samples added to cumulative.
+- With 1–2 immediate pip sacrifice, the one-turn relative pip-margin difference (retain matching X-X minus shed larger Y) is **+1.230** against high-pip opponent but **−0.872** against low-pip. With 3+ sacrifice it is **−1.068** and **−3.385**, respectively, despite a ~6 pp first-pass advantage in both groups.
+- **Exact one-turn finding only**, not a full-game win tactic; both branch models provisional, blocked tie unresolved. Next: independent gap-balanced two-turn holdout and physical-rule authentication.
+
+## Previous checkpoint — policy-mixture sensitivity (reanalysis only)
 - [Executable audit](simulator/opening-policy-mixture-audit.js); [checkpoint](runs/2026-10-29-1153-opening-policy-mixture-audit.md).
 - **No new deals/worlds/rounds**; the previous 30,000 deals and 19,200 worlds are reused, not counted again. Six arithmetic policy-mixture comparisons with exact branch-model consistency checks.
 - Single-tile opponents: high-pip-policy share required for positive short-window margin is **9.49%** for 1–2 pip sacrifice versus **56.64%** for 3+; optional double chains **0%** versus **38.93%**. Descriptive threshold only, not a win-rate claim.
