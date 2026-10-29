@@ -1,0 +1,86 @@
+{
+  "schema": "qosha-branch-order-posterior/v1",
+  "timestampAsiaBaku": "2026-10-29T04:52:46+04:00",
+  "engine": "qosa-research-0.5.3+branch-order-posterior-1.0",
+  "rules": "recovered qosa-1.0.0 3x9; all-current-only PROVISIONAL",
+  "seeds": [
+    2815592,
+    2817639
+  ],
+  "newDeals": 0,
+  "newCompleteRounds": 0,
+  "newForcedContinuations": 0,
+  "newHiddenAllocations": 4096,
+  "strategies": "none; exact conditional uniform posterior",
+  "histories": 2,
+  "unrestrictedPartitionsPerHistory": 3432,
+  "identicalPlayedAndEnds": true,
+  "passSeat": 2,
+  "stockAtPass": 0,
+  "models": {
+    "early": {
+      "compatibleExact": "120",
+      "passMask": [
+        "0-1",
+        "0-2",
+        "1-4",
+        "1-5",
+        "1-6",
+        "2-5",
+        "2-6",
+        "4-4"
+      ],
+      "seat1Has26Exact": "120/120",
+      "allocations": 2048,
+      "seat1Has26": 2048,
+      "rate": 1,
+      "exactRate": 1,
+      "z": null,
+      "distinctHands": 120
+    },
+    "late": {
+      "compatibleExact": "330",
+      "passMask": [
+        "0-1",
+        "1-4",
+        "1-5",
+        "1-6",
+        "4-4"
+      ],
+      "seat1Has26Exact": "120/330",
+      "allocations": 2048,
+      "seat1Has26": 719,
+      "rate": 0.35107421875,
+      "exactRate": 0.36363636363636365,
+      "z": -1.1817958040815026,
+      "distinctHands": 329
+    }
+  },
+  "posteriorSeat1Has26DifferencePp": 63.63636363636363,
+  "tests": {
+    "passed": true,
+    "independentBrute": {
+      "early": {
+        "unrestricted": 3432,
+        "compatible": 120,
+        "seat1Has26": 120
+      },
+      "late": {
+        "unrestricted": 3432,
+        "compatible": 330,
+        "seat1Has26": 120
+      }
+    },
+    "deterministicReplaysPerHistory": 100,
+    "invalidPassRejected": true
+  },
+  "confidence": "Exact 3432-way independent enumeration for each synthetic chronology; seeded posterior calibrated",
+  "limitations": [
+    "Physical all-current-only branch rule not confirmed",
+    "Synthetic chronologies and pass, not real match",
+    "Uniform hidden-world assignments do not model opponent choice",
+    "No validated win/minus/block/tie scoring"
+  ],
+  "finding": "Even fixing one provisional branch rule, two legal chronological histories with identical played tiles and ends imply 100% versus 36.36% ownership of 2-6 after a seat-2 pass.",
+  "nextAction": "Authenticate late-arrival extension in physical Qoşa; collect real blocked-tie trace before full-game strategy claims"
+}

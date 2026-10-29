@@ -1,16 +1,21 @@
 # Qoşa research status
 
-Updated: 2026-10-29T03:54:15+04:00 (Asia/Baku)
+Updated: 2026-10-29T04:52:46+04:00 (Asia/Baku)
 
 ## Verified cumulative (incompatible models kept separate)
 - **1,380,975** complete model rounds across incompatible branch assumptions; historical 4,000 separate.
 - **1,898,856** forced hidden-world continuations; **14,082** next-pass labels; **4,900** known-world diagnostics (unchanged).
 - **490,000** deterministic opening deals (unchanged).
-- **744,592** separate synthetic seeded hidden-world allocations (**742,544 + 2,048** fresh). Fourth cohort's 29,568 exact conditional partitions are not additional independent random allocations.
+- **748,688** separate synthetic seeded hidden-world allocations (**744,592 + 4,096** fresh). Exact 3,432-way partitions per chronology are not counted as random allocations.
 - Engine `qosa-research-0.5.3 + double-five-fourth-cohort-1.0` (analysis only), recovered `qosa-1.0.0` 3×9; both branch models **PROVISIONAL**.
-- Latest new hidden seeds `2813544..2815591`; next unused >= `2815592`.
+- Latest new hidden seeds `2815592..2817639`; next unused >= `2817640`.
 
-## Latest checkpoint — chronological branch-order identifiability
+## Latest checkpoint — same-model chronological pass posterior
+- [Reproducible test/runner](simulator/branch-order-posterior.js), [checkpoint](runs/2026-10-29-0452-branch-order-posterior.md), [raw](runs/2026-10-29-0452-branch-order-posterior.json).
+- Two identical board snapshots with different legal histories under the **same provisional all-current-only model**: after seat-2 pass, seat-1 ownership of 2-6 is exact **100%** (120/120) vs **36.36%** (120/330). 3,432 exact partitions per history; 4,096 new deterministic hidden worlds; 0 new full rounds.
+- V8 CommonJS-compatible tests, exact brute/DP agreement and 28-tile conservation passed; **Node CLI not run**. Physical late-arrival and block ties remain unresolved. Cumulative hidden allocations now **748,688**.
+
+## Previous checkpoint — chronological branch-order identifiability
 - [Exact regression](simulator/branch-order-history-test.js), [checkpoint](runs/2026-10-29-0352-branch-order-history.md).
 - Two legal synthetic histories have identical played tiles and final four ends, yet under all-current-only opening the late-arrival history forbids 0-2, 2-5 and 2-6 while early arrival allows them; global-ever-open permits them in both. No new deals or strategy wins.
 - Physical late-arrival rule and blocked ties still unresolved; snapshot-only inference is insufficient. Cumulative and next seed unchanged.
