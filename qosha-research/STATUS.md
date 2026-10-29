@@ -1,8 +1,13 @@
 # Qoşa research status
 
-Updated: 2026-10-30 00:55 +04 (Asia/Baku)
+Updated: 2026-10-30 01:46 +04 (Asia/Baku)
 
-## Latest checkpoint — independent new-hand per-double-stop holdout
+## Latest checkpoint — independent probability oracle (2026-10-30 01:46 +04)
+- [Independent regression script](simulator/per-double-probability-contract-test.js), [full checkpoint](runs/2026-10-30-0146-per-double-probability-contract.md). **3,840** synthetic exact-probability comparisons passed (three board fixtures × 64 seeds × 2 policies × 2 provisional branch models × 5 p values). **0 new deals/worlds/rounds**; existing totals unchanged.
+- **Critical counterexample:** a synthetic late-arrival branch gives 1.0 opponent moves under global-ever-open but 0.0 under all-current-only. Thus prior short-window equality between the models is not physical rule validation. No new win tactic.
+- Independent oracle passed in V8; fresh-checkout Node pending. **Cumulative:** 1,380,975 incompatible-rule rounds; 1,898,856 forced continuations; 630,000 opening deals; 1,070,480 seeded hidden allocations; next unused seed >=3279432. **Next:** authenticate physical late-arrival branch unlocking and blocked ties, then full-game win-rate experiments.
+
+## Previous checkpoint — independent new-hand per-double-stop holdout
 - [Source](simulator/multi-double-per-double-holdout.js), [checkpoint](runs/2026-10-30-0055-per-double-new-hand-holdout.md), [per-hand JSON](runs/2026-10-30-0055-per-double-new-hand-holdout.json).
 - **30,000 new seeded deals, 49,152 new hidden allocations across 24 independent starter hands; 0 new complete rounds**. New per-double continuation break-even **49.46% high / 57.14% low**, previous **26.98% / 51.76%**. At p=.5, high **−0.00145** and low **+0.02030** opponent stones; both exploratory hand-level 95% intervals cross zero. **Earlier high-pip sign does not robustly replicate across hands.** No win-rate claim.
 - V8 CommonJS deterministic replay and full run passed; clean-checkout Node pending. Both branch models provisional. **Cumulative:** 1,380,975 incompatible-rule rounds, 1,898,856 forced continuations unchanged; 630,000 opening deals; 1,070,480 seeded hidden allocations. Next unused seed >=3279432. **Next:** Node replay, physical branch/tie fixtures, equal-pip control.
@@ -32,10 +37,10 @@ Updated: 2026-10-30 00:55 +04 (Asia/Baku)
 ## Verified cumulative (incompatible models kept separate)
 - **1,380,975** complete model rounds across incompatible branch assumptions; historical 4,000 separate (unchanged).
 - **1,898,856** forced hidden-world continuations (unchanged).
-- **600,000** deterministic opening deals (570,000 prior + 30,000 new).
-- **1,021,328** seeded random hidden-world allocations (972,176 prior + 49,152 new); exact partitions separate.
-- Engine `qosa-research-0.5.3 + opening-double-followup-new-hands-1.0`; recovered `qosa-1.0.0` 3×9. Both late-arrival branch models **PROVISIONAL**.
-- Next unused random seed **>=3200280**.
+- **630,000** deterministic opening deals (600,000 prior + 30,000 new).
+- **1,070,480** seeded random hidden-world allocations (1,021,328 prior + 49,152 new); exact partitions separate.
+- Engine `qosa-research-0.5.3 + multi-double-per-double-holdout-1.0`; recovered `qosa-1.0.0` 3×9. Both late-arrival branch models **PROVISIONAL**.
+- Next unused random seed **>=3279432**.
 
 ## Latest checkpoint — new-hand double follow-up (2026-10-29 19:50 +04)
 - [Standalone reproducible script](simulator/opening-double-followup-new-hands.js); [full details](RESULTS.md).
