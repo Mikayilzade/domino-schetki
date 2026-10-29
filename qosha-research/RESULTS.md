@@ -1692,3 +1692,15 @@
 - Validation: V8 exact replay and endpoint regressions passed; clean Node execution pending. Physical late-arrival branch and blocked-tie rules remain unresolved.
 - [Reproducible script](simulator/multi-double-per-double-stop.js), [detailed run and confidence](runs/2026-10-29-2351-per-double-stop.md), [machine-readable output](runs/2026-10-29-2351-per-double-stop.json).
 - Next: new hand-level holdout under per-double stops, independent Node replay, authenticate physical branches and ties.
+
+
+### 2026-10-30 00:55 +04 (Asia/Baku) — independent new-hand per-double-stop holdout
+
+- Engine/rules: `qosa-research-0.5.3 + multi-double-per-double-holdout-1.0` / recovered `qosa-1.0.0`, 3×9; both late-arrival branch models provisional.
+- **30,000 new deal seeds `3200280..3230279`** (28,919 valid, 10,747 eligible); **24 new balanced starter hands**, **49,152 new hidden-world allocations `3230280..3279431`** (2,048/hand). 0 new complete rounds or forced full-game continuations.
+- Paired focal double-minus-ordinary opponent stone throughput with independent per-double continuation probability `p`: high `(6090−11401p−1844p²)/49152`, low `(7643−12691p−1199p²)/49152`. Both provisional branch models agree in this short window.
+- New break-even: **49.46% high / 57.14% low** versus previous **26.98% / 51.76%**. At p=.5 high **−0.00145** stones (exploratory 24-hand 95% interval **[−0.05961,+0.05670]**); low **+0.02030** (**[−0.04253,+0.08313]**). Neither sign is established across new hands; prior high-pip negative effect **does not robustly replicate**.
+- V8 CommonJS deterministic smoke/replay and 49,152-world evaluation passed; Node fresh-checkout run pending. Provisional branch semantics, 24 balanced rather than population-weighted hands, simple high/low bots, pip/geometry confounding; no first-place, median remainder, minus, block or regret claim.
+- Cumulative: **1,380,975** incompatible-model complete rounds unchanged; **1,898,856** forced continuations unchanged; **630,000** opening deals; **1,070,480** seeded hidden allocations. Historical 4,000 separate; next unused seed **>=3279432**.
+- Reproduce: `simulator/multi-double-per-double-holdout.js test` then `2048`; [full checkpoint](runs/2026-10-30-0055-per-double-new-hand-holdout.md), [per-hand JSON](runs/2026-10-30-0055-per-double-new-hand-holdout.json).
+- Exact next: clean Node replay, real late-arrival branch and blocked-tie fixtures, equal-pip/multiple-policy holdouts before any win-rate inference.

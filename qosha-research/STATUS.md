@@ -1,6 +1,11 @@
 # Qoşa research status
 
-Updated: 2026-10-29 23:51 +04 (Asia/Baku)
+Updated: 2026-10-30 00:55 +04 (Asia/Baku)
+
+## Latest checkpoint — independent new-hand per-double-stop holdout
+- [Source](simulator/multi-double-per-double-holdout.js), [checkpoint](runs/2026-10-30-0055-per-double-new-hand-holdout.md), [per-hand JSON](runs/2026-10-30-0055-per-double-new-hand-holdout.json).
+- **30,000 new seeded deals, 49,152 new hidden allocations across 24 independent starter hands; 0 new complete rounds**. New per-double continuation break-even **49.46% high / 57.14% low**, previous **26.98% / 51.76%**. At p=.5, high **−0.00145** and low **+0.02030** opponent stones; both exploratory hand-level 95% intervals cross zero. **Earlier high-pip sign does not robustly replicate across hands.** No win-rate claim.
+- V8 CommonJS deterministic replay and full run passed; clean-checkout Node pending. Both branch models provisional. **Cumulative:** 1,380,975 incompatible-rule rounds, 1,898,856 forced continuations unchanged; 630,000 opening deals; 1,070,480 seeded hidden allocations. Next unused seed >=3279432. **Next:** Node replay, physical branch/tie fixtures, equal-pip control.
 
 ## Latest checkpoint — independent per-double stopping
 - [Reproducible source](simulator/multi-double-per-double-stop.js), [full checkpoint](runs/2026-10-29-2351-per-double-stop.md), [JSON](runs/2026-10-29-2351-per-double-stop.json). **0 new deals/worlds/rounds**; reused **49,152** worlds from 24 prior starter hands.
