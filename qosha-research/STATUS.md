@@ -1,6 +1,6 @@
 # Qoşa research status
 
-Updated: 2026-10-29T06:56:06+04:00 (Asia/Baku)
+Updated: 2026-10-29T07:52:12+04:00 (Asia/Baku)
 
 ## Verified cumulative (incompatible models kept separate)
 - **1,380,975** complete model rounds across incompatible branch assumptions; historical 4,000 separate.
@@ -10,10 +10,15 @@ Updated: 2026-10-29T06:56:06+04:00 (Asia/Baku)
 - Engine `qosa-research-0.5.3 + double-five-fourth-cohort-1.0` (analysis only), recovered `qosa-1.0.0` 3×9; both branch models **PROVISIONAL**.
 - Latest new hidden seeds `2815592..2817639`; next unused >= `2817640`.
 
-## Latest checkpoint — exact opening two-pass lock
-- [Executable census and engine regression](simulator/opening-two-pass-lock-exact.js), [checkpoint](runs/2026-10-29-0656-opening-two-pass-lock-exact.md).
-- Exact **4,686,825** post-draw starter hands: **875 (0.018669%)** permit a guaranteed two-opponent pass after an owned-double connector. Two independent **48,620-way** partition fixtures passed locally (mirrored engine subset). **0** new random deals/rounds/hidden worlds; cumulative unchanged.
-- Opening-only guarantee; **not** a win-rate claim. Physical late-arrival and block ties still unresolved.
+## Latest checkpoint — exact repeated opening pass locks
+- [Executable exact census and four exhaustive opponent-partition regressions](simulator/opening-lock-depth-exact.js); [RESULTS checkpoint](RESULTS.md).
+- With all six 1-X connectors, retaining matching X-X doubles permits **1, 2, or 3 complete rotations of two forced opponent passes**: **875**, **245**, or **20** possible post-draw starter hands (at-least thresholds) out of **4,686,825**. Independent 1,330-filler enumeration and four 48,620-way partition checks passed in V8; Node CLI from fresh checkout not run.
+- **0** new complete rounds/deals/seeded worlds; cumulative remains **1,380,975** incompatible-model rounds and **748,688** seeded hidden allocations. This is a very rare confirmed-opening guarantee, **not** a win-rate tactic.
+- Physical late-arrival branch and blocked-tie rules remain unresolved; prioritize authentic examples before full-game ranking.
+
+## Previous checkpoint — exact opening two-pass lock
+- [Original one-rotation census](simulator/opening-two-pass-lock-exact.js), [checkpoint](runs/2026-10-29-0656-opening-two-pass-lock-exact.md).
+- First lock confirmed for **875** of 4,686,825 post-draw starter hands; now extended to repeated rotations by the latest checkpoint. No new seeded samples.
 
 ## Previous checkpoint — same-model chronological pass posterior
 - [Reproducible test/runner](simulator/branch-order-posterior.js), [checkpoint](runs/2026-10-29-0452-branch-order-posterior.md), [raw](runs/2026-10-29-0452-branch-order-posterior.json).
@@ -34,4 +39,4 @@ Updated: 2026-10-29T06:56:06+04:00 (Asia/Baku)
 - **No confirmed real-game win, minus, block or regret claim**: branch late-arrival, blocked tie, optional double timing, loneZero and 101 scoring unverified.
 
 ## NEXT ACTION
-Prioritize **authentic late-arrival branch and blocked-tie physical fixtures**, then compare same-hand candidate policies on pass-conditioned real-history worlds. Do not infer a universal keep-double tactic from this synthetic mobility metric; avoid additional 5-5-only cohorts without new rules/positions.
+Authenticate physical late-arrival branch reopening and blocked-tie scoring; then compare actual same-hand candidate actions on fixed visible real-game states and matched hidden worlds. Avoid extrapolating rare opening locks into a universal keep-double strategy.
