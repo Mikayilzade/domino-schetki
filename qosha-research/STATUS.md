@@ -1,6 +1,12 @@
 # Qoşa research status
 
-Updated: 2026-10-30 01:46 +04 (Asia/Baku)
+Updated: 2026-10-30 02:52 +04 (Asia/Baku)
+
+## Latest checkpoint — reachable chronological branch divergence (2026-10-30 02:52 +04)
+- [Reproducible 3×9 chronological contract](simulator/late-arrival-reachable-contract.js); [full checkpoint](RESULTS.md). **360/360** distinct relabelled forced traces passed; each preserves 28 unique stones, 3×9+stock, clockwise turns and the confirmed \`1-1\` starter draw. **0 new deals/worlds/rounds**.
+- Example: \`1-1 → 1-2 → 2-2 → 2-4 → 4-4 → 4-5 → 5-5 → 2-5\`; next \`2-6\` is legal under global-ever-open but illegal under all-current-only. Thus the prior synthetic branch-model counterexample is **reachable within both provisional kernels** until the final action; neither physical interpretation is authenticated.
+- Node 22 standalone independent test passed; exact GitHub kernel cross-check passed in V8; clean-checkout Node with dependency pending. **No reliable new winning tactic.** Cumulative unchanged: 1,380,975 incompatible-rule model rounds, 1,898,856 forced continuations, 630,000 opening deals, 1,070,480 hidden allocations. Next unused seed >=3279432.
+- **Next:** verify physical late-arrival reopening and blocked-tie scoring, then compare matched-seed strategies only under authenticated rules.
 
 ## Latest checkpoint — independent probability oracle (2026-10-30 01:46 +04)
 - [Independent regression script](simulator/per-double-probability-contract-test.js), [full checkpoint](runs/2026-10-30-0146-per-double-probability-contract.md). **3,840** synthetic exact-probability comparisons passed (three board fixtures × 64 seeds × 2 policies × 2 provisional branch models × 5 p values). **0 new deals/worlds/rounds**; existing totals unchanged.
