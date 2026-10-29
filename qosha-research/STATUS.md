@@ -1,6 +1,11 @@
 # Qoşa research status
 
-Updated: 2026-10-30 02:52 +04 (Asia/Baku)
+Updated: 2026-10-30 03:54 +04 (Asia/Baku)
+
+## Latest checkpoint — conditional late-arrival pass census (2026-10-30 03:54 +04)
+- [Independent Node 22 census](simulator/late-arrival-conditional-census.js); [checkpoint](runs/2026-10-30-0354-late-arrival-conditional-census.md). All 360 relabels structurally checked, 12 × 27,132 = **325,584** exhaustive conditional hand subsets validated. **0 new deals/seeded worlds/rounds**.
+- Conditional on the forced reachable prefix and fixed candidate x-w, **3,003/27,132 = 11.0681%** of seat-1 six-tile assignments force a pass under current-only but allow a move under global-ever-open. Not a natural-game frequency or a verified tactic; physical rule and blocked-tie scoring remain unconfirmed.
+- Cumulative unchanged: 1,380,975 incompatible-model rounds; 1,898,856 forced continuations; 630,000 opening deals; 1,070,480 seeded hidden allocations. Next unused seed >=3279432. **Next:** authenticate late-arrival branch and blocked ties.
 
 ## Latest checkpoint — reachable chronological branch divergence (2026-10-30 02:52 +04)
 - [Reproducible 3×9 chronological contract](simulator/late-arrival-reachable-contract.js); [full checkpoint](RESULTS.md). **360/360** distinct relabelled forced traces passed; each preserves 28 unique stones, 3×9+stock, clockwise turns and the confirmed `1-1` starter draw. **0 new deals/worlds/rounds**.
