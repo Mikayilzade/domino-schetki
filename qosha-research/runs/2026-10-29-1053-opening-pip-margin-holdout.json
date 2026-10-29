@@ -1,0 +1,1233 @@
+{
+  "schema": "qosha-opening-pip-margin-holdout/v1",
+  "timestampAsiaBaku": "2026-10-29T10:53:49+04:00",
+  "engine": "qosa-research-0.5.3+opening-pip-margin-holdout-1.0",
+  "rules": "recovered qosa-1.0.0 3x9 first-round 1-1 opening; global-ever-open and all-current-only branch models PROVISIONAL",
+  "dealSeeds": [
+    2855320,
+    2885319
+  ],
+  "worldSeeds": [
+    2885320,
+    2904519
+  ],
+  "deals": 30000,
+  "valid": 28931,
+  "reshuffles": 1069,
+  "eligible": 10788,
+  "conflict": 5959,
+  "positions": 600,
+  "worldsPerPosition": 32,
+  "newHiddenAllocations": 19200,
+  "newCompleteRounds": 0,
+  "newForcedContinuations": 0,
+  "strategies": [
+    "same-hand 1-X with matching X-X held, maximum owned X",
+    "same-hand 1-Y highest pip Y, unowned Y-Y, Y>X"
+  ],
+  "opponentPolicies": [
+    "highest-pip, lowest-pip, seeded random legal; single tile or optional greedy/seeded double chain (max 4)"
+  ],
+  "positionSelection": "first 120 eligible conflict hands each for sacrifice 1-2 and 3+; nonrepresentative",
+  "immediatePipSacrificeMean": 2.755,
+  "relativePipMarginDefinition": "sum of two opponents remaining pips minus focal remaining pips, after exactly two opponent turns; positive owned-minus-high means owned connector improved relative pip margin",
+  "modes": {
+    "high-single-global": {
+      "means": {
+        "moves": {
+          "owned": 1.8432291666666667,
+          "highPip": 1.9550520833333334,
+          "delta": -0.11182291666666666
+        },
+        "extra": {
+          "owned": 0,
+          "highPip": 0,
+          "delta": 0
+        },
+        "pass1": {
+          "owned": 0.10083333333333333,
+          "highPip": 0.04328125,
+          "delta": 0.05755208333333333
+        },
+        "pass2": {
+          "owned": 0.0559375,
+          "highPip": 0.0016666666666666668,
+          "delta": 0.05427083333333333
+        },
+        "returnLegal": {
+          "owned": 3.5647395833333335,
+          "highPip": 2.8711458333333333,
+          "delta": 0.69359375
+        },
+        "oppPipsShed": {
+          "owned": 11.067760416666667,
+          "highPip": 17.386458333333334,
+          "delta": -6.318697916666666
+        },
+        "relativePipMargin": {
+          "owned": 56.377239583333335,
+          "highPip": 52.813541666666666,
+          "delta": 3.5636979166666665
+        }
+      },
+      "ci95": {
+        "moves": [
+          -0.12122814716902205,
+          -0.10241768616431127
+        ],
+        "extra": [
+          0,
+          0
+        ],
+        "pass1": [
+          0.05288581325919169,
+          0.06221835340747497
+        ],
+        "pass2": [
+          0.048162563309287705,
+          0.060379103357378956
+        ],
+        "returnLegal": [
+          0.6445688122875719,
+          0.7426186877124281
+        ],
+        "oppPipsShed": [
+          -6.5869245098211815,
+          -6.050471323512151
+        ],
+        "relativePipMargin": [
+          3.2795414461933743,
+          3.8478543871399586
+        ]
+      },
+      "strata": {
+        "1-2": {
+          "positions": 300,
+          "meanGap": 1.4033333333333333,
+          "movesDelta": -0.1153125,
+          "extraDelta": 0,
+          "pass1Delta": 0.059270833333333335,
+          "pass2Delta": 0.05604166666666666,
+          "returnLegalDelta": 0.6405208333333333,
+          "oppPipsShedDelta": -6.133020833333333,
+          "relativePipMarginDelta": 4.7296875
+        },
+        "3+": {
+          "positions": 300,
+          "meanGap": 4.1066666666666665,
+          "movesDelta": -0.10833333333333334,
+          "extraDelta": 0,
+          "pass1Delta": 0.05583333333333333,
+          "pass2Delta": 0.0525,
+          "returnLegalDelta": 0.7466666666666667,
+          "oppPipsShedDelta": -6.504375,
+          "relativePipMarginDelta": 2.3977083333333336
+        }
+      },
+      "exactFirstPassDelta": 0.0599656862745102,
+      "passCalibrationConservativeZ": -0.4729676518051249
+    },
+    "high-single-current": {
+      "means": {
+        "moves": {
+          "owned": 1.8432291666666667,
+          "highPip": 1.9550520833333334,
+          "delta": -0.11182291666666666
+        },
+        "extra": {
+          "owned": 0,
+          "highPip": 0,
+          "delta": 0
+        },
+        "pass1": {
+          "owned": 0.10083333333333333,
+          "highPip": 0.04328125,
+          "delta": 0.05755208333333333
+        },
+        "pass2": {
+          "owned": 0.0559375,
+          "highPip": 0.0016666666666666668,
+          "delta": 0.05427083333333333
+        },
+        "returnLegal": {
+          "owned": 3.5647395833333335,
+          "highPip": 2.8711458333333333,
+          "delta": 0.69359375
+        },
+        "oppPipsShed": {
+          "owned": 11.067760416666667,
+          "highPip": 17.386458333333334,
+          "delta": -6.318697916666666
+        },
+        "relativePipMargin": {
+          "owned": 56.377239583333335,
+          "highPip": 52.813541666666666,
+          "delta": 3.5636979166666665
+        }
+      },
+      "ci95": {
+        "moves": [
+          -0.12122814716902205,
+          -0.10241768616431127
+        ],
+        "extra": [
+          0,
+          0
+        ],
+        "pass1": [
+          0.05288581325919169,
+          0.06221835340747497
+        ],
+        "pass2": [
+          0.048162563309287705,
+          0.060379103357378956
+        ],
+        "returnLegal": [
+          0.6445688122875719,
+          0.7426186877124281
+        ],
+        "oppPipsShed": [
+          -6.5869245098211815,
+          -6.050471323512151
+        ],
+        "relativePipMargin": [
+          3.2795414461933743,
+          3.8478543871399586
+        ]
+      },
+      "strata": {
+        "1-2": {
+          "positions": 300,
+          "meanGap": 1.4033333333333333,
+          "movesDelta": -0.1153125,
+          "extraDelta": 0,
+          "pass1Delta": 0.059270833333333335,
+          "pass2Delta": 0.05604166666666666,
+          "returnLegalDelta": 0.6405208333333333,
+          "oppPipsShedDelta": -6.133020833333333,
+          "relativePipMarginDelta": 4.7296875
+        },
+        "3+": {
+          "positions": 300,
+          "meanGap": 4.1066666666666665,
+          "movesDelta": -0.10833333333333334,
+          "extraDelta": 0,
+          "pass1Delta": 0.05583333333333333,
+          "pass2Delta": 0.0525,
+          "returnLegalDelta": 0.7466666666666667,
+          "oppPipsShedDelta": -6.504375,
+          "relativePipMarginDelta": 2.3977083333333336
+        }
+      },
+      "exactFirstPassDelta": 0.0599656862745102,
+      "passCalibrationConservativeZ": -0.4729676518051249
+    },
+    "high-chain-global": {
+      "means": {
+        "moves": {
+          "owned": 1.8432291666666667,
+          "highPip": 2.1136979166666667,
+          "delta": -0.27046875
+        },
+        "extra": {
+          "owned": 0,
+          "highPip": 0.15864583333333335,
+          "delta": -0.15864583333333335
+        },
+        "pass1": {
+          "owned": 0.10083333333333333,
+          "highPip": 0.04328125,
+          "delta": 0.05755208333333333
+        },
+        "pass2": {
+          "owned": 0.0559375,
+          "highPip": 0.0016666666666666668,
+          "delta": 0.05427083333333333
+        },
+        "returnLegal": {
+          "owned": 3.5647395833333335,
+          "highPip": 3.06765625,
+          "delta": 0.4970833333333333
+        },
+        "oppPipsShed": {
+          "owned": 11.067760416666667,
+          "highPip": 18.578958333333333,
+          "delta": -7.511197916666666
+        },
+        "relativePipMargin": {
+          "owned": 56.377239583333335,
+          "highPip": 51.62104166666666,
+          "delta": 4.756197916666666
+        }
+      },
+      "ci95": {
+        "moves": [
+          -0.28118699358848237,
+          -0.2597505064115176
+        ],
+        "extra": [
+          -0.16606587949514118,
+          -0.15122578717152552
+        ],
+        "pass1": [
+          0.05288581325919169,
+          0.06221835340747497
+        ],
+        "pass2": [
+          0.048162563309287705,
+          0.060379103357378956
+        ],
+        "returnLegal": [
+          0.44583701317666,
+          0.5483296534900066
+        ],
+        "oppPipsShed": [
+          -7.773958160605687,
+          -7.248437672727645
+        ],
+        "relativePipMargin": [
+          4.481213022422848,
+          5.031182810910485
+        ]
+      },
+      "strata": {
+        "1-2": {
+          "positions": 300,
+          "meanGap": 1.4033333333333333,
+          "movesDelta": -0.2735416666666667,
+          "extraDelta": -0.15822916666666667,
+          "pass1Delta": 0.059270833333333335,
+          "pass2Delta": 0.05604166666666666,
+          "returnLegalDelta": 0.45416666666666666,
+          "oppPipsShedDelta": -7.231979166666667,
+          "relativePipMarginDelta": 5.828645833333334
+        },
+        "3+": {
+          "positions": 300,
+          "meanGap": 4.1066666666666665,
+          "movesDelta": -0.26739583333333333,
+          "extraDelta": -0.1590625,
+          "pass1Delta": 0.05583333333333333,
+          "pass2Delta": 0.0525,
+          "returnLegalDelta": 0.54,
+          "oppPipsShedDelta": -7.790416666666666,
+          "relativePipMarginDelta": 3.68375
+        }
+      },
+      "exactFirstPassDelta": 0.0599656862745102,
+      "passCalibrationConservativeZ": -0.4729676518051249
+    },
+    "high-chain-current": {
+      "means": {
+        "moves": {
+          "owned": 1.8432291666666667,
+          "highPip": 2.1136979166666667,
+          "delta": -0.27046875
+        },
+        "extra": {
+          "owned": 0,
+          "highPip": 0.15864583333333335,
+          "delta": -0.15864583333333335
+        },
+        "pass1": {
+          "owned": 0.10083333333333333,
+          "highPip": 0.04328125,
+          "delta": 0.05755208333333333
+        },
+        "pass2": {
+          "owned": 0.0559375,
+          "highPip": 0.0016666666666666668,
+          "delta": 0.05427083333333333
+        },
+        "returnLegal": {
+          "owned": 3.5647395833333335,
+          "highPip": 3.06765625,
+          "delta": 0.4970833333333333
+        },
+        "oppPipsShed": {
+          "owned": 11.067760416666667,
+          "highPip": 18.578958333333333,
+          "delta": -7.511197916666666
+        },
+        "relativePipMargin": {
+          "owned": 56.377239583333335,
+          "highPip": 51.62104166666666,
+          "delta": 4.756197916666666
+        }
+      },
+      "ci95": {
+        "moves": [
+          -0.28118699358848237,
+          -0.2597505064115176
+        ],
+        "extra": [
+          -0.16606587949514118,
+          -0.15122578717152552
+        ],
+        "pass1": [
+          0.05288581325919169,
+          0.06221835340747497
+        ],
+        "pass2": [
+          0.048162563309287705,
+          0.060379103357378956
+        ],
+        "returnLegal": [
+          0.44583701317666,
+          0.5483296534900066
+        ],
+        "oppPipsShed": [
+          -7.773958160605687,
+          -7.248437672727645
+        ],
+        "relativePipMargin": [
+          4.481213022422848,
+          5.031182810910485
+        ]
+      },
+      "strata": {
+        "1-2": {
+          "positions": 300,
+          "meanGap": 1.4033333333333333,
+          "movesDelta": -0.2735416666666667,
+          "extraDelta": -0.15822916666666667,
+          "pass1Delta": 0.059270833333333335,
+          "pass2Delta": 0.05604166666666666,
+          "returnLegalDelta": 0.45416666666666666,
+          "oppPipsShedDelta": -7.231979166666667,
+          "relativePipMarginDelta": 5.828645833333334
+        },
+        "3+": {
+          "positions": 300,
+          "meanGap": 4.1066666666666665,
+          "movesDelta": -0.26739583333333333,
+          "extraDelta": -0.1590625,
+          "pass1Delta": 0.05583333333333333,
+          "pass2Delta": 0.0525,
+          "returnLegalDelta": 0.54,
+          "oppPipsShedDelta": -7.790416666666666,
+          "relativePipMarginDelta": 3.68375
+        }
+      },
+      "exactFirstPassDelta": 0.0599656862745102,
+      "passCalibrationConservativeZ": -0.4729676518051249
+    },
+    "low-single-global": {
+      "means": {
+        "moves": {
+          "owned": 1.84140625,
+          "highPip": 1.9339583333333332,
+          "delta": -0.09255208333333333
+        },
+        "extra": {
+          "owned": 0,
+          "highPip": 0,
+          "delta": 0
+        },
+        "pass1": {
+          "owned": 0.10083333333333333,
+          "highPip": 0.04328125,
+          "delta": 0.05755208333333333
+        },
+        "pass2": {
+          "owned": 0.05776041666666667,
+          "highPip": 0.02276041666666667,
+          "delta": 0.035
+        },
+        "returnLegal": {
+          "owned": 3.4697916666666666,
+          "highPip": 2.596875,
+          "delta": 0.8729166666666667
+        },
+        "oppPipsShed": {
+          "owned": 5.802395833333334,
+          "highPip": 6.74359375,
+          "delta": -0.9411979166666666
+        },
+        "relativePipMargin": {
+          "owned": 61.642604166666665,
+          "highPip": 63.45640625,
+          "delta": -1.8138020833333333
+        }
+      },
+      "ci95": {
+        "moves": [
+          -0.10032368821287506,
+          -0.0847804784537916
+        ],
+        "extra": [
+          0,
+          0
+        ],
+        "pass1": [
+          0.05288581325919169,
+          0.06221835340747497
+        ],
+        "pass2": [
+          0.03046141767952938,
+          0.039538582320470625
+        ],
+        "returnLegal": [
+          0.8596036224685225,
+          0.8862297108648108
+        ],
+        "oppPipsShed": [
+          -1.0278755145573486,
+          -0.8545203187759847
+        ],
+        "relativePipMargin": [
+          -1.9625648344018753,
+          -1.6650393322647912
+        ]
+      },
+      "strata": {
+        "1-2": {
+          "positions": 300,
+          "meanGap": 1.4033333333333333,
+          "movesDelta": -0.0940625,
+          "extraDelta": 0,
+          "pass1Delta": 0.059270833333333335,
+          "pass2Delta": 0.034791666666666665,
+          "returnLegalDelta": 0.8635416666666667,
+          "oppPipsShedDelta": -0.9075,
+          "relativePipMarginDelta": -0.49583333333333335
+        },
+        "3+": {
+          "positions": 300,
+          "meanGap": 4.1066666666666665,
+          "movesDelta": -0.09104166666666667,
+          "extraDelta": 0,
+          "pass1Delta": 0.05583333333333333,
+          "pass2Delta": 0.035208333333333335,
+          "returnLegalDelta": 0.8822916666666667,
+          "oppPipsShedDelta": -0.9748958333333333,
+          "relativePipMarginDelta": -3.1317708333333334
+        }
+      },
+      "exactFirstPassDelta": 0.0599656862745102,
+      "passCalibrationConservativeZ": -0.4729676518051249
+    },
+    "low-single-current": {
+      "means": {
+        "moves": {
+          "owned": 1.84140625,
+          "highPip": 1.9339583333333332,
+          "delta": -0.09255208333333333
+        },
+        "extra": {
+          "owned": 0,
+          "highPip": 0,
+          "delta": 0
+        },
+        "pass1": {
+          "owned": 0.10083333333333333,
+          "highPip": 0.04328125,
+          "delta": 0.05755208333333333
+        },
+        "pass2": {
+          "owned": 0.05776041666666667,
+          "highPip": 0.02276041666666667,
+          "delta": 0.035
+        },
+        "returnLegal": {
+          "owned": 3.4697916666666666,
+          "highPip": 2.596875,
+          "delta": 0.8729166666666667
+        },
+        "oppPipsShed": {
+          "owned": 5.802395833333334,
+          "highPip": 6.74359375,
+          "delta": -0.9411979166666666
+        },
+        "relativePipMargin": {
+          "owned": 61.642604166666665,
+          "highPip": 63.45640625,
+          "delta": -1.8138020833333333
+        }
+      },
+      "ci95": {
+        "moves": [
+          -0.10032368821287506,
+          -0.0847804784537916
+        ],
+        "extra": [
+          0,
+          0
+        ],
+        "pass1": [
+          0.05288581325919169,
+          0.06221835340747497
+        ],
+        "pass2": [
+          0.03046141767952938,
+          0.039538582320470625
+        ],
+        "returnLegal": [
+          0.8596036224685225,
+          0.8862297108648108
+        ],
+        "oppPipsShed": [
+          -1.0278755145573486,
+          -0.8545203187759847
+        ],
+        "relativePipMargin": [
+          -1.9625648344018753,
+          -1.6650393322647912
+        ]
+      },
+      "strata": {
+        "1-2": {
+          "positions": 300,
+          "meanGap": 1.4033333333333333,
+          "movesDelta": -0.0940625,
+          "extraDelta": 0,
+          "pass1Delta": 0.059270833333333335,
+          "pass2Delta": 0.034791666666666665,
+          "returnLegalDelta": 0.8635416666666667,
+          "oppPipsShedDelta": -0.9075,
+          "relativePipMarginDelta": -0.49583333333333335
+        },
+        "3+": {
+          "positions": 300,
+          "meanGap": 4.1066666666666665,
+          "movesDelta": -0.09104166666666667,
+          "extraDelta": 0,
+          "pass1Delta": 0.05583333333333333,
+          "pass2Delta": 0.035208333333333335,
+          "returnLegalDelta": 0.8822916666666667,
+          "oppPipsShedDelta": -0.9748958333333333,
+          "relativePipMarginDelta": -3.1317708333333334
+        }
+      },
+      "exactFirstPassDelta": 0.0599656862745102,
+      "passCalibrationConservativeZ": -0.4729676518051249
+    },
+    "low-chain-global": {
+      "means": {
+        "moves": {
+          "owned": 1.84140625,
+          "highPip": 2.0159895833333334,
+          "delta": -0.17458333333333334
+        },
+        "extra": {
+          "owned": 0,
+          "highPip": 0.08203125,
+          "delta": -0.08203125
+        },
+        "pass1": {
+          "owned": 0.10083333333333333,
+          "highPip": 0.04328125,
+          "delta": 0.05755208333333333
+        },
+        "pass2": {
+          "owned": 0.05776041666666667,
+          "highPip": 0.02276041666666667,
+          "delta": 0.035
+        },
+        "returnLegal": {
+          "owned": 3.4697916666666666,
+          "highPip": 2.6948958333333333,
+          "delta": 0.7748958333333333
+        },
+        "oppPipsShed": {
+          "owned": 5.802395833333334,
+          "highPip": 7.591510416666667,
+          "delta": -1.7891145833333333
+        },
+        "relativePipMargin": {
+          "owned": 61.642604166666665,
+          "highPip": 62.60848958333333,
+          "delta": -0.9658854166666667
+        }
+      },
+      "ci95": {
+        "moves": [
+          -0.1839324460554268,
+          -0.16523422061123988
+        ],
+        "extra": [
+          -0.08811746248442509,
+          -0.07594503751557491
+        ],
+        "pass1": [
+          0.05288581325919169,
+          0.06221835340747497
+        ],
+        "pass2": [
+          0.03046141767952938,
+          0.039538582320470625
+        ],
+        "returnLegal": [
+          0.7569492742675213,
+          0.7928423923991453
+        ],
+        "oppPipsShed": [
+          -1.8967107331774724,
+          -1.6815184334891942
+        ],
+        "relativePipMargin": [
+          -1.132790613897864,
+          -0.7989802194354695
+        ]
+      },
+      "strata": {
+        "1-2": {
+          "positions": 300,
+          "meanGap": 1.4033333333333333,
+          "movesDelta": -0.18447916666666667,
+          "extraDelta": -0.09041666666666667,
+          "pass1Delta": 0.059270833333333335,
+          "pass2Delta": 0.034791666666666665,
+          "returnLegalDelta": 0.7539583333333333,
+          "oppPipsShedDelta": -1.8197916666666667,
+          "relativePipMarginDelta": 0.4164583333333333
+        },
+        "3+": {
+          "positions": 300,
+          "meanGap": 4.1066666666666665,
+          "movesDelta": -0.1646875,
+          "extraDelta": -0.07364583333333333,
+          "pass1Delta": 0.05583333333333333,
+          "pass2Delta": 0.035208333333333335,
+          "returnLegalDelta": 0.7958333333333333,
+          "oppPipsShedDelta": -1.7584375,
+          "relativePipMarginDelta": -2.3482291666666666
+        }
+      },
+      "exactFirstPassDelta": 0.0599656862745102,
+      "passCalibrationConservativeZ": -0.4729676518051249
+    },
+    "low-chain-current": {
+      "means": {
+        "moves": {
+          "owned": 1.84140625,
+          "highPip": 2.0159895833333334,
+          "delta": -0.17458333333333334
+        },
+        "extra": {
+          "owned": 0,
+          "highPip": 0.08203125,
+          "delta": -0.08203125
+        },
+        "pass1": {
+          "owned": 0.10083333333333333,
+          "highPip": 0.04328125,
+          "delta": 0.05755208333333333
+        },
+        "pass2": {
+          "owned": 0.05776041666666667,
+          "highPip": 0.02276041666666667,
+          "delta": 0.035
+        },
+        "returnLegal": {
+          "owned": 3.4697916666666666,
+          "highPip": 2.6948958333333333,
+          "delta": 0.7748958333333333
+        },
+        "oppPipsShed": {
+          "owned": 5.802395833333334,
+          "highPip": 7.591510416666667,
+          "delta": -1.7891145833333333
+        },
+        "relativePipMargin": {
+          "owned": 61.642604166666665,
+          "highPip": 62.60848958333333,
+          "delta": -0.9658854166666667
+        }
+      },
+      "ci95": {
+        "moves": [
+          -0.1839324460554268,
+          -0.16523422061123988
+        ],
+        "extra": [
+          -0.08811746248442509,
+          -0.07594503751557491
+        ],
+        "pass1": [
+          0.05288581325919169,
+          0.06221835340747497
+        ],
+        "pass2": [
+          0.03046141767952938,
+          0.039538582320470625
+        ],
+        "returnLegal": [
+          0.7569492742675213,
+          0.7928423923991453
+        ],
+        "oppPipsShed": [
+          -1.8967107331774724,
+          -1.6815184334891942
+        ],
+        "relativePipMargin": [
+          -1.132790613897864,
+          -0.7989802194354695
+        ]
+      },
+      "strata": {
+        "1-2": {
+          "positions": 300,
+          "meanGap": 1.4033333333333333,
+          "movesDelta": -0.18447916666666667,
+          "extraDelta": -0.09041666666666667,
+          "pass1Delta": 0.059270833333333335,
+          "pass2Delta": 0.034791666666666665,
+          "returnLegalDelta": 0.7539583333333333,
+          "oppPipsShedDelta": -1.8197916666666667,
+          "relativePipMarginDelta": 0.4164583333333333
+        },
+        "3+": {
+          "positions": 300,
+          "meanGap": 4.1066666666666665,
+          "movesDelta": -0.1646875,
+          "extraDelta": -0.07364583333333333,
+          "pass1Delta": 0.05583333333333333,
+          "pass2Delta": 0.035208333333333335,
+          "returnLegalDelta": 0.7958333333333333,
+          "oppPipsShedDelta": -1.7584375,
+          "relativePipMarginDelta": -2.3482291666666666
+        }
+      },
+      "exactFirstPassDelta": 0.0599656862745102,
+      "passCalibrationConservativeZ": -0.4729676518051249
+    },
+    "random-single-global": {
+      "means": {
+        "moves": {
+          "owned": 1.8425,
+          "highPip": 1.93640625,
+          "delta": -0.09390625
+        },
+        "extra": {
+          "owned": 0,
+          "highPip": 0,
+          "delta": 0
+        },
+        "pass1": {
+          "owned": 0.10083333333333333,
+          "highPip": 0.04328125,
+          "delta": 0.05755208333333333
+        },
+        "pass2": {
+          "owned": 0.056666666666666664,
+          "highPip": 0.0203125,
+          "delta": 0.03635416666666667
+        },
+        "returnLegal": {
+          "owned": 3.4021875,
+          "highPip": 2.6563020833333333,
+          "delta": 0.7458854166666666
+        },
+        "oppPipsShed": {
+          "owned": 8.247916666666667,
+          "highPip": 10.402604166666666,
+          "delta": -2.1546875
+        },
+        "relativePipMargin": {
+          "owned": 59.19708333333333,
+          "highPip": 59.79739583333333,
+          "delta": -0.6003125
+        }
+      },
+      "ci95": {
+        "moves": [
+          -0.10184980067499871,
+          -0.08596269932500128
+        ],
+        "extra": [
+          0,
+          0
+        ],
+        "pass1": [
+          0.05288581325919169,
+          0.06221835340747497
+        ],
+        "pass2": [
+          0.03174638577710995,
+          0.040961947556223385
+        ],
+        "returnLegal": [
+          0.7261474235982974,
+          0.7656234097350358
+        ],
+        "oppPipsShed": [
+          -2.272555802659323,
+          -2.036819197340677
+        ],
+        "relativePipMargin": [
+          -0.7673259699013688,
+          -0.43329903009863124
+        ]
+      },
+      "strata": {
+        "1-2": {
+          "positions": 300,
+          "meanGap": 1.4033333333333333,
+          "movesDelta": -0.0946875,
+          "extraDelta": 0,
+          "pass1Delta": 0.059270833333333335,
+          "pass2Delta": 0.035416666666666666,
+          "returnLegalDelta": 0.741875,
+          "oppPipsShedDelta": -2.1490625,
+          "relativePipMarginDelta": 0.7457291666666667
+        },
+        "3+": {
+          "positions": 300,
+          "meanGap": 4.1066666666666665,
+          "movesDelta": -0.093125,
+          "extraDelta": 0,
+          "pass1Delta": 0.05583333333333333,
+          "pass2Delta": 0.03729166666666667,
+          "returnLegalDelta": 0.7498958333333333,
+          "oppPipsShedDelta": -2.1603125,
+          "relativePipMarginDelta": -1.9463541666666666
+        }
+      },
+      "exactFirstPassDelta": 0.0599656862745102,
+      "passCalibrationConservativeZ": -0.4729676518051249
+    },
+    "random-single-current": {
+      "means": {
+        "moves": {
+          "owned": 1.8425,
+          "highPip": 1.93640625,
+          "delta": -0.09390625
+        },
+        "extra": {
+          "owned": 0,
+          "highPip": 0,
+          "delta": 0
+        },
+        "pass1": {
+          "owned": 0.10083333333333333,
+          "highPip": 0.04328125,
+          "delta": 0.05755208333333333
+        },
+        "pass2": {
+          "owned": 0.056666666666666664,
+          "highPip": 0.0203125,
+          "delta": 0.03635416666666667
+        },
+        "returnLegal": {
+          "owned": 3.4021875,
+          "highPip": 2.6563020833333333,
+          "delta": 0.7458854166666666
+        },
+        "oppPipsShed": {
+          "owned": 8.247916666666667,
+          "highPip": 10.402604166666666,
+          "delta": -2.1546875
+        },
+        "relativePipMargin": {
+          "owned": 59.19708333333333,
+          "highPip": 59.79739583333333,
+          "delta": -0.6003125
+        }
+      },
+      "ci95": {
+        "moves": [
+          -0.10184980067499871,
+          -0.08596269932500128
+        ],
+        "extra": [
+          0,
+          0
+        ],
+        "pass1": [
+          0.05288581325919169,
+          0.06221835340747497
+        ],
+        "pass2": [
+          0.03174638577710995,
+          0.040961947556223385
+        ],
+        "returnLegal": [
+          0.7261474235982974,
+          0.7656234097350358
+        ],
+        "oppPipsShed": [
+          -2.272555802659323,
+          -2.036819197340677
+        ],
+        "relativePipMargin": [
+          -0.7673259699013688,
+          -0.43329903009863124
+        ]
+      },
+      "strata": {
+        "1-2": {
+          "positions": 300,
+          "meanGap": 1.4033333333333333,
+          "movesDelta": -0.0946875,
+          "extraDelta": 0,
+          "pass1Delta": 0.059270833333333335,
+          "pass2Delta": 0.035416666666666666,
+          "returnLegalDelta": 0.741875,
+          "oppPipsShedDelta": -2.1490625,
+          "relativePipMarginDelta": 0.7457291666666667
+        },
+        "3+": {
+          "positions": 300,
+          "meanGap": 4.1066666666666665,
+          "movesDelta": -0.093125,
+          "extraDelta": 0,
+          "pass1Delta": 0.05583333333333333,
+          "pass2Delta": 0.03729166666666667,
+          "returnLegalDelta": 0.7498958333333333,
+          "oppPipsShedDelta": -2.1603125,
+          "relativePipMarginDelta": -1.9463541666666666
+        }
+      },
+      "exactFirstPassDelta": 0.0599656862745102,
+      "passCalibrationConservativeZ": -0.4729676518051249
+    },
+    "random-chain-global": {
+      "means": {
+        "moves": {
+          "owned": 1.8425,
+          "highPip": 2.0146875,
+          "delta": -0.1721875
+        },
+        "extra": {
+          "owned": 0,
+          "highPip": 0.07828125,
+          "delta": -0.07828125
+        },
+        "pass1": {
+          "owned": 0.10083333333333333,
+          "highPip": 0.04328125,
+          "delta": 0.05755208333333333
+        },
+        "pass2": {
+          "owned": 0.056666666666666664,
+          "highPip": 0.0203125,
+          "delta": 0.03635416666666667
+        },
+        "returnLegal": {
+          "owned": 3.4021875,
+          "highPip": 2.750625,
+          "delta": 0.6515625
+        },
+        "oppPipsShed": {
+          "owned": 8.247916666666667,
+          "highPip": 11.068958333333333,
+          "delta": -2.8210416666666664
+        },
+        "relativePipMargin": {
+          "owned": 59.19708333333333,
+          "highPip": 59.13104166666667,
+          "delta": 0.06604166666666667
+        }
+      },
+      "ci95": {
+        "moves": [
+          -0.18152680832024132,
+          -0.16284819167975867
+        ],
+        "extra": [
+          -0.08279287185688564,
+          -0.07376962814311436
+        ],
+        "pass1": [
+          0.05288581325919169,
+          0.06221835340747497
+        ],
+        "pass2": [
+          0.03174638577710995,
+          0.040961947556223385
+        ],
+        "returnLegal": [
+          0.6289759793867068,
+          0.6741490206132933
+        ],
+        "oppPipsShed": [
+          -2.9520700283205037,
+          -2.690013305012829
+        ],
+        "relativePipMargin": [
+          -0.10816970176234575,
+          0.24025303509567908
+        ]
+      },
+      "strata": {
+        "1-2": {
+          "positions": 300,
+          "meanGap": 1.4033333333333333,
+          "movesDelta": -0.17645833333333333,
+          "extraDelta": -0.08177083333333333,
+          "pass1Delta": 0.059270833333333335,
+          "pass2Delta": 0.035416666666666666,
+          "returnLegalDelta": 0.6454166666666666,
+          "oppPipsShedDelta": -2.8063541666666665,
+          "relativePipMarginDelta": 1.4030208333333334
+        },
+        "3+": {
+          "positions": 300,
+          "meanGap": 4.1066666666666665,
+          "movesDelta": -0.16791666666666666,
+          "extraDelta": -0.07479166666666667,
+          "pass1Delta": 0.05583333333333333,
+          "pass2Delta": 0.03729166666666667,
+          "returnLegalDelta": 0.6577083333333333,
+          "oppPipsShedDelta": -2.835729166666667,
+          "relativePipMarginDelta": -1.2709375
+        }
+      },
+      "exactFirstPassDelta": 0.0599656862745102,
+      "passCalibrationConservativeZ": -0.4729676518051249
+    },
+    "random-chain-current": {
+      "means": {
+        "moves": {
+          "owned": 1.8425,
+          "highPip": 2.0146875,
+          "delta": -0.1721875
+        },
+        "extra": {
+          "owned": 0,
+          "highPip": 0.07828125,
+          "delta": -0.07828125
+        },
+        "pass1": {
+          "owned": 0.10083333333333333,
+          "highPip": 0.04328125,
+          "delta": 0.05755208333333333
+        },
+        "pass2": {
+          "owned": 0.056666666666666664,
+          "highPip": 0.0203125,
+          "delta": 0.03635416666666667
+        },
+        "returnLegal": {
+          "owned": 3.4021875,
+          "highPip": 2.750625,
+          "delta": 0.6515625
+        },
+        "oppPipsShed": {
+          "owned": 8.247916666666667,
+          "highPip": 11.068958333333333,
+          "delta": -2.8210416666666664
+        },
+        "relativePipMargin": {
+          "owned": 59.19708333333333,
+          "highPip": 59.13104166666667,
+          "delta": 0.06604166666666667
+        }
+      },
+      "ci95": {
+        "moves": [
+          -0.18152680832024132,
+          -0.16284819167975867
+        ],
+        "extra": [
+          -0.08279287185688564,
+          -0.07376962814311436
+        ],
+        "pass1": [
+          0.05288581325919169,
+          0.06221835340747497
+        ],
+        "pass2": [
+          0.03174638577710995,
+          0.040961947556223385
+        ],
+        "returnLegal": [
+          0.6289759793867068,
+          0.6741490206132933
+        ],
+        "oppPipsShed": [
+          -2.9520700283205037,
+          -2.690013305012829
+        ],
+        "relativePipMargin": [
+          -0.10816970176234575,
+          0.24025303509567908
+        ]
+      },
+      "strata": {
+        "1-2": {
+          "positions": 300,
+          "meanGap": 1.4033333333333333,
+          "movesDelta": -0.17645833333333333,
+          "extraDelta": -0.08177083333333333,
+          "pass1Delta": 0.059270833333333335,
+          "pass2Delta": 0.035416666666666666,
+          "returnLegalDelta": 0.6454166666666666,
+          "oppPipsShedDelta": -2.8063541666666665,
+          "relativePipMarginDelta": 1.4030208333333334
+        },
+        "3+": {
+          "positions": 300,
+          "meanGap": 4.1066666666666665,
+          "movesDelta": -0.16791666666666666,
+          "extraDelta": -0.07479166666666667,
+          "pass1Delta": 0.05583333333333333,
+          "pass2Delta": 0.03729166666666667,
+          "returnLegalDelta": 0.6577083333333333,
+          "oppPipsShedDelta": -2.835729166666667,
+          "relativePipMarginDelta": -1.2709375
+        }
+      },
+      "exactFirstPassDelta": 0.0599656862745102,
+      "passCalibrationConservativeZ": -0.4729676518051249
+    }
+  },
+  "modelSensitivity": {
+    "high-single": {
+      "movesDeltaDifference": 0,
+      "returnLegalDeltaDifference": 0
+    },
+    "high-chain": {
+      "movesDeltaDifference": 0,
+      "returnLegalDeltaDifference": 0
+    },
+    "low-single": {
+      "movesDeltaDifference": 0,
+      "returnLegalDeltaDifference": 0
+    },
+    "low-chain": {
+      "movesDeltaDifference": 0,
+      "returnLegalDeltaDifference": 0
+    },
+    "random-single": {
+      "movesDeltaDifference": 0,
+      "returnLegalDeltaDifference": 0
+    },
+    "random-chain": {
+      "movesDeltaDifference": 0,
+      "returnLegalDeltaDifference": 0
+    }
+  },
+  "tests": {
+    "deck28": true,
+    "legalLocked": true,
+    "doubleChain": true,
+    "noOrdinaryAppend": true,
+    "conservation": true,
+    "seedReplay": 20,
+    "firstPassCalibrated": true,
+    "smallReplay": {
+      "passed": true,
+      "smallDealSeeds": [
+        2855320,
+        2855819
+      ],
+      "smallWorldSeeds": [
+        2885320,
+        2885351
+      ],
+      "pairedWorlds": 32,
+      "policyModes": 12
+    },
+    "modelSensitivityZero": true
+  },
+  "limitations": [
+    "Two opponent turns only; no win/minus/complete-game regret",
+    "Two branch models are provisional; separately reported",
+    "Connector pip and geometry confounded with double ownership",
+    "First-eligible seed selection; simplistic deterministic opponent policies",
+    "Block ties, loneZero, bust, 101 unresolved"
+  ],
+  "nextAction": "Authenticate physical late-arrival and blocked-tie rules; compare paired full-round first-finish and minus regret on confirmed rules. Test neutral policies and pip-balanced connector controls."
+}
