@@ -1,20 +1,26 @@
 # Qoşa research status
 
-Updated: 2026-10-29T17:56:45+04:00 (Asia/Baku)
+Updated: 2026-10-29T19:50:17+04:00 (Asia/Baku)
 
 ## Verified cumulative (incompatible models kept separate)
 - **1,380,975** complete model rounds across incompatible branch assumptions; historical 4,000 separate (unchanged).
-- **1,898,856** forced hidden-world continuations; **14,082** next-pass labels; **4,900** known-world diagnostics (unchanged).
-- **570,000** separate deterministic opening deals (prior 550,000 + 20,000 holdout).
-- **775,568** separate synthetic seeded hidden-world allocations (**756,368 + 19,200**); exact partitions not counted as seeded worlds.
-- Engine `qosa-research-0.5.3 + opening-pip-margin-holdout-1.0` (analysis only); recovered `qosa-1.0.0` 3×9. Both late-arrival branch models **PROVISIONAL**.
-- Next unused random seed **>=2924520**.
+- **1,898,856** forced hidden-world continuations (unchanged).
+- **600,000** deterministic opening deals (570,000 prior + 30,000 new).
+- **1,021,328** seeded random hidden-world allocations (972,176 prior + 49,152 new); exact partitions separate.
+- Engine `qosa-research-0.5.3 + opening-double-followup-new-hands-1.0`; recovered `qosa-1.0.0` 3×9. Both late-arrival branch models **PROVISIONAL**.
+- Next unused random seed **>=3200280**.
 
-## Latest checkpoint — ordinary versus double return mobility (2026-10-29T17:56:45+04:00)
-- [Executable audit](simulator/opening-ordinary-mobility-audit.js); [detailed checkpoint](runs/2026-10-29-1754-opening-ordinary-mobility-audit.md).
-- **No new deals/worlds/rounds**; reanalysis of the same 24 hands and 1,166,880 exact partitions, not counted again.
-- The previous **+0.7611 / +0.7306** gain in playable stones is driven by playable doubles **+1.0096 / +1.0073**. Ordinary (non-double) playable stones instead change by **−0.2485 / −0.2767** (high-/low-pip opponents). Derived from published rounded metrics, not independently rerun here.
-- No proven win-rate benefit. Next: assess whether playing an available double is worth reduced ordinary flexibility; physical late-arrival and blocked ties remain unresolved.
+## Latest checkpoint — new-hand double follow-up (2026-10-29 19:50 +04)
+- [Standalone reproducible script](simulator/opening-double-followup-new-hands.js); [full details](RESULTS.md).
+- **30,000 new seeded deals** and **49,152 new matched hidden worlds**, 24 *new* stratified starter hands; **0 new full rounds**.
+- Playing a double rather than an ordinary stone on the starter return gave opponents **+0.0784** (high-pip policy) / **+0.1466** (low-pip) more immediate moves; increased starter ordinary mobility on the next return by **+1.49 to +1.89**, depending on provisional branch model and opponent policy.
+- No proven win-rate benefit. Code was executed as JavaScript in the research runtime with deterministic replay, but not via Node from a clean checkout.
+- **Next:** fresh-checkout Node verification; optional multi-double reply sensitivity; authenticate physical late-arrival branches and blocked ties.
+
+## Previous checkpoint — ordinary versus double return mobility (2026-10-29 17:56 +04)
+- [Earlier mobility audit](simulator/opening-ordinary-mobility-audit.js); [detailed checkpoint](runs/2026-10-29-1754-opening-ordinary-mobility-audit.md).
+- Reanalysis of earlier 24 hands × 1,166,880 exact partitions; **no new allocations**.
+- Retaining a matching double improved playable doubles by +1.0096 / +1.0073, but reduced playable ordinary stones by −0.2485 / −0.2767 (high-/low-pip opponents). No win-rate claim.
 
 ## Previous checkpoint — exact third-turn return mobility (16:50 +04)
 - [Executable source](simulator/opening-third-return-exact.js); [detailed checkpoint](runs/2026-10-29-1650-opening-third-return-exact.md).
