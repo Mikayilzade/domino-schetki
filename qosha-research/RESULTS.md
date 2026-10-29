@@ -1612,3 +1612,26 @@
 - **Reproduce:** `node qosha-research/simulator/opening-lock-depth-exact.js` (built-in exact census + 4 exhaustive 48,620-way regression fixtures).
 - **Cumulative unchanged:** **1,380,975** incompatible-rule complete model rounds; **1,898,856** forced continuations; **748,688** separate seeded hidden allocations; **490,000** separate opening deals; historical 4,000 separate. Next unused seed remains **>=2817640**.
 - **Exact next hypothesis/action:** authenticate a physical-game late-arrival branch reopening and a blocked-tie outcome; then compare keeping versus spending doubles on matched real-history hidden worlds, measuring first-finish and minus outcomes under explicitly versioned rules. Do not expand rare-opening census as a substitute for authentic-rule validation.
+
+
+### 2026-10-29 14:49 +04 (Asia/Baku) — exact first-reply → second-opponent pass audit
+
+- **Engine/rules:** \`qosa-research-0.5.3 + opening-second-reply-exact-1.0\` / recovered \`qosa-1.0.0\`, confirmed first-round 3×9 \`1-1\` opening and stock draw. Single-tile opponent policy (optional extra doubles deliberately declined); **both late-arrival branch models remain provisional**. No block-tie or match-scoring assumption.
+- **Workload/seeds:** **0 new seeded deals, 0 new hidden allocations, 0 complete rounds, 0 forced continuations**. No seeds (exact enumeration). **3 fixed known starter hands × C(18,9)=48,620 hidden allocations = 145,860 exhaustive opponent partitions**; each partition evaluated for both starter moves, high/low opponent policies and both provisional branch models. Exact partitions are *not* added to Monte Carlo totals.
+- **Compared same-hand choices:** \`1-X\` while retaining matching \`X-X\` versus \`1-Y\` whose \`Y-Y\` is not in starter's hand, with \`Y>X\`. Two clockwise opponents each select exactly one highest- or lowest-pip legal tile; passes are forced. Opening board: three 1 ends open, selected X/Y end locked until its matching double is played.
+- **Key metrics (retained-double choice minus unowned-double choice):**
+
+  | Known-hand fixture | Pip gap Y−X | 1st opponent pass Δ | 2nd opponent pass Δ (high / low) | Both opponents pass |
+  |---|---:|---:|---:|---:|
+  | c=2, X=2, Y=3 | 1 | +2.647 pp | +1.018 / +2.647 pp | 0 / 48,620 worlds for either choice |
+  | c=2, X=0, Y=6 | 6 | +2.647 pp | +1.469 / +1.018 pp | 0 / 48,620 worlds for either choice |
+  | c=3, X=2, Y=4 | 2 | +6.176 pp | +4.116 / +2.647 pp | 0 / 48,620 worlds for either choice |
+
+  \`c\` is the starter's number of 1-connectors. The first-pass advantage is exact and independent of opponent policy. The second-pass effect depends on the *first opponent's chosen reply*. With c=2 or c=3, at least one unseen 1-connector remains between the opponents, so an immediate double pass is impossible in these fixtures.
+- **Other metrics:** opponents' total pips shed (retained minus unowned) were **−0.707/−0.247** (small c2, high/low), **−7.212/−0.440** (large c2), **−2.357/−0.706** (small c3). Lower opponent shedding is a short-window tempo observation, **not** evidence of a better final score; the starter also sacrifices 1, 6 or 2 immediate pips respectively.
+- **Validation:** standalone Node **v22.16.0** test and full run executed locally. All 145,860 partitions exhaustively enumerated with 28-tile conservation; exact first-pass binomial formula checked for both moves/policies; independent legal-move mask checked for every second opponent action; locked double, double opening and ordinary locked-branch guards passed. **Zero** two-turn metric differences between provisional global-ever-open and all-current-only branch models. The committed GitHub script was not separately executed from a fresh checkout.
+- **Finding:** a real first-opponent pass advantage does **not** imply two consecutive opponent passes. In three exact fixed hands, the second opponent's pass chance still increases by 1.0–4.1 percentage points depending on policy, but **both passing remains impossible**. This is not a population estimate, not a causal effect of double ownership alone, and **not a confirmed winning tactic**.
+- **Limitations/confidence:** exact for these three selected hands, uniform conditional hidden allocation and explicit single-tile high/low opponent policies. Does not represent human choices, optional multi-double chains, complete rounds, first-place/win rate, median pips, minus, blocked ties, \`loneZero\`, bust or 101 scoring. No real late-arrival physical fixture authenticated.
+- **Reproduce:** [\`simulator/opening-second-reply-exact.js\`](simulator/opening-second-reply-exact.js): \`node qosha-research/simulator/opening-second-reply-exact.js test\`; \`node qosha-research/simulator/opening-second-reply-exact.js\` prints the full per-fixture exact report.
+- **Cumulative unchanged:** **1,380,975** complete model rounds under incompatible rules, **1,898,856** forced continuations, **550,000** separate seeded opening deals, **775,568** separate seeded hidden allocations; historical 4,000 rounds separate. Next unused seed **>=2904520**.
+- **Exact next hypothesis/action:** independent seed-selected gap- and connector-balanced holdout with second-reply policy sensitivity; authenticate physical late-arrival branch reopening and blocked-tie scoring before full-game first-place, minus and regret rankings.
