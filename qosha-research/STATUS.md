@@ -1,6 +1,6 @@
 # Qoşa research status
 
-Updated: 2026-10-29T04:52:46+04:00 (Asia/Baku)
+Updated: 2026-10-29T06:56:06+04:00 (Asia/Baku)
 
 ## Verified cumulative (incompatible models kept separate)
 - **1,380,975** complete model rounds across incompatible branch assumptions; historical 4,000 separate.
@@ -10,7 +10,12 @@ Updated: 2026-10-29T04:52:46+04:00 (Asia/Baku)
 - Engine `qosa-research-0.5.3 + double-five-fourth-cohort-1.0` (analysis only), recovered `qosa-1.0.0` 3×9; both branch models **PROVISIONAL**.
 - Latest new hidden seeds `2815592..2817639`; next unused >= `2817640`.
 
-## Latest checkpoint — same-model chronological pass posterior
+## Latest checkpoint — exact opening two-pass lock
+- [Executable census and engine regression](simulator/opening-two-pass-lock-exact.js), [checkpoint](runs/2026-10-29-0656-opening-two-pass-lock-exact.md).
+- Exact **4,686,825** post-draw starter hands: **875 (0.018669%)** permit a guaranteed two-opponent pass after an owned-double connector. Two independent **48,620-way** partition fixtures passed locally (mirrored engine subset). **0** new random deals/rounds/hidden worlds; cumulative unchanged.
+- Opening-only guarantee; **not** a win-rate claim. Physical late-arrival and block ties still unresolved.
+
+## Previous checkpoint — same-model chronological pass posterior
 - [Reproducible test/runner](simulator/branch-order-posterior.js), [checkpoint](runs/2026-10-29-0452-branch-order-posterior.md), [raw](runs/2026-10-29-0452-branch-order-posterior.json).
 - Two identical board snapshots with different legal histories under the **same provisional all-current-only model**: after seat-2 pass, seat-1 ownership of 2-6 is exact **100%** (120/120) vs **36.36%** (120/330). 3,432 exact partitions per history; 4,096 new deterministic hidden worlds; 0 new full rounds.
 - V8 CommonJS-compatible tests, exact brute/DP agreement and 28-tile conservation passed; **Node CLI not run**. Physical late-arrival and block ties remain unresolved. Cumulative hidden allocations now **748,688**.
