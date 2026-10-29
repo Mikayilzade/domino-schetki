@@ -63,10 +63,14 @@ function experiment(worldsPerHand=2048){
       deltaOpponentStonesSingle:g.singleDelta/g.n,deltaOpponentStonesChain:g.chainDelta/g.n,
       ordinaryMobilityChangeAfterDouble:g.mobilityDouble/g.n,ordinaryMobilityChangeAfterOrdinary:g.mobilityOrdinary/g.n,
       handsWithChainAfterDouble:g.perHand.filter(x=>x.extraAfterDouble>0).length,
-      handsWithChainAfterOrdinary:g.perHand.filter(x=>x.extraAfterOrdinary>0).length};
+      handsWithChainAfterOrdinary:g.perHand.filter(x=>x.extraAfterOrdinary>0).length,
+      // Exact identity: chain delta = single delta + extra-double delta + change in
+      // the second opponent's FIRST move (the first opponent's first move is fixed).
+      secondOpponentFirstMoveNetDeltaCount:g.chainDelta-g.singleDelta-(g.chainDouble-g.chainOrdinary),
+      breakEvenWholeWorldChainShare:g.singleDelta/(g.singleDelta-g.chainDelta)};
   }
   return{schema:'qosha-multi-double-response-sensitivity/v1',
-    engine:'qosa-research-0.5.3 + multi-double-response-sensitivity-1.0',
+    engine:'qosa-research-0.5.3 + multi-double-response-sensitivity-1.1',
     rules:'3x9 first-round 1-1; global/current branch models provisional; greedy optional double-only chains, cap four',
     reusedDealSeeds:[3121128,3151127],worldSeedFormula:'3151128 + fixtureIndex*2048 + worldIndex',
     selectedHands:24,worldsPerHand,reusedHiddenWorlds:24*worldsPerHand,newDeals:0,newHiddenWorlds:0,newFullRounds:0,
@@ -76,12 +80,29 @@ function experiment(worldsPerHand=2048){
       'late-arrival branch reopening and blocked ties unconfirmed','no full-round win/minus/regret claim']};
 }
 function test(){
+ // Kernel fixtures for optional stopping, four independent locked ends,
+ // ordinary-first no-chain, and an unexposed double. Physical rules remain provisional.
+ const board={ends:[2,3,4,5],locks:[true,true,true,true],opened:[1]};
+ const hand=[[2,2],[3,3],[4,4],[5,5]];
+ const one=opponentTurn(board,hand,'high','global',false);
+ const four=opponentTurn(board,hand,'high','global',true);
+ check(one.stones===1&&one.h.length===3,'voluntary stop after one double');
+ check(four.stones===4&&four.h.length===0&&four.extra===3,'four-double chain');
+ check(new Set(four.b.opened).size===5,'each double opens a distinct value');
+ const ordinary=opponentTurn({ends:[2,3,4,5],locks:[true,true,false,false],opened:[1]},
+   [[0,4],[2,2],[3,3]],'low','global',true);
+ check(ordinary.stones===1&&ordinary.h.length===2,'ordinary-first cannot append double');
+ check(opponentTurn(init(2),[[3,3]],'high','global',true).stones===0,'unexposed double locked');
  const a=experiment(2),b=experiment(2);check(JSON.stringify(a)===JSON.stringify(b),'deterministic replay');
  check(a.reusedHiddenWorlds===48,'smoke worlds');
  const c=experiment(2048);
  check(Math.abs(c.summary['high-global'].deltaOpponentStonesSingle-0.07838948567708333)<1e-12,'prior high regression');
  check(Math.abs(c.summary['low-global'].deltaOpponentStonesSingle-0.14658610026041666)<1e-12,'prior low regression');
  check(c.summary['high-global'].deltaOpponentStonesChain<0&&c.summary['low-global'].deltaOpponentStonesChain<0,'chain sensitivity');
+ check(c.summary['high-global'].secondOpponentFirstMoveNetDeltaCount===-277,'high second-player residual');
+ check(c.summary['low-global'].secondOpponentFirstMoveNetDeltaCount===-153,'low second-player residual');
+ check(Math.abs(c.summary['high-global'].breakEvenWholeWorldChainShare-0.24441766049226085)<1e-12,'high threshold');
+ check(Math.abs(c.summary['low-global'].breakEvenWholeWorldChainShare-0.47551478352692717)<1e-12,'low threshold');
  return{passed:true,smokeWorlds:48,fullReusedWorlds:49152,deterministic:true};
 }
 if(require.main===module)console.log(JSON.stringify(process.argv[2]==='test'?test():experiment(process.argv[2]?Number(process.argv[2]):2048),null,2));

@@ -1,8 +1,14 @@
 # Qoşa research status
 
-Updated: 2026-10-29T20:51:39+04:00 (Asia/Baku)
+Updated: 2026-10-29T21:46:38+04:00 (Asia/Baku)
 
-## Latest checkpoint — optional multi-double opponent replies
+## Latest checkpoint — chain-policy break-even and second-opponent residual (2026-10-29 21:46 +04)
+- [Reproducible run audit](runs/2026-10-29-2146-chain-policy-break-even-audit.md) and [updated chain script](simulator/multi-double-response-sensitivity.js). Replayed the same **49,152** hidden worlds in the JavaScript research runtime; **0 new deals/worlds/rounds**.
+- For a whole-world mixture of one-tile versus greedy multi-double opponent policies, the double-minus-ordinary opponent throughput changes sign at **24.44%** chain worlds (high-pip bots) or **47.55%** (low-pip). Not a per-turn independent mixture estimate.
+- Decomposition finds **−277** (high) / **−153** (low) net second-opponent first-move contributions beyond extra double tiles, showing that chain effects propagate between opponents.
+- Added optional-stop, four-double, ordinary-first no-chain, and unexposed-double legality fixtures. The matching algorithm and fixtures were exercised in V8; clean-checkout Node remains pending. Physical late-arrival branch/tie rules still provisional.
+
+## Previous checkpoint — optional multi-double opponent replies
 - [Run report](runs/2026-10-29-2051-multi-double-response-sensitivity.md) and [reproducible script](simulator/multi-double-response-sensitivity.js).
 - Reused 24 starter hands × 2,048 hidden worlds = **49,152 existing worlds**; **0 new deals, 0 new worlds, 0 new full rounds**.
 - Opponent stones after starter double versus ordinary: single replies **+0.0784** (high-pip) / **+0.1466** (low-pip), but greedy optional double chains **−0.2423** / **−0.1617**. Prior short-window conclusion reverses under chain policy.
