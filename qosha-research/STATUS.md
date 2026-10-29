@@ -1,6 +1,12 @@
 # Qoşa research status
 
-Updated: 2026-10-29T19:50:17+04:00 (Asia/Baku)
+Updated: 2026-10-29T20:51:39+04:00 (Asia/Baku)
+
+## Latest checkpoint — optional multi-double opponent replies
+- [Run report](runs/2026-10-29-2051-multi-double-response-sensitivity.md) and [reproducible script](simulator/multi-double-response-sensitivity.js).
+- Reused 24 starter hands × 2,048 hidden worlds = **49,152 existing worlds**; **0 new deals, 0 new worlds, 0 new full rounds**.
+- Opponent stones after starter double versus ordinary: single replies **+0.0784** (high-pip) / **+0.1466** (low-pip), but greedy optional double chains **−0.2423** / **−0.1617**. Prior short-window conclusion reverses under chain policy.
+- Branch models and human chain propensity remain provisional; no full-game win-rate claim. Next: clean Node replay, chain legality fixtures, physical branch/tie validation.
 
 ## Verified cumulative (incompatible models kept separate)
 - **1,380,975** complete model rounds across incompatible branch assumptions; historical 4,000 separate (unchanged).

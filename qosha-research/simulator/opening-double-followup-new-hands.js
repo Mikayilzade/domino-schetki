@@ -33,4 +33,4 @@ function experiment(worldsPerHand=2048){check(Number.isInteger(worldsPerHand)&&w
 
 function test(){const b=init(2);check(actions(b,[[0,2]]).length===0,'locked');const a=actions(b,[[2,2]])[0];check(a&&a.dbl,'double');const opened=apply(b,a,'global');check(actions(opened,[[0,2]]).length>0,'opened');check(actions(opened,[[2,2]]).length===0,'once');const d=shuffled(1898414179);check(d.length===28&&new Set(d.map(key)).size===28);check(JSON.stringify(d)===JSON.stringify(shuffled(1898414179)),'replay');const {selected}=select();check(new Set(selected.map(x=>x.seed)).size===24);const a1=experiment(2),a2=experiment(2);check(JSON.stringify(a1)===JSON.stringify(a2),'deterministic');check(a1.newHiddenWorlds===48);return{passed:true,selectedHands:24,worlds:48,deterministic:true};}
 if(typeof require!=='undefined'&&require.main===module)console.log(JSON.stringify(process.argv[2]==='test'?test():experiment(process.argv[2]?Number(process.argv[2]):2048),null,2));
-if(typeof module!=='undefined')module.exports={experiment,test};
+if(typeof module!=='undefined')module.exports={experiment,test,select,shuffled,DECK,key,pips,init,actions,apply,choose,turn};
