@@ -1,5 +1,13 @@
 # Qoşa research status
 
+Updated: 2026-10-30 14:55 +04 (Asia/Baku)
+
+## Latest checkpoint — impossible opening triple-pass history now rejected
+- [Exact capacity checker](simulator/public-pass-feasibility.js), [replay integration](simulator/public-history-replay.js), [run details](runs/2026-10-30-1455-public-pass-feasibility.md). In a 3×9 first-round 1-1 opening with empty stock, **all three players cannot be forced to pass**: six unplayed 1-X connectors must be held somewhere. Exact compatible assignments: **227,873,431,500** without passes, **64,664,600** when two seats pass, **0** when all three pass.
+- Node 22 standalone checker passed 7 fixtures and 2 guards. GitHub-fetched V8 integration passed replay (18 guards, 100 seeds), bridge (6 fixtures), ledger (9 checks) and posterior (200 seeds). Clean-checkout Node integration remains pending. **0 new deals/worlds/rounds**, no new winning tactic.
+- Cumulative unchanged: **1,380,975** incompatible-model complete rounds, **1,898,856** forced continuations, **630,000** opening deals, **1,070,480** hidden allocations; next unused seed >=3279432. Late-arrival branch rule and blocked ties still provisional.
+- **Next:** clean-checkout Node tests, authentic physical pass/branch/tie evidence, then matched-seed strategy ranking.
+
 Updated: 2026-10-30 13:52 +04 (Asia/Baku)
 
 ## Latest checkpoint — chronological focal/opponent pass regression repaired
