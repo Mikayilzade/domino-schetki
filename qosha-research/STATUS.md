@@ -1,6 +1,12 @@
 # Qoşa research status
 
-Updated: 2026-10-30 06:50 +04 (Asia/Baku)
+Updated: 2026-10-30 10:53 +04 (Asia/Baku)
+
+## Latest checkpoint — chronological pass-to-ownership bridge (2026-10-30 10:53 +04)
+- [New source](simulator/public-pass-inference-bridge.js), [checkpoint](runs/2026-10-30-1053-public-pass-inference-bridge.md). Connects chronological provisional public replay to exact stock-aware ownership inference with independent posterior-count comparison.
+- 5 fixture expectations: 5,005 forced-pass, 24,310 no-pass, 2,002 known draw to seat 2, 5,005 stock-1-1 opening, 3,003 known tile in seat 1. Four fail-closed guards. Node 22 syntax and independent combinatorial oracle checked; **clean-checkout integration test still pending**.
+- **0 new deals/worlds/rounds/continuations**. Cumulative unchanged: 1,380,975 incompatible-rule rounds; 1,898,856 continuations; 630,000 opening deals; 1,070,480 hidden allocations. Next seed >=3279432. Physical branch reopening and blocked ties still unresolved; no new winning tactic.
+- **Next:** execute bridge test in clean checkout; validate against genuinely logged forced-pass history and physical branch/tie rulings.
 
 ## Latest checkpoint — two forced passes distinguish provisional branch models (2026-10-30 06:50 +04)
 - [Node exact evidence-strength audit](simulator/late-arrival-pass-evidence-strength.js), [checkpoint](runs/2026-10-30-0650-pass-evidence-strength.md). 8,568 own hands × 1,716 hidden opponent hands (14,702,688 exact joint assignments), 6,864 independent brute-force checks; **0 new seeded deals/worlds/full rounds**.
