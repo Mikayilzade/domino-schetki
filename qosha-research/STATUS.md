@@ -1,5 +1,13 @@
 # Qoşa research status
 
+Updated: 2026-10-30 11:55 +04 (Asia/Baku)
+
+## Latest checkpoint — bridge integration fixture repaired (2026-10-30 11:55 +04)
+- [Regression fix](simulator/public-pass-inference-bridge.js), [run note](runs/2026-10-30-1155-bridge-integration-regression.md). Previous no-pass fixture incorrectly removed a real played tile while keeping the old focal hand; reproduced fail-closed rejection, corrected the fixture, and added a negative guard.
+- In isolated V8 CommonJS integration: 5 fixture counts (5,005 / 24,310 / 2,002 / 5,005 / 3,003), 5 bridge negative guards, related replay (100 seeds), posterior (200 seeds) and stock-aware ledger tests pass. **Clean-checkout Node 22 execution still pending.**
+- **0 new deals/worlds/rounds/continuations**; cumulative unchanged: 1,380,975 incompatible-rule rounds, 1,898,856 continuations, 630,000 opening deals, 1,070,480 hidden allocations; next unused seed >=3279432. Physical branch/tie rules provisional; no new winning tactic.
+- **Next:** clean-checkout Node test and authenticated real forced-pass history; then matched-seed strategy validation.
+
 Updated: 2026-10-30 10:53 +04 (Asia/Baku)
 
 ## Latest checkpoint — chronological pass-to-ownership bridge (2026-10-30 10:53 +04)

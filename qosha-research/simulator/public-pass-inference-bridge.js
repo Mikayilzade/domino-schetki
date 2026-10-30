@@ -49,8 +49,13 @@ function test(){
  const a=analyze(base);
  assert.equal(a.compatibleWorlds,5005);
  assert.equal(a.eligibleNoAcquisitionPasses,1);
- const noPass=history.fixture();noPass.events=[];
- assert.equal(analyze(noPass).compatibleWorlds,24310);
+ const noPass=history.fixture();noPass.events=noPass.events.slice(0,1);
+ const noPassResult=analyze(noPass);
+ assert.equal(noPassResult.compatibleWorlds,24310);
+ assert.equal(noPassResult.observedPasses,0);
+ assert.equal(noPassResult.eligibleNoAcquisitionPasses,0);
+ const staleHand=history.fixture();staleHand.events=[];
+ assert.throws(()=>analyze(staleHand),/focal hand count mismatch/);
  const drawn=history.fixture();drawn.opening.drawnTile=[3,6];
  assert.equal(analyze(drawn).compatibleWorlds,2002);
  const stock=history.fixture();stock.opening={starter:2,fromStock:true,
@@ -68,7 +73,7 @@ function test(){
  const wrongSource=history.replay(base);
  wrongSource.posteriorSpec.passObservations[0].source='unverified mask';
  assert.throws(()=>inputFromReplay(wrongSource));
- return {passed:true,scenarios:5,negativeGuards:4,
+ return {passed:true,scenarios:5,negativeGuards:5,
   expectedCompatibleWorlds:{singlePass:5005,noPass:24310,knownDraw:2002,
    stockOpening:5005,knownOpponentTile:3003},
   newSeededDeals:0,newRandomHiddenWorlds:0,newCompleteRounds:0,
