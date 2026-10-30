@@ -1,5 +1,12 @@
 # Qoşa research status
 
+Updated: 2026-10-30 18:50 +04 (Asia/Baku)
+
+## Latest checkpoint — calibrated exact pairwise ownership against seeded hidden-world sampler
+- [Script](simulator/public-joint-sampler-calibration.js), [full metrics](RESULTS.md). **32,768 new seeded hidden allocations** on `3279432..3312199`; **0 new deals, complete rounds or forced continuations**. 7,150 exact compatible worlds, 7,071 distinct observed; paired `1-2`/`1-3` both in seat1 **26,172/32,768** versus exact **80%**, no impossible both-in-stock assignments. All calibration |z| <=1.051. Fetched committed source and actual GitHub dependencies passed V8 CommonJS replay; clean-checkout Node still pending.
+- **Cumulative:** 1,380,975 incompatible-model complete rounds, 1,898,856 forced continuations, 630,000 opening deals, **1,103,248 seeded hidden allocations**. Historical 4,000 rounds separate. **Next unused seed >=3312200**.
+- This is one synthetic known-hand/pass-mask fixture, **not an authenticated physical pass or a winning strategy**. Late-arrival branch and blocked ties remain unverified. **Next:** authentic trace/rules, then matched-world move regret.
+
 Updated: 2026-10-30 16:50 +04 (Asia/Baku)
 
 ## Latest checkpoint — chronological exact four-owner bridge
