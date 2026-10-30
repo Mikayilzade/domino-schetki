@@ -1,3 +1,8 @@
+## Latest checkpoint — exact double-chain opportunity cross-check (2026-10-31 01:54 +04 (Asia/Baku))
+- [Code](simulator/public-double-chain-exact.js) and [run report](runs/2026-10-31-0154-public-double-chain-exact.md). Reused 56,485 exact conditional hand assignments; 0 new random worlds/deals/rounds. Actual research dispatcher agrees with independent maximum-double oracle in every assignment; representative `applyTurn` checks passed in V8 (clean Node pending).
+- Conditional known `3-3`: move `1-4` instead of `1-3` reduces opponent two-double opportunity **50% → 23.3333%** and mean maximum double tiles **1.5 → 1.0**; known `4-4` reverses, both known cancel. **NOT a win-rate or human-policy result**.
+- Cumulative unchanged: 1,380,975 incompatible-model rounds; 1,898,856 forced continuations; 630,000 opening deals; 1,183,120 seeded hidden allocations. Next seed >=3392072. Branch/tie and optional-chain choice unresolved. Next: clean Node and matched-world two-turn policy sensitivity.
+
 ## 2026-10-30 20:50 +04 — stock-conditioned double posterior (latest)
 - [Standalone Node exact/sampled contract](simulator/connector-posterior-contract.js); [checkpoint](runs/2026-10-30-2050-connector-posterior-contract.md). 7,150 exact synthetic allocations + **32,768 new seeded worlds** (3344968..3377735), 0 new complete rounds. Node 22 independent mode passed; optional actual-repository integration is coded but **not yet executed**.
 - Given seat1 owns 1-3, P(seat1 also owns 3-3) is **30.77%** if stock is another 1-X connector versus **23.08%** if stock is a nonconnector; exact only under synthetic pass and fixed focal hand, not a proven winning tactic.
