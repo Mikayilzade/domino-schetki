@@ -1,3 +1,8 @@
+## 2026-10-30 20:50 +04 — stock-conditioned double posterior (latest)
+- [Standalone Node exact/sampled contract](simulator/connector-posterior-contract.js); [checkpoint](runs/2026-10-30-2050-connector-posterior-contract.md). 7,150 exact synthetic allocations + **32,768 new seeded worlds** (3344968..3377735), 0 new complete rounds. Node 22 independent mode passed; optional actual-repository integration is coded but **not yet executed**.
+- Given seat1 owns 1-3, P(seat1 also owns 3-3) is **30.77%** if stock is another 1-X connector versus **23.08%** if stock is a nonconnector; exact only under synthetic pass and fixed focal hand, not a proven winning tactic.
+- Cumulative: **1,380,975** incompatible-model rounds, **1,898,856** continuations, **630,000** opening deals, **1,168,784** seeded hidden allocations; next unused seed >=3377736. Physical late-arrival branches/ties unresolved; next clean-checkout integration and authenticated chronological pass.
+
 ## 2026-10-30 19:46 +04 — connector versus matching double posterior (latest)
 - [Executable standalone exact audit](simulator/connector-double-conditional-audit.js); [full checkpoint](runs/2026-10-30-1946-connector-double-conditional.md). 7,150 exact synthetic conditional worlds + 32,768 new seeded allocations (3312200..3344967), Node test/full run passed; 0 new full rounds.
 - Assumed forced pass makes P(seat1 has 1-3)=90%, but P(seat1 has 3-3 | has 1-3) **falls from 44.44% to 27.35%** because connector-heavy hands have fewer slots for doubles. This is an exact *conditional capacity* finding, not an authenticated physical-game tactic.
