@@ -1,5 +1,14 @@
 # Qoşa research status
 
+Updated: 2026-10-30 16:50 +04 (Asia/Baku)
+
+## Latest checkpoint — chronological exact four-owner bridge
+- [Source](simulator/public-ownership-bridge.js), [run note](runs/2026-10-30-1650-public-ownership-bridge.md). V8 integration of actual fetched GitHub modules passed 6 public chronological cases (5,005 / 24,310 / 2,002 / 5,005 / 3,003 / 6,435 compatible worlds), 98 hidden-tile marginals independently matched against the existing exact ledger, 2 negative guards. **Node clean-checkout still pending**.
+- **0 new seeded deals/worlds/complete rounds/forced continuations**; no new winning tactic. Exact owner probabilities now flow from verified chronological forced passes into seat0/seat1/seat2/stock marginals, conditional on PROVISIONAL global-ever-open geometry.
+- Cumulative unchanged: **1,380,975** incompatible-model rounds, **1,898,856** forced continuations, **630,000** opening deals, **1,070,480** seeded hidden allocations; next unused seed >=3279432. Physical branch reopening and blocked ties unverified.
+- **Next:** independent Node execution, authentic pass/branch/tie evidence, then matched-seed full-game comparisons.
+
+
 Updated: 2026-10-30 14:55 +04 (Asia/Baku)
 
 ## Latest checkpoint — impossible opening triple-pass history now rejected

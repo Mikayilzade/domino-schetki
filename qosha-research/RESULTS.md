@@ -1725,3 +1725,11 @@
 - Independent Node 22.16.0 exhaustive script passed on 12 symmetry representatives and structural checks passed for all 360; no fresh-checkout test claim. Confidence exact only under conditional uniform assignment; earlier move likelihood, physical branch rule, and blocked-tie scoring unresolved.
 - Cumulative unchanged: **1,380,975** incompatible-model rounds; **1,898,856** forced continuations; **630,000** opening deals; **1,070,480** seeded hidden allocations; historical 4,000 separate. Next unused random seed >=3279432.
 - Code: [simulator/late-arrival-conditional-census.js](simulator/late-arrival-conditional-census.js); full [checkpoint](runs/2026-10-30-0354-late-arrival-conditional-census.md). **Next:** authenticate late-arrival branch and blocked ties; then matched-seed full-game comparisons.
+
+
+### 2026-10-30 16:50 +04 (Asia/Baku) — chronological exact ownership bridge
+- Engine: `qosa-research-0.5.3 + public-ownership-bridge/v1`, recovered `qosa-1.0.0` 3×9; public branch legality PROVISIONAL global-ever-open.
+- **0 new deals/worlds/complete rounds/forced continuations**; no seed set or strategy ranking. V8 CommonJS integration with actual fetched GitHub modules passed **6 chronological fixtures**, **2 negative guards**, **98 independent hidden-tile marginal comparisons**; counts 5005/24310/2002/5005/3003/6435. Clean-checkout Node remains pending.
+- Finding: exact seat0/seat1/seat2/stock ownership probabilities can now be calculated from a replayed public forced-pass trace and independently reconciled against both earlier exact counters. **No new winning tactic** or authenticated physical branch rule.
+- Cumulative unchanged: 1,380,975 incompatible-model rounds; 1,898,856 forced continuations; 630,000 opening deals; 1,070,480 seeded hidden allocations; next unused seed >=3279432. Historical 4,000 separate.
+- [Detailed checkpoint](runs/2026-10-30-1650-public-ownership-bridge.md); [source](simulator/public-ownership-bridge.js). **Next:** clean Node integration, authentic physical pass/branch/tie evidence, then matched-seed strategy testing.
