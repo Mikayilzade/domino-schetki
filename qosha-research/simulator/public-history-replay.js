@@ -4,6 +4,7 @@
 // node qosha-research/simulator/public-history-replay.js test
 // node qosha-research/simulator/public-history-replay.js 2042000 12000
 const e=require('./engine'),d=require('./turn-dispatcher'),post=require('./midgame-exact-posterior');
+const feasibility=require('./public-pass-feasibility');
 const key=e.tileKey,deck=e.createDoubleSixDeck,SIDES=e.SIDES;
 const clone=a=>a.map(t=>t.slice());
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
@@ -162,6 +163,18 @@ function replay(spec){
    eligible:passObservations.some(x=>x.source.includes('event '+p.eventIndex+';')&&x.player===p.player),
    branchEnds:p.ends,openedNumbers:p.openedNumbers})),
   lateArrivals,modelDivergences,eventCounts};
+ // Reject impossible public histories even without any player's private hand.
+ // All three seats' still-applicable no-acquisition passes constrain capacity.
+ const known={0:spec.focalHand?clone(spec.focalHand):[],
+  1:clone(knownOpponentTiles[1]),2:clone(knownOpponentTiles[2])};
+ for(const [k,owner] of knownDraws)if(!playedKeys.has(k)&&
+  !known[owner].some(t=>key(t)===k))known[owner].push(k.split('-').map(Number));
+ const masks={0:[],1:[],2:[]};
+ for(const p of passes)if(p.stockSizeAtPass===0&&acquisitions[p.player]===p.acquisitionsAtPass)
+  masks[p.player].push([...p.forbiddenSet]);
+ const possible=feasibility.analyze({played,handSizes,stockSize,known,passMasks:masks});
+ if(!possible.possible)throw Error('no hidden tile allocation satisfies observed passes');
+ result.publicFeasibilityWorlds=possible.compatibleWorlds;
  if(spec.focalHand){
   if(!Array.isArray(spec.focalHand)||spec.focalHand.length!==handSizes[0])throw Error('focal hand count mismatch');
   result.posteriorSpec={playedTiles:clone(played),focalHand:clone(spec.focalHand),
@@ -222,15 +235,14 @@ function test(){
   forcedOpening.passAudit[0].eligible!==true||forcedOpening.passAudit[1].eligible!==false||
   forcedOpening.passAudit[0].forbiddenTiles.length!==6||
   forcedOpening.passAudit[1].forbiddenTiles.length!==6)throw Error('opening pass chronology failed');
- const threePasses=replay({model:'provisional-global-ever-open',
+ // After 1-1 with empty stock, three consecutive forced passes are
+ // impossible: six 1-X connectors remain in the 27 private stones.
+ let impossibleTripleRejected=false;
+ try{replay({model:'provisional-global-ever-open',
   opening:{starter:2,stockDraw:true,passed:true},
-  events:[{player:0,type:'pass'},{player:1,type:'pass'}]});
- if(threePasses.passCount!==3||threePasses.focalPassCount!==1||
-  threePasses.activeNoStockPasses!==2||threePasses.discardedPasses!==1||
-  !same(threePasses.passObservations.map(p=>p.player),[2,1])||
-  !same(threePasses.passAudit.map(p=>p.eligible),[true,false,true])||
-  threePasses.passAudit.some(p=>p.forbiddenTiles.length!==6))
-  throw Error('three-pass opponent-only posterior chronology failed');
+  events:[{player:0,type:'pass'},{player:1,type:'pass'}]});}
+ catch(err){impossibleTripleRejected=/no hidden tile allocation/.test(err.message);}
+ if(!impossibleTripleRejected)throw Error('impossible opening triple pass accepted');
  const multi=replay({model:'provisional-global-ever-open',opening:{starter:2,stockDraw:true,followup:{tile:[1,2],side:'up'}},
   events:[{player:0,type:'single',tile:[1,3],side:'left'},
    {player:1,type:'double-sequence',numbers:[2,3]}]});
@@ -289,7 +301,7 @@ function test(){
  }
  return {passed:true,chronologicalPassMask:10,exactCompatible:Number(p.total),
   lateArrivalDiagnostics:late.lateArrivals.length,allCurrentDivergentMoves:late.modelDivergences.length,
-  openingPassesChecked:3,opponentOpeningPassMasksChecked:2,focalPassesChecked:1,focalPassInvalidHandRejected:true,
+  openingPassesChecked:2,opponentOpeningPassMasksChecked:1,impossibleOpeningTriplePassRejected:true,focalPassesChecked:1,focalPassInvalidHandRejected:true,
   multiDoubleSequenceChecked:true,knownDrawPartitions:Number(knownPosterior.total),
   knownDrawOwner:2,retrospectiveFocalPassGuard:true,stockOpeningExactPartitions:Number(stockPosterior.total),stockOpeningProvenance:true,negativeGuards:rejected,seedReplay:100};
 }
