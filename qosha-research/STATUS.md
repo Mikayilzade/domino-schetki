@@ -1,5 +1,13 @@
 # Qoşa research status
 
+Updated: 2026-10-30 12:45 +04 (Asia/Baku)
+
+## Latest checkpoint — focal-pass posterior bug fixed (2026-10-30 12:45 +04)
+- [Chronological replay](simulator/public-history-replay.js) previously forwarded a valid **seat-0 (known focal) forced pass** into an opponent-only posterior, causing a rejection. It now verifies the focal pass against the known hand but constrains only hidden seats 1 and 2. [Bridge](simulator/public-pass-inference-bridge.js) reports focal passes separately.
+- New 3×9 chronological fixture: 5 played tiles, focal hand 8, unknown opponent hands 8+7, **C(15,8)=6,435** exact allocations, **0 hidden pass masks**. A deliberately playable focal hand is rejected. Independent Node 22 fixture combinatorics passed; full repository integration Node/V8 run remains pending.
+- **0 new seeded deals, random worlds, complete rounds or forced continuations.** Cumulative unchanged: **1,380,975** incompatible-rule rounds; **1,898,856** continuations; **630,000** opening deals; **1,070,480** seeded hidden allocations. Next unused seed >=3279432. Physical late-arrival branches and block ties remain provisional.
+- [Detailed checkpoint](runs/2026-10-30-1245-focal-pass-posterior-fix.md). **Next:** run the full bridge and replay tests from a clean checkout; validate real public histories, then compare matched-seed strategies only under authenticated rules.
+
 Updated: 2026-10-30 11:55 +04 (Asia/Baku)
 
 ## Latest checkpoint — bridge integration fixture repaired (2026-10-30 11:55 +04)

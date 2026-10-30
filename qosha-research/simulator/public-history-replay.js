@@ -145,14 +145,17 @@ function replay(spec){
    }
   }
  }
- const passObservations=passes.filter(p=>p.stockSizeAtPass===0&&acquisitions[p.player]===p.acquisitionsAtPass)
+ // Focal passes are checked against the known focal hand above. The hidden-world
+ // posterior only accepts constraints on the TWO unknown opponent hands.
+ const passObservations=passes.filter(p=>p.player!==0&&p.stockSizeAtPass===0&&acquisitions[p.player]===p.acquisitionsAtPass)
   .map(p=>({player:p.player,forbiddenTiles:clone(p.forbiddenTiles),noInterveningDraw:true,
    source:'chronological public pass at event '+p.eventIndex+'; provisional global-ever-open'}));
  const result={model:spec.model,openingSource:fromStock?'stock-1-1-previous-winner':'hand-1-1-with-draw',playedTiles:clone(played),handSizes:handSizes.slice(),stockSize,
   branchEnds:Object.fromEntries(SIDES.map(s=>[s,branch.branches[s].end])),
   openedNumbers:[...opening.openedNumbers].sort((a,b)=>a-b),currentPlayer,
   knownDrawAudit:[...knownDraws].map(([tile,owner])=>({tile,owner,stillHeld:!playedKeys.has(tile)})),
-  passCount:passes.length,activeNoStockPasses:passObservations.length,
+  passCount:passes.length,focalPassCount:passes.filter(p=>p.player===0).length,
+  activeNoStockPasses:passObservations.length,
   discardedPasses:passes.length-passObservations.length,passObservations,
   passAudit:passes.map(p=>({player:p.player,eventIndex:p.eventIndex,openingPass:p.openingPass,
    stockSizeAtPass:p.stockSizeAtPass,forbiddenTiles:p.forbiddenTiles.map(key).sort(),
@@ -169,6 +172,18 @@ function replay(spec){
  }
  return result;
 }
+function focalPassFixture(){
+ // Seat 0's known eight-tile hand has no legal move after these four public
+ // plays. Its forced pass is verified locally, NOT treated as an opponent mask.
+ return {model:'provisional-global-ever-open',
+  opening:{starter:2,stockDraw:true,followup:{tile:[1,2],side:'up'}},
+  events:[{player:0,type:'double-sequence',numbers:[2]},
+   {player:1,type:'single',tile:[0,1],side:'left'},
+   {player:2,type:'single',tile:[2,3],side:'up'},
+   {player:0,type:'pass'}],
+  focalHand:[[2,4],[2,5],[2,6],[4,4],[4,5],[4,6],[5,5],[5,6]],
+  knownOpponentTiles:{1:[],2:[]}};
+}
 function lateArrivalFixture(){
  return {model:'provisional-global-ever-open',opening:{starter:2,stockDraw:true,followup:{tile:[1,2],side:'up'}},
   events:[{player:0,type:'double-sequence',numbers:[2]},
@@ -184,6 +199,15 @@ function test(){
   r.passAudit[0].forbiddenTiles.length!==10||p.total!==5005n)
   throw Error('chronological pass fixture or exact posterior mismatch');
  if(JSON.stringify(before)!==f)throw Error('source fixture mutated');
+ const focalPass=focalPassFixture(),focalReplay=replay(focalPass);
+ if(focalReplay.passCount!==1||focalReplay.focalPassCount!==1||
+  focalReplay.activeNoStockPasses!==0||focalReplay.discardedPasses!==1||
+  focalReplay.posteriorSpec.passObservations.length!==0||
+  post.prepare(focalReplay.posteriorSpec).total!==6435n)
+  throw Error('known focal forced pass must not become an opponent posterior constraint');
+ const invalidFocal=focalPassFixture();invalidFocal.focalHand[0]=[1,4];
+ let focalRejected=false;try{replay(invalidFocal);}catch(err){focalRejected=/known focal hand contradicts observed/.test(err.message);}
+ if(!focalRejected)throw Error('known playable focal tile must invalidate observed forced pass');
  const late=replay(lateArrivalFixture());
  if(late.lateArrivals.length!==1||late.lateArrivals[0].side!=='left'||
   late.lateArrivals[0].number!==2||late.modelDivergences.length!==1||
@@ -250,7 +274,7 @@ function test(){
  }
  return {passed:true,chronologicalPassMask:10,exactCompatible:Number(p.total),
   lateArrivalDiagnostics:late.lateArrivals.length,allCurrentDivergentMoves:late.modelDivergences.length,
-  openingPassesChecked:2,
+  openingPassesChecked:2,focalPassesChecked:1,focalPassInvalidHandRejected:true,
   multiDoubleSequenceChecked:true,knownDrawPartitions:Number(knownPosterior.total),
   knownDrawOwner:2,retrospectiveFocalPassGuard:true,stockOpeningExactPartitions:Number(stockPosterior.total),stockOpeningProvenance:true,negativeGuards:rejected,seedReplay:100};
 }
@@ -288,4 +312,4 @@ if(require.main===module){
  const a=process.argv.slice(2);
  console.log(JSON.stringify(a[0]==='test'?test():run(+(a[0]||2042000),+(a[1]||12000)),null,2));
 }
-module.exports={fixture,lateArrivalFixture,replay,test,run};
+module.exports={fixture,focalPassFixture,lateArrivalFixture,replay,test,run};

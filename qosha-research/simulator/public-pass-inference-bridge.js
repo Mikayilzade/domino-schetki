@@ -37,7 +37,8 @@ function analyze(spec){
  return {schema:'qosha-public-pass-inference-bridge/v1',
   rules:'recovered qosa-1.0.0, 3x9; branch global-ever-open PROVISIONAL',
   openingSource:r.openingSource,played:r.playedTiles.length,
-  observedPasses:r.passCount,eligibleNoAcquisitionPasses:r.activeNoStockPasses,
+  observedPasses:r.passCount,focalPasses:r.focalPassCount,
+  eligibleNoAcquisitionPasses:r.activeNoStockPasses,
   discardedPasses:r.discardedPasses,handSizes:r.handSizes,stock:r.stockSize,
   exactCrossCheck:true,compatibleWorlds:answer.compatibleWorlds,
   inconsistent:answer.inconsistent,certain:answer.certain,
@@ -62,6 +63,14 @@ function test(){
   stockDraw:false,isFirstRound:false,previousWinnerIndex:2,
   followup:{tile:[1,2],side:'up'}};
  assert.equal(analyze(stock).compatibleWorlds,5005);
+ const focalPass=history.focalPassFixture(),focalResult=analyze(focalPass);
+ assert.equal(focalResult.compatibleWorlds,6435);
+ assert.equal(focalResult.observedPasses,1);
+ assert.equal(focalResult.focalPasses,1);
+ assert.equal(focalResult.eligibleNoAcquisitionPasses,0);
+ assert.equal(focalResult.discardedPasses,1);
+ const invalidFocal=history.focalPassFixture();invalidFocal.focalHand[0]=[1,4];
+ assert.throws(()=>analyze(invalidFocal),/known focal hand contradicts observed/);
  const known=history.fixture();known.knownOpponentTiles={1:[[3,6]],2:[]};
  assert.equal(analyze(known).compatibleWorlds,3003);
  assert.equal(JSON.stringify(base),copy,'source mutated');
@@ -73,11 +82,11 @@ function test(){
  const wrongSource=history.replay(base);
  wrongSource.posteriorSpec.passObservations[0].source='unverified mask';
  assert.throws(()=>inputFromReplay(wrongSource));
- return {passed:true,scenarios:5,negativeGuards:5,
-  expectedCompatibleWorlds:{singlePass:5005,noPass:24310,knownDraw:2002,
+ return {passed:true,scenarios:6,negativeGuards:6,
+  expectedCompatibleWorlds:{singlePass:5005,noPass:24310,focalPass:6435,knownDraw:2002,
    stockOpening:5005,knownOpponentTile:3003},
   newSeededDeals:0,newRandomHiddenWorlds:0,newCompleteRounds:0,
-  finding:'Chronological provisional legal masks feed the independent exact stock-aware ledger without manual mask transcription; identical conditional world counts across five controls.'};
+  finding:'Known focal forced passes are validated against the focal hand but excluded from hidden-opponent masks; six exact controls agree across the two independent counters.'};
 }
 if(require.main===module){
  const arg=process.argv[2]||'test';
