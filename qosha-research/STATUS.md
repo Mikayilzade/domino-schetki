@@ -1,3 +1,8 @@
+## 2026-10-30 19:46 +04 — connector versus matching double posterior (latest)
+- [Executable standalone exact audit](simulator/connector-double-conditional-audit.js); [full checkpoint](runs/2026-10-30-1946-connector-double-conditional.md). 7,150 exact synthetic conditional worlds + 32,768 new seeded allocations (3312200..3344967), Node test/full run passed; 0 new full rounds.
+- Assumed forced pass makes P(seat1 has 1-3)=90%, but P(seat1 has 3-3 | has 1-3) **falls from 44.44% to 27.35%** because connector-heavy hands have fewer slots for doubles. This is an exact *conditional capacity* finding, not an authenticated physical-game tactic.
+- Cumulative: 1,380,975 model rounds; 1,898,856 continuations; 630,000 opening deals; **1,136,016** seeded hidden allocations. Next unused seed >=3344968. Branch/tie scoring unresolved; next real chronological pass + cross-check against existing posterior sampler.
+
 # Qoşa research status
 
 Updated: 2026-10-30 18:50 +04 (Asia/Baku)
