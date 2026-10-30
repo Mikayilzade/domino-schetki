@@ -214,8 +214,23 @@ function test(){
   late.modelDivergences[0].tile!=='2-4')throw Error('late-arrival branch diagnostic failed');
  const forcedOpening=replay({model:'provisional-global-ever-open',opening:{starter:2,stockDraw:true,passed:true},
   events:[{player:0,type:'pass'}]});
- if(forcedOpening.activeNoStockPasses!==2||forcedOpening.passAudit[0].forbiddenTiles.length!==6||
+ // Seat 0 is the known focal hand: validate its pass, but never include it
+ // among the two unknown-opponent posterior masks.
+ if(forcedOpening.passCount!==2||forcedOpening.focalPassCount!==1||
+  forcedOpening.activeNoStockPasses!==1||forcedOpening.discardedPasses!==1||
+  forcedOpening.passObservations.length!==1||forcedOpening.passObservations[0].player!==2||
+  forcedOpening.passAudit[0].eligible!==true||forcedOpening.passAudit[1].eligible!==false||
+  forcedOpening.passAudit[0].forbiddenTiles.length!==6||
   forcedOpening.passAudit[1].forbiddenTiles.length!==6)throw Error('opening pass chronology failed');
+ const threePasses=replay({model:'provisional-global-ever-open',
+  opening:{starter:2,stockDraw:true,passed:true},
+  events:[{player:0,type:'pass'},{player:1,type:'pass'}]});
+ if(threePasses.passCount!==3||threePasses.focalPassCount!==1||
+  threePasses.activeNoStockPasses!==2||threePasses.discardedPasses!==1||
+  !same(threePasses.passObservations.map(p=>p.player),[2,1])||
+  !same(threePasses.passAudit.map(p=>p.eligible),[true,false,true])||
+  threePasses.passAudit.some(p=>p.forbiddenTiles.length!==6))
+  throw Error('three-pass opponent-only posterior chronology failed');
  const multi=replay({model:'provisional-global-ever-open',opening:{starter:2,stockDraw:true,followup:{tile:[1,2],side:'up'}},
   events:[{player:0,type:'single',tile:[1,3],side:'left'},
    {player:1,type:'double-sequence',numbers:[2,3]}]});
@@ -274,7 +289,7 @@ function test(){
  }
  return {passed:true,chronologicalPassMask:10,exactCompatible:Number(p.total),
   lateArrivalDiagnostics:late.lateArrivals.length,allCurrentDivergentMoves:late.modelDivergences.length,
-  openingPassesChecked:2,focalPassesChecked:1,focalPassInvalidHandRejected:true,
+  openingPassesChecked:3,opponentOpeningPassMasksChecked:2,focalPassesChecked:1,focalPassInvalidHandRejected:true,
   multiDoubleSequenceChecked:true,knownDrawPartitions:Number(knownPosterior.total),
   knownDrawOwner:2,retrospectiveFocalPassGuard:true,stockOpeningExactPartitions:Number(stockPosterior.total),stockOpeningProvenance:true,negativeGuards:rejected,seedReplay:100};
 }

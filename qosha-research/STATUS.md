@@ -1,5 +1,14 @@
 # Qoşa research status
 
+Updated: 2026-10-30 13:52 +04 (Asia/Baku)
+
+## Latest checkpoint — chronological focal/opponent pass regression repaired
+- [Code](simulator/public-history-replay.js) and [checkpoint](runs/2026-10-30-1350-public-replay-regression.md). Fixed stale assertion after the focal-pass exclusion: opening seats 2→0 have **1** hidden pass mask, not 2; new 2→0→1 fixture has **2** opponent masks, 1 focal pass, eligibility [true,false,true].
+- V8 CommonJS integration passed for public replay (18 guards, 100 deterministic replays), bridge (6 exact scenarios, 6 guards), and independent ownership ledger (9 checks). **Clean-checkout Node still pending**. **0 new deals/worlds/rounds**; no new strategy finding.
+- Cumulative unchanged: **1,380,975** incompatible-model rounds; **1,898,856** continuations; **630,000** opening deals; **1,070,480** hidden allocations; next unused seed >=3279432. Physical branch reopening and blocked ties remain provisional.
+- **Next:** clean-checkout Node tests and authenticated public trace, then matched-seed strategy comparisons only under verified rules.
+
+
 Updated: 2026-10-30 12:45 +04 (Asia/Baku)
 
 ## Latest checkpoint — focal-pass posterior bug fixed (2026-10-30 12:45 +04)
