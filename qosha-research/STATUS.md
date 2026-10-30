@@ -1,6 +1,11 @@
 # Qoşa research status
 
-Updated: 2026-10-30 03:54 +04 (Asia/Baku)
+Updated: 2026-10-30 06:50 +04 (Asia/Baku)
+
+## Latest checkpoint — two forced passes distinguish provisional branch models (2026-10-30 06:50 +04)
+- [Node exact evidence-strength audit](simulator/late-arrival-pass-evidence-strength.js), [checkpoint](runs/2026-10-30-0650-pass-evidence-strength.md). 8,568 own hands × 1,716 hidden opponent hands (14,702,688 exact joint assignments), 6,864 independent brute-force checks; **0 new seeded deals/worlds/full rounds**.
+- Constructed witness: current-only/global forced-pass likelihood ratio **10.4** for one pass, **36.0** for two; own-hand-exclusive evidence among current-model pass observations **1.05% → 60.10%**. **Both physical branch models provisional; not a real-game frequency or win tactic.**
+- Cumulative unchanged: 1,380,975 incompatible-rule model rounds; 1,898,856 forced continuations; 630,000 opening deals; 1,070,480 seeded hidden allocations. Next seed >=3279432. **Next:** authenticate physical branch reopening and blocked ties, then analyze real forced-pass history.
 
 ## Latest checkpoint — own-hand-conditioned late-arrival posterior (2026-10-30 04:45 +04)
 - [Standalone exact Node script](simulator/late-arrival-own-hand-posterior.js); [checkpoint](runs/2026-10-30-0445-late-arrival-own-hand-posterior.md); [JSON](runs/2026-10-30-0445-late-arrival-own-hand-posterior.json). **27,132** own-hand subsets classified; **10,296** opponent-hand brute-force checks passed. **0 new seeded deals, random worlds, or full rounds**.
