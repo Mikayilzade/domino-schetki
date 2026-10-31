@@ -3,7 +3,7 @@
 // Run: node qosha-research/simulator/side-label-invariance-audit.js [start=3402312] [count=2048]
 // or:  node qosha-research/simulator/side-label-invariance-audit.js test
 // Structural/metamorphic audit only; not physical-rule authentication.
-const assert = require('node:assert/strict');
+const assert = globalThis.__qoshaAssert;
 const MODELS = ['global-ever-open', 'all-current-only'];
 const STYLES = ['low', 'high', 'double-first', 'double-last'];
 const STOPS = ['single', 'greedy'];
@@ -231,12 +231,12 @@ function permutations(a = [0, 1, 2, 3], i = 0, out = []) {
 }
 function run(start = 3402312, count = 2048) {
   assert(Number.isSafeInteger(start) && start >= 0 && Number.isInteger(count) && count > 1 && count <= 4096);
-  const perms = permutations(), unique = new Set(), split = Math.floor(count / 2);
+  const perms = permutations(), unique = new Map(), duplicateAllocationPairs = [], split = Math.floor(count / 2);
   const cohorts = [
-    { name: 'development', seedStart: start, seedCount: split, eligibleWorlds: 0,
+    { name: 'development', seedStart: start, seedCount: split, uniqueAllocations: 0, duplicateAllocations: 0, eligibleWorlds: 0,
       candidateComparisons: 0, safetyFlips: 0, numericPermutationIneligible: 0,
       numericEligibilityChangesVsIdentity: 0, numericClassificationMismatchesAmongBothEligible: 0 },
-    { name: 'holdout', seedStart: start + split, seedCount: count - split, eligibleWorlds: 0,
+    { name: 'holdout', seedStart: start + split, seedCount: count - split, uniqueAllocations: 0, duplicateAllocations: 0, eligibleWorlds: 0,
       candidateComparisons: 0, safetyFlips: 0, numericPermutationIneligible: 0,
       numericEligibilityChangesVsIdentity: 0, numericClassificationMismatchesAmongBothEligible: 0 }
   ];
@@ -244,10 +244,13 @@ function run(start = 3402312, count = 2048) {
   let canonicalPermutationMismatches = 0, numericBaselineIneligibleWorlds = 0;
   let numericPermutationIneligible = 0, numericEligibilityChangesVsIdentity = 0;
   let numericBothEligibleComparisons = 0, numericClassificationMismatchesAmongBothEligible = 0;
-  let worldsWithAnyNumericChange = 0;
+  let worldsWithAnyNumericChange = 0, worldsWithNumericEligibilityChange = 0, worldsWithNumericClassificationChange = 0, worldsWithBothChangeTypes = 0;
   for (let i = 0; i < count; i++) {
     const seed = start + i, hands = sample(seed);
-    unique.add(hands.map(h => h.map(key).sort().join(',')).join('|'));
+    const cohort = seed < start + split ? cohorts[0] : cohorts[1];
+    const allocationKey = hands.map(h => h.map(key).sort().join(',')).join('|');
+    if (unique.has(allocationKey)) { duplicateAllocationPairs.push({ seed, duplicateOfSeed: unique.get(allocationKey) }); cohort.duplicateAllocations++; continue; }
+    unique.set(allocationKey, seed); cohort.uniqueAllocations++;
     if (i < 16) assert.deepEqual(sample(seed), hands, 'same-seed hidden allocation replay');
     const canonicalBase = one(hands, IDENTITY, 'canonical');
     const numericBase = one(hands, IDENTITY, 'numeric');
@@ -255,12 +258,11 @@ function run(start = 3402312, count = 2048) {
     eligibleWorlds++;
     candidateComparisons += canonicalBase.candidates;
     safetyFlips += canonicalBase.low + canonicalBase.high;
-    const cohort = seed < start + split ? cohorts[0] : cohorts[1];
     cohort.eligibleWorlds++;
     cohort.candidateComparisons += canonicalBase.candidates;
     cohort.safetyFlips += canonicalBase.low + canonicalBase.high;
     if (!numericBase.eligible) numericBaselineIneligibleWorlds++;
-    let worldNumericChanged = false;
+    let worldNumericChanged = false, worldEligibilityChanged = false, worldClassificationChanged = false;
     for (const permutation of perms) {
       const canonical = one(hands, permutation, 'canonical');
       if (!canonical.eligible || signature(canonical) !== signature(canonicalBase))
@@ -272,34 +274,37 @@ function run(start = 3402312, count = 2048) {
         if (numericBase.eligible) {
           numericEligibilityChangesVsIdentity++;
           cohort.numericEligibilityChangesVsIdentity++;
-          worldNumericChanged = true;
+          worldNumericChanged = true; worldEligibilityChanged = true;
         }
         continue;
       }
       if (!numericBase.eligible) {
         numericEligibilityChangesVsIdentity++;
         cohort.numericEligibilityChangesVsIdentity++;
-        worldNumericChanged = true;
+        worldNumericChanged = true; worldEligibilityChanged = true;
         continue;
       }
       numericBothEligibleComparisons++;
       if (signature(numeric) !== signature(numericBase)) {
         numericClassificationMismatchesAmongBothEligible++;
         cohort.numericClassificationMismatchesAmongBothEligible++;
-        worldNumericChanged = true;
+        worldNumericChanged = true; worldClassificationChanged = true;
       }
     }
     if (worldNumericChanged) worldsWithAnyNumericChange++;
+    if (worldEligibilityChanged) worldsWithNumericEligibilityChange++;
+    if (worldClassificationChanged) worldsWithNumericClassificationChange++;
+    if (worldEligibilityChanged && worldClassificationChanged) worldsWithBothChangeTypes++;
   }
-  assert.equal(unique.size, count, 'all sampled hidden allocations unique');
+  assert.equal(unique.size + duplicateAllocationPairs.length, count, 'every seed accounted as unique or duplicate');
   assert.equal(canonicalPermutationMismatches, 0, 'canonical tie-break must be side-label invariant');
   const permutationComparisons = eligibleWorlds * perms.length;
   return {
-    schema: 'qosha-side-label-invariance-audit/v1',
-    engine: 'qosa-research-0.5.3 + side-label-invariance-audit/v1',
+    schema: 'qosha-side-label-invariance-audit/v2',
+    engine: 'qosa-research-0.5.3 + side-label-invariance-audit/v2',
     rules: 'recovered qosa-1.0.0 3x9; both branch models PROVISIONAL; four branch labels treated as symmetric',
     seedStart: start, seedEnd: start + count - 1,
-    seededConditionalAllocations: count, uniqueAllocations: unique.size,
+    seededConditionalAllocations: count, uniqueAllocations: unique.size, duplicateAllocationPairs,
     branchLabelPermutations: perms.length,
     eligibleWorlds, candidateComparisons, safetyFlips,
     safetyFlipRate: candidateComparisons ? safetyFlips / candidateComparisons : null,
@@ -312,7 +317,7 @@ function run(start = 3402312, count = 2048) {
     numericClassificationMismatchesAmongBothEligible,
     numericClassificationMismatchRate: numericBothEligibleComparisons
       ? numericClassificationMismatchesAmongBothEligible / numericBothEligibleComparisons : null,
-    worldsWithAnyNumericChange,
+    worldsWithAnyNumericChange, worldsWithNumericEligibilityChange, worldsWithNumericClassificationChange, worldsWithBothChangeTypes,
     cohorts,
     newOpeningDeals: 0, newCompleteRounds: 0, newFullGameContinuations: 0,
     nextSeed: start + count,
@@ -323,8 +328,12 @@ function test() {
   const result = run(3402312, 64);
   assert.equal(result.canonicalPermutationMismatches, 0);
   assert.equal(result.seededConditionalAllocations, 64);
-  return { passed: true, allocations: result.seededConditionalAllocations,
-    permutations: result.branchLabelPermutations, eligible: result.eligibleWorlds };
+  assert.equal(result.uniqueAllocations + result.duplicateAllocationPairs.length, result.seededConditionalAllocations);
+  const signature = hands => hands.map(h => h.map(key).sort().join(',')).join('|');
+  assert.equal(signature(sample(3400549)), signature(sample(3401407)), 'known duplicate allocation regression');
+  assert.equal(signature(sample(3400594)), signature(sample(3401867)), 'known duplicate allocation regression');
+  return { passed: true, allocations: result.seededConditionalAllocations, unique: result.uniqueAllocations,
+    duplicateAccounting: true, permutations: result.branchLabelPermutations, eligible: result.eligibleWorlds };
 }
 if (require.main === module) {
   const args = process.argv.slice(2);

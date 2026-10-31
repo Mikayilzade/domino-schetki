@@ -58,3 +58,12 @@
 ## Branch-label symmetry and policy tie-breaks (2026-10-31)
 
 The four branch labels are treated as interchangeable by the research kernel. Deterministic policy tie-breaks must therefore be invariant under a permutation of branch labels (canonicalize the labels before tie-breaking, or use a seeded symmetric tie-break). Before promoting a branch/late-pass result, run the 24-permutation metamorphic check on the same hidden worlds. Record eligibility changes separately from candidate-classification changes. Raw numeric side order is an explicit ablation only, not the default research policy.
+
+
+## Seeded hidden-world deduplication (2026-10-31)
+
+A deterministic seed draw does **not** guarantee a unique hidden allocation: the conditional world space is finite, so distinct seeds can land on the same assignment. For every seeded hidden-world experiment:
+- canonicalize the complete seat/stock assignment and report both seed draws and unique allocation count;
+- record duplicate seed pairs rather than failing solely because a duplicate occurred;
+- in development/holdout splits, keep the first occurrence and exclude later repeated assignments from analysis so a duplicated world cannot leak across cohorts;
+- report the post-dedup holdout size explicitly. Do not treat seed count as independent unique-world count.
