@@ -1,0 +1,33 @@
+# 2026-10-31 12:51 +04 (Asia/Baku) — seeded late-return hidden-hand holdout
+
+- **Engine/rules:** `qosa-research-0.5.3 + late-return-hidden-holdout/v1`; recovered `qosa-1.0.0` primary 3×9 + 1 stock. BOTH late-arrival branch interpretations (`global-ever-open`, `all-current-only`) remain **PROVISIONAL**; neither is authenticated as the physical rule.
+- **Workload:** **2,048 NEW seeded conditional hidden allocations** on disjoint seeds `3392072..3393095` (development set) and `3393096..3394119` (holdout), from **one fixed nine-event chronological public history**, not 2,048 independent public games. The known `1-1` starter draws stock `2-3`; seat2's earlier no-stock pass is enforced by excluding its two remaining 1-connectors. Both provisional models replay all nine events legally in every world, with 28-tile conservation and exact 3×9 opening capacities.
+- **Comparison design:** every legal *ordinary* focal placement (including different sides) is compared on the **same hidden allocation** across 2 provisional branch models × 4 opponent policies (`low`, `high`, `double-first`, `double-last`) × 2 voluntary double stopping policies (`single`, `greedy`). The horizon is **two opponent turns**, then focal legal-move/pass status. `greedy` can add legal doubles only if the turn began with a double; it never appends a double after an ordinary tile. No mixed finish or full-game scoring is inferred.
+- **Development 1,024 worlds:** 4,081 candidate placements, **65,296 deterministic two-opponent continuations**; 945 distinct focal hands, 1,024 distinct full allocations; **116/1,024 worlds** have at least one candidate whose *forced-pass status changes* when the opponents continue rather than stop a double sequence. **428/1,024** worlds have at least one candidate with pass-status disagreement between provisional branch rules. **892/1,024** worlds contain at least one candidate with no forced pass under all 16 model/policy/stopping combinations. Individual comparisons: 434 stopping-pass flips, 3,260 branch-pass flips, 5,118 mobility increases and 21 decreases under greedy stopping.
+- **Independent seeded holdout 1,024 worlds:** 4,103 candidate placements, **65,648 continuations**; 967 distinct focal hands, 1,024 distinct full allocations. Stopping-pass-change worlds **109/1,024**, branch-rule-change worlds **414/1,024**, worlds with at least one pass-safe candidate **900/1,024**. Individual comparisons: 437 stopping-pass flips, 3,031 branch-pass flips, 5,482 mobility increases and 21 decreases under greedy stopping.
+- **Combined, disjoint seeds:** **2,048 worlds, 8,184 candidate placements, 130,944 short continuations**; **225/2,048 = 10.99%** of worlds exhibit at least one stopping-dependent pass-status change, and **842/2,048 = 41.11%** exhibit at least one branch-model-dependent pass-status change. **1,792/2,048 = 87.50%** have at least one candidate that avoids an immediate return pass in all 16 *tested* conditions. These are *conditional selected-history frequencies*, **NOT population game probabilities**. In 10,600 paired stopping comparisons mobility increases, in 42 it decreases: the old single-hand 29/48 nondecreasing pattern is **not universal**.
+- **New finding:** the previous one-hand result **0/48 stopping-induced forced-pass reversals** does **not** generalize to hidden hands consistent with the same public history. The direction replicates on fresh disjoint seeds (116 vs 109 affected worlds). This does not prove that greedy doubles are beneficial or harmful for win rate.
+- **Validation:** committed script fetched back from GitHub and executed in a V8 CommonJS-compatible harness with the actual fetched GitHub `engine.js`, `late-return-rule-sensitivity.js`, and `late-return-voluntary-double-stop.js`. Both 1,024-world batches passed chronological replay, no-stock forced-pass guards, per-world conservation, action legality, identical candidate keys across branch models, and first-16 same-seed replay. Development counts independently reproduced the pre-commit trial. **Clean-checkout Node CLI remains pending.**
+- **Limitations/confidence:** high for the specified synthetic conditional finite experiment; moderate for replication across seeded private hands within this one selected public history; **no** authenticated human stopping policy, earlier action-selection likelihood, physical late-arrival reopening, blocked-tie, `loneZero`, bust or 101 scoring. The conditional allocations are not independent public-game histories. No new full-round first-place, mean/median final pips, blocks, −10/−20/−30/−40, or full-game decision regret is claimed.
+- **Cumulative (incompatible populations separate):** **1,380,975** complete model rounds unchanged; **1,898,856** forced full-game continuations unchanged; **630,000** seeded opening deals unchanged; **1,185,168** seeded hidden allocations (**1,183,120 + 2,048**). Historical 4,000 complete rounds separate. Next unused random seed **>=3394120**.
+- **Reproduce:** `node qosha-research/simulator/late-return-hidden-holdout.js 3392072 1024` and `node qosha-research/simulator/late-return-hidden-holdout.js 3393096 1024`. Source: [late-return-hidden-holdout.js](../simulator/late-return-hidden-holdout.js).
+- **Exact next hypothesis/action:** run both commands in a clean Node 22 checkout; then repeat on a genuinely **different chronological public history** (not just hidden reallocations of this trace) and isolate policy-specific stopping flips. Authenticate physical late-arrival branch reopening and blocked ties before turning return-pass mobility into full-game win/minus/regret recommendations.
+
+## Compact machine-readable checkpoint
+
+```json
+{
+  "schema": "qosha-late-return-hidden-holdout/checkpoint-v1",
+  "timezone": "Asia/Baku",
+  "timestamp": "2026-10-31T12:51:52+04:00",
+  "engine": "qosa-research-0.5.3 + late-return-hidden-holdout/v1",
+  "rules": "qosa-1.0.0, 3x9, provisional late-return branch models",
+  "batches": [
+    {"seeds":[3392072,3393095],"worlds":1024,"candidateActions":4081,"continuations":65296,"stopFlipWorlds":116,"branchFlipWorlds":428,"robustPassSafeWorlds":892,"stopPassFlips":434,"branchPassFlips":3260,"mobilityIncreases":5118,"mobilityDecreases":21},
+    {"seeds":[3393096,3394119],"worlds":1024,"candidateActions":4103,"continuations":65648,"stopFlipWorlds":109,"branchFlipWorlds":414,"robustPassSafeWorlds":900,"stopPassFlips":437,"branchPassFlips":3031,"mobilityIncreases":5482,"mobilityDecreases":21}
+  ],
+  "newFullRounds":0,
+  "nextSeed":3394120,
+  "nextAction":"clean Node 22 replay, then distinct chronological-history holdout and physical rule authentication"
+}
+```
