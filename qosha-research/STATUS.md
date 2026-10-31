@@ -1,3 +1,12 @@
+## Latest checkpoint — symmetric action-orbit tie-break (2026-10-31 20:53 +04, Asia/Baku)
+- [Runner](simulator/branch-label-symmetric-tiebreak.js); [run report](runs/2026-10-31-2053-branch-label-symmetric-tiebreak.md); [JSON](runs/2026-10-31-2053-branch-label-symmetric-tiebreak.json). Engine `qosha-research-0.5.3 + symmetric-action-orbit-tiebreak/v1`; branch reopening/block ties remain PROVISIONAL.
+- **120 new unique 3×9 deal allocations**, seeds 3404400–3404519; 3 seat rotations × 2 mixes = **720 matched round pairs / 1,440 arm-rounds**. No hidden worlds. Legacy cumulative populations unchanged: 1,380,975 incompatible-model rounds; 1,898,856 forced continuations; 630,000 opening-deal study seeds; 1,195,408 seeded hidden allocations. Keep this new cohort separate.
+- **Distributional symmetry:** 40 unique audit deals, 927 sampled positions, 22,248 permutation checks, 19,368 playable comparisons. Action sets/options: 0 mismatches. Five policies × 19,368 = 96,840 distribution checks, **0 mismatches**. Existing deterministic choice mismatch range 12.63%–16.26%.
+- **Matched outcomes:** mix1 kind changed 33/360; mix2 19/360. First finisher changed in 162/327 and 80/338 both-finish pairs, respectively. Tie-break sensitivity only; no strength claim. Clean Node 22 checkout still DNS-blocked; GitHub-fetched source executed in V8.
+- **Next:** disjoint 500-deal paired holdout + uncertainty; physical branch-rule authentication. Next full-round seed **3404520**; hidden-world seed remains **3404360**.
+
+---
+
 ## Latest checkpoint — reachable branch-label action/transition equivariance (2026-10-31 19:46 +04 (Asia/Baku))
 - [Audit](simulator/branch-label-transition-equivariance.js); [report](runs/2026-10-31-1946-branch-label-transition-equivariance.md). 40 unique seeded validation deals; 891 sampled positions; all 24 branch permutations.
 - 21,384 legal-action-set checks, 61,800 mapped action transitions and 2,760 pass/draw transitions passed with **0 mismatches**.

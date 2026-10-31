@@ -74,3 +74,11 @@ A deterministic seed draw does **not** guarantee a unique hidden allocation: the
 Before strategy conclusions rely on branch labels, sample reachable states and apply all 24 permutations of the four labels. Compare draw/pass state and legal action sets after mapping each action's side; then apply every corresponding legal action and compare the mapped successor state. Track pass/draw transitions separately. Count unique seeded deal allocations and report duplicate seeds explicitly.
 
 Measure policy-choice changes separately for each policy. These mismatches diagnose label-sensitive tie-breaks; they are not strategy outcome differences. When the state has automorphic/symmetric branches, a unique deterministic equivariant choice may not exist. Prefer a symmetric random tie-break distribution or compare action-orbit outcomes rather than silently using raw side index. Keep the branch symmetry assumption separate from physical rule authentication.
+
+
+## Symmetric action-orbit tie-break (2026-10-31)
+
+- Keep the existing policy's primary score unchanged; retain all best-ranked actions rather than falling back to raw side labels.
+- For non-random policies, group side-specific actions by the selected branch's `active/end` descriptor (state automorphism orbit); sample an orbit uniformly, then a member uniformly. `random-legal` samples across all legal actions.
+- Validate **distributional** equivariance under all 24 branch-label permutations. Do not demand same-seed deterministic action equivariance in automorphic states: a unique deterministic choice may be mathematically impossible.
+- Full-round comparisons use identical deals and seat rotations. Report outcome changes as tie-break sensitivity, not strategy superiority; keep physical branch/block assumptions separate.
