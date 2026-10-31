@@ -1,0 +1,75 @@
+{
+  "schema": "qosha-multi-double-finish-property-audit/v1",
+  "timestampAsiaBaku": "2026-11-01 02:57:11 +04",
+  "engine": "qosa-research-0.5.3",
+  "rules": "recovered qosa-1.0.0, 3 players x 9 stones + one stock; physical branch reopening and block/tie scoring provisional",
+  "seedRange": {
+    "start": 3406220,
+    "end": 3406719,
+    "draws": 500,
+    "uniqueAllocations": 500,
+    "duplicateAllocations": 0
+  },
+  "trajectoryPolicy": "seeded legal-path explorer; event-directed selection of mixed-finish when available; validation only",
+  "stats": {
+    "trajectories": 500,
+    "reachablePositions": 10862,
+    "candidateActions": 41189,
+    "doubleSequenceCandidates": 8997,
+    "multiDoubleCandidates": 3466,
+    "maxDoubleSequenceLength": 4,
+    "mixedFinishCandidates": 46,
+    "mixedFinishByDoubleCount": {
+      "1": 44,
+      "2": 2,
+      "3": 0,
+      "4": 0
+    },
+    "fullDoubleFinishCandidates": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    },
+    "actualPlays": 10862,
+    "actualMultiDoublePlays": 433,
+    "actualMixedFinishes": 43,
+    "passes": 878,
+    "finishMinus": {
+      "0": 431,
+      "-10": 42,
+      "-20": 1,
+      "-30": 0,
+      "-40": 0
+    }
+  },
+  "minusContract": [
+    {
+      "doubleCount": 1,
+      "minus": -10
+    },
+    {
+      "doubleCount": 2,
+      "minus": -20
+    },
+    {
+      "doubleCount": 3,
+      "minus": -30
+    },
+    {
+      "doubleCount": 4,
+      "minus": -40
+    }
+  ],
+  "strategyDeals": 0,
+  "strategyComparisons": 0,
+  "hiddenWorlds": 0,
+  "finding": "Reachable multi-double and mixed-finish candidates were applied without transition/conservation mismatches. Internal consistency only; no physical-rule authentication or strategy-strength claim.",
+  "confidence": "High for internal invariants in this seeded reachable-state cohort; no external-rule validation.",
+  "limitations": [
+    "Current provisional research kernel defines reachability; physical branch/block rules are not authenticated.",
+    "Mixed-finish selection was deliberately event-directed, so trajectory finish counts are not population estimates.",
+    "No all-double terminal candidate occurred in this cohort; this does not imply impossibility. The -30/-40 direct contract tests are not reachability evidence."
+  ],
+  "nextAction": "Add targeted four-branch locked/open and late-arrival regression properties; keep strategy rankings blocked pending physical branch-reopening and blocked-tie confirmation."
+}

@@ -1,3 +1,13 @@
+## Latest checkpoint — reachable multi-double and mixed-finish property audit (2026-11-01 02:57:11 +04, Asia/Baku)
+
+- [Runner](simulator/multi-double-finish-property-audit.js); [report](runs/2026-11-01-0257-multi-double-finish-property-audit.md); [JSON](runs/2026-11-01-0257-multi-double-finish-property-audit.json). Engine qosa-research-0.5.3; recovered 3×9 qosa-1.0.0. Branch reopening and block/tie scoring remain provisional.
+- **500 unique allocations**, seeds 3406220–3406719; **10,862 reachable decision positions** and **41,189 candidate actions applied**. 3,466 multi-double candidates; maximum sequence length 4; 46 mixed-finish candidates (44 one-double, 2 two-double). The validation path deliberately selected mixed finish when available; 43 were selected.
+- 0 transition, tile-conservation, remainder, opening-state, branch-update, or finish-minus invariant failures. Direct finish-minus contract and existing dispatcher/round-driver tests passed. No all-double terminal candidate appeared in this cohort; that is not evidence of impossibility.
+- **0 strategy deals/comparisons and 0 hidden worlds.** No tactic claim. Local Node v22.16.0 harness used mirrored research modules; clean GitHub checkout remains DNS-blocked.
+- **Next:** targeted four-branch locked/open and late-arrival regression properties; do not rank strategies until physical branch reopening and blocked-tie scoring are confirmed.
+
+---
+
 ## Latest checkpoint — reachable 3×9 trajectory property audit (2026-11-01 01:52 +04, Asia/Baku)
 
 - [Runner](simulator/reachable-property-audit.js); [report](runs/2026-11-01-0152-reachable-property-audit.md); [JSON](runs/2026-11-01-0152-reachable-property-audit.json). Engine qosa-research-0.5.3, 3×9 recovered qosa-1.0.0. Five core local source mirrors matched GitHub blob hashes; Node v22.16.0.
