@@ -1,3 +1,13 @@
+## Latest checkpoint — reachable 3×9 trajectory property audit (2026-11-01 01:50 +04, Asia/Baku)
+
+- [Runner](simulator/reachable-property-audit.js); [report](runs/2026-11-01-0150-reachable-property-audit.md); [JSON](runs/2026-11-01-0150-reachable-property-audit.json). Engine qosa-research-0.5.3, 3×9 recovered qosa-1.0.0. Five core local source mirrors matched GitHub blob hashes; Node v22.16.0.
+- **200 unique allocations**, seeds 3406020–3406219; 4,742 reachable decision states; **16,293/16,293 candidate actions applied**, 0 conservation/stock/transition mismatches. Five deterministic action-history replays passed.
+- Four draw/pass fixtures passed. The one stock tile is consumed by opening setup in each trajectory (190 opening draws; 10 stock-1-1 starts); no in-round draws in this cohort. Actual path: 4,398 plays, 344 passes; 192 finish / 8 block terminal kinds, diagnostic only.
+- **0 strategy deals/comparisons or hidden worlds.** Branch reopening and block/tie scoring remain provisional. Clean GitHub checkout is still DNS-blocked; exact local source mirror, not a clean-checkout claim.
+- **Next:** targeted reachable multi-double/mixed-finish properties; physical branch-reopening and blocked-tie evidence before strategy rankings.
+
+---
+
 ## Latest checkpoint — 3×9 seed-to-deal reproducibility audit (2026-11-01 00:55 +04, Asia/Baku)
 
 - [Runner](simulator/seed-reproducibility-audit.js); [report](runs/2026-11-01-0055-seed-reproducibility-audit.md); [JSON](runs/2026-11-01-0055-seed-reproducibility-audit.json). Engine qosa-research-0.5.3; exact engine.js blob SHA 82e5bd544a57683d5b4f7812beb2d4abf80da894. Deal-generator audit only; no branch/scoring rule claims.
