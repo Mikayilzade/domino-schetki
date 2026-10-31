@@ -1,20 +1,10 @@
-## Latest checkpoint — branch-model sensitivity + symmetric tie-break holdout (2026-10-31 23:45 +04, Asia/Baku)
+## Latest checkpoint — 3×9 seed-to-deal reproducibility audit (2026-11-01 00:55 +04, Asia/Baku)
 
-- [Run report](runs/2026-10-31-2345-branch-model-sensitivity-holdout.md); [JSON](runs/2026-10-31-2345-branch-model-sensitivity-holdout.json). Base source `99ce431457eb322b5fd5b0fde64b615991df0d1f`; engine `qosa-research-0.5.3`, 3×9+stock. Branch unlocking/block ties remain **PROVISIONAL**.
-- 500 unique matched deals, seeds 3405520–3406019. Tie-break arm: 3,000 pairs / 6,000 arm-rounds; branch model: four models × 3,000 rounds. Per-mix accounting and regression were added to `branch-current-full-round.js`.
-- Structural tie-break audit: 22,104 branch permutations; 96,960 policy-distribution checks; 0 option/action/distribution mismatches.
-- Global-ever-open vs current-active-only: 2,693/3,000 (89.77%) outcome-kind changes; 2,686 global finishes became current-model blocks; block rates 3.87% vs 93.17%. **This quantifies rule-model sensitivity, not which rule is correct.**
-- Mix 2 tie-break sensitivity repeats: 320/1,408 (22.73%) first-finisher changes and 79/1,500 (5.27%) outcome-kind changes, same counts as the preceding disjoint holdout.
-- Legacy populations unchanged; action-orbit holdouts 1,500 deals / 18,000 arm-rounds (+ separate 120-deal pilot). Next seed 3406020.
-- **Next:** authenticate branch reopening and blocked-tie scoring from a real trace/ruling; keep branch-dependent advice provisional.
-
-## Latest checkpoint — second disjoint 500-deal symmetric action-orbit holdout (2026-10-31 22:51 +04, Asia/Baku)
-- [Run report](runs/2026-10-31-2251-branch-label-symmetric-tiebreak-holdout.md); [machine-readable metrics](runs/2026-10-31-2251-branch-label-symmetric-tiebreak-holdout.json). Source `416c8032a4c399ba0585fd21daba1f7747d59bc7`; engine `qosa-research-0.5.3 + symmetric-action-orbit-tiebreak/v1`; recovered 3×9+stock. Branch reopening and blocked ties remain **PROVISIONAL**.
-- New cohort: 500 unique deals, seeds 3405020–3405519; 3 rotations × 2 mixes = 3,000 matched pairs / 6,000 arm-rounds; 0 new hidden worlds. Runner regression passed; V8 CommonJS-compatible execution, not clean Node 22 CLI.
-- Structural audit: 40 unique deals, 921 positions, 22,104 permutation checks, 19,392 playable comparisons; 0 option/action-set mismatches; 96,960 policy-distribution checks, 0 mismatches.
-- Mix 2 first finisher changed in 320/1,408 (22.73%) both-finish pairs; prior disjoint cohort 312/1,417 (22.02%). Across both: 632/2,825 (22.37%); outcome kind changed 145/3,000 (4.83%). This is replicated **tie-break sensitivity**, not strategy superiority.
-- Separate new cohort cumulative: 1,000 full-round deal allocations / 12,000 arm-rounds. Legacy populations unchanged: 1,380,975 incompatible-model rounds; 1,898,856 forced continuations; 630,000 opening-deal study seeds; 1,195,408 hidden allocations. Next full-round seed **3405520**.
-- **Next:** matched-seed sensitivity across global-ever-open vs current-active-only branch unlocking; do not promote strategy rankings before physical branch and blocked-tie rules are authenticated.
+- [Runner](simulator/seed-reproducibility-audit.js); [report](runs/2026-11-01-0055-seed-reproducibility-audit.md); [JSON](runs/2026-11-01-0055-seed-reproducibility-audit.json). Engine qosa-research-0.5.3; exact engine.js blob SHA 82e5bd544a57683d5b4f7812beb2d4abf80da894. Deal-generator audit only; no branch/scoring rule claims.
+- **100,000 seeds** 0..99,999: 100,000 unique full allocations, 0 duplicate allocation pairs, 0 tile-conservation failures. Stock χ²(27)=23.77952, p=0.64252; per-position χ² range 14.8212–43.4641, smallest p=0.02347 (above Bonferroni 0.00179 for 28 positions).
+- Five anchor fingerprints and aggregate counts matched Node v22.16.0 vs V8. Node used an engine.js mirror with an exact matching Git blob hash; clean GitHub clone remains blocked by DNS. Not a clean-checkout CLI run.
+- **No strategy samples added:** 0 full rounds, 0 hidden worlds. Legacy populations unchanged; 1,500 action-orbit holdout deals (+120 pilot) remain separate. Branch reopening and blocked ties remain **PROVISIONAL**.
+- **Next:** property-audit 200 reachable 3×9 trajectories on seeds 3406020–3406219 for legal action/application, draw/pass stock accounting, and tile conservation; no strategy ranking until physical rules are authenticated.
 
 ---
 
