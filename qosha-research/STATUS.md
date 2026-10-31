@@ -1,3 +1,13 @@
+# Latest checkpoint — reachable four-branch lock/open contract (2026-11-01 03:54:47 +04, Asia/Baku)
+
+- [Runner](simulator/branch-lock-reachability-contract.js); [report](runs/2026-11-01-0354-branch-lock-reachability-contract.md); [JSON](runs/2026-11-01-0354-branch-lock-reachability-contract.json). Engine qosa-research-0.5.3; 3×9 recovered qosa-1.0.0. Physical branch reopening and block/tie scoring remain PROVISIONAL.
+- **500 unique full allocations**, seeds 3406720–3407219; **11,795 reachable positions**, **41,451 legal action candidates applied**, 0 internal invariant failures. Candidate types: 32,482 single; 8,912 double-sequence; 57 mixed-finish. 924 forced passes, 0 in-round draws; 476 finish / 24 block terminal kinds are diagnostics only.
+- All 24 four-double orders passed. Mixed-finish doubles are validated after the ordinary prefix, which can expose their number. The synthetic late-arrival fixture confirms chronology sensitivity only under the current-only provisional model (8→5 legal tiles); global-ever-open remains 8.
+- No strategy deals/comparisons or hidden worlds. Cumulative property audits: **1,200 unique allocations / 27,399 positions / 98,933 candidate applications**. Strategy populations unchanged; historical and legacy populations remain separate.
+- **Next:** 24-permutation branch-label action/transition checks on stratified reachable states; obtain physical trace/ruling for late-arrival unlocking and blocked-tie scoring before strategy rankings.
+
+---
+
 ## Latest checkpoint — reachable multi-double and mixed-finish property audit (2026-11-01 02:57:11 +04, Asia/Baku)
 
 - [Runner](simulator/multi-double-finish-property-audit.js); [report](runs/2026-11-01-0257-multi-double-finish-property-audit.md); [JSON](runs/2026-11-01-0257-multi-double-finish-property-audit.json). Engine qosa-research-0.5.3; recovered 3×9 qosa-1.0.0. Branch reopening and block/tie scoring remain provisional.

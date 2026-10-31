@@ -82,3 +82,8 @@ Measure policy-choice changes separately for each policy. These mismatches diagn
 - For non-random policies, group side-specific actions by the selected branch's `active/end` descriptor (state automorphism orbit); sample an orbit uniformly, then a member uniformly. `random-legal` samples across all legal actions.
 - Validate **distributional** equivariance under all 24 branch-label permutations. Do not demand same-seed deterministic action equivariance in automorphic states: a unique deterministic choice may be mathematically impossible.
 - Full-round comparisons use identical deals and seat rotations. Report outcome changes as tie-break sensitivity, not strategy superiority; keep physical branch/block assumptions separate.
+
+## Reachable branch lock/open contract (2026-11-01)
+
+For seeded reachable-state audits, validate action/apply round trips, 28-tile conservation, ordinary-single opening gates, inactive-side rejection, and exact opened-number updates. A double-only sequence must preserve branch geometry. For mixed finish, test finish-double exposure **after** the ordinary prefix: that prefix may extend a branch and expose the double. Keep late-arrival chronology fixtures explicitly model-labelled; they are not physical-rule authentication. Continue reporting unique full allocations separately from seed draws and keep strategy populations separate from property-audit cohorts.
+

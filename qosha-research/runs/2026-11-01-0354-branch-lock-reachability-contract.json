@@ -1,0 +1,88 @@
+{
+  "timestamp": "2026-11-01T03:54:47+04:00",
+  "engineVersion": "qosa-research-0.5.3",
+  "auditVersion": "branch-lock-reachability-contract/v1",
+  "rules": "recovered qosa-1.0.0, 3 players × 9 stones + one stock; branch opening and block/tie semantics remain provisional",
+  "seedRange": {
+    "start": 3406720,
+    "end": 3407219,
+    "draws": 500,
+    "uniqueFullAllocations": 500,
+    "duplicateAllocations": 0
+  },
+  "strategy": "none; a deterministic seeded selector was used only to traverse reachable states, not to compare strength",
+  "metrics": {
+    "reachableDecisionPositions": 11795,
+    "legalActionCandidates": 41451,
+    "legalActionApplications": 41451,
+    "actionTypes": {
+      "single": 32482,
+      "doubleSequence": 8912,
+      "mixedFinish": 57
+    },
+    "forcedPasses": 924,
+    "inRoundDraws": 0,
+    "positionsWithMultipleActions": 8949,
+    "terminalKinds": {
+      "finish": 476,
+      "block": 24
+    },
+    "maxTurns": 34
+  },
+  "contracts": {
+    "stateAndCandidateTileConservation": "0 failures across all sampled positions and candidate applications",
+    "ordinarySingleGate": "every candidate uses a number in openedNumbers",
+    "branchIsolation": "single/mixed ordinary prefix changes only the selected branch",
+    "doubleSequence": "branch geometry unchanged; opened-number set updated exactly; no repeated number",
+    "mixedFinishExposure": "each finish double is exposed after the ordinary prefix is applied",
+    "inactiveSideFixture": "inactive sides rejected",
+    "fourDoubleFixture": {
+      "orders": 24,
+      "allApplied": true,
+      "geometryUnchanged": true,
+      "openedSet": "1,2,3,4,5"
+    },
+    "lateArrivalFixture": {
+      "passed": true,
+      "globalLegalCount": 8,
+      "earlyCurrentLegalCount": 8,
+      "lateCurrentLegalCount": 5,
+      "lateOnlyCurrentForbidden": [
+        "0-2",
+        "2-5",
+        "2-6"
+      ]
+    }
+  },
+  "finding": "Reachable lock/open transitions are internally consistent under the current kernel. Mixed-finish doubles must be checked after the ordinary prefix because that prefix can expose the relevant end. Chronological late-arrival behavior changes the current-only provisional pass mask while the global-ever-open model is order-invariant in the fixture.",
+  "confidence": "High for internal invariants on the tested seeded cohort; no external physical-rule authentication and no strategy-strength claim.",
+  "limitations": [
+    "Four-branch and late-arrival rules remain model assumptions; branch/block/tie outcomes are diagnostics only.",
+    "No strategy deals, comparisons, hidden worlds, or Monte Carlo decision-regret estimates were added.",
+    "Clean GitHub clone/Node CLI remains DNS-blocked; exact GitHub-fetched modules were executed in a V8 CommonJS-compatible harness.",
+    "Read-only scoreboard inspection found manual score entry/statistics, not a branch-rule engine; it cannot authenticate late-arrival semantics."
+  ],
+  "cumulative": {
+    "propertyAuditAllocations": 1200,
+    "reachablePositions": 27399,
+    "candidateApplications": 98933,
+    "actionOrbitHoldoutDeals": 1500,
+    "actionOrbitArmRounds": 18000,
+    "separatePilotDeals": 120,
+    "separatePilotArmRounds": 1440,
+    "legacyIncompatibleModelRounds": 1380975,
+    "legacyForcedContinuations": 1898856,
+    "legacyOpeningDealSeeds": 630000,
+    "legacyHiddenAllocations": 1195408,
+    "historicalBaseline": "separate"
+  },
+  "nextAction": "Run 24-permutation branch-label action/transition checks on a stratified sample of these reachable states; seek an authenticated real-game trace/ruling for late-arrival branch unlocking and blocked-tie scoring before strategy rankings.",
+  "sourceBlobs": {
+    "engine.js": "82e5bd544a57683d5b4f7812beb2d4abf80da894",
+    "initializer.js": "8c3ba3b9baab4194a3e11b59db54fbf110fb2b49",
+    "turn-kernel.js": "94657896e1f8e471ceb2e9a65d1842b6102dff18",
+    "turn-dispatcher.js": "55b0bcf3f1653c64b4e06bc95d7e917a480562a0",
+    "round-driver.js": "fbaad78865adbddde1ea6651e6a501dc0bde3203",
+    "branch-order-history-test.js": "db14539c5d3fcf8c3fd3c4f6c4c41827f36d89b9"
+  }
+}
