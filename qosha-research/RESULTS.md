@@ -1932,9 +1932,9 @@ Both duplicate pairs were across development→holdout, and both worlds failed t
 - **Exact next action:** property-audit reachable 3×9 trajectories on seeds 3406020..3406219 for legal action/apply round trips, draw-one-then-play-or-pass stock accounting, and tile conservation; do not rank strategies before physical branch/block authentication.
 
 
-### 2026-11-01 01:50:16 +04 (Asia/Baku) — reachable 3×9 trajectory property audit
+### 2026-11-01 01:52:41 +04 (Asia/Baku) — reachable 3×9 trajectory property audit
 
-- [Runner](simulator/reachable-property-audit.js), [report](runs/2026-11-01-0150-reachable-property-audit.md), [JSON](runs/2026-11-01-0150-reachable-property-audit.json). Engine qosa-research-0.5.3; five local core-module mirrors matched GitHub blob hashes. 3×9, recovered qosa-1.0.0; later-round stock-1-1 starter uses previousWinnerIndex = seed mod 3.
+- [Runner](simulator/reachable-property-audit.js), [report](runs/2026-11-01-0152-reachable-property-audit.md), [JSON](runs/2026-11-01-0152-reachable-property-audit.json). Engine qosa-research-0.5.3; five local core-module mirrors matched GitHub blob hashes. 3×9, recovered qosa-1.0.0; later-round stock-1-1 starter uses previousWinnerIndex = seed mod 3.
 - **200 seed draws** 3406020–3406219; **200 unique full allocations**, 0 duplicates. **4,742 reachable decision states**; all **16,293 legal action candidates** were applied. All candidate and chosen transitions preserved 28 unique tiles; 0 action/apply, stock-accounting, or conservation failures. Five same-seed action-history replays passed.
 - Actual path: 4,398 plays, 344 forced passes, 170 selected multi-tile plays; maximum legal action set 64. Opening accounting: 190 stock draws, 10 cases with 1-1 in stock, 9 forced opening passes. As expected, the one stock tile is consumed by opening setup in every 3×9 deal; no in-round draws occurred. Four separate draw/pass fixtures passed, including playable draw, unplayable draw retained on pass, and no-stock pass.
 - All 200 trajectories reached engine terminal states (192 finishes, 8 blocks) within 33 turns including opening setup. Terminal-kind counts are diagnostics only; branch/block/tie scoring remains provisional. **0 strategy deals, 0 strategy comparisons, 0 hidden worlds.**

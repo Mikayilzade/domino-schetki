@@ -1,6 +1,6 @@
 # Reachable 3×9 trajectory property audit
 
-**Timestamp:** 2026-11-01 01:50:16 +04 (Asia/Baku)  
+**Timestamp:** 2026-11-01 01:52:41 +04 (Asia/Baku)  
 **Engine:** qosa-research-0.5.3. Five core modules were fetched from GitHub and their local mirror Git blob hashes matched: engine.js 82e5bd544a57683d5b4f7812b2ed2d4abf80da894; initializer.js 8c3ba3b9baab4194a3e11b59db54fbf110fb2b49; turn-dispatcher.js 55b0bcf3f1653c64b4e06bc95d7e917a480562a0; turn-kernel.js 94657896e1f8e471ceb2e9a65d1842b6102dff18; round-driver.js fbaad78865adbddde1ea6651e6a501dc0bde3203.  
 **Rules:** recovered qosa-1.0.0, 3 players × 9 tiles + one stock. For later-round 1-1-in-stock cases, previousWinnerIndex = seed mod 3. The seeded-uniform-legal policy is only a deterministic trajectory explorer, not a strategy.
 
@@ -22,4 +22,4 @@ The existing five regression suites (test.js, turn-test.js, dispatcher-test.js, 
 
 **Next:** extend the property suite with targeted reachable multi-double and mixed-finish positions; keep strategy ranking blocked until physical branch reopening and blocked-round tie scoring are authenticated.
 
-Machine-readable metrics: [2026-11-01-0150-reachable-property-audit.json](2026-11-01-0150-reachable-property-audit.json). Reproduce with node qosha-research/simulator/reachable-property-audit.js 3406020 200.
+Machine-readable metrics: [2026-11-01-0152-reachable-property-audit.json](2026-11-01-0152-reachable-property-audit.json). Reproduce with node qosha-research/simulator/reachable-property-audit.js 3406020 200.

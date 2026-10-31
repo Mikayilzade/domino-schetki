@@ -1,9 +1,9 @@
 {
   "schema": "qosha-reachable-property-audit/v1",
-  "timestampAsiaBaku": "2026-11-01 01:50:16 +04",
+  "timestampAsiaBaku": "2026-11-01 01:52:41 +04",
   "engine": "qosa-research-0.5.3 / exact GitHub engine.js + initializer + turn-dispatcher + turn-kernel + round-driver sources",
-  "rules": "recovered qosa-1.0.0, 3 players x 9 tiles + one stock; later-round 1-1-in-stock handling uses previousWinnerIndex=seed%3",
-  "trajectoryPolicy": "seeded-uniform-legal/v1 (only to explore reachable states; no strength claim)",
+  "rules": "recovered qosa-1.0.0, 3x9 + one stock; later-round 1-1-in-stock starter uses previousWinnerIndex=seed%3",
+  "trajectoryPolicy": "seeded-uniform-legal/v1; exploration only, no strength claim",
   "startSeed": 3406020,
   "endSeed": 3406219,
   "seedDraws": 200,
@@ -33,13 +33,7 @@
     "turnsMax": 33,
     "meanTurns": 24.71
   },
-  "replayChecks": [
-    3406020,
-    3406021,
-    3406022,
-    3406120,
-    3406219
-  ],
+  "replayChecks": [3406020, 3406021, 3406022, 3406120, 3406219],
   "drawPassFixtures": {
     "fixtures": 4,
     "drawPlayable": 1,
@@ -50,5 +44,5 @@
   "strategyDeals": 0,
   "strategyComparisons": 0,
   "hiddenWorlds": 0,
-  "limitation": "Branch reopening and blocked-round scoring remain provisional. Trajectory terminal kinds are only engine-termination checks; no winner/tie scoring or strategy ranking is claimed. In normal 3x9 initialization the sole stock tile is consumed by the 1-1 opening setup, so in-round draw behavior is exercised separately by the synthetic turn-kernel fixtures."
+  "limitation": "Branch reopening and block/tie scoring remain provisional. Terminal kinds are engine diagnostics only. The single stock tile is consumed by 1-1 opening setup in 3x9, so in-round draw behavior is tested separately with synthetic turn-kernel fixtures."
 }
