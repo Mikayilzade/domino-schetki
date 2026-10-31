@@ -1,3 +1,13 @@
+## Latest checkpoint — second disjoint 500-deal symmetric action-orbit holdout (2026-10-31 22:51 +04, Asia/Baku)
+- [Run report](runs/2026-10-31-2251-branch-label-symmetric-tiebreak-holdout.md); [machine-readable metrics](runs/2026-10-31-2251-branch-label-symmetric-tiebreak-holdout.json). Source `416c8032a4c399ba0585fd21daba1f7747d59bc7`; engine `qosa-research-0.5.3 + symmetric-action-orbit-tiebreak/v1`; recovered 3×9+stock. Branch reopening and blocked ties remain **PROVISIONAL**.
+- New cohort: 500 unique deals, seeds 3405020–3405519; 3 rotations × 2 mixes = 3,000 matched pairs / 6,000 arm-rounds; 0 new hidden worlds. Runner regression passed; V8 CommonJS-compatible execution, not clean Node 22 CLI.
+- Structural audit: 40 unique deals, 921 positions, 22,104 permutation checks, 19,392 playable comparisons; 0 option/action-set mismatches; 96,960 policy-distribution checks, 0 mismatches.
+- Mix 2 first finisher changed in 320/1,408 (22.73%) both-finish pairs; prior disjoint cohort 312/1,417 (22.02%). Across both: 632/2,825 (22.37%); outcome kind changed 145/3,000 (4.83%). This is replicated **tie-break sensitivity**, not strategy superiority.
+- Separate new cohort cumulative: 1,000 full-round deal allocations / 12,000 arm-rounds. Legacy populations unchanged: 1,380,975 incompatible-model rounds; 1,898,856 forced continuations; 630,000 opening-deal study seeds; 1,195,408 hidden allocations. Next full-round seed **3405520**.
+- **Next:** matched-seed sensitivity across global-ever-open vs current-active-only branch unlocking; do not promote strategy rankings before physical branch and blocked-tie rules are authenticated.
+
+---
+
 ## Latest checkpoint — disjoint 500-deal symmetric action-orbit holdout (2026-10-31 21:53 +04, Asia/Baku)
 - [Run report](runs/2026-10-31-2153-branch-label-symmetric-tiebreak-holdout.md); [JSON](runs/2026-10-31-2153-branch-label-symmetric-tiebreak-holdout.json). 500 unique deals, seeds 3404520–3405019; 3 rotations × 2 mixes = 3,000 matched round pairs / 6,000 arm-rounds. 0 hidden worlds. Branch reopening/block ties remain PROVISIONAL.
 - 40-deal structural audit: 903 positions; 21,672 permutation checks; 19,368 playable comparisons; 0 option/action-set mismatches. 96,840 distribution checks, 0 mismatches.
