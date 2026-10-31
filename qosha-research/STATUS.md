@@ -1,3 +1,9 @@
+## Latest checkpoint — reachable branch-label action/transition equivariance (2026-10-31 19:46 +04 (Asia/Baku))
+- [Audit](simulator/branch-label-transition-equivariance.js); [report](runs/2026-10-31-1946-branch-label-transition-equivariance.md). 40 unique seeded validation deals; 891 sampled positions; all 24 branch permutations.
+- 21,384 legal-action-set checks, 61,800 mapped action transitions and 2,760 pass/draw transitions passed with **0 mismatches**.
+- Built-in policy tie-break choices remain label-sensitive: min-pips 15.93%, fast-doubles 14.08%, moderate-hold 16.42%, closed-branch 17.06%, random-legal 17.76%. Structural artifact only; no tactic claim.
+- Cumulative strategy populations unchanged. Branch reopening and blocked ties remain provisional. **Next:** matched-seed symmetric-random/action-orbit tie-break ablation, plus physical-rule authentication.
+
 ## Latest checkpoint — side-label tie-break replay + duplicate-world accounting (2026-10-31 18:49 +04)
 - [Runner](simulator/side-label-invariance-audit.js); [detailed checkpoint](runs/2026-10-31-1849-side-label-tiebreak-replay.md). Replayed two existing seed cohorts on the same alternate chronological prefix; **0 new seeds/worlds/deals/rounds**. 4,096 seed draws → **4,094 unique allocations**; two duplicate pairs in the first cohort were tracked and excluded after their first occurrence.
 - Prior cohort `3400264..3402311`: 111 eligible worlds, 237 common-candidate comparisons, 81 safety flips (34.18%); canonical tie-break 0/2,664 permutation mismatches; raw numeric order 192 eligibility changes and 264/2,472 classification mismatches (10.68%).

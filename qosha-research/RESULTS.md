@@ -1870,3 +1870,13 @@ Both duplicate pairs were across development→holdout, and both worlds failed t
 
 
 
+
+
+### 2026-10-31 19:46 +04 (Asia/Baku) — reachable branch-label action/transition equivariance
+
+- [Reproducible audit](simulator/branch-label-transition-equivariance.js); [run report](runs/2026-10-31-1946-branch-label-transition-equivariance.md). Engine `qosa-research-0.5.3 + branch-label-transition-equivariance/v1`; recovered `qosa-1.0.0` 3×9. Four branch labels are treated as symmetric for metamorphic testing only; physical branch reopening and blocked ties remain **PROVISIONAL**.
+- **Seeds/workload:** 40 validation deal seeds 3404360..3404399; 40 unique allocations, no duplicates. 40 trajectories resolved (38 finish, 2 block); 891 sampled positions. **0 new strategy-study opening deals, 0 hidden-world allocations, 0 strategy-comparison rounds.**
+- **Structural checks:** 24 permutations; 21,384 action-set checks; 61,800 mapped legal-action applications; 2,760 pass/draw transitions. All passed with zero mismatches.
+- **Tie-break diagnostic:** existing deterministic policy choice changed under relabeling in min-hand-pips 2966/18624 (15.93%); fast-doubles 2622/18624 (14.08%); moderate-double-hold 3058/18624 (16.42%); closed-branch-control 3178/18624 (17.06%); random-legal 3308/18624 (17.76%). This is label sensitivity, not a tactical or win-rate finding. Perfectly symmetric action orbits may not admit a unique deterministic equivariant choice.
+- **Confidence/limits:** high for the internal action/transition metamorphic contract on these reachable test positions; low external validity. The four-label symmetry is an assumption, not physical-rule authentication. No new strategic population added; historical 4,000-round baseline remains separate. Cumulative research populations unchanged: 1,380,975 incompatible-model rounds; 1,898,856 forced continuations; 630,000 opening-deal study seeds; 1,195,408 hidden allocations. Next validation-deal seed 3404400; hidden-world seed remains 3404360.
+- **Exact next action:** compare a symmetric-random/action-orbit tie-break against raw side-index tie-breaking on matched full-round seeds; retain provisional labels until physical branch and blocked-round rules are confirmed.

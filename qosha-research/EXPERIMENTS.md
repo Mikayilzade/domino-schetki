@@ -67,3 +67,10 @@ A deterministic seed draw does **not** guarantee a unique hidden allocation: the
 - record duplicate seed pairs rather than failing solely because a duplicate occurred;
 - in development/holdout splits, keep the first occurrence and exclude later repeated assignments from analysis so a duplicated world cannot leak across cohorts;
 - report the post-dedup holdout size explicitly. Do not treat seed count as independent unique-world count.
+
+
+## Branch-label action/transition equivariance (2026-10-31)
+
+Before strategy conclusions rely on branch labels, sample reachable states and apply all 24 permutations of the four labels. Compare draw/pass state and legal action sets after mapping each action's side; then apply every corresponding legal action and compare the mapped successor state. Track pass/draw transitions separately. Count unique seeded deal allocations and report duplicate seeds explicitly.
+
+Measure policy-choice changes separately for each policy. These mismatches diagnose label-sensitive tie-breaks; they are not strategy outcome differences. When the state has automorphic/symmetric branches, a unique deterministic equivariant choice may not exist. Prefer a symmetric random tie-break distribution or compare action-orbit outcomes rather than silently using raw side index. Keep the branch symmetry assumption separate from physical rule authentication.
