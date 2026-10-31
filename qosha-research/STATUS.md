@@ -201,3 +201,11 @@ Updated: 2026-10-30 10:53 +04 (Asia/Baku)
 
 ## NEXT ACTION
 Authenticate physical late-arrival branch reopening and blocked-tie scoring. Evaluate double-play follow-up versus ordinary-play alternatives on matched hidden worlds under explicitly labelled models; do not treat short-window playable-double count as a win-rate advantage.
+
+## Latest checkpoint — alternate branch-side chronology paired holdout (2026-10-31 16:54 +04)
+
+- [Reproducible script](simulator/late-return-alt-prefix-paired.js), [run report](runs/2026-10-31-1654-alt-prefix-paired.md). **2,048 new conditional hidden allocations**, seeds 3400264..3402311; 0 new opening deals/full rounds.
+- Alternate reachable branch-side trace (same tile sequence, 1-3 right and 1-4 left) produced 111 eligible worlds, 237 common candidate comparisons and 7,584 two-opponent continuations. **81/237 (34.18%)** low-vs-high extension safety reversals; disjoint cohorts 43/125 and 38/112. Prior branch-side chronology was 127/303 (41.9%): descriptive difference, not a significance test.
+- Validation in V8 CommonJS-compatible harness: legal chronological replay, forced pass, 28-tile conservation, common-action and deterministic-seed checks passed. Clean Node 22 CLI remains unavailable. Branch rules/ties provisional; no full-game win/minus/regret claim.
+- Cumulative: 1,380,975 incompatible-model rounds; 1,898,856 forced continuations; 630,000 opening deals; 1,193,360 seeded hidden allocations. Next seed >=3402312.
+- **Next:** test a different tile-sequence prefix or authenticated pass history; resolve physical late-arrival branch unlocking and blocked-tie scoring.
