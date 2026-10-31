@@ -162,14 +162,17 @@ function pair(z,a,b){
  z.turnDelta+=b.turns-a.turns;
  z.pipDelta+=b.hands.reduce((sum,h,p)=>sum+e.pipSum(h)-e.pipSum(a.hands[p]),0)/3;
 }
+function mixBucket(){return{models:{global:stats(),currentAll:stats(),localFirst:stats(),localLast:stats()},paired:{globalVsCurrent:paired(),globalVsFirst:paired(),globalVsLast:paired(),currentVsFirst:paired()}};}
+function finalizePairSet(set){for(const p of Object.values(set)){p.meanTurnDelta=p.turnDelta/p.rounds;p.meanPipDelta=p.pipDelta/p.rounds;delete p.turnDelta;delete p.pipDelta;}}
+function finalizeMixBucket(bucket){for(const m of Object.values(bucket.models))finalize(m);finalizePairSet(bucket.paired);}
 function run(startSeed=1601340,deals=800){
  check(Number.isInteger(startSeed)&&Number.isInteger(deals)&&deals>0&&deals<=5000,'seed/count');
- const out={schema:'qosha-branch-current-full-round/v1',
+ const out={schema:'qosha-branch-current-full-round/v2',
  timestampAsiaBaku:new Date().toLocaleString('sv-SE',{timeZone:'Asia/Baku'}).replace(' ','T')+'+04:00',
  engine:'qosa-research-0.5.3+branch-current-counterfactual',rules:'recovered qosa-1.0.0; all branch opening models PROVISIONAL',
  startSeed,endSeed:startSeed+deals-1,deals,seatRotations:3,mixes:MIXES,
  models:{global:stats(),currentAll:stats(),localFirst:stats(),localLast:stats()},
- paired:{globalVsCurrent:paired(),globalVsFirst:paired(),globalVsLast:paired(),currentVsFirst:paired()},
+ paired:{globalVsCurrent:paired(),globalVsFirst:paired(),globalVsLast:paired(),currentVsFirst:paired()},byMix:{mix1:mixBucket(),mix2:mixBucket()},
  assumptions:[
  'Global model unlocks a played double number on all sides, including sides reaching that number later.',
  'Current-all model unlocks the number on EVERY side whose end matches the double AT PLAY TIME, never on other sides arriving at that number later.',
@@ -194,17 +197,21 @@ function run(startSeed=1601340,deals=800){
    record(out.models.currentAll,current,policies,base);
    record(out.models.localFirst,first,policies,base);
    record(out.models.localLast,last,policies,base);
+   const bucket=out.byMix['mix'+(mix+1)];
+   record(bucket.models.global,global,policies,base);
+   record(bucket.models.currentAll,current,policies,base);
+   record(bucket.models.localFirst,first,policies,base);
+   record(bucket.models.localLast,last,policies,base);
    pair(out.paired.globalVsCurrent,global,current);
-   pair(out.paired.globalVsFirst,global,first);
-   pair(out.paired.globalVsLast,global,last);
-   pair(out.paired.currentVsFirst,current,first);
+   pair(bucket.paired.globalVsCurrent,global,current);
+   pair(out.paired.globalVsFirst,global,first);pair(bucket.paired.globalVsFirst,global,first);
+   pair(out.paired.globalVsLast,global,last);pair(bucket.paired.globalVsLast,global,last);
+   pair(out.paired.currentVsFirst,current,first);pair(bucket.paired.currentVsFirst,current,first);
   }
  }
  for(const m of Object.values(out.models))finalize(m);
- for(const p of Object.values(out.paired)){
-  p.meanTurnDelta=p.turnDelta/p.rounds;p.meanPipDelta=p.pipDelta/p.rounds;
-  delete p.turnDelta;delete p.pipDelta;
- }
+ finalizePairSet(out.paired);
+ for(const bucket of Object.values(out.byMix))finalizeMixBucket(bucket);
  return out;
 }
 function test(){
@@ -241,6 +248,7 @@ function test(){
  delete x.timestampAsiaBaku;delete y.timestampAsiaBaku;
  check(JSON.stringify(x)===JSON.stringify(y),'deterministic replay');
  check(Object.values(x.models).every(z=>z.rounds===30&&z.unresolved===0),'pilot 120 complete rounds');
+ check(Object.values(x.byMix).every(z=>z.models.global.rounds===15&&z.models.currentAll.rounds===15),'per-mix accounting');
  return{passed:true,pilotDeals:5,pilotModelRounds:120,fixtures:['all currently matching ends','future side stays locked','side unlock persistence','four-double -40','mixed finish -20','score floor','conservation','replay']};
 }
 if(require.main===module){

@@ -1,0 +1,312 @@
+{
+  "timestampAsiaBaku": "2026-10-31 23:45 +04 (Asia/Baku)",
+  "sourceCommit": "99ce431457eb322b5fd5b0fde64b615991df0d1f",
+  "execution": "GitHub-fetched JavaScript executed in a V8 CommonJS-compatible harness; not a clean local Node 22 CLI run",
+  "rules": {
+    "engine": "qosa-research-0.5.3",
+    "configuration": "recovered qosa-1.0.0; 3 players × 9 stones + one stock tile",
+    "branchUnlocking": "PROVISIONAL",
+    "blockedTieScoring": "PROVISIONAL"
+  },
+  "tests": {
+    "symmetricTieBreak": {
+      "passed": true,
+      "seedDraws": 4,
+      "permutationChecks": 2232,
+      "playablePermutationComparisons": 2088,
+      "distributionalChecks": 10440,
+      "distributionalMismatches": 0,
+      "matchedRoundPairs": 24
+    },
+    "branchModelMixStrata": {
+      "passed": true,
+      "pilotDeals": 5,
+      "pilotModelRounds": 120,
+      "fixtures": [
+        "all currently matching ends",
+        "future side stays locked",
+        "side unlock persistence",
+        "four-double -40",
+        "mixed finish -20",
+        "score floor",
+        "conservation",
+        "deterministic replay",
+        "per-mix accounting"
+      ]
+    }
+  },
+  "symmetricTieBreakHoldout": {
+    "seedStart": 3405520,
+    "seedEnd": 3406019,
+    "seedDraws": 500,
+    "uniqueDealAllocations": 500,
+    "duplicateDealPairs": [],
+    "design": {
+      "mixes": [
+        [
+          "random-legal",
+          "min-hand-pips",
+          "closed-branch-control"
+        ],
+        [
+          "fast-doubles",
+          "moderate-double-hold",
+          "closed-branch-control"
+        ]
+      ],
+      "seatRotations": 3,
+      "roundPairsPerMix": 1500,
+      "totalMatchedRoundPairs": 3000,
+      "totalArmRounds": 6000,
+      "newHiddenWorldAllocations": 0,
+      "maxTurns": 200
+    },
+    "structuralAudit": {
+      "auditDeals": 40,
+      "sampledPositions": 921,
+      "branchLabelPermutations": 24,
+      "permutationChecks": 22104,
+      "playablePermutationComparisons": 19392,
+      "optionStateMismatches": 0,
+      "legalActionSetMismatches": 0,
+      "distributionalChecks": 96960,
+      "distributionalMismatches": 0,
+      "rawChoiceMismatchRates": {
+        "randomLegal": 0.15996,
+        "minHandPips": 0.14439,
+        "fastDoubles": 0.13552,
+        "moderateDoubleHold": 0.15017,
+        "closedBranchControl": 0.1611
+      }
+    },
+    "mix1": {
+      "pairs": 1500,
+      "bothFinish": 1398,
+      "kindChanged": 100,
+      "finishWinnerChanged": 684,
+      "minusChanged": 320,
+      "baselineBlockRate": 0.03133,
+      "actionOrbitBlockRate": 0.038,
+      "baselineMinus": {
+        "0": 1224,
+        "-10": 218,
+        "-20": 11,
+        "-30": 0,
+        "-40": 0
+      },
+      "actionOrbitMinus": {
+        "0": 1227,
+        "-10": 211,
+        "-20": 5,
+        "-30": 0,
+        "-40": 0
+      }
+    },
+    "mix2": {
+      "pairs": 1500,
+      "bothFinish": 1408,
+      "kindChanged": 79,
+      "finishWinnerChanged": 320,
+      "minusChanged": 157,
+      "baselineBlockRate": 0.03867,
+      "actionOrbitBlockRate": 0.03133,
+      "baselineMinus": {
+        "0": 1163,
+        "-10": 269,
+        "-20": 9,
+        "-30": 1,
+        "-40": 0
+      },
+      "actionOrbitMinus": {
+        "0": 1166,
+        "-10": 273,
+        "-20": 13,
+        "-30": 1,
+        "-40": 0
+      },
+      "finishRateByStrategy": {
+        "fastDoubles": {
+          "baseline": 0.19,
+          "actionOrbit": 0.184,
+          "differencePP": -0.6
+        },
+        "moderateDoubleHold": {
+          "baseline": 0.32333,
+          "actionOrbit": 0.338,
+          "differencePP": 1.47
+        },
+        "closedBranchControl": {
+          "baseline": 0.448,
+          "actionOrbit": 0.44667,
+          "differencePP": -0.13
+        }
+      }
+    },
+    "adjacentHoldoutReplication": {
+      "priorSeeds": "3405020..3405519",
+      "priorMix2FirstFinisherChanged": 320,
+      "priorMix2BothFinish": 1408,
+      "priorMix2OutcomeKindChanged": 79,
+      "priorMix2Pairs": 1500,
+      "combinedFirstFinisherChanged": 640,
+      "combinedBothFinish": 2816,
+      "combinedOutcomeKindChanged": 158,
+      "combinedPairs": 3000
+    }
+  },
+  "branchModelSensitivity": {
+    "schema": "qosha-branch-current-full-round/v2",
+    "seedStart": 3405520,
+    "seedEnd": 3406019,
+    "deals": 500,
+    "seatRotations": 3,
+    "mixes": 2,
+    "totalModelRounds": 12000,
+    "models": {
+      "global": {
+        "rounds": 3000,
+        "finishes": 2884,
+        "blocks": 116,
+        "blockRate": 0.0386667,
+        "meanTurns": 25.17767,
+        "minus": {
+          "0": 2388,
+          "-10": 469,
+          "-20": 25,
+          "-30": 2,
+          "-40": 0
+        }
+      },
+      "currentAll": {
+        "rounds": 3000,
+        "finishes": 205,
+        "blocks": 2795,
+        "blockRate": 0.9316667,
+        "meanTurns": 23.35433,
+        "minus": {
+          "0": 180,
+          "-10": 20,
+          "-20": 3,
+          "-30": 2,
+          "-40": 0
+        }
+      },
+      "localFirst": {
+        "rounds": 3000,
+        "finishes": 40,
+        "blocks": 2960,
+        "blockRate": 0.9866667,
+        "meanTurns": 20.53333,
+        "minus": {
+          "0": 34,
+          "-10": 4,
+          "-20": 0,
+          "-30": 2,
+          "-40": 0
+        }
+      },
+      "localLast": {
+        "rounds": 3000,
+        "finishes": 26,
+        "blocks": 2974,
+        "blockRate": 0.9913333,
+        "meanTurns": 20.35833,
+        "minus": {
+          "0": 23,
+          "-10": 1,
+          "-20": 0,
+          "-30": 2,
+          "-40": 0
+        }
+      }
+    },
+    "globalVsCurrent": {
+      "rounds": 3000,
+      "kindChanged": 2693,
+      "globalFinishAlternativeBlock": 2686,
+      "globalBlockAlternativeFinish": 7,
+      "bothFinishedDifferentWinner": 60,
+      "meanTurnDelta": -1.82333,
+      "meanPipDeltaPerSeat": 10.68633
+    },
+    "byMix": {
+      "mix1": {
+        "roundsPerModel": 1500,
+        "globalBlockRate": 0.0333333,
+        "currentAllBlockRate": 0.9326667,
+        "globalVsCurrent": {
+          "kindChanged": 1355,
+          "rounds": 1500,
+          "globalFinishAlternativeBlock": 1352,
+          "globalBlockAlternativeFinish": 3,
+          "bothFinishedDifferentWinner": 29
+        },
+        "finishFirstRate": {
+          "global": {
+            "randomLegal": 0.295333,
+            "minHandPips": 0.270667,
+            "closedBranchControl": 0.400667
+          },
+          "currentAll": {
+            "randomLegal": 0.009333,
+            "minHandPips": 0.018,
+            "closedBranchControl": 0.04
+          }
+        }
+      },
+      "mix2": {
+        "roundsPerModel": 1500,
+        "globalBlockRate": 0.044,
+        "currentAllBlockRate": 0.9306667,
+        "globalVsCurrent": {
+          "kindChanged": 1338,
+          "rounds": 1500,
+          "globalFinishAlternativeBlock": 1334,
+          "globalBlockAlternativeFinish": 4,
+          "bothFinishedDifferentWinner": 31
+        },
+        "finishFirstRate": {
+          "global": {
+            "fastDoubles": 0.163333,
+            "moderateDoubleHold": 0.343333,
+            "closedBranchControl": 0.449333
+          },
+          "currentAll": {
+            "fastDoubles": 0.017333,
+            "moderateDoubleHold": 0.017333,
+            "closedBranchControl": 0.034667
+          }
+        }
+      }
+    },
+    "assumptions": [
+      "global model unlocks played double number on all sides including later-arriving sides",
+      "current-all unlocks number on all sides ending in it at play time; later-arriving sides remain locked; side-local unlock persists if side leaves and returns",
+      "same initial deals, policy assignments, seeds and seat rotations; later paths diverge",
+      "block winners/ties not assigned first place; 101 match scoring and authentic opening rule not verified",
+      "random-legal action indices can differ across branch models"
+    ]
+  },
+  "cumulative": {
+    "incompatibleModelRounds": 1380975,
+    "forcedContinuations": 1898856,
+    "openingDealStudySeeds": 630000,
+    "seededHiddenAllocations": 1195408,
+    "actionOrbitHoldoutDeals": 1500,
+    "actionOrbitHoldoutArmRounds": 18000,
+    "separatePilotDeals": 120,
+    "separatePilotArmRounds": 1440,
+    "historicalBaselineRounds": 4000
+  },
+  "next": {
+    "fullRoundSeed": 3406020,
+    "action": "Authenticate physical late-arrival branch reopening and blocked-round tie scoring; otherwise continue invariant tests or use a real logged pass/branch trace."
+  },
+  "limitations": [
+    "synthetic model outcomes are not physical-rule validation",
+    "finish-first is not match win; block ties are not scored",
+    "no paired confidence interval calculated",
+    "no decision regret or real-history posterior in this run",
+    "no new hidden-world allocations"
+  ]
+}

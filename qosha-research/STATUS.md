@@ -1,3 +1,13 @@
+## Latest checkpoint — branch-model sensitivity + symmetric tie-break holdout (2026-10-31 23:45 +04, Asia/Baku)
+
+- [Run report](runs/2026-10-31-2345-branch-model-sensitivity-holdout.md); [JSON](runs/2026-10-31-2345-branch-model-sensitivity-holdout.json). Base source `99ce431457eb322b5fd5b0fde64b615991df0d1f`; engine `qosa-research-0.5.3`, 3×9+stock. Branch unlocking/block ties remain **PROVISIONAL**.
+- 500 unique matched deals, seeds 3405520–3406019. Tie-break arm: 3,000 pairs / 6,000 arm-rounds; branch model: four models × 3,000 rounds. Per-mix accounting and regression were added to `branch-current-full-round.js`.
+- Structural tie-break audit: 22,104 branch permutations; 96,960 policy-distribution checks; 0 option/action/distribution mismatches.
+- Global-ever-open vs current-active-only: 2,693/3,000 (89.77%) outcome-kind changes; 2,686 global finishes became current-model blocks; block rates 3.87% vs 93.17%. **This quantifies rule-model sensitivity, not which rule is correct.**
+- Mix 2 tie-break sensitivity repeats: 320/1,408 (22.73%) first-finisher changes and 79/1,500 (5.27%) outcome-kind changes, same counts as the preceding disjoint holdout.
+- Legacy populations unchanged; action-orbit holdouts 1,500 deals / 18,000 arm-rounds (+ separate 120-deal pilot). Next seed 3406020.
+- **Next:** authenticate branch reopening and blocked-tie scoring from a real trace/ruling; keep branch-dependent advice provisional.
+
 ## Latest checkpoint — second disjoint 500-deal symmetric action-orbit holdout (2026-10-31 22:51 +04, Asia/Baku)
 - [Run report](runs/2026-10-31-2251-branch-label-symmetric-tiebreak-holdout.md); [machine-readable metrics](runs/2026-10-31-2251-branch-label-symmetric-tiebreak-holdout.json). Source `416c8032a4c399ba0585fd21daba1f7747d59bc7`; engine `qosa-research-0.5.3 + symmetric-action-orbit-tiebreak/v1`; recovered 3×9+stock. Branch reopening and blocked ties remain **PROVISIONAL**.
 - New cohort: 500 unique deals, seeds 3405020–3405519; 3 rotations × 2 mixes = 3,000 matched pairs / 6,000 arm-rounds; 0 new hidden worlds. Runner regression passed; V8 CommonJS-compatible execution, not clean Node 22 CLI.

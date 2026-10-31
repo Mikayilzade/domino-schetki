@@ -1901,3 +1901,22 @@ Both duplicate pairs were across development→holdout, and both worlds failed t
 - **Finding/confidence:** the action-orbit policy remains distributionally invariant under tested label permutations, yet full-round outcomes are tie-break sensitive. High confidence in deterministic synthetic bookkeeping; low external validity. These are round first-finisher metrics, not 101-match win rates.
 - **Cumulative (populations separate):** legacy counts unchanged at 1,380,975 incompatible-model rounds; 1,898,856 forced continuations; 630,000 opening-deal study seeds; 1,195,408 seeded hidden allocations. Add separately: 500 full-round deal allocations / 6,000 arm-rounds. Historical baseline separate. Next full-round seed **3405020**.
 - **Exact next action:** obtain an authenticated physical trace/ruling for late-arrival branch reopening and blocked-round tie scoring, then rerun matched-seed comparisons under the confirmed rules.
+
+
+### 2026-10-31 22:51 +04 (Asia/Baku) — second disjoint symmetric action-orbit holdout
+
+- [Run report](runs/2026-10-31-2251-branch-label-symmetric-tiebreak-holdout.md); [machine-readable metrics](runs/2026-10-31-2251-branch-label-symmetric-tiebreak-holdout.json). Engine `qosa-research-0.5.3 + symmetric-action-orbit-tiebreak/v1`; recovered 3×9+stock; physical branch reopening and blocked ties remain **PROVISIONAL**.
+- **500 unique deals**, seeds `3405020..3405519`; two mixes × three rotations = **3,000 paired round comparisons / 6,000 arm-rounds**; 0 new hidden worlds. Structural audit: 22,104 permutation checks, 19,392 playable comparisons, 96,960 policy-distribution checks; **0 mismatches**.
+- Mix 2: first finisher changed **320/1,408 (22.73%)** both-finish pairs; outcome kind changed **79/1,500 (5.27%)**; minus class changed **157/1,408 (11.15%)**. This is tie-break sensitivity, not strategy superiority. No paired CI was calculated.
+- The run was executed from GitHub-fetched source in a V8 CommonJS-compatible harness; not a clean Node 22 CLI run. Legacy populations unchanged; next seed 3405520.
+
+
+### 2026-10-31 23:45 +04 (Asia/Baku) — branch-model sensitivity + symmetric tie-break holdout
+
+- [Run report](runs/2026-10-31-2345-branch-model-sensitivity-holdout.md); [machine-readable metrics](runs/2026-10-31-2345-branch-model-sensitivity-holdout.json); [per-mix runner](simulator/branch-current-full-round.js). Recovered `qosa-1.0.0` 3×9+stock; branch unlocking and blocked ties remain **PROVISIONAL**.
+- **New matched seeds:** 500 unique deals `3405520..3406019`. Symmetric-tie-break study: 3,000 paired round comparisons / 6,000 arm-rounds; branch-model study: four models × 3,000 rounds (12,000 model-rounds). No new hidden-world allocations.
+- Symmetric tie-break Mix 2: outcome kind changed **79/1,500 (5.27%)**; first finisher changed **320/1,408 (22.73%)**; minus class changed **157/1,408 (11.15%)**. This matches the preceding disjoint cohort descriptively; no strategy superiority.
+- Global-ever-open vs current-active-only: outcome kind changed **2,693/3,000 (89.77%)**; **2,686** global-finish rounds became current-model blocks, while 7 global blocks became current-model finishes. Block rate **3.87% vs 93.17%**. This large divergence shows the physical rule ambiguity is decision-critical, but does not validate either model.
+- Per-mix finish-first metrics are retained in the report/JSON; block outcomes are not assigned a winner because tie scoring is unconfirmed. No 101-match win-rate or regret claim.
+- Cumulative action-orbit holdouts: **1,500 unique deals / 18,000 arm-rounds**, plus the separate 120-deal pilot / 1,440 arm-rounds. Legacy counts remain 1,380,975 incompatible-model rounds; 1,898,856 forced continuations; 630,000 opening-deal study seeds; 1,195,408 hidden allocations. Next seed **3406020**.
+- **Next:** authenticate late-arrival branch reopening and blocked-round tie scoring using a real trace/ruling; until then retain provisional models and prioritize invariant tests.
