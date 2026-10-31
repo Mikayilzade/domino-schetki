@@ -1,3 +1,12 @@
+## Latest checkpoint — disjoint 500-deal symmetric action-orbit holdout (2026-10-31 21:53 +04, Asia/Baku)
+- [Run report](runs/2026-10-31-2153-branch-label-symmetric-tiebreak-holdout.md); [JSON](runs/2026-10-31-2153-branch-label-symmetric-tiebreak-holdout.json). 500 unique deals, seeds 3404520–3405019; 3 rotations × 2 mixes = 3,000 matched round pairs / 6,000 arm-rounds. 0 hidden worlds. Branch reopening/block ties remain PROVISIONAL.
+- 40-deal structural audit: 903 positions; 21,672 permutation checks; 19,368 playable comparisons; 0 option/action-set mismatches. 96,840 distribution checks, 0 mismatches.
+- Paired outcome-kind changes: 92/1,500 (6.13%) Mix 1; 66/1,500 (4.40%) Mix 2. Mix 2 first finisher changed 312/1,417 both-finish pairs (22.02%). Deal-clustered 95% CIs for Mix 2 finish-rate differences: fast-doubles +0.60 pp [-1.21,+2.41]; moderate-hold +1.13 pp [-0.82,+3.08]; closed-branch-control −2.27 pp [-4.50,−0.03]. Exploratory tie-break sensitivity only; the last interval is unadjusted for multiple comparisons and rules are provisional, so no tactic promoted.
+- Legacy cumulative populations unchanged: 1,380,975 incompatible-model rounds; 1,898,856 continuations; 630,000 opening-deal study seeds; 1,195,408 hidden allocations. Separate new cohort: 500 full-round deals / 6,000 arm-rounds. Next seed **3405020**.
+- **Next:** authenticate late-arrival branch reopening and blocked-round tie scoring with a physical trace/ruling; then repeat matched-seed strategy comparisons under confirmed rules.
+
+---
+
 ## Latest checkpoint — symmetric action-orbit tie-break (2026-10-31 20:53 +04, Asia/Baku)
 - [Runner](simulator/branch-label-symmetric-tiebreak.js); [run report](runs/2026-10-31-2053-branch-label-symmetric-tiebreak.md); [JSON](runs/2026-10-31-2053-branch-label-symmetric-tiebreak.json). Engine `qosha-research-0.5.3 + symmetric-action-orbit-tiebreak/v1`; branch reopening/block ties remain PROVISIONAL.
 - **120 new unique 3×9 deal allocations**, seeds 3404400–3404519; 3 seat rotations × 2 mixes = **720 matched round pairs / 1,440 arm-rounds**. No hidden worlds. Legacy cumulative populations unchanged: 1,380,975 incompatible-model rounds; 1,898,856 forced continuations; 630,000 opening-deal study seeds; 1,195,408 seeded hidden allocations. Keep this new cohort separate.
