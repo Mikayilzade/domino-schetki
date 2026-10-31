@@ -54,3 +54,7 @@
 - движок менялся между сравниваемыми прогонами.
 
 Все новые гипотезы сначала писать как гипотезы, затем подтверждать отдельным прогоном.
+
+## Branch-label symmetry and policy tie-breaks (2026-10-31)
+
+The four branch labels are treated as interchangeable by the research kernel. Deterministic policy tie-breaks must therefore be invariant under a permutation of branch labels (canonicalize the labels before tie-breaking, or use a seeded symmetric tie-break). Before promoting a branch/late-pass result, run the 24-permutation metamorphic check on the same hidden worlds. Record eligibility changes separately from candidate-classification changes. Raw numeric side order is an explicit ablation only, not the default research policy.

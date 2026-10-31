@@ -209,3 +209,10 @@ Authenticate physical late-arrival branch reopening and blocked-tie scoring. Eva
 - Validation in V8 CommonJS-compatible harness: legal chronological replay, forced pass, 28-tile conservation, common-action and deterministic-seed checks passed. Clean Node 22 CLI remains unavailable. Branch rules/ties provisional; no full-game win/minus/regret claim.
 - Cumulative: 1,380,975 incompatible-model rounds; 1,898,856 forced continuations; 630,000 opening deals; 1,193,360 seeded hidden allocations. Next seed >=3402312.
 - **Next:** test a different tile-sequence prefix or authenticated pass history; resolve physical late-arrival branch unlocking and blocked-tie scoring.
+
+## Latest checkpoint — branch-label tie-break invariance audit (2026-10-31 17:53 +04)
+- Run report: runs/2026-10-31-1753-side-label-invariance-audit.md; standalone audit: simulator/side-label-invariance-audit.js. **2,048 new conditional hidden allocations**, seeds **3402312..3404359**, 24 branch-label permutations; 0 new deals/rounds/full continuations.
+- Canonicalized tie-break: **0/2,664** permutation mismatches. Raw numeric side-index tie-break: **136** permutation cases changed eligibility; among **2,528** both-eligible cases, **188** classification maps changed (**7.44%**); 16/111 eligible worlds affected at least once.
+- Finding: raw branch-index tie-break can inject a label artifact into continuation policy. Use a label-invariant or seeded-symmetric tie-break for future strategy comparisons; keep numeric side order as an explicit ablation.
+- Cumulative separate populations: **1,380,975** incompatible-model rounds; **1,898,856** forced continuations; **630,000** opening deals; **1,195,408** seeded hidden allocations. Next seed **3404360**. Physical branch reopening and blocked ties remain provisional; no win/minus/regret claim.
+- **Next:** rerun prior late-return cohorts on identical seeds with corrected tie-break, then obtain an authenticated physical pass/branch trace.
