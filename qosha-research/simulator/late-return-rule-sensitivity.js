@@ -56,9 +56,15 @@ function apply(s,p,a){
  }
  s.turn=(p+1)%3;
 }
-function policy(acts){return acts.slice().sort((a,b)=>
- (a.t[0]+a.t[1])-(b.t[0]+b.t[1])||key(a.t).localeCompare(key(b.t))||
- (a.side??-1)-(b.side??-1))[0]||null;}
+function policy(acts,style='low'){
+ assert(['low','high','double-first','double-last'].includes(style));
+ return acts.slice().sort((a,b)=>{
+  const da=a.t[0]===a.t[1],db=b.t[0]===b.t[1];
+  const doubleBias=style==='double-first'?(Number(db)-Number(da)):style==='double-last'?(Number(da)-Number(db)):0;
+  const pipBias=style==='high'?(b.t[0]+b.t[1])-(a.t[0]+a.t[1]):(a.t[0]+a.t[1])-(b.t[0]+b.t[1]);
+  return doubleBias||pipBias||key(a.t).localeCompare(key(b.t))||(a.side??-1)-(b.side??-1);
+ })[0]||null;
+}
 function replay(model){
  const s=fresh(model);let p=starter;
  for(const [i,step] of trace.entries()){
@@ -76,12 +82,12 @@ function replay(model){
  assert.deepEqual(s.unlocked,[false,true,false,true]);
  return s;
 }
-function evaluate(s,choice){
+function evaluate(s,choice,style='low'){
  const v=clone(s);const a=actions(v,starter).find(x=>key(x.t)===key(choice.t)&&x.side===choice.side);
  assert(a,'candidate legal in both models');apply(v,starter,a);
  const replies=[];
  for(const p of [(starter+1)%3,(starter+2)%3]){
-  const opts=actions(v,p),picked=policy(opts);
+  const opts=actions(v,p),picked=policy(opts,style);
   if(picked)apply(v,p,picked);else v.turn=(p+1)%3;
   replies.push({seat:p,action:picked?{tile:key(picked.t),side:picked.side===null?'double':SIDES[picked.side]}:'pass'});
   assert(v.hands[p].length>0,'no early finish in two-turn horizon');
@@ -148,4 +154,4 @@ function integration(){
  return {integrationPassed:true,checkedGlobalCandidates:choices.length,chronologicalSteps:trace.length};
 }
 if(require.main===module)console.log(JSON.stringify(process.argv.includes('--integration')?{...run(),...integration()}:run(),null,2));
-module.exports={run,integration};
+module.exports={run,integration,replay,evaluate,choices,actions,key,clone,policy};
