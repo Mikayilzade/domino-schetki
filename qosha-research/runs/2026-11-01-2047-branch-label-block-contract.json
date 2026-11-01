@@ -1,0 +1,137 @@
+{
+  "schema": "qosha-branch-label-block-contract/v1",
+  "timestampAsiaBaku": "2026-11-01 20:47:18 +04 (Asia/Baku)",
+  "engine": "qosha-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; primary mode 3 players x 9 stones + 1 stock; branch-label interchangeability is a metamorphic assumption, not physical-rule authentication",
+  "branchLabelAudit": {
+    "runner": "simulator/branch-label-stratified-transition-audit.js",
+    "seedStart": 3414120,
+    "seedEnd": 3414619,
+    "seedDraws": 500,
+    "uniqueFullAllocations": 500,
+    "duplicateDealPairs": 0,
+    "trajectoryPolicy": "deterministic seeded legal-action index; validation trajectories only",
+    "reachableDecisionPositions": 11838,
+    "rounds": {
+      "finish": 476,
+      "block": 24,
+      "unresolved": 0,
+      "meanTurnsIncludingOpeningSetup": 24.676,
+      "blockRate": 0.048
+    },
+    "stratifiedStates": {
+      "pass": {
+        "eligibleUniqueStates": 842,
+        "selected": 60
+      },
+      "single": {
+        "eligibleUniqueStates": 9594,
+        "selected": 60
+      },
+      "double": {
+        "eligibleUniqueStates": 4481,
+        "selected": 60
+      },
+      "mixed": {
+        "eligibleUniqueStates": 32,
+        "selected": 32
+      },
+      "multi": {
+        "eligibleUniqueStates": 5211,
+        "selected": 60
+      },
+      "late": {
+        "eligibleUniqueStates": 8297,
+        "selected": 60
+      },
+      "selectedUniqueStatesInUnion": 209,
+      "note": "The selected-state union is unique within this cohort; counts across cohorts are not globally deduplicated."
+    },
+    "branchLabelPermutations": 24,
+    "legalActionSetChecks": 5016,
+    "legalActionTransitionChecks": 12600,
+    "actionTransitionsByType": {
+      "single": 8928,
+      "doubleSequence": 2856,
+      "mixedFinish": 816
+    },
+    "passTransitionChecks": 1440,
+    "explicitDrawFixtures": {
+      "optionPermutationChecks": 48,
+      "drawThenPlayTransitions": 96,
+      "drawThenPassTransitions": 24
+    },
+    "mismatches": {
+      "legalActionSet": 0,
+      "actionTransition": 0,
+      "passTransition": 0,
+      "drawFixture": 0
+    },
+    "strategyComparisonRounds": 0,
+    "hiddenWorldAllocations": 0
+  },
+  "tests": {
+    "branchLabelRegression": {
+      "passed": true,
+      "replayDeals": 8,
+      "sampledUniqueStates": 50,
+      "actionSetChecks": 1200,
+      "actionTransitions": 3960,
+      "drawFixtures": {
+        "optionPermutationChecks": 48,
+        "drawThenPlayTransitions": 96,
+        "drawThenPassTransitions": 24
+      }
+    },
+    "scoringContract": {
+      "passed": true,
+      "assertions": 1056,
+      "scoreFloorGrid": 1010,
+      "finishClasses": 5
+    },
+    "isolatedBlockFixtures": {
+      "passed": true,
+      "assertions": 22,
+      "fixtures": [
+        "3p-unique-minimum",
+        "3p-tied-minimum",
+        "5p-zero-pip-hand-is-still-block"
+      ],
+      "checks": [
+        "per-seat remainder sums",
+        "no inferred winner for unique/tied minimum",
+        "zero-pip hand remains a block, not finish",
+        "stock/pass threshold gates"
+      ]
+    }
+  },
+  "cumulative": {
+    "branchLabelCohorts": {
+      "uniqueDealAllocations": 1000,
+      "reachableDecisionPositionsGenerated": 23701,
+      "selectedStateRecordsAcrossCohorts": 435,
+      "actionSetChecks": 10440,
+      "actionTransitionChecks": 26736,
+      "passTransitionChecks": 2880,
+      "note": "Two disjoint 500-deal cohorts; selected state records are summed, not globally deduplicated."
+    },
+    "separateValidationOpeningTieBreakAllocations": 7550,
+    "reachablePropertyAuditPositions": 52315,
+    "branchLockAuditDeals": 550,
+    "strategyTournament": {
+      "deals": 1500,
+      "armRounds": 18000,
+      "separatePilotDeals": 120,
+      "pilotArmRounds": 1440
+    }
+  },
+  "finding": "The current model's legal action sets, pass/draw transitions, and mapped action transitions were equivariant under all 24 branch-label permutations in 209 stratified sampled reachable states; zero mismatches. This is an internal model consistency result only.",
+  "confidence": "High for deterministic model-level metamorphic checks and coded block-remainder contract; no external authentication of physical branch/block rules.",
+  "limitations": [
+    "Four-side physical branch locking/reopening is provisional.",
+    "Blocked-round winner/tie scoring is unresolved; fixtures assert the engine does not infer a winner and preserve per-seat pip remainders.",
+    "loneZero=10 and bust=101 match semantics remain unverified.",
+    "No strategy comparison or hidden-world Monte Carlo was run."
+  ],
+  "exactNextAction": "Run a disjoint branch-label audit using policy-generated trajectories (not only seeded legal-action-index trajectories), retain 24-permutation action/pass/transition checks, and add mixed-finish/block edge fixtures. Keep strategy ranking paused and physical branch/block rules provisional until an authentic table trace or explicit ruling is available."
+}
