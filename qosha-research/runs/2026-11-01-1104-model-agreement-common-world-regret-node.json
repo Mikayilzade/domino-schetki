@@ -1,0 +1,131 @@
+{
+  "schema": "qosha-model-agreement-common-world-regret-node/v1",
+  "timestampAsiaBaku": "2026-11-01T11:04:08+04:00",
+  "engine": "self-contained V8 parity audit; qosa-research-0.5.3; recovered qosa-1.0.0; 3x9+stock",
+  "startSeed": 3409970,
+  "endSeed": 3410469,
+  "seedDraws": 500,
+  "uniqueDeals": 500,
+  "trajectory": {
+    "decisionPositions": 12683,
+    "rootActionSetDisagreements": 2326,
+    "rootDisagreementRate": 0.18339509579752425,
+    "commonHistoryDecisionPositions": 6435,
+    "firstDivergencePositions": 498,
+    "commonHistoryDisagreementRate": 0.0773892773892774,
+    "historyAgreementEligibleMultiActionPositions": 4102,
+    "uniqueVisibleAgreementStates": 4102,
+    "uniqueSeedsWithCandidate": 500,
+    "openingFollowups": 475,
+    "openingPasses": 25,
+    "openingFollowupSideCounts": {
+      "up": 117,
+      "left": 119,
+      "right": 119,
+      "down": 120
+    }
+  },
+  "selection": {
+    "targetStates": 72,
+    "selectedStates": 72,
+    "selectedDeals": 72,
+    "byCell": {
+      "2/early": 6,
+      "2/late": 6,
+      "2/mid": 6,
+      "3/early": 6,
+      "3/late": 6,
+      "3/mid": 6,
+      "4-6/early": 6,
+      "4-6/late": 6,
+      "4-6/mid": 6,
+      "7+/early": 6,
+      "7+/late": 6,
+      "7+/mid": 6
+    },
+    "uniqueVisibleAgreementStates": 4102
+  },
+  "hiddenWorldSampling": {
+    "requestedPerState": 24,
+    "stateWorldPairs": 1716,
+    "sampledDraws": 1828,
+    "exactWorlds": 36,
+    "exactStates": 2,
+    "sampledStates": 70,
+    "duplicateDraws": 148,
+    "method": "uniform conditional allocations; exact enumeration if space <= request; otherwise seeded rejection without replacement"
+  },
+  "evaluations": {
+    "states": 72,
+    "selectedDeals": 72,
+    "worldPairs": 1716,
+    "sampledDraws": 1828,
+    "exactWorlds": 36,
+    "exactStates": 2,
+    "sampledStates": 70,
+    "duplicateDraws": 148,
+    "candidateWorldEvaluations": 18948
+  },
+  "regret": {
+    "global": {
+      "firstFinishChance": {
+        "mean": 0.07792176477072309,
+        "median": 0.06041666666666666,
+        "ci95": 0.01861601219447619
+      },
+      "meanRemainder": {
+        "mean": 0.98908060909549,
+        "median": 0.7458333333333333,
+        "ci95": 0.25452902650058384
+      },
+      "minusRisk": {
+        "mean": 0.0751358059138007,
+        "median": 0.029513888888888888,
+        "ci95": 0.02486127621408074
+      },
+      "expectedMinusLoss": {
+        "mean": 0.7814687362213405,
+        "median": 0.2951388888888889,
+        "ci95": 0.27207588719247405
+      }
+    },
+    "currentOnly": {
+      "firstFinishChance": {
+        "mean": 0.06474602403654361,
+        "median": 0.02232142857142857,
+        "ci95": 0.024677132764926554
+      },
+      "meanRemainder": {
+        "mean": 1.8890979923508757,
+        "median": 1.328703703703704,
+        "ci95": 0.35639056398554153
+      },
+      "minusRisk": {
+        "mean": 0.015569942772633747,
+        "median": 0,
+        "ci95": 0.01165969662509845
+      },
+      "expectedMinusLoss": {
+        "mean": 0.15660365226337453,
+        "median": 0,
+        "ci95": 0.11670568320042513
+      }
+    }
+  },
+  "cumulative": {
+    "validationOpeningTieBreakAllocations": 4450,
+    "reachablePropertyAuditPositions": 39262,
+    "strategyStrengthHoldoutDeals": 1500,
+    "strategyStrengthHoldoutArmRounds": 18000,
+    "separatePilotDeals": 120,
+    "separatePilotArmRounds": 1440
+  },
+  "limitations": [
+    "Branch opening interpretations remain provisional: global-ever-open versus current-only sides-at-play-time with per-side unlock persistence.",
+    "Visible states were drawn from global-model trajectories; only states on the common-history prefix were eligible for selection.",
+    "Hidden-world sampling fixes focal hand and all played tiles but does not condition on full public pass-history ledger.",
+    "Regret is hindsight oracle regret over sampled hidden worlds, not an executable perfect-information strategy or strategy-strength tournament.",
+    "Block winner/tie scoring is unauthenticated; no first-place/101-match win rate is inferred.",
+    "The run was executed in the tool V8 JavaScript runtime. A clean local Node checkout remains DNS-blocked; the Node CLI file is saved but not launched from a repository checkout."
+  ]
+}

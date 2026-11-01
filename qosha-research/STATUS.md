@@ -1,3 +1,12 @@
+# Latest checkpoint — common-world regret replication (2026-11-01 11:04 +04, Asia/Baku)
+
+- Runner/report/JSON: simulator/model-agreement-common-world-regret-node.js; runs/2026-11-01-1104-model-agreement-common-world-regret-node.md; runs/2026-11-01-1104-model-agreement-common-world-regret-node.json. The branch-opening and block/tie rules remain PROVISIONAL.
+- 500 seeds 3409970–3410469; 500 unique allocations; 12,683 trajectory decisions. Common-history action-set divergence 498/6,435 (7.74%). Seeded symmetric opener follow-up side counts: 117/119/119/120; 25 opening passes.
+- Selected 72 agreement states on 72 deals; 1,716 state-world allocations (36 exact-enumerated, 1,680 sampled unique); 148 duplicate sample draws rejected; 18,948 full-round candidate evaluations. No strategy promoted.
+- Mean hindsight-oracle regret global/current-only: first-finish 7.79/6.47 pp; remainder 0.99/1.89 pips; minus risk 7.51/1.56 pp; expected minus loss 0.78/0.16 pips. Stratified diagnostic only.
+- Cumulative validation/opening/tie-break allocations: 4,450; property-audit positions remain 39,262; strategy-strength holdout remains 1,500 deals / 18,000 arm-rounds (+120 pilot).
+- Next: fresh seeds 3410470–3410969; separately census disagreement positions and evaluate common-action intersections; continue physical rule authentication.
+---
 # Latest checkpoint — model-agreement common-world regret audit (2026-11-01 09:54:30 +04 (Asia/Baku))
 
 - [Report](runs/2026-11-01-0954-model-agreement-common-world-regret.md); [JSON](runs/2026-11-01-0954-model-agreement-common-world-regret.json). Source head before this checkpoint: `4983bcf6c16bcdaccba4e5f0b16043f23d49c0e1`.
