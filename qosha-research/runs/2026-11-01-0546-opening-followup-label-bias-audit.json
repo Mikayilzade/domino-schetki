@@ -1,0 +1,59 @@
+{
+  "schema": "qosha-opening-followup-label-bias-audit/v1",
+  "timestamp": "2026-11-01 05:46 +04 (Asia/Baku)",
+  "engine": "qosa-research-0.5.3 + opening-followup-label-bias-audit/v1",
+  "rules": "Recovered qosa-1.0.0, 3 players × 9 stones + 1 stock tile. 1-1 opening and later-round previous-winner fallback are documented rules. Four branch labels are treated as interchangeable for metamorphic checks only; physical branch symmetry remains an assumption.",
+  "seedStart": 3407720,
+  "seedEnd": 3408219,
+  "seedDraws": 500,
+  "uniqueFullAllocations": 500,
+  "duplicateAllocationPairs": 0,
+  "duplicatePairs": [],
+  "oneOneInStock": 17,
+  "oneOneInHand": 483,
+  "followupAvailable": 468,
+  "followupPass": 32,
+  "legalFollowupPlacements": 4016,
+  "eligibleFollowupTiles": 1004,
+  "defaultSideCounts": {
+    "up": 468,
+    "left": 0,
+    "right": 0,
+    "down": 0
+  },
+  "followupByOneOneLocation": {
+    "hand": {
+      "available": 451,
+      "pass": 32
+    },
+    "stock": {
+      "available": 17,
+      "pass": 0
+    }
+  },
+  "meanEligibleFollowupTiles": 2.1452991452991452,
+  "meanLegalFollowupPlacementsWhenAvailable": 8.581196581196581,
+  "branchLabelPermutations": 24,
+  "defaultChoicePermutationChecks": 11232,
+  "defaultChoiceMappedMismatches": 8424,
+  "expectedDefaultChoiceMappedMismatches": 8424,
+  "defaultChoiceMismatchRate": 0.75,
+  "legalActionSetPermutationMismatches": 0,
+  "uniformActionDistributionPermutationMismatches": 0,
+  "candidateMultiplicityFailures": 0,
+  "tileConservationChecks": 500,
+  "tileConservationFailures": 0,
+  "strategyComparisonRounds": 0,
+  "hiddenWorldAllocations": 0,
+  "validation": {
+    "node": "v22.16.0",
+    "runnerDeterministicReplay": "12-seed test passed",
+    "existingInitializerRegression": "passed",
+    "engineBlobSha": "82e5bd544a57683d5b4f7812beb2d4abf80da894",
+    "initializerBlobSha": "8c3ba3b9baab4194a3e11b59db54fbf110fb2b49"
+  },
+  "finding": "The current initializer's default follow-up is canonical-up in every eligible case. Under 24 side permutations, the mapped default choice changes in exactly 18/24 permutations (75%), while the legal action set and uniform legal-action distribution remain exactly equivariant.",
+  "confidence": "High for this deterministic code-level audit; no physical rule authentication and no strategy-strength claim.",
+  "limitations": "This measures the current initializer's representation tie-break, not player preference or physical direction. Uniform legal-action sampling is only a distributional comparator. No full rounds, strategy comparisons, hidden worlds, minus/block outcomes, or regret were measured.",
+  "exactNextAction": "Add an explicit seeded symmetric opening-follow-up selector for validation trajectories and measure matched-seed tie-break sensitivity; keep strategy ranking paused pending physical branch/block authentication."
+}

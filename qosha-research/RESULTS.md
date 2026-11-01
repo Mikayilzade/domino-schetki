@@ -1966,3 +1966,15 @@ Both duplicate pairs were across development→holdout, and both worlds failed t
 - Cumulative property audits: **1,700 unique allocations / 39,262 reachable positions** (previous 1,200 / 27,399 plus this cohort). The stratified transition checks are a distinct measure and are not mixed into the prior all-candidate action totals.
 - Confidence: high for the internal equivariance properties tested; no external rule confirmation.
 - **Exact next action:** obtain an authenticated real-game trace/ruling for late-arrival branch reopening and blocked-tie scoring; keep strategy ranking paused until those rules are resolved.
+
+
+### 2026-11-01 05:46 (+04, Asia/Baku) — opening follow-up branch-label tie-break audit
+
+- [Runner](simulator/opening-followup-label-bias-audit.js); [report](runs/2026-11-01-0546-opening-followup-label-bias-audit.md); [JSON](runs/2026-11-01-0546-opening-followup-label-bias-audit.json). Engine qosa-research-0.5.3 + opening-followup-label-bias-audit/v1; recovered qosa-1.0.0 3×9+stock. Four branch labels are assumed interchangeable for this metamorphic audit only; physical branch symmetry remains unconfirmed.
+- **500 seed draws** 3407720–3408219; **500 unique allocations**, 0 duplicates. 1-1 was in a hand in 483 deals and stock in 17. Legal follow-up: **468**; opening pass: **32**. Candidate placements: **4,016** from **1,004** eligible follow-up tiles.
+- The initializer's default selected **up in 468/468** eligible cases. Across all 24 permutations: **11,232** default-choice checks; mapped default choice changed in **8,424 (75%)**, exactly 18/24 permutations per eligible state. Legal action-set mismatches: **0**; uniform legal-action distribution mismatches: **0**. Tile conservation: 500 checks, 0 failures.
+- **Finding:** canonical-up is a representation tie-break, not a physical branch preference. A uniform legal-action opening selector is distributionally symmetric under the tested branch-label assumption. No tactical claim.
+- Node v22.16.0 deterministic 12-seed replay and existing initializer regression passed. Exact GitHub core blob hashes: engine 82e5bd544a57683d5b4f7812beb2d4abf80da894; initializer 8c3ba3b9baab4194a3e11b59db54fbf110fb2b49.
+- **0 full rounds, 0 strategy comparisons, 0 hidden worlds.** Cumulative validation allocations: **2,200** (previous 1,700 property-audit allocations + this disjoint 500-deal opening cohort); reachable positions remain **39,262**. Strategy populations unchanged: 1,500 holdout deals / 18,000 arm-rounds (+ separate 120-deal pilot / 1,440 arm-rounds). Historical baseline and legacy populations remain separate.
+- **Confidence/limits:** high for the deterministic code-level diagnostic; low external validity. The four-branch symmetry assumption and physical branch/block/tie rules remain unauthenticated.
+- **Exact next action:** add an explicit seeded symmetric opening-follow-up selector for validation trajectories and measure matched-seed tie-break sensitivity; keep strategy ranking paused until physical branch reopening and block/tie scoring are authenticated.

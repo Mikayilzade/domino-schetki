@@ -1,3 +1,14 @@
+# Latest checkpoint — opening follow-up branch-label tie-break audit (2026-11-01 05:46 +04, Asia/Baku)
+
+- [Runner](simulator/opening-followup-label-bias-audit.js); [report](runs/2026-11-01-0546-opening-followup-label-bias-audit.md); [JSON](runs/2026-11-01-0546-opening-followup-label-bias-audit.json). Engine qosa-research-0.5.3; recovered qosa-1.0.0 3×9. Physical branch symmetry remains an assumption.
+- **500 unique allocations**, seeds 3407720–3408219; 0 duplicates. Follow-up available in 468; 32 opening passes. The initializer's default chose canonical **up 468/468**.
+- All 24 branch-label permutations: **11,232** default-choice checks; **8,424 (75%)** mapped-choice mismatches, exactly 18/24 per eligible state. Legal action sets and uniform legal-action distribution: **0 mismatches**. Tile conservation: 500 checks, 0 failures.
+- This is a representation tie-break diagnostic, not a physical side preference or tactic. **0 full rounds, 0 strategy comparisons, 0 hidden worlds.**
+- Cumulative validation allocations: **2,200** (1,700 prior property audits + this disjoint 500-deal opening cohort); reachable positions remain **39,262**. Strategy populations unchanged.
+- **Next:** add an explicit seeded symmetric opening-follow-up selector for validation trajectories; compare matched-seed tie-break sensitivity. Keep strategy ranking paused pending physical branch/block authentication.
+
+---
+
 # Latest checkpoint — stratified branch-label action/transition audit (2026-11-01 04:53 +04, Asia/Baku)
 
 - [Runner](simulator/branch-label-stratified-transition-audit.js); [report](runs/2026-11-01-0453-branch-label-stratified-transition-audit.md); [JSON](runs/2026-11-01-0453-branch-label-stratified-transition-audit.json). Engine qosa-research-0.5.3; recovered qosa-1.0.0 3×9. Physical branch reopening and block/tie scoring remain PROVISIONAL.
