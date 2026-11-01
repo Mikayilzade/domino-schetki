@@ -160,3 +160,13 @@ For the four-branch metamorphic check, generate reachable trajectories with a fi
 - Fix each visible position, sample conditional hidden worlds, canonicalize complete seat/stock allocations, retain one copy per visible state, and report draws, unique assignments, duplicates, ESS, and matched continuation count.
 - Stratify next-opponent hand sizes 1 and 2–4 separately. If the one-stone quota is unmet, report it explicitly; do not borrow power from 2–4 positions or from a different continuation policy.
 - This is a paired decision/mechanism diagnostic, not a pure branch-unlock ablation or strategy win-rate. Branch geometry remains provisional; no tactic promotion without independent replication and physical-rule authentication.
+
+
+## Exact finite hidden-world support for late positions (2026-11-02)
+
+- Keep the complete explicit known/played tile list; never infer it from branch ends alone.
+- For a finite unknown pool, treat each opponent seat and stock as a labeled slot, while tile order within a hand/stock is irrelevant. Exact support size is the multinomial count n! / product(slotSize!).
+- Enumerate only when the exact support count is under a stated cap. Verify allocation uniqueness, full pool conservation, and all declared slot sizes.
+- Apply forced-pass evidence as a separate model-specific filter; report pre-filter and post-filter support counts for each provisional branch model. Do not infer voluntary choices without a preregistered likelihood.
+- For a small enumerable support, a deterministic SHA-256 hash-ranked subset can provide a reproducible reduced set. This is without replacement from the enumerated support, not a uniform sampler for a larger unenumerated support.
+- Reuse each exact allocation across every candidate action and continuation policy. Keep the hindsight-oracle interpretation separate from an executable strategy.

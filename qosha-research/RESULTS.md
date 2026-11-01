@@ -2445,3 +2445,13 @@ Fresh 3×9 cohorts using `qosha-research-0.5.3` and recovered `qosa-1.0.0`; glob
 Exact next: from seed `3445020`, use policy-mixed symmetric discovery to increase one-stone equal-pip cases, then enumerate/hash-rank finite hidden-world support; replicate 2–4-stone exact-pip positions with another continuation policy and continue seeking physical branch/block rule evidence.
 
 Report: [2026-11-02-0203-matched-legal-choice-equal-pip.md](runs/2026-11-02-0203-matched-legal-choice-equal-pip.md); data: [minimum-gap JSON](runs/2026-11-02-branch-legal-choice-strata-dedup.json), [equal-pip JSON](runs/2026-11-02-equal-pip-legal-choice-dedup.json); runner: [branch-legal-equal-pip-dedup.js](simulator/branch-legal-equal-pip-dedup.js).
+
+
+# Exact finite hidden-world support enumerator — 2026-11-02 02:47:37 +04 (Asia/Baku)
+
+- Added an allocation-only enumerator and regression under simulator/: hidden-world-enumeration.js and hidden-world-enumeration-test.js.
+- Synthetic support: 10 unknown tiles into hidden hand sizes [3,3,3] plus stock 1. Exact multinomial support = 16,800; all assignments enumerated, unique, and conserved. SHA-256 hash-ranked 128-world subset reproducible.
+- Regression: 10 assertions passed with Node 22.16.0. Local test used a minimal shim for engine.tileKey/createDoubleSixDeck copied from the GitHub engine source; clean checkout integration remains unrun in this container. No strategy deals or strategy metrics added.
+- Finding: exact finite-support enumeration is feasible and testable for small late-game allocation spaces; no tactical advantage established. Physical branch opening/block scoring remain provisional.
+- Next hypothesis/action: identify reachable late positions under the support cap, filter pass evidence separately per branch model, then compare candidate legal moves on identical exact hidden allocations and continuation policies.
+- Report: [2026-11-02-0247-finite-hidden-world-enumeration.md](runs/2026-11-02-0247-finite-hidden-world-enumeration.md).
