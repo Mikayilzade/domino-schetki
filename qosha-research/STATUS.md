@@ -1,3 +1,14 @@
+# Latest checkpoint — stratified branch-label action/transition audit (2026-11-01 04:53 +04, Asia/Baku)
+
+- [Runner](simulator/branch-label-stratified-transition-audit.js); [report](runs/2026-11-01-0453-branch-label-stratified-transition-audit.md); [JSON](runs/2026-11-01-0453-branch-label-stratified-transition-audit.json). Engine qosa-research-0.5.3; recovered qosa-1.0.0 3×9. Physical branch reopening and block/tie scoring remain PROVISIONAL.
+- **500 unique full allocations**, seeds 3407220–3407719; **11,863 reachable decision positions**. Stratified union: **226 unique states** across pass/single/double/mixed/multi-action/late-open strata.
+- All 24 branch-label permutations: **5,424 legal action-set checks, 14,136 action transitions, 1,440 pass transitions — 0 mismatches**. Explicit nonempty-stock fixtures: 48 option checks, 96 draw-then-play transitions, 24 draw-then-pass transitions — 0 mismatches.
+- Terminal counts (467 finish / 33 block) are trajectory diagnostics only. The 500 deals generated validation states; no strategy comparisons or hidden worlds.
+- Cumulative property audits: **1,700 unique allocations / 39,262 reachable positions** (prior 1,200 / 27,399 plus this 500 / 11,863). Do not add this run's stratified transition checks to the old all-candidate trajectory totals.
+- **Next:** obtain an authenticated physical trace/ruling for late-arrival branch reopening and blocked-tie scoring; keep strategy ranking paused.
+
+---
+
 # Latest checkpoint — reachable four-branch lock/open contract (2026-11-01 03:54:47 +04, Asia/Baku)
 
 - [Runner](simulator/branch-lock-reachability-contract.js); [report](runs/2026-11-01-0354-branch-lock-reachability-contract.md); [JSON](runs/2026-11-01-0354-branch-lock-reachability-contract.json). Engine qosa-research-0.5.3; 3×9 recovered qosa-1.0.0. Physical branch reopening and block/tie scoring remain PROVISIONAL.

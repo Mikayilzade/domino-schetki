@@ -1,0 +1,71 @@
+{
+  "schema": "qosha-branch-label-stratified-transition-audit/v1",
+  "engine": "qosa-research-0.5.3 + branch-label-stratified-transition-audit/v1",
+  "rules": "recovered qosa-1.0.0 3x9+stock; branch labels treated as interchangeable for metamorphic checks; physical branch reopening and block/tie scoring remain PROVISIONAL",
+  "seedStart": 3407220,
+  "seedEnd": 3407719,
+  "seedDraws": 500,
+  "uniqueFullAllocations": 500,
+  "duplicateDealPairs": [],
+  "trajectoryPolicy": "deterministic seeded legal-action index; validation trajectories only",
+  "reachablePositions": 11863,
+  "finishRounds": 467,
+  "blockRounds": 33,
+  "meanTurnsIncludingOpeningSetup": 24.726,
+  "strata": {
+    "pass": {
+      "eligibleUniqueStates": 888,
+      "selected": 60
+    },
+    "single": {
+      "eligibleUniqueStates": 9579,
+      "selected": 60
+    },
+    "double": {
+      "eligibleUniqueStates": 4480,
+      "selected": 60
+    },
+    "mixed": {
+      "eligibleUniqueStates": 38,
+      "selected": 38
+    },
+    "multi": {
+      "eligibleUniqueStates": 5135,
+      "selected": 60
+    },
+    "late": {
+      "eligibleUniqueStates": 8321,
+      "selected": 60
+    }
+  },
+  "selectedUniqueStates": 226,
+  "branchLabelPermutations": 24,
+  "legalActionSetChecks": 5424,
+  "legalActionTransitionChecks": 14136,
+  "passTransitionChecks": 1440,
+  "actionTransitionsByType": {
+    "single": 9624,
+    "double-sequence": 3552,
+    "mixed-finish": 960
+  },
+  "explicitDrawFixtures": {
+    "scenarios": [
+      "draw-then-play",
+      "draw-then-pass"
+    ],
+    "optionPermutationChecks": 48,
+    "drawThenPlayActionTransitions": 96,
+    "drawThenPassTransitions": 24
+  },
+  "mismatches": {
+    "legalActionSet": 0,
+    "actionTransition": 0,
+    "passTransition": 0,
+    "drawFixture": 0
+  },
+  "strategyComparisonRounds": 0,
+  "hiddenWorldAllocations": 0,
+  "confidence": "high for internal model-level equivariance in the tested states; no physical-rule authentication",
+  "limitations": "Metamorphic checks compare the current research kernel with itself under all 24 side relabelings. The seeded trajectories generate reachable validation states only; they are not a strategy tournament. The physical branch reopening and blocked-tie rules remain provisional.",
+  "exactNextAction": "Obtain an authenticated real-game trace/ruling for late-arrival branch reopening and blocked-tie scoring; keep strategy ranking paused until those rules are resolved."
+}

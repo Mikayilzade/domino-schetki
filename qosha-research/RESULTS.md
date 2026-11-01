@@ -1954,3 +1954,15 @@ Both duplicate pairs were across development→holdout, and both worlds failed t
 - **Confidence/limitations:** high for internal properties; no external rule authentication, no strategy-strength or Monte Carlo regret result.
 - **Exact next action:** run 24-permutation branch-label action/transition checks on a stratified sample of these reachable states; seek an authenticated real-game trace/ruling for late-arrival unlocking and blocked-tie scoring before strategy rankings.
 
+
+
+## 2026-11-01 04:53 (+04, Asia/Baku) — stratified branch-label action/transition audit
+
+- [Runner](simulator/branch-label-stratified-transition-audit.js), [report](runs/2026-11-01-0453-branch-label-stratified-transition-audit.md), [JSON](runs/2026-11-01-0453-branch-label-stratified-transition-audit.json). Engine qosa-research-0.5.3 + branch-label-stratified-transition-audit/v1; recovered qosa-1.0.0 3×9+stock. Four labels are assumed interchangeable for the metamorphic test; physical branch reopening and block/tie scoring remain **PROVISIONAL**.
+- **500 seed draws** 3407220–3407719; **500 unique full allocations**, 0 duplicate allocation pairs; 11,863 reachable decision positions. Deterministic seeded legal-action index was used only to generate validation trajectories. Terminal diagnostics: 467 finish / 33 block; mean turn counter including opening setup 24.726.
+- Stratified sample: 226 unique states after union of pass/single/double/mixed-finish/multi-action/late-open strata (quota 60 each; mixed-finish had 38 eligible states). Across 24 permutations: **5,424 legal action-set checks**, **14,136 applied legal transitions** (9,624 single / 3,552 double-sequence / 960 mixed-finish), **1,440 pass transitions**; **0 mismatches**.
+- Explicit model-labelled draw fixtures: 48 option/permutation checks, 96 draw-then-play transitions, 24 draw-then-pass transitions; 0 mismatches. The reachable cohort had no in-round draws because the single stock tile is consumed during opening setup.
+- **No strategy comparisons or hidden worlds.** This is internal model consistency, not physical rule authentication or a tactical result. Historical baseline and legacy populations remain separate.
+- Cumulative property audits: **1,700 unique allocations / 39,262 reachable positions** (previous 1,200 / 27,399 plus this cohort). The stratified transition checks are a distinct measure and are not mixed into the prior all-candidate action totals.
+- Confidence: high for the internal equivariance properties tested; no external rule confirmation.
+- **Exact next action:** obtain an authenticated real-game trace/ruling for late-arrival branch reopening and blocked-tie scoring; keep strategy ranking paused until those rules are resolved.
