@@ -1,11 +1,12 @@
-# Latest checkpoint — common-world regret replication (2026-11-01 11:04 +04, Asia/Baku)
+# Latest checkpoint — model-disagreement common-action intersection (2026-11-01 11:47 +04, Asia/Baku)
 
-- Runner/report/JSON: simulator/model-agreement-common-world-regret-node.js; runs/2026-11-01-1104-model-agreement-common-world-regret-node.md; runs/2026-11-01-1104-model-agreement-common-world-regret-node.json. The branch-opening and block/tie rules remain PROVISIONAL.
-- 500 seeds 3409970–3410469; 500 unique allocations; 12,683 trajectory decisions. Common-history action-set divergence 498/6,435 (7.74%). Seeded symmetric opener follow-up side counts: 117/119/119/120; 25 opening passes.
-- Selected 72 agreement states on 72 deals; 1,716 state-world allocations (36 exact-enumerated, 1,680 sampled unique); 148 duplicate sample draws rejected; 18,948 full-round candidate evaluations. No strategy promoted.
-- Mean hindsight-oracle regret global/current-only: first-finish 7.79/6.47 pp; remainder 0.99/1.89 pips; minus risk 7.51/1.56 pp; expected minus loss 0.78/0.16 pips. Stratified diagnostic only.
-- Cumulative validation/opening/tie-break allocations: 4,450; property-audit positions remain 39,262; strategy-strength holdout remains 1,500 deals / 18,000 arm-rounds (+120 pilot).
-- Next: fresh seeds 3410470–3410969; separately census disagreement positions and evaluate common-action intersections; continue physical rule authentication.
+- Runner: `simulator/model-agreement-common-world-regret-node.js`; rules/engine `qosa-1.0.0` / `qosha-research-0.5.3`. Physical branch reopening and blocked-tie scoring remain **PROVISIONAL**.
+- Fresh seeds 3410470–3410969: 500 unique allocations, 12,682 trajectory decisions. Common-history first divergence 498/6,588 (7.56%); 230/498 first-divergence states had ≥2 common legal actions. Global-only actions 765 (all singles); current-only exclusive actions 0.
+- Selected 72 states / 72 deals; 1,647 state-world assignments, 171 duplicate draws rejected, 11,714 paired candidate-world evaluations; 6,146 finish / 5,568 block / 0 unresolved.
+- Mean common-action hindsight-oracle regret, global/current-only: first-finish 8.07/2.18 pp; remainder 1.002/2.348 pips; minus risk 2.89/0.07 pp; expected minus loss 0.289/0.007 pips. Stratified diagnostic only; no strategy promoted.
+- Cumulative validation/opening/tie-break allocations: 4,950; property-audit positions remain 39,262; strategy-strength holdout remains 1,500 deals / 18,000 arm-rounds (+120 pilot).
+- Next: repeat on disjoint seeds 3410970–3411469; then condition hidden-world sampling on public pass history and continue physical-rule authentication.
+
 ---
 # Latest checkpoint — model-agreement common-world regret audit (2026-11-01 09:54:30 +04 (Asia/Baku))
 
