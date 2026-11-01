@@ -1,0 +1,785 @@
+{
+  "schema": "qosa-opening-symmetric-continuation-tiebreak/v1",
+  "engineVersion": "qosa-research-0.5.3",
+  "rulesVersion": "recovered qosa-1.0.0 / 3x9 + stock; branch reopening and block/tie scoring provisional",
+  "seedStart": 3408720,
+  "seedEnd": 3409219,
+  "seedDraws": 500,
+  "uniqueFullAllocations": 500,
+  "duplicateAllocationPairs": 0,
+  "duplicatePairs": [],
+  "previousWinnerRule": "previousWinnerIndex = seed mod 3",
+  "openingSelector": "seeded symmetric follow-up side: unsigned seed modulo four legal sides; same selector for both arms",
+  "opening": {
+    "followupAvailable": 948,
+    "followupPass": 52,
+    "sideCounts": {
+      "up": 238,
+      "left": 234,
+      "right": 234,
+      "down": 242
+    },
+    "tileChoiceMismatches": 0,
+    "handStateMismatches": 0,
+    "conservationChecks": 1000,
+    "conservationFailures": 0
+  },
+  "fullRoundDesign": {
+    "mixes": [
+      [
+        "random-legal",
+        "min-hand-pips",
+        "closed-branch-control"
+      ],
+      [
+        "fast-doubles",
+        "moderate-double-hold",
+        "closed-branch-control"
+      ]
+    ],
+    "seatRotations": 3,
+    "roundPairsPerMix": 1500,
+    "totalPairedRoundComparisons": 3000,
+    "totalRoundsAcrossBothArms": 6000,
+    "maxTurns": 200,
+    "sideOrderTieBreak": "existing strategy-runner stableKey/raw side order",
+    "actionOrbitTieBreak": "preserve primary rank; choose top action orbit uniformly, then a member uniformly; random-legal keeps existing full-action selector"
+  },
+  "pairedFullRoundComparisons": {
+    "mix1": {
+      "strategies": [
+        "random-legal",
+        "min-hand-pips",
+        "closed-branch-control"
+      ],
+      "sideOrder": {
+        "rounds": 1500,
+        "finishes": 1436,
+        "blocks": 64,
+        "unresolved": 0,
+        "finishRate": 0.9573333333333334,
+        "blockRate": 0.042666666666666665,
+        "meanTurns": 25.391333333333332,
+        "medianTurns": 25,
+        "minus": {
+          "0": 1236,
+          "-10": 195,
+          "-20": 5,
+          "-30": 0,
+          "-40": 0
+        },
+        "byStrategy": {
+          "random-legal": {
+            "appearances": 1500,
+            "firstFinishes": 447,
+            "firstFinishRate": 0.298,
+            "meanFinalPips": 7.553333333333334,
+            "medianFinalPips": 6,
+            "meanOpeningHandDoubles": 2,
+            "meanEndingDoubles": 0.004,
+            "minusFirstFinishes": {
+              "0": 426,
+              "-10": 21,
+              "-20": 0,
+              "-30": 0,
+              "-40": 0
+            },
+            "doubleExposure": {
+              "6-6": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "3-3": {
+                "startOwned": 500,
+                "endRetained": 2,
+                "retentionRate": 0.004
+              },
+              "2-2": {
+                "startOwned": 500,
+                "endRetained": 3,
+                "retentionRate": 0.006
+              },
+              "4-4": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "5-5": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "0-0": {
+                "startOwned": 500,
+                "endRetained": 1,
+                "retentionRate": 0.002
+              }
+            }
+          },
+          "min-hand-pips": {
+            "appearances": 1500,
+            "firstFinishes": 371,
+            "firstFinishRate": 0.24733333333333332,
+            "meanFinalPips": 5.414666666666666,
+            "medianFinalPips": 4,
+            "meanOpeningHandDoubles": 2,
+            "meanEndingDoubles": 0.0026666666666666666,
+            "minusFirstFinishes": {
+              "0": 341,
+              "-10": 30,
+              "-20": 0,
+              "-30": 0,
+              "-40": 0
+            },
+            "doubleExposure": {
+              "5-5": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "0-0": {
+                "startOwned": 500,
+                "endRetained": 2,
+                "retentionRate": 0.004
+              },
+              "6-6": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "3-3": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "2-2": {
+                "startOwned": 500,
+                "endRetained": 2,
+                "retentionRate": 0.004
+              },
+              "4-4": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              }
+            }
+          },
+          "closed-branch-control": {
+            "appearances": 1500,
+            "firstFinishes": 618,
+            "firstFinishRate": 0.412,
+            "meanFinalPips": 3.5833333333333335,
+            "medianFinalPips": 2,
+            "meanOpeningHandDoubles": 2,
+            "meanEndingDoubles": 0.012666666666666666,
+            "minusFirstFinishes": {
+              "0": 469,
+              "-10": 144,
+              "-20": 5,
+              "-30": 0,
+              "-40": 0
+            },
+            "doubleExposure": {
+              "3-3": {
+                "startOwned": 500,
+                "endRetained": 1,
+                "retentionRate": 0.002
+              },
+              "2-2": {
+                "startOwned": 500,
+                "endRetained": 8,
+                "retentionRate": 0.016
+              },
+              "4-4": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "5-5": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "0-0": {
+                "startOwned": 500,
+                "endRetained": 10,
+                "retentionRate": 0.02
+              },
+              "6-6": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              }
+            }
+          }
+        }
+      },
+      "actionOrbit": {
+        "rounds": 1500,
+        "finishes": 1445,
+        "blocks": 55,
+        "unresolved": 0,
+        "finishRate": 0.9633333333333334,
+        "blockRate": 0.03666666666666667,
+        "meanTurns": 25.354,
+        "medianTurns": 25,
+        "minus": {
+          "0": 1251,
+          "-10": 188,
+          "-20": 6,
+          "-30": 0,
+          "-40": 0
+        },
+        "byStrategy": {
+          "random-legal": {
+            "appearances": 1500,
+            "firstFinishes": 458,
+            "firstFinishRate": 0.30533333333333335,
+            "meanFinalPips": 7.454666666666666,
+            "medianFinalPips": 6,
+            "meanOpeningHandDoubles": 2,
+            "meanEndingDoubles": 0.006,
+            "minusFirstFinishes": {
+              "0": 442,
+              "-10": 16,
+              "-20": 0,
+              "-30": 0,
+              "-40": 0
+            },
+            "doubleExposure": {
+              "6-6": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "3-3": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "2-2": {
+                "startOwned": 500,
+                "endRetained": 3,
+                "retentionRate": 0.006
+              },
+              "4-4": {
+                "startOwned": 500,
+                "endRetained": 1,
+                "retentionRate": 0.002
+              },
+              "5-5": {
+                "startOwned": 500,
+                "endRetained": 1,
+                "retentionRate": 0.002
+              },
+              "0-0": {
+                "startOwned": 500,
+                "endRetained": 4,
+                "retentionRate": 0.008
+              }
+            }
+          },
+          "min-hand-pips": {
+            "appearances": 1500,
+            "firstFinishes": 386,
+            "firstFinishRate": 0.25733333333333336,
+            "meanFinalPips": 5.391333333333334,
+            "medianFinalPips": 4,
+            "meanOpeningHandDoubles": 2,
+            "meanEndingDoubles": 0.005333333333333333,
+            "minusFirstFinishes": {
+              "0": 342,
+              "-10": 43,
+              "-20": 1,
+              "-30": 0,
+              "-40": 0
+            },
+            "doubleExposure": {
+              "5-5": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "0-0": {
+                "startOwned": 500,
+                "endRetained": 6,
+                "retentionRate": 0.012
+              },
+              "6-6": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "3-3": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "2-2": {
+                "startOwned": 500,
+                "endRetained": 2,
+                "retentionRate": 0.004
+              },
+              "4-4": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              }
+            }
+          },
+          "closed-branch-control": {
+            "appearances": 1500,
+            "firstFinishes": 601,
+            "firstFinishRate": 0.40066666666666667,
+            "meanFinalPips": 3.6826666666666665,
+            "medianFinalPips": 2,
+            "meanOpeningHandDoubles": 2,
+            "meanEndingDoubles": 0.011333333333333334,
+            "minusFirstFinishes": {
+              "0": 467,
+              "-10": 129,
+              "-20": 5,
+              "-30": 0,
+              "-40": 0
+            },
+            "doubleExposure": {
+              "3-3": {
+                "startOwned": 500,
+                "endRetained": 2,
+                "retentionRate": 0.004
+              },
+              "2-2": {
+                "startOwned": 500,
+                "endRetained": 6,
+                "retentionRate": 0.012
+              },
+              "4-4": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "5-5": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "0-0": {
+                "startOwned": 500,
+                "endRetained": 9,
+                "retentionRate": 0.018
+              },
+              "6-6": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              }
+            }
+          }
+        }
+      },
+      "paired": {
+        "pairs": 1500,
+        "bothFinish": 1397,
+        "bothBlock": 16,
+        "kindChanged": 87,
+        "kindChangeRate": 0.058,
+        "kindChangeDealClustered95CI": {
+          "clusters": 500,
+          "mean": 0.057999999999999934,
+          "low": 0.04645849831887347,
+          "high": 0.0695415016811264
+        },
+        "finishSeatChanged": 293,
+        "finishStrategyChanged": 293,
+        "finishChangeRateAmongBothFinish": 0.20973514674302077,
+        "finishChangeDealClustered95CI": {
+          "clusters": 500,
+          "mean": 0.20833333333333307,
+          "low": 0.18590861278347925,
+          "high": 0.23075805388318688
+        },
+        "minusChanged": 110,
+        "minusChangeRateAmongBothFinish": 0.07874015748031496,
+        "meanTurnDeltaOrbitMinusBaseline": -0.037333333333333336,
+        "meanFinalPipDeltaPerSeatOrbitMinusBaseline": -0.007555555555555556
+      }
+    },
+    "mix2": {
+      "strategies": [
+        "fast-doubles",
+        "moderate-double-hold",
+        "closed-branch-control"
+      ],
+      "sideOrder": {
+        "rounds": 1500,
+        "finishes": 1433,
+        "blocks": 67,
+        "unresolved": 0,
+        "finishRate": 0.9553333333333334,
+        "blockRate": 0.04466666666666667,
+        "meanTurns": 25.277333333333335,
+        "medianTurns": 25,
+        "minus": {
+          "0": 1173,
+          "-10": 255,
+          "-20": 5,
+          "-30": 0,
+          "-40": 0
+        },
+        "byStrategy": {
+          "fast-doubles": {
+            "appearances": 1500,
+            "firstFinishes": 287,
+            "firstFinishRate": 0.19133333333333333,
+            "meanFinalPips": 6.598,
+            "medianFinalPips": 5,
+            "meanOpeningHandDoubles": 2,
+            "meanEndingDoubles": 0.0013333333333333333,
+            "minusFirstFinishes": {
+              "0": 278,
+              "-10": 9,
+              "-20": 0,
+              "-30": 0,
+              "-40": 0
+            },
+            "doubleExposure": {
+              "6-6": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "3-3": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "2-2": {
+                "startOwned": 500,
+                "endRetained": 1,
+                "retentionRate": 0.002
+              },
+              "4-4": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "5-5": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "0-0": {
+                "startOwned": 500,
+                "endRetained": 1,
+                "retentionRate": 0.002
+              }
+            }
+          },
+          "moderate-double-hold": {
+            "appearances": 1500,
+            "firstFinishes": 499,
+            "firstFinishRate": 0.33266666666666667,
+            "meanFinalPips": 4.23,
+            "medianFinalPips": 3,
+            "meanOpeningHandDoubles": 2,
+            "meanEndingDoubles": 0.007333333333333333,
+            "minusFirstFinishes": {
+              "0": 426,
+              "-10": 72,
+              "-20": 1,
+              "-30": 0,
+              "-40": 0
+            },
+            "doubleExposure": {
+              "5-5": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "0-0": {
+                "startOwned": 500,
+                "endRetained": 10,
+                "retentionRate": 0.02
+              },
+              "6-6": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "3-3": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "2-2": {
+                "startOwned": 500,
+                "endRetained": 1,
+                "retentionRate": 0.002
+              },
+              "4-4": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              }
+            }
+          },
+          "closed-branch-control": {
+            "appearances": 1500,
+            "firstFinishes": 647,
+            "firstFinishRate": 0.43133333333333335,
+            "meanFinalPips": 3.5473333333333334,
+            "medianFinalPips": 2,
+            "meanOpeningHandDoubles": 2,
+            "meanEndingDoubles": 0.02,
+            "minusFirstFinishes": {
+              "0": 469,
+              "-10": 174,
+              "-20": 4,
+              "-30": 0,
+              "-40": 0
+            },
+            "doubleExposure": {
+              "3-3": {
+                "startOwned": 500,
+                "endRetained": 3,
+                "retentionRate": 0.006
+              },
+              "2-2": {
+                "startOwned": 500,
+                "endRetained": 6,
+                "retentionRate": 0.012
+              },
+              "4-4": {
+                "startOwned": 500,
+                "endRetained": 1,
+                "retentionRate": 0.002
+              },
+              "5-5": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "0-0": {
+                "startOwned": 500,
+                "endRetained": 20,
+                "retentionRate": 0.04
+              },
+              "6-6": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              }
+            }
+          }
+        }
+      },
+      "actionOrbit": {
+        "rounds": 1500,
+        "finishes": 1441,
+        "blocks": 59,
+        "unresolved": 0,
+        "finishRate": 0.9606666666666667,
+        "blockRate": 0.03933333333333333,
+        "meanTurns": 25.25,
+        "medianTurns": 25,
+        "minus": {
+          "0": 1166,
+          "-10": 268,
+          "-20": 7,
+          "-30": 0,
+          "-40": 0
+        },
+        "byStrategy": {
+          "fast-doubles": {
+            "appearances": 1500,
+            "firstFinishes": 280,
+            "firstFinishRate": 0.18666666666666668,
+            "meanFinalPips": 6.628,
+            "medianFinalPips": 5,
+            "meanOpeningHandDoubles": 2,
+            "meanEndingDoubles": 0.002,
+            "minusFirstFinishes": {
+              "0": 272,
+              "-10": 8,
+              "-20": 0,
+              "-30": 0,
+              "-40": 0
+            },
+            "doubleExposure": {
+              "6-6": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "3-3": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "2-2": {
+                "startOwned": 500,
+                "endRetained": 1,
+                "retentionRate": 0.002
+              },
+              "4-4": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "5-5": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "0-0": {
+                "startOwned": 500,
+                "endRetained": 2,
+                "retentionRate": 0.004
+              }
+            }
+          },
+          "moderate-double-hold": {
+            "appearances": 1500,
+            "firstFinishes": 503,
+            "firstFinishRate": 0.3353333333333333,
+            "meanFinalPips": 4.241333333333333,
+            "medianFinalPips": 3,
+            "meanOpeningHandDoubles": 2,
+            "meanEndingDoubles": 0.007333333333333333,
+            "minusFirstFinishes": {
+              "0": 431,
+              "-10": 71,
+              "-20": 1,
+              "-30": 0,
+              "-40": 0
+            },
+            "doubleExposure": {
+              "5-5": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "0-0": {
+                "startOwned": 500,
+                "endRetained": 9,
+                "retentionRate": 0.018
+              },
+              "6-6": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "3-3": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "2-2": {
+                "startOwned": 500,
+                "endRetained": 2,
+                "retentionRate": 0.004
+              },
+              "4-4": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              }
+            }
+          },
+          "closed-branch-control": {
+            "appearances": 1500,
+            "firstFinishes": 658,
+            "firstFinishRate": 0.43866666666666665,
+            "meanFinalPips": 3.55,
+            "medianFinalPips": 2,
+            "meanOpeningHandDoubles": 2,
+            "meanEndingDoubles": 0.018666666666666668,
+            "minusFirstFinishes": {
+              "0": 463,
+              "-10": 189,
+              "-20": 6,
+              "-30": 0,
+              "-40": 0
+            },
+            "doubleExposure": {
+              "3-3": {
+                "startOwned": 500,
+                "endRetained": 2,
+                "retentionRate": 0.004
+              },
+              "2-2": {
+                "startOwned": 500,
+                "endRetained": 3,
+                "retentionRate": 0.006
+              },
+              "4-4": {
+                "startOwned": 500,
+                "endRetained": 2,
+                "retentionRate": 0.004
+              },
+              "5-5": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              },
+              "0-0": {
+                "startOwned": 500,
+                "endRetained": 21,
+                "retentionRate": 0.042
+              },
+              "6-6": {
+                "startOwned": 500,
+                "endRetained": 0,
+                "retentionRate": 0
+              }
+            }
+          }
+        }
+      },
+      "paired": {
+        "pairs": 1500,
+        "bothFinish": 1394,
+        "bothBlock": 20,
+        "kindChanged": 86,
+        "kindChangeRate": 0.05733333333333333,
+        "kindChangeDealClustered95CI": {
+          "clusters": 500,
+          "mean": 0.05733333333333327,
+          "low": 0.045118776770424335,
+          "high": 0.06954788989624221
+        },
+        "finishSeatChanged": 322,
+        "finishStrategyChanged": 322,
+        "finishChangeRateAmongBothFinish": 0.2309899569583931,
+        "finishChangeDealClustered95CI": {
+          "clusters": 500,
+          "mean": 0.23099999999999962,
+          "low": 0.2083404651795095,
+          "high": 0.25365953482048975
+        },
+        "minusChanged": 179,
+        "minusChangeRateAmongBothFinish": 0.1284074605451937,
+        "meanTurnDeltaOrbitMinusBaseline": -0.027333333333333334,
+        "meanFinalPipDeltaPerSeatOrbitMinusBaseline": 0.014666666666666666
+      }
+    }
+  },
+  "strategyStrengthComparisons": 0,
+  "hiddenWorldAllocations": 0,
+  "decisionRegretEvaluations": 0,
+  "interpretation": "Matched tie-break sensitivity under a fixed seeded symmetric opener; not strategy superiority, human win-rate, or regret. Branch/block assumptions remain provisional.",
+  "confidence": "High for deterministic matched comparison; low external validity until physical branch and blocked-tie rules are authenticated.",
+  "exactNextAction": "Authenticate late-arrival branch reopening and blocked-round tie scoring; then run a matched-seed strategy holdout with the symmetric opener and action-orbit policy held fixed.",
+  "timestampAsiaBaku": "2026-11-01 07:46 +04",
+  "sourceBlobs": {
+    "engine.js": "82e5bd544a57683d5b4f7812beb2d4abf80da894",
+    "initializer.js": "2fad29e516454580ec9a06115354e9866f3096e6",
+    "round-driver.js": "fbaad78865adbddde1ea6651e6a501dc0bde3203",
+    "turn-kernel.js": "94657896e1f8e471ceb2e9a65d1842b6102dff18",
+    "turn-dispatcher.js": "55b0bcf3f1653c64b4e06bc95d7e917a480562a0",
+    "strategy-runner.js": "b7078942bc8f5dac6a8b07494ae8aaeadbdb1f5f",
+    "branch-label-symmetric-tiebreak.js": "f4b957c48c6c36f078afc48536a051f7aca0c960",
+    "runner": "9b9f3e0d037bf0af7bc75e9c869db3d65844a5b1"
+  }
+}

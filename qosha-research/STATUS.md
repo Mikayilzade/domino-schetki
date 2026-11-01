@@ -1,3 +1,14 @@
+# Latest checkpoint — opening-symmetric continuation tie-break audit (2026-11-01 07:46 +04, Asia/Baku)
+
+- [Runner](simulator/opening-symmetric-continuation-tiebreak-audit.js); [report](runs/2026-11-01-0746-opening-symmetric-continuation-tiebreak-audit.md); [JSON](runs/2026-11-01-0746-opening-symmetric-continuation-tiebreak-audit.json). Engine qosa-research-0.5.3; recovered qosa-1.0.0 3×9+stock. Physical branch reopening and block/tie scoring remain provisional.
+- 500 unique full allocations, seeds 3408720–3409219, 0 duplicates. The seeded symmetric 1-1 follow-up was fixed across both arms: 948 follow-ups / 52 passes; 1,000 conservation checks, 0 failures; follow-up tile/hand mismatches 0.
+- 2 mixes × 3 seat rotations = 3,000 paired comparisons / 6,000 rounds. Cleaner deterministic mix: outcome kind changed 86/1,500 (5.73%, deal-clustered approximate 95% CI 4.51%–6.95%); first finisher changed 322/1,394 both-finish pairs (23.10%, CI 20.83%–25.37%); minus changed 179/1,394 (12.84%). Sensitivity mix: 87/1,500 kind changes (5.80%); 293/1,397 first-finisher changes (20.97%).
+- This is tie-break sensitivity, not strategy superiority. No hidden worlds, regret, or human/101-match win-rate. Main cohort had 0 unresolved rounds. Regression test passed: 8 replay deals / 48 paired comparisons.
+- Cumulative new validation/opening/tie-break allocations: 3,200; reachable-position audits remain 39,262. Strategy-strength holdouts unchanged.
+- **Next:** authenticate late-arrival branch reopening and blocked-round tie scoring; then matched-seed strategy holdout with symmetric opener/action-orbit policy fixed.
+
+---
+
 # Latest checkpoint — seeded symmetric opening follow-up side audit (2026-11-01 06:45 +04, Asia/Baku)
 
 - [Runner](simulator/opening-followup-symmetric-selector-audit.js); [report](runs/2026-11-01-0645-opening-followup-symmetric-selector-audit.md); [JSON](runs/2026-11-01-0645-opening-followup-symmetric-selector-audit.json). Engine qosa-research-0.5.3; recovered qosa-1.0.0 3×9. Physical branch-label interchangeability and branch/block scoring remain unauthenticated.
