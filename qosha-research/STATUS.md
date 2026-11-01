@@ -1,11 +1,11 @@
-# Latest checkpoint — model-disagreement common-action intersection (2026-11-01 11:47 +04, Asia/Baku)
+# Latest checkpoint — public pass-history-conditioned common-world regret audit (2026-11-01 12:57 +04, Asia/Baku)
 
-- Runner: `simulator/model-agreement-common-world-regret-node.js`; rules/engine `qosa-1.0.0` / `qosha-research-0.5.3`. Physical branch reopening and blocked-tie scoring remain **PROVISIONAL**.
-- Fresh seeds 3410470–3410969: 500 unique allocations, 12,682 trajectory decisions. Common-history first divergence 498/6,588 (7.56%); 230/498 first-divergence states had ≥2 common legal actions. Global-only actions 765 (all singles); current-only exclusive actions 0.
-- Selected 72 states / 72 deals; 1,647 state-world assignments, 171 duplicate draws rejected, 11,714 paired candidate-world evaluations; 6,146 finish / 5,568 block / 0 unresolved.
-- Mean common-action hindsight-oracle regret, global/current-only: first-finish 8.07/2.18 pp; remainder 1.002/2.348 pips; minus risk 2.89/0.07 pp; expected minus loss 0.289/0.007 pips. Stratified diagnostic only; no strategy promoted.
-- Cumulative validation/opening/tie-break allocations: 4,950; property-audit positions remain 39,262; strategy-strength holdout remains 1,500 deals / 18,000 arm-rounds (+120 pilot).
-- Next: repeat on disjoint seeds 3410970–3411469; then condition hidden-world sampling on public pass history and continue physical-rule authentication.
+- Runner: `simulator/pass-history-conditioned-common-world-audit.js`; engine `qosha-research-0.5.3`, recovered `qosa-1.0.0`, 3×9+stock. Branch reopening and block/tie scoring remain **PROVISIONAL**. Full metrics are appended to [RESULTS.md](RESULTS.md).
+- Seeds 3410970–3411469: 500 unique deals, 12,706 decisions, 496 first divergences; 203 states with ≥2 common actions. Selected 72 states / 72 deals; 117 prior pass events in the selected states.
+- Exact hidden-world enumeration across 33,201 state-world assignments: 25,858 jointly pass-consistent, 7,343 (22.1%) rejected. Global-valid support 25,858; current-only-valid 27,244; 1,386 allocations were current-only valid but not global-valid. 0 hand-size/duplicate-hand errors.
+- 1,507 worlds per arm after finite-space limits; 24,972 candidate-world evaluations; 0 unresolved. Regret deltas conditioned−control: global first-finish +0.27 pp (±0.52); current-only −0.57 pp (±0.87); all reported approximate 95% state-level intervals include zero. No tactic promoted.
+- Cumulative validation/opening/tie-break allocations: **5,450**; reachable-position property audit remains **39,262**; strategy-strength holdout remains **1,500 deals / 18,000 arm-rounds** (+120 pilot).
+- Next: estimate separate global/current-only pass-conditioned posteriors on the same visible states, then seek physical-rule authentication.
 
 ---
 # Latest checkpoint — model-agreement common-world regret audit (2026-11-01 09:54:30 +04 (Asia/Baku))
