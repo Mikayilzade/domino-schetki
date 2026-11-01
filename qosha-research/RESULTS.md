@@ -2291,3 +2291,53 @@ The numeric run used a source-faithful V8 mirror of the current GitHub engine/di
 Run matched sensitivity variants for alternate branch-lock/reopening and block-winner assumptions. Keep strategy ranking paused until a real-table trace or explicit ruling authenticates those physical rules.
 
 Raw data: [JSON](2026-11-01-2146-policy-branch-label-audit.json); runner: [policy-branch-label-audit.js](../simulator/policy-branch-label-audit.js); fixtures: [mixed-finish-block-edge-fixtures.js](../simulator/mixed-finish-block-edge-fixtures.js).
+
+# Matched branch-lock and block-winner sensitivity — 2026-11-01 22:54:59 +04 (Asia/Baku)
+
+## Reproducible cohorts
+
+- Engine/rules: `qosha-research-0.5.3`; recovered `qosa-1.0.0`, 3×9 + stock. Global number-unlock remains **PROVISIONAL**.
+- Seeds `3415120–3415619`: **500 seed draws, 500 unique complete allocations, 0 duplicates**. Two policy mixes × three seat rotations = **3,000 rounds**: 2,896 finishes / 104 blocks / 0 unresolved; mean turn counter 25.239. Minus finishes: 0: 2,407; −10: 476; −20: 13; −30: 0; −40: 0.
+- This is a matched branch-side/block sensitivity cohort, not a strategy tournament.
+
+## Branch-lock sensitivity
+
+On 6,200 nonterminal multi-side unlock events along the same global-model trajectories, the one-step **local-side-only** counterfactual reduced the aggregate next-player legal-action count from **25,965 to 15,236** (−10,729; **41.3%**). A local restriction removed at least one action in 5,171/6,200 events (**83.4%**); side choice changed in 2,878 (**46.4%**), but tile-group choice changed in only 38 (**0.6%**). There were 0 pass flips and 7 mixed-finish losses.
+
+This is an instantaneous counterfactual on global-model trajectories—not a full local-rule rollout. Only the newly opened number is restricted to one matching side; other opened numbers remain global. It does not authenticate the physical rule.
+
+## Block-winner identity sensitivity
+
+Among the 104 coded blocks:
+- Minimum-pip candidate: 101 unique minima, 3 tied.
+- Fewest-tile-count contrast: 18 unique minima, 86 tied.
+- Exact candidate seat sets agreed in only 14/104 (**13.5%**) and differed in 90/104 (**86.5%**).
+- The final passer was in the minimum-pip set in 33/104 (**31.7%**) and outside it in 71.
+
+These are deliberately labelled candidate identities, not asserted scoring rules. The current model continues to assign **no block winner**; no points or match outcome were calculated.
+
+## Deduplicated one-turn unlock-delay diagnostic
+
+- Discovery used 80 unique complete deals and 80 selected positions in actual windows `3415620–3415659` (min-hand-pips) and `3415920–3415959` (closed-branch-control); the wider reserved range was not fully consumed.
+- 1,920 hidden-world draws yielded **1,878 unique complete allocations within visible states** and **42 duplicate draws** (2.2%); mean unique worlds/state 23.475, mean draw ESS 23.13/24. All duplicate seed pairs are recorded in the JSON.
+- After per-state deduplication: **3,756 paired counterfactual continuations**. Immediate minus delayed focal finish-first: min-hand-pips **0.00 ±2.14 pp**; closed-branch-control **−0.44 ±3.27 pp**. Both position-cluster intervals include zero. Mean remainder differences were −0.045 ±0.223 and +0.028 ±0.419 pips, respectively.
+- Mechanical next-opponent effect remained: immediate unlock reduced pass probability by about **6.61 pp / 15.80 pp** and increased individually playable tiles by **1.346 / 1.734** under the two continuation profiles. This does not imply a human tactic; the delayed arm is explicitly **not a legal move**.
+
+## Regression and confidence
+
+- Replayed the existing branch-lock reachability cohort `3406720–3407219`: 500 unique allocations, 11,795 reachable positions, 41,451/41,451 action applications, 924 passes, 476 finishes / 24 blocks, 0 invariant failures. This cohort was already recorded in RESULTS and is **not counted again**.
+- Tests passed: new block-winner runner (8 assertions), deduplicated hidden-world runner (5), block fixtures (22), mixed-finish/block fixtures (11), scoring contract (1,056), plus branch-block, branch-side, unlock-delay and chronology regression tests.
+- Confidence is high for internal consistency and the measured sensitivity under these policies; there is **no reliable tactical advantage** and no external authentication of branch or block rules.
+
+## Cumulative scale
+
+- Branch-label metamorphic cohorts remain 1,500 unique deals / 60,274 reachable positions / 16,080 action-set checks / 40,800 transitions / 4,320 pass transitions, 0 mismatches.
+- Validation/opening/tie-break allocations remain 7,550; property audit 52,315 positions; branch-lock audit 550 unique deals. The 500-deal replay above is historical, not additive.
+- New separate branch-side/block sensitivity cohort: 500 unique deals / 3,000 policy rounds. Unlock-delay diagnostic: 80 unique discovery deals / 1,878 within-state unique world assignments. Strategy tournament unchanged at 1,500 deals / 18,000 arm-rounds (+120-deal / 1,440-arm pilot); no new arms.
+
+## Exact next action
+
+On fresh seeds starting at **3416220**, add a selector that deliberately samples late positions by next-opponent hand size (especially 1–4 stones) and repeats the paired unlock-delay check with within-state world deduplication. In parallel, seek a real-table trace or explicit ruling for global-vs-local branch opening and block winner/tie scoring. Keep strategy ranking paused.
+
+Raw data: [JSON](./2026-11-01-2254-branch-lock-block-sensitivity.json); runners: [block-winner sensitivity](../simulator/block-winner-sensitivity.js), [deduplicated unlock-delay audit](../simulator/branch-unlock-delay-dedup-audit.js).
+

@@ -1,0 +1,4891 @@
+{
+  "schema": "qosha-research-checkpoint/v1",
+  "timestampAsiaBaku": "2026-11-01 22:54:59 +04 (Asia/Baku)",
+  "engine": "qosha-research-0.5.3",
+  "rules": "recovered qosa-1.0.0, primary 3x9+stock; global number-unlock model provisional",
+  "branchBlockStructuralAudit": {
+    "schema": "qosha-branch-block-structural-audit/v1",
+    "engine": "qosa-research-0.5.3",
+    "rules": "recovered qosa-1.0.0; global number-lock PROVISIONAL",
+    "seedStart": 3415120,
+    "seedEnd": 3415619,
+    "deals": 500,
+    "seatRotations": 3,
+    "mixes": [
+      [
+        "random-legal",
+        "min-hand-pips",
+        "closed-branch-control"
+      ],
+      [
+        "fast-doubles",
+        "moderate-double-hold",
+        "closed-branch-control"
+      ]
+    ],
+    "rounds": 3000,
+    "finishes": 2896,
+    "blocks": 104,
+    "unresolved": 0,
+    "turnTotal": 75717,
+    "tileChecks": 75717,
+    "legalTurnChecks": 72717,
+    "branchUnlockEvents": 17918,
+    "multiSideUnlockEvents": 6671,
+    "roundsWithMultiSideUnlock": 2947,
+    "turnsWithLockedOrdinaryCandidate": 46446,
+    "lockedOrdinaryTileCandidates": 102831,
+    "decisionTurns": 51834,
+    "minusFinishes": {
+      "0": 2407,
+      "-10": 476,
+      "-20": 13,
+      "-30": 0,
+      "-40": 0
+    },
+    "blockUniqueMinimum": 101,
+    "blockTiedMinimum": 3,
+    "blockMinimumZero": 0,
+    "byStrategy": {
+      "random-legal": {
+        "appearances": 1500,
+        "finishFirst": 451,
+        "startingDoubles": 3356,
+        "endingDoubles": 9,
+        "finishFirstRate": 0.3006666666666667,
+        "meanFinalPips": 7.782,
+        "medianFinalPips": 7,
+        "meanStartingDoubles": 2.2373333333333334,
+        "meanEndingDoubles": 0.006
+      },
+      "min-hand-pips": {
+        "appearances": 1500,
+        "finishFirst": 397,
+        "startingDoubles": 3356,
+        "endingDoubles": 9,
+        "finishFirstRate": 0.26466666666666666,
+        "meanFinalPips": 5.582666666666666,
+        "medianFinalPips": 4,
+        "meanStartingDoubles": 2.2373333333333334,
+        "meanEndingDoubles": 0.006
+      },
+      "closed-branch-control": {
+        "appearances": 3000,
+        "finishFirst": 1219,
+        "startingDoubles": 6712,
+        "endingDoubles": 49,
+        "finishFirstRate": 0.4063333333333333,
+        "meanFinalPips": 3.6573333333333333,
+        "medianFinalPips": 2,
+        "meanStartingDoubles": 2.2373333333333334,
+        "meanEndingDoubles": 0.01633333333333333
+      },
+      "fast-doubles": {
+        "appearances": 1500,
+        "finishFirst": 283,
+        "startingDoubles": 3356,
+        "endingDoubles": 3,
+        "finishFirstRate": 0.18866666666666668,
+        "meanFinalPips": 6.553333333333334,
+        "medianFinalPips": 5,
+        "meanStartingDoubles": 2.2373333333333334,
+        "meanEndingDoubles": 0.002
+      },
+      "moderate-double-hold": {
+        "appearances": 1500,
+        "finishFirst": 546,
+        "startingDoubles": 3356,
+        "endingDoubles": 12,
+        "finishFirstRate": 0.364,
+        "meanFinalPips": 4.274666666666667,
+        "medianFinalPips": 3,
+        "meanStartingDoubles": 2.2373333333333334,
+        "meanEndingDoubles": 0.008
+      }
+    },
+    "failures": [],
+    "assumptions": "Global number unlock and all four active sides PROVISIONAL; block winner unknown; later-round previousWinnerIndex=seed%3; initial 1-1 and follow-up already placed.",
+    "findingScope": "Structural consistency and ambiguity exposure only, NOT an authentic rule validation or human tactic.",
+    "meanTurns": 25.239,
+    "blockRate": 0.034666666666666665,
+    "multiSideUnlockRoundRate": 0.9823333333333333
+  },
+  "branchSideOneStepCounterfactual": {
+    "schema": "qosha-branch-side-one-step-sensitivity/v1",
+    "engine": "qosa-research-0.5.3",
+    "rules": "recovered qosa-1.0.0; global number unlock PROVISIONAL",
+    "startSeed": 3415120,
+    "endSeed": 3415619,
+    "deals": 500,
+    "rounds": 3000,
+    "finishes": 2896,
+    "blocks": 104,
+    "unresolved": 0,
+    "mixes": [
+      [
+        "random-legal",
+        "min-hand-pips",
+        "closed-branch-control"
+      ],
+      [
+        "fast-doubles",
+        "moderate-double-hold",
+        "closed-branch-control"
+      ]
+    ],
+    "seatRotations": 3,
+    "meanTurns": 25.239,
+    "minusFinishes": {
+      "0": 2407,
+      "-10": 476,
+      "-20": 13,
+      "-30": 0,
+      "-40": 0
+    },
+    "totalUnlockEvents": 17918,
+    "multiSideEvents": 6671,
+    "roundsWithMultiSideEvent": 2947,
+    "analyzedNonterminalMultiSideEvents": 6200,
+    "nextPlayerGlobalActionTotal": 25965,
+    "localActionTotalMin": 15236,
+    "localActionTotalMax": 15236,
+    "eventsWithAnyLocalActionLoss": 5171,
+    "eventsWithAllLocalActionLoss": 5171,
+    "eventsWithAnyTileGroupChoiceChange": 38,
+    "eventsWithAllTileGroupChoiceChange": 0,
+    "eventsWithAnySideChoiceChange": 2878,
+    "eventsWithAnyPassFlip": 0,
+    "eventsWithAnyMixedFinishLoss": 7,
+    "bySideCount": {
+      "2": 4072,
+      "3": 1938,
+      "4": 661
+    },
+    "examples": [
+      {
+        "seed": 3415120,
+        "mix": 0,
+        "rotation": 0,
+        "turn": 10,
+        "number": 0,
+        "sides": [
+          "up",
+          "down"
+        ],
+        "nextPlayerPolicy": "random-legal",
+        "globalActions": 3,
+        "localActionCounts": [
+          2,
+          2
+        ]
+      },
+      {
+        "seed": 3415120,
+        "mix": 0,
+        "rotation": 0,
+        "turn": 23,
+        "number": 2,
+        "sides": [
+          "left",
+          "down"
+        ],
+        "nextPlayerPolicy": "min-hand-pips",
+        "globalActions": 2,
+        "localActionCounts": [
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 3415120,
+        "mix": 0,
+        "rotation": 1,
+        "turn": 9,
+        "number": 6,
+        "sides": [
+          "right",
+          "down"
+        ],
+        "nextPlayerPolicy": "random-legal",
+        "globalActions": 2,
+        "localActionCounts": [
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 3415120,
+        "mix": 0,
+        "rotation": 1,
+        "turn": 12,
+        "number": 5,
+        "sides": [
+          "up",
+          "left",
+          "right"
+        ],
+        "nextPlayerPolicy": "random-legal",
+        "globalActions": 9,
+        "localActionCounts": [
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 3415120,
+        "mix": 0,
+        "rotation": 1,
+        "turn": 26,
+        "number": 2,
+        "sides": [
+          "up",
+          "left",
+          "right",
+          "down"
+        ],
+        "nextPlayerPolicy": "closed-branch-control",
+        "globalActions": 4,
+        "localActionCounts": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 3415120,
+        "mix": 0,
+        "rotation": 2,
+        "turn": 14,
+        "number": 3,
+        "sides": [
+          "up",
+          "right"
+        ],
+        "nextPlayerPolicy": "random-legal",
+        "globalActions": 4,
+        "localActionCounts": [
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 3415120,
+        "mix": 1,
+        "rotation": 0,
+        "turn": 22,
+        "number": 0,
+        "sides": [
+          "left",
+          "right",
+          "down"
+        ],
+        "nextPlayerPolicy": "fast-doubles",
+        "globalActions": 7,
+        "localActionCounts": [
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 3415120,
+        "mix": 1,
+        "rotation": 1,
+        "turn": 9,
+        "number": 6,
+        "sides": [
+          "left",
+          "right"
+        ],
+        "nextPlayerPolicy": "fast-doubles",
+        "globalActions": 2,
+        "localActionCounts": [
+          1,
+          1
+        ]
+      }
+    ],
+    "assumptions": [
+      "All comparisons are instantaneous on a GLOBAL-model trajectory, not independent local-model game rollouts.",
+      "Counterfactual: a played double unlocks exactly ONE of the matching sides; enumerate every matching side, do not guess which one.",
+      "Only the newly opened number is side-restricted; all other already-opened numbers remain global.",
+      "The next player is inspected with the same known hand; no unseen-world inference and no 101-match winner."
+    ],
+    "blockRate": 0.034666666666666665,
+    "multiSideRoundRate": 0.9823333333333333,
+    "meanGlobalActionsAtAnalyzedEvent": 4.187903225806451,
+    "meanLocalActionsMin": 2.4574193548387098,
+    "meanLocalActionsMax": 2.4574193548387098
+  },
+  "blockWinnerIdentitySensitivity": {
+    "schema": "qosha-block-winner-identity-sensitivity/v1",
+    "engine": "qosa-research-0.5.3",
+    "rules": "recovered qosa-1.0.0 3x9; global number-unlock model provisional",
+    "seedStart": 3415120,
+    "seedEnd": 3415619,
+    "seedDraws": 500,
+    "uniqueAllocations": 500,
+    "duplicateAllocationSeeds": [],
+    "rounds": 3000,
+    "finishes": 2896,
+    "blocks": 104,
+    "unresolved": 0,
+    "minPipUnique": 101,
+    "minPipTied": 3,
+    "fewestTilesUnique": 18,
+    "fewestTilesTied": 86,
+    "lastPasserInMinPipsSet": 33,
+    "lastPasserOutsideMinPipsSet": 71,
+    "lastPasserInFewestTilesSet": 90,
+    "lastPasserOutsideFewestTilesSet": 14,
+    "sameCandidateSets": 14,
+    "differentCandidateSets": 90,
+    "bothUniqueSameWinner": 13,
+    "bothUniqueDifferentWinner": 3,
+    "onlyMinPipsUnique": 85,
+    "onlyFewestTilesUnique": 2,
+    "bothTied": 1,
+    "minPipCandidateByStrategy": {
+      "closed-branch-control": 34,
+      "tie": 3,
+      "moderate-double-hold": 15,
+      "min-hand-pips": 22,
+      "fast-doubles": 17,
+      "random-legal": 13
+    },
+    "fewestTileCandidateByStrategy": {
+      "closed-branch-control": 5,
+      "tie": 86,
+      "random-legal": 7,
+      "fast-doubles": 2,
+      "min-hand-pips": 4
+    },
+    "lastPasserCandidateByStrategy": {
+      "closed-branch-control": 26,
+      "min-hand-pips": 21,
+      "random-legal": 21,
+      "fast-doubles": 22,
+      "moderate-double-hold": 14
+    },
+    "examples": [
+      {
+        "seed": 3415124,
+        "mix": 1,
+        "rotation": 0,
+        "pips": [
+          13,
+          10,
+          5
+        ],
+        "tileCounts": [
+          3,
+          3,
+          1
+        ],
+        "lastPasser": 2,
+        "minPipsSet": [
+          2
+        ],
+        "fewestTilesSet": [
+          2
+        ],
+        "policies": [
+          "fast-doubles",
+          "moderate-double-hold",
+          "closed-branch-control"
+        ]
+      },
+      {
+        "seed": 3415153,
+        "mix": 0,
+        "rotation": 0,
+        "pips": [
+          5,
+          3,
+          2
+        ],
+        "tileCounts": [
+          1,
+          1,
+          1
+        ],
+        "lastPasser": 1,
+        "minPipsSet": [
+          2
+        ],
+        "fewestTilesSet": [
+          0,
+          1,
+          2
+        ],
+        "policies": [
+          "random-legal",
+          "min-hand-pips",
+          "closed-branch-control"
+        ]
+      },
+      {
+        "seed": 3415160,
+        "mix": 0,
+        "rotation": 0,
+        "pips": [
+          6,
+          6,
+          14
+        ],
+        "tileCounts": [
+          1,
+          2,
+          3
+        ],
+        "lastPasser": 1,
+        "minPipsSet": [
+          0,
+          1
+        ],
+        "fewestTilesSet": [
+          0
+        ],
+        "policies": [
+          "random-legal",
+          "min-hand-pips",
+          "closed-branch-control"
+        ]
+      },
+      {
+        "seed": 3415162,
+        "mix": 1,
+        "rotation": 0,
+        "pips": [
+          3,
+          1,
+          2
+        ],
+        "tileCounts": [
+          1,
+          1,
+          1
+        ],
+        "lastPasser": 2,
+        "minPipsSet": [
+          1
+        ],
+        "fewestTilesSet": [
+          0,
+          1,
+          2
+        ],
+        "policies": [
+          "fast-doubles",
+          "moderate-double-hold",
+          "closed-branch-control"
+        ]
+      },
+      {
+        "seed": 3415169,
+        "mix": 0,
+        "rotation": 2,
+        "pips": [
+          7,
+          4,
+          3
+        ],
+        "tileCounts": [
+          1,
+          1,
+          1
+        ],
+        "lastPasser": 1,
+        "minPipsSet": [
+          2
+        ],
+        "fewestTilesSet": [
+          0,
+          1,
+          2
+        ],
+        "policies": [
+          "closed-branch-control",
+          "random-legal",
+          "min-hand-pips"
+        ]
+      },
+      {
+        "seed": 3415169,
+        "mix": 1,
+        "rotation": 1,
+        "pips": [
+          5,
+          2,
+          3
+        ],
+        "tileCounts": [
+          1,
+          1,
+          1
+        ],
+        "lastPasser": 1,
+        "minPipsSet": [
+          1
+        ],
+        "fewestTilesSet": [
+          0,
+          1,
+          2
+        ],
+        "policies": [
+          "moderate-double-hold",
+          "closed-branch-control",
+          "fast-doubles"
+        ]
+      },
+      {
+        "seed": 3415171,
+        "mix": 1,
+        "rotation": 2,
+        "pips": [
+          3,
+          8,
+          15
+        ],
+        "tileCounts": [
+          1,
+          1,
+          3
+        ],
+        "lastPasser": 1,
+        "minPipsSet": [
+          0
+        ],
+        "fewestTilesSet": [
+          0,
+          1
+        ],
+        "policies": [
+          "closed-branch-control",
+          "fast-doubles",
+          "moderate-double-hold"
+        ]
+      },
+      {
+        "seed": 3415175,
+        "mix": 1,
+        "rotation": 0,
+        "pips": [
+          4,
+          1,
+          3
+        ],
+        "tileCounts": [
+          1,
+          1,
+          1
+        ],
+        "lastPasser": 0,
+        "minPipsSet": [
+          1
+        ],
+        "fewestTilesSet": [
+          0,
+          1,
+          2
+        ],
+        "policies": [
+          "fast-doubles",
+          "moderate-double-hold",
+          "closed-branch-control"
+        ]
+      },
+      {
+        "seed": 3415177,
+        "mix": 0,
+        "rotation": 0,
+        "pips": [
+          14,
+          11,
+          3
+        ],
+        "tileCounts": [
+          2,
+          1,
+          1
+        ],
+        "lastPasser": 0,
+        "minPipsSet": [
+          2
+        ],
+        "fewestTilesSet": [
+          1,
+          2
+        ],
+        "policies": [
+          "random-legal",
+          "min-hand-pips",
+          "closed-branch-control"
+        ]
+      },
+      {
+        "seed": 3415180,
+        "mix": 1,
+        "rotation": 0,
+        "pips": [
+          6,
+          14,
+          8
+        ],
+        "tileCounts": [
+          2,
+          3,
+          1
+        ],
+        "lastPasser": 0,
+        "minPipsSet": [
+          0
+        ],
+        "fewestTilesSet": [
+          2
+        ],
+        "policies": [
+          "fast-doubles",
+          "moderate-double-hold",
+          "closed-branch-control"
+        ]
+      },
+      {
+        "seed": 3415181,
+        "mix": 0,
+        "rotation": 0,
+        "pips": [
+          17,
+          4,
+          3
+        ],
+        "tileCounts": [
+          2,
+          1,
+          1
+        ],
+        "lastPasser": 2,
+        "minPipsSet": [
+          2
+        ],
+        "fewestTilesSet": [
+          1,
+          2
+        ],
+        "policies": [
+          "random-legal",
+          "min-hand-pips",
+          "closed-branch-control"
+        ]
+      },
+      {
+        "seed": 3415184,
+        "mix": 1,
+        "rotation": 2,
+        "pips": [
+          10,
+          21,
+          11
+        ],
+        "tileCounts": [
+          2,
+          4,
+          2
+        ],
+        "lastPasser": 1,
+        "minPipsSet": [
+          0
+        ],
+        "fewestTilesSet": [
+          0,
+          2
+        ],
+        "policies": [
+          "closed-branch-control",
+          "fast-doubles",
+          "moderate-double-hold"
+        ]
+      },
+      {
+        "seed": 3415195,
+        "mix": 0,
+        "rotation": 1,
+        "pips": [
+          4,
+          5,
+          3
+        ],
+        "tileCounts": [
+          2,
+          1,
+          1
+        ],
+        "lastPasser": 1,
+        "minPipsSet": [
+          2
+        ],
+        "fewestTilesSet": [
+          1,
+          2
+        ],
+        "policies": [
+          "min-hand-pips",
+          "closed-branch-control",
+          "random-legal"
+        ]
+      },
+      {
+        "seed": 3415203,
+        "mix": 0,
+        "rotation": 0,
+        "pips": [
+          4,
+          2,
+          6
+        ],
+        "tileCounts": [
+          1,
+          1,
+          1
+        ],
+        "lastPasser": 2,
+        "minPipsSet": [
+          1
+        ],
+        "fewestTilesSet": [
+          0,
+          1,
+          2
+        ],
+        "policies": [
+          "random-legal",
+          "min-hand-pips",
+          "closed-branch-control"
+        ]
+      },
+      {
+        "seed": 3415203,
+        "mix": 1,
+        "rotation": 2,
+        "pips": [
+          5,
+          2,
+          21
+        ],
+        "tileCounts": [
+          2,
+          1,
+          4
+        ],
+        "lastPasser": 1,
+        "minPipsSet": [
+          1
+        ],
+        "fewestTilesSet": [
+          1
+        ],
+        "policies": [
+          "closed-branch-control",
+          "fast-doubles",
+          "moderate-double-hold"
+        ]
+      },
+      {
+        "seed": 3415209,
+        "mix": 0,
+        "rotation": 2,
+        "pips": [
+          6,
+          7,
+          13
+        ],
+        "tileCounts": [
+          2,
+          1,
+          3
+        ],
+        "lastPasser": 1,
+        "minPipsSet": [
+          0
+        ],
+        "fewestTilesSet": [
+          1
+        ],
+        "policies": [
+          "closed-branch-control",
+          "random-legal",
+          "min-hand-pips"
+        ]
+      },
+      {
+        "seed": 3415210,
+        "mix": 0,
+        "rotation": 2,
+        "pips": [
+          8,
+          10,
+          6
+        ],
+        "tileCounts": [
+          1,
+          1,
+          1
+        ],
+        "lastPasser": 2,
+        "minPipsSet": [
+          2
+        ],
+        "fewestTilesSet": [
+          0,
+          1,
+          2
+        ],
+        "policies": [
+          "closed-branch-control",
+          "random-legal",
+          "min-hand-pips"
+        ]
+      },
+      {
+        "seed": 3415221,
+        "mix": 1,
+        "rotation": 1,
+        "pips": [
+          4,
+          3,
+          1
+        ],
+        "tileCounts": [
+          1,
+          1,
+          1
+        ],
+        "lastPasser": 0,
+        "minPipsSet": [
+          2
+        ],
+        "fewestTilesSet": [
+          0,
+          1,
+          2
+        ],
+        "policies": [
+          "moderate-double-hold",
+          "closed-branch-control",
+          "fast-doubles"
+        ]
+      },
+      {
+        "seed": 3415223,
+        "mix": 0,
+        "rotation": 2,
+        "pips": [
+          13,
+          15,
+          2
+        ],
+        "tileCounts": [
+          3,
+          3,
+          1
+        ],
+        "lastPasser": 2,
+        "minPipsSet": [
+          2
+        ],
+        "fewestTilesSet": [
+          2
+        ],
+        "policies": [
+          "closed-branch-control",
+          "random-legal",
+          "min-hand-pips"
+        ]
+      },
+      {
+        "seed": 3415224,
+        "mix": 1,
+        "rotation": 2,
+        "pips": [
+          4,
+          1,
+          5
+        ],
+        "tileCounts": [
+          1,
+          1,
+          1
+        ],
+        "lastPasser": 0,
+        "minPipsSet": [
+          1
+        ],
+        "fewestTilesSet": [
+          0,
+          1,
+          2
+        ],
+        "policies": [
+          "closed-branch-control",
+          "fast-doubles",
+          "moderate-double-hold"
+        ]
+      }
+    ],
+    "strategies": [
+      [
+        "random-legal",
+        "min-hand-pips",
+        "closed-branch-control"
+      ],
+      [
+        "fast-doubles",
+        "moderate-double-hold",
+        "closed-branch-control"
+      ]
+    ],
+    "seatRotations": 3,
+    "assumptions": [
+      "Block winner candidates are end-of-round identity diagnostics only.",
+      "Minimum pips is a candidate, not authenticated.",
+      "Fewest tiles is a contrast metric only.",
+      "Last passer is diagnostic only.",
+      "Current model assigns no block winner; no scoring or 101-match outcome is inferred."
+    ],
+    "duplicateAllocations": 0,
+    "blockRate": 0.034666666666666665,
+    "minPipUniqueRate": 0.9711538461538461,
+    "fewestTilesUniqueRate": 0.17307692307692307,
+    "lastPasserInMinPipsRate": 0.3173076923076923,
+    "candidateSetAgreement": 0.1346153846153846
+  },
+  "unlockDelayDeduplicatedHiddenWorlds": {
+    "schema": "qosha-branch-unlock-delay-deduplicated-worlds/v1",
+    "engine": "qosha-research-0.5.3",
+    "rules": "recovered qosa-1.0.0 3x9; number-lock model PROVISIONAL",
+    "startSeed": 3415620,
+    "reservedEndSeed": 3416219,
+    "actualSeedWindows": {
+      "min-hand-pips": "3415620..3415659",
+      "closed-branch-control": "3415920..3415959"
+    },
+    "discoverySeedDraws": 80,
+    "positions": 80,
+    "hiddenWorldDraws": 1920,
+    "uniqueWorldAssignmentsWithinVisibleStates": 1878,
+    "duplicateWorldDraws": 42,
+    "meanUniqueWorldsPerPosition": 23.475,
+    "minUniqueWorldsPerPosition": 15,
+    "maxUniqueWorldsPerPosition": 24,
+    "meanDrawESS": 23.130126344243997,
+    "postDedupESS": 1878,
+    "duplicateSeedPairs": [
+      {
+        "visibleSeed": 3415624,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 5,
+        "duplicateIndex": 20,
+        "firstSeed": 4000001029,
+        "duplicateSeed": 4000001044
+      },
+      {
+        "visibleSeed": 3415624,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 0,
+        "duplicateIndex": 21,
+        "firstSeed": 4000001024,
+        "duplicateSeed": 4000001045
+      },
+      {
+        "visibleSeed": 3415625,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 1,
+        "duplicateIndex": 12,
+        "firstSeed": 4000001281,
+        "duplicateSeed": 4000001292
+      },
+      {
+        "visibleSeed": 3415635,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 4,
+        "duplicateIndex": 19,
+        "firstSeed": 4000003844,
+        "duplicateSeed": 4000003859
+      },
+      {
+        "visibleSeed": 3415645,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 4,
+        "duplicateIndex": 6,
+        "firstSeed": 4000006404,
+        "duplicateSeed": 4000006406
+      },
+      {
+        "visibleSeed": 3415645,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 0,
+        "duplicateIndex": 10,
+        "firstSeed": 4000006400,
+        "duplicateSeed": 4000006410
+      },
+      {
+        "visibleSeed": 3415645,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 8,
+        "duplicateIndex": 15,
+        "firstSeed": 4000006408,
+        "duplicateSeed": 4000006415
+      },
+      {
+        "visibleSeed": 3415645,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 8,
+        "duplicateIndex": 16,
+        "firstSeed": 4000006408,
+        "duplicateSeed": 4000006416
+      },
+      {
+        "visibleSeed": 3415646,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 10,
+        "duplicateIndex": 21,
+        "firstSeed": 4000006666,
+        "duplicateSeed": 4000006677
+      },
+      {
+        "visibleSeed": 3415648,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 0,
+        "duplicateIndex": 7,
+        "firstSeed": 4000007168,
+        "duplicateSeed": 4000007175
+      },
+      {
+        "visibleSeed": 3415648,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 3,
+        "duplicateIndex": 10,
+        "firstSeed": 4000007171,
+        "duplicateSeed": 4000007178
+      },
+      {
+        "visibleSeed": 3415648,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 8,
+        "duplicateIndex": 14,
+        "firstSeed": 4000007176,
+        "duplicateSeed": 4000007182
+      },
+      {
+        "visibleSeed": 3415648,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 13,
+        "duplicateIndex": 15,
+        "firstSeed": 4000007181,
+        "duplicateSeed": 4000007183
+      },
+      {
+        "visibleSeed": 3415648,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 11,
+        "duplicateIndex": 16,
+        "firstSeed": 4000007179,
+        "duplicateSeed": 4000007184
+      },
+      {
+        "visibleSeed": 3415648,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 2,
+        "duplicateIndex": 18,
+        "firstSeed": 4000007170,
+        "duplicateSeed": 4000007186
+      },
+      {
+        "visibleSeed": 3415648,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 12,
+        "duplicateIndex": 20,
+        "firstSeed": 4000007180,
+        "duplicateSeed": 4000007188
+      },
+      {
+        "visibleSeed": 3415648,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 4,
+        "duplicateIndex": 22,
+        "firstSeed": 4000007172,
+        "duplicateSeed": 4000007190
+      },
+      {
+        "visibleSeed": 3415648,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 13,
+        "duplicateIndex": 23,
+        "firstSeed": 4000007181,
+        "duplicateSeed": 4000007191
+      },
+      {
+        "visibleSeed": 3415650,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 4,
+        "duplicateIndex": 14,
+        "firstSeed": 4000007684,
+        "duplicateSeed": 4000007694
+      },
+      {
+        "visibleSeed": 3415651,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 5,
+        "duplicateIndex": 20,
+        "firstSeed": 4000007941,
+        "duplicateSeed": 4000007956
+      },
+      {
+        "visibleSeed": 3415654,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 3,
+        "duplicateIndex": 9,
+        "firstSeed": 4000008707,
+        "duplicateSeed": 4000008713
+      },
+      {
+        "visibleSeed": 3415654,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 6,
+        "duplicateIndex": 22,
+        "firstSeed": 4000008710,
+        "duplicateSeed": 4000008726
+      },
+      {
+        "visibleSeed": 3415655,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 1,
+        "duplicateIndex": 5,
+        "firstSeed": 4000008961,
+        "duplicateSeed": 4000008965
+      },
+      {
+        "visibleSeed": 3415656,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 0,
+        "duplicateIndex": 10,
+        "firstSeed": 4000009216,
+        "duplicateSeed": 4000009226
+      },
+      {
+        "visibleSeed": 3415657,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "firstIndex": 4,
+        "duplicateIndex": 21,
+        "firstSeed": 4000009476,
+        "duplicateSeed": 4000009493
+      },
+      {
+        "visibleSeed": 3415923,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 3,
+        "duplicateIndex": 15,
+        "firstSeed": 4000077571,
+        "duplicateSeed": 4000077583
+      },
+      {
+        "visibleSeed": 3415923,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 20,
+        "duplicateIndex": 23,
+        "firstSeed": 4000077588,
+        "duplicateSeed": 4000077591
+      },
+      {
+        "visibleSeed": 3415938,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 1,
+        "duplicateIndex": 3,
+        "firstSeed": 4000081409,
+        "duplicateSeed": 4000081411
+      },
+      {
+        "visibleSeed": 3415938,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 1,
+        "duplicateIndex": 5,
+        "firstSeed": 4000081409,
+        "duplicateSeed": 4000081413
+      },
+      {
+        "visibleSeed": 3415938,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 9,
+        "duplicateIndex": 14,
+        "firstSeed": 4000081417,
+        "duplicateSeed": 4000081422
+      },
+      {
+        "visibleSeed": 3415938,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 15,
+        "duplicateIndex": 19,
+        "firstSeed": 4000081423,
+        "duplicateSeed": 4000081427
+      },
+      {
+        "visibleSeed": 3415938,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 17,
+        "duplicateIndex": 21,
+        "firstSeed": 4000081425,
+        "duplicateSeed": 4000081429
+      },
+      {
+        "visibleSeed": 3415941,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 13,
+        "duplicateIndex": 16,
+        "firstSeed": 4000082189,
+        "duplicateSeed": 4000082192
+      },
+      {
+        "visibleSeed": 3415945,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 3,
+        "duplicateIndex": 5,
+        "firstSeed": 4000083203,
+        "duplicateSeed": 4000083205
+      },
+      {
+        "visibleSeed": 3415945,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 3,
+        "duplicateIndex": 15,
+        "firstSeed": 4000083203,
+        "duplicateSeed": 4000083215
+      },
+      {
+        "visibleSeed": 3415949,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 3,
+        "duplicateIndex": 6,
+        "firstSeed": 4000084227,
+        "duplicateSeed": 4000084230
+      },
+      {
+        "visibleSeed": 3415949,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 15,
+        "duplicateIndex": 22,
+        "firstSeed": 4000084239,
+        "duplicateSeed": 4000084246
+      },
+      {
+        "visibleSeed": 3415953,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 14,
+        "duplicateIndex": 17,
+        "firstSeed": 4000085262,
+        "duplicateSeed": 4000085265
+      },
+      {
+        "visibleSeed": 3415954,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 6,
+        "duplicateIndex": 15,
+        "firstSeed": 4000085510,
+        "duplicateSeed": 4000085519
+      },
+      {
+        "visibleSeed": 3415956,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 4,
+        "duplicateIndex": 9,
+        "firstSeed": 4000086020,
+        "duplicateSeed": 4000086025
+      },
+      {
+        "visibleSeed": 3415956,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 13,
+        "duplicateIndex": 14,
+        "firstSeed": 4000086029,
+        "duplicateSeed": 4000086030
+      },
+      {
+        "visibleSeed": 3415956,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "firstIndex": 0,
+        "duplicateIndex": 17,
+        "firstSeed": 4000086016,
+        "duplicateSeed": 4000086033
+      }
+    ],
+    "worldsPerPositionRequested": 24,
+    "forcedCounterfactualContinuations": 3756,
+    "strategies": [
+      "min-hand-pips",
+      "closed-branch-control"
+    ],
+    "profiles": {
+      "min-hand-pips": {
+        "positions": 40,
+        "draws": 960,
+        "uniqueWorldAssignments": 935,
+        "duplicateDraws": 25,
+        "meanUniqueWorldsPerPosition": 23.375,
+        "meanDrawESS": 23.010142798378098,
+        "forcedContinuations": 1870,
+        "immediateMinusDelayedFinishFirstPP": {
+          "estimate": 0,
+          "halfWidth95": 2.1448016750763967
+        },
+        "immediateMinusDelayedRemainderPips": {
+          "mean": -0.045129281949934145,
+          "halfWidth95": 0.22315399615134737
+        },
+        "immediateMinusDelayedTurnLength": {
+          "mean": -0.016034255599473,
+          "halfWidth95": 0.14670727485010043
+        },
+        "immediateMinusDelayedRemainingDoubles": {
+          "mean": 0.005208333333333333,
+          "halfWidth95": 0.007273695803443093
+        },
+        "immediateMinusDelayedNextPassPP": -6.606389986824768,
+        "immediateMinusDelayedNextPlayableTiles": {
+          "mean": 1.3462895256916996,
+          "halfWidth95": 0.20605286561461042
+        },
+        "immediateMinusDelayedImmediateOpponentFinishPP": 0,
+        "immediateMinusDelayedMinusFinishPP": -0.5208333333333334,
+        "immediateMinusDelayedBlockPP": 0.4306653491436099,
+        "focalMinusFinishCounts": {
+          "immediate": {
+            "0": 219,
+            "none": 636,
+            "-10": 80,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 214,
+            "none": 636,
+            "-10": 85,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winSigns": {
+          "immediateBetter": 10,
+          "delayedBetter": 8,
+          "tied": 22
+        }
+      },
+      "closed-branch-control": {
+        "positions": 40,
+        "draws": 960,
+        "uniqueWorldAssignments": 943,
+        "duplicateDraws": 17,
+        "meanUniqueWorldsPerPosition": 23.575,
+        "meanDrawESS": 23.250109890109893,
+        "forcedContinuations": 1886,
+        "immediateMinusDelayedFinishFirstPP": {
+          "estimate": -0.4446640316205534,
+          "halfWidth95": 3.2716534037732377
+        },
+        "immediateMinusDelayedRemainderPips": {
+          "mean": 0.02807413791395485,
+          "halfWidth95": 0.41896685697952457
+        },
+        "immediateMinusDelayedTurnLength": {
+          "mean": -0.06997016379882512,
+          "halfWidth95": 0.205384831640725
+        },
+        "immediateMinusDelayedRemainingDoubles": {
+          "mean": 0.0010416666666666669,
+          "halfWidth95": 0.009469641006050633
+        },
+        "immediateMinusDelayedNextPassPP": -15.803060640732264,
+        "immediateMinusDelayedNextPlayableTiles": {
+          "mean": 1.7342052636532042,
+          "halfWidth95": 0.21327326725134899
+        },
+        "immediateMinusDelayedImmediateOpponentFinishPP": 0,
+        "immediateMinusDelayedMinusFinishPP": 0.9510869565217388,
+        "immediateMinusDelayedBlockPP": 0.28508771929824567,
+        "focalMinusFinishCounts": {
+          "immediate": {
+            "0": 169,
+            "none": 708,
+            "-10": 64,
+            "-20": 2,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 182,
+            "none": 704,
+            "-10": 57,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winSigns": {
+          "immediateBetter": 13,
+          "delayedBetter": 17,
+          "tied": 10
+        }
+      }
+    },
+    "discovery": {
+      "scan": {
+        "min-hand-pips": {
+          "seedStart": 3415620,
+          "seedEnd": 3415659,
+          "dealsScanned": 40,
+          "trajectories": 43,
+          "eligible": 40,
+          "selected": 40
+        },
+        "closed-branch-control": {
+          "seedStart": 3415920,
+          "seedEnd": 3415959,
+          "dealsScanned": 40,
+          "trajectories": 43,
+          "eligible": 40,
+          "selected": 40
+        }
+      },
+      "fullRoundContinuations": 86,
+      "finishes": 83,
+      "blocks": 3,
+      "unresolved": 0
+    },
+    "worldSeedFormula": "(4000000000+(dealSeed-startSeed)*256+seat*64+worldIndex)>>>0",
+    "pairedArms": "same forced double, same hidden allocation and continuation seed; immediate unlock vs one-turn artificial delay",
+    "limitations": "Deduplication is within each visible state; cross-state allocations are not globally deduplicated. Position-cluster intervals are exploratory. Delayed arm is NOT a legal move. Pass constraints used, no opponent action-choice likelihood. No block winner/loneZero/bust/101 scoring.",
+    "rows": [
+      {
+        "seed": 3415620,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 8,
+        "number": 2,
+        "focalHandSize": 7,
+        "nextHandSize": 5,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 16,
+            "-10": 8,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 16,
+            "-10": 8,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0.375,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415621,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 1,
+        "number": 4,
+        "focalHandSize": 9,
+        "nextHandSize": 9,
+        "startingDoubles": 4,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 11,
+            "none": 11,
+            "-10": 2,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 9,
+            "none": 11,
+            "-10": 4,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 1.3877787807814457e-17,
+        "pipsDelta": 0.04166666666666674,
+        "minusDelta": -0.08333333333333333,
+        "blockDelta": -0.041666666666666664,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 2.333333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.5416666666666667,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415622,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 1,
+        "number": 2,
+        "focalHandSize": 9,
+        "nextHandSize": 9,
+        "startingDoubles": 4,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 6,
+            "none": 13,
+            "-10": 5,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 5,
+            "none": 12,
+            "-10": 7,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.041666666666666664,
+        "pipsDelta": 2.0816681711721685e-17,
+        "minusDelta": -0.08333333333333333,
+        "blockDelta": 0.041666666666666664,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 2.125,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.375,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415623,
+        "profile": "min-hand-pips",
+        "seat": 1,
+        "turn": 4,
+        "number": 5,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 8,
+            "none": 6,
+            "-10": 10,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 6,
+            "none": 10,
+            "-10": 8,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.16666666666666666,
+        "pipsDelta": -1.0416666666666665,
+        "minusDelta": 0.08333333333333334,
+        "blockDelta": 0,
+        "nextPassDelta": -0.041666666666666664,
+        "nextPlayableDelta": 2,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.875,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415624,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 13,
+        "number": 0,
+        "focalHandSize": 5,
+        "nextHandSize": 5,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 22,
+        "duplicateDraws": 2,
+        "drawEss": 20.571428571428573,
+        "minusCounts": {
+          "immediate": {
+            "0": 5,
+            "none": 17,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 5,
+            "none": 17,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.6363636363636358,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415625,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 7,
+        "number": 4,
+        "focalHandSize": 7,
+        "nextHandSize": 6,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 23,
+        "duplicateDraws": 1,
+        "drawEss": 22.153846153846153,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": -1.478260869565217,
+        "minusDelta": 0,
+        "blockDelta": 0.08695652173913043,
+        "nextPassDelta": -0.13043478260869565,
+        "nextPlayableDelta": 2.2608695652173907,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.5652173913043479,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415626,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 3,
+        "number": 0,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 11,
+            "none": 13,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 11,
+            "none": 13,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.3333333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415627,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 3,
+        "number": 3,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 5,
+            "none": 6,
+            "-10": 13,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 6,
+            "none": 2,
+            "-10": 16,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.16666666666666666,
+        "pipsDelta": 1.0416666666666667,
+        "minusDelta": -0.125,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.416666666666667,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.12499999999999997,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415628,
+        "profile": "min-hand-pips",
+        "seat": 1,
+        "turn": 3,
+        "number": 3,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 6,
+            "none": 10,
+            "-10": 8,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 5,
+            "none": 11,
+            "-10": 8,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.041666666666666664,
+        "pipsDelta": -0.8749999999999999,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": -0.041666666666666664,
+        "nextPlayableDelta": 1.9583333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.33333333333333337,
+        "remainingDoublesDelta": -0.041666666666666664
+      },
+      {
+        "seed": 3415629,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 6,
+        "number": 5,
+        "focalHandSize": 7,
+        "nextHandSize": 7,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 8,
+            "none": 15,
+            "-10": 1,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 8,
+            "none": 15,
+            "-10": 1,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.2083333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415630,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 4,
+        "number": 5,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 1,
+            "none": 22,
+            "-10": 1,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 1,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.041666666666666664,
+        "pipsDelta": -2.041666666666667,
+        "minusDelta": 0.041666666666666664,
+        "blockDelta": 0.041666666666666664,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.8333333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 1.1666666666666665,
+        "remainingDoublesDelta": 0.041666666666666664
+      },
+      {
+        "seed": 3415631,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 3,
+        "number": 0,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 9,
+            "none": 5,
+            "-10": 10,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 9,
+            "none": 5,
+            "-10": 10,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.291666666666667,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415632,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 1,
+        "number": 4,
+        "focalHandSize": 9,
+        "nextHandSize": 9,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 4,
+            "none": 17,
+            "-10": 3,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 5,
+            "none": 17,
+            "-10": 2,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": -0.5416666666666667,
+        "minusDelta": 0.041666666666666664,
+        "blockDelta": 0.041666666666666664,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.5833333333333337,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.16666666666666669,
+        "remainingDoublesDelta": 0.041666666666666664
+      },
+      {
+        "seed": 3415633,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 3,
+        "number": 2,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 7,
+            "none": 11,
+            "-10": 6,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 7,
+            "none": 11,
+            "-10": 6,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0.9999999999999998,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415634,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 3,
+        "number": 6,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 6,
+            "none": 18,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 5,
+            "none": 19,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.041666666666666664,
+        "pipsDelta": -0.7916666666666666,
+        "minusDelta": 0,
+        "blockDelta": -0.041666666666666664,
+        "nextPassDelta": -0.041666666666666664,
+        "nextPlayableDelta": 2.083333333333334,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.041666666666666706,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415635,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 4,
+        "number": 5,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 23,
+        "duplicateDraws": 1,
+        "drawEss": 22.153846153846153,
+        "minusCounts": {
+          "immediate": {
+            "0": 10,
+            "none": 13,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 10,
+            "none": 13,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0.5652173913043477,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415636,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 2,
+        "number": 5,
+        "focalHandSize": 9,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 4,
+            "none": 19,
+            "-10": 1,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 3,
+            "none": 20,
+            "-10": 1,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.041666666666666664,
+        "pipsDelta": -0.12499999999999997,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": -0.041666666666666664,
+        "nextPlayableDelta": 1.3333333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.3333333333333333,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415637,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 3,
+        "number": 3,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 4,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 12,
+            "none": 9,
+            "-10": 3,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 11,
+            "none": 10,
+            "-10": 3,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.041666666666666664,
+        "pipsDelta": -0.29166666666666663,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": -0.041666666666666664,
+        "nextPlayableDelta": 2.0833333333333335,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.16666666666666666,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415638,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 8,
+        "number": 3,
+        "focalHandSize": 7,
+        "nextHandSize": 5,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 4,
+            "none": 20,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 5,
+            "none": 19,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.041666666666666664,
+        "pipsDelta": 0.3333333333333333,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0.75,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.375,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415639,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 10,
+        "number": 3,
+        "focalHandSize": 9,
+        "nextHandSize": 6,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 3,
+            "none": 20,
+            "-10": 1,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 3,
+            "none": 21,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.041666666666666664,
+        "pipsDelta": 1.5,
+        "minusDelta": 0.041666666666666664,
+        "blockDelta": -0.041666666666666664,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0.5,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.0416666666666667,
+        "remainingDoublesDelta": 0.041666666666666664
+      },
+      {
+        "seed": 3415640,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 2,
+        "number": 5,
+        "focalHandSize": 9,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 20,
+            "-10": 4,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 1,
+            "none": 19,
+            "-10": 4,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.041666666666666664,
+        "pipsDelta": -0.2500000000000001,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": -0.041666666666666664,
+        "nextPlayableDelta": 0.9166666666666664,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.29166666666666663,
+        "remainingDoublesDelta": 0.125
+      },
+      {
+        "seed": 3415641,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 6,
+        "number": 4,
+        "focalHandSize": 7,
+        "nextHandSize": 7,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 9,
+            "none": 12,
+            "-10": 3,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 9,
+            "none": 12,
+            "-10": 3,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0.9583333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415642,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 5,
+        "number": 2,
+        "focalHandSize": 8,
+        "nextHandSize": 6,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 1,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 1,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0.2916666666666667,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": -0.041666666666666664,
+        "nextPlayableDelta": 0.4166666666666667,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.125,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415643,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 4,
+        "number": 3,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 5,
+            "none": 19,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 6,
+            "none": 18,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.041666666666666664,
+        "pipsDelta": -0.08333333333333333,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 2.083333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.29166666666666663,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415644,
+        "profile": "min-hand-pips",
+        "seat": 1,
+        "turn": 3,
+        "number": 3,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 4,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 16,
+            "none": 7,
+            "-10": 1,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 19,
+            "none": 2,
+            "-10": 3,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.20833333333333331,
+        "pipsDelta": 0.5833333333333333,
+        "minusDelta": -0.08333333333333333,
+        "blockDelta": 0.08333333333333333,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.6666666666666665,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.875,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415645,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 11,
+        "number": 4,
+        "focalHandSize": 6,
+        "nextHandSize": 5,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 20,
+        "duplicateDraws": 4,
+        "drawEss": 16.941176470588236,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 20,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 20,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0.65,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": -0.1,
+        "nextPlayableDelta": 0.6,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.35000000000000003,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415646,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 8,
+        "number": 4,
+        "focalHandSize": 7,
+        "nextHandSize": 5,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 23,
+        "duplicateDraws": 1,
+        "drawEss": 22.153846153846153,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": -0.30434782608695654,
+        "minusDelta": 0,
+        "blockDelta": -0.043478260869565216,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.391304347826087,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415647,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 2,
+        "number": 0,
+        "focalHandSize": 9,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 1,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 3,
+            "none": 21,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.08333333333333333,
+        "pipsDelta": 1,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.3750000000000002,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.125,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415648,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 14,
+        "number": 4,
+        "focalHandSize": 5,
+        "nextHandSize": 3,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 15,
+        "duplicateDraws": 9,
+        "drawEss": 13.090909090909092,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 15,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 15,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0.9333333333333333,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": -0.5333333333333333,
+        "nextPlayableDelta": 1.4666666666666666,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -1.2666666666666666,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415649,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 1,
+        "number": 4,
+        "focalHandSize": 9,
+        "nextHandSize": 9,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 6,
+            "none": 18,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 5,
+            "none": 19,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.041666666666666664,
+        "pipsDelta": 0.20833333333333334,
+        "minusDelta": 0,
+        "blockDelta": -0.041666666666666664,
+        "nextPassDelta": -0.125,
+        "nextPlayableDelta": 1.4166666666666667,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.08333333333333347,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415650,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 18,
+        "number": 3,
+        "focalHandSize": 3,
+        "nextHandSize": 4,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 23,
+        "duplicateDraws": 1,
+        "drawEss": 22.153846153846153,
+        "minusCounts": {
+          "immediate": {
+            "0": 23,
+            "none": 0,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 23,
+            "none": 0,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": -0.9999999999999996,
+        "nextPlayableDelta": 2.3478260869565215,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -1.0434782608695652,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415651,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 6,
+        "number": 4,
+        "focalHandSize": 7,
+        "nextHandSize": 5,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 23,
+        "duplicateDraws": 1,
+        "drawEss": 22.153846153846153,
+        "minusCounts": {
+          "immediate": {
+            "0": 5,
+            "none": 18,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 2,
+            "none": 21,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.13043478260869565,
+        "pipsDelta": -0.4347826086956521,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0.7391304347826084,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.5217391304347825,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415652,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 4,
+        "number": 5,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 3,
+            "none": 21,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 3,
+            "none": 21,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": -0.1666666666666667,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.0833333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.041666666666666644,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415653,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 3,
+        "number": 2,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 4,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 20,
+            "none": 4,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 16,
+            "none": 8,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.16666666666666666,
+        "pipsDelta": -1.541666666666667,
+        "minusDelta": 0,
+        "blockDelta": -0.041666666666666664,
+        "nextPassDelta": -0.29166666666666663,
+        "nextPlayableDelta": 2.2499999999999996,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.75,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415654,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 11,
+        "number": 4,
+        "focalHandSize": 6,
+        "nextHandSize": 4,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 22,
+        "duplicateDraws": 2,
+        "drawEss": 20.571428571428573,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 22,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 22,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0.7727272727272727,
+        "minusDelta": 0,
+        "blockDelta": 0.045454545454545456,
+        "nextPassDelta": -0.045454545454545456,
+        "nextPlayableDelta": 0.9999999999999998,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.3181818181818182,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415655,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 12,
+        "number": 0,
+        "focalHandSize": 5,
+        "nextHandSize": 5,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 23,
+        "duplicateDraws": 1,
+        "drawEss": 22.153846153846153,
+        "minusCounts": {
+          "immediate": {
+            "0": 1,
+            "none": 22,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 4,
+            "none": 19,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.13043478260869565,
+        "pipsDelta": 0.6521739130434783,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0.4347826086956521,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.2608695652173913,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415656,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 4,
+        "number": 5,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 23,
+        "duplicateDraws": 1,
+        "drawEss": 22.153846153846153,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0.6956521739130435,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.7826086956521732,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.13043478260869565,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415657,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 5,
+        "number": 3,
+        "focalHandSize": 8,
+        "nextHandSize": 7,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 23,
+        "duplicateDraws": 1,
+        "drawEss": 22.153846153846153,
+        "minusCounts": {
+          "immediate": {
+            "0": 1,
+            "none": 22,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 1,
+            "none": 22,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0.4347826086956521,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415658,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 1,
+        "number": 5,
+        "focalHandSize": 9,
+        "nextHandSize": 9,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 8,
+            "none": 16,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 7,
+            "none": 16,
+            "-10": 1,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0.20833333333333337,
+        "minusDelta": -0.041666666666666664,
+        "blockDelta": 0.08333333333333333,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0.8333333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.41666666666666663,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415659,
+        "profile": "min-hand-pips",
+        "seat": 0,
+        "turn": 2,
+        "number": 6,
+        "focalHandSize": 9,
+        "nextHandSize": 8,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 24,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 24,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": -0.7500000000000002,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": -0.125,
+        "nextPlayableDelta": 2.375,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.5416666666666666,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415920,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 5,
+        "number": 6,
+        "focalHandSize": 8,
+        "nextHandSize": 9,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 1,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 24,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.041666666666666664,
+        "pipsDelta": 1.9999999999999998,
+        "minusDelta": 0,
+        "blockDelta": 0.041666666666666664,
+        "nextPassDelta": -0.375,
+        "nextPlayableDelta": 2.833333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.2916666666666668,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415921,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 3,
+        "number": 3,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 10,
+            "none": 14,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 5,
+            "none": 17,
+            "-10": 2,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.125,
+        "pipsDelta": 0.04166666666666667,
+        "minusDelta": -0.08333333333333333,
+        "blockDelta": -0.08333333333333333,
+        "nextPassDelta": -0.3333333333333333,
+        "nextPlayableDelta": 2.5833333333333335,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -1,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415922,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 3,
+        "number": 6,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 3,
+            "none": 14,
+            "-10": 7,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 2,
+            "none": 16,
+            "-10": 6,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.08333333333333333,
+        "pipsDelta": -0.333333333333333,
+        "minusDelta": 0.04166666666666668,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 2.1249999999999996,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.45833333333333337,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415923,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 14,
+        "number": 3,
+        "focalHandSize": 6,
+        "nextHandSize": 5,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 22,
+        "duplicateDraws": 2,
+        "drawEss": 20.571428571428573,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 22,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 22,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.4999999999999996,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415924,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 1,
+        "number": 5,
+        "focalHandSize": 9,
+        "nextHandSize": 9,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 5,
+            "none": 19,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 4,
+            "none": 20,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.041666666666666664,
+        "pipsDelta": -1.458333333333333,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": -0.041666666666666664,
+        "nextPlayableDelta": 1.458333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 1.375,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415925,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 3,
+        "number": 3,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 9,
+            "none": 13,
+            "-10": 2,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 13,
+            "none": 10,
+            "-10": 1,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.125,
+        "pipsDelta": 0.041666666666666685,
+        "minusDelta": 0.041666666666666664,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 2.1250000000000004,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.25000000000000006,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415926,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 5,
+        "number": 3,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 4,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 5,
+            "none": 3,
+            "-10": 16,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 7,
+            "-10": 17,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.16666666666666666,
+        "pipsDelta": -2.2916666666666665,
+        "minusDelta": -0.04166666666666668,
+        "blockDelta": 0.08333333333333333,
+        "nextPassDelta": -0.3333333333333333,
+        "nextPlayableDelta": 2.7083333333333335,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.8333333333333331,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415927,
+        "profile": "closed-branch-control",
+        "seat": 1,
+        "turn": 4,
+        "number": 6,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 4,
+            "none": 20,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 7,
+            "none": 17,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.125,
+        "pipsDelta": 0.6249999999999999,
+        "minusDelta": 0,
+        "blockDelta": 0.041666666666666664,
+        "nextPassDelta": -0.20833333333333331,
+        "nextPlayableDelta": 1.375,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.04166666666666674,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415928,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 4,
+        "number": 6,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 6,
+            "none": 16,
+            "-10": 2,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 2,
+            "none": 18,
+            "-10": 4,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.08333333333333333,
+        "pipsDelta": -1.7499999999999998,
+        "minusDelta": -0.08333333333333334,
+        "blockDelta": 0.041666666666666664,
+        "nextPassDelta": -0.125,
+        "nextPlayableDelta": 2.5416666666666665,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 1.0416666666666667,
+        "remainingDoublesDelta": -0.041666666666666664
+      },
+      {
+        "seed": 3415929,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 1,
+        "number": 5,
+        "focalHandSize": 9,
+        "nextHandSize": 9,
+        "startingDoubles": 4,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 3,
+            "none": 21,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 6,
+            "none": 18,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.125,
+        "pipsDelta": 3.0000000000000004,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.0833333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.20833333333333326,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415930,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 2,
+        "number": 6,
+        "focalHandSize": 9,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 2,
+            "none": 22,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 4,
+            "none": 20,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.08333333333333334,
+        "pipsDelta": 1.3333333333333333,
+        "minusDelta": 0,
+        "blockDelta": 0.08333333333333334,
+        "nextPassDelta": -0.125,
+        "nextPlayableDelta": 2.7083333333333335,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.24999999999999997,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415931,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 4,
+        "number": 5,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 2,
+            "none": 15,
+            "-10": 7,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 4,
+            "none": 13,
+            "-10": 7,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.08333333333333334,
+        "pipsDelta": -0.29166666666666663,
+        "minusDelta": 0,
+        "blockDelta": -0.041666666666666664,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.4583333333333335,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.12499999999999997,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415932,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 2,
+        "number": 2,
+        "focalHandSize": 9,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 3,
+            "none": 14,
+            "-10": 7,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 9,
+            "none": 13,
+            "-10": 2,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.041666666666666664,
+        "pipsDelta": -0.08333333333333343,
+        "minusDelta": 0.20833333333333331,
+        "blockDelta": 0,
+        "nextPassDelta": -0.16666666666666666,
+        "nextPlayableDelta": 2.625,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.7916666666666666,
+        "remainingDoublesDelta": 0.08333333333333333
+      },
+      {
+        "seed": 3415933,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 1,
+        "number": 2,
+        "focalHandSize": 9,
+        "nextHandSize": 9,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 24,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 24,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": -1.9166666666666667,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.4583333333333335,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 1.0416666666666667,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415934,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 3,
+        "number": 4,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 4,
+            "none": 20,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 4,
+            "none": 20,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0.45833333333333337,
+        "minusDelta": 0,
+        "blockDelta": -0.041666666666666664,
+        "nextPassDelta": -0.041666666666666664,
+        "nextPlayableDelta": 1.4583333333333335,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.4583333333333333,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415935,
+        "profile": "closed-branch-control",
+        "seat": 1,
+        "turn": 4,
+        "number": 4,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 5,
+            "none": 19,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 6,
+            "none": 18,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.041666666666666664,
+        "pipsDelta": -0.24999999999999994,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": -0.16666666666666666,
+        "nextPlayableDelta": 0.5416666666666666,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.5833333333333333,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415936,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 3,
+        "number": 6,
+        "focalHandSize": 9,
+        "nextHandSize": 8,
+        "startingDoubles": 4,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 9,
+            "none": 14,
+            "-10": 1,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 6,
+            "none": 15,
+            "-10": 3,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.041666666666666664,
+        "pipsDelta": -1.7083333333333335,
+        "minusDelta": -0.08333333333333333,
+        "blockDelta": 0.041666666666666664,
+        "nextPassDelta": -0.125,
+        "nextPlayableDelta": 1.8333333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.1666666666666667,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415937,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 5,
+        "number": 6,
+        "focalHandSize": 8,
+        "nextHandSize": 9,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 4,
+            "none": 12,
+            "-10": 8,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 3,
+            "none": 19,
+            "-10": 2,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.29166666666666663,
+        "pipsDelta": -2.291666666666667,
+        "minusDelta": 0.24999999999999997,
+        "blockDelta": -0.08333333333333333,
+        "nextPassDelta": -0.5416666666666666,
+        "nextPlayableDelta": 2.25,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -2,
+        "remainingDoublesDelta": -0.041666666666666664
+      },
+      {
+        "seed": 3415938,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 16,
+        "number": 0,
+        "focalHandSize": 4,
+        "nextHandSize": 4,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 19,
+        "duplicateDraws": 5,
+        "drawEss": 16,
+        "minusCounts": {
+          "immediate": {
+            "0": 1,
+            "none": 18,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 1,
+            "none": 18,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0.5263157894736842,
+        "minusDelta": 0,
+        "blockDelta": -0.05263157894736842,
+        "nextPassDelta": -0.3157894736842105,
+        "nextPlayableDelta": 0.42105263157894735,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.47368421052631576,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415939,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 2,
+        "number": 2,
+        "focalHandSize": 9,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 22,
+            "-10": 2,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 1,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.041666666666666664,
+        "pipsDelta": -1.9166666666666663,
+        "minusDelta": 0.08333333333333333,
+        "blockDelta": -0.041666666666666664,
+        "nextPassDelta": -0.24999999999999997,
+        "nextPlayableDelta": 1.6249999999999998,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.2916666666666667,
+        "remainingDoublesDelta": -0.08333333333333333
+      },
+      {
+        "seed": 3415940,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 2,
+        "number": 3,
+        "focalHandSize": 9,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 5,
+            "none": 19,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 9,
+            "none": 15,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.16666666666666666,
+        "pipsDelta": 1.958333333333333,
+        "minusDelta": 0,
+        "blockDelta": 0.041666666666666664,
+        "nextPassDelta": -0.08333333333333333,
+        "nextPlayableDelta": 1.9583333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415941,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 2,
+        "number": 6,
+        "focalHandSize": 9,
+        "nextHandSize": 9,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 23,
+        "duplicateDraws": 1,
+        "drawEss": 22.153846153846153,
+        "minusCounts": {
+          "immediate": {
+            "0": 4,
+            "none": 12,
+            "-10": 5,
+            "-20": 2,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 7,
+            "none": 12,
+            "-10": 4,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0.0869565217391303,
+        "minusDelta": 0.13043478260869565,
+        "blockDelta": -0.043478260869565216,
+        "nextPassDelta": -0.9999999999999996,
+        "nextPlayableDelta": 2.695652173913043,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -1.6086956521739129,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415942,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 5,
+        "number": 4,
+        "focalHandSize": 8,
+        "nextHandSize": 7,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 2,
+            "none": 21,
+            "-10": 1,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 3,
+            "none": 20,
+            "-10": 1,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.041666666666666664,
+        "pipsDelta": 1.125,
+        "minusDelta": 0,
+        "blockDelta": -0.041666666666666664,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.375,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.08333333333333334,
+        "remainingDoublesDelta": 0.125
+      },
+      {
+        "seed": 3415943,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 8,
+        "number": 4,
+        "focalHandSize": 7,
+        "nextHandSize": 6,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 24,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 24,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": -2.166666666666667,
+        "minusDelta": 0,
+        "blockDelta": 0.041666666666666664,
+        "nextPassDelta": -0.16666666666666666,
+        "nextPlayableDelta": 1.166666666666667,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.5,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415944,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 3,
+        "number": 3,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 6,
+            "none": 17,
+            "-10": 1,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 9,
+            "none": 13,
+            "-10": 2,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.16666666666666666,
+        "pipsDelta": 1.583333333333333,
+        "minusDelta": -0.041666666666666664,
+        "blockDelta": 0.041666666666666664,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0.7499999999999998,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.04166666666666671,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415945,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 13,
+        "number": 3,
+        "focalHandSize": 6,
+        "nextHandSize": 5,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 22,
+        "duplicateDraws": 2,
+        "drawEss": 19.2,
+        "minusCounts": {
+          "immediate": {
+            "0": 5,
+            "none": 17,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 2,
+            "none": 20,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.13636363636363635,
+        "pipsDelta": -1.227272727272727,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": -0.9999999999999997,
+        "nextPlayableDelta": 2.772727272727271,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.6818181818181818,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415946,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 5,
+        "number": 6,
+        "focalHandSize": 8,
+        "nextHandSize": 7,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 24,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 1,
+            "none": 22,
+            "-10": 1,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.08333333333333333,
+        "pipsDelta": 1.0833333333333335,
+        "minusDelta": -0.041666666666666664,
+        "blockDelta": 0,
+        "nextPassDelta": -0.08333333333333333,
+        "nextPlayableDelta": 1.9166666666666665,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.4166666666666667,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415947,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 2,
+        "number": 5,
+        "focalHandSize": 9,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 4,
+            "none": 20,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 4,
+            "none": 20,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0.5,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.5833333333333335,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.04166666666666647,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415948,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 4,
+        "number": 6,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 11,
+            "none": 13,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 7,
+            "none": 17,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.16666666666666666,
+        "pipsDelta": -1.2500000000000002,
+        "minusDelta": 0,
+        "blockDelta": -0.08333333333333333,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.1666666666666672,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.125,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415949,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 15,
+        "number": 2,
+        "focalHandSize": 5,
+        "nextHandSize": 4,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 22,
+        "duplicateDraws": 2,
+        "drawEss": 20.571428571428573,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 22,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 5,
+            "none": 17,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.2272727272727273,
+        "pipsDelta": 2.5454545454545454,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0.9999999999999997,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.9090909090909091,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415950,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 4,
+        "number": 6,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 9,
+            "none": 15,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 5,
+            "none": 19,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.16666666666666666,
+        "pipsDelta": -1.291666666666667,
+        "minusDelta": 0,
+        "blockDelta": -0.041666666666666664,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 2.2083333333333335,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.12499999999999999,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415951,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 3,
+        "number": 6,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 11,
+            "none": 10,
+            "-10": 3,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 9,
+            "none": 12,
+            "-10": 3,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0.08333333333333334,
+        "pipsDelta": 0.6250000000000001,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0.9999999999999999,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.041666666666666616,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415952,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 8,
+        "number": 4,
+        "focalHandSize": 7,
+        "nextHandSize": 6,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 24,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 24,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.3333333333333333,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415953,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 8,
+        "number": 4,
+        "focalHandSize": 7,
+        "nextHandSize": 6,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 23,
+        "duplicateDraws": 1,
+        "drawEss": 22.153846153846153,
+        "minusCounts": {
+          "immediate": {
+            "0": 1,
+            "none": 22,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 3,
+            "none": 20,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.08695652173913043,
+        "pipsDelta": 1.6956521739130437,
+        "minusDelta": 0,
+        "blockDelta": 0.043478260869565216,
+        "nextPassDelta": -0.13043478260869565,
+        "nextPlayableDelta": 1.6956521739130428,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.13043478260869565,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415954,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 12,
+        "number": 3,
+        "focalHandSize": 6,
+        "nextHandSize": 5,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 23,
+        "duplicateDraws": 1,
+        "drawEss": 22.153846153846153,
+        "minusCounts": {
+          "immediate": {
+            "0": 0,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 0,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0.043478260869565216,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 0.652173913043478,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415955,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 6,
+        "number": 6,
+        "focalHandSize": 7,
+        "nextHandSize": 7,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 1,
+            "none": 23,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 3,
+            "none": 21,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.08333333333333333,
+        "pipsDelta": 0.875,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": -0.375,
+        "nextPlayableDelta": 1.2916666666666672,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.7083333333333334,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415956,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 15,
+        "number": 2,
+        "focalHandSize": 6,
+        "nextHandSize": 4,
+        "startingDoubles": 1,
+        "draws": 24,
+        "uniqueWorlds": 21,
+        "duplicateDraws": 3,
+        "drawEss": 19.2,
+        "minusCounts": {
+          "immediate": {
+            "0": 1,
+            "none": 20,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 1,
+            "none": 20,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": 0,
+        "pipsDelta": 0.2857142857142857,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": 0,
+        "nextPlayableDelta": 1.0476190476190474,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": 0.2857142857142857,
+        "remainingDoublesDelta": 0
+      },
+      {
+        "seed": 3415957,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 3,
+        "number": 2,
+        "focalHandSize": 8,
+        "nextHandSize": 8,
+        "startingDoubles": 4,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 12,
+            "none": 10,
+            "-10": 2,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 13,
+            "none": 9,
+            "-10": 2,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.041666666666666664,
+        "pipsDelta": 0.5416666666666666,
+        "minusDelta": 0,
+        "blockDelta": 0,
+        "nextPassDelta": -0.20833333333333331,
+        "nextPlayableDelta": 2.75,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.2083333333333333,
+        "remainingDoublesDelta": 0.041666666666666664
+      },
+      {
+        "seed": 3415958,
+        "profile": "closed-branch-control",
+        "seat": 1,
+        "turn": 2,
+        "number": 3,
+        "focalHandSize": 9,
+        "nextHandSize": 8,
+        "startingDoubles": 2,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 3,
+            "none": 21,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 5,
+            "none": 19,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.08333333333333333,
+        "pipsDelta": 0.20833333333333337,
+        "minusDelta": 0,
+        "blockDelta": 0.08333333333333333,
+        "nextPassDelta": -0.08333333333333333,
+        "nextPlayableDelta": 2.041666666666666,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.6666666666666669,
+        "remainingDoublesDelta": -0.041666666666666664
+      },
+      {
+        "seed": 3415959,
+        "profile": "closed-branch-control",
+        "seat": 0,
+        "turn": 2,
+        "number": 5,
+        "focalHandSize": 9,
+        "nextHandSize": 8,
+        "startingDoubles": 3,
+        "draws": 24,
+        "uniqueWorlds": 24,
+        "duplicateDraws": 0,
+        "drawEss": 24,
+        "minusCounts": {
+          "immediate": {
+            "0": 18,
+            "none": 6,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          },
+          "delayed": {
+            "0": 19,
+            "none": 5,
+            "-10": 0,
+            "-20": 0,
+            "-30": 0,
+            "-40": 0
+          }
+        },
+        "winDelta": -0.041666666666666664,
+        "pipsDelta": 0.16666666666666663,
+        "minusDelta": 0,
+        "blockDelta": 0.08333333333333333,
+        "nextPassDelta": -0.041666666666666664,
+        "nextPlayableDelta": 2.25,
+        "immediateNextFinishDelta": 0,
+        "turnsDelta": -0.37500000000000006,
+        "remainingDoublesDelta": 0
+      }
+    ]
+  },
+  "unlockDelayDiscoveryAllocationAudit": {
+    "seedDraws": 80,
+    "uniqueCompleteAllocations": 80,
+    "duplicateAllocations": 0
+  },
+  "historicalBranchLockRegressionReplay": {
+    "seedStart": 3406720,
+    "seedEnd": 3407219,
+    "seedDraws": 500,
+    "uniqueAllocations": 500,
+    "positions": 11795,
+    "actionCandidates": 41451,
+    "actionsApplied": 41451,
+    "passes": 924,
+    "draws": 0,
+    "finish": 476,
+    "block": 24,
+    "unresolved": 0,
+    "alreadyRecorded": true
+  },
+  "tests": {
+    "blockWinner": {
+      "passed": true,
+      "assertions": 8,
+      "pilotDeals": 8,
+      "pilotRounds": 48
+    },
+    "delayDedup": {
+      "passed": true,
+      "assertions": 5,
+      "pilotPositions": 4,
+      "hiddenWorldDraws": 12,
+      "uniqueWorldAssignments": 12,
+      "duplicateWorldDraws": 0
+    },
+    "branchBlock": {
+      "passed": true,
+      "pilotDeals": 8,
+      "pilotRounds": 48,
+      "scope": "provisional global unlock and unresolved block winner"
+    },
+    "branchSide": {
+      "passed": true,
+      "fixture": "two 5-ends; global 2 ordinary placements versus local 1",
+      "pilotDeals": 6,
+      "pilotRounds": 36
+    },
+    "delayAblation": {
+      "passed": true,
+      "fixture": "same forced double, next opponent 2-6 legal only in immediate-unlock arm",
+      "positions": 4,
+      "forced": 24
+    },
+    "blockScore": {
+      "passed": true,
+      "assertions": 22
+    },
+    "mixedFinishBlock": {
+      "passed": true,
+      "assertions": 11
+    },
+    "scoringContract": {
+      "passed": true,
+      "assertions": 1056
+    },
+    "chronologyFixture": {
+      "passed": true
+    }
+  },
+  "cumulative": {
+    "branchLabelMetamorphic": {
+      "uniqueDealAllocations": 1500,
+      "reachablePositionsGenerated": 60274,
+      "actionSetChecks": 16080,
+      "mappedTransitions": 40800,
+      "passTransitions": 4320,
+      "mismatches": 0
+    },
+    "validationOpeningTieBreakAllocations": 7550,
+    "reachablePropertyAuditPositions": 52315,
+    "branchLockAuditUniqueDeals": 550,
+    "strategyTournament": {
+      "deals": 1500,
+      "armRounds": 18000,
+      "pilotDeals": 120,
+      "pilotArmRounds": 1440
+    },
+    "newStrategyArms": 0
+  },
+  "limitations": [
+    "Global-ever-open, local-side-only, and one-turn delayed unlock are model/counterfactual variants; no physical rule is authenticated.",
+    "Block candidate winner sets are identity diagnostics only; no points, tie-break, score floor, or 101-match outcome is inferred.",
+    "One-turn delayed unlock is NOT a legal Qoşa move; pass-conditioned worlds do not model opponent action-choice likelihood.",
+    "Hidden-world uniqueness is counted within each visible state; cross-state counts are not globally unique allocations.",
+    "Clean Node checkout remains blocked by GitHub DNS; current GitHub source modules were executed in a V8 CommonJS-compatible harness."
+  ]
+}

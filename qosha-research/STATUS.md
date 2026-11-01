@@ -1,12 +1,12 @@
-# Latest checkpoint — policy-generated branch-label audit + mixed-finish/block edge fixtures (2026-11-01 21:46:08 +04 Asia/Baku)
+# Latest checkpoint — matched branch-lock and block-winner sensitivity (2026-11-01 22:54:59 +04 (Asia/Baku))
 
-- **Policy-generated trajectories:** seeds 3414620–3415119; 500 unique full allocations, 0 duplicates; three policy mixes/seat rotations = 1,500 rounds; 1,441 finishes / 59 blocks / 0 unresolved; mean turns 25.382.
-- **Reachable-state sample:** 36,573 positions generated; 235 selected unique states across pass/single/double/mixed/multi/late strata.
-- **24-permutation checks:** 5,640 legal action-set checks; 14,064 mapped transitions (8,256 singles / 4,152 double sequences / 1,656 mixed finishes); 1,440 pass transitions; 21,000 policy-distribution checks across five policies. **0 mismatches**.
-- **Edge fixtures:** 11 assertions passed, including mixed-prefix exposure and −20, block no-winner/no-minus and stock gate, and four-double −40.
-- **Cumulative branch-label cohorts:** 1,500 unique deal allocations; 60,274 reachable positions; 16,080 action-set checks / 40,800 transitions / 4,320 pass transitions; zero recorded mismatches.
-- **Cumulative baseline:** separate validation/opening/tie-break allocations 7,550; property audit 52,315 positions; branch-lock audit 550 deals. Strategy tournament unchanged: 1,500 deals / 18,000 arm-rounds (+120-deal / 1,440-arm pilot).
-- **Interpretation:** high confidence in internal model-level equivariance; no tactical finding. Physical branch locking/reopening and block winner/tie scoring remain provisional. Numeric execution used a source-faithful V8 mirror; clean Node checkout was blocked by GitHub DNS.
-- **Exact next:** run matched sensitivity variants for alternate branch-lock/reopening and block-winner assumptions; keep strategy ranking paused until a real-table trace or explicit ruling is available.
+- **New matched cohort:** seeds 3415120–3415619; 500 unique full allocations, 0 duplicates; 3,000 policy-generated rounds; 2,896 finishes / 104 blocks / 0 unresolved; mean turns 25.239.
+- **Local-side counterfactual:** 6,200 multi-side unlock events; global 25,965 next-player actions vs local 15,236 (−41.3%). Side choice changed 2,878 times; tile-group choice 38 times; no pass flips. This is one-step model sensitivity only.
+- **Block identity:** minimum-pip set unique 101/104, tied 3; fewest-tile set unique 18/104, tied 86; candidate sets differ 90/104. Coded model still assigns no block winner or points.
+- **Deduplicated unlock-delay:** 80 discovery deals/positions; 1,920 world draws, 1,878 within-state unique allocations, 42 duplicates; 3,756 paired continuations. Finish-first intervals include zero; no tactical finding.
+- **Regression replay:** existing seeds 3406720–3407219 rerun (11,795 positions / 41,451 action applications / 0 failures); historical cohort not counted again. Block/mixed/scoring fixtures and new runner tests passed.
+- **Cumulative:** branch-label cohort remains 1,500 unique deals / 60,274 positions; validation allocations 7,550; property audit 52,315; strategy tournament 1,500 deals / 18,000 arm-rounds (+120-deal pilot). No new strategy arms.
+- **Interpretation:** high confidence in internal sensitivity measurements, no physical rule authentication, no reliable strategy advantage. Global/local branch semantics and block winner/tie scoring remain provisional.
+- **Exact next:** fresh seeds from 3416220; stratify delayed-unlock selection by late next-opponent hand size (1–4 stones), deduplicate worlds per visible state, and seek a real-table trace/ruling for branch and block rules.
 
-See [run report](runs/2026-11-01-2146-policy-branch-label-audit.md) and [raw JSON](runs/2026-11-01-2146-policy-branch-label-audit.json).
+See [run report](runs/2026-11-01-2254-branch-lock-block-sensitivity.md), [raw JSON](runs/2026-11-01-2254-branch-lock-block-sensitivity.json), [block-winner runner](simulator/block-winner-sensitivity.js), and [deduplicated delay runner](simulator/branch-unlock-delay-dedup-audit.js).

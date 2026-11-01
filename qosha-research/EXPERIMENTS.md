@@ -134,3 +134,11 @@ Next priority: branch-label action/transition permutation audit and isolated blo
 ## Policy-generated branch-label audit (2026-11-01)
 
 For the four-branch metamorphic check, generate reachable trajectories with a fixed mix of fast-doubles, min-hand-pips, and closed-branch-control across all three seat rotations. Use the action-orbit symmetric tie-break and the seeded 1-1 follow-up side selector; keep the canonical follow-up tile choice unchanged. Deduplicate visible states, select deterministic hash-ranked strata, and compare legal sets plus every mapped successor under all 24 branch-label permutations. Check policy choice distributions separately from action/transition equivariance. These are model consistency tests, not strategy-strength comparisons or physical-rule authentication.
+
+## Matched branch-lock and block-winner sensitivity (2026-11-01)
+
+- Compare global-ever-open with a **one-step local-side-only counterfactual** on the same policy-generated trajectory. Restrict only the newly opened number to one matching side; keep other opened numbers global. Report legal-action count, pass flips, side-choice changes, and tile-group choice changes separately. This is not a full local-rule rollout and cannot authenticate the physical rule.
+- At block end, compare candidate seat sets for minimum pip total, fewest tile count (contrast only), last passer (diagnostic only), and current no-winner model. Do not infer point allocation, tie-break, score floor, or 101-match outcome from these identity comparisons.
+- For unlock-delay Monte Carlo, deduplicate complete hidden assignments **within each visible state** before paired continuation evaluation. Report seed draws, unique worlds, duplicate seed pairs, ESS, and post-dedup paired continuation count. Use the same exact hidden allocation and continuation seed in both arms.
+- The one-turn delayed-unlock arm is an explicitly nonlegal intervention. Select late positions by next-opponent hand size on future runs; do not promote a tactic from mechanism-only results.
+
