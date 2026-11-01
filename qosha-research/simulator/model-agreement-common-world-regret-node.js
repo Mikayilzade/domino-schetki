@@ -588,4 +588,4 @@ if (require.main === module) {
       Number(args[2] || 72), Number(args[3] || WORLD_LIMIT));
   process.stdout.write(JSON.stringify(result, null, 2) + '\n');
 }
-module.exports = { runAudit, runDisagreementAudit, test, collectAgreementStates, selectStates, hiddenWorlds, evaluateState };
+module.exports = { runAudit, runDisagreementAudit, test, collectAgreementStates, selectStates, hiddenWorlds, evaluateState, chooseOrbit, cloneCurrentState, currentOptions, syncCurrentAfterGlobal, currentActionKeys, globalActionKeys, visibleSignature, cloneCurrentForWorld, stepCurrent, simulateGlobal, simulateCurrent, metrics, summarizeRegret, worldKey, actionTiles, removedPips };
