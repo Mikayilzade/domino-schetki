@@ -28,6 +28,7 @@ const mean=a=>a.length?a.reduce((s,x)=>s+x,0)/a.length:null;
 const median=a=>{const z=[...a].sort((a,b)=>a-b),n=z.length;return n?(n%2?z[(n-1)/2]:(z[n/2-1]+z[n/2])/2):null;};
 const tiles=a=>a.type==='single'?[a.tile]:(a.tiles||[]);
 const groupKey=a=>a.type+':'+tiles(a).map(e.tileKey).sort().join(',');
+function allocationKey(world){return world.hands.map(hand=>hand.map(e.tileKey).sort().join(',')).join('|')+'#'+(world.stock||[]).map(e.tileKey).sort().join(',');}
 function choiceProbability(actions,chosen,profile){
  const groups=new Map();
  for(const a of actions){const k=groupKey(a);if(!groups.has(k))groups.set(k,a);}
@@ -94,10 +95,10 @@ function position(c,worlds){
  const legal=post.map(z=>new Set(e.createDoubleSixDeck().filter(t=>d.actionsForHand(z.branchState,z.openingState,[t]).length).map(e.tileKey)));
  const exact=legal.map(l=>base.passProb(pool,s.hands[n].length,c.mem[n],c.mem[o],l));
  const actual=post.map(z=>+(d.actionsForHand(z.branchState,z.openingState,s.hands[n]).length===0));
- const outcomes=[[],[]],logs=[],blindLogs=[],inform=[];
+ const outcomes=[[],[]],logs=[],blindLogs=[],inform=[],worldKeys=new Set();
  for(let wi=0;wi<worlds;wi++){
   const salt=e.mixSeed32((c.seed^Math.imul(seat+1,0x85ebca6b)^Math.imul(c.mix+1,0xc2b2ae35)^Math.imul(c.turn+1,0x27d4eb2d)^Math.imul(wi+1,0x165667b1)^0x4af9d125)>>>0);
-  const w=pc.world(s,seat,c.mem,salt,true);
+  const w=pc.world(s,seat,c.mem,salt,true);worldKeys.add(allocationKey(w));
   const q={log:blindLogLikelihood(w,ev,0.2),informative:ev.length};blindLogs.push(blindLogLikelihood(w,ev,0.5));
   logs.push(q.log);inform.push(q.informative);
   for(let i=0;i<2;i++)outcomes[i].push(+(d.actionsForHand(post[i].branchState,post[i].openingState,w.hands[n]).length===0));
@@ -117,7 +118,8 @@ function position(c,worlds){
  });
  return{seed:c.seed,seat:c.seat,mix:c.mix,turn:c.turn,both:c.both,passInformationBits:c.passInformationBits,
   historyActions:c.history.length,choiceEvents:ev.length,meanRecordedChoiceEvents:mean(inform),
-  worlds,ess,prior20ESSFraction:ess/worlds,blindESSFraction:blindEss/worlds,actions};
+  worlds,uniqueHiddenWorlds:worldKeys.size,duplicateHiddenWorldDraws:worlds-worldKeys.size,
+  ess,prior20ESSFraction:ess/worlds,blindESSFraction:blindEss/worlds,actions};
 }
 function stats(rows,filter=()=>true){
  const clusters=rows.map(z=>z.actions.filter(filter)).filter(z=>z.length),a=clusters.flat();
@@ -174,6 +176,8 @@ function run(start=1593940,count=400,worlds=64){
   unresolved:0,meanRoundTurns:turnTotal/rounds,blockRate:blocks/rounds,minusFinishes:minus,
   selectedPositions:rows.length,eligibleCandidatesBeforeSelection:eligible,
   immediatePassLabels:all.length,forcedHiddenWorldContinuations:0,hiddenAllocations:rows.length*worlds,
+  uniqueHiddenWorldAssignments:rows.reduce((s,z)=>s+z.uniqueHiddenWorlds,0),
+  duplicateHiddenWorldDraws:rows.reduce((s,z)=>s+z.duplicateHiddenWorldDraws,0),
   passEvents,worldsPerPosition:worlds,strategies:['closed-branch-control','random-legal','tempo-open','anti-minus'],
   opponentMixes:MIXES,baseline:{finishFirst:mean(focal.map(z=>z.first)),
    meanRemainingPips:mean(focal.map(z=>z.pips)),medianRemainingPips:median(focal.map(z=>z.pips)),
@@ -187,7 +191,7 @@ function run(start=1593940,count=400,worlds=64){
    withChoiceHistory:stats(rows.filter(z=>z.meanRecordedChoiceEvents>0),uncertain),
    lowESS:stats(rows.filter(z=>z.prior20ESSFraction<0.25),uncertain)},
   rows,
-  design:'Out-of-family opponents: random-legal, tempo-open (max tiles then openings), anti-minus (public next-hand-size urgency, minimize next legal tile types, otherwise shed pips). Fixed 50/50 and 80/20 min-pips/closed-control priors (20% closed-control in the latter), no oracle profile. Posterior marginalizes each synthetic family across last 3 observed tile-group choices. One public-pass-selected position/deal, same-tile different-end pair. Sample pass-compatible current hands deterministically; reconstruct earlier hands from public played tiles AFTER each observed choice, compute softmax likelihood of chosen tile GROUP (not branch label) under two assumed likelihood families (without knowing true opponent policy). Reweight identical worlds for both candidate next-pass labels. 10% uniform lapse, temperature=1, utility removedPips/3 + 6*mixedFinish - 4*openedDoubles for closed-branch-control. At most 3 most recent opponent play choices per opponent. Compare weighted MC against EXACT pass-only combinatorial posterior. Two disjoint seed halves.',
+  design:'Out-of-family opponents: random-legal, tempo-open (max tiles then openings), anti-minus (public next-hand-size urgency, minimize next legal tile types, otherwise shed pips). Fixed 50/50 and 80/20 min-pips/closed-control priors (20% closed-control in the latter), no oracle profile. Posterior marginalizes each synthetic family across last 3 observed tile-group choices. One public-pass-selected position/deal, same-tile different-end pair. Sample pass-compatible current hands deterministically; reconstruct earlier hands from public played tiles AFTER each observed choice, compute softmax likelihood of chosen tile GROUP (not branch label) under two assumed likelihood families (without knowing true opponent policy). Reweight identical worlds for both candidate next-pass labels. 10% uniform lapse, temperature=1, utility removedPips/3 + 6*mixedFinish - 4*openedDoubles for closed-branch-control. At most 3 most recent opponent play choices per opponent. Compare weighted MC against EXACT pass-only combinatorial posterior. Two disjoint seed halves. Hidden-world draws use replacement; unique complete hand/stock allocations are deduplicated and reported within each visible state.',
   limitations:'Out-of-family deterministic bots are not humans. Both 50/50 and 80/20 priors are misspecified by design; synthetic choice likelihood is hypothetical; importance sampling has finite-world variance and potentially low ESS; public selection enriched for informative passes; one publicly selected high-information position per deal; correlated two counterfactual actions; provisional branch number-lock and unresolved block winner/loneZero/bust/101. No human tactic inferred.',
   nextAction:'Replicate out-of-family Brier on fresh seeds; tune only on discovery then test untouched holdout; authenticate branch lock and blocked winner.'};
 }
@@ -203,7 +207,9 @@ function test(){
  ok(x.rows.every(z=>z.ess>0&&z.ess<=z.worlds+1e-8),'ESS');
  ok(x.rows.flatMap(z=>z.actions).every(z=>z.passOnly>=0&&z.passOnly<=1+1e-10&&z.choicePrior20>=-1e-10&&z.choicePrior20<=1+1e-10&&z.choiceBlind>=-1e-10&&z.choiceBlind<=1+1e-10),'probability bounds');
  ok(x.rows.every(z=>z.blindESSFraction>0&&z.blindESSFraction<=1+1e-8),'blind ESS');
- return{passed:true,checks:8,pilotDeals:8,positions:x.selectedPositions,mixes:MIXES.length};
+ ok(x.rows.every(z=>z.uniqueHiddenWorlds>0&&z.uniqueHiddenWorlds<=z.worlds&&z.duplicateHiddenWorldDraws===z.worlds-z.uniqueHiddenWorlds),'within-state world uniqueness');
+ ok(x.uniqueHiddenWorldAssignments+x.duplicateHiddenWorldDraws===x.hiddenAllocations,'aggregate world accounting');
+ return{passed:true,checks:10,pilotDeals:8,positions:x.selectedPositions,mixes:MIXES.length};
 }
 if(require.main===module){const a=process.argv.slice(2);console.log(JSON.stringify(a[0]==='test'?test():run(+(a[0]||1593940),+(a[1]||400),+(a[2]||64)),null,2));}
 module.exports={run,test,position,choiceProbability,choiceLogLikelihood,blindLogLikelihood,selectedEvents,stats};

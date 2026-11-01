@@ -1,0 +1,135 @@
+{
+  "schema": "qosha-pass-choice-outfamily/v1",
+  "timestampAsiaBaku": "2026-11-01 15:57:23 +04",
+  "engine": "qosha-research-0.5.3",
+  "rules": "recovered qosa-1.0.0 3x9 + stock; four-side number-lock provisional",
+  "seeds": {
+    "start": 3411970,
+    "end": 3412369,
+    "draws": 400,
+    "uniqueFullDeals": 400,
+    "duplicateDeals": 0,
+    "discovery": 200,
+    "holdout": 200
+  },
+  "diagnosticTrajectories": {
+    "rounds": 4800,
+    "finishes": 4608,
+    "blocks": 192,
+    "blockRate": 0.04,
+    "meanTurns": 25.46875,
+    "unresolved": 0,
+    "passEvents": 12914,
+    "eligibleCandidatesBeforeSelection": 657,
+    "selectedPositions": 269,
+    "uncertainPositions": 78,
+    "uncertainLabels": 104
+  },
+  "hiddenWorlds": {
+    "draws": 17216,
+    "uniqueCompleteStateWorldAssignments": 4136,
+    "duplicateDraws": 13080,
+    "meanUniquePerVisibleState": 15.37546468401487,
+    "medianUniquePerVisibleState": 5,
+    "minUniquePerVisibleState": 1,
+    "maxUniquePerVisibleState": 64,
+    "uniquenessScope": "within each visible state"
+  },
+  "brier": {
+    "all": {
+      "passOnly": 0.10365119391016364,
+      "prior80_20": 0.10066416042438824,
+      "blind50_50": 0.10404234816306965
+    },
+    "holdout": {
+      "passOnly": 0.11518607407128137,
+      "prior80_20": 0.10469600724541261,
+      "blind50_50": 0.10699319504323744
+    },
+    "pairedPerPositionClustered": {
+      "all": {
+        "prior80_20": {
+          "mean": 0.0011595942539601378,
+          "halfWidth95": 0.016034998195143996,
+          "ci95": [
+            -0.014875403941183859,
+            0.017194592449104134
+          ]
+        },
+        "blind50_50": {
+          "mean": -0.0020822403850200458,
+          "halfWidth95": 0.017455665383704782,
+          "ci95": [
+            -0.019537905768724828,
+            0.015373424998684736
+          ]
+        }
+      },
+      "discovery": {
+        "prior80_20": {
+          "mean": -0.0042889310711060925,
+          "halfWidth95": 0.026162607453399173,
+          "ci95": [
+            -0.030451538524505266,
+            0.02187367638229308
+          ]
+        },
+        "blind50_50": {
+          "mean": -0.008527854095215308,
+          "halfWidth95": 0.02950829295941971,
+          "ci95": [
+            -0.03803614705463502,
+            0.0209804388642044
+          ]
+        }
+      },
+      "holdout": {
+        "prior80_20": {
+          "mean": 0.005829758818302621,
+          "halfWidth95": 0.019786869007091056,
+          "ci95": [
+            -0.013957110188788435,
+            0.025616627825393676
+          ]
+        },
+        "blind50_50": {
+          "mean": 0.0034425713665758952,
+          "halfWidth95": 0.020479551973503086,
+          "ci95": [
+            -0.01703698060692719,
+            0.023922123340078982
+          ]
+        }
+      }
+    },
+    "interpretation": "all approximate 95% intervals include zero"
+  },
+  "minusFinishes": {
+    "-10": 675,
+    "-20": 38,
+    "-30": 0,
+    "-40": 0
+  },
+  "regression": {
+    "passed": true,
+    "checks": 10,
+    "pilotDeals": 8,
+    "pilotSelectedPositions": 6
+  },
+  "cumulative": {
+    "separateAllocationCohorts": 6350,
+    "reachablePropertyAuditPositions": 39262,
+    "strategyHoldoutDeals": 1500,
+    "strategyHoldoutArmRounds": 18000,
+    "diagnosticPilotDeals": 120,
+    "diagnosticPilotArmRounds": 1440
+  },
+  "limitations": [
+    "synthetic opponents and likelihood families, not human policy",
+    "importance draws with replacement and high duplicate rate",
+    "public-pass selection enrichment",
+    "branch lock/reopening and block/tie scoring provisional",
+    "native clean Node checkout not run; V8 CommonJS-compatible execution"
+  ],
+  "nextAction": "Repeat fixed 80/20 vs pass-only paired Brier on disjoint seeds 3412370-3412769 with 200/200 split, unique-world and ESS accounting; keep diagnostic-only if holdout interval includes zero."
+}

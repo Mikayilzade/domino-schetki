@@ -1,3 +1,14 @@
+# Latest checkpoint — out-of-family pass-choice likelihood holdout (2026-11-01 15:57:23 +04, Asia/Baku)
+
+- Seeds 3411970–3412369: 400 unique deals, 0 duplicates; 200/200 discovery/holdout. 4,800 diagnostic rounds (4,608 finishes / 192 blocks), 4.00% block rate, mean 25.47 turns, 0 unresolved.
+- Selected 269 public-pass states / 657 eligible candidates; 78 uncertain states / 104 labels. Hidden-world draws 17,216; unique complete allocations within visible states 4,136; repeats 13,080. Mean/median unique per selected state 15.38 / 5.
+- Holdout Brier: pass-only 0.11519, fixed 80/20 likelihood mixture 0.10470, 50/50 blind mixture 0.10699. Paired per-state clustered pass-only-minus-mixture: 80/20 +0.00583 ± 0.01979; 50/50 +0.00344 ± 0.02048; both intervals include zero.
+- Regression passed: 10 checks. No reliable out-of-family choice-history signal; no tactic promoted. Physical branch/block rules remain provisional.
+- Cumulative separate allocation cohorts: 6,350; property-audit positions: 39,262; strategy holdout: 1,500 deals / 18,000 arm-rounds (+120 pilot / 1,440).
+- Next: disjoint seeds 3412370–3412769, same 200/200 split, paired 80/20 vs pass-only Brier with uniqueness/ESS; keep diagnostic-only unless replicated.
+
+---
+
 # Latest checkpoint — profile-blind opponent-choice likelihood audit (2026-11-01 14:52:40 +04, Asia/Baku)
 
 - Seeds 3411470–3411969: 500 draws, 500 unique full allocations, 0 duplicates. 3,000 diagnostic trajectories; 2,891 finishes, 109 blocks, 0 unresolved.
