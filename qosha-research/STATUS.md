@@ -1,3 +1,14 @@
+# Latest checkpoint — out-of-family choice-likelihood replication (2026-11-01 17:00:10 +04, Asia/Baku)
+
+- Seeds 3412370–3412769: 400 unique deals; 200/200 discovery/holdout. 4,800 diagnostic rounds (4,577 finishes / 223 blocks; 4.65% block), mean 25.49 turns; 0 unresolved.
+- 252 selected public-pass positions / 600 eligible. Holdout 42 uncertain positions / 55 labels: pass-only Brier 0.08605, fixed 80/20 0.07471, fixed 50/50 0.07512. Paired pass-only-minus-80/20 +0.00686 ± 0.01828; CI includes zero. Discovery gain +0.01559 ± 0.01830.
+- Hidden-world draws 16,128; unique within-state allocations 4,625; repeats 11,503. Uncertain-state mean 80/20 ESS 80.8% of 64. Regression: 10 checks passed.
+- Finding: point estimate resembles previous disjoint holdout; pooled 84 state clusters +0.00634 ± 0.01339, still uncertain. No reliable choice-history gain and no tactic promoted. Opponent choice models are synthetic; branch reopening and block/tie scoring remain provisional.
+- Cumulative separate allocation cohorts: **6,750**; property-audit positions **39,262**; strategy holdout **1,500 deals / 18,000 arm-rounds** (+120 pilot / 1,440).
+- Next: fresh seeds **3412770–3413169**, 200/200; discovery-only prior-weight sensitivity (10/20/50/80%), one locked holdout test, with ESS/uniqueness; continue physical rule authentication.
+
+---
+
 # Latest checkpoint — out-of-family pass-choice likelihood holdout (2026-11-01 15:57:23 +04, Asia/Baku)
 
 - Seeds 3411970–3412369: 400 unique deals, 0 duplicates; 200/200 discovery/holdout. 4,800 diagnostic rounds (4,608 finishes / 192 blocks), 4.00% block rate, mean 25.47 turns, 0 unresolved.
