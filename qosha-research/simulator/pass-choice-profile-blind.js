@@ -13,6 +13,7 @@ const mean=a=>a.length?a.reduce((s,x)=>s+x,0)/a.length:null;
 const median=a=>{const z=[...a].sort((a,b)=>a-b),n=z.length;return n?(n%2?z[(n-1)/2]:(z[n/2-1]+z[n/2])/2):null;};
 const tiles=a=>a.type==='single'?[a.tile]:(a.tiles||[]);
 const groupKey=a=>a.type+':'+tiles(a).map(e.tileKey).sort().join(',');
+function allocationKey(world){return world.hands.map(hand=>hand.map(e.tileKey).sort().join(',')).join('|')+'#'+(world.stock||[]).map(e.tileKey).sort().join(',');}
 function choiceProbability(actions,chosen,profile){
  const groups=new Map();
  for(const a of actions){const k=groupKey(a);if(!groups.has(k))groups.set(k,a);}
@@ -79,10 +80,10 @@ function position(c,worlds){
  const legal=post.map(z=>new Set(e.createDoubleSixDeck().filter(t=>d.actionsForHand(z.branchState,z.openingState,[t]).length).map(e.tileKey)));
  const exact=legal.map(l=>base.passProb(pool,s.hands[n].length,c.mem[n],c.mem[o],l));
  const actual=post.map(z=>+(d.actionsForHand(z.branchState,z.openingState,s.hands[n]).length===0));
- const outcomes=[[],[]],logs=[],blindLogs=[],inform=[];
+ const outcomes=[[],[]],logs=[],blindLogs=[],inform=[],worldKeys=new Set();
  for(let wi=0;wi<worlds;wi++){
   const salt=e.mixSeed32((c.seed^Math.imul(seat+1,0x85ebca6b)^Math.imul(c.mix+1,0xc2b2ae35)^Math.imul(c.turn+1,0x27d4eb2d)^Math.imul(wi+1,0x165667b1)^0x4af9d125)>>>0);
-  const w=pc.world(s,seat,c.mem,salt,true);
+  const w=pc.world(s,seat,c.mem,salt,true);worldKeys.add(allocationKey(w));
   const q=choiceLogLikelihood(w,ev,c.profiles);blindLogs.push(blindLogLikelihood(w,ev));
   logs.push(q.log);inform.push(q.informative);
   for(let i=0;i<2;i++)outcomes[i].push(+(d.actionsForHand(post[i].branchState,post[i].openingState,w.hands[n]).length===0));
@@ -102,7 +103,7 @@ function position(c,worlds){
  });
  return{seed:c.seed,seat:c.seat,mix:c.mix,turn:c.turn,both:c.both,passInformationBits:c.passInformationBits,
   historyActions:c.history.length,choiceEvents:ev.length,meanInformativeChoices:mean(inform),
-  worlds,ess,essFraction:ess/worlds,blindESSFraction:blindEss/worlds,actions};
+  worlds,uniqueHiddenWorlds:worldKeys.size,duplicateHiddenWorldDraws:worlds-worldKeys.size,ess,essFraction:ess/worlds,blindESSFraction:blindEss/worlds,actions};
 }
 function stats(rows,filter=()=>true){
  const clusters=rows.map(z=>z.actions.filter(filter)).filter(z=>z.length),a=clusters.flat();
@@ -152,13 +153,15 @@ function run(start=1587940,count=600,worlds=64){
  }
  const half=start+count/2,stamp=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Baku',
   year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date())+' +04';
- const all=rows.flatMap(z=>z.actions);
+ const all=rows.flatMap(z=>z.actions),uniqueCounts=rows.map(z=>z.uniqueHiddenWorlds);
+ const hiddenWorldDraws=rows.length*worlds,uniqueStateWorldAllocations=uniqueCounts.reduce((a,b)=>a+b,0),duplicateHiddenWorldDraws=hiddenWorldDraws-uniqueStateWorldAllocations;
  return{schema:'qosha-pass-choice-profile-blind/v1',timestampAsiaBaku:stamp,
   engine:'qosa-research-0.5.3',rules:'recovered qosa-1.0.0 3x9; four-side number-lock PROVISIONAL',
   seedStart:start,seedEnd:start+count-1,deals:count,baselineRounds:rounds,finishes,blocks,
   unresolved:0,meanRoundTurns:turnTotal/rounds,blockRate:blocks/rounds,minusFinishes:minus,
   selectedPositions:rows.length,eligibleCandidatesBeforeSelection:eligible,
-  immediatePassLabels:all.length,forcedHiddenWorldContinuations:0,hiddenAllocations:rows.length*worlds,
+  immediatePassLabels:all.length,forcedHiddenWorldContinuations:0,hiddenWorldDraws,uniqueStateWorldAllocations,duplicateHiddenWorldDraws,
+  hiddenWorldUniqueness:{meanUniquePerPosition:mean(uniqueCounts),medianUniquePerPosition:median(uniqueCounts),minUniquePerPosition:Math.min(...uniqueCounts),maxUniquePerPosition:Math.max(...uniqueCounts)},
   passEvents,worldsPerPosition:worlds,strategies:['closed-branch-control','min-hand-pips'],
   opponentMixes:pc.STRONG_MIXES,baseline:{finishFirst:mean(focal.map(z=>z.first)),
    meanRemainingPips:mean(focal.map(z=>z.pips)),medianRemainingPips:median(focal.map(z=>z.pips)),
@@ -183,7 +186,9 @@ function test(){
  delete x.timestampAsiaBaku;delete y.timestampAsiaBaku;
  ok(JSON.stringify(x)===JSON.stringify(y),'deterministic replay');
  ok(x.baselineRounds===48&&x.selectedPositions===x.rows.length,'accounting');
- ok(x.immediatePassLabels===2*x.selectedPositions&&x.hiddenAllocations===8*x.selectedPositions,'labels/worlds');
+ ok(x.immediatePassLabels===2*x.selectedPositions&&x.hiddenWorldDraws===8*x.selectedPositions,'labels/worlds');
+ ok(x.uniqueStateWorldAllocations+x.duplicateHiddenWorldDraws===x.hiddenWorldDraws,'hidden-world duplicate accounting');
+ ok(x.rows.every(z=>z.uniqueHiddenWorlds+z.duplicateHiddenWorldDraws===z.worlds),'per-position unique accounting');
  ok(x.rows.every(z=>z.ess>0&&z.ess<=z.worlds+1e-8),'ESS');
  ok(x.rows.flatMap(z=>z.actions).every(z=>z.passOnly>=0&&z.passOnly<=1&&z.choiceWeighted>=0&&z.choiceWeighted<=1&&z.choiceBlind>=0&&z.choiceBlind<=1),'probability bounds');
  ok(x.rows.every(z=>z.blindESSFraction>0&&z.blindESSFraction<=1+1e-8),'blind ESS');

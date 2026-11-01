@@ -1,3 +1,14 @@
+# Latest checkpoint — profile-blind opponent-choice likelihood audit (2026-11-01 14:52:40 +04, Asia/Baku)
+
+- Seeds 3411470–3411969: 500 draws, 500 unique full allocations, 0 duplicates. 3,000 diagnostic trajectories; 2,891 finishes, 109 blocks, 0 unresolved.
+- 169 selected public-pass positions; 51 uncertain positions / 81 labels. Blind 50/50 latent mixture over closed-branch-control/min-hand-pips. Brier: pass-only 0.09711, blind 0.09570; per-position clustered gain 0.00724 ± 0.01505. Holdout: 33 positions; gain 0.01065 ± 0.01587; intervals include zero, no tactic promoted.
+- Hidden-world coverage: 10,816 draws, 3,192 unique state-world assignments, 7,624 repeats (70.49%); median 6 unique assignments per selected state. Runner now records uniqueness explicitly.
+- Tests passed: profile-blind 8, four-branch kernel 24 sequences, scoring contract 1,056 assertions, pass-posterior 9 checks. Physical branch reopening/block scoring remain provisional.
+- Cumulative separate allocation cohorts: 5,950; property-audit positions 39,262; strategy holdout unchanged at 1,500 deals / 18,000 arm-rounds (+120 pilot / 1,440).
+- Next: seeds 3411970–3412369, out-of-family pass-choice robustness with random-legal / tempo-open / anti-minus, 200/200 discovery/holdout; maintain unique-world accounting and continue rule authentication.
+
+---
+
 # Latest checkpoint — separate model-specific pass-conditioned posterior audit (2026-11-01 13:49 +04, Asia/Baku)
 
 - Reanalysis of 500 allocations, seeds 3410970–3411469; 0 new deals. 72 selected states, 117 pass events. Exact support: 33,201 state-world assignments; global-valid 25,858, current-only-valid 27,244, joint 25,858; current-only-exclusive 1,386; global-only 0; neither 5,957.
