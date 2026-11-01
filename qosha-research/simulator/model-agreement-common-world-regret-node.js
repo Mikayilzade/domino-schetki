@@ -29,6 +29,10 @@ function hashString(value) {
   }
   return h >>> 0;
 }
+function localXorshift32(seed) {
+  let s=e.mixSeed32(seed); if(s===0)s=0x9e3779b9;
+  return()=>{s^=s<<13;s^=s>>>17;s^=s<<5;return(s>>>0)/0x100000000;};
+}
 function tileKey(tile) { return e.tileKey(tile); }
 function actionTiles(action) {
   return action.tiles || [action.tile].filter(Boolean);
@@ -68,7 +72,7 @@ function chooseOrbit(opts, state, ctx) {
     Math.imul((ctx.player || 0) + 1, 0x85ebca6b) ^
     (ctx.salt || 0);
   // The extra mix matches the V8 audit's seeded orbit tie-break.
-  const random = e.xorshift32(e.mixSeed32(seed));
+  const random = localXorshift32(e.mixSeed32(seed));
   const group = sortedGroups[Math.floor(random() * sortedGroups.length)][1];
   return group[Math.floor(random() * group.length)];
 }
@@ -91,6 +95,15 @@ function cloneCurrentState(state) {
 function currentFromBase(base) {
   return current.currentInit(base);
 }
+function currentOptions(state) {
+  const p=state.currentPlayer;
+  let hand=state.hands[p].map(tile=>[...tile]),stock=state.stock.map(tile=>[...tile]);
+  let actions=current.actions(state,hand),drawn=false;
+  if(actions.length)return{phase:'play',hand,stock,actions,drawn};
+  if(stock.length){hand.push(stock[0]);stock=stock.slice(1);drawn=true;actions=current.actions(state,hand);
+    if(actions.length)return{phase:'play',hand,stock,actions,drawn};}
+  return{phase:'pass',hand,stock,actions:[],drawn};
+}
 function syncCurrentAfterGlobal(currentState, nextGlobal, action) {
   // Geometry is shared; only the opening ledger is model-specific.
   currentState.branchState = e.cloneBranchState(nextGlobal.branchState);
@@ -110,7 +123,7 @@ function syncCurrentAfterGlobal(currentState, nextGlobal, action) {
   currentState.outcome = nextGlobal.outcome ? { ...nextGlobal.outcome } : null;
 }
 function currentActionKeys(state) {
-  const opts = current.options(state);
+  const opts = currentOptions(state);
   return opts.phase === 'play' ? opts.actions.map(regret.actionKey).sort() : [];
 }
 function globalActionKeys(state) {
@@ -129,94 +142,75 @@ function visibleSignature(state, currentState, played) {
     played.map(tileKey).sort().join(',')
   ].join('#');
 }
-function collectAgreementStates(startSeed, deals) {
-  const fullDeals = new Set();
-  const seenVisible = new Set();
-  const candidates = [];
-  let decisions = 0, actionSetDisagreements = 0;
-  let commonHistoryDecisions = 0, firstDivergences = 0;
-  let eligibleMultiAction = 0, openingFollowups = 0, openingPasses = 0;
-  const openingSideCounts = { up: 0, left: 0, right: 0, down: 0 };
-
-  for (let seed = startSeed; seed < startSeed + deals; seed++) {
-    const rawDeal = e.dealThreeByNine(seed);
-    fullDeals.add(rawDeal.hands.map(hand => hand.map(tileKey).sort().join(',')).join('|') +
-      '#' + rawDeal.stock.map(tileKey).join(','));
-    const base = init.initializeThreePlayerRound({
-      seed, isFirstRound: false, previousWinnerIndex: seed % 3,
-      // Keep the canonical follow-up tile, but choose its equivalent side symmetrically.
-      chooseFollowupSide: sideChoices => sideChoices[(seed >>> 0) % sideChoices.length]
-    });
-    check(base.kind === 'ready', 'initializer did not resolve seed ' + seed);
-    const globalState = r.cloneRoundState(base);
-    const currentState = currentFromBase(base);
-    const played = [[1, 1]];
-    if (base.openingFollowup) {
-      played.push([...base.openingFollowup.tile]);
-      openingFollowups++;
-      openingSideCounts[base.openingFollowup.side]++;
-    } else openingPasses++;
-
-    let commonHistory = true;
-    for (let guard = 0; !globalState.outcome && guard < 200; guard++) {
-      const globalKeys = globalActionKeys(globalState);
-      const currentKeys = currentActionKeys(currentState);
-      decisions++;
-      if (commonHistory) commonHistoryDecisions++;
-      const same = JSON.stringify(globalKeys) === JSON.stringify(currentKeys);
-      if (!same) actionSetDisagreements++;
-      if (commonHistory && !same) firstDivergences++;
-
-      if (commonHistory && same && globalKeys.length >= 2) {
-        eligibleMultiAction++;
-        const signature = visibleSignature(globalState, currentState, played);
-        if (!seenVisible.has(signature)) {
-          seenVisible.add(signature);
-          candidates.push({
-            seed, signature,
-            state: r.cloneRoundState(globalState),
-            current: cloneCurrentState(currentState),
-            played: played.map(tile => [...tile]),
-            actionKeys: globalKeys,
-            actionCount: globalKeys.length,
-            turn: globalState.turns
-          });
-        }
+function collectAgreementStates(startSeed,deals){
+  const fullDeals=new Set(),seenVisible=new Set(),seenDisagreement=new Set();
+  const candidates=[],disagreementCandidates=[];
+  let decisions=0,actionSetDisagreements=0,commonHistoryDecisions=0,firstDivergences=0,postDivergenceDisagreements=0;
+  let eligibleMultiAction=0,openingFollowups=0,openingPasses=0,firstDivergenceNoCommonActionPositions=0,firstDivergenceCommonMultiActionPositions=0;
+  let firstDivergenceGlobalOnlyActionCount=0,firstDivergenceCurrentOnlyActionCount=0,firstDivergenceCommonActionCount=0;
+  const firstDivergenceCommonActionHistogram={},openingSideCounts={up:0,left:0,right:0,down:0};
+  const describeActions=actions=>actions.map(a=>({key:regret.actionKey(a),type:a.type,pips:removedPips(a),tiles:actionTiles(a).map(tileKey),side:a.side||null}));
+  for(let seed=startSeed;seed<startSeed+deals;seed++){
+    const raw=e.dealThreeByNine(seed);
+    fullDeals.add(raw.hands.map(h=>h.map(tileKey).sort().join(',')).join('|')+'#'+raw.stock.map(tileKey).join(','));
+    const base=init.initializeThreePlayerRound({seed,isFirstRound:false,previousWinnerIndex:seed%3,
+      chooseFollowupSide:sides=>sides[(seed>>>0)%sides.length]});
+    check(base.kind==='ready','initializer did not resolve seed '+seed);
+    const gs=r.cloneRoundState(base),csState=currentFromBase(base),played=[[1,1]];
+    if(base.openingFollowup){played.push([...base.openingFollowup.tile]);openingFollowups++;openingSideCounts[base.openingFollowup.side]++;}else openingPasses++;
+    let commonHistory=true;
+    for(let guard=0;!gs.outcome&&guard<200;guard++){
+      const gKeys=globalActionKeys(gs),cKeys=currentActionKeys(csState);decisions++;if(commonHistory)commonHistoryDecisions++;
+      const same=JSON.stringify(gKeys)===JSON.stringify(cKeys);
+      if(!same){
+        actionSetDisagreements++;
+        if(commonHistory){
+          firstDivergences++;
+          const cSet=new Set(cKeys),gSet=new Set(gKeys),common=gKeys.filter(k=>cSet.has(k));
+          const gOnly=gKeys.filter(k=>!cSet.has(k)),cOnly=cKeys.filter(k=>!gSet.has(k));
+          firstDivergenceGlobalOnlyActionCount+=gOnly.length;firstDivergenceCurrentOnlyActionCount+=cOnly.length;firstDivergenceCommonActionCount+=common.length;
+          firstDivergenceCommonActionHistogram[String(common.length)]=(firstDivergenceCommonActionHistogram[String(common.length)]||0)+1;
+          if(!common.length)firstDivergenceNoCommonActionPositions++;if(common.length>=2)firstDivergenceCommonMultiActionPositions++;
+          const sig=visibleSignature(gs,csState,played)+'#G:'+gKeys.join(';')+'#C:'+cKeys.join(';');
+          if(!seenDisagreement.has(sig)){
+            seenDisagreement.add(sig);
+            const go=d.turnOptions(gs.branchState,gs.openingState,gs.hands[gs.currentPlayer],gs.stock),co=currentOptions(csState);
+            const gm=new Map(go.actions.map(a=>[regret.actionKey(a),a])),cm=new Map(co.actions.map(a=>[regret.actionKey(a),a]));
+            disagreementCandidates.push({seed,signature:sig,state:r.cloneRoundState(gs),current:cloneCurrentState(csState),played:played.map(t=>[...t]),
+              actionKeys:common,candidateKeys:common,commonActionKeys:common,globalActionKeys:gKeys,currentActionKeys:cKeys,
+              globalOnlyActionKeys:gOnly,currentOnlyActionKeys:cOnly,commonActionCount:common.length,globalActionCount:gKeys.length,
+              currentActionCount:cKeys.length,actionCount:common.length,turn:gs.turns,
+              globalOnlyActions:describeActions(gOnly.map(k=>gm.get(k)).filter(Boolean)),
+              currentOnlyActions:describeActions(cOnly.map(k=>cm.get(k)).filter(Boolean)),
+              commonActions:describeActions(common.map(k=>gm.get(k)).filter(Boolean))});
+          }
+        }else postDivergenceDisagreements++;
       }
-      if (!same) commonHistory = false;
-
-      let chosen = null;
-      const next = r.stepRound(globalState, (opts, state) => {
-        chosen = chooseOrbit(opts, state, {
-          seed, turns: state.turns, player: state.currentPlayer, salt: 7
-        });
-        return chosen;
-      });
-      if (chosen) played.push(...actionTiles(chosen).map(tile => [...tile]));
-      syncCurrentAfterGlobal(currentState, next, chosen);
-      check(next.hands.flat().concat(next.stock).length + played.length === 28,
-        'trajectory tile conservation seed ' + seed);
-      Object.assign(globalState, next);
+      if(commonHistory&&same&&gKeys.length>=2){
+        eligibleMultiAction++;const sig=visibleSignature(gs,csState,played);
+        if(!seenVisible.has(sig)){seenVisible.add(sig);candidates.push({seed,signature:sig,state:r.cloneRoundState(gs),current:cloneCurrentState(csState),
+          played:played.map(t=>[...t]),actionKeys:gKeys,candidateKeys:gKeys,actionCount:gKeys.length,turn:gs.turns,requireExactGlobalActionSet:true});}
+      }
+      if(!same)commonHistory=false;
+      let chosen=null;const next=r.stepRound(gs,(opts,state)=>{chosen=chooseOrbit(opts,state,{seed,turns:state.turns,player:state.currentPlayer,salt:7});return chosen;});
+      if(chosen)played.push(...actionTiles(chosen).map(t=>[...t]));
+      syncCurrentAfterGlobal(csState,next,chosen);
+      check(next.hands.flat().concat(next.stock).length+played.length===28,'trajectory tile conservation seed '+seed);
+      Object.assign(gs,next);
     }
   }
-  return {
-    candidates,
-    metrics: {
-      seedDraws: deals,
-      uniqueFullAllocations: fullDeals.size,
-      duplicateDeals: deals - fullDeals.size,
-      decisionPositions: decisions,
-      rootActionSetDisagreements: actionSetDisagreements,
-      commonHistoryDecisionPositions: commonHistoryDecisions,
-      firstDivergencePositions: firstDivergences,
-      commonHistoryDisagreementRate: commonHistoryDecisions ?
-        firstDivergences / commonHistoryDecisions : 0,
-      historyAgreementEligibleMultiActionPositions: eligibleMultiAction,
-      uniqueVisibleAgreementStates: candidates.length,
-      uniqueSeedsWithCandidate: new Set(candidates.map(x => x.seed)).size,
-      openingFollowups, openingPasses, openingFollowupSideCounts: openingSideCounts
-    }
-  };
+  return{candidates,disagreementCandidates,metrics:{
+    seedDraws:deals,uniqueFullAllocations:fullDeals.size,duplicateDeals:deals-fullDeals.size,decisionPositions:decisions,
+    rootActionSetDisagreements:actionSetDisagreements,fullTrajectoryActionSetDisagreements:actionSetDisagreements,
+    commonHistoryDecisionPositions:commonHistoryDecisions,firstDivergencePositions:firstDivergences,
+    postDivergenceDisagreementPositions:postDivergenceDisagreements,
+    commonHistoryDisagreementRate:commonHistoryDecisions?firstDivergences/commonHistoryDecisions:0,
+    firstDivergenceNoCommonActionPositions,firstDivergenceCommonMultiActionPositions,
+    firstDivergenceGlobalOnlyActionCount,firstDivergenceCurrentOnlyActionCount,firstDivergenceCommonActionCount,
+    firstDivergenceCommonActionHistogram,uniqueVisibleFirstDivergenceStates:disagreementCandidates.length,
+    eligibleMultiActionPositions:eligibleMultiAction,historyAgreementEligibleMultiActionPositions:eligibleMultiAction,
+    uniqueVisibleAgreementStates:candidates.length,uniqueSeedsWithCandidate:new Set(candidates.map(x=>x.seed)).size,
+    openingFollowups,openingPasses,openingFollowupSideCounts:openingSideCounts}};
 }
 function selectStates(candidates, target) {
   const cells = new Map();
@@ -367,7 +361,7 @@ function cloneCurrentForWorld(spec, world) {
 }
 function stepCurrent(s, chooser) {
   const p = s.currentPlayer;
-  const opts = current.options(s);
+  const opts = currentOptions(s);
   let hand = opts.hand;
   s.stock = opts.stock;
   if (opts.phase === 'pass') {
@@ -418,7 +412,8 @@ function metrics(end, focal) {
     focalFirst: outcome.kind === 'finish' && outcome.playerIndex === focal,
     remainder: e.pipSum(end.hands[focal]),
     minusRisk: minus < 0,
-    minusLoss: -minus
+    minusLoss: -minus,
+    outcomeKind: outcome.kind
   };
 }
 function simulateGlobal(spec, world, candidateKey) {
@@ -470,49 +465,30 @@ function summarizeRegret(rows) {
   }
   return out;
 }
-function evaluateState(spec, worldsPerState) {
-  const sampled = hiddenWorlds(spec, worldsPerState);
-  const candidates = spec.actionKeys.map(key => ({ key, global: [], current: [] }));
-  let evaluations = 0;
-  for (const world of sampled.worlds) {
-    const keys = globalActionKeys(world.state);
-    check(JSON.stringify(keys) === JSON.stringify(spec.actionKeys), 'global action set changed across worlds');
-    for (const candidate of candidates) {
-      candidate.global.push(simulateGlobal(spec, world, candidate.key));
-      candidate.current.push(simulateCurrent(spec, world, candidate.key));
-      evaluations += 2;
-    }
+function evaluateState(spec,worldsPerState){
+  const sampled=hiddenWorlds(spec,worldsPerState),keys=spec.candidateKeys||spec.actionKeys,candidates=keys.map(key=>({key,global:[],current:[]}));
+  let evaluations=0;
+  for(const world of sampled.worlds){
+    const gKeys=globalActionKeys(world.state),cState=cloneCurrentForWorld(spec,world),cKeys=currentActionKeys(cState);
+    if(spec.requireExactGlobalActionSet){check(JSON.stringify(gKeys)===JSON.stringify(spec.actionKeys),'global action set changed across worlds');
+      check(JSON.stringify(cKeys)===JSON.stringify(spec.actionKeys),'current action set changed across worlds');}
+    for(const candidate of candidates){check(gKeys.includes(candidate.key),'candidate absent from global action set');
+      check(cKeys.includes(candidate.key),'candidate absent from current-only action set');
+      candidate.global.push(simulateGlobal(spec,world,candidate.key));candidate.current.push(simulateCurrent(spec,world,candidate.key));evaluations+=2;}
   }
-  const modelSummary = name => {
-    const values = candidates.map(candidate => {
-      const rows = candidate[name], n = rows.length;
-      return {
-        first: rows.filter(x=>x.focalFirst).length/n,
-        remainder: rows.reduce((s,x)=>s+x.remainder,0)/n,
-        risk: rows.filter(x=>x.minusRisk).length/n,
-        loss: rows.reduce((s,x)=>s+x.minusLoss,0)/n
-      };
-    });
-    const best = {
-      first: Math.max(...values.map(x=>x.first)),
-      remainder: Math.min(...values.map(x=>x.remainder)),
-      risk: Math.min(...values.map(x=>x.risk)),
-      loss: Math.min(...values.map(x=>x.loss))
-    };
-    const regrets = values.map(x => ({ regret: {
-      firstFinishChance: best.first-x.first,
-      meanRemainder: x.remainder-best.remainder,
-      minusRisk: x.risk-best.risk,
-      expectedMinusLoss: x.loss-best.loss
-    }}));
-    return { candidateCount: values.length, regret: summarizeRegret(regrets) };
+  const summary=name=>{
+    const values=candidates.map(c=>{const rows=c[name],n=rows.length;return{first:rows.filter(x=>x.focalFirst).length/n,
+      remainder:rows.reduce((s,x)=>s+x.remainder,0)/n,risk:rows.filter(x=>x.minusRisk).length/n,loss:rows.reduce((s,x)=>s+x.minusLoss,0)/n};});
+    const best={first:Math.max(...values.map(x=>x.first)),remainder:Math.min(...values.map(x=>x.remainder)),
+      risk:Math.min(...values.map(x=>x.risk)),loss:Math.min(...values.map(x=>x.loss))};
+    return{candidateCount:values.length,regret:summarizeRegret(values.map(x=>({regret:{firstFinishChance:best.first-x.first,
+      meanRemainder:x.remainder-best.remainder,minusRisk:x.risk-best.risk,expectedMinusLoss:x.loss-best.loss}})))};
   };
-  return {
-    seed: spec.seed, cell: spec.cell, turn: spec.turn, actionCount: spec.actionCount,
-    worlds: sampled.worlds.length, attempts: sampled.attempts, duplicates: sampled.duplicates,
-    method: sampled.method, conditionalWorldCount: sampled.space, evaluations,
-    global: modelSummary('global'), currentOnly: modelSummary('current')
-  };
+  const rows=candidates.flatMap(c=>[...c.global,...c.current]),outcomeKinds={finish:0,block:0,unresolved:0};
+  for(const row of rows)if(outcomeKinds[row.outcomeKind]!==undefined)outcomeKinds[row.outcomeKind]++;
+  return{seed:spec.seed,cell:spec.cell,turn:spec.turn,actionCount:spec.actionCount,candidateCount:candidates.length,
+    worlds:sampled.worlds.length,attempts:sampled.attempts,duplicates:sampled.duplicates,method:sampled.method,
+    conditionalWorldCount:sampled.space,evaluations,outcomeKinds,global:summary('global'),currentOnly:summary('current')};
 }
 function runAudit(startSeed=3409970, deals=500, targetStates=72, worldsPerState=WORLD_LIMIT) {
   check(Number.isInteger(startSeed) && Number.isInteger(deals) && deals > 0, 'seed/count');
@@ -557,22 +533,53 @@ function runAudit(startSeed=3409970, deals=500, targetStates=72, worldsPerState=
     states
   };
 }
-function test() {
-  const deck = e.createDoubleSixDeck();
-  check(deck.length === 28 && new Set(deck.map(tileKey)).size === 28, 'deck');
-  const base = init.initializeThreePlayerRound({
-    seed: 3409970, isFirstRound: false, previousWinnerIndex: 3409970 % 3,
-    chooseFollowupSide: sides => sides[(3409970 >>> 0) % sides.length]
-  });
-  check(base.kind === 'ready', 'initializer');
-  const currentState = current.currentInit(base);
-  check(current.actions(currentState,currentState.hands[currentState.currentPlayer]).length >= 0, 'current action list');
-  const result = runAudit(3409970, 8, 4, 2);
-  check(result.trajectory.uniqueFullAllocations === 8, 'unique deals');
-  check(result.selection.selectedStates > 0, 'agreement sample');
-  return { passed: true, pilotDeals: 8, selectedStates: result.selection.selectedStates,
-    hiddenWorldPairs: result.hiddenWorldSampling.stateWorldPairs,
-    candidateWorldEvaluations: result.evaluations.candidateWorldEvaluations };
+function runDisagreementAudit(startSeed=3410470,deals=500,targetStates=72,worldsPerState=WORLD_LIMIT){
+  check(Number.isInteger(startSeed)&&Number.isInteger(deals)&&deals>0,'seed/count');
+  const cohort=collectAgreementStates(startSeed,deals),eligible=cohort.disagreementCandidates.filter(x=>x.commonActionCount>=2);
+  const selected=selectStates(eligible,targetStates),states=selected.map(s=>evaluateState({...s,candidateKeys:s.commonActionKeys,requireExactGlobalActionSet:false},worldsPerState));
+  const totals={states:states.length,selectedDeals:new Set(states.map(x=>x.seed)).size,worldPairs:states.reduce((s,x)=>s+x.worlds,0),
+    sampledDraws:states.reduce((s,x)=>s+x.attempts,0),exactWorlds:states.filter(x=>x.method==='exact-enumeration').reduce((s,x)=>s+x.worlds,0),
+    exactStates:states.filter(x=>x.method==='exact-enumeration').length,sampledStates:states.filter(x=>x.method==='seeded-rejection-sample').length,
+    duplicateDraws:states.reduce((s,x)=>s+x.duplicates,0),candidateWorldEvaluations:states.reduce((s,x)=>s+x.evaluations,0),
+    outcomeKinds:states.reduce((a,x)=>{for(const k of Object.keys(a))a[k]+=x.outcomeKinds[k]||0;return a;},{finish:0,block:0,unresolved:0})};
+  const aggregate=model=>summarizeRegret(states.flatMap(s=>Object.entries(s[model].regret).map(([metric,value])=>({regret:{[metric]:value.mean}}))));
+  const typeCounts=rows=>{const out={};for(const row of rows)for(const action of row)out[action.type]=(out[action.type]||0)+1;return out;};
+  const histogram={};for(const row of cohort.disagreementCandidates){const k=String(row.commonActionCount);histogram[k]=(histogram[k]||0)+1;}
+  const cand=cohort.disagreementCandidates;
+  return{schema:'qosha-model-disagreement-common-action-intersection/v1',timestampAsiaBaku:'2026-11-01T11:47:32+04:00',
+    engine:'qosa-research-0.5.3 modules; recovered qosa-1.0.0; 3x9+stock',startSeed,endSeed:startSeed+deals-1,seedDraws:deals,
+    trajectory:cohort.metrics,census:{uniqueFirstDivergenceStates:cand.length,eligibleCommonActionIntersectionStates:eligible.length,
+      commonActionCountHistogram:histogram,globalOnlyActionDescriptors:typeCounts(cand.map(x=>x.globalOnlyActions)),
+      currentOnlyActionDescriptors:typeCounts(cand.map(x=>x.currentOnlyActions)),commonActionDescriptors:typeCounts(cand.map(x=>x.commonActions)),
+      meanGlobalOnlyActionsPerUniqueDivergence:cand.length?cand.reduce((s,x)=>s+x.globalOnlyActionKeys.length,0)/cand.length:0,
+      meanCurrentOnlyActionsPerUniqueDivergence:cand.length?cand.reduce((s,x)=>s+x.currentOnlyActionKeys.length,0)/cand.length:0,
+      meanCommonActionsPerUniqueDivergence:cand.length?cand.reduce((s,x)=>s+x.commonActionCount,0)/cand.length:0},
+    selection:{targetStates,selectedStates:states.length,selectedDeals:totals.selectedDeals,
+      byCell:Object.fromEntries([...new Set(states.map(x=>x.cell))].map(cell=>[cell,states.filter(x=>x.cell===cell).length])),
+      eligibleUniqueStates:eligible.length},
+    hiddenWorldSampling:{requestedPerState:worldsPerState,stateWorldPairs:totals.worldPairs,sampledDraws:totals.sampledDraws,
+      exactWorlds:totals.exactWorlds,exactStates:totals.exactStates,sampledStates:totals.sampledStates,duplicateDraws:totals.duplicateDraws,
+      method:'uniform conditional allocations; exact enumeration if space <= request; otherwise seeded rejection without replacement'},
+    evaluations:totals,regret:{global:aggregate('global'),currentOnly:aggregate('currentOnly')},states};
+}
+function test(){
+  const deck=e.createDoubleSixDeck();check(deck.length===28&&new Set(deck.map(tileKey)).size===28,'deck');
+  const base=init.initializeThreePlayerRound({seed:3409970,isFirstRound:false,previousWinnerIndex:3409970%3,
+    chooseFollowupSide:sides=>sides[(3409970>>>0)%sides.length]});
+  check(base.kind==='ready','initializer');const cstate=currentFromBase(base);
+  check(currentOptions(cstate).phase==='play'||currentOptions(cstate).phase==='pass','current options');
+  const agreement=runAudit(3409970,8,4,2);check(agreement.trajectory.uniqueFullAllocations===8,'agreement replay');
+  check(agreement.selection.selectedStates>0,'agreement selection');
+  const disagreement=runDisagreementAudit(3410470,60,12,4);
+  check(disagreement.trajectory.uniqueFullAllocations===60,'disagreement replay');
+  check(disagreement.census.eligibleCommonActionIntersectionStates>=12,'intersection sample');
+  check(disagreement.evaluations.candidateWorldEvaluations>0,'paired evaluations');
+  check(disagreement.evaluations.outcomeKinds.unresolved===0,'unresolved pilot');
+  return{passed:true,agreementPilotDeals:8,agreementStates:agreement.selection.selectedStates,
+    disagreementPilotDeals:60,firstDivergenceStates:disagreement.census.uniqueFirstDivergenceStates,
+    eligibleIntersectionStates:disagreement.census.eligibleCommonActionIntersectionStates,
+    selectedIntersectionStates:disagreement.selection.selectedStates,hiddenWorldPairs:disagreement.evaluations.worldPairs,
+    candidateWorldEvaluations:disagreement.evaluations.candidateWorldEvaluations,unresolved:disagreement.evaluations.outcomeKinds.unresolved};
 }
 if (require.main === module) {
   const args = process.argv.slice(2);
@@ -581,4 +588,4 @@ if (require.main === module) {
       Number(args[2] || 72), Number(args[3] || WORLD_LIMIT));
   process.stdout.write(JSON.stringify(result, null, 2) + '\n');
 }
-module.exports = { runAudit, test, collectAgreementStates, selectStates, hiddenWorlds };
+module.exports = { runAudit, runDisagreementAudit, test, collectAgreementStates, selectStates, hiddenWorlds, evaluateState };
