@@ -129,3 +129,8 @@ Deal-level checks on a locked holdout seed set may verify only deterministic rep
 The discovery-selected 10% closed-control prior did not show a reliable independent holdout improvement. On seeds 3413170–3413569, the state-clustered gain was +0.000939 ± 0.012501 (approximate 95% half-width); the interval includes zero. Pooled with the earlier independent holdout, 113 uncertain positions / 159 labels gave +0.002363 ± 0.009358, also including zero. Treat choice-history weighting as unsupported for now; do not reselect prior weights on these cohorts or promote a tactic.
 
 Next priority: branch-label action/transition permutation audit and isolated block-scoring fixtures. Internal reachability tests are not physical-rule authentication; four-side locking/reopening and blocked-round winner remain provisional.
+
+
+## Policy-generated branch-label audit (2026-11-01)
+
+For the four-branch metamorphic check, generate reachable trajectories with a fixed mix of fast-doubles, min-hand-pips, and closed-branch-control across all three seat rotations. Use the action-orbit symmetric tie-break and the seeded 1-1 follow-up side selector; keep the canonical follow-up tile choice unchanged. Deduplicate visible states, select deterministic hash-ranked strata, and compare legal sets plus every mapped successor under all 24 branch-label permutations. Check policy choice distributions separately from action/transition equivariance. These are model consistency tests, not strategy-strength comparisons or physical-rule authentication.

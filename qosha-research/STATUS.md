@@ -1,11 +1,12 @@
-# Latest checkpoint — branch-label permutation audit + block-remainder fixtures (2026-11-01 20:47:18 +04 (Asia/Baku))
+# Latest checkpoint — policy-generated branch-label audit + mixed-finish/block edge fixtures (2026-11-01 21:46:08 +04 Asia/Baku)
 
-- **Branch-label audit:** seeds 3414120–3414619; 500 unique full allocations, 0 duplicates; 11,838 reachable decision positions; 476 finishes / 24 blocks / 0 unresolved; mean turns 24.676.
-- **24-permutation checks:** 209 selected unique states within the cohort; 5,016 legal action-set checks, 12,600 legal transitions (8,928 singles / 2,856 double sequences / 816 mixed finishes), 1,440 pass transitions; explicit draw fixtures 48 option checks / 96 draw-play transitions / 24 draw-pass transitions. **0 mismatches**.
-- **Block fixtures:** new `simulator/block-score-fixtures.js`, 22 assertions passed; unique-minimum, tied-minimum, and 5-player zero-pip block cases preserve per-seat remainders and do not infer a winner. Existing scoring contract passed 1,056 assertions.
-- **Cumulative branch-label cohorts:** 1,000 unique deal allocations across two disjoint 500-deal cohorts; 23,701 reachable decision positions generated; 435 selected-state records summed (not globally deduplicated); 10,440 action-set checks / 26,736 transitions / 2,880 pass transitions, zero mismatches.
+- **Policy-generated trajectories:** seeds 3414620–3415119; 500 unique full allocations, 0 duplicates; three policy mixes/seat rotations = 1,500 rounds; 1,441 finishes / 59 blocks / 0 unresolved; mean turns 25.382.
+- **Reachable-state sample:** 36,573 positions generated; 235 selected unique states across pass/single/double/mixed/multi/late strata.
+- **24-permutation checks:** 5,640 legal action-set checks; 14,064 mapped transitions (8,256 singles / 4,152 double sequences / 1,656 mixed finishes); 1,440 pass transitions; 21,000 policy-distribution checks across five policies. **0 mismatches**.
+- **Edge fixtures:** 11 assertions passed, including mixed-prefix exposure and −20, block no-winner/no-minus and stock gate, and four-double −40.
+- **Cumulative branch-label cohorts:** 1,500 unique deal allocations; 60,274 reachable positions; 16,080 action-set checks / 40,800 transitions / 4,320 pass transitions; zero recorded mismatches.
 - **Cumulative baseline:** separate validation/opening/tie-break allocations 7,550; property audit 52,315 positions; branch-lock audit 550 deals. Strategy tournament unchanged: 1,500 deals / 18,000 arm-rounds (+120-deal / 1,440-arm pilot).
-- **Interpretation:** high confidence in internal model-level branch-label equivariance and coded block-remainder accounting; no reliable strategy finding. Physical branch locking/reopening and block winner/tie scoring remain provisional. `loneZero=10` and `bust=101` remain unverified.
-- **Exact next:** repeat the branch-label metamorphic audit on disjoint policy-generated trajectories and add mixed-finish/block edge fixtures. Keep strategy ranking paused until authentic physical branch/block evidence is available.
+- **Interpretation:** high confidence in internal model-level equivariance; no tactical finding. Physical branch locking/reopening and block winner/tie scoring remain provisional. Numeric execution used a source-faithful V8 mirror; clean Node checkout was blocked by GitHub DNS.
+- **Exact next:** run matched sensitivity variants for alternate branch-lock/reopening and block-winner assumptions; keep strategy ranking paused until a real-table trace or explicit ruling is available.
 
-See [run report](runs/2026-11-01-2047-branch-label-block-contract.md) and [raw JSON](runs/2026-11-01-2047-branch-label-block-contract.json).
+See [run report](runs/2026-11-01-2146-policy-branch-label-audit.md) and [raw JSON](runs/2026-11-01-2146-policy-branch-label-audit.json).
