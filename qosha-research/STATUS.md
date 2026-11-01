@@ -1,3 +1,15 @@
+# Latest checkpoint — seeded symmetric opening follow-up side audit (2026-11-01 06:45 +04, Asia/Baku)
+
+- [Runner](simulator/opening-followup-symmetric-selector-audit.js); [report](runs/2026-11-01-0645-opening-followup-symmetric-selector-audit.md); [JSON](runs/2026-11-01-0645-opening-followup-symmetric-selector-audit.json). Engine qosa-research-0.5.3; recovered qosa-1.0.0 3×9. Physical branch-label interchangeability and branch/block scoring remain unauthenticated.
+- Optional initializer `chooseFollowupSide` preserves canonical tile/hand and varies only side; default behavior unchanged.
+- **500 unique allocations**, seeds 3408220–3408719; 474 follow-ups, 26 passes. **1,500 matched pairs / 3,000 rounds**. Outcome kind changed 40/1,500 (2.67%); first finisher changed 158/1,411 both-finish pairs (11.20%). Canonical 1,427 finish / 73 block; symmetric 1,435 / 65. Tie-break sensitivity only.
+- Opening conservation: 1,000 checks, 0 failures. Exact 24-permutation distributional audit: 0 action-set or transition-distribution mismatches; 96 mapped successor outcomes.
+- Test passed: 12 replay deals / 36 paired rounds. GitHub-fetched source executed in V8 harness; clean Node checkout remains DNS-blocked. No strategy-strength comparisons or hidden worlds.
+- Cumulative new validation/opening/tie-break allocations: **2,700**; reachable-position property-audit count remains 39,262. Strategy holdout populations unchanged.
+- **Next:** hold symmetric opening selection fixed; compare side-order versus action-orbit continuation tie-breaks on matched seeds; seek physical trace/ruling for late reopening and block scoring.
+
+---
+
 # Latest checkpoint — opening follow-up branch-label tie-break audit (2026-11-01 05:46 +04, Asia/Baku)
 
 - [Runner](simulator/opening-followup-label-bias-audit.js); [report](runs/2026-11-01-0546-opening-followup-label-bias-audit.md); [JSON](runs/2026-11-01-0546-opening-followup-label-bias-audit.json). Engine qosa-research-0.5.3; recovered qosa-1.0.0 3×9. Physical branch symmetry remains an assumption.

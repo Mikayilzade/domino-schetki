@@ -90,3 +90,8 @@ For seeded reachable-state audits, validate action/apply round trips, 28-tile co
 ## Opening follow-up orientation and symmetry (2026-11-01)
 
 The research initializer currently chooses the canonical `up` branch for the mandatory 1-1 follow-up whenever that branch is legal. Preserve this default for historical/replay compatibility, but treat it as a representation convention, not a physical or tactical preference. Branch-label audits must report action-set equivariance separately from default-choice/tie-break mismatches. Validation trajectories should use an explicit seeded symmetric/action-orbit selector (or canonicalize branch labels before policy evaluation); matched-seed outcome changes are tie-break sensitivity only. Physical branch symmetry remains a separate authentication question.
+
+
+## Seeded opening follow-up side selector (2026-11-01)
+
+For the mandatory 1-1 follow-up, keep the initializer's canonical tile choice fixed and vary only the selected side. The validation selector uses unsigned seed modulo the four candidate sides, giving equal side mass over four seed residues. This is distributionally symmetric; do not claim same-seed deterministic mapped-choice equivariance in automorphic states. Compare against the canonical-up default on matched deals and identical continuation policies. Treat outcome changes as tie-break sensitivity, not strategy superiority, and keep physical four-branch authentication separate.

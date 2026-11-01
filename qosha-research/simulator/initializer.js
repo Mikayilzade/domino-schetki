@@ -2,7 +2,7 @@
 const e=require('./engine');
 function removeTileOnce(hand,tile){const key=e.tileKey(tile);const i=hand.findIndex(x=>e.tileKey(x)===key);if(i<0)throw new Error('tile missing');return hand.filter((_,idx)=>idx!==i);}
 function locateOneOne(hands,stock){for(let p=0;p<hands.length;p++)if(hands[p].some(t=>e.tileKey(t)==='1-1'))return{where:'hand',playerIndex:p};if(stock.some(t=>e.tileKey(t)==='1-1'))return{where:'stock'};throw new Error('1-1 missing');}
-function initializeThreePlayerRoundFromDeal({hands,stock,isFirstRound=false,previousWinnerIndex=null,chooseFollowup=null}){
+function initializeThreePlayerRoundFromDeal({hands,stock,isFirstRound=false,previousWinnerIndex=null,chooseFollowup=null,chooseFollowupSide=null}){
   if(hands.length!==3||hands.some(h=>h.length!==9)||stock.length!==1)throw new Error('expected 3x9 + 1 stock');
   const hs=hands.map(h=>h.map(t=>[...t]));let st=stock.map(t=>[...t]);
   const loc=locateOneOne(hs,st);let starter,openingDraw=null;
@@ -24,11 +24,18 @@ function initializeThreePlayerRoundFromDeal({hands,stock,isFirstRound=false,prev
   const canonical=legal.filter(x=>x.side==='up');
   const choices=canonical.length?canonical:legal;
   const choice=chooseFollowup?chooseFollowup(choices,{starter,hands:hs,openingDraw}):choices[0];
-  const selected=choices.find(x=>x.handIndex===choice.handIndex&&x.side===choice.side&&x.to===choice.to&&e.tileKey(x.tile)===e.tileKey(choice.tile));
+  let selected=choices.find(x=>x.handIndex===choice.handIndex&&x.side===choice.side&&x.to===choice.to&&e.tileKey(x.tile)===e.tileKey(choice.tile));
   if(!selected)throw new Error('illegal opening follow-up');
+  if(chooseFollowupSide){
+    const sideChoices=legal.filter(x=>x.handIndex===selected.handIndex&&x.to===selected.to&&e.tileKey(x.tile)===e.tileKey(selected.tile));
+    const sideChoice=chooseFollowupSide(sideChoices,{starter,hands:hs,openingDraw,selected});
+    const resolved=sideChoices.find(x=>x.handIndex===sideChoice.handIndex&&x.side===sideChoice.side&&x.to===sideChoice.to&&e.tileKey(x.tile)===e.tileKey(sideChoice.tile));
+    if(!resolved)throw new Error('illegal opening follow-up side');
+    selected=resolved;
+  }
   const nextBranch=e.applySinglePlacement(branchState,selected);
   hs[starter]=hs[starter].filter((_,i)=>i!==selected.handIndex);
   return{kind:'ready',starter,currentPlayer:(starter+1)%3,branchState:nextBranch,openingState,hands:hs,stock:st,openingDraw,openingFollowup:selected,openingPassed:false,turns:1,consecutivePasses:0,outcome:null};
 }
-function initializeThreePlayerRound({seed,isFirstRound=false,previousWinnerIndex=null,chooseFollowup=null}){const deal=e.dealThreeByNine(seed);return initializeThreePlayerRoundFromDeal({...deal,isFirstRound,previousWinnerIndex,chooseFollowup});}
+function initializeThreePlayerRound({seed,isFirstRound=false,previousWinnerIndex=null,chooseFollowup=null,chooseFollowupSide=null}){const deal=e.dealThreeByNine(seed);return initializeThreePlayerRoundFromDeal({...deal,isFirstRound,previousWinnerIndex,chooseFollowup,chooseFollowupSide});}
 module.exports={locateOneOne,initializeThreePlayerRoundFromDeal,initializeThreePlayerRound};
