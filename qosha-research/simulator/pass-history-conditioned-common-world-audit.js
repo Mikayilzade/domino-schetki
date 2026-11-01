@@ -255,7 +255,7 @@ function test(){
   const event2={...event,global:{branchState:branch2,openingState:opening},
     current:{branchState:branch2,openBySide:{up:[1],left:[],right:[],down:[]},usedNumbers:[1]}};
   const split=passValidation({hands:[[[0,0]],[[1,5]],[[4,6]]],stock:[]},{passHistory:[event2],playedEvents:[]});
-  check(split.globalOnly&&!split.currentValid,'model-specific pass support split');
+  check(split.currentOnly&&split.currentValid&&!split.globalValid,'model-specific pass support split');
   const start=3410970,deals=60,target=12;
   const old=audit.runDisagreementAudit(start,deals,target,4);
   const cohort=audit.collectAgreementStates(start,deals);
