@@ -122,3 +122,10 @@ For importance-sampled Monte Carlo with replacement, report seed draws, unique c
 ## Holdout allocation preflight (2026-11-01)
 
 Deal-level checks on a locked holdout seed set may verify only deterministic replay, complete allocation uniqueness, 28-tile conservation, and broad sampler sanity. They must not inspect game outcomes/pass labels, select or tune a model, or change a preregistered prior. Report these preflight deals separately; they do not count as evaluated holdout samples until the full runner emits the planned outcome labels and metrics.
+
+
+## Choice-history prior status (2026-11-01 19:48 +04)
+
+The discovery-selected 10% closed-control prior did not show a reliable independent holdout improvement. On seeds 3413170–3413569, the state-clustered gain was +0.000939 ± 0.012501 (approximate 95% half-width); the interval includes zero. Pooled with the earlier independent holdout, 113 uncertain positions / 159 labels gave +0.002363 ± 0.009358, also including zero. Treat choice-history weighting as unsupported for now; do not reselect prior weights on these cohorts or promote a tactic.
+
+Next priority: branch-label action/transition permutation audit and isolated block-scoring fixtures. Internal reachability tests are not physical-rule authentication; four-side locking/reopening and blocked-round winner remain provisional.

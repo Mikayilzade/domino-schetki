@@ -1,0 +1,184 @@
+{
+  "schema": "qosha-locked-prior-holdout-and-branch-contract/v1",
+  "timestampAsiaBaku": "2026-11-01 19:48:28 +04 (Asia/Baku)",
+  "engineVersion": "qosha-research-0.5.3",
+  "rulesVersion": "recovered qosa-1.0.0; 3x9+1 stock; four-side number-lock provisional",
+  "execution": {
+    "source": "Exact current GitHub main modules",
+    "runtime": "V8 CommonJS-compatible loader",
+    "nativeNodeCheckout": "Blocked by container DNS resolution for github.com",
+    "sourceChangesThisRun": 0
+  },
+  "lockedPrior": {
+    "priorClosed": 0.1,
+    "discoverySeeds": "3412770-3412969",
+    "currentReportedHoldout": "3413170-3413569",
+    "reselectionUsedForReportedEstimate": false,
+    "note": "The existing runner also emits other prior-grid diagnostics; only the pre-locked 10% estimate is used for this holdout conclusion."
+  },
+  "passChoiceHoldout": {
+    "seedStart": 3413170,
+    "seedEnd": 3413569,
+    "deals": 400,
+    "uniqueFullDealAllocations": 400,
+    "duplicateDeals": 0,
+    "deterministicReplayChecks": 400,
+    "tileConservationChecks": 400,
+    "baselineRounds": 4800,
+    "finishes": 4627,
+    "blocks": 173,
+    "blockRate": 0.036041666666666666,
+    "meanRoundTurns": 25.484583333333333,
+    "unresolved": 0,
+    "minusFinishes": {
+      "-10": 711,
+      "-20": 16,
+      "-30": 0,
+      "-40": 0
+    },
+    "strategies": [
+      "closed-branch-control",
+      "random-legal",
+      "tempo-open",
+      "anti-minus"
+    ],
+    "opponentMixes": [
+      [
+        "random-legal",
+        "random-legal"
+      ],
+      [
+        "tempo-open",
+        "tempo-open"
+      ],
+      [
+        "anti-minus",
+        "anti-minus"
+      ],
+      [
+        "random-legal",
+        "tempo-open"
+      ]
+    ],
+    "seatRotations": 3,
+    "selectedPositions": 255,
+    "uncertainPositions": 78,
+    "uncertainLabels": 113,
+    "certainLabels": 397,
+    "passOnlyBrier": 0.10472806531407775,
+    "locked10MixtureBrier": 0.10599903203945829,
+    "stateClusteredGainPassOnlyMinusMixture": 0.0009393620206184735,
+    "approximate95HalfWidth": 0.012500858379237758,
+    "approximate95CI": [
+      -0.011561496358619285,
+      0.01344022039985623
+    ],
+    "hiddenWorldDraws": 16320,
+    "uniqueCompleteAllocationsWithinVisibleStates": 4330,
+    "duplicateDrawsWithinVisibleStates": 11990,
+    "meanESS": 52.70645361987705,
+    "meanESSFraction": 0.823538337810579,
+    "meanUniqueWorldsPerSelectedState": 32.44871794871795,
+    "meanDuplicateDrawsPerSelectedState": 31.55128205128205,
+    "baselineFocalFinishFirstRate": 0.4477083333333333,
+    "baselineFocalMeanRemainingPips": 3.216875,
+    "baselineFocalMedianRemainingPips": 2,
+    "baselineMeanStartingDoubles": 2,
+    "baselineMeanEndingDoubles": 0.010833333333333334
+  },
+  "pooledIndependentHoldout": {
+    "cohorts": [
+      {
+        "seeds": "3412970-3413169",
+        "uncertainPositions": 35,
+        "uncertainLabels": 46,
+        "prior10SelectedOnEarlierDiscovery": true
+      },
+      {
+        "seeds": "3413170-3413569",
+        "uncertainPositions": 78,
+        "uncertainLabels": 113,
+        "prior10LockedBeforeCohort": true
+      }
+    ],
+    "positions": 113,
+    "labels": 159,
+    "passOnlyBrier": 0.11021928361821827,
+    "locked10Brier": 0.11024004890691941,
+    "stateClusteredGainPassOnlyMinusMixture": 0.0023626207973612306,
+    "approximate95HalfWidth": 0.009358057872246547,
+    "approximate95CI": [
+      -0.006995437074885317,
+      0.011720678669607777
+    ],
+    "conclusion": "No reliable predictive improvement; no tactic promoted."
+  },
+  "reachableStateAudit": {
+    "seedRanges": [
+      "3413570-3413619",
+      "3413620-3414119"
+    ],
+    "deals": 550,
+    "uniqueAllocations": 550,
+    "duplicates": 0,
+    "reachablePositions": 13053,
+    "legalActionCandidatesApplied": 44911,
+    "actionTypes": {
+      "single": 35567,
+      "double-sequence": 9295,
+      "mixed-finish": 49
+    },
+    "passes": 985,
+    "draws": 0,
+    "multiActionPositions": 9919,
+    "finishes": 520,
+    "blocks": 30,
+    "unresolved": 0,
+    "maxTurns": 32
+  },
+  "regression": {
+    "engineDealTest": "passed",
+    "ordinaryTurnTest": "passed",
+    "roundDriverTest": "passed",
+    "finishMinusTest": "passed",
+    "priorGridContract": {
+      "passed": true,
+      "checks": 10
+    },
+    "fourBranchKernel": {
+      "passed": true,
+      "fullFourDoubleOrders": 24,
+      "syntheticMinus": -40
+    },
+    "branchBlockContract": {
+      "passed": true,
+      "pilotDeals": 8,
+      "pilotRounds": 48
+    },
+    "scoringContract": {
+      "passed": true,
+      "assertions": 1056
+    },
+    "reachableStateContract": "passed"
+  },
+  "cumulative": {
+    "separateValidationOpeningTieBreakAllocations": 7550,
+    "reachablePositionPropertyAuditPositions": 52315,
+    "branchLockAuditAllocationsTrackedSeparately": 550,
+    "strategyStrengthHoldoutDeals": 1500,
+    "strategyStrengthHoldoutArmRounds": 18000,
+    "additionalPilotDeals": 120,
+    "additionalPilotArmRounds": 1440,
+    "strategyTournamentArmsAddedThisRun": 0
+  },
+  "finding": "The discovery-selected 10% closed-control prior did not produce a reliable independent holdout gain. Choice-history weighting is unsupported for now; no tactic promoted.",
+  "limitations": [
+    "Public-pass-selected positions are enriched and not population-representative.",
+    "Opponent policies and choice likelihoods are synthetic, not calibrated to human play.",
+    "Hidden-world importance sampling is finite and contains repeated allocations within visible states.",
+    "Brier evaluates next-pass labels, not win chance or match victory.",
+    "Four-side number-lock, late reopening, block/tie scoring, loneZero=10, and 101-point match semantics remain provisional/unverified.",
+    "Reachability tests establish internal consistency of the coded model, not physical rule authentication."
+  ],
+  "exactNextAction": "Stop re-tuning prior weights. Run a fresh branch-label action/transition permutation audit and isolated block-scoring fixtures; keep disputed rules provisional unless an authentic real-game trace or explicit ruling is available."
+}

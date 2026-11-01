@@ -1,8 +1,10 @@
-# Latest checkpoint — seed preflight for locked 10% prior holdout (2026-11-01 18:57:59 +04)
+# Latest checkpoint — locked 10% prior holdout + branch-lock contract (2026-11-01 19:48:28 +04 (Asia/Baku))
 
-- Seeds 3413170–3413569: 400 deal allocations, **400 unique / 0 duplicates**; 400 deterministic replay checks and 400 full 28-tile conservation checks passed.
-- Deal sanity: 1,200 hands, mean doubles 2.2542 vs 2.25 expectation; mean pips 54.0367 vs 54. `1-1` in stock 13/400 vs 14.29 expected. No game rounds or strategy outcomes were simulated.
-- The fixed 10% pass-choice holdout remains locked and **not yet executed**. No Brier/regret data, no prior reselection, no tactic promoted.
-- Cumulative: separate validation/opening/tie-break allocations **7,150**; property-audit positions **39,262**; strategy holdout **1,500 deals / 18,000 arm-rounds** (+120 pilot / 1,440). This 400-deal sampler preflight is tracked separately.
-- Execution limitation: container could not resolve github.com for a clean repository checkout. Node v22.16.0 ran a standalone deal-level harness; the committed runner is intended for the full repository checkout.
-- Exact next: run the fixed 10% prior on seeds **3413170–3413569** with no reselection and report state-clustered Brier plus hidden-world uniqueness/ESS. If uncertainty persists, close choice-history weighting as unsupported and prioritize physical branch/block authentication.
+- **Pass-choice:** fixed 10% closed-control prior on seeds 3413170–3413569; 400 unique deals, 4,800 diagnostic rounds. Current state-clustered gain +0.000939 ±0.012501; CI crosses zero. Pooled independent holdout: 113 uncertain positions / 159 labels, gain +0.002363 ±0.009358; CI crosses zero. No predictive advantage; no tactic promoted.
+- **World accounting:** 16,320 draws; 4,330 unique state-world allocations and 11,990 repeats; mean ESS 52.71/64.
+- **Reachability:** 550 unique deals, seeds 3413570–3414119; 13,053 reachable positions, 44,911 action candidates applied, 985 passes, 520 finishes / 30 blocks, 0 unresolved. All action/apply, conservation, branch-open, multi-double, mixed-finish and scoring contract tests passed.
+- **Cumulative:** validation/opening/tie-break allocations 7,550; property audit 52,315 positions; branch-lock audit 550 deals separately. Strategy tournament unchanged: 1,500 deals / 18,000 arm-rounds (+120 pilot / 1,440).
+- **Rule limits:** four-side number-lock/reopening and blocked-round winner remain provisional. Tests validate coded invariants, not physical rule truth.
+- **Exact next:** stop prior-grid tuning; run fresh branch-label action/transition permutation audit and isolated block-scoring fixtures. Keep uncertain rules provisional without an authentic trace/ruling.
+
+See [run report](runs/2026-11-01-1948-locked-10pct-prior-holdout.md) and [raw JSON](runs/2026-11-01-1948-locked-10pct-prior-holdout.json).
