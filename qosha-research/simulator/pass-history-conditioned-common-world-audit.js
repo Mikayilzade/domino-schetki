@@ -1,5 +1,6 @@
 'use strict';
-// Public-pass-history-conditioned hidden-world audit.
+// Public-pass-history-conditioned hidden-world audit, version 1.1.0.
+// Adds separate model-specific pass posteriors beside the joint-support reference.
 // Conditioning uses only observed passes in the common-history prefix; prior
 // policy-selected plays are not used to infer hidden holdings.
 
@@ -106,18 +107,21 @@ function sampleComparisonWorlds(spec,count=WORLD_LIMIT,maxAttempts=count*250){
     }
     const n=Math.min(count,jointValid.length,all.length);
     return {control:rankWorlds(all,n),conditioned:rankWorlds(jointValid,n),
+      globalConditioned:rankWorlds(globalValid,Math.min(count,globalValid.length)),
+      currentConditioned:rankWorlds(currentValid,Math.min(count,currentValid.length)),
       modelSpecificSupport:{globalValidWorlds:globalValid.length,currentValidWorlds:currentValid.length,
         jointValidWorlds:jointValid.length,globalOnlyPassWorlds,currentOnlyPassWorlds,neitherPassWorlds},
       stats:{method:'exact-enumeration-filtered',conditionalWorldSpace:space,attempts:space,uniqueDraws:space,
         duplicateDraws:0,validWorldsExact:jointValid.length,validWorldsSeen,globalValidWorldsSeen,currentValidWorldsSeen,
         rejectedPass,globalPassFailures,currentPassFailures,handSizeFailures,duplicateHandFailures,passChecks,
-        acceptanceRate:space?jointValid.length/space:0,requestedWorlds:count,worldsPerArm:n,
+        acceptanceRate:space?jointValid.length/space:0,requestedWorlds:count,worldsPerArm:n,globalConditionedWorlds:Math.min(count,globalValid.length),
+        currentConditionedWorlds:Math.min(count,currentValid.length),
         complete:n===count,allConditionalWorldsEnumerated:true,exactEnumerationStates:1}};
   }
-  const seen=new Set(),control=[],conditioned=[];
+  const seen=new Set(),control=[],conditioned=[],globalValid=[],currentValid=[];
   let attempts=0,duplicateDraws=0,uniqueDraws=0;
   const baseSeed=e.mixSeed32(hashString(spec.signature)^Math.imul(spec.seed+1,0x9e3779b9));
-  while((control.length<count||conditioned.length<count)&&attempts<maxAttempts){
+  while((control.length<count||conditioned.length<count||globalValid.length<count||currentValid.length<count)&&attempts<maxAttempts){
     const sampleSeed=e.mixSeed32(baseSeed^Math.imul(attempts+1,SEED_MULTIPLIER));
     const sampled=canonicalizeState(hidden.sampleWorld({visibleState:spec.state,focalPlayer:focal,
       focalHand:spec.state.hands[focal],knownTiles:spec.played,hiddenHandSizes:spec.state.hands.map(h=>h.length),
@@ -129,8 +133,8 @@ function sampleComparisonWorlds(spec,count=WORLD_LIMIT,maxAttempts=count*250){
     const v=passValidation(sampled,spec);
     passChecks+=v.checks;globalPassFailures+=v.globalFailures;currentPassFailures+=v.currentFailures;
     handSizeFailures+=v.handSizeFailures;duplicateHandFailures+=v.duplicateHandFailures;
-    if(v.globalValid)globalValidWorldsSeen++;
-    if(v.currentValid)currentValidWorldsSeen++;
+    if(v.globalValid){globalValidWorldsSeen++;if(globalValid.length<count)globalValid.push(world);}
+    if(v.currentValid){currentValidWorldsSeen++;if(currentValid.length<count)currentValid.push(world);}
     if(v.valid){validWorldsSeen++;if(conditioned.length<count)conditioned.push(world);}else rejectedPass++;
     if(v.globalOnly)globalOnlyPassWorlds++;
     if(v.currentOnly)currentOnlyPassWorlds++;
@@ -138,12 +142,15 @@ function sampleComparisonWorlds(spec,count=WORLD_LIMIT,maxAttempts=count*250){
   }
   const n=Math.min(control.length,conditioned.length);
   return {control:rankWorlds(control,n),conditioned:rankWorlds(conditioned,n),
+    globalConditioned:rankWorlds(globalValid,Math.min(count,globalValid.length)),
+    currentConditioned:rankWorlds(currentValid,Math.min(count,currentValid.length)),
     modelSpecificSupport:{globalValidWorlds:globalValidWorldsSeen,currentValidWorlds:currentValidWorldsSeen,
       jointValidWorlds:validWorldsSeen,globalOnlyPassWorlds,currentOnlyPassWorlds,neitherPassWorlds},
     stats:{method:'seeded-rejection-with-pass-filter',conditionalWorldSpace:space,attempts,uniqueDraws,
       duplicateDraws,validWorldsExact:null,validWorldsSeen,globalValidWorldsSeen,currentValidWorldsSeen,
       rejectedPass,globalPassFailures,currentPassFailures,handSizeFailures,duplicateHandFailures,passChecks,
-      acceptanceRate:uniqueDraws?validWorldsSeen/uniqueDraws:0,requestedWorlds:count,worldsPerArm:n,
+      acceptanceRate:uniqueDraws?validWorldsSeen/uniqueDraws:0,requestedWorlds:count,worldsPerArm:n,globalConditionedWorlds:Math.min(count,globalValid.length),
+      currentConditionedWorlds:Math.min(count,currentValid.length),
       complete:n===count,allConditionalWorldsEnumerated:false,exactEnumerationStates:0}};
 }
 function evaluateWorldSet(spec,worlds){
@@ -180,6 +187,10 @@ function summarizeDelta(rows,model){
   return audit.summarizeRegret(rows.map(s=>({regret:Object.fromEntries(METRICS.map(metric=>
     [metric,s.conditioned[model].regret[metric].mean-s.control[model].regret[metric].mean]))})));
 }
+function summarizeArmDifference(rows,arm,model,reference='conditioned'){
+  return audit.summarizeRegret(rows.map(s=>({regret:Object.fromEntries(METRICS.map(metric=>
+    [metric,s[arm][model].regret[metric].mean-s[reference][model].regret[metric].mean]))})));
+}
 function run(startSeed=3410970,deals=500,targetStates=72,worldsPerState=WORLD_LIMIT){
   check(Number.isInteger(startSeed)&&Number.isInteger(deals)&&deals>0,'seed/count');
   const cohort=audit.collectAgreementStates(startSeed,deals);
@@ -187,10 +198,12 @@ function run(startSeed=3410970,deals=500,targetStates=72,worldsPerState=WORLD_LI
   const selected=audit.selectStates(eligible,targetStates),states=[];
   for(const spec of selected){
     const samples=sampleComparisonWorlds(spec,worldsPerState);
+    check(samples.control.length>0&&samples.conditioned.length>0&&samples.globalConditioned.length>0&&samples.currentConditioned.length>0,'empty posterior support for selected state');
     const control=evaluateWorldSet(spec,samples.control),conditioned=evaluateWorldSet(spec,samples.conditioned);
+    const globalPosterior=evaluateWorldSet(spec,samples.globalConditioned),currentPosterior=evaluateWorldSet(spec,samples.currentConditioned);
     states.push({seed:spec.seed,turn:spec.turn,passCount:(spec.passHistory||[]).length,
       commonActionCount:spec.commonActionCount,signature:spec.signature,sampling:samples.stats,
-      modelSpecificSupport:samples.modelSpecificSupport,control,conditioned});
+      modelSpecificSupport:samples.modelSpecificSupport,control,conditioned,globalPosterior,currentPosterior});
   }
   const withPass=states.filter(s=>s.passCount>0);
   const passRejected=states.filter(s=>s.passCount>0&&s.sampling.rejectedPass>0);
@@ -198,6 +211,9 @@ function run(startSeed=3410970,deals=500,targetStates=72,worldsPerState=WORLD_LI
   const sums={states:states.length,selectedDeals:new Set(states.map(s=>s.seed)).size,
     controlWorlds:states.reduce((n,s)=>n+s.control.worlds,0),conditionedWorlds:states.reduce((n,s)=>n+s.conditioned.worlds,0),
     candidateWorldEvaluations:states.reduce((n,s)=>n+s.control.evaluations+s.conditioned.evaluations,0),
+    globalPosteriorWorlds:states.reduce((n,s)=>n+s.globalPosterior.worlds,0),
+    currentPosteriorWorlds:states.reduce((n,s)=>n+s.currentPosterior.worlds,0),
+    modelSpecificCandidateEvaluations:states.reduce((n,s)=>n+s.globalPosterior.evaluations+s.currentPosterior.evaluations,0),
     attempts:states.reduce((n,s)=>n+s.sampling.attempts,0),uniqueDraws:states.reduce((n,s)=>n+s.sampling.uniqueDraws,0),
     duplicateDraws:states.reduce((n,s)=>n+s.sampling.duplicateDraws,0),rejectedPass:states.reduce((n,s)=>n+s.sampling.rejectedPass,0),
     validWorldsSeen:states.reduce((n,s)=>n+s.sampling.validWorldsSeen,0),
@@ -216,9 +232,9 @@ function run(startSeed=3410970,deals=500,targetStates=72,worldsPerState=WORLD_LI
     samplingIncompleteStates:states.filter(s=>!s.sampling.complete&&!s.sampling.allConditionalWorldsEnumerated).length,
     unresolved:states.reduce((n,s)=>n+s.control.outcomeKinds.unresolved+s.conditioned.outcomeKinds.unresolved,0)};
   const passHistogram={};for(const s of states){const k=String(s.passCount);passHistogram[k]=(passHistogram[k]||0)+1;}
-  return {schema:'qosha-pass-history-conditioned-common-world-regret/v1',
+  return {schema:'qosha-pass-history-conditioned-common-world-regret/v2',
     timestampAsiaBaku:new Date().toLocaleString('sv-SE',{timeZone:'Asia/Baku'}).replace(' ','T')+'+04:00',
-    engine:'qosha-research-0.5.3 modules; recovered qosa-1.0.0; 3x9+stock; action-orbit continuation',
+    engine:'qosha-research-0.5.3 modules; pass-posterior-audit-1.1.0; recovered qosa-1.0.0; 3x9+stock; action-orbit continuation',
     startSeed,endSeed:startSeed+deals-1,seedDraws:deals,trajectory:cohort.metrics,
     selection:{targetStates,selectedStates:states.length,selectedDeals:sums.selectedDeals,
       eligibleFirstDivergenceStates:eligible.length,passCountHistogram:passHistogram},
@@ -229,7 +245,12 @@ function run(startSeed=3410970,deals=500,targetStates=72,worldsPerState=WORLD_LI
       modelSpecificSupport:'global-only/current-only valid allocations are counted separately; paired regret uses the joint intersection valid under both models'},
     sampling:{requestedWorldsPerState:worldsPerState,exactEnumerationLimit:EXACT_LIMIT,...sums,
       method:'exact enumerate and deterministic hash-rank when allocation space <= 5000; otherwise seeded uniform rejection without replacement; continuation seed is a hash of the allocation and is shared across arms'},
-    regret:{all:{control:{global:summarizeGroup(states,'control','global'),currentOnly:summarizeGroup(states,'control','currentOnly')},
+    regret:{modelSpecificPosterior:{
+      globalPassConditioned:{global:summarizeGroup(states,'globalPosterior','global'),currentOnly:summarizeGroup(states,'globalPosterior','currentOnly')},
+      currentOnlyPassConditioned:{global:summarizeGroup(states,'currentPosterior','global'),currentOnly:summarizeGroup(states,'currentPosterior','currentOnly')},
+      deltaVsJoint:{globalPosterior:{global:summarizeArmDifference(states,'globalPosterior','global'),currentOnly:summarizeArmDifference(states,'globalPosterior','currentOnly')},
+        currentOnlyPosterior:{global:summarizeArmDifference(states,'currentPosterior','global'),currentOnly:summarizeArmDifference(states,'currentPosterior','currentOnly')}}},
+      all:{control:{global:summarizeGroup(states,'control','global'),currentOnly:summarizeGroup(states,'control','currentOnly')},
         conditioned:{global:summarizeGroup(states,'conditioned','global'),currentOnly:summarizeGroup(states,'conditioned','currentOnly')},
         deltaConditionedMinusControl:{global:summarizeDelta(states,'global'),currentOnly:summarizeDelta(states,'currentOnly')}},
       withPassHistory:{stateCount:withPass.length,control:{global:summarizeGroup(withPass,'control','global'),currentOnly:summarizeGroup(withPass,'control','currentOnly')},
@@ -267,11 +288,41 @@ function test(){
   const a=sampleComparisonWorlds(withPass,4,1000),b=sampleComparisonWorlds(withPass,4,1000);
   check(JSON.stringify(a.conditioned.map(w=>w.key))===JSON.stringify(b.conditioned.map(w=>w.key)),'conditioned sample replay');
   check(a.conditioned.every(w=>passValidation(w.state,withPass).valid),'all joint worlds pass-valid');
+  check(a.globalConditioned.every(w=>passValidation(w.state,withPass).globalValid),'global posterior samples pass-valid');
+  check(a.currentConditioned.every(w=>passValidation(w.state,withPass).currentValid),'current-only posterior samples pass-valid');
+  check(JSON.stringify(a.globalConditioned.map(w=>w.key))===JSON.stringify(b.globalConditioned.map(w=>w.key)),'global posterior replay');
+  check(JSON.stringify(a.currentConditioned.map(w=>w.key))===JSON.stringify(b.currentConditioned.map(w=>w.key)),'current-only posterior replay');
   const noPass=selected.find(x=>!x.passHistory||!x.passHistory.length);
   if(noPass){const n=sampleComparisonWorlds(noPass,4,1000);
-    check(JSON.stringify(n.control.map(w=>w.key))===JSON.stringify(n.conditioned.map(w=>w.key)),'no-pass control unchanged');}
+    check(JSON.stringify(n.control.map(w=>w.key))===JSON.stringify(n.conditioned.map(w=>w.key)),'no-pass control unchanged');
+    check(JSON.stringify(n.globalConditioned.map(w=>w.key))===JSON.stringify(n.control.map(w=>w.key)),'no-pass global posterior unchanged');
+    check(JSON.stringify(n.currentConditioned.map(w=>w.key))===JSON.stringify(n.control.map(w=>w.key)),'no-pass current posterior unchanged');}
+  const initModule=require('./initializer');
+  let fixtureSeed=0,fixtureBase=null;
+  for(;fixtureSeed<5000;fixtureSeed++){
+    const deal=e.dealThreeByNine(fixtureSeed),where=initModule.locateOneOne(deal.hands,deal.stock);
+    if(where.where!=='hand')continue;
+    const candidate=initModule.initializeThreePlayerRoundFromDeal({...deal,isFirstRound:false,previousWinnerIndex:fixtureSeed%3});
+    if(candidate.kind==='ready'&&candidate.openingFollowup){fixtureBase=candidate;break;}
+  }
+  check(fixtureBase,'could not build large-space rejection fixture');
+  const fixtureState=r.cloneRoundState(fixtureBase),fixturePlayed=[[1,1],[...fixtureBase.openingFollowup.tile]];
+  const largeSpec={state:fixtureState,played:fixturePlayed,signature:'rejection-fixture-'+fixtureSeed,seed:fixtureSeed,passHistory:[]};
+  const fixturePool=hidden.hiddenPool({focalHand:fixtureState.hands[fixtureState.currentPlayer],knownTiles:fixturePlayed});
+  const fixtureGroups=fixtureState.hands.filter((_,p)=>p!==fixtureState.currentPlayer).map(h=>h.length);
+  if(fixtureState.stock.length)fixtureGroups.push(fixtureState.stock.length);
+  check(conditionalWorldCount(fixturePool.length,fixtureGroups)>EXACT_LIMIT,'fixture did not exceed exact enumeration limit');
+  const rejection=sampleComparisonWorlds(largeSpec,4,1000),rejectionReplay=sampleComparisonWorlds(largeSpec,4,1000);
+  check(rejection.stats.method==='seeded-rejection-with-pass-filter','large space uses rejection');
+  check(rejection.globalConditioned.length===4&&rejection.currentConditioned.length===4,'rejection model posterior sample counts');
+  check(rejection.globalConditioned.every(w=>passValidation(w.state,largeSpec).globalValid),'rejection global validity');
+  check(rejection.currentConditioned.every(w=>passValidation(w.state,largeSpec).currentValid),'rejection current validity');
+  check(JSON.stringify(rejection.globalConditioned.map(w=>w.key))===JSON.stringify(rejectionReplay.globalConditioned.map(w=>w.key)),'rejection global replay');
+  check(JSON.stringify(rejection.currentConditioned.map(w=>w.key))===JSON.stringify(rejectionReplay.currentConditioned.map(w=>w.key)),'rejection current replay');
   return {passed:true,passFixtureRejectsLegalHand:true,passFixtureAcceptsBlockedHand:true,
     modelSpecificPassSplit:true,matchedSelectedStates:target,passConditionedWorlds:a.conditioned.length,
-    method:a.stats.method,passChecks:a.stats.passChecks};
+    method:a.stats.method,passChecks:a.stats.passChecks,
+    rejectionTest:{passed:true,fixtureSeed,conditionalWorldSpace:conditionalWorldCount(fixturePool.length,fixtureGroups),attempts:rejection.stats.attempts,
+      duplicateDraws:rejection.stats.duplicateDraws,globalSamples:rejection.globalConditioned.length,currentOnlySamples:rejection.currentConditioned.length}};
 }
 module.exports={run,test,passValidation,sampleComparisonWorlds,evaluateWorldSet};

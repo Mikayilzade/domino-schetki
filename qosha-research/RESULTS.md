@@ -2077,3 +2077,14 @@ Both duplicate pairs were across development→holdout, and both worlds failed t
 - Interpretation/confidence: exact support census for the coded pass constraints; low external validity. The paired cohort uses the **joint** pass-consistency intersection, not either model's separate posterior; pass evidence can distinguish the models in a small subset, but does not authenticate physical rules. Hidden worlds are not conditioned on players' prior voluntary action choices. The source was executed in a V8 harness from GitHub-fetched modules; clean Node checkout remains DNS-blocked.
 - Cumulative separate validation/opening/tie-break allocations: **5,450** (prior 4,950 + this 500; this run's control and conditioned arms are the same deal cohort). Reachable-position property audits remain **39,262**. Strategy-strength holdout remains **1,500 deals / 18,000 arm-rounds** (+ separate 120-deal / 1,440-arm-round pilot); this regret cohort is not added to that tournament. Historical and legacy populations remain separate.
 - **Exact next action:** compute global-model and current-only **separate** pass-conditioned posteriors on these same 72 visible states, compare their regret with the joint-intersection estimate, then continue seeking an authenticated physical trace/ruling for branch reopening and blocked-round scoring.
+
+
+### 2026-11-01 13:49 +04 (Asia/Baku) — separate model-specific pass-conditioned posterior
+
+- Reanalysis only: reused 500 unique allocations, seeds `3410970–3411469`; **0 new deals**. Same 72 selected first-divergence states / 72 deals, 117 pass events.
+- Exact state-world support: 33,201 assignments; global-valid 25,858, current-only-valid 27,244, joint 25,858; global-only 0, current-only-exclusive 1,386, neither 5,957. These are not globally unique allocations.
+- Separate posterior arms: 1,507 worlds/model, 24,972 additional candidate-world evaluations; 0 hand/duplicate errors, 0 unresolved. Global posterior equals joint support in this cohort. Current-only mean-remainder regret changes by +0.00564 pips (approx. 95% state-level half-width 0.01106); other current-only metrics are unchanged, all intervals include zero. No tactic promoted.
+- Exact and seeded-rejection sampler tests passed; rejection fixture space 24,310, 4 worlds/model, 0 duplicates. Source ran in V8 with exact GitHub-fetched CommonJS modules, not clean native Node checkout.
+- Cohort totals unchanged: 5,450 validation/opening/tie-break allocations; 39,262 property-audit positions; strategy holdout 1,500 deals / 18,000 arm-rounds (+120 pilot).
+- Full [report](runs/2026-11-01-1349-separate-pass-conditioned-posterior-audit.md), [JSON](runs/2026-11-01-1349-separate-pass-conditioned-posterior-audit.json), [updated runner](simulator/pass-history-conditioned-common-world-audit.js).
+- Next: disjoint seeds `3411470–3411969`; then add an explicit opponent-choice likelihood separately from forced-pass evidence and continue physical rule authentication.

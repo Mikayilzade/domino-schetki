@@ -1,3 +1,12 @@
+# Latest checkpoint — separate model-specific pass-conditioned posterior audit (2026-11-01 13:49 +04, Asia/Baku)
+
+- Reanalysis of 500 allocations, seeds 3410970–3411469; 0 new deals. 72 selected states, 117 pass events. Exact support: 33,201 state-world assignments; global-valid 25,858, current-only-valid 27,244, joint 25,858; current-only-exclusive 1,386; global-only 0; neither 5,957.
+- Separate posteriors: 1,507 worlds/model, 24,972 additional candidate-world evaluations; 0 hand errors and unresolved continuations. Global posterior = joint support. Current-only mean-remainder regret delta vs joint +0.00564 pips ±0.01106 (approx. 95% state-level half-width); other current-only metrics unchanged; intervals include zero. No tactic promoted.
+- Exact/rejection sampler tests passed; rejection fixture 24,310 worlds and deterministic 4-world/model replay. V8 module-loader execution from exact GitHub-fetched sources; not clean native Node.
+- Cohort totals unchanged: 5,450 validation/opening/tie-break allocations; 39,262 property-audit positions; strategy holdout 1,500 deals / 18,000 arm-rounds (+120 pilot).
+- [Report](runs/2026-11-01-1349-separate-pass-conditioned-posterior-audit.md), [JSON](runs/2026-11-01-1349-separate-pass-conditioned-posterior-audit.json). Next: seeds 3411470–3411969; explicit opponent-choice likelihood; physical branch/block rule authentication.
+
+---
 # Latest checkpoint — public pass-history-conditioned common-world regret audit (2026-11-01 12:57 +04, Asia/Baku)
 
 - Runner: `simulator/pass-history-conditioned-common-world-audit.js`; engine `qosha-research-0.5.3`, recovered `qosa-1.0.0`, 3×9+stock. Branch reopening and block/tie scoring remain **PROVISIONAL**. Full metrics are appended to [RESULTS.md](RESULTS.md).
