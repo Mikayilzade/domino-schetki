@@ -1,12 +1,10 @@
-# Latest checkpoint — late next-opponent hand-size strata + deduplicated unlock-delay (2026-11-01 23:46 +04 Asia/Baku)
+# Latest checkpoint — matched legal branch-opening double vs ordinary single (2026-11-02 01:00 +04 Asia/Baku)
 
-- New disjoint profile windows from seed 3416220; 473 complete deal allocations scanned, 473 unique seat/stock assignments, 0 duplicates. Tile-conservation and 3×9+1 checks passed.
-- 1337 discovery trajectories: 1300 finishes / 37 blocks / 0 unresolved.
-- 72 late positions: 12 each for next-opponent hand sizes 1, 2, 3–4 under min-hand-pips and closed-branch-control.
-- Hidden worlds: 1728 draws, 629 unique within visible states, 1099 repeats; mean unique 8.74/position, mean draw ESS 7.58/24. 1258 paired continuations after dedup.
-- One-stone opponent: immediate unlock increased modeled next-opponent finish chance by 31.25 ± 17.66 pp and 36.11 ± 15.49 pp under two simple continuation policies. Mechanism signal only; delayed arm is nonlegal, focal finish-first intervals include zero, no strategy promotion.
-- Runner test: 8 deterministic replay/dedup/allocation assertions passed. Global number-unlock and physical branch/block rules remain provisional.
-- Cumulative unlock-delay cohorts: 152 positions / 2,507 within-state unique allocation records (not globally deduplicated). Strategy tournament unchanged: 1,500 deals / 18,000 arm-rounds (+120-deal pilot).
-- Exact next: from seed 3418620, compare the double against actual legal alternative actions under common hidden worlds, stratified by next-opponent hand size; seek authentic branch/block rule trace.
-
-See [run report](runs/2026-11-01-2346-late-hand-strata-unlock-delay-dedup.md), [raw JSON](runs/2026-11-01-2346-late-hand-strata-unlock-delay-dedup.json), and [runner](simulator/branch-late-hand-strata-dedup.js).
+- Engine qosha-research-0.5.3; recovered qosa-1.0.0, 3×9 + stock. Global number-unlock/branch geometry remains PROVISIONAL.
+- Reserved seeds 3418620–3421019. Actual disjoint scans: min-hand-pips 3418620–3419476 (857 deals); closed-branch-control 3419820–3420932 (1,113 deals). 1,970 unique complete allocations, 0 deal duplicates; 1,902 finishes / 68 blocks / 0 unresolved.
+- 96 matched positions: 12 per exact next-opponent hand-size stratum 1, 2, 3, 4 under each profile. Both actions are legal: one branch-opening double vs ordinary single, selected at minimum pip gap; only 6/96 pairs are exactly equal-pip.
+- Hidden worlds: 4,608 draws; 1,214 unique assignments within visible states; 3,394 repeats; mean ESS 10.64/48. 2,428 paired continuations after dedup.
+- Provisional signal: for a one-stone next opponent, opening-double vs single increased modeled immediate opponent finish chance by 47.92 ± 18.87 pp (min-hand-pips) and 30.56 ± 19.78 pp (closed-branch-control). Profile-wide focal finish-first deltas were −14.32 ± 7.35 pp and −22.91 ± 9.96 pp. These are exploratory position-cluster intervals, confounded by tile/hand changes and pip gaps; no strategy is promoted.
+- Regression: 6 assertions passed; deterministic replay, deal/world dedup accounting, tile conservation, and candidate legality checked.
+- Exact next: fresh seeds 3421020 onward; enlarge equal-pip candidates and repeat on an independent holdout. Continue seeking authentic branch-opening and block-scoring evidence.
+- Report: [2026-11-02-0100-branch-legal-choice-strata-dedup.md](runs/2026-11-02-0100-branch-legal-choice-strata-dedup.md); raw JSON and runner linked there.

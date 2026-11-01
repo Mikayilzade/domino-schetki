@@ -142,3 +142,12 @@ For the four-branch metamorphic check, generate reachable trajectories with a fi
 - For unlock-delay Monte Carlo, deduplicate complete hidden assignments **within each visible state** before paired continuation evaluation. Report seed draws, unique worlds, duplicate seed pairs, ESS, and post-dedup paired continuation count. Use the same exact hidden allocation and continuation seed in both arms.
 - The one-turn delayed-unlock arm is an explicitly nonlegal intervention. Select late positions by next-opponent hand size on future runs; do not promote a tactic from mechanism-only results.
 
+
+
+## Matched legal branch-opening double vs ordinary single, stratified by next-opponent hand size (2026-11-02)
+
+- Compare two **legal** actions from the same visible state: a one-double sequence that opens an unopened number vs an ordinary single. Select the pair with minimum absolute pip gap; report exact equal-pip pairs separately because tile identity and retained hand still differ.
+- Stratify next-opponent hand size exactly 1, 2, 3, and 4. Use disjoint seed windows for continuation profiles, rotate the focal seat by seed, and select at most one position per seed/profile.
+- Fix the focal hand, known/played tiles, public state, and hidden hand sizes. Sample hidden allocations conditional on recorded no-stock pass exclusions. Canonicalize complete seat/stock allocations and deduplicate within each visible state; preserve duplicate seed pairs and report draws, unique assignments, repeats, and ESS.
+- Reuse each unique hidden allocation for both candidate actions. Continue with the same profile and symmetric action-orbit tie-break. Report finish-first, remainder, minus risk/loss, block, next-opponent mobility/pass/finish, turn length, ending doubles, and pairwise hindsight regret per metric.
+- Pairwise oracle regret is limited to the compared candidate pair and sampled worlds; it is not an executable perfect-information strategy. This is not a pure unlock ablation. Global/local branch geometry remains provisional; no strategy promotion without independent holdout and physical rule authentication.
