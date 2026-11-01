@@ -151,3 +151,12 @@ For the four-branch metamorphic check, generate reachable trajectories with a fi
 - Fix the focal hand, known/played tiles, public state, and hidden hand sizes. Sample hidden allocations conditional on recorded no-stock pass exclusions. Canonicalize complete seat/stock allocations and deduplicate within each visible state; preserve duplicate seed pairs and report draws, unique assignments, repeats, and ESS.
 - Reuse each unique hidden allocation for both candidate actions. Continue with the same profile and symmetric action-orbit tie-break. Report finish-first, remainder, minus risk/loss, block, next-opponent mobility/pass/finish, turn length, ending doubles, and pairwise hindsight regret per metric.
 - Pairwise oracle regret is limited to the compared candidate pair and sampled worlds; it is not an executable perfect-information strategy. This is not a pure unlock ablation. Global/local branch geometry remains provisional; no strategy promotion without independent holdout and physical rule authentication.
+
+
+## Exact equal-pip legal branch-opening comparison with hidden-world dedup (2026-11-02)
+
+- Candidate pair must be a legal unopened-number single-double sequence versus a legal ordinary single, with exactly equal discarded pip sums. Equal pips control the removed point total only; tile identity and retained-hand geometry remain different.
+- Select among equal-pip candidate pairs by symmetric action-orbit, then member sampling. Use branch-label-symmetric continuation tie-breaks.
+- Fix each visible position, sample conditional hidden worlds, canonicalize complete seat/stock allocations, retain one copy per visible state, and report draws, unique assignments, duplicates, ESS, and matched continuation count.
+- Stratify next-opponent hand sizes 1 and 2–4 separately. If the one-stone quota is unmet, report it explicitly; do not borrow power from 2–4 positions or from a different continuation policy.
+- This is a paired decision/mechanism diagnostic, not a pure branch-unlock ablation or strategy win-rate. Branch geometry remains provisional; no tactic promotion without independent replication and physical-rule authentication.

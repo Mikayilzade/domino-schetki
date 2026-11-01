@@ -2428,3 +2428,20 @@ This is not a pure unlock ablation: tile identity/retained hand and sometimes pi
 ## Exact next action
 Replicate on fresh seeds from 3421020, expand equal-pip candidates, and seek an authentic table trace/ruling for global-vs-local number opening and block scoring.
 
+
+
+# Matched legal branch-opening choice + exact equal-pip audit — 2026-11-02 02:03:32 +04 (Asia/Baku)
+
+Fresh 3×9 cohorts using `qosha-research-0.5.3` and recovered `qosa-1.0.0`; global number-unlock/branch geometry remains provisional.
+
+- Minimum-gap matched legal-choice sample: seeds `3421020–3425019`, 3,480 unique deal allocations / 3,480 rounds / 160 selected positions; 3,356 finishes, 124 blocks, 0 unresolved. Hidden worlds: 7,680 draws, 1,964 within-state unique assignments, 5,716 repeats; 3,928 paired continuations.
+- Under min-hand-pips, double-opening vs ordinary single: next-opponent immediate finish +12.71 ± 5.68 pp; focal finish-first −22.32 ± 8.55 pp; focal remainder +2.12 ± 0.57 pips. Under closed-branch-control: +13.55 ± 6.14 pp; −24.68 ± 7.39 pp; +2.82 ± 0.69 pips. Only 11/160 candidate pairs were equal-pip.
+- Exact equal-pip cohort: seeds `3429020–3445019`, 16,000 unique deals / 16,000 rounds; 15,453 finishes, 547 blocks, 0 unresolved. 63 selected positions (30 min-hand-pips, 33 closed-branch-control), all exact equal-pip. Hidden worlds: 4,032 draws, 1,164 within-state unique assignments, 2,868 repeats; 2,328 paired continuations.
+- Exact-pip focal finish-first Δ: min-hand-pips −16.69 ± 9.46 pp (n=30); closed-branch-control −23.02 ± 12.51 pp (n=33). One-stone quota was not met (0 and 3 positions respectively); the three-position estimate +27.78 ± 28.81 pp for next-opponent finish is non-informative.
+- Main signal is consistent in direction but remains provisional/selected and confounded by retained-hand geometry, tile identity, two synthetic policies, pass-only hidden-world conditioning, and unauthenticated global-vs-local branch opening. No reliable tactic; no strategy promotion.
+- Tests: base matched-choice runner 6 assertions; new equal-pip/dedup runner 6 assertions, all passed.
+- Cumulative separate new cohorts: 19,480 unique deal allocations, 11,712 hidden-world draws, 3,128 within-state unique hidden-world records, 8,584 repeats, 6,256 paired continuations. Prior branch-label/property cohorts and strategy tournament remain unchanged.
+
+Exact next: from seed `3445020`, use policy-mixed symmetric discovery to increase one-stone equal-pip cases, then enumerate/hash-rank finite hidden-world support; replicate 2–4-stone exact-pip positions with another continuation policy and continue seeking physical branch/block rule evidence.
+
+Report: [2026-11-02-0203-matched-legal-choice-equal-pip.md](runs/2026-11-02-0203-matched-legal-choice-equal-pip.md); data: [minimum-gap JSON](runs/2026-11-02-branch-legal-choice-strata-dedup.json), [equal-pip JSON](runs/2026-11-02-equal-pip-legal-choice-dedup.json); runner: [branch-legal-equal-pip-dedup.js](simulator/branch-legal-equal-pip-dedup.js).
