@@ -95,3 +95,13 @@ The research initializer currently chooses the canonical `up` branch for the man
 ## Seeded opening follow-up side selector (2026-11-01)
 
 For the mandatory 1-1 follow-up, keep the initializer's canonical tile choice fixed and vary only the selected side. The validation selector uses unsigned seed modulo the four candidate sides, giving equal side mass over four seed residues. This is distributionally symmetric; do not claim same-seed deterministic mapped-choice equivariance in automorphic states. Compare against the canonical-up default on matched deals and identical continuation policies. Treat outcome changes as tie-break sensitivity, not strategy superiority, and keep physical four-branch authentication separate.
+
+
+## Within-state common-hidden-world regret on model-agreement positions (2026-11-01)
+
+- Count root legal-action-set disagreement between the global-ever-open and current-only branch models separately; do not merge disagreement positions into the agreement regret cohort.
+- Eligible regret states require at least two in-hand legal actions and identical root action keys in both models. Fix the focal hand, all played/known tiles, public branch geometry/opening state, and hidden hand sizes.
+- Sample hidden worlds uniformly from the remaining tile allocation conditional on those fixed facts. Reuse each exact hidden allocation for every candidate action; deduplicate within each visible state. If the conditional space is small, enumerate it or use a deterministic hash-ranked subset rather than waiting for impossible unique draws.
+- Force each candidate, then continue with the same policy and action-orbit tie-break. Evaluate global-ever-open and current-only continuations separately.
+- Report oracle regret per metric (first-finish chance, mean remainder, minus-finish risk, expected minus loss), plus unique states/worlds, candidate-world evaluations, finite-space method, duplicate count, and model assumptions. The oracle is hindsight over sampled worlds; it is not an executable perfect-information strategy.
+- Stratified small samples are diagnostic only; no strategy promotion or 101-match win-rate claim. Record pass-history conditioning (or its absence) explicitly.

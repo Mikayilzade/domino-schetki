@@ -1,3 +1,15 @@
+# Latest checkpoint — model-agreement common-world regret audit (2026-11-01 09:54:30 +04 (Asia/Baku))
+
+- [Report](runs/2026-11-01-0954-model-agreement-common-world-regret.md); [JSON](runs/2026-11-01-0954-model-agreement-common-world-regret.json). Source head before this checkpoint: `4983bcf6c16bcdaccba4e5f0b16043f23d49c0e1`.
+- 250 unique deals, seeds 3409720–3409969; 6,342 decision positions; global/current-only legal action sets differ in 1,161 (18.31%). 3,102 unique agreement choice states.
+- 24 stratified agreement states; 334 unique hidden allocations (128 seeded draws, 0 duplicates); 1,435 candidate-world evaluations per model / 2,870 full rounds; 0 unresolved and 0 candidate-set drift.
+- Mean oracle regret (global/current-only): first-finish chance 2.86/2.38 pp; mean remainder 0.122/0.753 pips; minus risk 10.49/6.25 pp; expected minus loss 1.10/0.625 pips. Exploratory only; no strategy promoted.
+- Reference opening regression matched exactly (500 deals; 474 follow-ups / 26 passes; side counts 118/118/120/118). Tests passed. Python audit port used; no native Node checkout and no engine/PWA source change.
+- Cumulative separate validation/opening/tie-break allocations: **3,950**; property-audit count remains 39,262; strategy-strength holdout unchanged.
+- **Next:** persist a native Node runner, then repeat on seeds 3409970–3410469 with ≥72 agreement states and up to 24 unique hidden worlds/state; analyze root model-disagreement positions separately.
+
+---
+
 # Latest checkpoint — independent symmetric-opener tie-break replication (2026-11-01 08:54 +04, Asia/Baku)
 
 - [Runner](simulator/opening-symmetric-continuation-tiebreak-audit.js); [report](runs/2026-11-01-0854-opening-symmetric-continuation-tiebreak-replication.md); [JSON](runs/2026-11-01-0854-opening-symmetric-continuation-tiebreak-replication.json). Engine qosa-research-0.5.3; recovered qosa-1.0.0 3×9+stock. Late-arrival reopening and blocked-tie scoring remain PROVISIONAL.

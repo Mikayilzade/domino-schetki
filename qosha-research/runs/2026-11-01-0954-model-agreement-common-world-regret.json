@@ -1,0 +1,430 @@
+{
+  "schema": "qosha-model-agreement-common-world-regret/v1",
+  "timestampAsiaBaku": "2026-11-01T09:54:30+04:00",
+  "engineVersion": "qosha-research Python audit port 0.1.0; based on qosa-research-0.5.3 source",
+  "rulesVersion": "recovered qosa-1.0.0; 3 players × 9 stones + 1 stock",
+  "sourceCommit": "4983bcf6c16bcdaccba4e5f0b16043f23d49c0e1",
+  "sourceBlobShas": {
+    "simulator/engine.js": "82e5bd544a57683d5b4f7812beb2d4abf80da894",
+    "simulator/initializer.js": "2fad29e516454580ec9a06115354e9866f3096e6",
+    "simulator/turn-dispatcher.js": "55b0bcf3f1653c64b4e06bc95d7e917a480562a0",
+    "simulator/round-driver.js": "fbaad78865adbddde1ea6651e6a501dc0bde3203",
+    "simulator/strategy-runner.js": "b7078942bc8f5dac6a8b07494ae8aaeadbdb1f5f",
+    "simulator/branch-current-full-round.js": "729ccfb3a55328a960e5a3a9a10ea3bcbb45e412",
+    "simulator/branch-side-full-round.js": "19d9a20c64db756353e1afeb62e3ca67ba6b34f8",
+    "simulator/hidden-world.js": "4be7ec6e0d47e999911421e035c3f439a544e9f8",
+    "simulator/decision-regret.js": "decf4ae09705176a2ea4eb9759457622a2a57294"
+  },
+  "dealCohort": {
+    "startSeed": 3409720,
+    "endSeed": 3409969,
+    "seedDraws": 250,
+    "uniqueAllocations": 250,
+    "duplicateAllocationPairs": 0,
+    "decisionPositions": 6342,
+    "modelDisagreementPositions": 1161,
+    "modelDisagreementRate": 0.18306527909176915,
+    "uniqueAgreementChoiceStates": 3102,
+    "terminalKinds": {
+      "finish": 240,
+      "block": 10,
+      "unresolved": 0
+    },
+    "trajectoryPolicy": "closed-branch-control with symmetric action-orbit tie-break",
+    "trajectoryBranchModel": "global-ever-open"
+  },
+  "referenceOpeningCompatibility": {
+    "cohortSeeds": "3408220..3408719",
+    "uniqueAllocations": 500,
+    "followups": 474,
+    "passes": 26,
+    "sideCounts": {
+      "up": 118,
+      "left": 118,
+      "right": 120,
+      "down": 118
+    },
+    "matchesCommittedAudit": true
+  },
+  "selection": {
+    "selectedStates": 24,
+    "oneStatePerDeal": true,
+    "stratification": "2 states per cell: candidate counts 2 / 3 / 4-6 / 7-8 × early(turn<=8) / mid(9..18) / late(turn>=19)",
+    "rootActionSetAgreementRequired": true,
+    "selectedStateMetadata": [
+      {
+        "stateIndex": 0,
+        "dealSeed": 3409742,
+        "turn": 3,
+        "candidateCount": 2,
+        "hiddenWorldSpace": 12870,
+        "uniqueWorlds": 16,
+        "method": "seeded-sampling-without-replacement",
+        "actionBin": "2",
+        "phase": "early"
+      },
+      {
+        "stateIndex": 1,
+        "dealSeed": 3409854,
+        "turn": 4,
+        "candidateCount": 2,
+        "hiddenWorldSpace": 12870,
+        "uniqueWorlds": 16,
+        "method": "seeded-sampling-without-replacement",
+        "actionBin": "2",
+        "phase": "early"
+      },
+      {
+        "stateIndex": 2,
+        "dealSeed": 3409759,
+        "turn": 16,
+        "candidateCount": 2,
+        "hiddenWorldSpace": 56,
+        "uniqueWorlds": 16,
+        "method": "enumerated-space-hash-subset",
+        "actionBin": "2",
+        "phase": "mid"
+      },
+      {
+        "stateIndex": 3,
+        "dealSeed": 3409829,
+        "turn": 18,
+        "candidateCount": 2,
+        "hiddenWorldSpace": 330,
+        "uniqueWorlds": 16,
+        "method": "enumerated-space-hash-subset",
+        "actionBin": "2",
+        "phase": "mid"
+      },
+      {
+        "stateIndex": 4,
+        "dealSeed": 3409761,
+        "turn": 20,
+        "candidateCount": 2,
+        "hiddenWorldSpace": 35,
+        "uniqueWorlds": 16,
+        "method": "enumerated-space-hash-subset",
+        "actionBin": "2",
+        "phase": "late"
+      },
+      {
+        "stateIndex": 5,
+        "dealSeed": 3409904,
+        "turn": 21,
+        "candidateCount": 2,
+        "hiddenWorldSpace": 6,
+        "uniqueWorlds": 6,
+        "method": "exact-enumeration",
+        "actionBin": "2",
+        "phase": "late"
+      },
+      {
+        "stateIndex": 6,
+        "dealSeed": 3409741,
+        "turn": 7,
+        "candidateCount": 3,
+        "hiddenWorldSpace": 1716,
+        "uniqueWorlds": 16,
+        "method": "seeded-sampling-without-replacement",
+        "actionBin": "3",
+        "phase": "early"
+      },
+      {
+        "stateIndex": 7,
+        "dealSeed": 3409868,
+        "turn": 1,
+        "candidateCount": 3,
+        "hiddenWorldSpace": 24310,
+        "uniqueWorlds": 16,
+        "method": "seeded-sampling-without-replacement",
+        "actionBin": "3",
+        "phase": "early"
+      },
+      {
+        "stateIndex": 8,
+        "dealSeed": 3409726,
+        "turn": 10,
+        "candidateCount": 3,
+        "hiddenWorldSpace": 462,
+        "uniqueWorlds": 16,
+        "method": "enumerated-space-hash-subset",
+        "actionBin": "3",
+        "phase": "mid"
+      },
+      {
+        "stateIndex": 9,
+        "dealSeed": 3409955,
+        "turn": 13,
+        "candidateCount": 3,
+        "hiddenWorldSpace": 126,
+        "uniqueWorlds": 16,
+        "method": "enumerated-space-hash-subset",
+        "actionBin": "3",
+        "phase": "mid"
+      },
+      {
+        "stateIndex": 10,
+        "dealSeed": 3409746,
+        "turn": 19,
+        "candidateCount": 3,
+        "hiddenWorldSpace": 15,
+        "uniqueWorlds": 15,
+        "method": "exact-enumeration",
+        "actionBin": "3",
+        "phase": "late"
+      },
+      {
+        "stateIndex": 11,
+        "dealSeed": 3409778,
+        "turn": 21,
+        "candidateCount": 3,
+        "hiddenWorldSpace": 35,
+        "uniqueWorlds": 16,
+        "method": "enumerated-space-hash-subset",
+        "actionBin": "3",
+        "phase": "late"
+      },
+      {
+        "stateIndex": 12,
+        "dealSeed": 3409806,
+        "turn": 2,
+        "candidateCount": 6,
+        "hiddenWorldSpace": 12870,
+        "uniqueWorlds": 16,
+        "method": "seeded-sampling-without-replacement",
+        "actionBin": "4-6",
+        "phase": "early"
+      },
+      {
+        "stateIndex": 13,
+        "dealSeed": 3409932,
+        "turn": 4,
+        "candidateCount": 4,
+        "hiddenWorldSpace": 6435,
+        "uniqueWorlds": 16,
+        "method": "seeded-sampling-without-replacement",
+        "actionBin": "4-6",
+        "phase": "early"
+      },
+      {
+        "stateIndex": 14,
+        "dealSeed": 3409914,
+        "turn": 11,
+        "candidateCount": 6,
+        "hiddenWorldSpace": 792,
+        "uniqueWorlds": 16,
+        "method": "enumerated-space-hash-subset",
+        "actionBin": "4-6",
+        "phase": "mid"
+      },
+      {
+        "stateIndex": 15,
+        "dealSeed": 3409839,
+        "turn": 16,
+        "candidateCount": 6,
+        "hiddenWorldSpace": 126,
+        "uniqueWorlds": 16,
+        "method": "enumerated-space-hash-subset",
+        "actionBin": "4-6",
+        "phase": "mid"
+      },
+      {
+        "stateIndex": 16,
+        "dealSeed": 3409803,
+        "turn": 22,
+        "candidateCount": 6,
+        "hiddenWorldSpace": 4,
+        "uniqueWorlds": 4,
+        "method": "exact-enumeration",
+        "actionBin": "4-6",
+        "phase": "late"
+      },
+      {
+        "stateIndex": 17,
+        "dealSeed": 3409912,
+        "turn": 25,
+        "candidateCount": 4,
+        "hiddenWorldSpace": 3,
+        "uniqueWorlds": 3,
+        "method": "exact-enumeration",
+        "actionBin": "4-6",
+        "phase": "late"
+      },
+      {
+        "stateIndex": 18,
+        "dealSeed": 3409952,
+        "turn": 2,
+        "candidateCount": 7,
+        "hiddenWorldSpace": 24310,
+        "uniqueWorlds": 16,
+        "method": "seeded-sampling-without-replacement",
+        "actionBin": "7-8",
+        "phase": "early"
+      },
+      {
+        "stateIndex": 19,
+        "dealSeed": 3409730,
+        "turn": 2,
+        "candidateCount": 8,
+        "hiddenWorldSpace": 12870,
+        "uniqueWorlds": 16,
+        "method": "seeded-sampling-without-replacement",
+        "actionBin": "7-8",
+        "phase": "early"
+      },
+      {
+        "stateIndex": 20,
+        "dealSeed": 3409851,
+        "turn": 13,
+        "candidateCount": 7,
+        "hiddenWorldSpace": 126,
+        "uniqueWorlds": 16,
+        "method": "enumerated-space-hash-subset",
+        "actionBin": "7-8",
+        "phase": "mid"
+      },
+      {
+        "stateIndex": 21,
+        "dealSeed": 3409793,
+        "turn": 10,
+        "candidateCount": 7,
+        "hiddenWorldSpace": 462,
+        "uniqueWorlds": 16,
+        "method": "enumerated-space-hash-subset",
+        "actionBin": "7-8",
+        "phase": "mid"
+      },
+      {
+        "stateIndex": 22,
+        "dealSeed": 3409758,
+        "turn": 19,
+        "candidateCount": 7,
+        "hiddenWorldSpace": 56,
+        "uniqueWorlds": 16,
+        "method": "enumerated-space-hash-subset",
+        "actionBin": "7-8",
+        "phase": "late"
+      },
+      {
+        "stateIndex": 23,
+        "dealSeed": 3409860,
+        "turn": 30,
+        "candidateCount": 7,
+        "hiddenWorldSpace": 2,
+        "uniqueWorlds": 2,
+        "method": "exact-enumeration",
+        "actionBin": "7-8",
+        "phase": "late"
+      }
+    ]
+  },
+  "hiddenWorlds": {
+    "uniqueAllocations": 334,
+    "seedDraws": 128,
+    "duplicateAllocations": 0,
+    "methods": {
+      "seededSamplingWithoutReplacement": 8,
+      "enumeratedSpaceHashSubset": 11,
+      "exactEnumeration": 5
+    },
+    "candidateWorldEvaluationsPerModel": 1435,
+    "fullRoundEvaluationsBothModels": 2870,
+    "unresolvedRounds": 0,
+    "candidateSetDriftAcrossWorlds": 0,
+    "conditioning": "uniform allocations given focal hand, played/known tiles, hidden hand sizes, and stock size; no pass-history conditioning"
+  },
+  "continuation": {
+    "rootPolicy": "closed-branch-control with action-orbit tie-break; uses public state and focal hand",
+    "continuationPolicy": "same closed-branch-control action-orbit policy for all candidate actions",
+    "models": [
+      "global-ever-open",
+      "current-only"
+    ],
+    "regretDefinition": "per-state hindsight oracle regret: best candidate metric across sampled worlds minus/against the policy-selected candidate; models evaluated separately"
+  },
+  "regret": {
+    "global": {
+      "firstFinishRate": {
+        "mean": 0.028645833333333332,
+        "median": 0,
+        "positiveStates": 6,
+        "max": 0.3125
+      },
+      "meanRemainderPips": {
+        "mean": 0.12239583333333333,
+        "median": 0,
+        "positiveStates": 4,
+        "max": 1
+      },
+      "minusFinishRisk": {
+        "mean": 0.10486111111111111,
+        "median": 0,
+        "positiveStates": 9,
+        "max": 1
+      },
+      "expectedMinusLossPips": {
+        "mean": 1.1006944444444444,
+        "median": 0,
+        "positiveStates": 9,
+        "max": 10
+      }
+    },
+    "currentOnly": {
+      "firstFinishRate": {
+        "mean": 0.02378472222222222,
+        "median": 0,
+        "positiveStates": 6,
+        "max": 0.1875
+      },
+      "meanRemainderPips": {
+        "mean": 0.7526041666666666,
+        "median": 0,
+        "positiveStates": 8,
+        "max": 5.5
+      },
+      "minusFinishRisk": {
+        "mean": 0.0625,
+        "median": 0,
+        "positiveStates": 3,
+        "max": 1
+      },
+      "expectedMinusLossPips": {
+        "mean": 0.625,
+        "median": 0,
+        "positiveStates": 3,
+        "max": 10
+      }
+    }
+  },
+  "tests": {
+    "passed": true,
+    "dealSeeds": 100,
+    "referenceOpeningDeals": 500,
+    "hiddenWorldFixtures": 3,
+    "regretReplayStates": 2,
+    "regretReplayWorlds": 4,
+    "candidateWorldEvaluationsPerModel": 14,
+    "fullRoundEvaluations": 28,
+    "failures": 0
+  },
+  "cumulative": {
+    "validationOpeningTieBreakAllocations": 3950,
+    "reachablePositionPropertyAuditCountUnchanged": 39262,
+    "strategyStrengthHoldoutUnchanged": {
+      "deals": 1500,
+      "armRounds": 18000,
+      "separatePilotDeals": 120,
+      "separatePilotArmRounds": 1440
+    },
+    "newStrategyStrengthComparisons": 0
+  },
+  "interpretation": "The two provisional branch models disagree on legal action sets in 18.31% of decision positions in this global-model trajectory cohort. This diagnoses material rule-model sensitivity, not physical rule truth or a strategy advantage. The regret sample is exploratory and small.",
+  "limitations": [
+    "Physical late-arrival reopening and block/tie scoring remain unauthenticated.",
+    "The exact cohort was executed using a standard-library Python port of GitHub source contracts, not a clean Node checkout; source blob SHAs are recorded.",
+    "Only 24 selected agreement states and 334 conditional hidden allocations; no inferential CI.",
+    "The hidden-world sampler does not condition on public pass-history evidence.",
+    "No 101-match scoring, human win-rate estimate, or strategy-strength tournament."
+  ],
+  "exactNextAction": "Persist a native Node runner around the existing engine/hidden-world/decision-regret modules, then repeat on disjoint deal seeds 3409970..3410469 with at least 72 agreement states and up to 24 unique hidden worlds per state; keep root model-disagreement states in a separate cohort."
+}
