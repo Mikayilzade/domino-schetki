@@ -1,0 +1,83 @@
+{
+  "schema": "qosha-seed-preflight/v1",
+  "timestampAsiaBaku": "2026-11-01 18:57:59 +04 (Asia/Baku)",
+  "engineVersion": "qosha-research-0.5.3",
+  "rulesVersion": "recovered qosa-1.0.0",
+  "mode": {
+    "players": 3,
+    "handSize": 9,
+    "stockSize": 1
+  },
+  "seedStart": 3413170,
+  "seedEnd": 3413569,
+  "deals": 400,
+  "uniqueFullAllocations": 400,
+  "duplicateAllocations": 0,
+  "tileConservationChecks": 400,
+  "deterministicReplayChecks": 400,
+  "handCount": 1200,
+  "handDoubleCountHistogram": [
+    49,
+    239,
+    439,
+    328,
+    124,
+    18,
+    3,
+    0
+  ],
+  "expectedHandDoubleCountHistogram": [
+    51.06719367588933,
+    247.47947704469445,
+    424.25053207661904,
+    329.97263605959256,
+    123.73973852234722,
+    21.836424445120098,
+    1.617512921860748,
+    0.036485253876558224
+  ],
+  "meanDoublesPerHand": 2.254166666666667,
+  "expectedMeanDoublesPerHand": 2.25,
+  "meanPipsPerHand": 54.03666666666667,
+  "expectedMeanPipsPerHand": 54,
+  "oneOneLocationCounts": {
+    "seat0": 117,
+    "seat1": 128,
+    "seat2": 142,
+    "stock": 13
+  },
+  "expectedOneOneLocationCounts": {
+    "eachSeat": 128.57142857142858,
+    "stock": 14.285714285714286
+  },
+  "specificDoubleOwnershipCounts": [
+    380,
+    387,
+    382,
+    388,
+    390,
+    390,
+    388
+  ],
+  "expectedOwnershipPerSpecificDouble": 385.7142857142857,
+  "fullRoundSimulations": 0,
+  "strategies": [],
+  "finding": "Seed/deal preflight only; no game outcomes or strategy labels were evaluated.",
+  "limitations": [
+    "The planned fixed-10% pass-choice holdout was not executed in this run.",
+    "The preflight inspected only deal allocation, conservation, and seed replay; it did not evaluate pass labels, outcomes, or tune the locked prior.",
+    "Full simulator checkout could not be launched because github.com DNS resolution failed in the container; Node v22.16.0 was used for the standalone deal-level harness."
+  ],
+  "confidence": "High for deterministic deal replay, tile conservation, and allocation accounting. No strategy-strength inference.",
+  "cumulative": {
+    "separateValidationOpeningTieBreakAllocations": 7150,
+    "reachablePropertyAuditPositions": 39262,
+    "strategyStrengthHoldoutDeals": 1500,
+    "strategyStrengthHoldoutArmRounds": 18000,
+    "additionalPilotDeals": 120,
+    "additionalPilotArmRounds": 1440,
+    "dealPreflightDealsThisRun": 400,
+    "dealPreflightUniqueAllocationsThisRun": 400
+  },
+  "exactNextAction": "Run the locked 10% closed-control prior pass-choice holdout on seeds 3413170–3413569 with no reselection; report state-clustered Brier and unique hidden-world/ESS counts. If the interval includes zero again, close the choice-history weighting line as unsupported and prioritize authenticated physical branch/block traces."
+}

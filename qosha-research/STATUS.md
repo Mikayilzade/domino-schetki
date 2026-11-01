@@ -1,8 +1,8 @@
-# Latest checkpoint — discovery-selected prior-grid pass-choice holdout (2026-11-01 17:50:15 +04)
+# Latest checkpoint — seed preflight for locked 10% prior holdout (2026-11-01 18:57:59 +04)
 
-- Seeds 3412770–3413169: 400 unique allocations, 200/200 discovery/holdout; 4,800 diagnostic rounds, 4599 finishes / 201 blocks, 0 unresolved.
-- Discovery grid 10/20/50/80% closed-control prior; selected 10% by maximum positive state-clustered Brier gain. Holdout: 35 states / 46 labels; pass-only 0.12371, selected mixture 0.12066, gain +0.00553 ± 0.01187 (approx. 95%, includes zero).
-- Hidden worlds: 16512 draws, 3952 unique within visible states, 12560 repeats; holdout uncertain-state ESS 55.47/64, unique worlds 25.34 mean.
-- Regression: prior-grid deterministic/accounting test passed 10 checks. No reliable predictive gain; no tactic promoted. Physical branch reopening/block scoring remain provisional.
-- Cumulative separate allocation cohorts: **7,150**; property-audit positions **39,262**; strategy holdout **1,500 deals / 18,000 arm-rounds** (+120 pilot / 1,440).
-- Next: lock 10% prior and test once on disjoint seeds **3413170–3413569** without re-selection; if uncertainty persists, prioritize physical rule authentication.
+- Seeds 3413170–3413569: 400 deal allocations, **400 unique / 0 duplicates**; 400 deterministic replay checks and 400 full 28-tile conservation checks passed.
+- Deal sanity: 1,200 hands, mean doubles 2.2542 vs 2.25 expectation; mean pips 54.0367 vs 54. `1-1` in stock 13/400 vs 14.29 expected. No game rounds or strategy outcomes were simulated.
+- The fixed 10% pass-choice holdout remains locked and **not yet executed**. No Brier/regret data, no prior reselection, no tactic promoted.
+- Cumulative: separate validation/opening/tie-break allocations **7,150**; property-audit positions **39,262**; strategy holdout **1,500 deals / 18,000 arm-rounds** (+120 pilot / 1,440). This 400-deal sampler preflight is tracked separately.
+- Execution limitation: container could not resolve github.com for a clean repository checkout. Node v22.16.0 ran a standalone deal-level harness; the committed runner is intended for the full repository checkout.
+- Exact next: run the fixed 10% prior on seeds **3413170–3413569** with no reselection and report state-clustered Brier plus hidden-world uniqueness/ESS. If uncertainty persists, close choice-history weighting as unsupported and prioritize physical branch/block authentication.

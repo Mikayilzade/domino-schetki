@@ -119,3 +119,6 @@ When a visible state includes forced-pass evidence and two provisional branch mo
 ## Per-state hidden-world uniqueness accounting (2026-11-01)
 
 For importance-sampled Monte Carlo with replacement, report seed draws, unique complete allocations **within each visible state**, and duplicate draws separately. Do not label repeated draws as unique worlds; preserve draw multiplicity only when the estimator is explicitly with-replacement. Report the per-state unique-count distribution and importance-weight ESS as different quantities. In any train/holdout split, keep deal/state clusters disjoint and prevent canonical hidden allocations from leaking across cohorts. When a conditional state space is small, prefer exact enumeration or deterministic unique-world sampling and report method/coverage.
+## Holdout allocation preflight (2026-11-01)
+
+Deal-level checks on a locked holdout seed set may verify only deterministic replay, complete allocation uniqueness, 28-tile conservation, and broad sampler sanity. They must not inspect game outcomes/pass labels, select or tune a model, or change a preregistered prior. Report these preflight deals separately; they do not count as evaluated holdout samples until the full runner emits the planned outcome labels and metrics.
