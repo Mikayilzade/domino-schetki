@@ -68,7 +68,7 @@ function chooseOrbit(opts, state, ctx) {
     Math.imul((ctx.player || 0) + 1, 0x85ebca6b) ^
     (ctx.salt || 0);
   // The extra mix matches the V8 audit's seeded orbit tie-break.
-  const random = e.xorshift32(e.mixSeed32(e.mixSeed32(seed)));
+  const random = e.xorshift32(e.mixSeed32(seed));
   const group = sortedGroups[Math.floor(random() * sortedGroups.length)][1];
   return group[Math.floor(random() * group.length)];
 }
