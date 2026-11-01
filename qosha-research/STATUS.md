@@ -1,3 +1,13 @@
+# Latest checkpoint — independent symmetric-opener tie-break replication (2026-11-01 08:54 +04, Asia/Baku)
+
+- [Runner](simulator/opening-symmetric-continuation-tiebreak-audit.js); [report](runs/2026-11-01-0854-opening-symmetric-continuation-tiebreak-replication.md); [JSON](runs/2026-11-01-0854-opening-symmetric-continuation-tiebreak-replication.json). Engine qosa-research-0.5.3; recovered qosa-1.0.0 3×9+stock. Late-arrival reopening and blocked-tie scoring remain PROVISIONAL.
+- 500 unique allocations, seeds 3409220–3409719; symmetric opener: 954 follow-ups / 46 passes, sides up 234 / left 238 / right 240 / down 242; 1,000 conservation checks, 0 failures.
+- 3,000 paired comparisons / 6,000 rounds. Mix 1: 55/1,500 outcome-kind changes (3.67%), 285/1,427 first-finisher changes (19.97%). Mix 2: 90/1,500 (6.00%), 307/1,398 (21.96%). Pooled descriptively with the prior disjoint 500-deal cohort: first-finisher changes 20.47% (Mix 1) / 22.53% (Mix 2). Tie-break sensitivity only; not strategy superiority. 0 unresolved rounds, 0 new hidden worlds/regret/strategy-strength samples.
+- Regression test passed: 8 replay deals / 48 pairs. Cumulative validation/opening/tie-break allocations: **3,700**; reachable-position audits remain 39,262; strategy-strength holdout unchanged.
+- **Next:** isolate reachable positions where the two provisional branch models agree and run common-hidden-world within-state regret; keep model-disagreement positions separate and continue seeking physical rule authentication.
+
+---
+
 # Latest checkpoint — opening-symmetric continuation tie-break audit (2026-11-01 07:46 +04, Asia/Baku)
 
 - [Runner](simulator/opening-symmetric-continuation-tiebreak-audit.js); [report](runs/2026-11-01-0746-opening-symmetric-continuation-tiebreak-audit.md); [JSON](runs/2026-11-01-0746-opening-symmetric-continuation-tiebreak-audit.json). Engine qosa-research-0.5.3; recovered qosa-1.0.0 3×9+stock. Physical branch reopening and block/tie scoring remain provisional.
