@@ -142,10 +142,19 @@ function visibleSignature(state, currentState, played) {
     played.map(tileKey).sort().join(',')
   ].join('#');
 }
+function makePassSnapshot(gs,cs,p,playedEvents){
+  return {player:p,turn:gs.turns,handSizeAtPass:gs.hands[p].length,playedLogLength:playedEvents.length,
+    stockEmpty:gs.stock.length===0&&cs.stock.length===0,
+    global:{branchState:e.cloneBranchState(gs.branchState),openingState:e.cloneOpeningState(gs.openingState)},
+    current:{branchState:e.cloneBranchState(cs.branchState),
+      openBySide:Object.fromEntries(SIDES.map(side=>[side,[...cs.openBySide[side]]])),
+      usedNumbers:[...cs.usedNumbers]}};
+}
 function collectAgreementStates(startSeed,deals){
   const fullDeals=new Set(),seenVisible=new Set(),seenDisagreement=new Set();
   const candidates=[],disagreementCandidates=[];
   let decisions=0,actionSetDisagreements=0,commonHistoryDecisions=0,firstDivergences=0,postDivergenceDisagreements=0;
+  let passEvents=0,skippedPasses=0;
   let eligibleMultiAction=0,openingFollowups=0,openingPasses=0,firstDivergenceNoCommonActionPositions=0,firstDivergenceCommonMultiActionPositions=0;
   let firstDivergenceGlobalOnlyActionCount=0,firstDivergenceCurrentOnlyActionCount=0,firstDivergenceCommonActionCount=0;
   const firstDivergenceCommonActionHistogram={},openingSideCounts={up:0,left:0,right:0,down:0};
@@ -157,11 +166,17 @@ function collectAgreementStates(startSeed,deals){
       chooseFollowupSide:sides=>sides[(seed>>>0)%sides.length]});
     check(base.kind==='ready','initializer did not resolve seed '+seed);
     const gs=r.cloneRoundState(base),csState=currentFromBase(base),played=[[1,1]];
-    if(base.openingFollowup){played.push([...base.openingFollowup.tile]);openingFollowups++;openingSideCounts[base.openingFollowup.side]++;}else openingPasses++;
+    const playedEvents=[{player:base.starter,tile:[1,1]}],passHistory=[];
+    if(base.openingFollowup){played.push([...base.openingFollowup.tile]);playedEvents.push({player:base.starter,tile:[...base.openingFollowup.tile]});openingFollowups++;openingSideCounts[base.openingFollowup.side]++;}else openingPasses++;
+    if(base.openingPassed){passHistory.push(makePassSnapshot(gs,csState,base.starter,playedEvents));passEvents++;}
     let commonHistory=true;
     for(let guard=0;!gs.outcome&&guard<200;guard++){
       const gKeys=globalActionKeys(gs),cKeys=currentActionKeys(csState);decisions++;if(commonHistory)commonHistoryDecisions++;
       const same=JSON.stringify(gKeys)===JSON.stringify(cKeys);
+      if(commonHistory&&!gKeys.length&&!cKeys.length){
+        if(gs.stock.length===0&&csState.stock.length===0){passHistory.push(makePassSnapshot(gs,csState,gs.currentPlayer,playedEvents));passEvents++;}
+        else skippedPasses++;
+      }
       if(!same){
         actionSetDisagreements++;
         if(commonHistory){
@@ -177,6 +192,7 @@ function collectAgreementStates(startSeed,deals){
             const go=d.turnOptions(gs.branchState,gs.openingState,gs.hands[gs.currentPlayer],gs.stock),co=currentOptions(csState);
             const gm=new Map(go.actions.map(a=>[regret.actionKey(a),a])),cm=new Map(co.actions.map(a=>[regret.actionKey(a),a]));
             disagreementCandidates.push({seed,signature:sig,state:r.cloneRoundState(gs),current:cloneCurrentState(csState),played:played.map(t=>[...t]),
+              playedEvents:playedEvents.map(x=>({player:x.player,tile:[...x.tile]})),passHistory:passHistory.slice(),
               actionKeys:common,candidateKeys:common,commonActionKeys:common,globalActionKeys:gKeys,currentActionKeys:cKeys,
               globalOnlyActionKeys:gOnly,currentOnlyActionKeys:cOnly,commonActionCount:common.length,globalActionCount:gKeys.length,
               currentActionCount:cKeys.length,actionCount:common.length,turn:gs.turns,
@@ -193,7 +209,7 @@ function collectAgreementStates(startSeed,deals){
       }
       if(!same)commonHistory=false;
       let chosen=null;const next=r.stepRound(gs,(opts,state)=>{chosen=chooseOrbit(opts,state,{seed,turns:state.turns,player:state.currentPlayer,salt:7});return chosen;});
-      if(chosen)played.push(...actionTiles(chosen).map(t=>[...t]));
+      if(chosen)for(const tile of actionTiles(chosen)){played.push([...tile]);playedEvents.push({player:gs.currentPlayer,tile:[...tile]});}
       syncCurrentAfterGlobal(csState,next,chosen);
       check(next.hands.flat().concat(next.stock).length+played.length===28,'trajectory tile conservation seed '+seed);
       Object.assign(gs,next);
@@ -210,7 +226,7 @@ function collectAgreementStates(startSeed,deals){
     firstDivergenceCommonActionHistogram,uniqueVisibleFirstDivergenceStates:disagreementCandidates.length,
     eligibleMultiActionPositions:eligibleMultiAction,historyAgreementEligibleMultiActionPositions:eligibleMultiAction,
     uniqueVisibleAgreementStates:candidates.length,uniqueSeedsWithCandidate:new Set(candidates.map(x=>x.seed)).size,
-    openingFollowups,openingPasses,openingFollowupSideCounts:openingSideCounts}};
+    openingFollowups,openingPasses,openingFollowupSideCounts:openingSideCounts,passEvents,skippedPasses}};
 }
 function selectStates(candidates, target) {
   const cells = new Map();
