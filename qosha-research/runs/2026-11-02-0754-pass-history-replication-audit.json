@@ -1,0 +1,120 @@
+{
+  "timestampBaku": "2026-11-02T07:54:13+04:00",
+  "audit": "independent-seed pass-history model-gap replication; no new deals simulated",
+  "engine": "qosha-research-0.5.3; recovered qosa-1.0.0, 3x9; global-ever-open/current-only branch models provisional",
+  "metric": "state-cluster mean focal first-finish chance: global-ever-open minus current-only, on exact joint pass-consistent support",
+  "cohorts": [
+    {
+      "id": "A",
+      "reservedSeeds": [
+        3455101,
+        3457600
+      ],
+      "scannedThrough": 3457406,
+      "uniqueDealAllocations": 2306,
+      "selectedLateStates": 300,
+      "jointSupportMultiActionStates": 50,
+      "exactJointStateWorldAssignments": 249,
+      "duplicateAllocations": 0,
+      "profiles": [
+        "closed-branch-control",
+        "min-hand-pips",
+        "fast-doubles"
+      ],
+      "candidateWorldPairsPerProfile": 698,
+      "modelRolloutsPerProfile": 1396,
+      "estimatesPp": {
+        "closed-branch-control": {
+          "mean": 20.08333333333333,
+          "ci95HalfWidth": 9.619702582605026
+        },
+        "min-hand-pips": {
+          "mean": 20.08333333333333,
+          "ci95HalfWidth": 9.619702582605026
+        },
+        "fast-doubles": {
+          "mean": 19.483333333333334,
+          "ci95HalfWidth": 9.569613013021742
+        }
+      }
+    },
+    {
+      "id": "B",
+      "reservedSeeds": [
+        3457601,
+        3464100
+      ],
+      "scannedThrough": 3462717,
+      "uniqueDealAllocations": 5117,
+      "selectedLateStates": 700,
+      "jointSupportMultiActionStates": 111,
+      "exactJointStateWorldAssignments": 610,
+      "duplicateAllocations": 0,
+      "profiles": [
+        "closed-branch-control",
+        "min-hand-pips",
+        "fast-doubles",
+        "moderate-double-hold"
+      ],
+      "candidateWorldPairsPerProfile": 1586,
+      "modelRolloutsPerProfile": 3172,
+      "estimatesPp": {
+        "closed-branch-control": {
+          "mean": 26.39514514514515,
+          "ci95HalfWidth": 6.323740968908158
+        },
+        "min-hand-pips": {
+          "mean": 26.16991991991992,
+          "ci95HalfWidth": 6.340860976979887
+        },
+        "fast-doubles": {
+          "mean": 25.809559559564,
+          "ci95HalfWidth": 6.33289656659746
+        },
+        "moderate-double-hold": {
+          "mean": 26.16991991991992,
+          "ci95HalfWidth": 6.340860976979887
+        }
+      }
+    }
+  ],
+  "independentCohortComparisonsPp": {
+    "closed-branch-control": {
+      "bMinusA": 6.311811811811818,
+      "ci95HalfWidth": 11.51209701225738
+    },
+    "min-hand-pips": {
+      "bMinusA": 6.08658658658659,
+      "ci95HalfWidth": 11.521510131365773
+    },
+    "fast-doubles": {
+      "bMinusA": 6.326226226226231,
+      "ci95HalfWidth": 11.47532451397344
+    }
+  },
+  "profileSensitivityPp": {
+    "cohortA": {
+      "closedMinusFast": 0.6,
+      "minMatchesClosed": true
+    },
+    "cohortB": {
+      "rangeAcrossFourProfiles": 0.5855855855855852,
+      "moderateMatchesMin": true
+    }
+  },
+  "cumulativeAcrossThreeSeparateCohorts": {
+    "uniqueDealAllocations": 8233,
+    "jointSupportMultiActionStates": 178,
+    "stateWorldAssignments": 911,
+    "note": "state-world assignments are not globally unique allocations"
+  },
+  "finding": "Direction of the global-ever-open minus current-only first-finish model gap replicated in both disjoint cohorts; cross-cohort magnitude shift is not detectable with the descriptive independent-cohort intervals. No tactic promoted.",
+  "limitations": [
+    "No fresh deals were simulated in this checkpoint; local git checkout failed because github.com DNS could not be resolved.",
+    "Selected late states from a current-only counterfactual discovery process; not population-representative.",
+    "Pass consistency used without opponent-choice likelihood.",
+    "Both branch interpretations and block/scoring rules remain provisional or unauthenticated.",
+    "Intervals are descriptive state-cluster normal intervals, not population-level uncertainty."
+  ],
+  "exactNextAction": "Run a fresh seed window starting at 3464101, target at least 150 joint-support multi-action states, retain per-cohort summaries, compare moderate-double-hold regret/model gap on identical exact hidden worlds, and seek an authentic branch/block ruling."
+}

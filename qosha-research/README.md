@@ -27,6 +27,6 @@
 
 ## Latest checkpoint
 
-2026-11-02 06:47 +04: added matched `moderate-double-hold` continuation profile. On 111 joint-support multi-action states it matched min-hand-pips in aggregate; no detectable profile effect versus closed-branch-control. No tactic promoted; branch/block rules remain provisional.
+2026-11-02 07:54 +04: cross-audited two disjoint pass-history joint-support cohorts. The global-ever-open minus current-only first-finish gap kept the same positive direction across both cohorts and three shared continuation profiles; cross-cohort shifts include zero. This is model sensitivity only; no tactic promoted. No fresh deals were simulated in this checkpoint.
 
-See `runs/2026-11-02-0647-pass-history-moderate-double-hold-audit.md` and JSON data.
+See `runs/2026-11-02-0754-pass-history-replication-audit.md` and JSON data; reproducer: `simulator/pass-history-replication-audit.js`.
