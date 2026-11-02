@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-02T13:10:52+04:00: fresh disjoint prior-grid sensitivity on 100 joint-support multi-action positions (50 each 3–3 and 2–3); 570 exact state-world assignments and 9012 paired rollouts across three continuation profiles. Uniform, random-legal-heavy, and fast-doubles-heavy priors compared under stable-style and per-decision likelihoods. No reliable tactic; see qosha-research/runs/2026-11-02-1310-pass-history-opponent-choice-prior-grid.md and .json.
+2026-11-02T13:50:23+04:00: fresh disjoint softmax temperature holdout on 100 joint-support multi-action positions (50 each 3–3 and 2–3); 523 exact state-world assignments and 7,848 paired rollouts across three continuation profiles. Temperature raises posterior ESS but all regret shifts remain <1 pp with intervals including zero; no strategy promoted. See `qosha-research/runs/2026-11-02-1350-pass-history-opponent-choice-softmax.md` and `.json`.
