@@ -5,6 +5,7 @@
 const assert=require('node:assert/strict');
 const e=require('./engine');
 const d=require('./turn-dispatcher');
+const t=require('./turn-kernel');
 
 function permutations(xs){
   if(xs.length<=1)return [xs];
@@ -60,6 +61,10 @@ function test(){
   }
   for(const players of [3,5]){
     check(permutations([...Array(players).keys()]).length===(players===3?6:120),players+'p permutation count');
+    check(t.isBlocked({stock:[],consecutivePasses:players,players}),players+'p reaches pass threshold');
+    check(!t.isBlocked({stock:[],consecutivePasses:players-1,players}),players+'p below pass threshold');
+    check(!t.isBlocked({stock:[[6,6]],consecutivePasses:players,players}),players+'p stock gate');
+    check(t.isBlocked({stock:[],consecutivePasses:players+1,players}),players+'p above pass threshold');
   }
   return {
     passed:true,assertions,fixtures:fixtures.map(f=>f.name),permutationCount,
