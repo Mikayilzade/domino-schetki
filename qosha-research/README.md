@@ -6,11 +6,11 @@
 
 ## Структура
 
-- `RULES.md` — текущая спецификация правил и отмеченные неясности.
-- `EXPERIMENTS.md` — протокол почасовых симуляций.
-- `RESULTS.md` — накопленные результаты и выводы.
-- `simulator/` — исследовательский движок, runners, тесты и trace-calibration utilities; спорные правила остаются явно provisional. `pass-history-conditioned-support.js` реконструирует pass-time hand и считает exact support; opponent-choice softmax runners исследуют likelihood assumptions; `pass-history-trace-temperature-calibration.js` готовит leakage-safe calibration по реальным decision traces.
-- `runs/` — отчёты и машинно-читаемые данные отдельных воспроизводимых когорт.
+- \`RULES.md\` — текущая спецификация правил и отмеченные неясности.
+- \`EXPERIMENTS.md\` — протокол почасовых симуляций.
+- \`RESULTS.md\` — накопленные результаты и выводы.
+- \`simulator/\` — исследовательский движок, runners, тесты и trace-calibration utilities; спорные правила остаются явно provisional. \`pass-history-conditioned-support.js\` реконструирует pass-time hand и считает exact support; opponent-choice softmax runners исследуют likelihood assumptions; \`pass-history-trace-temperature-calibration.js\` готовит leakage-safe calibration по реальным decision traces и считает cluster-robust uncertainty по round-seat группам.
+- \`runs/\` — отчёты и машинно-читаемые данные отдельных воспроизводимых когорт.
 
 ## Принцип
 
@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-02T15:51:31+04:00: added leakage-safe opponent-choice trace calibration harness; no new deals or real traces, no strategy promoted. See `qosha-research/runs/2026-11-02-1551-pass-history-trace-calibration-harness.md` and `.json`.
+2026-11-02T16:51:09+04:00: added round-seat cluster-robust SE to trace calibration; no new deals or real traces, no strategy promoted. See \`qosha-research/runs/2026-11-02-1651-trace-calibration-cluster-se.md\` and \`.json\`.

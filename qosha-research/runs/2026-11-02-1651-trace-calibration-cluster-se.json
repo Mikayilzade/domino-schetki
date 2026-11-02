@@ -1,0 +1,45 @@
+{
+  "schema": "qosha-opponent-choice-trace-calibration-cluster-se/v1",
+  "timestampBaku": "2026-11-02T16:51:09+04:00",
+  "engine": "qosha-research-0.5.3 calibration layer",
+  "rules": "recovered qosa-1.0.0; 3x9; branch opening/block/scoring provisional",
+  "simulation": {
+    "newDeals": 0,
+    "seedSet": null,
+    "reason": "calibration uncertainty infrastructure; no simulator cohort generated"
+  },
+  "traceData": {
+    "realDecisionRows": 0,
+    "fitPerformed": false
+  },
+  "change": {
+    "method": "CR1 cluster-robust standard error for decision-weighted mean",
+    "independentUnit": "round-seat group",
+    "metrics": [
+      "meanLogLoss",
+      "meanMulticlassBrier",
+      "topOneAccuracy"
+    ],
+    "formula": "sqrt((G/(G-1))*sum_g(S_g-mu*n_g)^2/N^2)",
+    "nullWhen": "fewer than two independent groups"
+  },
+  "checks": {
+    "isolatedFormulaAssertions": 4,
+    "isolatedFormulaPassed": 4,
+    "repositoryNodeRegression": "not run; github.com DNS unavailable for checkout",
+    "newIntegrationAssertions": "committed but unexecuted in this run"
+  },
+  "cumulativeSeparateCohorts": {
+    "dealAllocations": 88886,
+    "selectedMultiActionPositions": 1074,
+    "stateWorldAssignments": 5863,
+    "note": "unchanged additive totals; no global dedup"
+  },
+  "finding": "No gameplay finding. No real trace corpus or empirical temperature; no strategy promoted.",
+  "limitations": [
+    "no real opponent decision traces",
+    "cluster-robust SE requires multiple independent round-seat groups and is weak with very few groups",
+    "legal-action reconstruction and branch/block/scoring rules remain provisional"
+  ],
+  "exactNextAction": "Collect/import round-seat grouped real decision traces; run the calibration Node regression in a checkout; fit on train groups only and score disjoint holdout log loss/Brier with group-level uncertainty."
+}

@@ -49,6 +49,20 @@ function assertDisjointGroups(trainRows, holdoutRows) {
   check(overlap.length === 0, 'train/holdout group leakage: ' + overlap.slice(0, 5).join(','));
   return { trainGroups: trainIds.size, holdoutGroups: new Set(holdoutRows.map(row => row.groupId)).size };
 }
+
+// CR1 cluster-robust SE for a decision-weighted mean, with round-seat as the
+// independent cluster. groupScores entries contain { n, total }; returns null
+// when fewer than two independent groups are present.
+function clusterRobustSE(groupScores, totalN, mean) {
+  const groups = groupScores.length;
+  if (groups < 2 || totalN <= 0) return null;
+  const sumSquares = groupScores.reduce((sum, group) => {
+    const residual = group.total - mean * group.n;
+    return sum + residual * residual;
+  }, 0);
+  return Math.sqrt((groups / (groups - 1)) * sumSquares / (totalN * totalN));
+}
+
 function predictiveDistribution(actions, temperature, weights = DEFAULT_PRIOR) {
   check(Number.isFinite(temperature) && temperature > 0, 'temperature must be positive');
   validatePrior(weights);
@@ -71,9 +85,11 @@ function scoreRows(rows, temperature, mode, prior = DEFAULT_PRIOR) {
   check(MODES.includes(mode), 'unknown mixture mode: ' + mode);
   const valid = validateRows(rows), groups = groupRows(valid), weights = validatePrior(prior);
   let logLoss = 0, brier = 0, topOneAccuracy = 0, decisions = 0;
+  const groupScores = [];
   for (const group of groups) {
     group.sort((a, b) => a.order - b.order);
     let posterior = weights.slice();
+    let groupLogLoss = 0, groupBrier = 0, groupTopOne = 0;
     for (const row of group) {
       const decisionWeights = mode === 'stable-style-mixture' ? posterior : weights;
       const prediction = predictiveDistribution(row.actions, temperature, decisionWeights);
@@ -81,12 +97,18 @@ function scoreRows(rows, temperature, mode, prior = DEFAULT_PRIOR) {
       check(chosenIndex >= 0, 'chosen action missing after validation');
       const chosenProbability = prediction.probabilities[chosenIndex];
       check(chosenProbability > 0 && Number.isFinite(chosenProbability), 'chosen action has zero predictive probability');
-      logLoss -= Math.log(chosenProbability);
-      brier += prediction.probabilities.reduce((sum, probability, i) =>
+      const rowLogLoss = -Math.log(chosenProbability);
+      const rowBrier = prediction.probabilities.reduce((sum, probability, i) =>
         sum + (probability - (i === chosenIndex ? 1 : 0)) ** 2, 0);
       const maximum = Math.max(...prediction.probabilities);
       const ties = prediction.probabilities.filter(p => Math.abs(p - maximum) < 1e-12).length;
-      topOneAccuracy += Math.abs(chosenProbability - maximum) < 1e-12 ? 1 / ties : 0;
+      const rowTopOne = Math.abs(chosenProbability - maximum) < 1e-12 ? 1 / ties : 0;
+      logLoss += rowLogLoss;
+      brier += rowBrier;
+      topOneAccuracy += rowTopOne;
+      groupLogLoss += rowLogLoss;
+      groupBrier += rowBrier;
+      groupTopOne += rowTopOne;
       decisions++;
       if (mode === 'stable-style-mixture') {
         posterior = posterior.map((weight, policyIndex) =>
@@ -96,14 +118,29 @@ function scoreRows(rows, temperature, mode, prior = DEFAULT_PRIOR) {
         posterior = posterior.map(weight => weight / total);
       }
     }
+    groupScores.push({
+      n: group.length,
+      logLoss: groupLogLoss,
+      brier: groupBrier,
+      topOneAccuracy: groupTopOne
+    });
   }
   check(decisions > 0, 'no decisions scored');
+  const meanLogLoss = logLoss / decisions;
+  const meanMulticlassBrier = brier / decisions;
+  const meanTopOneAccuracy = topOneAccuracy / decisions;
   return {
     decisions,
     groups: groups.length,
-    meanLogLoss: logLoss / decisions,
-    meanMulticlassBrier: brier / decisions,
-    topOneAccuracy: topOneAccuracy / decisions
+    meanLogLoss,
+    meanMulticlassBrier,
+    topOneAccuracy: meanTopOneAccuracy,
+    clusterSE: {
+      unit: 'round-seat group',
+      meanLogLoss: clusterRobustSE(groupScores.map(g => ({ n: g.n, total: g.logLoss })), decisions, meanLogLoss),
+      meanMulticlassBrier: clusterRobustSE(groupScores.map(g => ({ n: g.n, total: g.brier })), decisions, meanMulticlassBrier),
+      topOneAccuracy: clusterRobustSE(groupScores.map(g => ({ n: g.n, total: g.topOneAccuracy })), decisions, meanTopOneAccuracy)
+    }
   };
 }
 function scoreRandomLegal(rows) {
@@ -167,13 +204,14 @@ function runCalibration(trainRows, holdoutRows, options = {}) {
       holdoutDecisions: holdout.length,
       ...split
     },
-    fitCriterion: 'minimum training mean log loss; selected temperature is evaluated once on disjoint holdout groups',
+    fitCriterion: 'minimum training mean log loss; selected temperature is evaluated on disjoint holdout groups',
     brierDefinition: 'multiclass sum of squared probability errors, averaged over decisions',
+    uncertainty: 'cluster-robust CR1 standard errors use round-seat groups as independent units; do not treat decisions within a group as independent',
     randomLegalHoldoutBaseline: scoreRandomLegal(holdout),
     byMode
   };
 }
 module.exports = {
   POLICIES, MODES, DEFAULT_PRIOR, validatePrior, validateRows, assertDisjointGroups,
-  predictiveDistribution, scoreRows, scoreRandomLegal, runCalibration
+  predictiveDistribution, scoreRows, scoreRandomLegal, runCalibration, clusterRobustSE
 };

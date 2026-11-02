@@ -57,6 +57,20 @@ function test() {
   ok(result.split.trainDecisions === 24 && result.split.holdoutDecisions === 8 &&
     result.split.trainGroups === 6 && result.split.holdoutGroups === 2,
     'decision and group counts are exact');
+  ok(result.byMode['per-decision-mixture'].holdoutAtSelected.clusterSE.unit === 'round-seat group' &&
+    Number.isFinite(result.byMode['per-decision-mixture'].holdoutAtSelected.clusterSE.meanLogLoss),
+    'cluster SE reported with independent round-seat unit');
+  const mixed = [
+    ...makeGroup('heterogeneous-1', actions, 2),
+    ...makeGroup('heterogeneous-2', actions, 0)
+  ];
+  const mixedScore = calibration.scoreRows(mixed, 0.3, 'per-decision-mixture', prior);
+  ok(mixedScore.groups === 2 && mixedScore.clusterSE.meanLogLoss > 0,
+    'cluster SE responds to between-group score variation');
+  ok(calibration.clusterRobustSE([{ n: 2, total: 2 }, { n: 2, total: 6 }], 4, 2) === 1,
+    'CR1 cluster SE matches hand-calculated fixture');
+  ok(calibration.clusterRobustSE([{ n: 4, total: 4 }], 4, 1) === null,
+    'cluster SE unavailable for a single independent group');
   throws(() => calibration.runCalibration(train, train, { temperatures }),
     'overlapping train/holdout round-seat groups rejected');
   throws(() => calibration.validateRows([{ ...train[0], chosenActionKey: 'not-legal' }]),
@@ -83,7 +97,8 @@ function test() {
       perDecision: result.byMode['per-decision-mixture'].holdoutAtSelected.meanLogLoss,
       stableStyle: result.byMode['stable-style-mixture'].holdoutAtSelected.meanLogLoss,
       randomLegal: result.randomLegalHoldoutBaseline.meanLogLoss
-    }
+    },
+    clusterSE: result.byMode['per-decision-mixture'].holdoutAtSelected.clusterSE
   };
 }
 if (require.main === module) process.stdout.write(JSON.stringify(test()) + '\n');
