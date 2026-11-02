@@ -1,0 +1,80 @@
+{
+  "schema": "qosha-score-floor-round-invariants/v1",
+  "timestampBaku": "2026-11-02T19:08:35+04:00",
+  "engine": "qosha-research-0.5.3; no engine logic change",
+  "rules": "recovered qosa-1.0.0; primary 3x9; four-branch, block winner/scoring and loneZero/bust semantics remain provisional",
+  "simulation": {
+    "newDeals": 0,
+    "seedSet": null,
+    "strategies": [],
+    "reason": "Deterministic rule/invariant regression only; no gameplay cohort"
+  },
+  "runtime": {
+    "node": "v22.16.0",
+    "execution": "isolated temporary directory; GitHub source blob hashes verified; full clone blocked by DNS"
+  },
+  "tests": [
+    {
+      "name": "score-floor-contract-test.js",
+      "passed": true,
+      "assertions": 41237,
+      "scoreStates": 102,
+      "deltas": 81,
+      "scoreDeltaPairs": 8262,
+      "monotonicityPairs": 8181,
+      "finishMinusValidCases": 4,
+      "invalidFinishMinusCases": 4
+    },
+    {
+      "name": "turn-test.js",
+      "passed": true,
+      "scope": "draw one then play-or-pass, stock exhaustion, pass counting, block gate"
+    },
+    {
+      "name": "four-branch-lock-kernel-test.js",
+      "passed": true,
+      "fourDoubleOrders": 24,
+      "minus": -40,
+      "scope": "coded kernel; physical four-branch semantics provisional"
+    },
+    {
+      "name": "block-score-fixtures.js",
+      "passed": true,
+      "assertions": 22,
+      "scope": "coded block remainder/threshold contract; no winner inference"
+    },
+    {
+      "name": "finish-minus-test.js",
+      "passed": true,
+      "finishConditions": [
+        -10,
+        -20,
+        -30,
+        -40
+      ]
+    }
+  ],
+  "sourceBlobHashes": {
+    "engine.js": "82e5bd544a57683d5b4f7812beb2d4abf80da894",
+    "turn-kernel.js": "94657896e1f8e471ceb2e9a65d1842b6102dff18",
+    "turn-dispatcher.js": "55b0bcf3f1653c64b4e06bc95d7e917a480562a0",
+    "block-score-fixtures.js": "539a65046f6d8dfb7ee98afad8e17463de06f2a9",
+    "finish-minus-test.js": "4903f9ba2789773bed6f81e96d83589cfcf72bff",
+    "turn-test.js": "598d08fa4e593bf7d3eee376108d7d574f1ec820",
+    "four-branch-lock-kernel-test.js": "c06fc39a13babd0dc70baa6ed217d92a094bac64"
+  },
+  "cumulativeSeparateGameCohorts": {
+    "dealAllocations": 88886,
+    "selectedMultiActionPositions": 1074,
+    "stateWorldAssignments": 5863,
+    "note": "unchanged additive summaries; no global dedup"
+  },
+  "finding": "The coded score floor and finish-minus mapping satisfy the tested finite contracts; draw/pass, four-branch lock/open and block-remainder checks are internally consistent. No gameplay/tactical finding.",
+  "limitations": [
+    "No deals or real traces in this run",
+    "Implementation contract only, not physical rule authentication",
+    "Block winner/tie allocation remains unauthenticated",
+    "loneZero=10 and 101-point match scoring are not implemented as a complete match-level scorer in the current research kernel"
+  ],
+  "exactNextAction": "Clarify loneZero=10 and 101-point bust semantics; then implement and test match scoring while keeping block winner/tie assumptions isolated. Continue branch/block physical-rule validation before large strategy batches."
+}

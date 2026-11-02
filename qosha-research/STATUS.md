@@ -1,15 +1,15 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-02T17:56:32+04:00 Asia/Baku.
+Last checkpoint: 2026-11-02T19:08:35+04:00 Asia/Baku.
 
-- Ran a deterministic synthetic finite-sample diagnostic for the round-seat CR1 standard error used by trace calibration: 12 configurations × 30,000 replications, seed 202611021756; 6 formula/invariance assertions passed.
-- Main method finding: with only 4 independent groups and severe cluster-size imbalance (half 1 decision, half 12), mean CR1 SE was 0.682× empirical SD; nominal 95% coverage was 67.7% using normal 1.96 and 81.1% using t(G−1). At 50 groups it was 93.5% / 94.1%. Small-G intervals need caution.
-- No new deals, no real decision traces, no empirical temperature fit, and no gameplay finding. No strategy promoted.
-- The actual repository Node calibration regression remains unrun because a checkout could not resolve GitHub DNS; this run executed the independent Python reproducer.
+- Added `simulator/score-floor-contract-test.js`; 41,237 assertions passed over 8,262 score/delta pairs, monotonicity, and valid/invalid finish-minus cases.
+- Existing exact-source Node tests passed: `turn-test.js`, `four-branch-lock-kernel-test.js`, `block-score-fixtures.js` (22 assertions), and `finish-minus-test.js`. Source blobs were hash-verified from GitHub before execution in an isolated temporary directory; a full clone was unavailable because GitHub DNS could not resolve.
+- No new deals, seeds, real decision traces, or strategy comparisons. No tactical finding and no strategy promoted.
 - Cumulative separate game cohorts unchanged: 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments; additive summaries, no global dedup.
-- Branch-opening, block/scoring, and opponent-choice likelihood remain provisional.
-- Exact next: when real round-seat traces arrive, report group counts and cluster-size imbalance; validate wild-cluster bootstrap or CR2 small-sample intervals on synthetic coverage before sparse-trace inference. Preserve group-level train/holdout separation. If traces remain unavailable, return to unresolved simulator branch/block invariants.
+- The tested contracts cover the coded score floor, draw/pass gate, four-branch lock/open, block remainder and −10/−20/−30/−40 finish mapping only. They do not authenticate physical rules.
+- Complete match-level `loneZero=10` and 101-point bust scoring are not implemented in the current research kernel; do not infer semantics. Block winner/tie allocation remains provisional.
+- Exact next: clarify `loneZero=10` and bust semantics; then implement isolated match-score fixtures while continuing branch/block physical-rule validation. Avoid large strategy batches until these semantics are sufficiently authenticated.
 
-Report: qosha-research/runs/2026-11-02-1756-trace-calibration-cr1-small-cluster-sensitivity.md
-Data: qosha-research/runs/2026-11-02-1756-trace-calibration-cr1-small-cluster-sensitivity.json
-Reproducer: qosha-research/simulator/cluster-se-synthetic-validation.py
+Report: qosha-research/runs/2026-11-02-1908-score-floor-round-invariants.md
+Data: qosha-research/runs/2026-11-02-1908-score-floor-round-invariants.json
+Test: qosha-research/simulator/score-floor-contract-test.js
