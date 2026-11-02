@@ -2881,3 +2881,82 @@ Report/data/reproducers: [report](runs/2026-11-03-0054-opening-round-driver-cycl
 - **Cumulative separate cohorts:** prior 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments remain separate; added 40 branch-audit deals and 5,000 smoke deals. Prior 500-round smoke remains a separate seed cohort; no global dedup or pooling with historical baselines.
 - **Exact next action:** run matched-seed full-round tie-break ablation with fixed deals, seat rotations, and primary policy score: canonical label tie-break versus seeded symmetric/action-orbit selector. Treat any outcome shifts as representation sensitivity, not strategy superiority; keep physical branch/block authentication separate.
 - **Report/data/reproducers:** qosha-research/runs/2026-11-03-0146-branch-label-equivariance-and-5k-smoke.md, qosha-research/runs/2026-11-03-0146-branch-label-equivariance-and-5k-smoke.json, simulator/branch-label-transition-equivariance.js, simulator/branch-label-stratified-transition-audit.js, simulator/full-round-invariant-smoke.js.
+
+
+# Deal-clustered 1,000-seed branch-label tie-break ablation — 2026-11-03T03:54:55+04:00 (Asia/Baku)
+
+## Design and reproducibility
+
+- **Engine/rules:** `qosha-research-0.5.3`; recovered `qosa-1.0.0`, primary 3 players × 9 stones plus one stock tile. This is a model/metamorphic audit, not physical-rule authentication.
+- **Seed set:** 3,404,520–3,405,519; 1,000 seed draws, 1,000 unique seat-labelled allocations, 0 duplicate allocation pairs. Previous-winner index = seed modulo 3.
+- **Full rounds:** 3 seat rotations per deal; 3,000 paired rounds per mix, 6,000 pairs total; max 200 turns; all rounds resolved.
+- **Mix 1:** random-legal / min-hand-pips / closed-branch-control. **Mix 2:** fast-doubles / moderate-double-hold / closed-branch-control.
+- **Arms:** baseline uses the existing deterministic stable-key/raw action-list tie-break. Action-orbit keeps the same primary ranking, samples a best-ranked branch-feature orbit uniformly, then an action within that orbit uniformly. Random-legal uses the same seeded action in both arms.
+- **Runner:** `simulator/branch-label-symmetric-tiebreak.js`, `run(3404520, 1000, 100, 200)`. Exact source blobs used: engine `82e5bd544a57683d5b4f7812b2d4abf80da894`; initializer `2fad29e516454580ec9a06115354e9866f3096e6`; turn-kernel `94657896e1f8e471ceb2e9a65d1842b6102dff18`; dispatcher `55b0bcf3f1653c64b4e06bc95d7e917a480562a0`; round-driver `fbaad78865adbddde1ea6651e6a501dc0bde3203`; strategy-runner `b7078942bc8f5dac6a8b07494ae8aaeadbdb1f5f`; ablation runner `26e4a7966641f3f0a8a254434ff1f0a42509268f`.
+- **Execution note:** source modules were fetched from GitHub and executed in an isolated V8 harness. Temporary in-memory instrumentation collected per-deal paired aggregates for cluster uncertainty; no engine rule was changed. Raw per-deal rows were not retained, so the cluster sufficient statistics below are recorded explicitly.
+
+## Branch-label audit (first 100 seeds, subset of the full seed set)
+
+- 100 unique allocations; 2,274 sampled positions; 24 permutations each = **54,576 permutation checks**.
+- 48,576 playable comparisons; option-state mismatches = 0; legal-action-set mismatches = 0.
+- Distributional action checks: 48,576 per policy × 5 policies = **242,880**, with 0 mismatches.
+- Raw deterministic choice mismatch under relabeling: random-legal 15.71%; min-hand-pips 14.00%; fast-doubles 12.71%; moderate-double-hold 14.34%; closed-branch-control 15.28%. These are tie-break/label sensitivity, not outcome or strategy effects.
+
+## Matched full-round outcomes
+
+Intervals are approximate 95% deal-clustered intervals (1,000 deal clusters; three seat rotations stay in the same cluster). Conditional winner/minus rates use only pairs where both arms finished.
+
+| Mix | Baseline finish / block | Action-orbit finish / block | Round-kind change | Finish winner changed, both finished | Minus changed, both finished | Mean turn Δ (orbit − baseline) | Mean final-pip Δ per seat |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 2,900 / 100 | 2,902 / 98 | 122/3,000 = 4.07% (3.35–4.79%) | 589/2,840 = 20.74% (19.27–22.21%) | 238/2,840 = 8.38% (7.33–9.43%) | +0.011 (−0.054, +0.077) | −0.021 (−0.103, +0.061) |
+| 2 | 2,896 / 104 | 2,899 / 101 | 145/3,000 = 4.83% (4.05–5.61%) | 632/2,825 = 22.37% (20.82–23.92%) | 321/2,825 = 11.36% (10.18–12.55%) | +0.009 (−0.055, +0.072) | +0.049 (−0.034, +0.132) |
+
+Kind changes split into baseline-finish → orbit-block and baseline-block → orbit-finish: mix 1 = 60 / 62; mix 2 = 71 / 74. Mean turn and final-pip deltas have intervals spanning zero: no directional shift is established.
+
+## Descriptive strategy and round metrics (not a strategy tournament)
+
+| Mix / strategy | Finish rate baseline → orbit | Mean remainder pips baseline → orbit (median) | Mean ending doubles baseline → orbit |
+|---|---:|---:|---:|
+| 1 / random-legal | 26.87% → 28.13% | 7.91 → 7.74 (7 → 7) | 0.0060 → 0.0057 |
+| 1 / min-hand-pips | 27.90% → 28.43% | 5.26 → 5.28 (4 → 4) | 0.0070 → 0.0070 |
+| 1 / closed-branch-control | 41.90% → 40.17% | 3.54 → 3.62 (2 → 2) | 0.0127 → 0.0153 |
+| 2 / fast-doubles | 18.33% → 18.33% | 6.76 → 6.74 (5 → 5) | 0.0030 → 0.0027 |
+| 2 / moderate-double-hold | 33.00% → 34.30% | 4.42 → 4.38 (3 → 3) | 0.0097 → 0.0093 |
+| 2 / closed-branch-control | 45.20% → 44.00% | 3.37 → 3.58 (2 → 2) | 0.0173 → 0.0177 |
+
+Mean starting doubles were 2.00 per player in every arm. Mean round length / block rate: mix 1 baseline 25.359 turns / 3.33%, orbit 25.370 / 3.27%; mix 2 baseline 25.223 / 3.47%, orbit 25.232 / 3.37%.
+
+Finish-minus counts (baseline → orbit):
+- Mix 1: 0 = 2,466 → 2,484; −10 = 417 → 401; −20 = 17 → 17; −30 = 0 → 0; −40 = 0 → 0.
+- Mix 2: 0 = 2,328 → 2,327; −10 = 540 → 544; −20 = 27 → 27; −30 = 1 → 1; −40 = 0 → 0.
+
+## Cluster uncertainty sufficient statistics
+
+For a rate, with deal-level numerator (y_i), denominator (n_i), (p=\sum y_i/\sum n_i), and (N=1,000), the reported SE uses (\sqrt{\frac{N}{N-1}\frac{\sum_i(y_i-pn_i)^2}{(\sum_i n_i)^2}}). For deal-level means, (SE=\sqrt{\sum_i(x_i-\bar{x})^2/[N(N-1)]}). These sums allow the displayed SEs to be reconstructed from the counts above.
+
+| Mix | Metric | Numerator / denominator | Cluster residual/deviation sum of squares |
+|---|---|---:|---:|
+| 1 | Round-kind change | 122 / 3,000 | 121.116 |
+| 1 | Finish-winner change | 589 / 2,840 | 455.323 |
+| 1 | Minus change | 238 / 2,840 | 233.058 |
+| 1 | Mean turn delta | — | 1,116.538 |
+| 1 | Mean final-pip delta per seat | — | 1,746.306 |
+| 2 | Round-kind change | 145 / 3,000 | 141.975 |
+| 2 | Finish-winner change | 632 / 2,825 | 497.749 |
+| 2 | Minus change | 321 / 2,825 | 292.100 |
+| 2 | Mean turn delta | — | 1,048.369 |
+| 2 | Mean final-pip delta per seat | — | 1,775.958 |
+
+## Finding, confidence, and limitations
+
+**Useful finding:** branch-label action sets and their tested distributions remain equivariant, but the tie-break can change a full-round outcome. Across the larger cohort, round kind changed in 4.07–4.83% of matched pairs and finish winner changed in 20.74–22.37% of pairs where both arms finished. This is representation/tie-break sensitivity only; it does not show that action-orbit is a stronger strategy. No strategy was promoted.
+
+Confidence is high for these coded-model metamorphic and matched-seed measurements, with deal-clustered uncertainty shown. It is not physical-rule authentication. Branch lock/open semantics, block winner/tie allocation, and `loneZero=10` remain unresolved. No 5-player cohort or hidden-world Monte Carlo was added.
+
+## Separate cohort scale and exact next action
+
+- This run adds 1,000 unique matched-seed deals and 6,000 paired round comparisons. The first 100 audit deals are a subset, not an extra cohort.
+- The previous matched ablation remains a separate 120-deal / 720-pair cohort. Together these runs represent 1,120 seed draws / 6,720 paired comparisons; no global deduplication across all research cohorts and no pooling with historical baseline samples.
+- Other prior separate cohorts unchanged: 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments, and the 5,000-round invariant smoke.
+- **Exact next action:** add committed per-deal cluster-summary output plus a deterministic regression test to the ablation runner, then return to labelled block-winner/tie and branch lock/open hypotheses. Keep strategy promotion gated on physical-rule evidence or explicitly isolated model assumptions.
+
