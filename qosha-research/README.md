@@ -26,7 +26,6 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
+2026-11-02T11:00:37+04:00: fresh disjoint pass-history opponent-choice likelihood holdout. Exact pass-consistent hidden worlds reweighted by equal-prior random-legal/min-hand-pips/fast-doubles mixtures; balanced 3–3 and 2–3 strata; posterior-weighted decision regret and ESS reported separately. No strategy promoted.
 
-2026-11-02 09:52 +04: fresh disjoint pass-history Cohort D: 12,424 unique deals, 264 joint-support multi-action states, 1,512 exact state-world assignments, 32,944 paired rollouts across four continuation profiles. Exploratory model-gap stratification is larger for 3–3 than 2–3 opponent hands; no tactic promoted.
-
-See qosha-research/runs/2026-11-02-0952-pass-history-joint-support-cohort-D.md and JSON data. Reproducer and regression: qosha-research/simulator/pass-history-cohort-strata-audit.js and qosha-research/simulator/pass-history-cohort-strata-audit-test.js.
+See qosha-research/runs/2026-11-02-1100-pass-history-opponent-choice-likelihood.md and qosha-research/runs/2026-11-02-1100-pass-history-opponent-choice-likelihood.json. Reproducer/test: qosha-research/simulator/pass-history-opponent-choice-likelihood.js and qosha-research/simulator/pass-history-opponent-choice-likelihood-test.js.

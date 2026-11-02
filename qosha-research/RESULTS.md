@@ -2570,3 +2570,16 @@ Report: [2026-11-02-current-only-pass-support.md](runs/2026-11-02-current-only-p
 
 Report/data/reproducer: [run report](runs/2026-11-02-0952-pass-history-joint-support-cohort-D.md), [JSON](runs/2026-11-02-0952-pass-history-joint-support-cohort-D.json), [strata runner](simulator/pass-history-cohort-strata-audit.js), [test](simulator/pass-history-cohort-strata-audit-test.js).
 
+
+
+# Pass-history opponent-choice likelihood holdout — 2026-11-02T11:00:37+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3 with decision-trace instrumentation; recovered qosa-1.0.0, 3×9; global-ever-open/current-only remain provisional.
+- **Fresh seeds:** 3489601–3505600, scanned through 3501758; 12158 unique allocations, 0 duplicates. 1500 late states; balanced holdout 40 3–3 and 40 2–3 multi-action states.
+- **Exact support:** 1200 allocations checked; 409 joint state-world assignments; global 409, current-only 792; no within-state duplicates.
+- **Likelihood mixtures:** equal prior random-legal / min-hand-pips / fast-doubles; stable per-opponent latent style and per-decision mixture. Continuations: closed-branch-control, min-hand-pips, fast-doubles; 6612 rollouts; 0 unresolved.
+- **Finding:** stable-style weighting shifts global first-finish regret by roughly +1 pp in both strata; intervals include zero. Mean ESS is about 2.9–3.6 worlds/state, so posterior concentration depends on policy prior. No reliable tactical finding; no strategy promoted.
+- **Limitations:** selected synthetic late states, provisional branch models, assumed policy prior/likelihood, descriptive intervals only. No authentic branch/block ruling found.
+- **Next:** replicate on a disjoint holdout and continue searching for an authenticated branch/block ruling.
+
+Report/data/reproducer: [report](runs/2026-11-02-1100-pass-history-opponent-choice-likelihood.md), [JSON](runs/2026-11-02-1100-pass-history-opponent-choice-likelihood.json), [runner](simulator/pass-history-opponent-choice-likelihood.js), [test](simulator/pass-history-opponent-choice-likelihood-test.js).
