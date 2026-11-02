@@ -2932,7 +2932,7 @@ Finish-minus counts (baseline → orbit):
 
 ## Cluster uncertainty sufficient statistics
 
-For a rate, with deal-level numerator (y_i), denominator (n_i), (p=\sum y_i/\sum n_i), and (N=1,000), the reported SE uses (\sqrt{\frac{N}{N-1}\frac{\sum_i(y_i-pn_i)^2}{(\sum_i n_i)^2}}). For deal-level means, (SE=\sqrt{\sum_i(x_i-\bar{x})^2/[N(N-1)]}). These sums allow the displayed SEs to be reconstructed from the counts above.
+For a rate, let deal-level numerator be `y_i`, denominator be `n_i`, estimate `p = sum(y_i) / sum(n_i)`, and `N = 1,000`. The reported SE is `sqrt((N/(N-1)) * sum((y_i - p*n_i)^2) / sum(n_i)^2)`. For deal-level means, `SE = sqrt(sum((x_i - xbar)^2) / (N*(N-1)))`. The listed sums of squares allow the displayed SEs to be reconstructed from the counts above.
 
 | Mix | Metric | Numerator / denominator | Cluster residual/deviation sum of squares |
 |---|---|---:|---:|
