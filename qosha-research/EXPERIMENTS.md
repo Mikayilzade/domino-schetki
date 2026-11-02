@@ -201,3 +201,8 @@ For the four-branch metamorphic check, generate reachable trajectories with a fi
 - Record raw/global/current-only/joint/global-only/current-only-exclusive/neither support, plus whether the actual generated allocation survives each model.
 - Candidate comparisons are permitted only on joint support, using identical hidden allocations and continuation policies. Model-exclusive support is rule-sensitivity evidence only.
 - Report generated block rate as model-specific diagnostic; never combine it with global-model outcomes or promote a tactic from selected synthetic traces.
+
+
+## Exact joint-support paired candidate continuations (2026-11-02)
+
+For a current-only-generated pass-history cohort, compare root candidates only on hidden allocations that satisfy every observed pass under both global-ever-open and current-only masks. Enumerate the finite labeled allocation space exactly when under the cap; reconstruct each pass-time hand from the sampled current hand plus the same seat's later public plays. Keep candidate sets restricted to root actions legal under both models. Reuse the exact allocation and a deterministic allocation-derived continuation seed for every candidate and both model arms; use the same action-orbit continuation policy after the forced root move. Report global and current-only outcomes/regret separately, along with support partition, state-world assignment count, candidate-world pairs, rollouts, and state-cluster descriptive intervals. These comparisons are model-sensitivity diagnostics only: current-only branch semantics remain provisional, pass consistency does not infer voluntary tile choices, and synthetic selected states do not authenticate physical rules.

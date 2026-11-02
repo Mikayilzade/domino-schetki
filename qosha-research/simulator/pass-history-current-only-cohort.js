@@ -101,7 +101,7 @@ function simulateSeed(seed, maxTurns = 100) {
     const opp = [state.hands[(p + 1) % 3].length, state.hands[(p + 2) % 3].length];
     if (options.phase === 'play' && options.actions.length >= 2 && opp.every(n => n <= 3) &&
         passHistory.some(pass => pass.player !== p)) {
-      eligible.push({ state: rd.cloneRoundState(state), playedTiles: playedTiles.map(t => t.slice()),
+      eligible.push({ state: rd.cloneRoundState(state), openedAtDouble: cloneOpenedAt(openedAtDouble), playedTiles: playedTiles.map(t => t.slice()),
         playedEvents: playedEvents.map(ev => ({ ...ev, tiles: ev.tiles.map(t => t.slice()) })),
         passHistory: clonePasses(passHistory) });
     }

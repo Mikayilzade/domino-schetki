@@ -1,0 +1,10 @@
+'use strict';
+const assert=require('node:assert/strict');
+const audit=require('./pass-history-joint-support-choice-audit');
+const result=audit.test();
+assert.equal(result.passed,true);
+assert.equal(result.selectedJointStates,17);
+assert.equal(result.exactJointStateWorldAssignments,52);
+assert.equal(result.candidateActionWorldPairs,133);
+assert.equal(result.modelRollouts,266);
+console.log(JSON.stringify(result,null,2));

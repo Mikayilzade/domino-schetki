@@ -27,4 +27,4 @@
 
 ## Latest checkpoint
 
-2026-11-02: current-only-generated pass-history support audit. See runs/2026-11-02-current-only-pass-support.md and its JSON summary. Candidate comparisons remain restricted to joint support; current-only branch opening is a counterfactual, not an authenticated rule.
+2026-11-02: exact pass-history joint-support paired candidate audit. See runs/2026-11-02-0454-pass-history-joint-support-choice-audit.md and its JSON summary. Candidate comparisons use only the exact intersection of global-ever-open/current-only pass-conditioned hidden supports; branch models remain provisional.

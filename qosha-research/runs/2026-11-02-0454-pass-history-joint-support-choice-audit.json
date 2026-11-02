@@ -1,0 +1,3045 @@
+{
+  "schema": "qosha-pass-history-joint-support-choice-audit/v1",
+  "timestampBaku": "2026-11-02T04:54:38+04:00",
+  "engine": "qosha-research-0.5.3 + current-only-pass-support-1.0 + model-agreement-common-world-regret-node; recovered qosa-1.0.0; 3x9",
+  "rules": "global-ever-open and current-only branch models both provisional; exact paired comparisons only on joint pass-consistent support",
+  "seedWindow": {
+    "start": 3454291,
+    "end": 3455100,
+    "scannedThrough": 3455100
+  },
+  "discovery": {
+    "dealsRequested": 810,
+    "dealsGenerated": 810,
+    "uniqueDealAllocations": 810,
+    "duplicateDealAllocations": 0,
+    "outcomes": {
+      "finish": 31,
+      "block": 779,
+      "unresolved": 0
+    },
+    "eligibleLateStates": 129,
+    "passObservations": 3866,
+    "selectedPositions": 100,
+    "jointPositivePositions": 17,
+    "selection": "latest eligible state per seed; focal >=2 current-only actions; both opponents <=3 tiles; hidden-seat prior no-stock pass; exact support <= cap",
+    "generationPolicies": "seed-even=min-hand-pips; seed-odd=fast-doubles; seeded uniform top-ranked choice"
+  },
+  "conditioning": {
+    "method": "exact labeled allocation enumeration; reconstruct pass-time hand from current hand plus same-seat later public plays; filter both pass masks; paired set is intersection",
+    "priorActionInference": "none; no opponent-choice likelihood",
+    "currentOnlyTraceCompatible": true,
+    "exactSupportLimit": 20000,
+    "continuationSeed": "mixSeed32(fnv1a(state-signature + # + allocation-fingerprint) XOR 0x6d2b79f5), shared across arms",
+    "continuationPolicy": "same action-orbit chooser across candidate arms; model-specific legal actions; salt 11"
+  },
+  "supportTotals": {
+    "raw": 212,
+    "global": 52,
+    "currentOnly": 151,
+    "joint": 52,
+    "globalOnly": 0,
+    "currentOnlyExclusive": 99,
+    "neither": 61
+  },
+  "states": 17,
+  "statesWithCommonActions": 17,
+  "statesWith2plusCommonActions": 17,
+  "jointStateWorldAssignments": 52,
+  "exactAllocationsChecked": 212,
+  "duplicateWithinStateAllocations": 0,
+  "candidateWorldPairs": 52,
+  "candidateActionWorldPairs": 133,
+  "rollouts": 266,
+  "outcomeRollouts": {
+    "global": {
+      "finish": 127,
+      "block": 6,
+      "unresolved": 0
+    },
+    "currentOnly": {
+      "finish": 23,
+      "block": 110,
+      "unresolved": 0
+    }
+  },
+  "aggregateRolloutMetrics": {
+    "global": {
+      "n": 133,
+      "focalFirstFinishChance": 0.2932330827067669,
+      "meanFocalRemainder": 4.413533834586466,
+      "minusRisk": 0,
+      "expectedMinusLoss": 0
+    },
+    "currentOnly": {
+      "n": 133,
+      "focalFirstFinishChance": 0.14285714285714285,
+      "meanFocalRemainder": 11.007518796992482,
+      "minusRisk": 0,
+      "expectedMinusLoss": 0
+    }
+  },
+  "regretClusterByState": {
+    "global": {
+      "firstFinishChance": {
+        "n": 17,
+        "mean": 0.09362745098039216,
+        "ci95": 0.08294802155038669
+      },
+      "meanRemainder": {
+        "n": 17,
+        "mean": 1.3681372549019608,
+        "ci95": 0.4907245268238091
+      },
+      "minusRisk": {
+        "n": 17,
+        "mean": 0,
+        "ci95": 0
+      },
+      "expectedMinusLoss": {
+        "n": 17,
+        "mean": 0,
+        "ci95": 0
+      }
+    },
+    "currentOnly": {
+      "firstFinishChance": {
+        "n": 17,
+        "mean": 0.05686274509803921,
+        "ci95": 0.0822916111500258
+      },
+      "meanRemainder": {
+        "n": 17,
+        "mean": 1.9120098039215685,
+        "ci95": 0.6814108743806079
+      },
+      "minusRisk": {
+        "n": 17,
+        "mean": 0,
+        "ci95": 0
+      },
+      "expectedMinusLoss": {
+        "n": 17,
+        "mean": 0,
+        "ci95": 0
+      }
+    }
+  },
+  "modelDeltaClusterByState": {
+    "firstFinishChance": {
+      "n": 17,
+      "mean": 0.15441176470588236,
+      "ci95": 0.12129402532913953
+    },
+    "meanRemainder": {
+      "n": 17,
+      "mean": -4.629166666666666,
+      "ci95": 2.4678770246888164
+    },
+    "minusRisk": {
+      "n": 17,
+      "mean": 0,
+      "ci95": 0
+    },
+    "expectedMinusLoss": {
+      "n": 17,
+      "mean": 0,
+      "ci95": 0
+    }
+  },
+  "statesData": [
+    {
+      "seed": 3454320,
+      "turn": 23,
+      "focalPlayer": 2,
+      "passCount": 2,
+      "handSizes": [
+        2,
+        2,
+        2
+      ],
+      "rawWorlds": 6,
+      "globalWorlds": 1,
+      "currentOnlyWorlds": 6,
+      "jointWorlds": 1,
+      "jointWorldKeys": [
+        "0-3,3-4|0-2,0-6|"
+      ],
+      "rootActions": {
+        "global": 3,
+        "currentOnly": 3,
+        "common": 3,
+        "commonKeys": [
+          "single|left|0||0-1",
+          "single|up|1||0-1",
+          "single|up|4||0-4"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|left|0||0-1",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 4,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 4,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        },
+        {
+          "key": "single|up|1||0-1",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 1,
+            "meanRemainder": 0,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 4,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        },
+        {
+          "key": "single|up|4||0-4",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 1,
+            "meanRemainder": 0,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 1,
+            "meanRemainder": 0,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0.3333333333333333,
+            "meanRemainder": 1.3333333333333333,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 1,
+            "meanRemainder": 4,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 1,
+            "r": 0,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 1,
+              "meanRemainder": 4,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0.6666666666666666,
+            "meanRemainder": 2.6666666666666665,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 1,
+            "meanRemainder": 4,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 1,
+            "r": 0,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 1,
+              "meanRemainder": 4,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 1,
+              "meanRemainder": 4,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0.3333333333333333,
+        "meanRemainder": -1.3333333333333333,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3454395,
+      "turn": 17,
+      "focalPlayer": 1,
+      "passCount": 1,
+      "handSizes": [
+        3,
+        4,
+        3
+      ],
+      "rawWorlds": 20,
+      "globalWorlds": 4,
+      "currentOnlyWorlds": 20,
+      "jointWorlds": 4,
+      "jointWorldKeys": [
+        "0-2,0-3,2-3|2-4,2-6,3-5|",
+        "0-2,0-3,2-4|2-3,2-6,3-5|",
+        "0-2,2-3,2-4|0-3,2-6,3-5|",
+        "0-3,2-3,2-4|0-2,2-6,3-5|"
+      ],
+      "rootActions": {
+        "global": 6,
+        "currentOnly": 2,
+        "common": 2,
+        "commonKeys": [
+          "single|left|4||0-4",
+          "single|left|6||0-6"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|left|4||0-4",
+          "global": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 6.25,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 4
+            }
+          },
+          "currentOnly": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 23,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 4
+            }
+          }
+        },
+        {
+          "key": "single|left|6||0-6",
+          "global": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 5.75,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 4
+            }
+          },
+          "currentOnly": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 21,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 4
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 0.25,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 0.5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 5.75,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0.5,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 21,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 2,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0,
+        "meanRemainder": -16,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3454401,
+      "turn": 19,
+      "focalPlayer": 1,
+      "passCount": 1,
+      "handSizes": [
+        2,
+        3,
+        3
+      ],
+      "rawWorlds": 10,
+      "globalWorlds": 1,
+      "currentOnlyWorlds": 6,
+      "jointWorlds": 1,
+      "jointWorldKeys": [
+        "0-3,2-5,2-6|0-4,0-5|"
+      ],
+      "rootActions": {
+        "global": 5,
+        "currentOnly": 2,
+        "common": 2,
+        "commonKeys": [
+          "single|right|4||3-4",
+          "single|right|6||3-6"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|right|4||3-4",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 11,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        },
+        {
+          "key": "single|right|6||3-6",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 9,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 9,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 3.5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 7,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 2,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 7,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 9,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 2,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0,
+        "meanRemainder": -4.5,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3454489,
+      "turn": 20,
+      "focalPlayer": 0,
+      "passCount": 1,
+      "handSizes": [
+        3,
+        2,
+        3
+      ],
+      "rawWorlds": 10,
+      "globalWorlds": 4,
+      "currentOnlyWorlds": 10,
+      "jointWorlds": 4,
+      "jointWorldKeys": [
+        "0-2,0-3|0-6,2-5,2-6|",
+        "0-3,0-6|0-2,2-5,2-6|",
+        "0-3,2-5|0-2,0-6,2-6|",
+        "0-3,2-6|0-2,0-6,2-5|"
+      ],
+      "rootActions": {
+        "global": 5,
+        "currentOnly": 3,
+        "common": 3,
+        "commonKeys": [
+          "single|down|3||2-3",
+          "single|right|3||1-3",
+          "single|up|3||2-3"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|down|3||2-3",
+          "global": {
+            "n": 4,
+            "firstFinishChance": 0.25,
+            "meanRemainder": 3,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 4
+            }
+          },
+          "currentOnly": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 4
+            }
+          }
+        },
+        {
+          "key": "single|right|3||1-3",
+          "global": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 4
+            }
+          },
+          "currentOnly": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 8.75,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 4
+            }
+          }
+        },
+        {
+          "key": "single|up|3||2-3",
+          "global": {
+            "n": 4,
+            "firstFinishChance": 0.25,
+            "meanRemainder": 3,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 4
+            }
+          },
+          "currentOnly": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 2,
+              "finish": 2
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0.08333333333333333,
+            "meanRemainder": 0.6666666666666666,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0.25,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0.25,
+            "r": 3,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0.25,
+              "meanRemainder": 2,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1.25,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 3.75,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 5,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 3.75,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0.16666666666666666,
+        "meanRemainder": -2.5833333333333335,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3454503,
+      "turn": 17,
+      "focalPlayer": 2,
+      "passCount": 1,
+      "handSizes": [
+        3,
+        3,
+        4
+      ],
+      "rawWorlds": 20,
+      "globalWorlds": 4,
+      "currentOnlyWorlds": 20,
+      "jointWorlds": 4,
+      "jointWorldKeys": [
+        "0-3,0-4,2-3|2-4,2-6,4-6|",
+        "0-3,0-4,2-4|2-3,2-6,4-6|",
+        "0-3,2-3,2-4|0-4,2-6,4-6|",
+        "0-4,2-3,2-4|0-3,2-6,4-6|"
+      ],
+      "rootActions": {
+        "global": 6,
+        "currentOnly": 4,
+        "common": 4,
+        "commonKeys": [
+          "single|left|0||0-1",
+          "single|right|1||0-1",
+          "single|right|2||0-2",
+          "single|right|6||0-6"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|left|0||0-1",
+          "global": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 4
+            }
+          },
+          "currentOnly": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 13.25,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 4
+            }
+          }
+        },
+        {
+          "key": "single|right|1||0-1",
+          "global": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 3,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 4
+            }
+          },
+          "currentOnly": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 15,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 4
+            }
+          }
+        },
+        {
+          "key": "single|right|2||0-2",
+          "global": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 1,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 4
+            }
+          },
+          "currentOnly": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 13,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 4
+            }
+          }
+        },
+        {
+          "key": "single|right|6||0-6",
+          "global": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 1,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 4
+            }
+          },
+          "currentOnly": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 9,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 4
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 0.75,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 1,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 1,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 2,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 3.5625,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 6,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 9,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 4.25,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 6,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 4,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0,
+        "meanRemainder": -10.8125,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3454524,
+      "turn": 24,
+      "focalPlayer": 0,
+      "passCount": 3,
+      "handSizes": [
+        3,
+        2,
+        1
+      ],
+      "rawWorlds": 3,
+      "globalWorlds": 1,
+      "currentOnlyWorlds": 3,
+      "jointWorlds": 1,
+      "jointWorldKeys": [
+        "0-4,2-4|4-5|"
+      ],
+      "rootActions": {
+        "global": 2,
+        "currentOnly": 2,
+        "common": 2,
+        "commonKeys": [
+          "single|left|0||0-2",
+          "single|left|3||2-3"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|left|0||0-2",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 12,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 12,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        },
+        {
+          "key": "single|left|3||2-3",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 9,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1.5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 3,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 9,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 3,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 10,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 2,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 10,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0,
+        "meanRemainder": 3.5,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3454534,
+      "turn": 21,
+      "focalPlayer": 0,
+      "passCount": 3,
+      "handSizes": [
+        4,
+        1,
+        3
+      ],
+      "rawWorlds": 4,
+      "globalWorlds": 1,
+      "currentOnlyWorlds": 4,
+      "jointWorlds": 1,
+      "jointWorldKeys": [
+        "2-5|1-2,1-3,2-3|"
+      ],
+      "rootActions": {
+        "global": 5,
+        "currentOnly": 3,
+        "common": 3,
+        "commonKeys": [
+          "single|left|2||0-2",
+          "single|left|3||0-3",
+          "single|left|5||0-5"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|left|2||0-2",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 16,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 16,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        },
+        {
+          "key": "single|left|3||0-3",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 15,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 15,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        },
+        {
+          "key": "single|left|5||0-5",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 13,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 13,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1.6666666666666667,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 3,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 13,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 3,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 2,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1.6666666666666667,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 3,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 13,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 3,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 2,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0,
+        "meanRemainder": 0,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3454588,
+      "turn": 19,
+      "focalPlayer": 2,
+      "passCount": 2,
+      "handSizes": [
+        3,
+        2,
+        4
+      ],
+      "rawWorlds": 10,
+      "globalWorlds": 1,
+      "currentOnlyWorlds": 10,
+      "jointWorlds": 1,
+      "jointWorldKeys": [
+        "0-4,2-5,5-6|0-1,1-2|"
+      ],
+      "rootActions": {
+        "global": 6,
+        "currentOnly": 3,
+        "common": 3,
+        "commonKeys": [
+          "single|left|2||0-2",
+          "single|left|5||0-5",
+          "single|left|6||0-6"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|left|2||0-2",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 11,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 17,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        },
+        {
+          "key": "single|left|5||0-5",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 14,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        },
+        {
+          "key": "single|left|6||0-6",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 13,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 3,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 9,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 2,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 9,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1.6666666666666667,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 4,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 13,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 4,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 1,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0,
+        "meanRemainder": -9.666666666666666,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3454638,
+      "turn": 22,
+      "focalPlayer": 2,
+      "passCount": 2,
+      "handSizes": [
+        2,
+        2,
+        3
+      ],
+      "rawWorlds": 6,
+      "globalWorlds": 1,
+      "currentOnlyWorlds": 6,
+      "jointWorlds": 1,
+      "jointWorldKeys": [
+        "0-6,2-5|2-3,2-4|"
+      ],
+      "rootActions": {
+        "global": 2,
+        "currentOnly": 2,
+        "common": 2,
+        "commonKeys": [
+          "single|left|1||0-1",
+          "single|left|2||0-2"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|left|1||0-1",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        },
+        {
+          "key": "single|left|2||0-2",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1.5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 3,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 2,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 3,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1.5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 3,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 2,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 3,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0,
+        "meanRemainder": 0,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3454752,
+      "turn": 19,
+      "focalPlayer": 0,
+      "passCount": 3,
+      "handSizes": [
+        4,
+        3,
+        2
+      ],
+      "rawWorlds": 10,
+      "globalWorlds": 2,
+      "currentOnlyWorlds": 4,
+      "jointWorlds": 2,
+      "jointWorldKeys": [
+        "0-2,2-3,3-4|0-1,2-4|",
+        "2-3,2-4,3-4|0-1,0-2|"
+      ],
+      "rootActions": {
+        "global": 4,
+        "currentOnly": 2,
+        "common": 2,
+        "commonKeys": [
+          "single|right|0||0-6",
+          "single|right|2||2-6"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|right|0||0-6",
+          "global": {
+            "n": 2,
+            "firstFinishChance": 0,
+            "meanRemainder": 11,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 2
+            }
+          },
+          "currentOnly": {
+            "n": 2,
+            "firstFinishChance": 0,
+            "meanRemainder": 19,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 2
+            }
+          }
+        },
+        {
+          "key": "single|right|2||2-6",
+          "global": {
+            "n": 2,
+            "firstFinishChance": 0,
+            "meanRemainder": 11,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 2
+            }
+          },
+          "currentOnly": {
+            "n": 2,
+            "firstFinishChance": 0,
+            "meanRemainder": 17,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 2
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 0,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 0,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 11,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 17,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 2,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0,
+        "meanRemainder": -7,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3454758,
+      "turn": 17,
+      "focalPlayer": 1,
+      "passCount": 2,
+      "handSizes": [
+        3,
+        5,
+        3
+      ],
+      "rawWorlds": 20,
+      "globalWorlds": 10,
+      "currentOnlyWorlds": 20,
+      "jointWorlds": 10,
+      "jointWorldKeys": [
+        "0-2,0-4,1-6|0-5,2-3,2-4|",
+        "0-2,0-5,1-6|0-4,2-3,2-4|",
+        "0-2,1-6,2-3|0-4,0-5,2-4|",
+        "0-2,1-6,2-4|0-4,0-5,2-3|",
+        "0-4,0-5,1-6|0-2,2-3,2-4|",
+        "0-4,1-6,2-3|0-2,0-5,2-4|",
+        "0-4,1-6,2-4|0-2,0-5,2-3|",
+        "0-5,1-6,2-3|0-2,0-4,2-4|",
+        "0-5,1-6,2-4|0-2,0-4,2-3|",
+        "1-6,2-3,2-4|0-2,0-4,0-5|"
+      ],
+      "rootActions": {
+        "global": 2,
+        "currentOnly": 2,
+        "common": 2,
+        "commonKeys": [
+          "single|down|2||2-5",
+          "single|down|4||4-5"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|down|2||2-5",
+          "global": {
+            "n": 10,
+            "firstFinishChance": 0,
+            "meanRemainder": 10,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 10
+            }
+          },
+          "currentOnly": {
+            "n": 10,
+            "firstFinishChance": 0,
+            "meanRemainder": 23,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 10
+            }
+          }
+        },
+        {
+          "key": "single|down|4||4-5",
+          "global": {
+            "n": 10,
+            "firstFinishChance": 0.1,
+            "meanRemainder": 8.4,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 9,
+              "block": 1
+            }
+          },
+          "currentOnly": {
+            "n": 10,
+            "firstFinishChance": 0,
+            "meanRemainder": 21,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 10
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0.05,
+            "meanRemainder": 0.7999999999999998,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0.1,
+            "meanRemainder": 1.5999999999999996,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0.1,
+            "r": 8.4,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0.1,
+              "meanRemainder": 1.5999999999999996,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 21,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 2,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0.05,
+        "meanRemainder": -12.8,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3454779,
+      "turn": 19,
+      "focalPlayer": 1,
+      "passCount": 1,
+      "handSizes": [
+        3,
+        3,
+        3
+      ],
+      "rawWorlds": 20,
+      "globalWorlds": 10,
+      "currentOnlyWorlds": 20,
+      "jointWorlds": 10,
+      "jointWorldKeys": [
+        "0-0,0-2,0-5|0-3,0-6,2-3|",
+        "0-0,0-3,0-5|0-2,0-6,2-3|",
+        "0-0,0-5,0-6|0-2,0-3,2-3|",
+        "0-0,0-5,2-3|0-2,0-3,0-6|",
+        "0-2,0-3,0-5|0-0,0-6,2-3|",
+        "0-2,0-5,0-6|0-0,0-3,2-3|",
+        "0-2,0-5,2-3|0-0,0-3,0-6|",
+        "0-3,0-5,0-6|0-0,0-2,2-3|",
+        "0-3,0-5,2-3|0-0,0-2,0-6|",
+        "0-5,0-6,2-3|0-0,0-2,0-3|"
+      ],
+      "rootActions": {
+        "global": 3,
+        "currentOnly": 3,
+        "common": 3,
+        "commonKeys": [
+          "single|down|0||0-1",
+          "single|right|0||0-1",
+          "single|up|0||0-1"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|down|0||0-1",
+          "global": {
+            "n": 10,
+            "firstFinishChance": 0.8,
+            "meanRemainder": 0.8,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 10
+            }
+          },
+          "currentOnly": {
+            "n": 10,
+            "firstFinishChance": 0.9,
+            "meanRemainder": 1.4,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 10
+            }
+          }
+        },
+        {
+          "key": "single|right|0||0-1",
+          "global": {
+            "n": 10,
+            "firstFinishChance": 0.8,
+            "meanRemainder": 0.8,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 10
+            }
+          },
+          "currentOnly": {
+            "n": 10,
+            "firstFinishChance": 0,
+            "meanRemainder": 11.6,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 10
+            }
+          }
+        },
+        {
+          "key": "single|up|0||0-1",
+          "global": {
+            "n": 10,
+            "firstFinishChance": 0.8,
+            "meanRemainder": 0.8,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 10
+            }
+          },
+          "currentOnly": {
+            "n": 10,
+            "firstFinishChance": 0.9,
+            "meanRemainder": 1.4,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 9,
+              "block": 1
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 0,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 0,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0.8,
+            "r": 0.8,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0.3,
+            "meanRemainder": 3.4,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0.9,
+            "meanRemainder": 10.2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0.9,
+            "r": 1.4,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0.9,
+              "meanRemainder": 10.2,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0.19999999999999998,
+        "meanRemainder": -3.9999999999999996,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3454792,
+      "turn": 19,
+      "focalPlayer": 0,
+      "passCount": 2,
+      "handSizes": [
+        2,
+        3,
+        3
+      ],
+      "rawWorlds": 20,
+      "globalWorlds": 1,
+      "currentOnlyWorlds": 10,
+      "jointWorlds": 1,
+      "jointWorldKeys": [
+        "0-2,2-3,3-4|2-4,2-5,4-5|"
+      ],
+      "rootActions": {
+        "global": 3,
+        "currentOnly": 2,
+        "common": 2,
+        "commonKeys": [
+          "single|up|3||0-3",
+          "single|up|4||0-4"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|up|3||0-3",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 4,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 4,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        },
+        {
+          "key": "single|up|4||0-4",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 1,
+            "meanRemainder": 0,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 3,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0.5,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 1,
+            "meanRemainder": 4,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 1,
+            "r": 0,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 1,
+              "meanRemainder": 4,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 0.5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 3,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 1,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0.5,
+        "meanRemainder": -1.5,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3454839,
+      "turn": 20,
+      "focalPlayer": 2,
+      "passCount": 3,
+      "handSizes": [
+        3,
+        2,
+        4
+      ],
+      "rawWorlds": 10,
+      "globalWorlds": 4,
+      "currentOnlyWorlds": 4,
+      "jointWorlds": 4,
+      "jointWorldKeys": [
+        "0-5,2-4,2-5|0-1,4-6|",
+        "0-5,2-4,4-6|0-1,2-5|",
+        "0-5,2-5,4-6|0-1,2-4|",
+        "2-4,2-5,4-6|0-1,0-5|"
+      ],
+      "rootActions": {
+        "global": 4,
+        "currentOnly": 3,
+        "common": 3,
+        "commonKeys": [
+          "single|left|2||0-2",
+          "single|left|3||0-3",
+          "single|left|4||0-4"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|left|2||0-2",
+          "global": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 7,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 4
+            }
+          },
+          "currentOnly": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 14,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 4
+            }
+          }
+        },
+        {
+          "key": "single|left|3||0-3",
+          "global": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 6,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 4
+            }
+          },
+          "currentOnly": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 6,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 4
+            }
+          }
+        },
+        {
+          "key": "single|left|4||0-4",
+          "global": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 7.75,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 4
+            }
+          },
+          "currentOnly": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 12,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 4
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 0.9166666666666666,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1.75,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 6,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 1,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 1.75,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 4.666666666666667,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 8,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 6,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 8,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 6,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0,
+        "meanRemainder": -3.75,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3455034,
+      "turn": 22,
+      "focalPlayer": 1,
+      "passCount": 1,
+      "handSizes": [
+        1,
+        2,
+        2
+      ],
+      "rawWorlds": 3,
+      "globalWorlds": 1,
+      "currentOnlyWorlds": 2,
+      "jointWorlds": 1,
+      "jointWorldKeys": [
+        "0-6,3-4|2-6|"
+      ],
+      "rootActions": {
+        "global": 3,
+        "currentOnly": 2,
+        "common": 2,
+        "commonKeys": [
+          "single|right|2||0-2",
+          "single|right|5||0-5"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|right|2||0-2",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 1
+            }
+          }
+        },
+        {
+          "key": "single|right|5||0-5",
+          "global": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          },
+          "currentOnly": {
+            "n": 1,
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 1
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1.5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 3,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 2,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 3,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1.5,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 3,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 2,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 3,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0,
+        "meanRemainder": 0,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3455043,
+      "turn": 23,
+      "focalPlayer": 1,
+      "passCount": 4,
+      "handSizes": [
+        3,
+        2,
+        3
+      ],
+      "rawWorlds": 20,
+      "globalWorlds": 2,
+      "currentOnlyWorlds": 2,
+      "jointWorlds": 2,
+      "jointWorldKeys": [
+        "0-1,0-2,1-2|0-3,2-3,2-6|",
+        "0-1,1-2,2-6|0-2,0-3,2-3|"
+      ],
+      "rootActions": {
+        "global": 3,
+        "currentOnly": 2,
+        "common": 2,
+        "commonKeys": [
+          "single|down|4||0-4",
+          "single|down|6||0-6"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|down|4||0-4",
+          "global": {
+            "n": 2,
+            "firstFinishChance": 0,
+            "meanRemainder": 6,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 2
+            }
+          },
+          "currentOnly": {
+            "n": 2,
+            "firstFinishChance": 0,
+            "meanRemainder": 6,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 2
+            }
+          }
+        },
+        {
+          "key": "single|down|6||0-6",
+          "global": {
+            "n": 2,
+            "firstFinishChance": 1,
+            "meanRemainder": 0,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 2
+            }
+          },
+          "currentOnly": {
+            "n": 2,
+            "firstFinishChance": 0,
+            "meanRemainder": 4,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 2
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0.5,
+            "meanRemainder": 3,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 1,
+            "meanRemainder": 6,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 1,
+            "r": 0,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 1,
+              "meanRemainder": 6,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 1,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 2,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 4,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 2,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0.5,
+        "meanRemainder": -2,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    },
+    {
+      "seed": 3455048,
+      "turn": 18,
+      "focalPlayer": 0,
+      "passCount": 1,
+      "handSizes": [
+        3,
+        3,
+        3
+      ],
+      "rawWorlds": 20,
+      "globalWorlds": 4,
+      "currentOnlyWorlds": 4,
+      "jointWorlds": 4,
+      "jointWorldKeys": [
+        "0-4,0-5,2-5|0-1,1-3,3-5|",
+        "0-4,0-5,3-5|0-1,1-3,2-5|",
+        "0-4,2-5,3-5|0-1,0-5,1-3|",
+        "0-5,2-5,3-5|0-1,0-4,1-3|"
+      ],
+      "rootActions": {
+        "global": 4,
+        "currentOnly": 2,
+        "common": 2,
+        "commonKeys": [
+          "single|up|2||0-2",
+          "single|up|3||0-3"
+        ]
+      },
+      "candidates": [
+        {
+          "key": "single|up|2||0-2",
+          "global": {
+            "n": 4,
+            "firstFinishChance": 1,
+            "meanRemainder": 0,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 4
+            }
+          },
+          "currentOnly": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 7.25,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 4
+            }
+          }
+        },
+        {
+          "key": "single|up|3||0-3",
+          "global": {
+            "n": 4,
+            "firstFinishChance": 0.75,
+            "meanRemainder": 1.75,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "finish": 4
+            }
+          },
+          "currentOnly": {
+            "n": 4,
+            "firstFinishChance": 0,
+            "meanRemainder": 7,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0,
+            "outcomes": {
+              "block": 4
+            }
+          }
+        }
+      ],
+      "regret": {
+        "global": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0.125,
+            "meanRemainder": 0.875,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0.25,
+            "meanRemainder": 1.75,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 1,
+            "r": 0,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0.25,
+              "meanRemainder": 1.75,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        },
+        "currentOnly": {
+          "averageCandidateRegret": {
+            "firstFinishChance": 0,
+            "meanRemainder": 0.125,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "spread": {
+            "firstFinishChance": 0,
+            "meanRemainder": 0.25,
+            "minusRisk": 0,
+            "expectedMinusLoss": 0
+          },
+          "best": {
+            "f": 0,
+            "r": 7,
+            "k": 0,
+            "l": 0
+          },
+          "perCandidate": [
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0.25,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            },
+            {
+              "firstFinishChance": 0,
+              "meanRemainder": 0,
+              "minusRisk": 0,
+              "expectedMinusLoss": 0
+            }
+          ]
+        }
+      },
+      "modelDeltaGlobalMinusCurrent": {
+        "firstFinishChance": 0.875,
+        "meanRemainder": -6.25,
+        "minusRisk": 0,
+        "expectedMinusLoss": 0
+      }
+    }
+  ]
+}
