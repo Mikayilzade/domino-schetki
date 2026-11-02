@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T02:52:25+04:00: matched-seed branch-label tie-break ablation (120 unique deals; 720 paired rounds; 22,248 branch-permutation checks), showing outcome sensitivity but no strategy finding. See qosha-research/runs/2026-11-03-0252-branch-label-action-orbit-matched-seed-ablation.md.
+2026-11-03T03:54:55+04:00: deal-clustered branch-label tie-break ablation (1,000 unique deals; 6,000 paired rounds; 54,576 permutation checks), outcome sensitivity but no directional or tactical finding. See qosha-research/RESULTS.md.
