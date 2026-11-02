@@ -2691,3 +2691,17 @@ Report/data/reproducer: [report](runs/2026-11-02-1450-pass-history-opponent-choi
 - **Exact next action:** collect/import round-seat grouped decision traces; run the committed Node test in a repository checkout; fit on train groups only and report disjoint holdout scores. Do not claim calibrated temperature before that.
 
 Report/data/reproducer: [report](runs/2026-11-02-1551-pass-history-trace-calibration-harness.md), [JSON](runs/2026-11-02-1551-pass-history-trace-calibration-harness.json), [module](simulator/pass-history-trace-temperature-calibration.js), [test](simulator/pass-history-trace-temperature-calibration-test.js).
+
+# Round-seat CR1 finite-sample sensitivity — 2026-11-02T17:56:32+04:00 (Asia/Baku)
+
+- **Purpose:** synthetic method validation for the trace-calibration uncertainty layer; not a gameplay cohort.
+- **Engine/rules:** qosha-research-0.5.3 calibration layer; recovered qosa-1.0.0, primary 3×9. Branch-opening, block and scoring remain provisional.
+- **Deals/seeds/traces:** 0 new deals; no deal seed set; 0 real decision rows; no temperature fit.
+- **Synthetic design:** y_gi = μ + u_g + e_gi, μ=0, u_g~N(0,1), e_gi~N(0,0.5²); decision-weighted mean; CR1 formula from the calibration module. G=4/8/20/50, cluster sizes balanced n=4, random 1–12, or half 1/half 12; 30,000 replications/configuration (360,000 datasets), NumPy PCG64 seed 202611021756.
+- **Checks:** 6 formula/invariance assertions passed; the reproducible Python script completed all 12 configurations. The actual repository Node calibration test was not run because GitHub checkout DNS is unavailable.
+- **Key finding:** with G=4 and severe 1/12 imbalance, mean CR1 SE was 0.682× empirical SD; nominal 95% coverage was 67.7% using normal 1.96 and 81.1% using t(G−1). At G=50 the same case reached 93.5% / 94.1%. Few independent groups plus size imbalance can make intervals badly anti-conservative.
+- **Confidence/limitations:** one Gaussian random-intercept toy model; not empirical opponent calibration and not a gameplay finding. No tactic promoted.
+- **Cumulative separate game cohorts:** 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments; unchanged additive summaries, no global dedup.
+- **Exact next action:** when real round-seat traces are available, report group count and size distribution; test wild-cluster bootstrap or CR2 intervals against synthetic coverage before using intervals with sparse/unequal groups. Preserve round-seat train/holdout separation; do not claim calibrated temperature without real held-out choices.
+- **Report/reproducer/data:** [report](qosha-research/runs/2026-11-02-1756-trace-calibration-cr1-small-cluster-sensitivity.md), [JSON](qosha-research/runs/2026-11-02-1756-trace-calibration-cr1-small-cluster-sensitivity.json), [Python validation](qosha-research/simulator/cluster-se-synthetic-validation.py).
+

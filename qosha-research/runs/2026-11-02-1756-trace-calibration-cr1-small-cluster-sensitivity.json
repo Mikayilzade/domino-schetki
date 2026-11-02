@@ -1,0 +1,171 @@
+{
+  "schema": "qosha-trace-calibration-cr1-finite-sample-sensitivity/v1",
+  "timestampBaku": "2026-11-02T17:56:32+04:00",
+  "engine": "qosha-research-0.5.3 calibration layer; no game-engine change",
+  "rules": "recovered qosa-1.0.0; primary 3x9; branch-opening, block and scoring details remain provisional",
+  "simulation": {
+    "newDeals": 0,
+    "seedSet": null,
+    "reason": "Synthetic uncertainty-method study only; no gameplay cohort generated"
+  },
+  "traceData": {
+    "realDecisionRows": 0,
+    "temperatureFitPerformed": false
+  },
+  "syntheticStudy": {
+    "generator": "y_gi = mu + u_g + e_gi; mu=0; independent u_g~Normal(0,1), e_gi~Normal(0,0.5^2)",
+    "clusterUnit": "one round-seat group",
+    "estimator": "decision-weighted mean across all rows",
+    "cr1Formula": "sqrt((G/(G-1))*sum_g(S_g - mean*n_g)^2/N^2)",
+    "clusterCounts": [
+      4,
+      8,
+      20,
+      50
+    ],
+    "clusterSizeSchemes": [
+      "balanced n_g=4",
+      "random n_g independently uniform integer 1..12",
+      "half n_g=1 and half n_g=12"
+    ],
+    "replicatesPerConfiguration": 30000,
+    "totalSyntheticDatasets": 360000,
+    "rng": "numpy.random.default_rng (PCG64)",
+    "seed": 202611021756,
+    "runtime": "Python 3.13.5; NumPy 2.3.5; t critical values for df=G-1 fixed in script",
+    "intervals": [
+      "normal critical value 1.96",
+      "Student t critical value with df=G-1"
+    ],
+    "results": [
+      {
+        "groups": 4,
+        "clusterSizeScheme": "balanced-n4",
+        "empiricalSDOfMean": 0.5155314302910372,
+        "meanCR1SE": 0.47270175073599935,
+        "meanSEtoEmpiricalSD": 0.9169213028760267,
+        "normal95Coverage": 0.8538333333333333,
+        "tGminus1Coverage": 0.9476
+      },
+      {
+        "groups": 4,
+        "clusterSizeScheme": "random-n1-12",
+        "empiricalSDOfMean": 0.5658469082442276,
+        "meanCR1SE": 0.4553989643701218,
+        "meanSEtoEmpiricalSD": 0.8048094948211065,
+        "normal95Coverage": 0.7983666666666667,
+        "tGminus1Coverage": 0.9196333333333333
+      },
+      {
+        "groups": 4,
+        "clusterSizeScheme": "half-n1-half-n12",
+        "empiricalSDOfMean": 0.659015601144049,
+        "meanCR1SE": 0.4491913415035519,
+        "meanSEtoEmpiricalSD": 0.6816095714938419,
+        "normal95Coverage": 0.6771,
+        "tGminus1Coverage": 0.8105333333333333
+      },
+      {
+        "groups": 8,
+        "clusterSizeScheme": "balanced-n4",
+        "empiricalSDOfMean": 0.36265894607868504,
+        "meanCR1SE": 0.35140885387473464,
+        "meanSEtoEmpiricalSD": 0.9689788647830309,
+        "normal95Coverage": 0.9107666666666666,
+        "tGminus1Coverage": 0.9510666666666666
+      },
+      {
+        "groups": 8,
+        "clusterSizeScheme": "random-n1-12",
+        "empiricalSDOfMean": 0.40211010199408626,
+        "meanCR1SE": 0.365261390498121,
+        "meanSEtoEmpiricalSD": 0.9083616369913851,
+        "normal95Coverage": 0.8794666666666666,
+        "tGminus1Coverage": 0.9264333333333333
+      },
+      {
+        "groups": 8,
+        "clusterSizeScheme": "half-n1-half-n12",
+        "empiricalSDOfMean": 0.46660131379811753,
+        "meanCR1SE": 0.4001834514824246,
+        "meanSEtoEmpiricalSD": 0.8576560752153611,
+        "normal95Coverage": 0.8361333333333333,
+        "tGminus1Coverage": 0.8893
+      },
+      {
+        "groups": 20,
+        "clusterSizeScheme": "balanced-n4",
+        "empiricalSDOfMean": 0.22977034546656527,
+        "meanCR1SE": 0.2272314093553695,
+        "meanSEtoEmpiricalSD": 0.9889501140539252,
+        "normal95Coverage": 0.9366,
+        "tGminus1Coverage": 0.9515333333333333
+      },
+      {
+        "groups": 20,
+        "clusterSizeScheme": "random-n1-12",
+        "empiricalSDOfMean": 0.2565104345032237,
+        "meanCR1SE": 0.24702607081779035,
+        "meanSEtoEmpiricalSD": 0.9630254273912816,
+        "normal95Coverage": 0.9238,
+        "tGminus1Coverage": 0.9402333333333334
+      },
+      {
+        "groups": 20,
+        "clusterSizeScheme": "half-n1-half-n12",
+        "empiricalSDOfMean": 0.29606935423428715,
+        "meanCR1SE": 0.2809952084613765,
+        "meanSEtoEmpiricalSD": 0.9490857613011102,
+        "normal95Coverage": 0.9129,
+        "tGminus1Coverage": 0.9288
+      },
+      {
+        "groups": 50,
+        "clusterSizeScheme": "balanced-n4",
+        "empiricalSDOfMean": 0.1460589903367447,
+        "meanCR1SE": 0.14498506368208985,
+        "meanSEtoEmpiricalSD": 0.99264730878819,
+        "normal95Coverage": 0.9451,
+        "tGminus1Coverage": 0.9515333333333333
+      },
+      {
+        "groups": 50,
+        "clusterSizeScheme": "random-n1-12",
+        "empiricalSDOfMean": 0.16203827396428566,
+        "meanCR1SE": 0.16010409515676674,
+        "meanSEtoEmpiricalSD": 0.9880634447640115,
+        "normal95Coverage": 0.94,
+        "tGminus1Coverage": 0.9453
+      },
+      {
+        "groups": 50,
+        "clusterSizeScheme": "half-n1-half-n12",
+        "empiricalSDOfMean": 0.18794067183367547,
+        "meanCR1SE": 0.18348444044290146,
+        "meanSEtoEmpiricalSD": 0.9762891589814168,
+        "normal95Coverage": 0.9353,
+        "tGminus1Coverage": 0.9407666666666666
+      }
+    ]
+  },
+  "checks": {
+    "formulaAssertions": 6,
+    "formulaAssertionsPassed": 6,
+    "syntheticScriptRun": "passed; 12 configurations x 30,000 replicates",
+    "repositoryNodeModuleRegression": "not run; GitHub checkout DNS unavailable; this is an independent Python reimplementation of the documented formula"
+  },
+  "cumulativeSeparateGameCohorts": {
+    "dealAllocations": 88886,
+    "selectedMultiActionPositions": 1074,
+    "stateWorldAssignments": 5863,
+    "note": "unchanged additive summaries; no global dedup"
+  },
+  "finding": "CR1 uncertainty is fragile with few independent clusters and strongly unequal cluster sizes. With G=4 and half n=1/half n=12, mean CR1 SE was 0.682 of the empirical SD; nominal 95% normal coverage was 67.7%, and t_(G-1) coverage was 81.1%. With G=50, coverage was 93.5% normal and 94.1% t for that imbalance. No empirical opponent-choice calibration or gameplay finding.",
+  "limitations": [
+    "Gaussian random-intercept toy model only",
+    "no real decision traces and no game deals",
+    "coverage depends on cluster count and cluster-size imbalance",
+    "legal-action reconstruction and branch/block/scoring assumptions remain provisional"
+  ],
+  "exactNextAction": "When real round-seat traces are available, report independent group count and cluster-size distribution alongside CR1 SE; test a wild-cluster bootstrap or CR2 small-sample interval on synthetic fixtures before using intervals with fewer than about 50 groups. Keep train/holdout split by round-seat and do not claim temperature calibration without held-out real choices."
+}

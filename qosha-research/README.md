@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-02T16:51:09+04:00: added round-seat cluster-robust SE to trace calibration; no new deals or real traces, no strategy promoted. See \`qosha-research/runs/2026-11-02-1651-trace-calibration-cluster-se.md\` and \`.json\`.
+2026-11-02T17:56:32+04:00: synthetic finite-sample validation of round-seat CR1 uncertainty; no new deals or real traces, no temperature fit. Small-G/unequal-cluster intervals can undercover sharply. See `qosha-research/runs/2026-11-02-1756-trace-calibration-cr1-small-cluster-sensitivity.md` and `.json`, with reproducer `qosha-research/simulator/cluster-se-synthetic-validation.py`.

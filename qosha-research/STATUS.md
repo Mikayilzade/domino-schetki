@@ -1,14 +1,15 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-02T16:51:09+04:00 Asia/Baku.
+Last checkpoint: 2026-11-02T17:56:32+04:00 Asia/Baku.
 
-- Added round-seat cluster-robust CR1 standard errors to trace calibration metrics (log loss, multiclass Brier, top-one accuracy). This avoids treating repeated decisions from one opponent in one round as independent observations.
-- No new deals were simulated and no real decision traces were available; temperature remains uncalibrated and no strategy was promoted.
-- The calibration Node integration test was not run in a repository checkout because GitHub DNS was unavailable in this environment. The isolated CR1 formula fixture passed 4/4 checks; this is not a full module regression.
-- Branch-opening models, block/scoring details, and opponent-policy prior/likelihood remain provisional.
-- Cumulative separate cohorts unchanged: 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments; additive cohorts, no global dedup.
-- Exact next: import round-seat grouped real decision traces, run the committed Node regression in a checkout, fit temperature on train groups only, and report disjoint holdout log loss/Brier with group-level uncertainty. If no traces, do not claim calibration.
+- Ran a deterministic synthetic finite-sample diagnostic for the round-seat CR1 standard error used by trace calibration: 12 configurations × 30,000 replications, seed 202611021756; 6 formula/invariance assertions passed.
+- Main method finding: with only 4 independent groups and severe cluster-size imbalance (half 1 decision, half 12), mean CR1 SE was 0.682× empirical SD; nominal 95% coverage was 67.7% using normal 1.96 and 81.1% using t(G−1). At 50 groups it was 93.5% / 94.1%. Small-G intervals need caution.
+- No new deals, no real decision traces, no empirical temperature fit, and no gameplay finding. No strategy promoted.
+- The actual repository Node calibration regression remains unrun because a checkout could not resolve GitHub DNS; this run executed the independent Python reproducer.
+- Cumulative separate game cohorts unchanged: 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments; additive summaries, no global dedup.
+- Branch-opening, block/scoring, and opponent-choice likelihood remain provisional.
+- Exact next: when real round-seat traces arrive, report group counts and cluster-size imbalance; validate wild-cluster bootstrap or CR2 small-sample intervals on synthetic coverage before sparse-trace inference. Preserve group-level train/holdout separation. If traces remain unavailable, return to unresolved simulator branch/block invariants.
 
-Report: qosha-research/runs/2026-11-02-1651-trace-calibration-cluster-se.md
-Data: qosha-research/runs/2026-11-02-1651-trace-calibration-cluster-se.json
-Module/test: qosha-research/simulator/pass-history-trace-temperature-calibration.js and qosha-research/simulator/pass-history-trace-temperature-calibration-test.js
+Report: qosha-research/runs/2026-11-02-1756-trace-calibration-cr1-small-cluster-sensitivity.md
+Data: qosha-research/runs/2026-11-02-1756-trace-calibration-cr1-small-cluster-sensitivity.json
+Reproducer: qosha-research/simulator/cluster-se-synthetic-validation.py

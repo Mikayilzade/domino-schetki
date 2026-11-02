@@ -257,3 +257,11 @@ For a visible late state, retain exact pass-mask support as the baseline and rew
 - Compare two explicit assumptions separately: per-decision mixture (prior resets each choice) and stable-style mixture (one latent policy per round-seat group, posterior updated after each observed choice).
 - Treat action-set reconstruction as a rule-model dependency. If global-ever-open and current-only legal sets disagree, keep those trace rows in separate model cohorts; do not silently combine them.
 - A synthetic fixture may test probability normalization, leakage rejection, and temperature-selection plumbing, but it is not empirical evidence and cannot promote a strategy.
+
+## Round-seat CR1 finite-sample sensitivity (2026-11-02)
+
+- Validate the calibration uncertainty formula separately from empirical player calibration. Use a deterministic synthetic random-intercept model with known mean, independent round-seat clusters, and within-cluster correlated decisions.
+- Vary independent cluster count (4/8/20/50) and cluster-size balance (balanced, random 1–12, severe half 1/half 12). Report empirical SD of the estimator, mean CR1 SE, and interval coverage under both normal 1.96 and t(G−1) critical values.
+- The current diagnostic shows that few groups and size imbalance can produce severe undercoverage even when the CR1 point formula is correct. Report independent group count and size distribution; do not treat the CR1 SE as proof that a small-G normal interval is calibrated.
+- Before using intervals with sparse or highly unequal round-seat groups, validate a wild-cluster bootstrap or CR2 small-sample correction on synthetic coverage fixtures. This method study is not a gameplay result and cannot calibrate opponent temperature.
+
