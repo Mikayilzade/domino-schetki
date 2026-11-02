@@ -1,15 +1,15 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-02T20:57:24+04:00 Asia/Baku.
+Last checkpoint: 2026-11-02T21:47:47+04:00 Asia/Baku.
 
-- Added `simulator/match-scoring-exhaustive-test.js` for the source-derived active-PWA match-scoring adapter; no round-engine or live scoreboard/PWA file changed.
-- Node v22.16.0 isolated harness: existing match-scoring regression passed 23 assertions; exhaustive test passed 64,066 assertions (64,089 total).
-- Exhaustive coverage: 8,080 non-zero score/delta cases, 101 zero-event cases, 10,201 survivor-ranking pairs, and all 120 five-player explosion orders (360 event steps). Verified engine helper blob: `82e5bd544a57683d5b4f7812b2d4abf80da894`.
-- Finding is implementation-only: floor, bust threshold, survivor ranking, and stop-at-two sequence are internally consistent. No physical-rule or tactical conclusion.
-- `loneZero=10`, block winner/tie, and physical branch lock/open remain unresolved.
-- No new deals, seeds, real traces, or strategy comparisons. Cumulative separate game cohorts unchanged: 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments; no global dedup.
-- Exact next: run the committed test in a clean Node checkout when available, then resume branch lock/open and blocked-round winner/tie validation before large strategy batches.
+- Added `simulator/block-seat-permutation-test.js`, a seat-order metamorphic regression for coded block diagnostics. It covers 3-player unique/tied minima and 5-player unique-zero/tied minima with unique tile identities in each fixed fixture.
+- An independent standalone JavaScript property harness passed 1,524 assertions across 252 seat permutations. It checks candidate-set mapping, remainder order, and no inferred block winner/minus.
+- The repository Node test was not executed: a clean GitHub checkout failed because this runtime could not resolve github.com. Do not report the standalone harness as execution of repository modules.
+- No new deals, seeds, real traces, or strategy comparisons. No tactical finding and no strategy promoted.
+- Cumulative separate cohorts unchanged: 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments; no global dedup.
+- Block winner/scoring/tie, physical branch lock/open, and `loneZero=10` remain unresolved.
+- Exact next: run the committed Node test and existing block/branch regressions in a clean checkout; preserve block scoring as labelled alternatives until table evidence resolves it.
 
-Report: qosha-research/runs/2026-11-02-2057-match-scoring-exhaustive-contract.md
-Data: qosha-research/runs/2026-11-02-2057-match-scoring-exhaustive-contract.json
-Test: qosha-research/simulator/match-scoring-exhaustive-test.js
+Report: qosha-research/runs/2026-11-02-2147-block-seat-permutation-audit.md
+Data: qosha-research/runs/2026-11-02-2147-block-seat-permutation-audit.json
+Test: qosha-research/simulator/block-seat-permutation-test.js

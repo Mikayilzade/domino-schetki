@@ -1,0 +1,45 @@
+{
+  "schema": "qosha-block-seat-permutation-audit/v1",
+  "timestampAsiaBaku": "2026-11-02T21:47:47+04:00",
+  "engine": "qosha-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; block winner/scoring unresolved",
+  "deals": 0,
+  "seedSet": null,
+  "strategies": [],
+  "harness": {
+    "kind": "standalone JavaScript property harness",
+    "passed": true,
+    "assertions": 1524,
+    "seatPermutations": 252,
+    "fixtures": [
+      "3p-unique-minimum",
+      "3p-tied-minimum",
+      "5p-unique-zero",
+      "5p-tied-minimum"
+    ],
+    "checks": [
+      "minimum-pip candidate set maps under seat permutations",
+      "fewest-tile candidate set maps under seat permutations",
+      "remainder ordering follows seat permutation",
+      "coded block output remains no-winner and no-minus"
+    ]
+  },
+  "repositoryNodeTest": {
+    "file": "qosha-research/simulator/block-seat-permutation-test.js",
+    "status": "not run; clean checkout blocked by GitHub DNS failure"
+  },
+  "finding": "Seat-order equivariance holds in the standalone property harness for fixed fixtures; no physical block-winner or tactical conclusion.",
+  "limitations": [
+    "No game deals or strategy comparisons",
+    "Fixtures are fixed synthetic hands, not a reachable-state frequency sample",
+    "Actual blocked-round scoring/tie rule remains unauthenticated",
+    "Physical branch lock/open and loneZero=10 remain unresolved"
+  ],
+  "cumulativeSeparateCohorts": {
+    "dealAllocations": 88886,
+    "selectedMultiActionPositions": 1074,
+    "stateWorldAssignments": 5863,
+    "globalDedup": false
+  },
+  "exactNextAction": "Run the committed Node test and existing block/branch regressions in a clean checkout; retain block scoring as labelled alternatives until table evidence resolves it."
+}

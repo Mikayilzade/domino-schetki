@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-02T20:57:24+04:00: exhaustive source-derived active-PWA match-scoring regression; 64,089 assertions passed (8,080 score/delta cases, 10,201 survivor rankings, 120 five-player explosion orders). No new deals or tactical finding; `loneZero=10` remains unresolved. See `qosha-research/runs/2026-11-02-2057-match-scoring-exhaustive-contract.md`.
+2026-11-02T21:47:47+04:00: block diagnostic seat-permutation audit; 1,524 standalone-harness assertions across 252 seat permutations, no new deals or tactical finding. Repository Node test awaits clean checkout. See `qosha-research/runs/2026-11-02-2147-block-seat-permutation-audit.md`.
