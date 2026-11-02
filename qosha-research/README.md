@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-02T12:04:41+04:00: fresh disjoint pass-history opponent-choice likelihood replication. Exact pass-consistent worlds reweighted under equal-prior random-legal/min-hand-pips/fast-doubles; balanced 3–3 and 2–3 strata; stable-style and per-decision posterior regret/ESS compared on paired continuations. See qosha-research/runs/2026-11-02-1204-pass-history-opponent-choice-replication.md and qosha-research/runs/2026-11-02-1204-pass-history-opponent-choice-replication.json. No strategy promoted.
+2026-11-02T13:10:52+04:00: fresh disjoint prior-grid sensitivity on 100 joint-support multi-action positions (50 each 3–3 and 2–3); 570 exact state-world assignments and 9012 paired rollouts across three continuation profiles. Uniform, random-legal-heavy, and fast-doubles-heavy priors compared under stable-style and per-decision likelihoods. No reliable tactic; see qosha-research/runs/2026-11-02-1310-pass-history-opponent-choice-prior-grid.md and .json.

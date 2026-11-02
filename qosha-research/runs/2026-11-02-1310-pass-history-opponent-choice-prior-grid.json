@@ -1,0 +1,195 @@
+{
+  "schema": "qosha-opponent-choice-prior-grid/v1",
+  "timestampBaku": "2026-11-02T13:10:52+04:00",
+  "engine": "qosha-research-0.5.3 + trace-instrumented pass-history support + common-world regret evaluator + prior-grid weighting",
+  "rules": "recovered qosa-1.0.0; 3x9; global-ever-open/current-only remain provisional",
+  "seedWindow": {
+    "start": 3521601,
+    "reservedEnd": 3537600,
+    "scannedThrough": 3533278,
+    "uniqueDealAllocations": 11678,
+    "duplicateDealAllocations": 0
+  },
+  "discovery": {
+    "dealsRequested": 16000,
+    "dealsGenerated": 11678,
+    "selectedLateStates": 1500,
+    "jointPositiveStates": 248,
+    "preparedJointMultiActionStates": 211,
+    "selectedStates": 100,
+    "selected3v3": 50,
+    "selected2v3": 50,
+    "outcomes": {
+      "finish": 390,
+      "block": 11288,
+      "unresolved": 0
+    },
+    "passObservations": 55007
+  },
+  "opponentChoiceModel": {
+    "policies": [
+      "random-legal",
+      "min-hand-pips",
+      "fast-doubles"
+    ],
+    "priors": {
+      "uniform": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "random-legal-heavy": [
+        0.6,
+        0.2,
+        0.2
+      ],
+      "fast-doubles-heavy": [
+        0.2,
+        0.2,
+        0.6
+      ]
+    },
+    "stableStyle": "one latent policy per opponent for the round; prior mixture per opponent; opponent likelihoods multiply",
+    "perDecision": "at each observed decision, prior-weighted mixture of policy action distributions",
+    "policyActionLikelihood": "random-legal uniform over all legal actions; min-hand-pips/fast-doubles uniform over top-ranked actions",
+    "forcedPasses": "exact pass masks; not reweighted"
+  },
+  "pairedContinuations": {
+    "profiles": [
+      "closed-branch-control",
+      "min-hand-pips",
+      "fast-doubles"
+    ],
+    "candidateWorldPairsPerProfile": 1502,
+    "modelRolloutsPerProfile": 3004,
+    "totalModelRollouts": 9012,
+    "unresolved": 0,
+    "continuationSeeds": "same deterministic hidden-world seed reused across candidates and both branch models"
+  },
+  "support": {
+    "jointStateWorldAssignments": 570,
+    "rawAllocations": 1500,
+    "global": 570,
+    "currentOnly": 1112,
+    "joint": 570,
+    "globalOnly": 0,
+    "currentOnlyExclusive": 542,
+    "neither": 388
+  },
+  "primaryMetric": "global branch model / closed-branch-control: weighted decision-regret shift versus pass-only; percentage points; descriptive state-cluster 95% normal intervals",
+  "priorGridMetrics": {
+    "uniform": {
+      "weights": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "stable": {
+        "delta": {
+          "mean": 1.0378797247143592,
+          "ci95": 1.4588742624978086
+        },
+        "regret": {
+          "mean": 11.429546391381026,
+          "ci95": 3.73795090839716
+        },
+        "ess": 3.3208481377932553
+      },
+      "perDecision": {
+        "delta": {
+          "mean": 0.6643275680725668,
+          "ci95": 1.0042974569407932
+        },
+        "regret": {
+          "mean": 11.055994234739234,
+          "ci95": 3.581887020861848
+        },
+        "ess": 3.9197761822843065
+      }
+    },
+    "random-legal-heavy": {
+      "weights": [
+        0.6,
+        0.2,
+        0.2
+      ],
+      "stable": {
+        "delta": {
+          "mean": 0.893308300614594,
+          "ci95": 1.3550115964460816
+        },
+        "regret": {
+          "mean": 11.28497496728126,
+          "ci95": 3.6948671191173963
+        },
+        "ess": 3.420353609204957
+      },
+      "perDecision": {
+        "delta": {
+          "mean": 0.2744801367899261,
+          "ci95": 0.7093236211291403
+        },
+        "regret": {
+          "mean": 10.666146803456591,
+          "ci95": 3.514579926813899
+        },
+        "ess": 4.50606875829888
+      }
+    },
+    "fast-doubles-heavy": {
+      "weights": [
+        0.2,
+        0.2,
+        0.6
+      ],
+      "stable": {
+        "delta": {
+          "mean": 1.0500035014771454,
+          "ci95": 1.464570150152141
+        },
+        "regret": {
+          "mean": 11.441670168143812,
+          "ci95": 3.740140965770531
+        },
+        "ess": 3.307024870954051
+      },
+      "perDecision": {
+        "delta": {
+          "mean": 0.7595453878813769,
+          "ci95": 1.1421568379458453
+        },
+        "regret": {
+          "mean": 11.151212054548042,
+          "ci95": 3.622243100340884
+        },
+        "ess": 3.711363136430968
+      }
+    }
+  },
+  "finding": {
+    "stableStylePriorRangePp": 0.1566954234297652,
+    "perDecisionPriorRangePp": 0.4850652510924508,
+    "allIntervalsIncludeZero": true,
+    "interpretation": "Small, statistically unresolved shifts; no reliable tactical effect or strategy promotion."
+  },
+  "validation": {
+    "passed": true,
+    "assertions": 20,
+    "baseAssertions": 9,
+    "priorGridAssertions": 11,
+    "execution": "GitHub-fetched modules executed in V8 harness"
+  },
+  "limitations": [
+    "selected late states discovered under current-only counterfactual; not population representative",
+    "opponent-policy prior and uniform-top-action likelihood are assumptions; forced-pass masks are exact only under the specified model",
+    "global/current-only branch semantics, block scoring and scoring rules remain unauthenticated",
+    "state-cluster normal intervals are descriptive; ESS is modest"
+  ],
+  "cumulativeSeparateCohorts": {
+    "dealAllocations": 64706,
+    "jointSupportMultiActionStates": 874,
+    "stateWorldAssignments": 4741,
+    "note": "additive cohort summaries; no global dedup across cohorts or state-world assignments"
+  },
+  "exactNextAction": "Fresh disjoint holdout; replace uniform-top-action likelihood with a softmax/temperature family on identical hidden worlds and continuation seeds; seek authenticated branch/block ruling; no strategy promotion."
+}
