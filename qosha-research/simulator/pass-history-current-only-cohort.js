@@ -6,6 +6,8 @@ const e = require('./engine'), init = require('./initializer'), d = require('./t
 const rd = require('./round-driver'), support = require('./pass-history-conditioned-support');
 const SIDES = e.SIDES, DECK = e.createDoubleSixDeck(), DECK_KEYS = DECK.map(e.tileKey).sort();
 const check = (ok, message) => { if (!ok) throw new Error(message || 'assertion failed'); };
+function decisionKey(a) { const tiles=(a.tiles||[a.tile].filter(Boolean)).map(e.tileKey).join(','); return [a.type,a.side||'',a.to??'',(a.numbers||[]).join(','),tiles].join('|'); }
+function cloneDecisionHistory(xs) { return xs.map(x=>({...x,branchState:e.cloneBranchState(x.branchState),openingState:e.cloneOpeningState(x.openingState),openedAtDouble:x.openedAtDouble.map(([n,s])=>[n,s.slice()]),action:x.action?JSON.parse(JSON.stringify(x.action)):null})); }
 
 function cloneOpenedAt(map) { return new Map([...map].map(([n, sides]) => [n, new Set(sides)])); }
 function clonePasses(passes) {
@@ -87,7 +89,7 @@ function simulateSeed(seed, maxTurns = 100) {
   check(base.kind === 'ready', 'initializer did not produce ready state');
   const state = rd.cloneRoundState(base), openedAtDouble = new Map([[1, new Set(SIDES)]]);
   const playedTiles = [[1, 1]], playedEvents = [{ turn: -2, player: base.starter, tiles: [[1, 1]] }];
-  const playedKeys = new Set(['1-1']), passHistory = [], eligible = [];
+  const playedKeys = new Set(['1-1']), passHistory = [], eligible = [], decisionHistory = [];
   if (base.openingFollowup) {
     const tile = base.openingFollowup.tile.slice(); playedTiles.push(tile);
     playedKeys.add(e.tileKey(tile)); playedEvents.push({ turn: -1, player: base.starter, tiles: [tile] });
@@ -103,10 +105,14 @@ function simulateSeed(seed, maxTurns = 100) {
         passHistory.some(pass => pass.player !== p)) {
       eligible.push({ state: rd.cloneRoundState(state), openedAtDouble: cloneOpenedAt(openedAtDouble), playedTiles: playedTiles.map(t => t.slice()),
         playedEvents: playedEvents.map(ev => ({ ...ev, tiles: ev.tiles.map(t => t.slice()) })),
-        passHistory: clonePasses(passHistory) });
+        passHistory: clonePasses(passHistory), decisionHistory: cloneDecisionHistory(decisionHistory) });
     }
     let tr;
+    const decisionBase = { turn: state.turns, player: p, handSizeBefore: state.hands[p].length,
+      branchState: e.cloneBranchState(state.branchState), openingState: e.cloneOpeningState(state.openingState),
+      openedAtDouble: [...openedAtDouble].map(([n,sides])=>[n,[...sides]]), phase: options.phase };
     if (options.phase === 'pass') {
+      decisionHistory.push({ ...decisionBase, action: null, actionKey: null });
       recordPass(state, p, playedKeys, openedAtDouble, passHistory);
       tr = { branchState: e.cloneBranchState(state.branchState), openingState: e.cloneOpeningState(state.openingState),
         hand: options.hand, stock: options.stock, passed: true, drawn: options.drawn,
@@ -114,6 +120,7 @@ function simulateSeed(seed, maxTurns = 100) {
     } else {
       const policy = seed % 2 === 0 ? 'min-hand-pips' : 'fast-doubles';
       const action = chooseTopUniform(policy, options, { seed, turns: state.turns, player: p });
+      decisionHistory.push({ ...decisionBase, action: JSON.parse(JSON.stringify(action)), actionKey: decisionKey(action) });
       applyActionModel(action, state, openedAtDouble);
       tr = d.applyTurn(state.branchState, state.openingState, state.hands[p], state.stock, action);
       for (const tile of tr.playedTiles) {
@@ -131,7 +138,7 @@ function simulateSeed(seed, maxTurns = 100) {
     assertConservation(state, playedTiles, seed);
   }
   if (!state.outcome) state.outcome = { kind: 'unresolved', reason: 'turn-limit', turns: state.turns };
-  return { seed, state, playedTiles, playedEvents, passHistory, eligible, outcome: state.outcome };
+  return { seed, state, playedTiles, playedEvents, passHistory, eligible, decisionHistory: cloneDecisionHistory(decisionHistory), outcome: state.outcome };
 }
 function analyzeSnapshot(snapshot, maxWorlds = 20000) {
   const state = snapshot.state, focalSeat = state.currentPlayer, focalHand = state.hands[focalSeat].map(t => t.slice());
