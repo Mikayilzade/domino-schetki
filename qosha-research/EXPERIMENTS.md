@@ -272,3 +272,12 @@ For a visible late state, retain exact pass-mask support as the baseline and rew
 - The current active PWA contract is named `pwa-bust-101`: score floor 0; score >=101 marks explosion; pending result when at most two remain; two survivors receive 2/1 by ascending score. Keep the one-survivor 3-point branch and tie behavior explicitly implementation-labelled.
 - Do not map the help phrase “finishing with a gosha removes 10” onto `loneZero=10` without a concrete, unambiguous hand/finish fixture. If later tested, name it as a separate hypothesis and do not silently change the recovered qosa-1.0.0 config.
 - Do not combine the legacy target-win-at-101 script with the active bust-at-101 mode in one cohort.
+
+
+## Exact initial-deal distribution smoke audit (2026-11-02)
+
+For the primary 3x9+1-stock deal generator, compare fixed seed ranges against exact hypergeometric references before interpreting any strategy sample:
+- each distinct tile has marginal probability 9/28 in each seat and 1/28 in stock;
+- a 9-tile hand's number of doubles follows Hypergeometric(28, 7, 9);
+- conditional on 1-1 being in a hand, the other eight tiles follow Hypergeometric(27, 6, 8) over the six remaining doubles and 21 non-doubles.
+Use deterministic seed ranges and broad, predeclared smoke bands; report the exact formula and seed set. This catches gross deal/seat bias but is not a proof of PRNG uniformity, not a strategy experiment, and not a substitute for round-engine validation. Keep the starter's pre-opening hand separate from the post-draw/follow-up state.

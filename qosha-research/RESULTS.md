@@ -2783,3 +2783,16 @@ Clarify the intended meaning and timing of `loneZero=10` and the 101-point bust 
 - **Limitations:** block winner/allocation and tie-break, physical branch lock/open, and `loneZero=10` remain unresolved. The fixed fixtures test identity transformations, not reachable-game frequency.
 - **Exact next action:** run `node qosha-research/simulator/block-seat-permutation-test.js` plus existing block/branch regressions in a clean checkout; then keep block scoring as alternative labelled hypotheses until table evidence resolves it.
 - **Report/data/reproducer:** [report](runs/2026-11-02-2147-block-seat-permutation-audit.md), [JSON](runs/2026-11-02-2147-block-seat-permutation-audit.json), [test](simulator/block-seat-permutation-test.js).
+
+
+# Exact 3x9 initial-deal distribution audit — 2026-11-02T22:50:39+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0, primary 3 players x 9 stones + one stock.
+- **Deals/seeds/strategies:** 50,000 deal draws, seeds 0–49,999; no rounds and no strategies. Unique allocation count was not computed.
+- **Validation:** 172 assertions passed in Node v22.16.0 in an isolated harness using the exact fetched engine.js blob SHA 82e5bd544a57683d5b4f7812b2d4abf80da894. The clean repository checkout remains blocked by GitHub DNS.
+- **Key metrics:** mean starting doubles by seat 2.25224 / 2.24808 / 2.24776 vs exact 2.25. Every tile's expected seat/stock allocation (9/28 per seat, 1/28 stock) passed broad fixed 7-sigma smoke bands. 1-1 seat counts were 16,029 / 16,043 / 16,074; stock count 1,854.
+- **Finding:** conditional on 1-1 being in a 9-tile hand, the pre-opening hand has 2 or 3 doubles with exact probability 68.09%; observed 68.33% (32,898 / 48,146). This is a deal-composition baseline, not a tactical advantage.
+- **Confidence/limitations:** exact hypergeometric reference plus deterministic smoke test; not proof of PRNG uniformity. No round, branch, block, match scoring, or strategy outcome measured. Starter count is before mandatory opening draw/follow-up.
+- **Cumulative separate game cohorts:** unchanged at 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments; no global dedup.
+- **Exact next action:** run the committed test and block/branch Node regressions in a clean checkout when DNS is available; then validate the mandatory 1-1 draw/follow-up as a separate invariant.
+- **Report/reproducer/data:** [report](runs/2026-11-02-2250-deal-distribution-audit.md), [JSON](runs/2026-11-02-2250-deal-distribution-audit.json), [test](simulator/deal-distribution-test.js).

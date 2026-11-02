@@ -1,0 +1,121 @@
+{
+  "schema": "qosha-initial-deal-distribution-audit/v1",
+  "timestampAsiaBaku": "2026-11-02T22:50:39+04:00",
+  "engine": "qosha-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; primary 3 players x 9 stones + 1 stock",
+  "scope": "deal-generation validation only; branch, turn, block, match scoring and strategy outcomes are not simulated",
+  "seedStart": 0,
+  "seedEnd": 49999,
+  "seedDraws": 50000,
+  "uniqueAllocationCount": null,
+  "duplicateAllocationCount": null,
+  "strategies": [],
+  "rounds": 0,
+  "sourceEngineBlobSha": "82e5bd544a57683d5b4f7812b2d4abf80da894",
+  "nodeVersion": "v22.16.0",
+  "test": {
+    "passed": true,
+    "assertions": 172,
+    "method": "fixed deterministic seed range; exact hypergeometric reference probabilities; 7-sigma binomial smoke bands plus one-count slack"
+  },
+  "observed": {
+    "meanStartingDoublesBySeat": [
+      2.25224,
+      2.24808,
+      2.24776
+    ],
+    "doubleCountBinsBySeat": [
+      [
+        2058,
+        10255,
+        17843,
+        13765,
+        5100,
+        899,
+        80
+      ],
+      [
+        2184,
+        10291,
+        17548,
+        13918,
+        5093,
+        906,
+        60
+      ],
+      [
+        2092,
+        10392,
+        17740,
+        13655,
+        5124,
+        930,
+        67
+      ]
+    ],
+    "oneOneSeat": [
+      16029,
+      16043,
+      16074
+    ],
+    "oneOneStock": 1854,
+    "stockDouble": 12596,
+    "starterN": 48146,
+    "starterTotalDoubleBins": [
+      4415,
+      15253,
+      17645,
+      8718,
+      1939,
+      176
+    ],
+    "tilePositionCountRange": {
+      "seatMin": 15841,
+      "seatMax": 16283,
+      "stockMin": 1681,
+      "stockMax": 1871
+    }
+  },
+  "exact": {
+    "meanStartingDoublesPer9TileHand": 2.25,
+    "tileInEachSeat": 0.32142857142857145,
+    "tileInStock": 0.03571428571428571,
+    "oneOneInEachSeat": 0.32142857142857145,
+    "oneOneInStock": 0.03571428571428571,
+    "anyPlayerHasOneOne": 0.9642857142857143,
+    "stockIsDouble": 0.25,
+    "handDoubleCountBins0To5And6Plus": [
+      0.04255599472990777,
+      0.20623289753724536,
+      0.35354211006384917,
+      0.27497719671632714,
+      0.10311644876862268,
+      0.018197020370933414,
+      0.0013783318131144217
+    ],
+    "starterTotalDoubleCountBins1To5And6Plus": [
+      0.09165906557210905,
+      0.31425965339008816,
+      0.3666362622884362,
+      0.1833181311442181,
+      0.040437823046518696,
+      0.0036890645586297763
+    ],
+    "starterHas2Or3DoublesConditionalOnOneOneInHand": 0.6808959156785244
+  },
+  "finding": "No gross seat/tile-position or double-count distribution anomaly detected in the 50,000-seed smoke test. Conditional on 1-1 being in a 9-tile hand, that pre-opening hand has 2 or 3 doubles with exact probability 68.09%; this is a deal-composition baseline, not a tactic.",
+  "limitations": [
+    "A deterministic finite-seed smoke test is not proof of PRNG uniformity.",
+    "The starter double-count statistic is before the mandatory opening draw and follow-up.",
+    "The first-round 1-1-in-stock redeal rule is not simulated here.",
+    "No game rounds, strategies, block rules, match scoring, or tactical outcomes were measured.",
+    "Unique allocations across seeds were not deduplicated."
+  ],
+  "cumulativeSeparateGameCohorts": {
+    "dealAllocations": 88886,
+    "selectedMultiActionPositions": 1074,
+    "stateWorldAssignments": 5863,
+    "globalDedup": false
+  },
+  "exactNextAction": "Run this committed test and the block/branch Node regressions in a clean checkout when GitHub DNS is available; then extend deal invariants to the initializer's mandatory 1-1 draw/follow-up without treating its canonical side as a physical preference."
+}

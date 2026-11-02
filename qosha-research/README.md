@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-02T21:47:47+04:00: block diagnostic seat-permutation audit; 1,524 standalone-harness assertions across 252 seat permutations, including 3-/5-player pass thresholds. No new deals or tactical finding. Repository Node test awaits clean checkout. See `qosha-research/runs/2026-11-02-2147-block-seat-permutation-audit.md`.
+2026-11-02T22:50:39+04:00: exact 3x9 initial-deal distribution audit; 50,000 deterministic seed draws, 172 deal-generation assertions, no strategy finding. See qosha-research/runs/2026-11-02-2250-deal-distribution-audit.md.
