@@ -47,34 +47,26 @@ function orbitKey(action, branchState) {
   return [action.type, tiles, (action.numbers || []).join(',')].join('|');
 }
 function chooseOrbit(opts, state, ctx) {
+  const profile = ctx.profile || 'closed-branch-control';
   const ranked = opts.actions.map(action => ({
-    action,
-    finish: action.type === 'mixed-finish' ? 1 : 0,
+    action, finish: action.type === 'mixed-finish' ? 1 : 0,
     openings: action.type === 'double-sequence' ? (action.numbers || []).length : 0,
-    pips: removedPips(action)
+    pips: removedPips(action), doubles: actionTiles(action).filter(tile => tile[0] === tile[1]).length
   }));
-  ranked.sort((a, b) =>
-    b.finish - a.finish || a.openings - b.openings || b.pips - a.pips
-  );
-  const best = ranked[0];
-  const top = ranked.filter(x =>
-    x.finish === best.finish && x.openings === best.openings && x.pips === best.pips
-  ).map(x => x.action);
-  const groups = new Map();
-  for (const action of top) {
-    const key = orbitKey(action, state.branchState);
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(action);
-  }
-  const sortedGroups = [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0]));
-  const seed = (Number(ctx.seed) >>> 0) ^
-    Math.imul((ctx.turns || 0) + 1, 0x9e3779b9) ^
-    Math.imul((ctx.player || 0) + 1, 0x85ebca6b) ^
-    (ctx.salt || 0);
-  // The extra mix matches the V8 audit's seeded orbit tie-break.
-  const random = localXorshift32(e.mixSeed32(seed));
-  const group = sortedGroups[Math.floor(random() * sortedGroups.length)][1];
-  return group[Math.floor(random() * group.length)];
+  if (profile === 'closed-branch-control') ranked.sort((a,b)=>b.finish-a.finish||a.openings-b.openings||b.pips-a.pips);
+  else if (profile === 'min-hand-pips') ranked.sort((a,b)=>b.finish-a.finish||b.pips-a.pips);
+  else if (profile === 'fast-doubles') ranked.sort((a,b)=>b.finish-a.finish||b.doubles-a.doubles||b.pips-a.pips);
+  else throw new Error('unknown continuation profile '+profile);
+  const best=ranked[0];
+  const top=ranked.filter(x=>x.finish===best.finish&&
+    (profile!=='closed-branch-control'||x.openings===best.openings)&&
+    (profile!=='fast-doubles'||x.doubles===best.doubles)&&x.pips===best.pips).map(x=>x.action);
+  const groups=new Map();for(const action of top){const key=orbitKey(action,state.branchState);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(action);}
+  const sortedGroups=[...groups.entries()].sort((a,b)=>a[0].localeCompare(b[0]));
+  const seed=(Number(ctx.seed)>>>0)^Math.imul((ctx.turns||0)+1,0x9e3779b9)^Math.imul((ctx.player||0)+1,0x85ebca6b)^(ctx.salt||0);
+  const random=localXorshift32(e.mixSeed32(seed));
+  const group=sortedGroups[Math.floor(random()*sortedGroups.length)][1];
+  return group[Math.floor(random()*group.length)];
 }
 function cloneCurrentState(state) {
   return {
@@ -432,7 +424,7 @@ function metrics(end, focal) {
     outcomeKind: outcome.kind
   };
 }
-function simulateGlobal(spec, world, candidateKey) {
+function simulateGlobal(spec, world, candidateKey, profile = 'closed-branch-control') {
   let forced = true;
   const chooser = (opts, state) => {
     if (forced) {
@@ -442,13 +434,13 @@ function simulateGlobal(spec, world, candidateKey) {
       return action;
     }
     return chooseOrbit(opts, state, {
-      seed: world.seed, turns: state.turns, player: state.currentPlayer, salt: 11
+      seed: world.seed, turns: state.turns, player: state.currentPlayer, salt: 11, profile
     });
   };
   const end = r.runRound(world.state, chooser, { maxTurns: 200 });
   return metrics(end, spec.state.currentPlayer);
 }
-function simulateCurrent(spec, world, candidateKey) {
+function simulateCurrent(spec, world, candidateKey, profile = 'closed-branch-control') {
   const state = cloneCurrentForWorld(spec, world);
   let forced = true;
   while (!state.outcome && state.turns < 200) {
@@ -460,7 +452,7 @@ function simulateCurrent(spec, world, candidateKey) {
         return action;
       }
       return chooseOrbit(opts, s, {
-        seed: world.seed, turns: s.turns, player: s.currentPlayer, salt: 11
+        seed: world.seed, turns: s.turns, player: s.currentPlayer, salt: 11, profile
       });
     });
   }

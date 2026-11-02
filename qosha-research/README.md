@@ -27,4 +27,4 @@
 
 ## Latest checkpoint
 
-2026-11-02: exact pass-history joint-support paired candidate audit. See runs/2026-11-02-0454-pass-history-joint-support-choice-audit.md and its JSON summary. Candidate comparisons use only the exact intersection of global-ever-open/current-only pass-conditioned hidden supports; branch models remain provisional.
+2026-11-02 05:54 +04: exact pass-history joint-support continuation-profile audit. The same 50 joint-support positions were evaluated under closed-branch-control, min-hand-pips, and fast-doubles continuations; branch-model separation remained large while continuation-profile changes were small. No strategy promoted. See `runs/2026-11-02-0554-pass-history-continuation-profile-audit.md` and its JSON data.

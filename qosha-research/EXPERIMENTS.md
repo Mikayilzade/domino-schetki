@@ -206,3 +206,12 @@ For the four-branch metamorphic check, generate reachable trajectories with a fi
 ## Exact joint-support paired candidate continuations (2026-11-02)
 
 For a current-only-generated pass-history cohort, compare root candidates only on hidden allocations that satisfy every observed pass under both global-ever-open and current-only masks. Enumerate the finite labeled allocation space exactly when under the cap; reconstruct each pass-time hand from the sampled current hand plus the same seat's later public plays. Keep candidate sets restricted to root actions legal under both models. Reuse the exact allocation and a deterministic allocation-derived continuation seed for every candidate and both model arms; use the same action-orbit continuation policy after the forced root move. Report global and current-only outcomes/regret separately, along with support partition, state-world assignment count, candidate-world pairs, rollouts, and state-cluster descriptive intervals. These comparisons are model-sensitivity diagnostics only: current-only branch semantics remain provisional, pass consistency does not infer voluntary tile choices, and synthetic selected states do not authenticate physical rules.
+
+
+## Exact joint-support continuation-profile robustness (2026-11-02)
+
+- Keep the exact intersection of global-ever-open/current-only pass-conditioned hidden support fixed across continuation profiles.
+- Reuse each visible state, hidden allocation, candidate action, and continuation seed across every profile/model arm. Report candidate-world pairs and model rollouts per profile separately.
+- Profile ranking must be explicit: `closed-branch-control` minimizes opening count then maximizes pips; `min-hand-pips` maximizes pips; `fast-doubles` maximizes doubles then pips. Preserve the branch-symmetric action-orbit/member tie-break for ties.
+- Report global/current-only support counts, model-specific outcomes, state-cluster deltas and regret by profile. A small profile delta does not authenticate the branch rule; it only indicates sensitivity to the chosen continuation policy within the selected cohort.
+- Fixed-seed regression should assert allocation census, joint support, candidate pairs, rollouts, and profile-specific outcomes. No strategy promotion from selected synthetic state cohorts.
