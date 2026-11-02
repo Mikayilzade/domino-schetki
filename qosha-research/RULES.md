@@ -92,3 +92,15 @@
 3. трактовку `loneZero=10`.
 
 Старт с `1-1`, добровольные неполные multi-double серии и mixed finish больше не считаются неопределёнными.
+
+## Live PWA match-scoring cross-check (read-only, 2026-11-02)
+
+This is repository implementation evidence, not independent authentication of physical table rules.
+
+- `index.html` loads the `scoreboard.js` + versioned `scoreboard-v*` chain (through v19); it does **not** load `app.js`, `qosha-rules.js`, or `qosha-101.js`. Do not treat those unreferenced legacy scripts as the active PWA.
+- The active Qoşa path in `scoreboard.js`/`scoreboard-v14.js` applies a zero score floor, marks an entity exploded when its score reaches **101 or more**, and prepares a result once at most two entities remain. With two survivors, the lower score is assigned 2 daily points and the other 1. A one-survivor branch assigns 3 points, but under the stop-at-two flow it is not reached from an ordinary 3+ player sequence; it is covered only as a separate code-path fixture.
+- `scoreboard-extra.js` help text says that finishing with a gosha removes 10 and that the score cannot fall below zero. The UI accepts manual score entries; the source does not define whether this phrase is exactly the recovered `loneZero=10` parameter or what hand/finish qualifies. Keep `loneZero=10` unresolved.
+- The unreferenced `qosha-101.js` instead declares a target-reaching win at 101. It is a conflicting legacy variant, not evidence for the current active PWA and must not be mixed with `bust=101`.
+- Survivor-score ties use the current JavaScript stable-sort/input-order behavior in the implementation; no physical tie rule is authenticated.
+
+Compatibility tests live in `simulator/match-scoring.js` and `simulator/match-scoring-test.js`. These tests preserve the source-derived PWA contract separately from round-kernel and physical-rule validation.

@@ -2743,3 +2743,15 @@ Clarify the intended meaning and timing of `loneZero=10` and the 101-point bust 
 - Test: [score-floor-contract-test.js](../simulator/score-floor-contract-test.js)
 - Data: [JSON run record](./2026-11-02-1908-score-floor-round-invariants.json)
 
+
+# Live PWA match-scoring contract — 2026-11-02T19:54:23+04:00 (Asia/Baku)
+
+- **Scope:** read-only inspection of active `index.html` script chain and source-derived match-scoring adapter; no deals/seeds/strategies.
+- **Source:** active PWA loads `scoreboard.js` and `scoreboard-v*` through v19, not `app.js`, `qosha-rules.js`, or `qosha-101.js`. Active Qoşa behavior is bust at score >=101, floor 0, finish when at most two remain; two survivors get 2/1 by ascending score. The one-survivor 3-point branch is implementation-only and unreachable from an ordinary 3+ player sequence that stops at two.
+- **loneZero:** help text says finishing with a gosha removes 10, but does not define whether that is the recovered `loneZero=10` parameter or what exact hand qualifies. Keep unresolved; do not infer.
+- **Tests:** Node v22.16.0; `match-scoring-test.js` passed 23 assertions. Exact research `engine.js` blob hash verified (`82e5bd544a57683d5b4f7812b2d4abf80da894`). No full browser integration; no live PWA file modified.
+- **Finding:** source confirms a code-level bust-101 scoring contract, not a physical-rule ruling and not a tactical advantage. No strategy promoted.
+- **Scale:** new deals 0; cumulative separate cohorts unchanged at 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments; no global dedup.
+- **Limitations:** `loneZero=10`, physical branch lock/open, block winner/tie, survivor tie convention remain unresolved/implementation-only.
+- **Exact next action:** treat “gosha finish −10” as a separate candidate meaning of `loneZero=10`; require a concrete hand/finish fixture, and continue branch/block rule validation before large strategy batches.
+- **Report/data/reproducer:** [report](runs/2026-11-02-1954-live-pwa-match-scoring-contract.md), [JSON](runs/2026-11-02-1954-live-pwa-match-scoring-contract.json), [module](simulator/match-scoring.js), [test](simulator/match-scoring-test.js).

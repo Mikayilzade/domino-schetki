@@ -1,0 +1,92 @@
+{
+  "schema": "qosha-live-pwa-match-scoring-contract/v1",
+  "timestampBaku": "2026-11-02T19:54:23+04:00",
+  "engine": "qosha-research-0.5.3; new match-scoring adapter, no round-engine change",
+  "rules": "recovered qosa-1.0.0; primary 3x9; bust=101 matches active PWA implementation; loneZero=10 remains unresolved",
+  "sourceInspection": {
+    "activeEntry": "index.html",
+    "activeScriptChain": [
+      "scoreboard.js",
+      "scoreboard-extra.js",
+      "scoreboard-v8.js",
+      "scoreboard-v10.js",
+      "scoreboard-v11.js",
+      "scoreboard-v12.js",
+      "scoreboard-v13.js",
+      "scoreboard-v14.js",
+      "scoreboard-v15.js",
+      "scoreboard-v16.js",
+      "scoreboard-v17.js",
+      "scoreboard-v18.js",
+      "scoreboard-v19.js"
+    ],
+    "notLoadedByIndex": [
+      "app.js",
+      "qosha-rules.js",
+      "qosha-101.js"
+    ],
+    "blobHashes": {
+      "index.html": "9530d5163d20770efb171f68d956815893c5d032",
+      "scoreboard.js": "bcac426aa5f4361271fc9b3de3220e14c837be14",
+      "scoreboard-extra.js": "f552f4d4b7fafd970955565ca11667734259d59b",
+      "scoreboard-v14.js": "f07d609bb6c2ff0092d0f340892092a38fd16cc4",
+      "scoreboard-v19.js": "23139366b714dc09a1aa0912be4d2e54256dc2a1",
+      "qosha-rules.js": "cf2f9561b5085f6803dbe8a1ecbde3fbd03aa689",
+      "qosha-101.js": "41e60e3ba9cbafb94d919007887aac2cc7f11e01"
+    },
+    "contract": {
+      "bustThreshold": 101,
+      "scoreFloor": 0,
+      "resultGate": "finish when <=2 non-exploded entities remain",
+      "twoSurvivorPoints": [
+        2,
+        1
+      ],
+      "ordering": "ascending score",
+      "oneSurvivorPoints": 3,
+      "oneSurvivorReachability": "not reached from ordinary 3+ player sequential flow with stop-at-two; isolated code-path fixture only"
+    }
+  },
+  "simulation": {
+    "newDeals": 0,
+    "seedSet": null,
+    "strategies": [],
+    "reason": "source-derived match-scoring contract audit only"
+  },
+  "runtime": {
+    "node": "v22.16.0",
+    "execution": "isolated temporary directory; exact engine.js Git blob hash verified"
+  },
+  "tests": [
+    {
+      "name": "match-scoring-test.js",
+      "passed": true,
+      "assertions": 23,
+      "cases": [
+        "100/101 threshold",
+        "zero-input no-op",
+        "3-player places",
+        "one-survivor branch",
+        "5-player sequential explosion",
+        "score floor",
+        "exploded-entity guard",
+        "invalid inputs"
+      ]
+    }
+  ],
+  "cumulativeSeparateGameCohorts": {
+    "dealAllocations": 88886,
+    "selectedMultiActionPositions": 1074,
+    "stateWorldAssignments": 5863,
+    "note": "unchanged additive summaries; no global dedup"
+  },
+  "finding": "Active PWA implementation supports bust=101, score floor 0, and 2/1 survivor ranking. The help phrase gosha-finish minus 10 does not unambiguously define loneZero=10. No tactical finding.",
+  "limitations": [
+    "Code-derived compatibility test, not physical-rule authentication",
+    "No full browser integration",
+    "loneZero=10 exact mapping and qualifying finish remain unresolved",
+    "Survivor ties and one-survivor branch are implementation-only",
+    "No new deals, real decision traces, or strategy comparisons"
+  ],
+  "exactNextAction": "Treat gosha-finish minus 10 as a separate hypothesis for loneZero=10; require a concrete hand/finish fixture. Continue authenticating branch-lock/open and blocked-round winner/tie rules before large strategy batches."
+}

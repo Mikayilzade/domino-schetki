@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-02T19:08:35+04:00: exact-blob Node regression for score floor, draw/pass, four-branch lock/open, block remainders and −10/−20/−30/−40; 41,237 new assertions plus existing kernel fixtures passed. No new deals or tactical finding. See `qosha-research/runs/2026-11-02-1908-score-floor-round-invariants.md`.
+2026-11-02T19:54:23+04:00: source-derived active-PWA match scoring audit; 23 assertions passed for bust=101, score floor and survivor ranking. No new deals or tactical finding; `loneZero=10` remains unresolved. See `qosha-research/runs/2026-11-02-1954-live-pwa-match-scoring-contract.md`.

@@ -265,3 +265,10 @@ For a visible late state, retain exact pass-mask support as the baseline and rew
 - The current diagnostic shows that few groups and size imbalance can produce severe undercoverage even when the CR1 point formula is correct. Report independent group count and size distribution; do not treat the CR1 SE as proof that a small-G normal interval is calibrated.
 - Before using intervals with sparse or highly unequal round-seat groups, validate a wild-cluster bootstrap or CR2 small-sample correction on synthetic coverage fixtures. This method study is not a gameplay result and cannot calibrate opponent temperature.
 
+## Match-scoring provenance and variant isolation (2026-11-02)
+
+- Keep round-level first-finish/remainder/minus metrics separate from match-level points and 101-point survivor outcomes.
+- When deriving a match-scoring adapter from repository code, record the active `index.html` script chain and source blob hashes. A script not loaded by the active entry point is legacy evidence only.
+- The current active PWA contract is named `pwa-bust-101`: score floor 0; score >=101 marks explosion; pending result when at most two remain; two survivors receive 2/1 by ascending score. Keep the one-survivor 3-point branch and tie behavior explicitly implementation-labelled.
+- Do not map the help phrase “finishing with a gosha removes 10” onto `loneZero=10` without a concrete, unambiguous hand/finish fixture. If later tested, name it as a separate hypothesis and do not silently change the recovered qosa-1.0.0 config.
+- Do not combine the legacy target-win-at-101 script with the active bust-at-101 mode in one cohort.
