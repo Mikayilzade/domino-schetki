@@ -2484,3 +2484,16 @@ Report: [2026-11-02-exact-late-hidden-world-choice.md](./runs/2026-11-02-exact-l
 - **Exact next hypothesis/action:** collect current-only-compatible or real public traces, then rerun matched candidate comparisons only on joint hidden-world support. Keep model-divergent traces separate as rule evidence.
 
 Report: [pass-history-conditioned-support.md](./runs/2026-11-02-pass-history-conditioned-support.md); data: [JSON summary](./runs/2026-11-02-pass-history-conditioned-support.json); runner/test: [pass-history-conditioned-support.js](./simulator/pass-history-conditioned-support.js), [test](./simulator/pass-history-conditioned-support-test.js).
+
+
+# Current-only-generated pass-history support audit — 2026-11-02 04:33:36 +04 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3 + current-only-pass-support-1.0; recovered qosa-1.0.0, 3 players × 9 stones. Current-only side-local branch opening is a provisional counterfactual.
+- **Deals/seeds:** reserved window 3454291–3456690; deterministic scan stopped at 3455100 after 810 unique allocations, 0 duplicates. Outcomes under this counterfactual: 31 finish, 779 block, 0 unresolved. Selected 100 late positions; 129 eligible states and 3,866 no-stock pass observations.
+- **Selection/policies:** one latest eligible position per seed; focal has ≥2 current-only legal actions, both opponents ≤3 tiles, prior hidden-seat pass. Seed-even=min-hand-pips, seed-odd=fast-doubles; seeded uniform choice among top-ranked actions, distributionally branch-label symmetric.
+- **Exact state-world support totals:** raw 1,081; global-ever-open 52; current-only 786; joint 52; global-only 0; current-only-exclusive 734; neither 295. Actual current-only allocation survived 100/100; global-compatible 8/100; joint support was non-empty in 17/100 positions.
+- **Finding:** model separation is measurable. Current-only-generated pass traces often retain worlds excluded by the global-ever-open pass mask. This is expected counterfactual model divergence, not proof of physical rules. The high block rate is model-specific, not a real-game estimate. No candidate comparisons and no tactic promotion.
+- **Limitations:** selected synthetic trajectories; pass consistency only, no opponent-choice likelihood; current-only rule provisional; V8 in-memory reference execution, committed Node runner/test integration not verified in this container due GitHub DNS failure.
+- **Exact next action:** compare candidate actions only on the 17 joint-support positions / 52 state-world assignments under identical continuation policies; keep the small cohort diagnostic and continue seeking authentic public traces or an explicit branch-opening ruling.
+
+Report: [2026-11-02-current-only-pass-support.md](runs/2026-11-02-current-only-pass-support.md); data: [JSON](runs/2026-11-02-current-only-pass-support.json); runner/test: [pass-history-current-only-cohort.js](simulator/pass-history-current-only-cohort.js), [test](simulator/pass-history-current-only-cohort-test.js).

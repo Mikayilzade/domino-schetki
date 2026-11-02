@@ -27,4 +27,4 @@
 
 ## Latest checkpoint
 
-2026-11-02: pass-history-conditioned hidden-world support audit. See runs/2026-11-02-pass-history-conditioned-support.md and its JSON summary. Candidate comparisons are deferred until model-specific/joint support is established.
+2026-11-02: current-only-generated pass-history support audit. See runs/2026-11-02-current-only-pass-support.md and its JSON summary. Candidate comparisons remain restricted to joint support; current-only branch opening is a counterfactual, not an authenticated rule.

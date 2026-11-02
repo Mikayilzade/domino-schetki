@@ -192,3 +192,12 @@ For the four-branch metamorphic check, generate reachable trajectories with a fi
 - The posterior is uniform over allocations conditional on the recorded pass constraints. Do not infer voluntary tile-choice likelihood.
 - Keep model-divergent trajectories separate from matched candidate comparisons. Candidate reruns should use only joint hidden-world support unless a model-specific comparison is explicitly being tested.
 - This audit’s generated cohort and synthetic model-agreement fixture are recorded in RESULTS.md and the linked run data. No strategy is promoted from support counts alone.
+
+
+## Model-specific pass posterior from generated counterfactual traces (2026-11-02)
+
+- Keep global-ever-open and current-only side-local simulations separate. Current-only is a counterfactual rule model, not physical-rule authentication.
+- For a current-only-generated trace, reconstruct pass-time hands from each sampled current hidden hand plus that seat's later public plays; filter global and current-only pass masks separately.
+- Record raw/global/current-only/joint/global-only/current-only-exclusive/neither support, plus whether the actual generated allocation survives each model.
+- Candidate comparisons are permitted only on joint support, using identical hidden allocations and continuation policies. Model-exclusive support is rule-sensitivity evidence only.
+- Report generated block rate as model-specific diagnostic; never combine it with global-model outcomes or promote a tactic from selected synthetic traces.

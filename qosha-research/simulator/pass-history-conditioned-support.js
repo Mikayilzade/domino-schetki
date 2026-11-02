@@ -116,7 +116,8 @@ function worldCompatible(world, focalHand, playedEvents, passes, focalSeat, mode
   return true;
 }
 function supportFromSpec({ pool, hiddenHandSizes, stockSize = 0, focalHand, focalSeat = 0,
-  playedEvents = [], passHistory = [], currentOnlyTraceCompatible = true, actualHiddenHands = null, maxWorlds = 20000 }) {
+  playedEvents = [], passHistory = [], currentOnlyTraceCompatible = true, actualHiddenHands = null,
+  actualExpectedModel = 'global-ever-open', maxWorlds = 20000 }) {
   const spec = { pool, hiddenHandSizes, stockSize };
   const total = alloc.countAllocations(spec);
   check(total <= BigInt(maxWorlds), 'exact support exceeds cap: ' + total);
@@ -136,8 +137,13 @@ function supportFromSpec({ pool, hiddenHandSizes, stockSize = 0, focalHand, foca
     }
   }
   check(counts.globalOnly + counts.currentOnlyExclusive + counts.joint + counts.neither === counts.raw, 'support partition mismatch');
-  if (actualHiddenHands) check(actualIncluded && actualGlobal, 'actual global world excluded by pass history');
-  if (actualHiddenHands && currentOnlyTraceCompatible) check(actualCurrent, 'joint trace excluded actual current-only world');
+  if (actualHiddenHands) {
+    check(actualIncluded, 'actual allocation missing from exact support');
+    if (actualExpectedModel === 'global-ever-open') check(actualGlobal, 'actual global world excluded by pass history');
+    else if (actualExpectedModel === 'current-only') check(actualCurrent, 'actual current-only world excluded by pass history');
+    else throw new Error('unknown actualExpectedModel: ' + actualExpectedModel);
+  }
+  if (actualHiddenHands && currentOnlyTraceCompatible) check(actualCurrent, 'current-only-compatible trace excluded actual current-only world');
   return { counts, actualIncluded, actualGlobal, actualCurrent };
 }
 function applyActionModel(action, state, openedAtDouble, divergences) {
