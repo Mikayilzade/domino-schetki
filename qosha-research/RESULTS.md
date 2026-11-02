@@ -2755,3 +2755,16 @@ Clarify the intended meaning and timing of `loneZero=10` and the 101-point bust 
 - **Limitations:** `loneZero=10`, physical branch lock/open, block winner/tie, survivor tie convention remain unresolved/implementation-only.
 - **Exact next action:** treat “gosha finish −10” as a separate candidate meaning of `loneZero=10`; require a concrete hand/finish fixture, and continue branch/block rule validation before large strategy batches.
 - **Report/data/reproducer:** [report](runs/2026-11-02-1954-live-pwa-match-scoring-contract.md), [JSON](runs/2026-11-02-1954-live-pwa-match-scoring-contract.json), [module](simulator/match-scoring.js), [test](simulator/match-scoring-test.js).
+
+
+# Exhaustive active-PWA match-scoring contract — 2026-11-02T20:57:24+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0, primary 3×9. Source-derived active-PWA match-scoring adapter; no round-engine change.
+- **Deals/seeds/strategies:** 0 new deals; no seed set; no strategy comparison.
+- **Tests:** existing match-scoring test 23/23; new exhaustive test 64,066/64,066; **64,089 total assertions passed** in Node v22.16.0 isolated harness. Repository checkout could not be run because container DNS cannot resolve GitHub.
+- **Coverage:** 8,080 non-zero score/delta cases (scores 0–100, deltas −40…+40); 101 zero-event cases; 10,201 survivor score-pair rankings including stable input-order ties; all 120 five-player explosion orders / 360 sequential explosion steps.
+- **Finding:** code-level floor, bust threshold, survivor ranking and stop-at-two sequence are internally consistent. This is not physical-rule authentication and provides no tactical finding. No strategy promoted.
+- **Limitations:** `loneZero=10`, block winner/tie, and physical branch lock/open remain unresolved. No new game cohort.
+- **Cumulative separate cohorts:** 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments; unchanged additive summaries, no global dedup.
+- **Exact next action:** run the committed test in a clean Node checkout when available; resume branch lock/open and blocked-round winner/tie validation before large strategy batches.
+- **Report/data/reproducer:** [report](runs/2026-11-02-2057-match-scoring-exhaustive-contract.md), [JSON](runs/2026-11-02-2057-match-scoring-exhaustive-contract.json), [test](simulator/match-scoring-exhaustive-test.js).

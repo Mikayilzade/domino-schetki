@@ -1,0 +1,46 @@
+{
+  "schema": "qosha-match-scoring-exhaustive-contract/v1",
+  "timestampBaku": "2026-11-02T20:57:24+04:00",
+  "engine": "qosha-research-0.5.3; source-derived match-scoring adapter; no round-engine change",
+  "rules": "recovered qosa-1.0.0, primary 3x9; active-PWA implementation contract bust=101; loneZero=10 unresolved",
+  "sourceBlobs": {
+    "qosha-research/simulator/engine.js": "82e5bd544a57683d5b4f7812b2d4abf80da894",
+    "qosha-research/simulator/match-scoring.js": "8e91a87672cca56d65fa6ac6e07d4eb3589d019b",
+    "qosha-research/simulator/match-scoring-test.js": "d51c2491975a74ab6241a8c0a350221a9264fe78"
+  },
+  "runtime": {
+    "node": "v22.16.0",
+    "execution": "isolated temporary harness; GitHub checkout unavailable due container DNS; source helper verified against GitHub blob"
+  },
+  "simulation": {
+    "newDeals": 0,
+    "seedSet": null,
+    "strategies": [],
+    "reason": "exhaustive implementation-contract regression only"
+  },
+  "tests": {
+    "existingMatchScoringAssertions": 23,
+    "exhaustiveAssertions": 64066,
+    "totalAssertions": 64089,
+    "scoreDeltaCases": 8080,
+    "zeroEventCases": 101,
+    "survivorRankCases": 10201,
+    "fivePlayerExplosionOrders": 120,
+    "fivePlayerExplosionSteps": 360
+  },
+  "finding": "The source-derived adapter is internally consistent for floor, bust threshold, survivor ranking, and stop-at-two sequencing. This is code validation only; no physical-rule or tactical conclusion.",
+  "cumulativeSeparateGameCohorts": {
+    "dealAllocations": 88886,
+    "selectedMultiActionPositions": 1074,
+    "stateWorldAssignments": 5863,
+    "note": "unchanged additive cohort summaries; no global dedup"
+  },
+  "limitations": [
+    "No new domino deals or strategy comparisons",
+    "Not physical-rule authentication",
+    "loneZero=10 remains unresolved",
+    "Block winner/tie and branch lock/open remain unauthenticated",
+    "Repository Node integration not run because container DNS could not resolve GitHub"
+  ],
+  "exactNextAction": "Run the committed test in a clean repository Node checkout when available; then resume branch lock/open and blocked-round winner/tie validation before large strategy batches."
+}

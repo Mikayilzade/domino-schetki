@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-02T19:54:23+04:00: source-derived active-PWA match scoring audit; 23 assertions passed for bust=101, score floor and survivor ranking. No new deals or tactical finding; `loneZero=10` remains unresolved. See `qosha-research/runs/2026-11-02-1954-live-pwa-match-scoring-contract.md`.
+2026-11-02T20:57:24+04:00: exhaustive source-derived active-PWA match-scoring regression; 64,089 assertions passed (8,080 score/delta cases, 10,201 survivor rankings, 120 five-player explosion orders). No new deals or tactical finding; `loneZero=10` remains unresolved. See `qosha-research/runs/2026-11-02-2057-match-scoring-exhaustive-contract.md`.
