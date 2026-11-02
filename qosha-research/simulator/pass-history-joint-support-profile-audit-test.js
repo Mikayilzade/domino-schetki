@@ -3,7 +3,7 @@ const assert=require('node:assert/strict');
 const audit=require('./pass-history-joint-support-choice-audit');
 const profiles=['closed-branch-control','min-hand-pips','fast-doubles'];
 const r=audit.runAudit({startSeed:3455101,deals:2500,targetPositions:300,maxWorlds:20000,continuationProfiles:profiles});
-assert.deepEqual(r.continuationProfiles,profiles);
+assert.deepEqual(r.conditioning.continuationProfiles,profiles);
 assert.equal(r.discovery.dealsGenerated,2306);
 assert.equal(r.discovery.uniqueDealAllocations,2306);
 assert.equal(r.discovery.duplicateDealAllocations,0);
