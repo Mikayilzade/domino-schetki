@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-02T22:50:39+04:00: exact 3x9 initial-deal distribution audit; 50,000 deterministic seed draws, 172 deal-generation assertions, no strategy finding. See qosha-research/runs/2026-11-02-2250-deal-distribution-audit.md.
+2026-11-02T23:47:54+04:00: 1-1 opening initializer invariant audit; 20,000 deterministic 3×9 allocations, 1,105,683 assertions, no strategy finding. See qosha-research/runs/2026-11-02-2347-opening-initializer-invariant-audit.md.
