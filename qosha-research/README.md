@@ -27,6 +27,6 @@
 
 ## Latest checkpoint
 
-2026-11-02 07:54 +04: cross-audited two disjoint pass-history joint-support cohorts. The global-ever-open minus current-only first-finish gap kept the same positive direction across both cohorts and three shared continuation profiles; cross-cohort shifts include zero. This is model sensitivity only; no tactic promoted. No fresh deals were simulated in this checkpoint.
+2026-11-02 08:54 +04: fresh disjoint pass-history Cohort C: 7,980 unique deals, 172 joint-support multi-action states, 831 exact state-world assignments, 17,960 paired model rollouts across four continuation profiles. Positive global/current-only model gap replicated; no tactic promoted. Branch/block rules remain provisional.
 
-See `runs/2026-11-02-0754-pass-history-replication-audit.md` and JSON data; reproducer: `simulator/pass-history-replication-audit.js`.
+See `runs/2026-11-02-0854-pass-history-joint-support-cohort-C.md` and JSON data. Reproducer and regression files are linked in the report.

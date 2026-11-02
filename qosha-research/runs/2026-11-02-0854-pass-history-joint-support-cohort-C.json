@@ -1,0 +1,196 @@
+{
+  "timestampBaku": "2026-11-02T08:54:04+04:00",
+  "audit": "fresh pass-history joint-support paired candidate audit; Cohort C; deterministic",
+  "engine": "qosha-research-0.5.3 + current-only-pass-support-1.0 + model-agreement-common-world-regret-node",
+  "rules": "recovered qosa-1.0.0; 3x9; global-ever-open and current-only provisional",
+  "seedWindow": {
+    "reservedStart": 3464101,
+    "reservedEnd": 3473600,
+    "scannedThrough": 3472080,
+    "seedSet": "contiguous seeds 3464101–3472080"
+  },
+  "deals": {
+    "requested": 9500,
+    "generated": 7980,
+    "uniqueDealAllocations": 7980,
+    "duplicateAllocations": 0
+  },
+  "discovery": {
+    "selectedLateStates": 1000,
+    "jointSupportMultiActionStates": 172,
+    "outcomesUnderCurrentOnlyCounterfactual": {
+      "finish": 236,
+      "block": 7744,
+      "unresolved": 0
+    },
+    "eligibleLateStates": 1277,
+    "noStockPassObservations": 37613,
+    "selection": "latest eligible state per seed; focal >=2 current-only actions; both opponents <=3 tiles; prior hidden-seat no-stock pass; exact support <=20000",
+    "generationPolicies": "seed-even=min-hand-pips; seed-odd=fast-doubles; seeded uniform top-ranked choice"
+  },
+  "exactSupport": {
+    "allocationsChecked": 2315,
+    "global": 831,
+    "currentOnly": 1617,
+    "joint": 831,
+    "globalOnly": 0,
+    "currentOnlyExclusive": 786,
+    "neither": 698,
+    "stateWorldAssignments": 831,
+    "duplicateWithinState": 0,
+    "note": "state-world assignments are not globally unique hidden allocations"
+  },
+  "pairedContinuations": {
+    "profiles": [
+      "closed-branch-control",
+      "min-hand-pips",
+      "fast-doubles",
+      "moderate-double-hold"
+    ],
+    "candidateActionWorldPairsPerProfile": 2245,
+    "modelRolloutsPerProfile": 4490,
+    "totalCandidateActionWorldPairs": 8980,
+    "totalModelRollouts": 17960,
+    "unresolved": 0,
+    "commonWorldsAndSeeds": "same exact hidden worlds and continuation seeds reused across candidate arms"
+  },
+  "metricsByProfile": {
+    "closed-branch-control": {
+      "global": {
+        "firstFinishChance": 0.3959910913,
+        "meanRemainder": 3.3412026726
+      },
+      "currentOnly": {
+        "firstFinishChance": 0.0712694878,
+        "meanRemainder": 9.471714922
+      },
+      "stateClusterModelGap": {
+        "firstFinishChance": {
+          "mean": 0.2496366279,
+          "ci95": 0.0496592684
+        },
+        "meanRemainder": {
+          "mean": -6.0498465762,
+          "ci95": 0.685061683
+        }
+      }
+    },
+    "min-hand-pips": {
+      "global": {
+        "firstFinishChance": 0.3959910913,
+        "meanRemainder": 3.3385300668
+      },
+      "currentOnly": {
+        "firstFinishChance": 0.0712694878,
+        "meanRemainder": 9.471714922
+      },
+      "stateClusterModelGap": {
+        "firstFinishChance": {
+          "mean": 0.2496366279,
+          "ci95": 0.0496592684
+        },
+        "meanRemainder": {
+          "mean": -6.0542070413,
+          "ci95": 0.6847503095
+        }
+      }
+    },
+    "fast-doubles": {
+      "global": {
+        "firstFinishChance": 0.3973273942,
+        "meanRemainder": 3.3287305122
+      },
+      "currentOnly": {
+        "firstFinishChance": 0.0712694878,
+        "meanRemainder": 9.471714922
+      },
+      "stateClusterModelGap": {
+        "firstFinishChance": {
+          "mean": 0.2529796512,
+          "ci95": 0.0501944176
+        },
+        "meanRemainder": {
+          "mean": -6.0748465762,
+          "ci95": 0.6871579982
+        }
+      }
+    },
+    "moderate-double-hold": {
+      "global": {
+        "firstFinishChance": 0.3959910913,
+        "meanRemainder": 3.3385300668
+      },
+      "currentOnly": {
+        "firstFinishChance": 0.0712694878,
+        "meanRemainder": 9.471714922
+      },
+      "stateClusterModelGap": {
+        "firstFinishChance": {
+          "mean": 0.2496366279,
+          "ci95": 0.0496592684
+        },
+        "meanRemainder": {
+          "mean": -6.0542070413,
+          "ci95": 0.6847503095
+        }
+      }
+    }
+  },
+  "regretByState": {
+    "global": {
+      "firstFinishChance": {
+        "mean": 0.0880571705,
+        "ci95": 0.0255455829
+      },
+      "meanRemainder": {
+        "mean": 1.1870962532,
+        "ci95": 0.2008750364
+      }
+    },
+    "currentOnly": {
+      "firstFinishChance": {
+        "mean": 0.0425387597,
+        "ci95": 0.0201932834
+      },
+      "meanRemainder": {
+        "mean": 1.7404312016,
+        "ci95": 0.2372811077
+      }
+    },
+    "note": "oracle regret is hindsight best among sampled common legal candidates; not an executable perfect-information policy"
+  },
+  "crossCohort": {
+    "closedControlGapCMinusA": {
+      "meanPp": 4.8803294574,
+      "ci95HalfWidthPp": 10.8258536457
+    },
+    "closedControlGapCMinusB": {
+      "meanPp": -1.4314823544,
+      "ci95HalfWidthPp": 8.0405304068
+    },
+    "bothIntervalsIncludeZero": true,
+    "profileGapRangePp": 0.3343023256
+  },
+  "cumulativeSeparateCohorts": {
+    "uniqueDealAllocations": 16213,
+    "jointSupportMultiActionStates": 350,
+    "stateWorldAssignments": 1742,
+    "cohorts": 4,
+    "note": "kept separate; state-world assignments are not globally unique allocations"
+  },
+  "validation": {
+    "profileAuditAssertions": 36,
+    "currentOnlySupportAssertions": 10,
+    "passed": true,
+    "environment": "V8 harness"
+  },
+  "finding": "Fresh disjoint Cohort C replicated the positive global-ever-open minus current-only model gap; magnitude consistent with previous cohorts and insensitive to the four continuation profiles in this selected synthetic cohort. No tactic promoted.",
+  "limitations": [
+    "Current-only-counterfactual discovery and selected late positions; not population representative.",
+    "Pass consistency without opponent-choice likelihood.",
+    "Global/current-only branch semantics and physical block/scoring rules unauthenticated.",
+    "Descriptive state-cluster intervals only; not population-level uncertainty.",
+    "High block rate belongs to this counterfactual discovery model and is not a real-game estimate."
+  ],
+  "exactNextAction": "Start fresh disjoint seeds at 3473601; target >=250 joint-support multi-action states; stratify by opponent hand sizes, common action count, and pass evidence; test explicit opponent-choice likelihood; seek authentic branch/block ruling."
+}

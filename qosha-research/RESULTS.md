@@ -2538,3 +2538,16 @@ Report: [2026-11-02-current-only-pass-support.md](runs/2026-11-02-current-only-p
 - **Cumulative separate pass-history cohorts:** 8,233 unique deal allocations, 178 joint-support multi-action states, 911 state-world assignments (not globally unique allocations). Strategy tournament unchanged.
 - **Exact next action:** run a fresh disjoint seed window starting at 3464101, target ≥150 joint-support multi-action states, compare moderate-double-hold regret/model gap on identical exact hidden worlds, retain cohort summaries separately, and seek authentic branch/block evidence.
 - **Report/data/reproducer:** [report](runs/2026-11-02-0754-pass-history-replication-audit.md); [JSON](runs/2026-11-02-0754-pass-history-replication-audit.json); [script](simulator/pass-history-replication-audit.js).
+
+
+# Exact pass-history joint-support paired audit — 2026-11-02 08:54 +04 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0, 3×9. Global-ever-open/current-only remain provisional.
+- **Fresh Cohort C:** reserved seeds 3464101–3473600, scanned through 3472080; 7,980 unique deal allocations, 0 duplicates. 1,000 selected late states; 172 joint-support multi-action states.
+- **Exact support:** 2,315 labeled allocations; 831 joint state-world assignments; 0 within-state duplicates. Four continuation profiles, 2,245 candidate-world pairs / 4,490 model rollouts each; total 8,980 pairs / 17,960 rollouts; 0 unresolved.
+- **Model gap (state-cluster descriptive 95% CI):** closed-branch-control +24.96±4.97 pp first-finish and −6.05±0.69 pips remainder; min-hand-pips +24.96±4.97 pp; fast-doubles +25.30±5.02 pp and −6.07±0.69 pips; moderate-double-hold matches min-pips on the gap. Four-profile first-finish gap range 0.334 pp.
+- **Replication:** closed-control gap shifts versus prior Cohorts A/B are +4.88±10.83 pp and −1.43±8.04 pp; both intervals include zero. Positive direction replicated; no tactic promoted.
+- **Regret diagnostic:** per-state oracle candidate regret is 8.81±2.55 pp first-finish / 1.19±0.20 pips remainder under global; 4.25±2.02 pp / 1.74±0.24 under current-only. Hindsight oracle, not executable policy.
+- **Limits:** selected current-only-counterfactual late states, pass consistency without opponent-choice likelihood, unauthenticated branch/block semantics; intervals descriptive. Current-only discovery yielded 7,744 blocks / 236 finishes, a model-specific count—not a real-game estimate. 36 profile and 10 support assertions passed in V8; live PWA untouched.
+- **Cumulative four separate cohorts:** 16,213 unique deal allocations, 350 joint-support multi-action states, 1,742 state-world assignments. Exact next: start fresh seeds 3473601, target ≥250 states, stratify by opponent hand size/action count/pass evidence, test opponent-choice likelihood, seek authentic ruling.
+- Report/data/reproducer: [report](runs/2026-11-02-0854-pass-history-joint-support-cohort-C.md); [JSON](runs/2026-11-02-0854-pass-history-joint-support-cohort-C.json); [runner](simulator/pass-history-joint-support-choice-audit.js).
