@@ -281,3 +281,13 @@ For the primary 3x9+1-stock deal generator, compare fixed seed ranges against ex
 - a 9-tile hand's number of doubles follows Hypergeometric(28, 7, 9);
 - conditional on 1-1 being in a hand, the other eight tiles follow Hypergeometric(27, 6, 8) over the six remaining doubles and 21 non-doubles.
 Use deterministic seed ranges and broad, predeclared smoke bands; report the exact formula and seed set. This catches gross deal/seat bias but is not a proof of PRNG uniformity, not a strategy experiment, and not a substitute for round-engine validation. Keep the starter's pre-opening hand separate from the post-draw/follow-up state.
+
+
+## 1-1 opening initializer invariant cohort (2026-11-02T23:47:54+04:00; Asia/Baku)
+
+- Validate the initializer separately from full-round outcomes. Keep the 3×9 + one-stock setup and recovered qosa-1.0.0 opening assumptions explicit: hand-owned 1-1 removes the double and draws the stock tile; stock-owned 1-1 uses the previous winner; first-round stock 1-1 redeals; mandatory follow-up on 1 is played if legal, otherwise the starter passes.
+- Canonicalize each seat-labelled full allocation and report seed draws, unique allocations, and duplicate pairs separately. This cohort uses a fresh seed range 7,000,000–7,019,999.
+- Check 28-tile conservation, starter selection, stock consumption, opening draw, clockwise next player, pass count, opened-number set, branch transition, and all four side choices while keeping the follow-up tile and hand remainder fixed.
+- For a distribution smoke reference only, conditional on a fixed 1-1, the no-follow-up probability is C(21,9)/C(27,9) under a uniform deal and a previous winner independent of the deal. The six remaining tiles containing pip 1 must all be absent from the relevant 9-tile starter set. This does not prove PRNG uniformity or authenticate physical rules.
+- The branch-side variants are a representation/symmetry diagnostic only. Do not interpret outcome sensitivity as strategy superiority; no full rounds are part of this cohort.
+- The linked report and JSON record include exact source blob hashes, execution limits, metrics, and the next round-driver integration hypothesis.

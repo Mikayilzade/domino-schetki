@@ -2796,3 +2796,18 @@ Clarify the intended meaning and timing of `loneZero=10` and the 101-point bust 
 - **Cumulative separate game cohorts:** unchanged at 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments; no global dedup.
 - **Exact next action:** run the committed test and block/branch Node regressions in a clean checkout when DNS is available; then validate the mandatory 1-1 draw/follow-up as a separate invariant.
 - **Report/reproducer/data:** [report](runs/2026-11-02-2250-deal-distribution-audit.md), [JSON](runs/2026-11-02-2250-deal-distribution-audit.json), [test](simulator/deal-distribution-test.js).
+
+
+# 1-1 opening initializer invariant audit — 2026-11-02T23:47:54+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0, primary 3×9 + one stock. Initializer audit only; no full round, strategy comparison, or match scoring.
+- **Seeds/deals:** 7,000,000–7,019,999; 20,000 deterministic draws; 20,000 unique seat-labelled allocations; 0 duplicate allocation pairs. Strategies: none; rounds: 0.
+- **Execution:** Node v22.16.0. GitHub engine.js blob `82e5bd544a57683d5b4f7812b2d4abf80da894` and initializer.js blob `2fad29e516454580ec9a06115354e9866f3096e6` were verified and run in an isolated harness. A clean git checkout remains DNS-blocked.
+- **Validation:** 1,105,683 assertions passed. 1-1 location seats 0/1/2 = 6,421/6,265/6,634; stock = 680. All 680 first-round stock-1-1 cases returned redeal. Continuation setup: 18,704 follow-ups played, 1,296 opening passes; 7,404 four-side selector variants over the first 2,000 seeds.
+- **Exact pass reference:** C(21,9)/C(27,9) = 6.2714% under uniform dealing and previous-winner independence; observed 6.48% (1,296/20,000), within the deliberately broad 7-sigma smoke guard.
+- **Finding:** initializer draw/starter/follow-up/pass and tile-conservation paths are internally consistent for this deterministic cohort. No tactical finding and no strategy promoted. This is not physical-rule authentication or proof of PRNG uniformity.
+- **Cumulative separate cohorts:** the prior game cohorts remain 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments, without global dedup. This new 20,000-deal initializer cohort is reported separately and is not mixed into those gameplay samples.
+- **Limitations:** physical branch/block rules, block winner/tie, and loneZero=10 remain unresolved; full round transitions were not simulated.
+- **Exact next action:** connect initialized states to round-driver and validate the first return cycle after a played follow-up and a forced opening pass, checking pass reset/count, legal actions, tile conservation, and finish/block gates.
+
+Report/data/reproducer: [report](runs/2026-11-02-2347-opening-initializer-invariant-audit.md), [JSON](runs/2026-11-02-2347-opening-initializer-invariant-audit.json), [test](simulator/opening-initializer-invariant-test.js).

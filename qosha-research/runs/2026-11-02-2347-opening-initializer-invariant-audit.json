@@ -1,0 +1,58 @@
+{
+  "schema": "qosha-opening-initializer-invariant-audit/v1",
+  "timestampAsiaBaku": "2026-11-02T23:47:54+04:00",
+  "engine": "qosha-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; primary 3 players x 9 stones + one stock tile",
+  "scope": "initializer/opening-state contract only; no full round, strategy, branch outcome, block, or match scoring",
+  "seedStart": 7000000,
+  "seedEnd": 7019999,
+  "seedDraws": 20000,
+  "uniqueFullAllocations": 20000,
+  "duplicateAllocationPairs": 0,
+  "duplicatePairs": [],
+  "strategies": [],
+  "rounds": 0,
+  "sourceBlobs": {
+    "engine": "82e5bd544a57683d5b4f7812b2d4abf80da894",
+    "initializer": "2fad29e516454580ec9a06115354e9866f3096e6"
+  },
+  "nodeVersion": "v22.16.0",
+  "validation": {
+    "passed": true,
+    "assertions": 1105683,
+    "firstRoundStockOneOneRedeals": 680,
+    "continuationRoundsReady": 20000,
+    "openingFollowupPlayed": 18704,
+    "openingFollowupPass": 1296,
+    "sideVariantInitializations": 7404,
+    "sideVariantDealsScanned": 2000
+  },
+  "observed": {
+    "oneOneBySeat": [
+      6421,
+      6265,
+      6634
+    ],
+    "oneOneInStock": 680,
+    "observedNoFollowupProbability": 0.0648
+  },
+  "exact": {
+    "noFollowupProbability": 0.06271409749670619,
+    "formula": "C(21,9)/C(27,9)",
+    "assumption": "uniform deal; previous winner independent of deal; after fixing 1-1, the relevant 9-tile starter set is drawn from the remaining 27"
+  },
+  "finding": "Opening initializer paths and tile conservation are internally consistent in the tested deterministic cohort. The observed opening-pass rate is compatible with the exact hypergeometric reference under a broad 7-sigma regression guard. No tactical finding.",
+  "limitations": [
+    "Finite deterministic seed cohort; not proof of PRNG uniformity.",
+    "The initializer's recovered rules are implementation assumptions, not independently authenticated physical rules.",
+    "No full round, branch/block outcome, match scoring, or strategy comparison was run.",
+    "A clean git checkout could not be performed because github.com DNS is unavailable; exact GitHub blob hashes were verified in the isolated harness."
+  ],
+  "separateHistoricalGameCohorts": {
+    "dealAllocations": 88886,
+    "selectedMultiActionPositions": 1074,
+    "stateWorldAssignments": 5863,
+    "globalDedup": false
+  },
+  "exactNextAction": "Integrate initialized states with round-driver and validate first return cycle after a mandatory follow-up and after a forced opening pass, including pass count/reset, legal actions, tile conservation, and finish/block gates."
+}
