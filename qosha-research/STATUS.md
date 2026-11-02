@@ -1,9 +1,10 @@
-# Latest checkpoint — exact finite hidden-world support enumerator (2026-11-02 02:47 +04 Asia/Baku)
+# Latest checkpoint — exact late-game hidden-world legal-choice audit (2026-11-02 04:06 +04 Asia/Baku)
 
-- Engine/rules context: qosha-research-0.5.3; recovered qosa-1.0.0, primary 3×9 + stock. This checkpoint is allocation-only and independent of provisional branch-opening geometry.
-- Added simulator/hidden-world-enumeration.js and simulator/hidden-world-enumeration-test.js.
-- Exact synthetic support: 10 tiles, hidden hand sizes [3,3,3], stock 1 → 16,800 multinomial allocations. All enumerated, unique, and conserved. SHA-256 hash-ranked subset 128/128 reproducible.
-- Regression: 10 assertions passed under Node 22.16.0. Local execution used a minimal engine helper shim matching the current GitHub tileKey/deck helpers; clean checkout integration not run here.
-- No new strategy deals, win-rate estimates, or reliable tactical finding. Prior strategic/decision cohorts remain unchanged; branch and block rules remain provisional where noted in RULES.md.
-- Exact next: select reachable late-game positions with finite support below cap; construct pool from complete known/played tiles; filter pass evidence separately by branch model; compare candidate legal actions on the same exact hidden worlds and continuation policies.
-- Report: [2026-11-02-0247-finite-hidden-world-enumeration.md](runs/2026-11-02-0247-finite-hidden-world-enumeration.md).
+- Engine/rules: qosha-research-0.5.3; recovered qosa-1.0.0; primary 3×9. Global-ever-open branch semantics remain provisional.
+- Added simulator/finite-late-world-choice.js and simulator/finite-late-world-choice-test.js. Exact allocation support is enumerated for pass-free, stock-empty late states; actual discovery allocation inclusion and complete root-action invariance are checked.
+- Test: 7 assertions passed under Node 22.16.0 in a local mirror of repository modules. Clean checkout integration remains unrun because github.com DNS resolution failed in the container.
+- New cohorts: 9,271 unique deal allocations / 9,271 resolved discovery rounds; 153 selected positions; 2,107 exact hidden-world records within visible states; 4,214 matched candidate-world-policy pairs / 8,428 candidate rollouts. No duplicates, no unresolved rounds.
+- Equal-pip cohort: 33 positions, next-opponent hand sizes 1/2/3 = 3/15/15. The modeled double-opening choice reduces focal first-finish chance by about 25 pp / 18 pp under two continuation policies, but the cohort is selected and branch semantics are provisional. No strategy promotion.
+- Historical strategy tournament remains separate and unchanged: 1,500 deals / 18,000 arm-rounds. Prior branch-label/property cohorts are not mixed with these exact-world records.
+- Exact next: implement pass-history-conditioned support filters for global-ever-open and current-only branch models; reconstruct pass-time hands from current hidden hands plus later played tiles; report model-specific and joint/exclusive support before matched reruns.
+- Report: [2026-11-02-exact-late-hidden-world-choice.md](runs/2026-11-02-exact-late-hidden-world-choice.md).

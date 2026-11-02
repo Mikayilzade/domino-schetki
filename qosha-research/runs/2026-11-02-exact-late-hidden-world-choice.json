@@ -1,0 +1,156 @@
+{
+  "schema": "qosha-exact-late-hidden-world-choice-report/v1",
+  "timestampAsiaBaku": "2026-11-02 04:06:02 +04",
+  "engine": "qosha-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; 3x9; global-ever-open branch model provisional; pass-free roots",
+  "cohorts": [
+    {
+      "mode": "minimum-gap",
+      "seedRange": [
+        3445020,
+        3445770
+      ],
+      "dealDraws": 751,
+      "uniqueDealAllocations": 751,
+      "duplicateAllocations": 0,
+      "selectedPositions": 120,
+      "exactWorldRecordsWithinPositions": 1746,
+      "matchedCandidateWorldPolicyPairs": 3492,
+      "candidateRollouts": 6984,
+      "meanPipGap": 3.066666666666667,
+      "equalPipPositions": 8,
+      "closedBranchControl": {
+        "focalFirstFinishDeltaPP": {
+          "mean": -31.65277777777777,
+          "halfWidth95": 5.668917688555938
+        },
+        "focalRemainderPipsDelta": {
+          "mean": 1.2895833333333337,
+          "halfWidth95": 0.39669875711216385
+        },
+        "nextOpponentImmediateFinishDeltaPP": {
+          "mean": 1.25,
+          "halfWidth95": 1.8199736046351433
+        },
+        "nextOpponentPassDeltaPP": {
+          "mean": -29.444444444444446,
+          "halfWidth95": 5.492409630019971
+        },
+        "nextOpponentPlayableTilesDelta": {
+          "mean": 1.1766666666666667,
+          "halfWidth95": 0.1082142959881417
+        }
+      },
+      "minHandPips": {
+        "focalFirstFinishDeltaPP": {
+          "mean": -29.59722222222222,
+          "halfWidth95": 5.401681159605434
+        },
+        "focalRemainderPipsDelta": {
+          "mean": 1.298194444444444,
+          "halfWidth95": 0.3754640707136667
+        },
+        "nextOpponentImmediateFinishDeltaPP": {
+          "mean": 1.25,
+          "halfWidth95": 1.8199736046351433
+        },
+        "nextOpponentPassDeltaPP": {
+          "mean": -29.444444444444446,
+          "halfWidth95": 5.492409630019971
+        },
+        "nextOpponentPlayableTilesDelta": {
+          "mean": 1.1766666666666667,
+          "halfWidth95": 0.1082142959881417
+        }
+      }
+    },
+    {
+      "mode": "equal-pip",
+      "seedRange": [
+        3445771,
+        3454290
+      ],
+      "dealDraws": 8520,
+      "uniqueDealAllocations": 8520,
+      "duplicateAllocations": 0,
+      "selectedPositions": 33,
+      "nextOpponentHandSizeQuota": {
+        "1": 3,
+        "2": 15,
+        "3": 15
+      },
+      "exactWorldRecordsWithinPositions": 361,
+      "matchedCandidateWorldPolicyPairs": 722,
+      "candidateRollouts": 1444,
+      "supportSizes": {
+        "3": 1,
+        "4": 3,
+        "6": 6,
+        "10": 15,
+        "20": 8
+      },
+      "closedBranchControl": {
+        "focalFirstFinishDeltaPP": {
+          "mean": -24.848484848484848,
+          "halfWidth95": 13.023568731959367
+        },
+        "focalRemainderPipsDelta": {
+          "mean": 1.9707070707070706,
+          "halfWidth95": 0.7916741540090251
+        },
+        "nextOpponentImmediateFinishDeltaPP": {
+          "mean": 4.292929292929293,
+          "halfWidth95": 5.032324600886237
+        },
+        "nextOpponentPassDeltaPP": {
+          "mean": -27.47474747474747,
+          "halfWidth95": 7.17907138226398
+        },
+        "nextOpponentPlayableTilesDelta": {
+          "mean": 1.064141414141414,
+          "halfWidth95": 0.24364388483625063
+        }
+      },
+      "minHandPips": {
+        "focalFirstFinishDeltaPP": {
+          "mean": -17.727272727272727,
+          "halfWidth95": 12.198597388098134
+        },
+        "focalRemainderPipsDelta": {
+          "mean": 1.5631313131313131,
+          "halfWidth95": 0.7440184130375294
+        },
+        "nextOpponentImmediateFinishDeltaPP": {
+          "mean": 4.292929292929293,
+          "halfWidth95": 5.032324600886237
+        },
+        "nextOpponentPassDeltaPP": {
+          "mean": -27.47474747474747,
+          "halfWidth95": 7.17907138226398
+        },
+        "nextOpponentPlayableTilesDelta": {
+          "mean": 1.064141414141414,
+          "halfWidth95": 0.24364388483625063
+        }
+      }
+    }
+  ],
+  "cumulativeNew": {
+    "uniqueDealAllocations": 9271,
+    "selectedPositions": 153,
+    "exactWorldRecordsWithinPositions": 2107,
+    "matchedCandidateWorldPolicyPairs": 4214,
+    "candidateRollouts": 8428,
+    "actualDiscoveryWorldIncluded": "153/153",
+    "unresolvedDiscoveryRounds": 0
+  },
+  "finding": "The selected pass-free exact-world cohort repeats a model signal: the opening-double candidate tends to reduce focal first-finish chance and increase next-opponent mobility. This is not a promoted tactic.",
+  "limitations": [
+    "position-based selection and prior choice-history likelihood not modeled",
+    "global-ever-open branch semantics provisional; current-only model not tested in this run",
+    "two synthetic continuation policies and seeded symmetric tie-break realizations",
+    "position-cluster intervals are exploratory, not population confidence intervals",
+    "block winner and match scoring remain unauthenticated"
+  ],
+  "exactNextAction": "Implement pass-history-conditioned hidden-world support filters for global-ever-open and current-only branch models; reconstruct pass-time hands from current hidden hands plus later played tiles; report global-only, current-only-exclusive, joint, and neither support before matched reruns."
+}

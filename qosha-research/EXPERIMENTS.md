@@ -170,3 +170,13 @@ For the four-branch metamorphic check, generate reachable trajectories with a fi
 - Apply forced-pass evidence as a separate model-specific filter; report pre-filter and post-filter support counts for each provisional branch model. Do not infer voluntary choices without a preregistered likelihood.
 - For a small enumerable support, a deterministic SHA-256 hash-ranked subset can provide a reproducible reduced set. This is without replacement from the enumerated support, not a uniform sampler for a larger unenumerated support.
 - Reuse each exact allocation across every candidate action and continuation policy. Keep the hindsight-oracle interpretation separate from an executable strategy.
+
+
+## Exact late-game hidden-world legal-choice comparison (2026-11-02)
+
+- Select only reachable root states with no forced pass before the root, empty stock, focal hand size 2–4, and both opponents holding 1–3 tiles. This avoids needing a pass posterior for this first exact cohort, but it does not remove selection bias from prior tile choices.
+- Fix the focal hand and the complete played/known tile list. Build the unknown pool from the full double-six deck minus those tiles; enumerate all seat-labeled opponent allocations exactly under an explicit support cap.
+- Require the actual discovery allocation to appear in the enumerated support; verify tile conservation, uniqueness, and that the entire root legal-action set is identical across hidden worlds.
+- Compare a legal one-double unopened-number sequence against an ordinary single. Keep minimum-pip-gap and exact equal-pip cohorts separate. For every exact world, force both actions and use the same world-derived continuation seed and symmetric action-orbit tie-break under the same continuation policy.
+- Report exact hidden-world records within each visible state separately from deal draws and from matched candidate-world-policy pairs. Cluster uncertainty by selected position; do not interpret it as a population CI.
+- The next pass-conditioned experiment must reconstruct each historical pass-time hand from the current hidden hand plus tiles played by that seat after the pass. Filter global-ever-open and current-only branch models separately, then report global-only, current-only-exclusive, joint, and neither support. Do not infer voluntary tile-choice likelihood unless preregistered.

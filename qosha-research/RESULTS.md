@@ -2455,3 +2455,17 @@ Report: [2026-11-02-0203-matched-legal-choice-equal-pip.md](runs/2026-11-02-0203
 - Finding: exact finite-support enumeration is feasible and testable for small late-game allocation spaces; no tactical advantage established. Physical branch opening/block scoring remain provisional.
 - Next hypothesis/action: identify reachable late positions under the support cap, filter pass evidence separately per branch model, then compare candidate legal moves on identical exact hidden allocations and continuation policies.
 - Report: [2026-11-02-0247-finite-hidden-world-enumeration.md](runs/2026-11-02-0247-finite-hidden-world-enumeration.md).
+
+
+# Exact late-game hidden-world legal-choice audit — 2026-11-02 04:06 +04 (Asia/Baku)
+
+- Engine/rules: qosha-research-0.5.3; recovered qosa-1.0.0; 3×9 + stock; global-ever-open branch model remains provisional.
+- Added a reproducible exact-support runner and regression. Two disjoint seed cohorts: minimum-gap 3445020–3445770 (751 unique deals, 120 positions) and exact equal-pip 3445771–3454290 (8,520 unique deals, 33 positions). Total 9,271 unique deal allocations; 0 duplicate allocations; discovery trajectories 8,992 finishes / 279 blocks / 0 unresolved.
+- Exact allocation totals: 1,746 + 361 = 2,107 within-position unique world records; 4,214 matched candidate-world-policy pairs; 8,428 candidate rollouts. All 153 actual discovery worlds were included in their exact support. Support sizes 3–20.
+- Exact equal-pip signal (double minus ordinary single): focal first-finish −24.85 ± 13.02 pp under closed-branch-control and −17.73 ± 12.20 pp under min-hand-pips; focal remainder +1.97 ± 0.79 and +1.56 ± 0.74 pips. Next-opponent immediate finish +4.29 ± 5.03 pp (interval includes zero), pass −27.47 ± 7.18 pp, playable tiles +1.06 ± 0.24.
+- Broad minimum-gap cohort repeats a focal first-finish decrease (−31.65 ± 5.67 / −29.60 ± 5.40 pp), but mean pip gap is 3.07 and only 8/120 pairs are equal-pip. It is not a pure branch-opening ablation.
+- Finding is a selected-model signal, not a promoted tactic: global branch semantics are provisional; pass evidence was avoided; opponent choice likelihood is absent; only two synthetic continuation policies; position-cluster intervals do not estimate population uncertainty.
+- Regression: 7 assertions passed in Node 22.16.0 on a local mirror of repository modules. Clean checkout integration was blocked by container DNS resolution for github.com.
+- Exact next: implement pass-history-conditioned hidden-world filters for global-ever-open and current-only models, reconstructing pass-time hands from current hidden hands plus later played tiles; report model-specific and joint/exclusive support before matched reruns.
+
+Report: [2026-11-02-exact-late-hidden-world-choice.md](./runs/2026-11-02-exact-late-hidden-world-choice.md); data: [JSON](./runs/2026-11-02-exact-late-hidden-world-choice.json); runner/test: [finite-late-world-choice.js](./simulator/finite-late-world-choice.js), [test](./simulator/finite-late-world-choice-test.js).
