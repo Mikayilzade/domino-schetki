@@ -1,0 +1,345 @@
+{
+  "schema": "qosa-branch-label-action-orbit-matched-seed-ablation/v1",
+  "timestamp": "2026-11-03T02:52:25+04:00",
+  "engineVersion": "qosha-research-0.5.3",
+  "rulesVersion": "recovered qosa-1.0.0; 3 players x 9 stones plus one stock tile",
+  "seedSet": {
+    "start": 3404400,
+    "end": 3404519,
+    "seedDraws": 120,
+    "uniqueDealAllocations": 120,
+    "duplicateAllocationPairs": 0,
+    "previousWinnerIndex": "seed modulo 3"
+  },
+  "comparisonDesign": {
+    "seatRotations": 3,
+    "roundsPerMix": 360,
+    "maxTurns": 200,
+    "mixes": {
+      "mix1": [
+        "random-legal",
+        "min-hand-pips",
+        "closed-branch-control"
+      ],
+      "mix2": [
+        "fast-doubles",
+        "moderate-double-hold",
+        "closed-branch-control"
+      ]
+    },
+    "baselineTieBreak": "deterministic stableKey/raw action-list order",
+    "actionOrbitTieBreak": "same primary rank; choose best-ranked side-feature orbit uniformly, then an action within it uniformly",
+    "randomLegalControl": "same seeded random-legal action in both arms",
+    "commonDealOpeningAndSeatRotations": true,
+    "hiddenWorldAllocations": 0
+  },
+  "branchPermutationAudit": {
+    "seedDraws": 40,
+    "uniqueAllocations": 40,
+    "seedRange": "3404400..3404439; subset of full-round seed set",
+    "sampledPositions": 927,
+    "branchLabelPermutations": 24,
+    "permutationChecks": 22248,
+    "playablePermutationComparisons": 19368,
+    "optionStateMismatches": 0,
+    "legalActionSetMismatches": 0,
+    "distributionalChecksPerStrategy": 19368,
+    "distributionalMismatchesPerStrategy": 0,
+    "totalDistributionalChecks": 96840
+  },
+  "pairedFullRoundComparisons": {
+    "mix1": {
+      "strategies": [
+        "random-legal",
+        "min-hand-pips",
+        "closed-branch-control"
+      ],
+      "baseline": {
+        "rounds": 360,
+        "finishes": 343,
+        "blocks": 17,
+        "unresolved": 0,
+        "meanTurns": 25.5083333333,
+        "blockRate": 0.0472222222,
+        "byStrategy": {
+          "random-legal": {
+            "appearances": 360,
+            "finishWins": 109,
+            "finishWinRate": 0.30277777777777776,
+            "meanFinalPips": 7.4527777778,
+            "medianFinalPips": 6,
+            "meanStartingDoubles": 2,
+            "meanEndingDoubles": 0.0027777778,
+            "finishMinusCounts": {
+              "0": 104,
+              "-10": 5,
+              "-20": 0,
+              "-30": 0,
+              "-40": 0
+            }
+          },
+          "min-hand-pips": {
+            "appearances": 360,
+            "finishWins": 100,
+            "finishWinRate": 0.2777777777777778,
+            "meanFinalPips": 4.9694444444,
+            "medianFinalPips": 3,
+            "meanStartingDoubles": 2,
+            "meanEndingDoubles": 0.0055555556,
+            "finishMinusCounts": {
+              "0": 84,
+              "-10": 15,
+              "-20": 1,
+              "-30": 0,
+              "-40": 0
+            }
+          },
+          "closed-branch-control": {
+            "appearances": 360,
+            "finishWins": 134,
+            "finishWinRate": 0.37222222222222223,
+            "meanFinalPips": 3.8416666667,
+            "medianFinalPips": 2,
+            "meanStartingDoubles": 2,
+            "meanEndingDoubles": 0.0083333333,
+            "finishMinusCounts": {
+              "0": 109,
+              "-10": 23,
+              "-20": 2,
+              "-30": 0,
+              "-40": 0
+            }
+          }
+        }
+      },
+      "actionOrbit": {
+        "rounds": 360,
+        "finishes": 350,
+        "blocks": 10,
+        "unresolved": 0,
+        "meanTurns": 25.3805555556,
+        "blockRate": 0.0277777778,
+        "byStrategy": {
+          "random-legal": {
+            "appearances": 360,
+            "finishWins": 101,
+            "finishWinRate": 0.28055555555555556,
+            "meanFinalPips": 7.6388888889,
+            "medianFinalPips": 6,
+            "meanStartingDoubles": 2,
+            "meanEndingDoubles": 0.0055555556,
+            "finishMinusCounts": {
+              "0": 95,
+              "-10": 6,
+              "-20": 0,
+              "-30": 0,
+              "-40": 0
+            }
+          },
+          "min-hand-pips": {
+            "appearances": 360,
+            "finishWins": 106,
+            "finishWinRate": 0.29444444444444445,
+            "meanFinalPips": 4.9472222222,
+            "medianFinalPips": 3,
+            "meanStartingDoubles": 2,
+            "meanEndingDoubles": 0.0055555556,
+            "finishMinusCounts": {
+              "0": 96,
+              "-10": 9,
+              "-20": 1,
+              "-30": 0,
+              "-40": 0
+            }
+          },
+          "closed-branch-control": {
+            "appearances": 360,
+            "finishWins": 143,
+            "finishWinRate": 0.3972222222222222,
+            "meanFinalPips": 3.6833333333,
+            "medianFinalPips": 2,
+            "meanStartingDoubles": 2,
+            "meanEndingDoubles": 0.0166666667,
+            "finishMinusCounts": {
+              "0": 110,
+              "-10": 31,
+              "-20": 2,
+              "-30": 0,
+              "-40": 0
+            }
+          }
+        }
+      },
+      "paired": {
+        "pairs": 360,
+        "bothFinish": 337,
+        "bothBlock": 4,
+        "kindChanged": 19,
+        "kindChangeRate": 0.0527777778,
+        "baselineFinishOrbitBlock": 6,
+        "baselineBlockOrbitFinish": 13,
+        "finishWinnerChanged": 72,
+        "finishWinnerChangeRateAmongBothFinish": 0.2136498516,
+        "minusChanged": 27,
+        "minusChangeRateAmongBothFinish": 0.0801186944,
+        "meanTurnDeltaOrbitMinusBaseline": -0.1277777778,
+        "meanFinalPipDeltaPerSeatOrbitMinusBaseline": 0.0018518519
+      }
+    },
+    "mix2": {
+      "strategies": [
+        "fast-doubles",
+        "moderate-double-hold",
+        "closed-branch-control"
+      ],
+      "baseline": {
+        "rounds": 360,
+        "finishes": 344,
+        "blocks": 16,
+        "unresolved": 0,
+        "meanTurns": 25.3583333333,
+        "blockRate": 0.0444444444,
+        "byStrategy": {
+          "fast-doubles": {
+            "appearances": 360,
+            "finishWins": 70,
+            "finishWinRate": 0.19444444444444445,
+            "meanFinalPips": 6.6555555556,
+            "medianFinalPips": 5,
+            "meanStartingDoubles": 2,
+            "meanEndingDoubles": 0,
+            "finishMinusCounts": {
+              "0": 69,
+              "-10": 1,
+              "-20": 0,
+              "-30": 0,
+              "-40": 0
+            }
+          },
+          "moderate-double-hold": {
+            "appearances": 360,
+            "finishWins": 129,
+            "finishWinRate": 0.35833333333333334,
+            "meanFinalPips": 4.275,
+            "medianFinalPips": 3,
+            "meanStartingDoubles": 2,
+            "meanEndingDoubles": 0.0027777778,
+            "finishMinusCounts": {
+              "0": 113,
+              "-10": 16,
+              "-20": 0,
+              "-30": 0,
+              "-40": 0
+            }
+          },
+          "closed-branch-control": {
+            "appearances": 360,
+            "finishWins": 145,
+            "finishWinRate": 0.4027777777777778,
+            "meanFinalPips": 3.425,
+            "medianFinalPips": 2,
+            "meanStartingDoubles": 2,
+            "meanEndingDoubles": 0.0222222222,
+            "finishMinusCounts": {
+              "0": 100,
+              "-10": 43,
+              "-20": 2,
+              "-30": 0,
+              "-40": 0
+            }
+          }
+        }
+      },
+      "actionOrbit": {
+        "rounds": 360,
+        "finishes": 351,
+        "blocks": 9,
+        "unresolved": 0,
+        "meanTurns": 25.35,
+        "blockRate": 0.025,
+        "byStrategy": {
+          "fast-doubles": {
+            "appearances": 360,
+            "finishWins": 71,
+            "finishWinRate": 0.19722222222222222,
+            "meanFinalPips": 6.4583333333,
+            "medianFinalPips": 5,
+            "meanStartingDoubles": 2,
+            "meanEndingDoubles": 0,
+            "finishMinusCounts": {
+              "0": 69,
+              "-10": 2,
+              "-20": 0,
+              "-30": 0,
+              "-40": 0
+            }
+          },
+          "moderate-double-hold": {
+            "appearances": 360,
+            "finishWins": 127,
+            "finishWinRate": 0.3527777777777778,
+            "meanFinalPips": 4.0138888889,
+            "medianFinalPips": 3,
+            "meanStartingDoubles": 2,
+            "meanEndingDoubles": 0.0083333333,
+            "finishMinusCounts": {
+              "0": 110,
+              "-10": 17,
+              "-20": 0,
+              "-30": 0,
+              "-40": 0
+            }
+          },
+          "closed-branch-control": {
+            "appearances": 360,
+            "finishWins": 153,
+            "finishWinRate": 0.425,
+            "meanFinalPips": 3.2333333333,
+            "medianFinalPips": 2,
+            "meanStartingDoubles": 2,
+            "meanEndingDoubles": 0.0194444444,
+            "finishMinusCounts": {
+              "0": 112,
+              "-10": 39,
+              "-20": 2,
+              "-30": 0,
+              "-40": 0
+            }
+          }
+        }
+      },
+      "paired": {
+        "pairs": 360,
+        "bothFinish": 338,
+        "bothBlock": 3,
+        "kindChanged": 19,
+        "kindChangeRate": 0.0527777778,
+        "baselineFinishOrbitBlock": 6,
+        "baselineBlockOrbitFinish": 13,
+        "finishWinnerChanged": 80,
+        "finishWinnerChangeRateAmongBothFinish": 0.2366863905,
+        "minusChanged": 39,
+        "minusChangeRateAmongBothFinish": 0.1153846154,
+        "meanTurnDeltaOrbitMinusBaseline": -0.0083333333,
+        "meanFinalPipDeltaPerSeatOrbitMinusBaseline": -0.2166666667
+      }
+    }
+  },
+  "cumulativeSeparateCohorts": {
+    "priorDealAllocations": 88886,
+    "priorSelectedMultiActionPositions": 1074,
+    "priorStateWorldAssignments": 5863,
+    "priorFullRoundInvariantSmokeDeals": 5000,
+    "newMatchedSeedDeals": 120,
+    "newMatchedRoundPairs": 720,
+    "cohortsNotGloballyDeduplicated": true
+  },
+  "finding": "The tested legal-action sets and transitions are distributionally equivariant under branch-label permutations. Replacing raw stable-key tie-breaks with symmetric action-orbit sampling changed round kind in 19/360 pairs (5.28%) in each mix and changed the finish winner in 21.4% and 23.7% of pairs where both arms finished. This is tie-break/representation sensitivity, not evidence that the orbit policy is strategically stronger.",
+  "limitations": [
+    "Node v22.16.0 isolated harness; exact GitHub blob hashes verified for engine, initializer, turn-kernel, dispatcher, round-driver, and strategy-runner; not a clean git clone.",
+    "Three seat rotations reuse each deal; the 360 pairs per mix are clustered by 120 deals, so no naive independent-round confidence interval is claimed.",
+    "Branch-label interchangeability is a model/metamorphic assumption. Physical branch lock/open, block winner/tie allocation, and loneZero=10 remain unresolved.",
+    "No strategy promoted; no hidden-world Monte Carlo or 5-player cohort added."
+  ],
+  "exactNextAction": "Extend to 1,000 unique seed allocations and compute deal-clustered paired uncertainty; preserve the common seeded random-legal selector and label all outcome shifts as tie-break sensitivity."
+}

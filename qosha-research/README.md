@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T01:46:01+04:00: branch-label 24-permutation transition audit (40 deals; 21,384 permutation checks; 61,800 action transitions) plus 5,000 seeded full-round invariant smoke (956,148 assertions), no strategy finding. See qosha-research/runs/2026-11-03-0146-branch-label-equivariance-and-5k-smoke.md.
+2026-11-03T02:52:25+04:00: matched-seed branch-label tie-break ablation (120 unique deals; 720 paired rounds; 22,248 branch-permutation checks), showing outcome sensitivity but no strategy finding. See qosha-research/runs/2026-11-03-0252-branch-label-action-orbit-matched-seed-ablation.md.
