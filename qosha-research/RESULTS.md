@@ -2866,3 +2866,18 @@ Add a reachable-state 24-branch-label permutation check for legal-action sets an
 
 
 Report/data/reproducers: [report](runs/2026-11-03-0054-opening-round-driver-cycle-audit.md), [JSON](runs/2026-11-03-0054-opening-round-driver-cycle-audit.json), [opening-cycle test](simulator/opening-round-cycle-test.js), [full-round smoke](simulator/full-round-invariant-smoke.js).
+
+
+# Branch-label transition equivariance and 5,000-round invariant smoke — 2026-11-03T01:46:01+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0; primary 3×9 plus one stock. Branch-label interchangeability is a metamorphic assumption for this audit only.
+- **Deals/seeds:** branch audit 40 draws, seeds 3,404,360–3,404,399, 40 unique allocations, 0 duplicates. Full-round smoke 5,000 draws, seeds 7,105,000–7,109,999, 5,000 unique allocations, 0 duplicates. No strategy tournament.
+- **Reachable-state branch checks:** 891 sampled positions; 24 permutations; 21,384 permutation/action-set checks, 61,800 mapped legal-action transitions, 2,760 pass transitions. No mismatch.
+- **Tie-break diagnostics:** mapped policy-choice mismatch rates: min-hand-pips 15.93% (2,966/18,624), fast-doubles 14.08% (2,622/18,624), moderate-double-hold 16.42% (3,058/18,624), closed-branch-control 17.06% (3,178/18,624), random-legal 17.76% (3,308/18,624). These are label/tie-break sensitivity, not win-rate or tactic differences.
+- **Regression tests:** transition-equivariance replay passed (4 deals; 1,152 permutation checks; 4,680 action transitions; 72 pass transitions). Stratified audit test passed (8 replay seeds; 50 selected states; 1,200 action-set checks; 3,960 transitions; draw fixtures: 48 option checks, 96 draw/play transitions, 24 pass transitions).
+- **5,000-round invariant smoke:** 956,148 assertions passed; 4,740 finishes, 260 blocks, 0 unresolved; mean 23.7572 turns, median 24, maximum 34. Opening: 4,680 follow-ups, 320 opening passes, 191 deals with 1-1 in stock. Finish-minus counts: 0=4,552; −10=184; −20=4; −30/−40=0.
+- **Finding:** tested legal-action sets and mapped transitions commute with all four-branch label permutations. Deterministic policy tie-breaks are label-sensitive, reinforcing the need for a symmetric/action-orbit selector in comparisons. No reliable tactical finding; no strategy promoted.
+- **Confidence/limitations:** high for internal model-level property checks on tested reachable states; random-legal smoke is descriptive only. Exact repository source blobs were run in an isolated V8 harness with a compatible assertion shim, not a clean Node checkout (container GitHub DNS/connectivity unavailable). Physical branch lock/open, block winner/tie, and loneZero=10 remain unresolved.
+- **Cumulative separate cohorts:** prior 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments remain separate; added 40 branch-audit deals and 5,000 smoke deals. Prior 500-round smoke remains a separate seed cohort; no global dedup or pooling with historical baselines.
+- **Exact next action:** run matched-seed full-round tie-break ablation with fixed deals, seat rotations, and primary policy score: canonical label tie-break versus seeded symmetric/action-orbit selector. Treat any outcome shifts as representation sensitivity, not strategy superiority; keep physical branch/block authentication separate.
+- **Report/data/reproducers:** qosha-research/runs/2026-11-03-0146-branch-label-equivariance-and-5k-smoke.md, qosha-research/runs/2026-11-03-0146-branch-label-equivariance-and-5k-smoke.json, simulator/branch-label-transition-equivariance.js, simulator/branch-label-stratified-transition-audit.js, simulator/full-round-invariant-smoke.js.

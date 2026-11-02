@@ -26,5 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T00:54:58+04:00: initializer-to-round-driver cycle audit; 500 seeded full-round invariant smoke (95,619 assertions), no strategy finding. See qosha-research/runs/2026-11-03-0054-opening-round-driver-cycle-audit.md.
-
+2026-11-03T01:46:01+04:00: branch-label 24-permutation transition audit (40 deals; 21,384 permutation checks; 61,800 action transitions) plus 5,000 seeded full-round invariant smoke (956,148 assertions), no strategy finding. See qosha-research/runs/2026-11-03-0146-branch-label-equivariance-and-5k-smoke.md.

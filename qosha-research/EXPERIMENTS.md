@@ -291,3 +291,12 @@ Use deterministic seed ranges and broad, predeclared smoke bands; report the exa
 - For a distribution smoke reference only, conditional on a fixed 1-1, the no-follow-up probability is C(21,9)/C(27,9) under a uniform deal and a previous winner independent of the deal. The six remaining tiles containing pip 1 must all be absent from the relevant 9-tile starter set. This does not prove PRNG uniformity or authenticate physical rules.
 - The branch-side variants are a representation/symmetry diagnostic only. Do not interpret outcome sensitivity as strategy superiority; no full rounds are part of this cohort.
 - The linked report and JSON record include exact source blob hashes, execution limits, metrics, and the next round-driver integration hypothesis.
+
+
+## Matched-seed branch-label tie-break sensitivity (2026-11-03)
+
+The reachable-state audit passed action-set and mapped-transition equivariance, while deterministic policy choices remained label-sensitive. Next, hold the deal, seat rotation, and primary policy score fixed and compare:
+- the canonical side-label tie-break;
+- a seeded symmetric/action-orbit selector.
+
+Report paired finish/block, round length, and finish-minus differences as representation/tie-break sensitivity only. Do not promote a strategy based on this ablation. Preserve unique allocation counts and seed ranges; keep physical branch lock/open and block scoring assumptions separate.

@@ -1,0 +1,139 @@
+{
+  "schema": "qosha-research-run/v1",
+  "timestampBaku": "2026-11-03T01:46:01+04:00",
+  "engineVersion": "qosha-research-0.5.3",
+  "rulesVersion": "recovered qosa-1.0.0",
+  "primaryMode": {
+    "players": 3,
+    "stonesPerPlayer": 9,
+    "stock": 1
+  },
+  "branchLabelAudit": {
+    "seedStart": 3404360,
+    "seedEnd": 3404399,
+    "seedDraws": 40,
+    "uniqueDealAllocations": 40,
+    "duplicateAllocationPairs": 0,
+    "sampledReachablePositions": 891,
+    "branchLabelPermutations": 24,
+    "permutationChecks": 21384,
+    "legalActionTransitionChecks": 61800,
+    "passTransitionChecks": 2760,
+    "resolvedRounds": 40,
+    "finishRounds": 38,
+    "blockRounds": 2,
+    "unresolvedRounds": 0,
+    "meanResolvedTurns": 24.075,
+    "policyChoiceMismatches": {
+      "min-hand-pips": {
+        "checks": 18624,
+        "mismatches": 2966,
+        "rate": 0.15925687285223367
+      },
+      "fast-doubles": {
+        "checks": 18624,
+        "mismatches": 2622,
+        "rate": 0.1407860824742268
+      },
+      "moderate-double-hold": {
+        "checks": 18624,
+        "mismatches": 3058,
+        "rate": 0.164196735395189
+      },
+      "closed-branch-control": {
+        "checks": 18624,
+        "mismatches": 3178,
+        "rate": 0.17064003436426117
+      },
+      "random-legal": {
+        "checks": 18624,
+        "mismatches": 3308,
+        "rate": 0.17762027491408935
+      }
+    },
+    "finding": "Action-set and mapped transition equivariance passed in sampled reachable states; deterministic policy tie-break choices remain label-sensitive. This is not strategy superiority."
+  },
+  "regressionTests": {
+    "transitionEquivariance": {
+      "passed": true,
+      "replayDeals": 4,
+      "sampledPositions": 48,
+      "permutationChecks": 1152,
+      "legalActionTransitionChecks": 4680,
+      "passTransitionChecks": 72
+    },
+    "stratifiedTransition": {
+      "passed": true,
+      "replaySeedDraws": 8,
+      "sampledUniqueStates": 50,
+      "actionSetChecks": 1200,
+      "actionTransitions": 3960,
+      "drawFixtures": {
+        "optionPermutationChecks": 48,
+        "drawThenPlayActionTransitions": 96,
+        "drawThenPassTransitions": 24
+      }
+    }
+  },
+  "fullRoundInvariantSmoke": {
+    "seedStart": 7105000,
+    "seedEnd": 7109999,
+    "seedDraws": 5000,
+    "uniqueFullAllocations": 5000,
+    "duplicateAllocationPairs": 0,
+    "assertionsPassed": 956148,
+    "outcomes": {
+      "finish": 4740,
+      "block": 260,
+      "unresolved": 0
+    },
+    "roundLength": {
+      "mean": 23.7572,
+      "median": 24,
+      "max": 34
+    },
+    "opening": {
+      "mandatoryFollowups": 4680,
+      "openingPasses": 320,
+      "oneOneInStock": 191
+    },
+    "finishMinus": {
+      "0": 4552,
+      "-10": 184,
+      "-20": 4,
+      "-30": 0,
+      "-40": 0
+    },
+    "policy": "deterministic random-legal; invariant smoke only"
+  },
+  "strategyComparisonRounds": 0,
+  "newHiddenWorldAllocations": 0,
+  "finding": "The current model is internally branch-label equivariant for tested reachable action sets and transitions. Tie-break choices are representation-sensitive. The 5,000-round smoke completed without unresolved rounds or conservation failures; no reliable tactical finding.",
+  "confidence": "High for internal property checks on tested states; descriptive smoke counts only. No physical-rule authentication.",
+  "limitations": [
+    "Exact repository JS source was executed in isolated V8 with a CommonJS loader and compatible assertion shim, not in a clean Node checkout.",
+    "Physical branch lock/open semantics, blocked-round winner/tie, and loneZero=10 remain unresolved.",
+    "Random-legal smoke frequencies are model/policy descriptive and are not strategy estimates.",
+    "No global deduplication across research cohorts."
+  ],
+  "cumulativeSeparateCohorts": {
+    "priorDealAllocations": 88886,
+    "priorSelectedMultiActionPositions": 1074,
+    "priorStateWorldAssignments": 5863,
+    "newBranchAuditDeals": 40,
+    "newFullRoundSmokeDeals": 5000,
+    "prior500SmokeKeptSeparate": true
+  },
+  "exactNextAction": "Run a matched-seed full-round tie-break ablation with fixed deals, seat rotations, and primary policy score: canonical side-label tie-break versus seeded symmetric/action-orbit selector. Treat outcome shifts as representation sensitivity, not strategy superiority; keep physical branch/block authentication separate.",
+  "sourceBlobShas": {
+    "branch-label-transition-equivariance.js": "2066159470a6047f69849c68b11b2587aaaea2d4",
+    "branch-label-stratified-transition-audit.js": "a7ac66132facbe41b32d2466e8b96aaa51dad7b8",
+    "full-round-invariant-smoke.js": "2a797e1e0f9cdfa33ae9c4a2aef43d0dcb6f2117",
+    "engine.js": "82e5bd544a57683d5b4f7812b2d4abf80da894",
+    "initializer.js": "2fad29e516454580ec9a06115354e9866f3096e6",
+    "turn-dispatcher.js": "55b0bcf3f1653c64b4e06bc95d7e917a480562a0",
+    "round-driver.js": "fbaad78865adbddde1ea6651e6a501dc0bde3203",
+    "turn-kernel.js": "94657896e1f8e471ceb2e9a65d1842b6102dff18",
+    "strategy-runner.js": "b7078942bc8f5dac6a8b07494ae8aaeadbdb1f5f"
+  }
+}
