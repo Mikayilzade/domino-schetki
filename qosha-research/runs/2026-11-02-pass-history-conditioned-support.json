@@ -1,0 +1,63 @@
+{
+  "schema": "qosha-pass-history-conditioned-support-run/v1",
+  "timestampBaku": "2026-11-02 04:21:34 +04:00",
+  "engine": "qosa-research-0.5.3 + pass-history-conditioned-support-1.0",
+  "rules": "recovered qosa-1.0.0 3x9; global-ever-open and current-only side-local model both provisional",
+  "dealsRequested": 8000,
+  "dealsGenerated": 386,
+  "generatorOutcomes": {
+    "finish": 367,
+    "block": 19,
+    "unresolved": 0
+  },
+  "seedWindow": [
+    3446032,
+    3446417
+  ],
+  "selectedPositions": 200,
+  "selectedSeedSetMethod": "Deterministic: first 200 seeds in ascending order that yield a latest eligible state; at most one position per seed. Reproduce from this window and the runner selection rule.",
+  "eligibleLateStates": 504,
+  "generatorPolicy": "seed-even=min-hand-pips; seed-odd=fast-doubles; action-orbit symmetric tie-break",
+  "openingFollowupSelector": "canonical tile; unsigned seed modulo four sides",
+  "selection": "latest state per seed with >=2 legal actions, both opponents <=3 tiles, prior no-stock pass by a hidden seat",
+  "posterior": "Exact labeled allocations; pass-time hand = current hidden hand + same-seat tiles played after pass; no-intervening-draw passes only; no opponent-choice likelihood.",
+  "currentOnlyDefinition": "A number opened by a double is usable only on side(s) active and ending in that number when the double was played; later arrivals on other sides are locked. Provisional counterfactual.",
+  "aggregate": {
+    "passObservations": 362,
+    "maskDifferencePositions": 103,
+    "currentOnlyTraceCompatible": 0,
+    "actualGlobalWorldRetained": 200,
+    "supportTotals": {
+      "raw": 777,
+      "global": 514,
+      "currentOnly": 0,
+      "joint": 0,
+      "globalOnly": 514,
+      "currentOnlyExclusive": 0,
+      "neither": 263
+    }
+  },
+  "syntheticFixture": {
+    "raw": 3432,
+    "global": 8,
+    "currentOnly": 120,
+    "joint": 8,
+    "globalOnly": 0,
+    "currentOnlyExclusive": 112,
+    "neither": 3312,
+    "globalMaskSize": 8,
+    "currentOnlyMaskSize": 5,
+    "differingTiles": [
+      "0-2",
+      "2-5",
+      "2-6"
+    ],
+    "currentOnlyCompatibleTrace": true
+  },
+  "tests": {
+    "passed": true,
+    "assertions": 12
+  },
+  "candidateComparisons": 0,
+  "nextAction": "Collect current-only-compatible or real public traces; rerun matched candidate comparisons only on joint hidden-world support, keeping model-divergent traces separate."
+}

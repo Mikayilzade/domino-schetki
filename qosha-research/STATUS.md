@@ -1,10 +1,16 @@
-# Latest checkpoint — exact late-game hidden-world legal-choice audit (2026-11-02 04:06 +04 Asia/Baku)
+# Qoşa açdı research — current status
 
-- Engine/rules: qosha-research-0.5.3; recovered qosa-1.0.0; primary 3×9. Global-ever-open branch semantics remain provisional.
-- Added simulator/finite-late-world-choice.js and simulator/finite-late-world-choice-test.js. Exact allocation support is enumerated for pass-free, stock-empty late states; actual discovery allocation inclusion and complete root-action invariance are checked.
-- Test: 7 assertions passed under Node 22.16.0 in a local mirror of repository modules. Clean checkout integration remains unrun because github.com DNS resolution failed in the container.
-- New cohorts: 9,271 unique deal allocations / 9,271 resolved discovery rounds; 153 selected positions; 2,107 exact hidden-world records within visible states; 4,214 matched candidate-world-policy pairs / 8,428 candidate rollouts. No duplicates, no unresolved rounds.
-- Equal-pip cohort: 33 positions, next-opponent hand sizes 1/2/3 = 3/15/15. The modeled double-opening choice reduces focal first-finish chance by about 25 pp / 18 pp under two continuation policies, but the cohort is selected and branch semantics are provisional. No strategy promotion.
-- Historical strategy tournament remains separate and unchanged: 1,500 deals / 18,000 arm-rounds. Prior branch-label/property cohorts are not mixed with these exact-world records.
-- Exact next: implement pass-history-conditioned support filters for global-ever-open and current-only branch models; reconstruct pass-time hands from current hidden hands plus later played tiles; report model-specific and joint/exclusive support before matched reruns.
-- Report: [2026-11-02-exact-late-hidden-world-choice.md](runs/2026-11-02-exact-late-hidden-world-choice.md).
+Last checkpoint: 2026-11-02 04:21 Asia/Baku (+04:00).
+
+- Added pass-history-conditioned exact support filtering for the recovered 3x9 mode.
+- 386 deterministic deals generated; 200 late pass-conditioned positions selected from seed window 3446032–3446417; 362 no-stock pass observations.
+- Exact state-world support totals: raw 777; global-ever-open 514; current-only 0; joint 0; global-only 514; current-only-exclusive 0; neither 263. The actual global allocation survived all 200 positions.
+- 103 positions had different global/current-only pass masks. All generated traces were incompatible with the strict current-only side-local counterfactual; this is a model-divergence diagnostic from global-generated states, not a physical-rule conclusion.
+- Synthetic model-agreement fixture: raw 3,432; global 8; current-only 120; joint 8; current-only-exclusive 112; neither 3,312. This validates that the pass-time filter can produce distinct support.
+- Test: 12 assertions passed under Node 22.16.0 using a local mirror of repository modules. Clean checkout integration was not run due container DNS failure for github.com.
+- No candidate strategy comparisons were run. No strategy promoted. Live scoreboard/PWA files remain untouched.
+- Exact next: collect current-only-compatible or real public traces and run matched candidate comparisons only on joint hidden-world support; keep model-divergent traces separate.
+
+Report: runs/2026-11-02-pass-history-conditioned-support.md  
+Data: runs/2026-11-02-pass-history-conditioned-support.json  
+Runner/test: simulator/pass-history-conditioned-support.js and simulator/pass-history-conditioned-support-test.js

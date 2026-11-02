@@ -180,3 +180,15 @@ For the four-branch metamorphic check, generate reachable trajectories with a fi
 - Compare a legal one-double unopened-number sequence against an ordinary single. Keep minimum-pip-gap and exact equal-pip cohorts separate. For every exact world, force both actions and use the same world-derived continuation seed and symmetric action-orbit tie-break under the same continuation policy.
 - Report exact hidden-world records within each visible state separately from deal draws and from matched candidate-world-policy pairs. Cluster uncertainty by selected position; do not interpret it as a population CI.
 - The next pass-conditioned experiment must reconstruct each historical pass-time hand from the current hidden hand plus tiles played by that seat after the pass. Filter global-ever-open and current-only branch models separately, then report global-only, current-only-exclusive, joint, and neither support. Do not infer voluntary tile-choice likelihood unless preregistered.
+
+
+## Pass-history-conditioned support audit (2026-11-02)
+
+- Replay the recovered 3x9 mode with deterministic seed selection and an action-orbit symmetric tie-break. The generator alternates min-hand-pips and fast-doubles by seed parity; this is a state-discovery policy, not a human-behavior model.
+- At every no-stock pass, record the legal-tile mask under both models. Global-ever-open permits a tile on any active branch ending in a globally opened number.
+- Current-only is a deliberately provisional counterfactual: a number opened by a double is usable only on the side(s) active and ending in that number when the double was played. A later arrival of that number on another side is locked. This matches the side-local interpretation used by the public-history replay’s late-arrival divergence diagnostic; it is not an authenticated physical rule.
+- For each candidate hidden world, reconstruct a pass-time hand as the current hand plus all tiles that the same seat played after the pass. Use only passes with no intervening draw/acquisition; validate the reconstructed size and tile uniqueness.
+- Enumerate all labeled hidden-hand allocations exactly. Filter each world separately under global-ever-open and current-only. Report raw, global-only, current-only-exclusive, joint, and neither support; if the public trace itself contains a current-only-illegal move, current-only support is zero for that trace.
+- The posterior is uniform over allocations conditional on the recorded pass constraints. Do not infer voluntary tile-choice likelihood.
+- Keep model-divergent trajectories separate from matched candidate comparisons. Candidate reruns should use only joint hidden-world support unless a model-specific comparison is explicitly being tested.
+- This audit’s generated cohort and synthetic model-agreement fixture are recorded in RESULTS.md and the linked run data. No strategy is promoted from support counts alone.

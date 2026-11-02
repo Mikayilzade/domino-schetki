@@ -2469,3 +2469,18 @@ Report: [2026-11-02-0203-matched-legal-choice-equal-pip.md](runs/2026-11-02-0203
 - Exact next: implement pass-history-conditioned hidden-world filters for global-ever-open and current-only models, reconstructing pass-time hands from current hidden hands plus later played tiles; report model-specific and joint/exclusive support before matched reruns.
 
 Report: [2026-11-02-exact-late-hidden-world-choice.md](./runs/2026-11-02-exact-late-hidden-world-choice.md); data: [JSON](./runs/2026-11-02-exact-late-hidden-world-choice.json); runner/test: [finite-late-world-choice.js](./simulator/finite-late-world-choice.js), [test](./simulator/finite-late-world-choice-test.js).
+
+
+## 2026-11-02 04:21 +04 — Pass-history-conditioned hidden-world support
+
+- **Engine/rules:** qosa-research-0.5.3 + pass-history-conditioned-support-1.0; recovered qosa-1.0.0, 3 players × 9 stones. Global-ever-open is the research engine model; current-only is a provisional side-local counterfactual.
+- **Deals/seeds:** 386 deterministic deals generated from seed window 3446032–3446417; 200 late positions selected (one per eligible seed; exact selection is reproducible from the window and runner rule). Generator policies alternate min-hand-pips / fast-doubles with action-orbit symmetric tie-break. Generator outcomes: 367 finish, 19 block, 0 unresolved.
+- **Pass history:** 362 no-stock pass observations. Pass-time hand reconstruction adds each seat’s later played tiles to its current hand; pass-time sizes and actual global-pass consistency were checked. No opponent-choice likelihood was applied.
+- **Exact support totals across selected state-world assignments:** raw 777; global-ever-open 514; current-only 0; joint 0; global-only 514; current-only-exclusive 0; neither 263. The actual global-engine allocation survived in all 200 positions. At least one pass mask differed in 103 positions.
+- **Interpretation:** all 200 generated traces were incompatible with the strict current-only model because the global generator used at least one late-arrival side. This is expected model-divergence evidence from a global-generated cohort, not proof of the physical rule. No candidate strategy comparisons were run and no tactic is promoted.
+- **Synthetic model-agreement fixture:** raw 3,432; global 8; current-only 120; joint 8; global-only 0; current-only-exclusive 112; neither 3,312. The pass masks differ by tiles 0-2, 2-5, 2-6 (8 global / 5 current-only). This is a constructed fixture, not a real-game trace.
+- **Validation:** 12 assertions passed under Node 22.16.0 on a local mirror of repository modules. Clean checkout integration was not run because the container could not resolve github.com. Live scoreboard/PWA files were not modified.
+- **Limitations/confidence:** exact for the stated models and selected positions; late-position and policy-generated selection; current-only remains provisional; no voluntary-choice likelihood or real public trace.
+- **Exact next hypothesis/action:** collect current-only-compatible or real public traces, then rerun matched candidate comparisons only on joint hidden-world support. Keep model-divergent traces separate as rule evidence.
+
+Report: [pass-history-conditioned-support.md](./runs/2026-11-02-pass-history-conditioned-support.md); data: [JSON summary](./runs/2026-11-02-pass-history-conditioned-support.json); runner/test: [pass-history-conditioned-support.js](./simulator/pass-history-conditioned-support.js), [test](./simulator/pass-history-conditioned-support-test.js).
