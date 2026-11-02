@@ -59,7 +59,7 @@ function getSnapshot(seed,maxWorlds){
  return null;
 }
 function runAudit({startSeed=3454291,deals=810,targetPositions=100,maxWorlds=20000,continuationProfiles=['closed-branch-control']}={}){
- const profiles=[...new Set(continuationProfiles)],allowed=new Set(['closed-branch-control','min-hand-pips','fast-doubles']);
+ const profiles=[...new Set(continuationProfiles)],allowed=new Set(['closed-branch-control','min-hand-pips','fast-doubles','moderate-double-hold']);
  ck(profiles.length>0&&profiles.every(p=>allowed.has(p)),'invalid continuation profile list');const defaultProfile=profiles[0];
  const discovery=cohort.run({startSeed,deals,targetPositions,maxWorlds}),selected=discovery.positions.filter(x=>x.support.joint>0);
  const states=[],supportTotals={raw:0,global:0,currentOnly:0,joint:0,globalOnly:0,currentOnlyExclusive:0,neither:0};

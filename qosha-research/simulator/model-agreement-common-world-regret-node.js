@@ -56,11 +56,12 @@ function chooseOrbit(opts, state, ctx) {
   if (profile === 'closed-branch-control') ranked.sort((a,b)=>b.finish-a.finish||a.openings-b.openings||b.pips-a.pips);
   else if (profile === 'min-hand-pips') ranked.sort((a,b)=>b.finish-a.finish||b.pips-a.pips);
   else if (profile === 'fast-doubles') ranked.sort((a,b)=>b.finish-a.finish||b.doubles-a.doubles||b.pips-a.pips);
+  else if (profile === 'moderate-double-hold') ranked.sort((a,b)=>b.finish-a.finish||b.pips-a.pips||a.doubles-b.doubles);
   else throw new Error('unknown continuation profile '+profile);
   const best=ranked[0];
   const top=ranked.filter(x=>x.finish===best.finish&&
     (profile!=='closed-branch-control'||x.openings===best.openings)&&
-    (profile!=='fast-doubles'||x.doubles===best.doubles)&&x.pips===best.pips).map(x=>x.action);
+    (profile!=='fast-doubles'||x.doubles===best.doubles)&&(profile!=='moderate-double-hold'||x.doubles===best.doubles)&&x.pips===best.pips).map(x=>x.action);
   const groups=new Map();for(const action of top){const key=orbitKey(action,state.branchState);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(action);}
   const sortedGroups=[...groups.entries()].sort((a,b)=>a[0].localeCompare(b[0]));
   const seed=(Number(ctx.seed)>>>0)^Math.imul((ctx.turns||0)+1,0x9e3779b9)^Math.imul((ctx.player||0)+1,0x85ebca6b)^(ctx.salt||0);

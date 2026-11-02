@@ -27,4 +27,6 @@
 
 ## Latest checkpoint
 
-2026-11-02 05:54 +04: exact pass-history joint-support continuation-profile audit. The same 50 joint-support positions were evaluated under closed-branch-control, min-hand-pips, and fast-doubles continuations; branch-model separation remained large while continuation-profile changes were small. No strategy promoted. See `runs/2026-11-02-0554-pass-history-continuation-profile-audit.md` and its JSON data.
+2026-11-02 06:47 +04: added matched `moderate-double-hold` continuation profile. On 111 joint-support multi-action states it matched min-hand-pips in aggregate; no detectable profile effect versus closed-branch-control. No tactic promoted; branch/block rules remain provisional.
+
+See `runs/2026-11-02-0647-pass-history-moderate-double-hold-audit.md` and JSON data.

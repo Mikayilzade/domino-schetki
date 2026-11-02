@@ -215,3 +215,8 @@ For a current-only-generated pass-history cohort, compare root candidates only o
 - Profile ranking must be explicit: `closed-branch-control` minimizes opening count then maximizes pips; `min-hand-pips` maximizes pips; `fast-doubles` maximizes doubles then pips. Preserve the branch-symmetric action-orbit/member tie-break for ties.
 - Report global/current-only support counts, model-specific outcomes, state-cluster deltas and regret by profile. A small profile delta does not authenticate the branch rule; it only indicates sensitivity to the chosen continuation policy within the selected cohort.
 - Fixed-seed regression should assert allocation census, joint support, candidate pairs, rollouts, and profile-specific outcomes. No strategy promotion from selected synthetic state cohorts.
+
+
+## Moderate double-hold continuation profile (2026-11-02)
+
+Add `moderate-double-hold` as a policy-sensitivity arm, not a promoted strategy. Ranking: (1) finish actions first; (2) maximize pips shed; (3) when pips shed are equal, minimize doubles spent. Resolve remaining ties with the existing seeded symmetric action-orbit/member selector. A double is not retained at the cost of shedding fewer pips, but is conserved when the pip result ties. Compare it against closed-branch-control, min-hand-pips, and fast-doubles on identical joint pass-consistent hidden allocations and continuation seeds. Branch models remain provisional; report paired state-cluster sensitivity, not strategy superiority.
