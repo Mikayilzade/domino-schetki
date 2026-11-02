@@ -2583,3 +2583,18 @@ Report/data/reproducer: [run report](runs/2026-11-02-0952-pass-history-joint-sup
 - **Next:** replicate on a disjoint holdout and continue searching for an authenticated branch/block ruling.
 
 Report/data/reproducer: [report](runs/2026-11-02-1100-pass-history-opponent-choice-likelihood.md), [JSON](runs/2026-11-02-1100-pass-history-opponent-choice-likelihood.json), [runner](simulator/pass-history-opponent-choice-likelihood.js), [test](simulator/pass-history-opponent-choice-likelihood-test.js).
+
+
+# Pass-history opponent-choice likelihood disjoint replication — 2026-11-02T12:04:41+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3 + decision-trace instrumentation; recovered qosa-1.0.0, 3×9. Global-ever-open/current-only remain provisional.
+- **Fresh disjoint seeds:** 3505601–3521600; scanned through 3517833; 12,233 unique allocations, 0 duplicates.
+- **Selected cohort:** 80 joint-support multi-action states (40 with opponent hands 3–3, 40 with 2–3); 508 state-world assignments. Exact support: raw 1,200 labeled allocations; global 508, current-only 888, joint 508, global-only 0, current-only-exclusive 380, neither 312.
+- **Paired continuations:** closed-branch-control, min-hand-pips, fast-doubles; 1,324 candidate-world pairs / 2,648 model rollouts per profile; 7,944 total; 0 unresolved.
+- **Key finding:** global/closed-control first-finish regret was 8.75±3.13 pp pass-only versus 8.94±3.44 pp stable-style; delta +0.19±1.69 pp. Per-decision regret 9.30±3.35 pp, with +0.55±1.48 pp shift. These descriptive state-cluster intervals include zero; no reliable action-choice effect.
+- **ESS:** overall global-model mean ESS 3.56 worlds/state for stable-style and 4.15 for per-decision. Posterior concentration depends on assumed opponent-policy likelihood; this is not physical-rule evidence.
+- **Confidence/limitations:** fresh disjoint synthetic late-state holdout; current-only counterfactual discovery, equal policy prior/top-action likelihood assumptions; branch/block/scoring remain unauthenticated. No tactic promoted.
+- **Validation:** 9 assertions and SHA-256 known-vector check passed; live PWA untouched.
+- **Cumulative separate cohorts:** 53,028 deal allocations, 774 selected joint-support multi-action states, 4,171 state-world assignments (not globally deduplicated across states/cohorts).
+- **Exact next action:** fresh seeds from 3521601; target ≥100 selected joint-support multi-action states across 3–3/2–3 strata; prior-grid sensitivity (uniform, random-legal-heavy, fast-doubles-heavy) on matched hidden worlds/continuation seeds; compare stable-style vs per-decision shifts and ESS; no strategy promotion; seek authenticated branch/block ruling.
+- **Report/data/reproducer:** [report](qosha-research/runs/2026-11-02-1204-pass-history-opponent-choice-replication.md), [JSON](qosha-research/runs/2026-11-02-1204-pass-history-opponent-choice-replication.json), [runner](simulator/pass-history-opponent-choice-likelihood.js), [test](simulator/pass-history-opponent-choice-likelihood-test.js).

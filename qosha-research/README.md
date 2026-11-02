@@ -26,6 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-02T11:00:37+04:00: fresh disjoint pass-history opponent-choice likelihood holdout. Exact pass-consistent hidden worlds reweighted by equal-prior random-legal/min-hand-pips/fast-doubles mixtures; balanced 3–3 and 2–3 strata; posterior-weighted decision regret and ESS reported separately. No strategy promoted.
-
-See qosha-research/runs/2026-11-02-1100-pass-history-opponent-choice-likelihood.md and qosha-research/runs/2026-11-02-1100-pass-history-opponent-choice-likelihood.json. Reproducer/test: qosha-research/simulator/pass-history-opponent-choice-likelihood.js and qosha-research/simulator/pass-history-opponent-choice-likelihood-test.js.
+2026-11-02T12:04:41+04:00: fresh disjoint pass-history opponent-choice likelihood replication. Exact pass-consistent worlds reweighted under equal-prior random-legal/min-hand-pips/fast-doubles; balanced 3–3 and 2–3 strata; stable-style and per-decision posterior regret/ESS compared on paired continuations. See qosha-research/runs/2026-11-02-1204-pass-history-opponent-choice-replication.md and qosha-research/runs/2026-11-02-1204-pass-history-opponent-choice-replication.json. No strategy promoted.
