@@ -1,0 +1,213 @@
+{
+  "schema": "qosha-opponent-choice-softmax/v1",
+  "timestampBaku": "2026-11-02T13:50:23+04:00",
+  "engine": "qosha-research-0.5.3 + trace-instrumented pass-history support + common-world regret evaluator + softmax-temperature likelihood grid",
+  "rules": "recovered qosa-1.0.0; primary 3x9; global-ever-open/current-only remain provisional",
+  "seedWindow": {
+    "start": 3537601,
+    "reservedEnd": 3553600,
+    "scannedThrough": 3549828,
+    "uniqueDealAllocations": 12228,
+    "duplicateDealAllocations": 0
+  },
+  "discovery": {
+    "dealsRequested": 16000,
+    "dealsGenerated": 12228,
+    "selectedLateStates": 1500,
+    "jointPositiveStates": 239,
+    "preparedJointMultiActionStates": 196,
+    "selectedStates": 100,
+    "selected3v3": 50,
+    "selected2v3": 50,
+    "outcomes": {
+      "finish": 373,
+      "block": 11855,
+      "unresolved": 0
+    },
+    "passObservations": 57415
+  },
+  "support": {
+    "jointStateWorldAssignments": 523,
+    "rawAllocations": 1500,
+    "global": 523,
+    "currentOnly": 1058,
+    "joint": 523,
+    "globalOnly": 0,
+    "currentOnlyExclusive": 535,
+    "neither": 442
+  },
+  "opponentChoiceModel": {
+    "policies": [
+      "random-legal",
+      "min-hand-pips",
+      "fast-doubles"
+    ],
+    "priors": {
+      "uniform": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "random-legal-heavy": [
+        0.6,
+        0.2,
+        0.2
+      ],
+      "fast-doubles-heavy": [
+        0.2,
+        0.2,
+        0.6
+      ]
+    },
+    "temperatureGrid": {
+      "tau-0.2": 0.2,
+      "tau-0.5": 0.5,
+      "tau-1.0": 1
+    },
+    "stableStyle": "one latent policy per opponent for the round; prior mixture per opponent; opponent likelihoods multiply",
+    "perDecision": "at each observed action, prior-weighted mixture of policy action distributions",
+    "actionLikelihood": "random-legal uniform; min-hand-pips and fast-doubles softmax over normalized ordinal action ranks; ties share rank; finish stays highest",
+    "forcedPasses": "exact pass masks; not reweighted"
+  },
+  "pairedContinuations": {
+    "profiles": [
+      "closed-branch-control",
+      "min-hand-pips",
+      "fast-doubles"
+    ],
+    "candidateWorldPairsPerProfile": 1308,
+    "modelRolloutsPerProfile": 2616,
+    "totalModelRollouts": 7848,
+    "unresolved": 0,
+    "continuationSeeds": "same deterministic world seed reused across candidate actions and both branch models"
+  },
+  "primaryMetric": "global branch model / closed-branch-control: weighted candidate-regret shift versus pass-only, first-finish chance, percentage points; descriptive state-cluster 95% normal intervals",
+  "primaryResults": [
+    {
+      "temperature": "tau-0.2",
+      "prior": "uniform",
+      "stableShift": 0.7324996250700767,
+      "stableCI": 1.3618324111361937,
+      "perDecisionShift": 0.38643380244971903,
+      "perDecisionCI": 0.942353822602192,
+      "stableESS": 3.4273805425619774,
+      "perDecisionESS": 3.9636010254097016
+    },
+    {
+      "temperature": "tau-0.2",
+      "prior": "random-legal-heavy",
+      "stableShift": 0.8067090188537688,
+      "stableCI": 1.2770527052416978,
+      "perDecisionShift": 0.2628289347968543,
+      "perDecisionCI": 0.6772475081856485,
+      "stableESS": 3.620249739541597,
+      "perDecisionESS": 4.3494727976735215
+    },
+    {
+      "temperature": "tau-0.2",
+      "prior": "fast-doubles-heavy",
+      "stableShift": 0.7562806288003087,
+      "stableCI": 1.3936787608917431,
+      "perDecisionShift": 0.5621796543197007,
+      "perDecisionCI": 1.0903443991722124,
+      "stableESS": 3.358042591243341,
+      "perDecisionESS": 3.787651300985213
+    },
+    {
+      "temperature": "tau-0.5",
+      "prior": "uniform",
+      "stableShift": 0.4800984083211908,
+      "stableCI": 0.8784175322788471,
+      "perDecisionShift": 0.35688174238618925,
+      "perDecisionCI": 0.6709799921670372,
+      "stableESS": 4.041967133126659,
+      "perDecisionESS": 4.357431602985347
+    },
+    {
+      "temperature": "tau-0.5",
+      "prior": "random-legal-heavy",
+      "stableShift": 0.4937978371395612,
+      "stableCI": 0.8135425491329575,
+      "perDecisionShift": 0.34028177998442305,
+      "perDecisionCI": 0.5440004891520578,
+      "stableESS": 4.180265963351231,
+      "perDecisionESS": 4.565657463943428
+    },
+    {
+      "temperature": "tau-0.5",
+      "prior": "fast-doubles-heavy",
+      "stableShift": 0.45866385104779644,
+      "stableCI": 0.884702937322046,
+      "perDecisionShift": 0.40973394080708225,
+      "perDecisionCI": 0.750378734954954,
+      "stableESS": 4.019196583800979,
+      "perDecisionESS": 4.249819814557253
+    },
+    {
+      "temperature": "tau-1.0",
+      "prior": "uniform",
+      "stableShift": 0.41653500560091133,
+      "stableCI": 0.5890122903743467,
+      "perDecisionShift": 0.37859741800895175,
+      "perDecisionCI": 0.5299280859476367,
+      "stableESS": 4.490601477713029,
+      "perDecisionESS": 4.57942224012105
+    },
+    {
+      "temperature": "tau-1.0",
+      "prior": "random-legal-heavy",
+      "stableShift": 0.4135888271922984,
+      "stableCI": 0.5531220826496482,
+      "perDecisionShift": 0.39844464670794194,
+      "perDecisionCI": 0.4938382473801002,
+      "stableESS": 4.553724394680438,
+      "perDecisionESS": 4.6300682125062895
+    },
+    {
+      "temperature": "tau-1.0",
+      "prior": "fast-doubles-heavy",
+      "stableShift": 0.4116099437722107,
+      "stableCI": 0.5922760707264524,
+      "perDecisionShift": 0.3869617424931009,
+      "perDecisionCI": 0.5499602455340985,
+      "stableESS": 4.489204766604278,
+      "perDecisionESS": 4.554747400404548
+    }
+  ],
+  "findings": {
+    "stableShiftRangePp": [
+      0.4116099437722107,
+      0.8067090188537688
+    ],
+    "perDecisionShiftRangePp": [
+      0.2628289347968543,
+      0.5621796543197007
+    ],
+    "allIntervalsIncludeZero": true,
+    "interpretation": "Softmax temperature changes posterior concentration (higher tau raises ESS) but all candidate-regret shifts are sub-1 pp and all descriptive intervals include zero; no reliable tactical effect."
+  },
+  "validation": {
+    "passed": true,
+    "softmaxAssertions": 11,
+    "priorGridAssertions": 11,
+    "totalAssertions": 22,
+    "exactSupportPartitionReconciled": true,
+    "unresolved": 0,
+    "duplicateAllocations": 0,
+    "execution": "GitHub-fetched simulator modules executed in V8 harness"
+  },
+  "limitations": [
+    "selected synthetic late states discovered under current-only counterfactual; not population representative",
+    "opponent policy prior and softmax ordinal-rank likelihood are assumptions; no authenticated policy types",
+    "forced-pass support is exact only under the specified branch masks",
+    "global/current-only branch semantics, block scoring and scoring rules remain unauthenticated",
+    "state-cluster normal intervals are descriptive; no strategy promoted"
+  ],
+  "cumulativeSeparateCohorts": {
+    "dealAllocations": 76934,
+    "jointSupportMultiActionStates": 974,
+    "stateWorldAssignments": 5264,
+    "note": "additive separate-cohort summaries; no global dedup across cohorts or state-world assignments"
+  },
+  "exactNextAction": "Fresh disjoint holdout from seed 3553601; repeat with temperature grid 0.1/0.3/1.5, compare posterior shifts and ESS; continue seeking authenticated branch/block ruling; no strategy promotion."
+}

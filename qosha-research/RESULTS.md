@@ -2644,3 +2644,17 @@ Use a fresh disjoint holdout to replace the uniform-top-action likelihood with a
 
 Report/data/reproducer: [JSON](./2026-11-02-1310-pass-history-opponent-choice-prior-grid.json), [runner](../simulator/pass-history-opponent-choice-prior-grid.js), [test](../simulator/pass-history-opponent-choice-prior-grid-test.js).
 
+
+# Opponent-choice softmax temperature holdout — 2026-11-02T13:50:23+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3 + trace-instrumented pass-history support + common-world regret evaluator + softmax-temperature likelihood grid; recovered qosa-1.0.0, 3×9. Branch models remain provisional.
+- **Fresh seeds:** 3537601–3553600; scanned through 3549828; 12,228 unique allocations, 0 duplicates.
+- **Selected cohort:** 100 joint-support multi-action positions (50 each 3–3 and 2–3); 523 exact state-world assignments.
+- **Paired continuations:** 1,308 candidate-world pairs / 2,616 rollouts per profile; three profiles; 7,848 total rollouts; 0 unresolved.
+- **Finding:** softmax temperature raises mean ESS (roughly 3.4–4.3 at τ=0.2 to 4.5–4.6 at τ=1.0), while all global/closed-control first-finish regret shifts remain below 1 pp and all descriptive intervals include zero. No reliable tactical effect; no strategy promoted.
+- **Limitations:** selected synthetic late states, assumed opponent-policy priors/likelihood, provisional branch models and unauthenticated block/scoring rules.
+- **Validation:** 22 assertions passed; exact support reconciled; live scoreboard/PWA untouched.
+- **Cumulative separate cohorts:** 76,934 deal allocations, 974 selected positions, 5,264 state-world assignments; no global dedup.
+- **Exact next:** fresh disjoint seed 3553601; temperature grid 0.1/0.3/1.5; seek authenticated branch/block ruling.
+- **Report/data/reproducer:** [report](runs/2026-11-02-1350-pass-history-opponent-choice-softmax.md), [JSON](runs/2026-11-02-1350-pass-history-opponent-choice-softmax.json), [runner](simulator/pass-history-opponent-choice-softmax.js), [test](simulator/pass-history-opponent-choice-softmax-test.js).
+

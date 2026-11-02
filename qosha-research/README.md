@@ -9,7 +9,7 @@
 - `RULES.md` — текущая спецификация правил и отмеченные неясности.
 - `EXPERIMENTS.md` — протокол почасовых симуляций.
 - `RESULTS.md` — накопленные результаты и выводы.
-- `simulator/` — исследовательский движок, runners и тесты; спорные правила остаются явно provisional. `pass-history-conditioned-support.js` реконструирует pass-time hand и считает exact support под global-ever-open/current-only моделями.
+- `simulator/` — исследовательский движок, runners и тесты; спорные правила остаются явно provisional. `pass-history-conditioned-support.js` реконструирует pass-time hand и считает exact support под global-ever-open/current-only моделями; `pass-history-opponent-choice-softmax.js` сравнивает softmax action-likelihood по temperature grid.
 - `runs/` — отчёты и машинно-читаемые данные отдельных воспроизводимых когорт.
 
 ## Принцип

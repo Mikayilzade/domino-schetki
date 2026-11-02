@@ -238,3 +238,11 @@ Next preregister:
 ## Opponent-choice likelihood posterior from pass-history support (2026-11-02)
 
 For a visible late state, retain exact pass-mask support as the baseline and reweight each hidden allocation by the likelihood of observed opponent actions. Reconstruct a seat's hand at a past decision as its current hidden hand plus that seat's public plays from the decision turn onward; replay against the logged public branch/opening state. Policy likelihood is uniform over all legal actions for random-legal, or uniform over top-ranked actions for min-hand-pips / fast-doubles. Report two mixture assumptions: (1) one latent policy per opponent for the round, with equal prior weights; (2) independent equal policy mixture at every decision. Forced passes remain governed by exact pass masks. Report pass-only and posterior-weighted regret separately, with positive-world count, effective sample size (ESS), maximum posterior weight, and policy prior. These are model-based posteriors, not authenticated opponent behavior; keep hidden-world support and branch-model assumptions explicit.
+
+
+## Opponent-choice softmax temperature family (2026-11-02)
+
+- Keep random-legal uniform over legal actions. For min-hand-pips and fast-doubles, apply softmax to normalized ordinal action ranks; equal ranks share score and finish remains top-ranked.
+- Evaluate a fixed temperature grid (currently 0.2 / 0.5 / 1.0) against the same prior grid (uniform, random-legal-heavy, fast-doubles-heavy).
+- Compare stable-style latent opponent policy versus per-decision mixture on identical exact joint-support hidden allocations and common continuation seeds. Compute candidate continuations once, then reweight outcomes for each temperature/prior configuration.
+- Report weighted regret shifts versus pass-only and effective sample size (ESS) separately. These are model-sensitivity diagnostics, not strategy promotion; state selection, opponent likelihood, branch semantics, and block/scoring assumptions remain explicit.
