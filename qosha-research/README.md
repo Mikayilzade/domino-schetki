@@ -27,6 +27,6 @@
 
 ## Latest checkpoint
 
-2026-11-02 08:54 +04: fresh disjoint pass-history Cohort C: 7,980 unique deals, 172 joint-support multi-action states, 831 exact state-world assignments, 17,960 paired model rollouts across four continuation profiles. Positive global/current-only model gap replicated; no tactic promoted. Branch/block rules remain provisional.
+2026-11-02 09:52 +04: fresh disjoint pass-history Cohort D: 12,424 unique deals, 264 joint-support multi-action states, 1,512 exact state-world assignments, 32,944 paired rollouts across four continuation profiles. Exploratory model-gap stratification is larger for 3–3 than 2–3 opponent hands; no tactic promoted.
 
-See `runs/2026-11-02-0854-pass-history-joint-support-cohort-C.md` and JSON data. Reproducer and regression files are linked in the report.
+See qosha-research/runs/2026-11-02-0952-pass-history-joint-support-cohort-D.md and JSON data. Reproducer and regression: qosha-research/simulator/pass-history-cohort-strata-audit.js and qosha-research/simulator/pass-history-cohort-strata-audit-test.js.

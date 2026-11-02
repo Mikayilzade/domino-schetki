@@ -1,16 +1,16 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-02 08:54:04+04 Asia/Baku.
+Last checkpoint: 2026-11-02 09:52:03+04 Asia/Baku.
 
-- Fresh disjoint pass-history Cohort C; engine/rules: qosha-research-0.5.3 / recovered qosa-1.0.0 / 3×9; branch models remain provisional.
-- Reserved seeds 3464101–3473600; stopped at 3472080 after 7,980 unique allocations, 0 duplicates. Selected 1,000 late states; 172 had joint pass-consistent support and ≥2 common legal actions.
-- Exact support: 2,315 allocations checked; 831 joint state-world assignments; 0 within-state duplicates. Four continuation profiles: 2,245 candidate-world pairs / 4,490 rollouts each; 8,980 pairs / 17,960 rollouts total; 0 unresolved.
-- State-cluster global-ever-open minus current-only first-finish gap: +24.96±4.97 pp (closed/min/moderate) and +25.30±5.02 pp (fast-doubles). Mean remainder gap about −6.05 to −6.07 pips. Profile gap range 0.334 pp.
-- Compared with prior disjoint Cohorts A/B, cross-cohort shifts include zero. The model gap direction replicated, but remains selected synthetic model sensitivity—not physical-rule evidence or a tactic. No strategy promoted.
-- Regression: 36 profile-audit assertions and 10 current-only support assertions passed in V8. Live scoreboard/PWA untouched.
-- Cumulative four separate cohorts: 16,213 unique allocations, 350 joint-support multi-action states, 1,742 state-world assignments. Strategy tournament unchanged.
-- Exact next: fresh seeds from 3473601; target ≥250 joint-support multi-action states; stratify by opponent hand size/action count/pass evidence; test explicit opponent-choice likelihood; seek authentic branch/block ruling.
+- Fresh disjoint pass-history Cohort D; engine/rules: qosha-research-0.5.3 / recovered qosa-1.0.0 / 3×9; global-ever-open and current-only remain provisional.
+- Seeds 3473601–3486024: 12,424 unique allocations, 0 duplicates; 1,500 selected late states, 264 joint-support multi-action states, 1,512 exact joint state-world assignments.
+- Four continuation profiles: 4,118 candidate-world pairs / 8,236 rollouts each; 16,472 pairs / 32,944 rollouts total; 0 unresolved.
+- State-cluster model gap: +23.50±4.39 pp closed-control, +23.57±4.39 min-pips, +23.46±4.41 fast-doubles, +23.57±4.39 moderate-hold. Profile range 0.104 pp.
+- Exploratory stratification: 3–3 opponent hands +34.10±6.47 pp vs 2–3 +15.48±7.13 pp; difference +18.62±9.62 pp. Selected synthetic model sensitivity only; no tactic promoted.
+- Validation: exact support partition reconciled, 0 duplicate allocations, 0 unresolved rollouts; stratification summary passed 10 V8 assertions. Clean Node checkout remains blocked by GitHub DNS. Live scoreboard/PWA untouched.
+- Cumulative separate cohorts: 28,637 unique deal allocations, 614 joint-support multi-action states, 3,254 state-world assignments across five cohorts. Strategy tournament unchanged.
+- Exact next: fresh holdout from 3489601; compare pass-only support with opponent-choice likelihood mixtures in 3–3 / 2–3 strata; seek authenticated branch/block ruling.
 
-Report: runs/2026-11-02-0854-pass-history-joint-support-cohort-C.md
-Data: runs/2026-11-02-0854-pass-history-joint-support-cohort-C.json
-Reproducer: simulator/pass-history-joint-support-choice-audit.js
+Report: runs/2026-11-02-0952-pass-history-joint-support-cohort-D.md
+Data: runs/2026-11-02-0952-pass-history-joint-support-cohort-D.json
+Reproducer/test: simulator/pass-history-cohort-strata-audit.js and simulator/pass-history-cohort-strata-audit-test.js

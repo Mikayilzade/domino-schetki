@@ -220,3 +220,16 @@ For a current-only-generated pass-history cohort, compare root candidates only o
 ## Moderate double-hold continuation profile (2026-11-02)
 
 Add `moderate-double-hold` as a policy-sensitivity arm, not a promoted strategy. Ranking: (1) finish actions first; (2) maximize pips shed; (3) when pips shed are equal, minimize doubles spent. Resolve remaining ties with the existing seeded symmetric action-orbit/member selector. A double is not retained at the cost of shedding fewer pips, but is conserved when the pip result ties. Compare it against closed-branch-control, min-hand-pips, and fast-doubles on identical joint pass-consistent hidden allocations and continuation seeds. Branch models remain provisional; report paired state-cluster sensitivity, not strategy superiority.
+
+## Pass-history Cohort D: opponent-hand-size stratification and choice likelihood (2026-11-02)
+
+Cohort D is a fresh disjoint seed holdout. The branch-model first-finish gap was +34.10±6.47 pp for states where both opponents had 3 stones versus +15.48±7.13 pp for 2–3 opponent hands. Treat this as exploratory model sensitivity, not a strategy effect.
+
+Next preregister:
+- Primary contrast: 3–3 versus 2–3 opponent hand sizes.
+- Keep pass-only exact support as the reference posterior.
+- Add a separate opponent-choice likelihood grid (random-legal, min-hand-pips, fast-doubles mixtures); do not silently replace the pass-only posterior.
+- Reuse identical hidden allocations and continuation seeds across candidate moves and likelihood variants.
+- Report effective support, posterior weights, first-finish chance, remainder, minus risk, and weighted regret separately; keep the current-only branch interpretation provisional.
+- Do not promote a tactic until a disjoint holdout and authentic branch/block evidence are available.
+
