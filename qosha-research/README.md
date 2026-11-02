@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-02T13:50:23+04:00: fresh disjoint softmax temperature holdout on 100 joint-support multi-action positions (50 each 3–3 and 2–3); 523 exact state-world assignments and 7,848 paired rollouts across three continuation profiles. Temperature raises posterior ESS but all regret shifts remain <1 pp with intervals including zero; no strategy promoted. See `qosha-research/runs/2026-11-02-1350-pass-history-opponent-choice-softmax.md` and `.json`.
+2026-11-02T14:50:21+04:00: fresh disjoint softmax temperature grid on 100 joint-support multi-action positions (50 each 3–3 / 2–3); 599 exact state-world assignments and 8,694 paired rollouts. All first-finish regret shifts <1 pp with descriptive intervals including zero; no strategy promoted. See `qosha-research/runs/2026-11-02-1450-pass-history-opponent-choice-temperature-grid.md` and `.json`.

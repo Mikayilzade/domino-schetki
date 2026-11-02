@@ -2658,3 +2658,21 @@ Report/data/reproducer: [JSON](./2026-11-02-1310-pass-history-opponent-choice-pr
 - **Exact next:** fresh disjoint seed 3553601; temperature grid 0.1/0.3/1.5; seek authenticated branch/block ruling.
 - **Report/data/reproducer:** [report](runs/2026-11-02-1350-pass-history-opponent-choice-softmax.md), [JSON](runs/2026-11-02-1350-pass-history-opponent-choice-softmax.json), [runner](simulator/pass-history-opponent-choice-softmax.js), [test](simulator/pass-history-opponent-choice-softmax-test.js).
 
+
+
+# Opponent-choice softmax temperature disjoint holdout — 2026-11-02T14:50:21+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3 + trace-instrumented pass-history support + common-world regret evaluator; recovered qosa-1.0.0, 3×9. Global-ever-open/current-only remain provisional.
+- **Fresh seeds:** 3553601–3569600; scanned through 3565552; 11952 unique allocations, 0 duplicates.
+- **Cohort:** 1500 selected late states; 100 joint-support multi-action positions (50 each 3–3 and 2–3); 599 exact state-world assignments.
+- **Support:** raw 1500; global 599; current-only 979; joint 599; global-only 0; current-only-exclusive 380; neither 521.
+- **Paired continuations:** 1449 candidate-world pairs/profile; 8694 rollouts across closed-branch-control, min-hand-pips, fast-doubles; 0 unresolved. Temperatures 0.1 / 0.3 / 1.5; uniform prior over random-legal/min-hand-pips/fast-doubles; stable-style vs per-decision mixtures.
+- **Global/closed-control first-finish regret shifts vs pass-only:** τ=.1 stable +0.555±1.106 pp / per-decision +0.338±0.805; τ=.3 +0.921±0.941 / +0.438±0.690; τ=1.5 +0.290±0.467 / +0.262±0.463. All descriptive intervals include zero.
+- **ESS:** stable-style 3.42 → 3.89 → 5.12; per-decision 3.96 → 4.40 → 5.16. Higher temperature makes the posterior less concentrated.
+- **Finding:** all first-finish regret shifts are <1 pp; temperature mainly changes posterior concentration. No reliable tactical/action-choice effect; no strategy promoted.
+- **Limitations:** selected synthetic late-state cohort, assumed likelihood/prior, provisional branch models, unauthenticated block/scoring; no real decision traces.
+- **Validation:** 27 assertions; exact support reconciled; 0 unresolved. Live PWA untouched.
+- **Cumulative separate cohorts:** 88886 allocations, 1074 selected positions, 5863 state-world assignments; no global dedup.
+- **Next:** calibrate softmax temperature against held-out real opponent decision traces (or independent action corpus); rerun with fresh seeds and matched hidden worlds/continuation seeds; seek authenticated branch/block ruling.
+
+Report/data/reproducer: [report](runs/2026-11-02-1450-pass-history-opponent-choice-temperature-grid.md), [JSON](runs/2026-11-02-1450-pass-history-opponent-choice-temperature-grid.json), [runner](simulator/pass-history-opponent-choice-temperature-grid.js), [test](simulator/pass-history-opponent-choice-temperature-grid-test.js).
