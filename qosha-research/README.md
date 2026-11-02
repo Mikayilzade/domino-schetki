@@ -9,7 +9,7 @@
 - `RULES.md` — текущая спецификация правил и отмеченные неясности.
 - `EXPERIMENTS.md` — протокол почасовых симуляций.
 - `RESULTS.md` — накопленные результаты и выводы.
-- `simulator/` — исследовательский движок, runners и тесты; спорные правила остаются явно provisional. `pass-history-conditioned-support.js` реконструирует pass-time hand и считает exact support под global-ever-open/current-only моделями; `pass-history-opponent-choice-softmax.js` сравнивает softmax action-likelihood по temperature grid.
+- `simulator/` — исследовательский движок, runners, тесты и trace-calibration utilities; спорные правила остаются явно provisional. `pass-history-conditioned-support.js` реконструирует pass-time hand и считает exact support; opponent-choice softmax runners исследуют likelihood assumptions; `pass-history-trace-temperature-calibration.js` готовит leakage-safe calibration по реальным decision traces.
 - `runs/` — отчёты и машинно-читаемые данные отдельных воспроизводимых когорт.
 
 ## Принцип
@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-02T14:50:21+04:00: fresh disjoint softmax temperature grid on 100 joint-support multi-action positions (50 each 3–3 / 2–3); 599 exact state-world assignments and 8,694 paired rollouts. All first-finish regret shifts <1 pp with descriptive intervals including zero; no strategy promoted. See `qosha-research/runs/2026-11-02-1450-pass-history-opponent-choice-temperature-grid.md` and `.json`.
+2026-11-02T15:51:31+04:00: added leakage-safe opponent-choice trace calibration harness; no new deals or real traces, no strategy promoted. See `qosha-research/runs/2026-11-02-1551-pass-history-trace-calibration-harness.md` and `.json`.

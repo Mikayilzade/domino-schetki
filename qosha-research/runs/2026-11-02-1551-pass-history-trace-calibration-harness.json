@@ -1,0 +1,47 @@
+{
+  "schema": "qosha-opponent-choice-trace-calibration-harness/v1",
+  "timestampBaku": "2026-11-02T15:51:31+04:00",
+  "engine": "qosha-research-0.5.3 calibration layer",
+  "rules": "recovered qosa-1.0.0; 3x9; branch opening/block/scoring provisional",
+  "simulation": {
+    "newDeals": 0,
+    "seedSet": null,
+    "reason": "calibration infrastructure; no repository simulator execution in this run"
+  },
+  "traceData": {
+    "realDecisionRows": 0,
+    "fitPerformed": false
+  },
+  "syntheticFixture": {
+    "trainGroups": 6,
+    "trainDecisions": 24,
+    "holdoutGroups": 2,
+    "holdoutDecisions": 8,
+    "observedAction": "top-ranked action in every fixture row",
+    "temperatures": [
+      0.1,
+      0.3,
+      1.5
+    ],
+    "scope": "unit fixture only"
+  },
+  "logicSmoke": {
+    "assertions": 13,
+    "passed": 13,
+    "environment": "orchestration JS runtime",
+    "note": "pure scoring-core smoke check; repository Node module integration was not executed"
+  },
+  "cumulativeSeparateCohorts": {
+    "dealAllocations": 88886,
+    "selectedMultiActionPositions": 1074,
+    "stateWorldAssignments": 5863,
+    "note": "unchanged additive totals; no global dedup"
+  },
+  "finding": "No new gameplay finding. No temperature calibrated without real/independent decision traces.",
+  "limitations": [
+    "synthetic fixture is not evidence about human play",
+    "legal-action reconstruction depends on provisional branch semantics",
+    "no execution-capable repository checkout available for Node integration test"
+  ],
+  "exactNextAction": "Collect round-seat grouped real action traces, run the committed Node regression in a repository checkout, fit temperature on train groups only, and evaluate disjoint holdout log loss/Brier."
+}

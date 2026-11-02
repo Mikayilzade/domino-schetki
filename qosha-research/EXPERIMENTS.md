@@ -246,3 +246,14 @@ For a visible late state, retain exact pass-mask support as the baseline and rew
 - Evaluate a fixed temperature grid (currently 0.2 / 0.5 / 1.0) against the same prior grid (uniform, random-legal-heavy, fast-doubles-heavy).
 - Compare stable-style latent opponent policy versus per-decision mixture on identical exact joint-support hidden allocations and common continuation seeds. Compute candidate continuations once, then reweight outcomes for each temperature/prior configuration.
 - Report weighted regret shifts versus pass-only and effective sample size (ESS) separately. These are model-sensitivity diagnostics, not strategy promotion; state selection, opponent likelihood, branch semantics, and block/scoring assumptions remain explicit.
+
+
+## Opponent-choice temperature calibration from decision traces (2026-11-02)
+
+- Do not call the softmax temperature calibrated from synthetic simulator states alone. Require real observed choices or an independent action corpus.
+- Trace rows contain a \`groupId\` for one opponent seat in one round, a chronological \`order\`, the reconstructed legal \`actions\`, and the observed \`chosenActionKey\`.
+- Split by round-seat groups, never by individual decisions. Reject any group overlap between train and holdout.
+- Fit temperature by minimum mean training log loss. Score the selected temperature once on the disjoint holdout; also report multiclass Brier and top-one accuracy, plus a random-legal baseline.
+- Compare two explicit assumptions separately: per-decision mixture (prior resets each choice) and stable-style mixture (one latent policy per round-seat group, posterior updated after each observed choice).
+- Treat action-set reconstruction as a rule-model dependency. If global-ever-open and current-only legal sets disagree, keep those trace rows in separate model cohorts; do not silently combine them.
+- A synthetic fixture may test probability normalization, leakage rejection, and temperature-selection plumbing, but it is not empirical evidence and cannot promote a strategy.

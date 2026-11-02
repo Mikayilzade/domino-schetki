@@ -1,16 +1,14 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-02T14:50:21+04:00 Asia/Baku.
+Last checkpoint: 2026-11-02T15:51:31+04:00 Asia/Baku.
 
-- Fresh disjoint opponent-choice softmax temperature grid; qosha-research-0.5.3 + trace-instrumented pass-history support + common-world regret evaluator; recovered qosa-1.0.0 / 3×9. Global-ever-open/current-only remain provisional.
-- Seeds 3553601–3569600; scanned through 3565552; 11952 unique allocations, 0 duplicates.
-- Selected 100 joint-support multi-action positions (50 3–3, 50 2–3); 599 exact state-world assignments. Support partition: raw 1500; global 599; current-only 979; joint 599; global-only 0; current-only-exclusive 380; neither 521.
-- Uniform prior over random-legal / min-hand-pips / fast-doubles; stable-style vs per-decision mixture; temperatures 0.1 / 0.3 / 1.5. Three continuation profiles; 8694 paired model rollouts; 0 unresolved.
-- Global / closed-control first-finish regret shifts vs pass-only all <1 pp; every descriptive state-cluster interval includes zero. ESS rises as temperature increases; no reliable tactical effect, no strategy promoted.
-- Validation: 27 assertions passed; exact support reconciled. Live scoreboard/PWA untouched.
-- Cumulative separate cohorts: 88886 deal allocations, 1074 selected multi-action positions, 5863 state-world assignments; no global dedup.
-- Exact next: calibrate opponent-choice likelihood/temperature against held-out real decision traces or independent action data; preserve paired hidden worlds and continuation seeds; continue seeking authenticated branch/block ruling.
+- Added a leakage-safe opponent-choice trace temperature calibration layer under \`qosha-research/simulator/\`; no new deals were simulated and no real decision traces were available.
+- Calibration supports per-decision mixture and stable latent policy per round-seat group. Fit temperature on train groups by mean log loss; evaluate the selected value on disjoint holdout groups; report Brier/top-one plus random-legal baseline.
+- Synthetic scoring-core smoke check: 13/13 assertions passed in the orchestration JS runtime. The committed repository Node integration test was not executed in a checkout during this run.
+- Branch-opening models, block/scoring details, and opponent-policy prior/likelihood remain provisional. No strategy promoted and no temperature claimed calibrated.
+- Cumulative separate cohorts unchanged: 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments; additive cohorts, no global dedup.
+- Exact next: collect/import round-seat grouped real decision traces; run the calibration Node test in a repository checkout; fit on train groups only and score disjoint holdout log loss/Brier. If no traces, keep calibration provisional.
 
-Report: qosha-research/runs/2026-11-02-1450-pass-history-opponent-choice-temperature-grid.md
-Data: qosha-research/runs/2026-11-02-1450-pass-history-opponent-choice-temperature-grid.json
-Runner/test: qosha-research/simulator/pass-history-opponent-choice-temperature-grid.js and qosha-research/simulator/pass-history-opponent-choice-temperature-grid-test.js
+Report: qosha-research/runs/2026-11-02-1551-pass-history-trace-calibration-harness.md
+Data: qosha-research/runs/2026-11-02-1551-pass-history-trace-calibration-harness.json
+Module/test: qosha-research/simulator/pass-history-trace-temperature-calibration.js and qosha-research/simulator/pass-history-trace-temperature-calibration-test.js

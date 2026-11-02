@@ -2676,3 +2676,18 @@ Report/data/reproducer: [JSON](./2026-11-02-1310-pass-history-opponent-choice-pr
 - **Next:** calibrate softmax temperature against held-out real opponent decision traces (or independent action corpus); rerun with fresh seeds and matched hidden worlds/continuation seeds; seek authenticated branch/block ruling.
 
 Report/data/reproducer: [report](runs/2026-11-02-1450-pass-history-opponent-choice-temperature-grid.md), [JSON](runs/2026-11-02-1450-pass-history-opponent-choice-temperature-grid.json), [runner](simulator/pass-history-opponent-choice-temperature-grid.js), [test](simulator/pass-history-opponent-choice-temperature-grid-test.js).
+
+
+# Opponent-choice trace calibration harness — 2026-11-02T15:51:31+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3 calibration layer; recovered qosa-1.0.0, 3×9. Global-ever-open/current-only and block/scoring details remain provisional.
+- **Deals/seeds:** 0 new deals; no seed set. No new simulator cohort was generated.
+- **Trace sample:** 0 real observed action rows; no empirical temperature fit.
+- **Strategies/models:** calibration support for random-legal / min-hand-pips / fast-doubles likelihoods; per-decision mixture versus stable latent style per round-seat. This run only checked the scoring plumbing on a synthetic fixture.
+- **Synthetic smoke check:** 6 train groups / 24 decisions, 2 holdout groups / 8 decisions; all fixture choices were top-ranked. Pure scoring-core check passed 13/13 assertions in the orchestration JS runtime. This is a code-path test only; repository Node integration was not run in this environment.
+- **Key metrics/finding:** no new gameplay metric or reliable strategy finding. Temperature remains uncalibrated until independent real-choice traces yield holdout log loss/Brier.
+- **Cumulative separate cohorts:** 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments; unchanged, additive cohorts, no global dedup.
+- **Confidence/limitations:** no empirical confidence interval because no real trace rows and no new deals. Action-set reconstruction depends on provisional branch semantics; separate legal-action model cohorts if they disagree.
+- **Exact next action:** collect/import round-seat grouped decision traces; run the committed Node test in a repository checkout; fit on train groups only and report disjoint holdout scores. Do not claim calibrated temperature before that.
+
+Report/data/reproducer: [report](runs/2026-11-02-1551-pass-history-trace-calibration-harness.md), [JSON](runs/2026-11-02-1551-pass-history-trace-calibration-harness.json), [module](simulator/pass-history-trace-temperature-calibration.js), [test](simulator/pass-history-trace-temperature-calibration-test.js).
