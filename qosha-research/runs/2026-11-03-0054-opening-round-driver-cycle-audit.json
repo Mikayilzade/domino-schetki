@@ -1,0 +1,115 @@
+{
+  "schema": "qosha-round-driver-opening-cycle-audit/v1",
+  "timestampAsiaBaku": "2026-11-03T00:54:58+04:00",
+  "engineVersion": "qosha-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; primary 3 players x 9 stones + one stock tile",
+  "scope": "initializer-to-round-driver integration and deterministic full-round invariant smoke; no strategy comparison",
+  "nodeVersion": "v22.16.0",
+  "sourceBlobs": {
+    "engine": "82e5bd544a57683d5b4f7812b2d4abf80da894",
+    "initializer": "2fad29e516454580ec9a06115354e9866f3096e6",
+    "turnKernel": "94657896e1f8e471ceb2e9a65d1842b6102dff18",
+    "dispatcher": "55b0bcf3f1653c64b4e06bc95d7e917a480562a0",
+    "roundDriver": "fbaad78865adbddde1ea6651e6a501dc0bde3203"
+  },
+  "openingCycleFixtures": {
+    "fixtureScenarios": 2,
+    "assertions": 69,
+    "mandatoryFollowup": {
+      "steps": [
+        {
+          "player": 1,
+          "phase": "play",
+          "removed": [
+            "0-1"
+          ]
+        },
+        {
+          "player": 2,
+          "phase": "play",
+          "removed": [
+            "1-4"
+          ]
+        }
+      ],
+      "passCountAtReturn": 0,
+      "turnsAtReturn": 3
+    },
+    "forcedOpeningPass": {
+      "steps": [
+        {
+          "player": 1,
+          "phase": "play",
+          "removed": [
+            "0-1"
+          ]
+        },
+        {
+          "player": 2,
+          "phase": "pass",
+          "removed": []
+        }
+      ],
+      "passCountAtReturn": 1,
+      "turnsAtReturn": 3
+    }
+  },
+  "fullRoundSmoke": {
+    "seedStart": 7100000,
+    "seedEnd": 7100499,
+    "seedDraws": 500,
+    "uniqueSeedValues": 500,
+    "uniqueFullAllocations": 500,
+    "duplicateAllocationPairs": 0,
+    "rounds": 500,
+    "policy": "uniform random selection over dispatcher action array; local xorshift32 seeded with seed XOR 0x5a17c3e1",
+    "openingFollowup": 472,
+    "openingPass": 28,
+    "stockOneOne": 12,
+    "outcomes": {
+      "finish": 475,
+      "block": 25,
+      "unresolved": 0
+    },
+    "finishRate": 0.95,
+    "blockRate": 0.05,
+    "roundLength": {
+      "mean": 23.758,
+      "median": 24,
+      "max": 31
+    },
+    "finishMinusCounts": {
+      "0": 459,
+      "-10": 16,
+      "-20": 0,
+      "-30": 0,
+      "-40": 0
+    },
+    "assertions": 95619
+  },
+  "regressionsPassed": [
+    "initializer-test.js",
+    "turn-test.js",
+    "dispatcher-test.js",
+    "round-test.js",
+    "finish-minus-test.js",
+    "four-branch-lock-kernel-test.js",
+    "block-score-fixtures.js (22 assertions)"
+  ],
+  "finding": "No transition invariant failure in the two opening-cycle fixtures or 500 seeded full rounds. No tactical finding; no strategy promoted.",
+  "confidenceAndLimitations": [
+    "Finite coded-model property coverage only; not physical-rule authentication.",
+    "Random-legal outcomes are smoke-policy descriptives, not strategy benchmarks.",
+    "Branch lock/open, block winner/tie, and loneZero=10 remain unresolved.",
+    "No global deduplication across prior research cohorts."
+  ],
+  "cumulativeSeparateCohorts": {
+    "priorDealAllocations": 88886,
+    "priorSelectedMultiActionPositions": 1074,
+    "priorStateWorldAssignments": 5863,
+    "newRoundSmokeDeals": 500,
+    "newFixtureScenarios": 2,
+    "globalDedup": false
+  },
+  "exactNextAction": "Add a reachable-state 24-branch-label permutation check for legal-action sets and mapped successor states; then run a separately reported 5,000-seed invariant smoke before strategy comparisons."
+}

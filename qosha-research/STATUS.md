@@ -1,19 +1,19 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-02T23:47:54+04:00 Asia/Baku.
+Last checkpoint: 2026-11-03T00:54:58+04:00 Asia/Baku.
 
-- Added `simulator/opening-initializer-invariant-test.js` for the recovered 3×9 + one-stock initializer.
-- Seed range 7,000,000–7,019,999: 20,000 deterministic draws, 20,000 unique seat-labelled allocations, 0 duplicate pairs; Node v22.16.0.
-- Exact GitHub source blob hashes were verified before execution: engine.js `82e5bd544a57683d5b4f7812b2d4abf80da894`; initializer.js `2fad29e516454580ec9a06115354e9866f3096e6`.
-- 1,105,683 assertions passed. 1-1 was in seats 0/1/2 = 6,421/6,265/6,634 and in stock 680 times. All 680 first-round stock-1-1 cases returned the redeal marker.
-- On continuation rounds, 18,704/20,000 mandatory follow-ups were played and 1,296 passed. Exact no-follow-up reference under uniform dealing and independent previous winner: C(21,9)/C(27,9) = 6.2714%; observed 6.48%, within a broad 7-sigma smoke guard.
-- Four-side selector checks: 7,404 variants across the first 2,000 seeds; same tile/hand remainder, only side changes. This is branch-label diagnostic only.
-- No full rounds or strategy outcomes; no tactical finding. This is finite-seed implementation validation, not physical-rule authentication or a PRNG proof.
-- Clean git checkout still fails because this runtime cannot resolve github.com; exact GitHub blobs were verified and executed in an isolated harness.
-- Existing gameplay cohorts remain separate: 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments; no global deduplication.
-- Branch lock/open, block winner/scoring/tie, and loneZero=10 remain unresolved.
-- Exact next: integrate initialized states with round-driver and validate first return cycles after mandatory follow-up and forced opening pass, including pass count/reset, legal actions, conservation, and finish/block gates.
+- Integrated the 3×9 initializer with round-driver using two deterministic, complete tile-partition fixtures: mandatory 1-1 follow-up and forced opening pass.
+- The opening-cycle test passed 69 assertions. It checks legal actions, return to starter after two opponents, pass increment/reset, 28-tile identity conservation, and finish/block gates.
+- Full-round smoke: seeds 7,100,000–7,100,499; 500 seed draws, 500 unique full allocations, 0 duplicate allocation pairs. Node v22.16.0.
+- The full smoke passed 95,619 assertions over 500 rounds. Outcomes under the deterministic random-legal smoke policy: 475 finish, 25 block, 0 unresolved; mean 23.758 turns, median 24, max 31. These are provisional model/policy descriptives, not strategy findings.
+- Opening outcomes in this cohort: 472 mandatory follow-ups, 28 opening passes, 12 deals with 1-1 in stock. Finish-minus counts: 0=459, −10=16, −20/−30/−40=0.
+- Existing isolated regressions passed: initializer, turn, dispatcher, round-driver, finish-minus, four-branch lock kernel, and block-remainder fixtures (22 assertions).
+- Exact GitHub blob hashes were verified for engine.js 82e5bd544a57683d5b4f7812b2d4abf80da894, initializer.js 2fad29e516454580ec9a06115354e9866f3096e6, turn-kernel.js 94657896e1f8e471ceb2e9a65d1842b6102dff18, turn-dispatcher.js 55b0bcf3f1653c64b4e06bc95d7e917a480562a0, and round-driver.js fbaad78865adbddde1ea6651e6a501dc0bde3203.
+- No reliable tactical finding; no strategy promoted. The smoke policy is not a benchmark.
+- Prior separate game cohorts remain unchanged: 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments; no global dedup. New cohort: 500 full-round invariant-smoke deals plus 2 constructed fixtures.
+- Physical branch lock/open, block winner/tie, and loneZero=10 remain unresolved. A clean git clone was not used; the isolated Node harness executed exact fetched engine-module blobs.
+- Exact next action: add a reachable-state 24-branch-label permutation check for legal-action sets and mapped successor states, then expand the invariant smoke to a separately reported 5,000-seed cohort before strategy comparisons.
 
-Report: qosha-research/runs/2026-11-02-2347-opening-initializer-invariant-audit.md
-Data: qosha-research/runs/2026-11-02-2347-opening-initializer-invariant-audit.json
-Test: qosha-research/simulator/opening-initializer-invariant-test.js
+Report: qosha-research/runs/2026-11-03-0054-opening-round-driver-cycle-audit.md
+Data: qosha-research/runs/2026-11-03-0054-opening-round-driver-cycle-audit.json
+Tests: qosha-research/simulator/opening-round-cycle-test.js and qosha-research/simulator/full-round-invariant-smoke.js
