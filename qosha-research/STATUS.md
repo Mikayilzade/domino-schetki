@@ -1,17 +1,16 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-03T12:52:31+04:00 Asia/Baku.
+Last checkpoint: 2026-11-03T13:51:32+04:00 Asia/Baku.
 
-- Latest checkpoint: deterministic initializer audit for first-round 1-1-in-stock redeal and later-round previous-winner initialization.
-- Seed set 12000000–12001999: 2,000 draws, 2,000 unique allocations, 0 duplicate pairs.
-- First-round path: 82 explicit redeal signals when 1-1 was in stock; 1,918 normal ready states. The initializer does not execute the caller-owned reshuffle.
-- Continuation path: all three previous-winner seats checked on every deal (6,000 initializations); all 28 unique tile identities conserved across hands, stock, and played opening tiles.
-- Regression audit: 201,597 assertions passed. Per-seat hand inventory, starter, clockwise next player, opening draw/follow-up/pass, branch update, pass counter, and no-input-mutation were checked.
-- No strategy comparisons or promotion. No reliable tactical finding; physical branch/opening rules, block winner/tie allocation, and loneZero=10 remain unresolved.
-- Cumulative cohorts remain separate: this initializer audit adds 2,000 seed draws / 2,000 allocations; previous round-driver audit 100 draws / 300 matched pairs; block audit 6,000 draws / 144,000 model-rounds; tie-break ablation 2,120 draws / 12,720 paired rounds. No historical-baseline pooling.
+- Latest checkpoint: deterministic first-round redeal loop and two clockwise post-opening turns audit.
+- First-round seed stream 13,000,000–13,002,077: 2,000 accepted deals / 2,078 attempts; 78 redeal signals; 2,000 unique accepted allocations, no duplicate pairs. Retry histogram 1,926 / 70 / 4 for 0 / 1 / 2 retries.
+- Separate continuation seed set 14,000,000–14,001,999: 2,000 allocations, 74 with 1-1 in stock; all three previous-winner seats checked (222 initializer states).
+- First two post-opening clockwise turns: 4,444 transitions; 6,666 exact 28-tile inventory snapshots; 4,444 round-driver/manual equivalence checks; 142,541 assertions passed. Full deterministic replay matched exactly.
+- No strategy comparison or promotion. No reliable tactical finding; physical branch/opening semantics, block winner/tie allocation, and loneZero=10 remain unresolved.
+- This cohort is separate from the prior initializer, round-driver, block-audit, and tie-break cohorts. No historical-baseline pooling.
 
-Exact next action: document the simulator's deterministic seed-retry convention, then audit a full first-round redeal loop and the first two clockwise post-opening turns for stock-1-1 and hand-owned-1-1 cases.
+Exact next action: extend both setup paths through full round termination under a fixed deterministic legal policy, then test score-floor/101-bust integration separately without assigning an unresolved block winner.
 
 Results: qosha-research/RESULTS.md
-Reproducer: qosha-research/simulator/initializer-redeal-conservation-audit.js
-Test: qosha-research/simulator/initializer-redeal-conservation-audit-test.js
+Reproducer: qosha-research/simulator/redeal-loop-clockwise-audit.js
+Test: qosha-research/simulator/redeal-loop-clockwise-audit-test.js

@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T12:52:31+04:00: deterministic 3×9 initializer redeal/previous-winner audit (2,000 unique allocations; 201,597 assertions; full 28-tile conservation passed). See qosha-research/RESULTS.md and the run reproducer.
+2026-11-03T13:51:32+04:00: deterministic 3×9 first-round redeal retry loop and two clockwise post-opening turns (2,000 accepted first-round deals; 2,000 separate continuation seed draws; 142,541 assertions; exact replay match). See qosha-research/RESULTS.md and the run reproducer.

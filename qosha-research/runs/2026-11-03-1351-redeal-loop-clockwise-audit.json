@@ -1,0 +1,98 @@
+{
+  "schema": "qosa-redeal-loop-clockwise-audit/v1",
+  "timestamp": "2026-11-03T13:51:32+04:00",
+  "timezone": "Asia/Baku",
+  "engine": "qosha-research-0.5.3",
+  "rules": "recovered qosa-1.0.0 coded model; primary 3x9 + one stock; physical branch/opening semantics provisional",
+  "seedRetryConvention": "Use monotonically increasing nonnegative safe-integer seed values. For a first-round 1-1-in-stock deal, record the redeal signal and advance to seed+1; never retry the same seed. An accepted seed is consumed, and the next requested deal starts at the next integer seed. The underlying coded PRNG maps seeds to 32 bits; this run stays far below wrap.",
+  "seedSets": {
+    "firstRound": {
+      "acceptedDeals": 2000,
+      "attempts": 2078,
+      "startSeed": 13000000,
+      "endSeed": 13002077,
+      "redealSignals": 78,
+      "retryHistogram": {
+        "0": 1926,
+        "1": 70,
+        "2": 4
+      },
+      "uniqueAllocations": 2000,
+      "duplicateSeedPairs": []
+    },
+    "continuation": {
+      "seedDraws": 2000,
+      "startSeed": 14000000,
+      "endSeed": 14001999,
+      "uniqueAllocations": 2000,
+      "duplicateSeedPairs": [],
+      "stockOneOneAllocations": 74,
+      "previousWinnerInitializations": 222
+    }
+  },
+  "strategies": [],
+  "policy": "deterministic seeded index over currently legal actions, used only to exercise transitions; not a strategy arm",
+  "comparisons": 0,
+  "metrics": {
+    "firstRound": {
+      "starterCounts": [
+        681,
+        680,
+        639
+      ],
+      "twoTurnCases": 2000,
+      "inventorySnapshots": 6000,
+      "driverEquivalenceChecks": 4000,
+      "playedTileChecks": 3965,
+      "draws": 0,
+      "maxDrawsPerTurn": 0,
+      "passTurns": 89,
+      "actionTurns": 3911,
+      "actionTypes": {
+        "double-sequence": 521,
+        "single": 3390
+      },
+      "openingFollowups": 1868,
+      "openingPasses": 132
+    },
+    "continuation": {
+      "nonStockOneOneAllocations": 1926,
+      "twoTurnCases": 222,
+      "inventorySnapshots": 666,
+      "driverEquivalenceChecks": 444,
+      "playedTileChecks": 441,
+      "draws": 0,
+      "maxDrawsPerTurn": 0,
+      "passTurns": 8,
+      "actionTurns": 436,
+      "actionTypes": {
+        "single": 377,
+        "double-sequence": 59
+      },
+      "openingFollowups": 210,
+      "openingPasses": 12
+    },
+    "totals": {
+      "postOpeningTransitions": 4444,
+      "inventorySnapshots": 6666,
+      "driverEquivalenceChecks": 4444,
+      "playedTileChecks": 4406,
+      "passes": 97,
+      "actions": 4347
+    }
+  },
+  "assertions": 142541,
+  "deterministicReplay": "exact JSON match on second full run using identical seed windows",
+  "confidence": "High for deterministic implementation-contract and tile-conservation checks on this cohort; no physical-rule authentication.",
+  "limitations": "Only first two post-opening turns audited. Deterministic seed replay does not prove PRNG uniformity. Physical branch/opening semantics, block winner/tie allocation, and loneZero=10 remain unresolved. No strategic comparison.",
+  "newFinding": "No reliable tactical finding. The initializer's explicit first-round redeal signal, consecutive-seed retry loop, previous-winner setup, and first two clockwise transitions were internally consistent in the tested model.",
+  "nextAction": "Extend both setup paths through full round termination under a fixed deterministic legal policy, preserving tile provenance at every turn; then test score-floor/101-bust integration separately without assigning an unresolved block winner.",
+  "sourceBlobHashes": {
+    "qosha-research/simulator/engine.js": "82e5bd544a57683d5b4f7812beb2d4abf80da894",
+    "qosha-research/simulator/initializer.js": "2fad29e516454580ec9a06115354e9866f3096e6",
+    "qosha-research/simulator/turn-dispatcher.js": "55b0bcf3f1653c64b4e06bc95d7e917a480562a0",
+    "qosha-research/simulator/turn-kernel.js": "94657896e1f8e471ceb2e9a65d1842b6102dff18",
+    "qosha-research/simulator/round-driver.js": "f34ba375c7025dd286bdf47c7f9a4f6f9539ac25"
+  },
+  "runtime": "Node v22.16.0; exact fetched GitHub source blobs executed in isolated local harness"
+}

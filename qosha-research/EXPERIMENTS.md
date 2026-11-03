@@ -317,3 +317,11 @@ Report paired finish/block, round length, and finish-minus differences as repres
 - For mix×rotation interaction, use the paired difference-in-differences: (mix2 − mix1 at rotation r1) − (mix2 − mix1 at rotation r2). Do not count individual model-rounds as independent observations.
 - Select any exploratory leading interaction in a discovery cohort, then evaluate that exact model/rotation-pair contrast in a disjoint seed holdout. Report deal-clustered intervals and whether direction reproduces. If selected from multiple candidates, mark intervals exploratory and unadjusted.
 - A tied-minimum trace is not a block winner, point award, match result, or strategy win. Keep branch models provisional; no strategy promotion from trace-incidence differences alone.
+
+## Deterministic first-round redeal seed retry (2026-11-03)
+
+- Use monotonically increasing nonnegative safe-integer seed values as deterministic deal identifiers. The current coded PRNG converts the seed to 32 bits; do not silently wrap a seed stream.
+- For each first-match-round attempt, deal once with the current seed and call the initializer. If it returns the explicit `1-1-in-stock-on-first-round` redeal signal, record that attempt and advance to seed+1. Never retry the same seed: because the deal is deterministic, doing so would repeat the same allocation indefinitely.
+- An accepted seed is consumed. The next requested deal starts at the next integer seed after it. Store the full attempted range, accepted count, redeal count, retry histogram, and unique allocation count.
+- This is a reproducibility convention for the simulator's caller-owned redeal loop, not proof of shuffle uniformity or physical rule authentication. Keep seed draws and unique allocations distinct.
+
