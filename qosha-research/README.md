@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T09:49:17+04:00: exhaustive mixed-finish contract audit (33 sequence orderings, 1,095 assertions; score-floor integration 408 pairs). Internal code validation only; physical rule assumptions remain provisional. See qosha-research/RESULTS.md and the linked run report.
+2026-11-03T10:45:25+04:00: draw-enabled action/pass integration audit (71 assertions across seven fixture groups; prior mixed-finish suite rerun at 1,095 assertions). Internal coded-model validation only; physical rule assumptions remain provisional. See qosha-research/RESULTS.md and the reproducer under qosha-research/simulator/.
