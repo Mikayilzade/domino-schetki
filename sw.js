@@ -1,6 +1,6 @@
-const CACHE='domino-schetki-v19';
-const V='?v=19';
-const ASSETS=['./','./index.html','./scoreboard.css'+V,'./scoreboard-extra.css'+V,'./scoreboard-v8.css'+V,'./scoreboard-v10.css'+V,'./scoreboard-v11.css'+V,'./scoreboard-v17.css'+V,'./scoreboard-v18.css'+V,'./scoreboard.js'+V,'./scoreboard-extra.js'+V,'./scoreboard-v8.js'+V,'./scoreboard-v10.js'+V,'./scoreboard-v11.js'+V,'./scoreboard-v12.js'+V,'./scoreboard-v13.js'+V,'./scoreboard-v14.js'+V,'./scoreboard-v15.js'+V,'./scoreboard-v16.js'+V,'./scoreboard-v17.js'+V,'./scoreboard-v18.js'+V,'./scoreboard-v19.js'+V,'./manifest.webmanifest'+V,'./icon.svg'+V];
+const CACHE='domino-schetki-v20';
+const V='?v=20';
+const ASSETS=['./','./index.html','./scoreboard.css'+V,'./scoreboard-extra.css'+V,'./scoreboard-v8.css'+V,'./scoreboard-v10.css'+V,'./scoreboard-v11.css'+V,'./scoreboard-v17.css'+V,'./scoreboard-v18.css'+V,'./scoreboard.js'+V,'./scoreboard-extra.js'+V,'./scoreboard-v8.js'+V,'./scoreboard-v10.js'+V,'./scoreboard-v11.js'+V,'./scoreboard-v12.js'+V,'./scoreboard-v13.js'+V,'./scoreboard-v14.js'+V,'./scoreboard-v15.js'+V,'./scoreboard-v16.js'+V,'./scoreboard-v17.js'+V,'./scoreboard-v18.js'+V,'./scoreboard-v19.js'+V,'./scoreboard-v20.js'+V,'./manifest.webmanifest'+V,'./icon.svg'+V];
 self.addEventListener('install',event=>{self.skipWaiting();event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)));});
 self.addEventListener('activate',event=>{event.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))),self.clients.claim()]));});
 self.addEventListener('fetch',event=>{if(event.request.method!=='GET')return;event.respondWith(fetch(event.request,{cache:'no-store'}).then(response=>{const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy));return response;}).catch(()=>caches.match(event.request).then(response=>response||caches.match('./index.html'))));});
