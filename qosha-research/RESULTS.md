@@ -3110,3 +3110,20 @@ Reproducer: [runner](../simulator/redeal-loop-clockwise-audit.js) · [test](../s
 
 Reproducer: runs/2026-11-03-1551-finish-score-match-integration.md and simulator/finish-score-match-roundstream.js.
 
+
+# Six-permutation finish-score event-order holdout — 2026-11-03T17:49:56+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0 coded 3×9 + one-stock model; branch/opening semantics remain provisional.
+- **Deals/seeds:** attempt range 18,000,000–18,001,037; 1,038 attempts, 38 redeal signals, 1,000 accepted rounds, 1,000 unique allocations, 0 duplicates.
+- **Policy:** deterministic seed/turn/player hash selects a legal action index; validation-only, not a strategic arm.
+- **Round outcomes:** 952 finishes / 48 blocks / 0 unresolved; finish-minus 0/−10/−20/−30/−40 = 915/36/1/0/0. Blocks remain unscored.
+- **Six matched orders:** all six permutations of seats 0, 1, 2 replayed the same 1,000 outcomes. Every arm completed 72 matches with mean 13.778 / median 14 rounds and 8-round tail. Each pair had 72 common match boundaries and no unique boundary indices.
+- **PWA event counts:** applied / skipped-zero / pending nonzero = 1,905/915/36 (0-1-2), 1,904/915/37 (0-2-1), 1,903/915/38 (1-0-2), 1,897/915/44 (1-2-0), 1,898/915/43 (2-0-1), 1,896/915/45 (2-1-0). Each arm had 10 floor hits, 72 bust events, and max score 122.
+- **Paired sensitivity:** across 15 pairwise contrasts, exploded-seat identity differed in 1–7/72 shared matches; survivor-place assignment in 5–21/72; first-place identity in 4–17/72. These are dependent descriptive comparisons on the same match stream, not independent observations or strategy effects.
+- **Finding/limits:** with the provisional finish-pip-plus-finish-minus mapping, event order changed exploded seat and survivor rank while match-ending round indices stayed invariant in this holdout. This is manual PWA input-order sensitivity, not a physical scoring rule or strategy advantage. Blocks remain unscored; no strategy promoted; no historical baseline pooled.
+- **Validation:** 193 assertions passed; exact full 1,000-round replay and exact 40-round smoke replay; no unresolved smoke rounds.
+- **Cumulative scale:** adds 1,000 independent accepted round outcomes. Together with the earlier disjoint 1,000-round three-order cohort, the order-sensitivity series has 2,000 accepted outcomes; samples remain separate.
+- **Exact next action:** repeat all six orders on a second disjoint 1,000-round holdout starting at seed 19,000,000. If match-boundary invariance reproduces, stratify order-induced changes by score proximity to 101.
+
+Reproducers: [report](runs/2026-11-03-1749-finish-score-event-order-six-permutation-holdout.md), [runner](simulator/finish-score-event-order-six-permutation-holdout.js), [test](simulator/finish-score-event-order-six-permutation-holdout-test.js), [JSON](runs/2026-11-03-1749-finish-score-event-order-six-permutation-holdout.json).
+

@@ -339,3 +339,13 @@ Report paired finish/block, round length, and finish-minus differences as repres
 - The active PWA adapter is sequential: after each nonzero score event, evaluate the 101 threshold and stop once at most two entities remain. The calculator skips zero input; report zero deltas separately from applied and pending events.
 - Event order is a user-entered sequence in the PWA, not a physical rule. For analysis, compare matched seat-order permutations on the same round outcomes and report exploded-seat changes separately from strategy effects. Never use a fixed seat order as a strategy conclusion.
 
+
+
+
+## Six-permutation PWA score-event order holdout (2026-11-03)
+
+- Use a disjoint accepted 3×9 round-outcome stream with the deterministic first-round 1-1 redeal retry convention; report attempt seed range, attempts, redeals, accepted rounds, unique allocations, and duplicates.
+- Replay each same round outcome through all six seat-entry permutations (0-1-2, 0-2-1, 1-0-2, 1-2-0, 2-0-1, 2-1-0). Keep the terminal-pip-plus-finish-minus adapter explicitly provisional and leave blocks unscored.
+- Compare exact match-ending accepted-round indices, exploded-seat identity, survivor-place assignment, and first-place identity at shared boundaries. Also report applied nonzero events, skipped zeros, pending events, floor hits, bust events, and max score.
+- Pairwise comparisons share the same match stream; do not treat the 15 order pairs as independent observations or infer strategy superiority. Manual score-entry order is a PWA interaction, not a physical table rule.
+- Require exact deterministic replay and a separate resolved smoke cohort. Before interpreting boundary invariance, replicate on another disjoint seed holdout; only then stratify changes by score proximity to 101.

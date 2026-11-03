@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T16:47:36+04:00: matched three-order PWA finish-score event-order sensitivity (1,000 identical 3×9 round outcomes; 37 assertions; same 75 match boundaries, with exploded-seat identity differing in 7/10/5 pairwise comparisons). See the [run report](runs/2026-11-03-1647-finish-score-event-order-sensitivity.md), [runner](simulator/finish-score-event-order-sensitivity.js), and [test](simulator/finish-score-event-order-sensitivity-test.js).
+2026-11-03T17:49:56+04:00: all-six PWA finish-score event-order holdout (1,000 independent 3×9 round outcomes; attempt seeds 18,000,000–18,001,037; six permutations / 15 paired contrasts; same 72 match boundaries, with exploded-seat and survivor-place sensitivity). See the [run report](runs/2026-11-03-1749-finish-score-event-order-six-permutation-holdout.md), [runner](simulator/finish-score-event-order-six-permutation-holdout.js), and [test](simulator/finish-score-event-order-six-permutation-holdout-test.js).

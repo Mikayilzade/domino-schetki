@@ -1,18 +1,18 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-03T16:47:36+04:00 Asia/Baku.
+Last checkpoint: 2026-11-03T17:49:56+04:00 Asia/Baku.
 
-- Latest checkpoint: matched three-order PWA finish-score event-order sensitivity on one deterministic independent 3×9 round stream.
-- Seeds: 17,000,000–17,001,028; 1,029 attempts, 29 redeals, 1,000 accepted rounds, 1,000 unique allocations, no duplicates.
-- Round outcomes: 955 finishes / 45 blocks / 0 unresolved. Finish-minus 0/−10/−20/−30/−40 = 913/41/1/0/0. Blocks remain unscored.
-- Matched entry orders: 0-1-2, 1-2-0, 2-0-1. All arms completed 75 matches at the same 75 round indices; median match length 14, mean 13.293 rounds, tail 3.
-- Applied / skipped / pending nonzero events: 1,902 / 913 zeros skipped / 50 pending for 0-1-2; 1,899 / 913 / 53 for 1-2-0; 1,914 / 913 / 38 for 2-0-1.
-- At shared match boundaries, exploded-seat identity differed in 7/75, 10/75, and 5/75 pairwise comparisons. This is manual PWA entry-order sensitivity, not a strategy result.
-- Validation: 37 assertions passed; full 1,000-round cohort plus exact 40-round replay. No historical baseline pooled.
-- Limits: finish-pip-plus-finisher-minus mapping is provisional; only 3 of 6 permutations tested; block winner/tie allocation unresolved; no strategy comparison or promotion.
+- Latest checkpoint: all-six seat-permutation PWA finish-score event-order holdout on a disjoint 3×9 round stream.
+- Seeds: attempt range 18,000,000–18,001,037; 1,038 attempts, 38 redeals, 1,000 accepted rounds, 1,000 unique allocations, 0 duplicates.
+- Round outcomes: 952 finishes / 48 blocks / 0 unresolved. Finish-minus 0/−10/−20/−30/−40 = 915/36/1/0/0. Blocks remain unscored.
+- All six seat orders replayed the same outcomes. Each completed 72 matches with mean 13.778 / median 14 rounds and an 8-round tail.
+- Match-ending accepted-round indices were invariant across all six orders: 72 common boundaries and 0 unique boundaries in every pairwise contrast.
+- At shared boundaries, exploded-seat identity changed in 1–7/72 pairwise matches; survivor-place assignment in 5–21/72; first-place identity in 4–17/72. This is descriptive PWA input-order sensitivity, not a strategy result.
+- Validation: 193 assertions; exact full 1,000-round replay; exact 40-round smoke replay; 0 unresolved smoke rounds. No historical baseline pooled.
+- Limits: terminal-pip-plus-finish-minus mapping remains provisional; blocks remain unscored; manual PWA entry order is not a physical rule; no strategy comparison or promotion.
 
-Exact next action: test all 6 seat permutations on a disjoint 1,000-round holdout; check match-ending boundary invariance and exploded-seat/survivor-place sensitivity.
+Exact next action: run a second disjoint 1,000-round holdout starting at seed 19,000,000 with all six orders; preregister match-boundary invariance and repeat exploded-seat/survivor-place comparisons, then stratify by score proximity to 101 only if invariance reproduces.
 
-Report: [run report](runs/2026-11-03-1647-finish-score-event-order-sensitivity.md)
-Runner: [reproducer](simulator/finish-score-event-order-sensitivity.js)
-Test: [regression test](simulator/finish-score-event-order-sensitivity-test.js)
+Report: [run report](runs/2026-11-03-1749-finish-score-event-order-six-permutation-holdout.md)
+Runner: [reproducer](simulator/finish-score-event-order-six-permutation-holdout.js)
+Test: [regression test](simulator/finish-score-event-order-six-permutation-holdout-test.js)
