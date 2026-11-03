@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T11:46:19+04:00: deterministic 3×9 round-driver conservation audit (100 unique allocations, 300 matched round pairs; all inventory and transition checks passed). See qosha-research/RESULTS.md and the run reproducer.
+2026-11-03T12:52:31+04:00: deterministic 3×9 initializer redeal/previous-winner audit (2,000 unique allocations; 201,597 assertions; full 28-tile conservation passed). See qosha-research/RESULTS.md and the run reproducer.

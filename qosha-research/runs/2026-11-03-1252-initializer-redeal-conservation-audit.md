@@ -1,0 +1,12 @@
+# 3×9 initializer redeal and previous-winner conservation audit — 2026-11-03T12:52:31+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0 coded model, primary 3 players × 9 stones + one stock tile. Branch/opening semantics remain provisional.
+- **Seeds/deals:** 12,000,000–12,001,999; 2,000 seed draws, 2,000 unique seat-labelled allocations, 0 duplicate pairs. This cohort is independent; no cross-cohort deduplication.
+- **First-round 1-1-in-stock:** 82/2,000 deals returned the explicit redeal signal; the other 1,918 initialized normally. Inputs remained unchanged on every call. The initializer signals a redeal but does not itself reshuffle.
+- **Later-round previous-winner start:** all three previous-winner seats were tested for every deal (6,000 continuation initializations). In each of the 82 stock-1-1 allocations, each previous-winner seat was checked 82 times; missing previous-winner input was rejected 82 times.
+- **Conservation:** 201,597 assertions passed. Every ready opening state retained exactly the 28 unique double-six tiles across hands, stock, and explicitly tracked played center/follow-up tiles. Per-seat hand identities, starter selection, clockwise next player, opening draw, follow-up/pass, branch update, and pass count were checked.
+- **Observed opening path counts:** 5,569 follow-ups and 431 opening passes over 6,000 continuation initializations. Among the 246 stock-1-1 × previous-winner cases, 229 followed on 1 and 17 passed.
+- **Finding/confidence:** the current initializer's redeal signal and previous-winner behavior are internally consistent with the recovered coded contract. This is not authentication of physical table rules and not a strategic result; no strategy was run or promoted.
+- **Cumulative scale:** adds 2,000 seed draws / 2,000 unique allocations to this initializer audit series. The previous round-driver cohort remains separate at 100 seed draws / 300 matched pairs; block and tie-break cohorts remain separate. No historical baseline pooled.
+- **Exact next action:** define the simulator's deterministic seed-retry convention explicitly, then test a complete first-round redeal loop and the first two clockwise post-opening turns for both stock-1-1 and hand-owned-1-1 paths, preserving all 28 tile identities.
+- **Reproducer/test:** simulator/initializer-redeal-conservation-audit.js and simulator/initializer-redeal-conservation-audit-test.js. Exact GitHub source blob hashes are recorded in the JSON; run under Node v22.16.0.

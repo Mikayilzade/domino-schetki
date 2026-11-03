@@ -3052,3 +3052,17 @@ Confidence is high for these coded-model metamorphic and matched-seed measuremen
 - **Finding/limits:** internal conservation and driver integration validated for these trajectories; no reliable strategy finding and no strategy promoted. Physical branch/block rules and loneZero=10 remain unresolved. No historical baseline pooled.
 - **Exact next action:** audit first-round 1-1-in-stock redeal and later-round previous-winner initialization with full tile conservation.
 - **Files:** [report](runs/2026-11-03-1146-round-conservation-audit.md), [JSON](runs/2026-11-03-1146-round-conservation-audit.json), [runner](simulator/round-conservation-audit.js), [test](simulator/round-conservation-audit-test.js).
+
+
+# 3×9 initializer redeal and previous-winner conservation audit — 2026-11-03T12:52:31+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0 coded model, primary 3×9 + one stock. Physical branch/opening semantics remain provisional.
+- **Seeds/deals:** 12,000,000–12,001,999; 2,000 seed draws, 2,000 unique seat-labelled allocations, 0 duplicate pairs. No cross-cohort deduplication.
+- **First-round path:** 1-1 was in stock in 82 deals; all 82 returned the explicit redeal signal. The other 1,918 deals initialized normally. Input allocations were unchanged. The initializer signals redeal; actual reshuffling is caller-owned and was not simulated.
+- **Previous-winner path:** all three previous-winner seats tested on every deal: 6,000 continuation initializations. Each previous-winner seat was checked on all 82 stock-1-1 allocations. Missing previous-winner input was rejected in all 82 stock-1-1 cases.
+- **Validation:** 201,597 assertions passed. Every ready state conserved the exact 28 unique double-six tiles across hands, stock, and explicitly tracked played opening tiles. Per-seat hand identities, starter, clockwise next player, opening draw, follow-up/pass, branch update, pass count, and input immutability were checked.
+- **Opening outcomes:** 5,569 follow-ups / 431 opening passes across the 6,000 continuation initializations. In the 246 stock-1-1 × previous-winner cases, 229 followed on 1 and 17 passed.
+- **Finding/confidence:** strong internal validation of the initializer's coded contract on this deterministic cohort. No physical-rule authentication, PRNG-uniformity proof, strategy result, or strategy promotion.
+- **Cumulative scale:** adds 2,000 seed draws / 2,000 unique allocations to the initializer audit series. The prior round-driver cohort remains separate (100 seed draws / 300 matched pairs); block audit remains 6,000 draws / 144,000 model-rounds; tie-break ablation remains 2,120 draws / 12,720 paired rounds. No historical baseline pooled.
+- **Exact next action:** explicitly document the simulator's deterministic seed-retry convention, then test a complete first-round redeal loop and the first two clockwise post-opening turns for stock-1-1 and hand-owned-1-1 cases.
+- **Files:** report and JSON under runs/2026-11-03-1252-initializer-redeal-conservation-audit; runner and test under simulator/. Exact source blobs: engine 82e5bd544a57683d5b4f7812beb2d4abf80da894; initializer 2fad29e516454580ec9a06115354e9866f3096e6. Node v22.16.0; clean checkout unavailable because DNS resolution for github.com failed.
