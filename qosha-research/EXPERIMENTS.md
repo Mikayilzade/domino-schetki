@@ -300,3 +300,12 @@ The reachable-state audit passed action-set and mapped-transition equivariance, 
 - a seeded symmetric/action-orbit selector.
 
 Report paired finish/block, round length, and finish-minus differences as representation/tie-break sensitivity only. Do not promote a strategy based on this ablation. Preserve unique allocation counts and seed ranges; keep physical branch lock/open and block scoring assumptions separate.
+
+
+## Tied-minimum block trace holdout and replay (2026-11-03)
+
+- Use a disjoint seed holdout and keep all four branch models, both policy mixes, and all three seat rotations explicit. Do not pool these model arms or prior cohorts.
+- For every blocked round whose minimum-pip candidate set has size >1, retain seed, allocation fingerprint, model/mix/rotation, policy assignment, per-turn seat/pass/draw/action key, terminal hands/geometry, candidate sets, and a trace checksum.
+- Replay every retained trace under the same seed, policy assignment and model; require checksum identity. Report trace counts and replay failures.
+- Stratify block incidence, min-pip tie rate, last-passer membership, and minimum-pip/fewest-tile candidate-set agreement by model × mix × seat rotation. Use deal-clustered intervals; the same seed remains one cluster across all cells.
+- Candidate sets and last passer remain diagnostics only. Never infer block winner, tie split, scoring, or physical branch semantics from this synthetic cohort.

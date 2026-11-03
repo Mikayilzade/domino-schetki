@@ -2985,3 +2985,15 @@ Confidence is high for these coded-model metamorphic and matched-seed measuremen
 - **Cumulative separate cohorts:** added 2000 deals / 48000 model-rounds. Existing cohorts remain separate: 2,120 tie-break seed draws / 12,720 paired rounds; 88,886 prior allocations; 1,074 multi-action positions; 5,863 state-world assignments; 5,000 smoke rounds. No global dedup or historical-baseline pooling.
 - **Exact next action:** use a disjoint seed holdout; retain replay traces for every tied-minimum block and stratify candidate-set / last-passer diagnostics by policy mix and seat rotation. Keep winner interpretations provisional.
 - **Report/data/reproducer:** [report](runs/2026-11-03-0649-reachable-block-candidate-audit.md), [JSON](runs/2026-11-03-0649-reachable-block-candidate-audit.json), [runner](simulator/block-reachable-candidate-audit.js).
+
+
+# Tied-minimum block trace holdout — 2026-11-03T07:59:49+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0; primary 3×9 + one stock. Branch semantics and block winner/tie/scoring remain provisional.
+- **Seed set:** 9002000–9003999; 2000 draws, 2000 unique allocations, 0 duplicates. Two policy mixes × three seat rotations, evaluated in global-ever-open, current-all, local-first and local-last models.
+- **Scale:** 48000 resolved model-rounds (12000 per model), 0 unresolved. Every tied-minimum block retained a replay log; 1921/1921 trace checks passed with 0 mismatches.
+- **Finding:** tied candidate-set and last-passer diagnostics are now retained and stratified by policy mix and seat rotation. Branch-model assumptions remain dominant; no block winner rule or strategy superiority is inferred.
+- **Confidence/limits:** high for deterministic internal replay; no physical-rule authentication. Approximate 95% deal-clustered intervals. No historical baseline or prior cohort pooled.
+- **Cumulative block-audit series:** two disjoint holdouts, 4,000 deal draws / 96,000 model-rounds. Other cohorts remain separate.
+- **Exact next action:** paired seed-cluster contrasts across mix/rotation strata, then a second disjoint holdout for the leading descriptive interaction; do not assign block winners.
+- **Report/data/reproducers:** [report](runs/2026-11-03-0759-block-tied-minimum-stratified-holdout.md), [summary JSON](runs/2026-11-03-0759-block-tied-minimum-stratified-holdout.json), [runner](simulator/block-tied-minimum-stratified-audit.js), [test](simulator/block-tied-minimum-stratified-audit-test.js).

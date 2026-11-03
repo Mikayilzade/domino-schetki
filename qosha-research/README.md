@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T06:49:40+04:00: reachable block candidate-set audit (2,000 unique deals; 48,000 model-rounds across four provisional branch models). Block incidence is model-sensitive; no winner/scoring rule inferred. See qosha-research/RESULTS.md.
+2026-11-03T07:59:49+04:00: tied-minimum block trace holdout (2000 unique deals; 48000 model-rounds; 1921 tied traces replay-verified). Block winner/scoring and branch assumptions remain provisional. See qosha-research/RESULTS.md.

@@ -1,0 +1,2128 @@
+{
+  "schema": "qosha-block-tied-minimum-stratified-audit/v1",
+  "timestampAsiaBaku": "2026-11-03T07:59:49+04:00",
+  "engineVersion": "qosha-research-0.5.3",
+  "rulesVersion": "recovered qosa-1.0.0; branch opening and block candidate interpretation remain provisional",
+  "mode": "3 players x 9 stones + one stock; same unique deals across four provisional branch models",
+  "seedStart": 9002000,
+  "seedEnd": 9003999,
+  "seedDraws": 2000,
+  "uniqueAllocations": 2000,
+  "duplicateAllocationSeeds": [],
+  "roundsPerModel": 12000,
+  "totalModelRounds": 48000,
+  "strategies": [
+    [
+      "random-legal",
+      "min-hand-pips",
+      "closed-branch-control"
+    ],
+    [
+      "fast-doubles",
+      "moderate-double-hold",
+      "closed-branch-control"
+    ]
+  ],
+  "modelDefinitions": {
+    "global": "global-ever-open number unlock; current research dispatcher",
+    "currentAll": "double unlocks all currently matching ends at play time; later-arriving sides remain locked",
+    "localFirst": "double unlocks one currently matching side, first in up/left/right/down order",
+    "localLast": "double unlocks one currently matching side, last in up/left/right/down order"
+  },
+  "blockContract": "empty stock and >=3 consecutive passes; no winner, tie split, score, or match result assigned",
+  "metrics": {
+    "models": {
+      "global": {
+        "rounds": 12000,
+        "finishes": 11569,
+        "blocks": 431,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 431,
+          "denominator": 12000,
+          "rate": 0.035916666666666666,
+          "se": 0.0018073051557395906,
+          "ci95": [
+            0.03237434856141707,
+            0.03945898477191626
+          ],
+          "clusters": 2000,
+          "residualSS": 470.11949999998916
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 14,
+          "denominator": 431,
+          "rate": 0.03248259860788863,
+          "se": 0.009056865177440358,
+          "ci95": [
+            0.014731142860105528,
+            0.05023405435567173
+          ],
+          "clusters": 2000,
+          "residualSS": 15.229762975005473
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 159,
+          "denominator": 431,
+          "rate": 0.3689095127610209,
+          "se": 0.02433389550810447,
+          "ci95": [
+            0.3212150775651361,
+            0.4166039479569057
+          ],
+          "clusters": 2000,
+          "residualSS": 109.94123631978674
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 54,
+          "denominator": 431,
+          "rate": 0.12529002320185614,
+          "se": 0.016169826922971156,
+          "ci95": [
+            0.09359716243283267,
+            0.15698288397087962
+          ],
+          "clusters": 2000,
+          "residualSS": 48.545399734066784
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 381,
+          "denominator": 431,
+          "rate": 0.8839907192575406,
+          "se": 0.015601311198336148,
+          "ci95": [
+            0.8534121493088017,
+            0.9145692892062794
+          ],
+          "clusters": 2000,
+          "residualSS": 45.19178944988441
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 417,
+          "2": 14,
+          "3": 0
+        },
+        "meanMinimumRemainderPips": 2.9512761020881673,
+        "tiedTraceCount": 14
+      },
+      "currentAll": {
+        "rounds": 12000,
+        "finishes": 768,
+        "blocks": 11232,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 11232,
+          "denominator": 12000,
+          "rate": 0.936,
+          "se": 0.0023942940712927793,
+          "ci95": [
+            0.9313071836202662,
+            0.9406928163797339
+          ],
+          "clusters": 2000,
+          "residualSS": 825.0880000000088
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 655,
+          "denominator": 11232,
+          "rate": 0.05831552706552707,
+          "se": 0.0023544815623535685,
+          "ci95": [
+            0.053700743203314076,
+            0.06293031092774007
+          ],
+          "clusters": 2000,
+          "residualSS": 699.016739159996
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 5045,
+          "denominator": 11232,
+          "rate": 0.4491631054131054,
+          "se": 0.005132830915392435,
+          "ci95": [
+            0.43910275681893624,
+            0.45922345400727455
+          ],
+          "clusters": 2000,
+          "residualSS": 3322.0862536119985
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 5326,
+          "denominator": 11232,
+          "rate": 0.4741809116809117,
+          "se": 0.005425722405297447,
+          "ci95": [
+            0.4635464957665287,
+            0.4848153275952947
+          ],
+          "clusters": 2000,
+          "residualSS": 3712.035565863885
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 4343,
+          "denominator": 11232,
+          "rate": 0.3866631054131054,
+          "se": 0.0051149947034296395,
+          "ci95": [
+            0.3766377157943833,
+            0.39668849503182746
+          ],
+          "clusters": 2000,
+          "residualSS": 3299.0383547516026
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 10577,
+          "2": 640,
+          "3": 15
+        },
+        "meanMinimumRemainderPips": 10.112001424501425,
+        "tiedTraceCount": 655
+      },
+      "localFirst": {
+        "rounds": 12000,
+        "finishes": 177,
+        "blocks": 11823,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 11823,
+          "denominator": 12000,
+          "rate": 0.98525,
+          "se": 0.001388129829819413,
+          "ci95": [
+            0.9825292655335539,
+            0.987970734466446
+          ],
+          "clusters": 2000,
+          "residualSS": 277.3355000000047
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 642,
+          "denominator": 11823,
+          "rate": 0.05430093884800812,
+          "se": 0.0024257402532219946,
+          "ci95": [
+            0.049546487951693016,
+            0.05905538974432323
+          ],
+          "clusters": 2000,
+          "residualSS": 822.1040121029181
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 4845,
+          "denominator": 11823,
+          "rate": 0.4097944684090332,
+          "se": 0.005329124186452135,
+          "ci95": [
+            0.399349385003587,
+            0.4202395518144794
+          ],
+          "clusters": 2000,
+          "residualSS": 3967.8007883472014
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 5176,
+          "denominator": 11823,
+          "rate": 0.4377907468493614,
+          "se": 0.005670722972405123,
+          "ci95": [
+            0.4266761298234474,
+            0.44890536387527546
+          ],
+          "clusters": 2000,
+          "residualSS": 4492.778840186288
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 5108,
+          "denominator": 11823,
+          "rate": 0.43203924553835743,
+          "se": 0.005471142493162343,
+          "ci95": [
+            0.42131580625175924,
+            0.4427626848249556
+          ],
+          "clusters": 2000,
+          "residualSS": 4182.098230354866
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 11181,
+          "2": 631,
+          "3": 11
+        },
+        "meanMinimumRemainderPips": 14.383743550706251,
+        "tiedTraceCount": 642
+      },
+      "localLast": {
+        "rounds": 12000,
+        "finishes": 96,
+        "blocks": 11904,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 11904,
+          "denominator": 12000,
+          "rate": 0.992,
+          "se": 0.0009981362210317996,
+          "ci95": [
+            0.9900436530067777,
+            0.9939563469932223
+          ],
+          "clusters": 2000,
+          "residualSS": 143.39199999999943
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 610,
+          "denominator": 11904,
+          "rate": 0.051243279569892476,
+          "se": 0.002286939105710304,
+          "ci95": [
+            0.04676087892270028,
+            0.05572568021708467
+          ],
+          "clusters": 2000,
+          "residualSS": 740.7605346580766
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 4905,
+          "denominator": 11904,
+          "rate": 0.41204637096774194,
+          "se": 0.005289558637588355,
+          "ci95": [
+            0.40167883603806875,
+            0.4224139058974151
+          ],
+          "clusters": 2000,
+          "residualSS": 3962.8488383377307
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 5175,
+          "denominator": 11904,
+          "rate": 0.4347278225806452,
+          "se": 0.005748534724844529,
+          "ci95": [
+            0.4234606945199499,
+            0.4459949506413405
+          ],
+          "clusters": 2000,
+          "residualSS": 4680.399810632257
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 5223,
+          "denominator": 11904,
+          "rate": 0.4387600806451613,
+          "se": 0.0055367717390347486,
+          "ci95": [
+            0.4279080080366532,
+            0.44961215325366943
+          ],
+          "clusters": 2000,
+          "residualSS": 4341.920565379964
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 11294,
+          "2": 600,
+          "3": 10
+        },
+        "meanMinimumRemainderPips": 14.547547043010752,
+        "tiedTraceCount": 610
+      }
+    },
+    "strata": {
+      "global|mix1|rotation0": {
+        "rounds": 2000,
+        "finishes": 1946,
+        "blocks": 54,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 54,
+          "denominator": 2000,
+          "rate": 0.027,
+          "se": 0.0036251994476880363,
+          "ci95": [
+            0.019894609082531448,
+            0.03410539091746855
+          ],
+          "clusters": 2000,
+          "residualSS": 52.54199999999953
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 5,
+          "denominator": 54,
+          "rate": 0.09259259259259259,
+          "se": 0.039454905109100366,
+          "ci95": [
+            0.015260978578755871,
+            0.16992420660642932
+          ],
+          "clusters": 2000,
+          "residualSS": 4.537037037037029
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 26,
+          "denominator": 54,
+          "rate": 0.48148148148148145,
+          "se": 0.06801170316633204,
+          "ci95": [
+            0.34817854327547065,
+            0.6147844196874923
+          ],
+          "clusters": 2000,
+          "residualSS": 13.48148148148148
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 14,
+          "denominator": 54,
+          "rate": 0.25925925925925924,
+          "se": 0.05965020966876077,
+          "ci95": [
+            0.14234484830848815,
+            0.37617367021003034
+          ],
+          "clusters": 2000,
+          "residualSS": 10.370370370370361
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 44,
+          "denominator": 54,
+          "rate": 0.8148148148148148,
+          "se": 0.05287425963601786,
+          "ci95": [
+            0.7111812659282197,
+            0.9184483637014098
+          ],
+          "clusters": 2000,
+          "residualSS": 8.148148148148154
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 49,
+          "2": 5,
+          "3": 0
+        },
+        "meanMinimumRemainderPips": 3.037037037037037,
+        "tiedTraceCount": 5
+      },
+      "global|mix1|rotation1": {
+        "rounds": 2000,
+        "finishes": 1932,
+        "blocks": 68,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 68,
+          "denominator": 2000,
+          "rate": 0.034,
+          "se": 0.004053420174069585,
+          "ci95": [
+            0.026055296458823617,
+            0.04194470354117639
+          ],
+          "clusters": 2000,
+          "residualSS": 65.68800000000213
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 1,
+          "denominator": 68,
+          "rate": 0.014705882352941176,
+          "se": 0.014601001079231124,
+          "ci95": [
+            0,
+            0.043323844468234174
+          ],
+          "clusters": 2000,
+          "residualSS": 0.9852941176470595
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 18,
+          "denominator": 68,
+          "rate": 0.2647058823529412,
+          "se": 0.05351388566686436,
+          "ci95": [
+            0.15981866644588705,
+            0.3695930982599953
+          ],
+          "clusters": 2000,
+          "residualSS": 13.235294117647056
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 6,
+          "denominator": 68,
+          "rate": 0.08823529411764706,
+          "se": 0.03440461494899644,
+          "ci95": [
+            0.020802248817614055,
+            0.15566833941768007
+          ],
+          "clusters": 2000,
+          "residualSS": 5.470588235294119
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 63,
+          "denominator": 68,
+          "rate": 0.9264705882352942,
+          "se": 0.03165924171088407,
+          "ci95": [
+            0.8644184744819614,
+            0.9885227019886269
+          ],
+          "clusters": 2000,
+          "residualSS": 4.632352941176474
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 67,
+          "2": 1,
+          "3": 0
+        },
+        "meanMinimumRemainderPips": 3.661764705882353,
+        "tiedTraceCount": 1
+      },
+      "global|mix1|rotation2": {
+        "rounds": 2000,
+        "finishes": 1929,
+        "blocks": 71,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 71,
+          "denominator": 2000,
+          "rate": 0.0355,
+          "se": 0.004138651860160548,
+          "ci95": [
+            0.027388242354085324,
+            0.04361175764591467
+          ],
+          "clusters": 2000,
+          "residualSS": 68.47950000000223
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 3,
+          "denominator": 71,
+          "rate": 0.04225352112676056,
+          "se": 0.023880101116222498,
+          "ci95": [
+            0,
+            0.08905851931455666
+          ],
+          "clusters": 2000,
+          "residualSS": 2.8732394366197123
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 30,
+          "denominator": 71,
+          "rate": 0.4225352112676056,
+          "se": 0.05863725527512541,
+          "ci95": [
+            0.30760619092835984,
+            0.5374642316068514
+          ],
+          "clusters": 2000,
+          "residualSS": 17.323943661971843
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 8,
+          "denominator": 71,
+          "rate": 0.11267605633802817,
+          "se": 0.037534993579703475,
+          "ci95": [
+            0.03910746892180936,
+            0.18624464375424699
+          ],
+          "clusters": 2000,
+          "residualSS": 7.098591549295766
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 61,
+          "denominator": 71,
+          "rate": 0.8591549295774648,
+          "se": 0.04129390888744957,
+          "ci95": [
+            0.7782188681580636,
+            0.9400909909968659
+          ],
+          "clusters": 2000,
+          "residualSS": 8.591549295774643
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 68,
+          "2": 3,
+          "3": 0
+        },
+        "meanMinimumRemainderPips": 3.140845070422535,
+        "tiedTraceCount": 3
+      },
+      "global|mix2|rotation0": {
+        "rounds": 2000,
+        "finishes": 1910,
+        "blocks": 90,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 90,
+          "denominator": 2000,
+          "rate": 0.045,
+          "se": 0.004636620442150002,
+          "ci95": [
+            0.035912223933385994,
+            0.054087776066614
+          ],
+          "clusters": 2000,
+          "residualSS": 85.95000000000397
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 2,
+          "denominator": 90,
+          "rate": 0.022222222222222223,
+          "se": 0.015541794796281627,
+          "ci95": [
+            0,
+            0.052684140022934214
+          ],
+          "clusters": 2000,
+          "residualSS": 1.9555555555555526
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 30,
+          "denominator": 90,
+          "rate": 0.3333333333333333,
+          "se": 0.04970282676028714,
+          "ci95": [
+            0.23591579288317052,
+            0.4307508737834961
+          ],
+          "clusters": 2000,
+          "residualSS": 19.99999999999998
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 7,
+          "denominator": 90,
+          "rate": 0.07777777777777778,
+          "se": 0.028237932958724656,
+          "ci95": [
+            0.022431429178677458,
+            0.1331241263768781
+          ],
+          "clusters": 2000,
+          "residualSS": 6.455555555555552
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 85,
+          "denominator": 90,
+          "rate": 0.9444444444444444,
+          "se": 0.024151232656422,
+          "ci95": [
+            0.8971080284378573,
+            0.9917808604510315
+          ],
+          "clusters": 2000,
+          "residualSS": 4.722222222222219
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 88,
+          "2": 2,
+          "3": 0
+        },
+        "meanMinimumRemainderPips": 2.411111111111111,
+        "tiedTraceCount": 2
+      },
+      "global|mix2|rotation1": {
+        "rounds": 2000,
+        "finishes": 1935,
+        "blocks": 65,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 65,
+          "denominator": 2000,
+          "rate": 0.0325,
+          "se": 0.003966073608738818,
+          "ci95": [
+            0.024726495726871918,
+            0.040273504273128084
+          ],
+          "clusters": 2000,
+          "residualSS": 62.887499999998305
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 0,
+          "denominator": 65,
+          "rate": 0,
+          "se": 0,
+          "ci95": [
+            0,
+            0
+          ],
+          "clusters": 2000,
+          "residualSS": 0
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 23,
+          "denominator": 65,
+          "rate": 0.35384615384615387,
+          "se": 0.05932354960714267,
+          "ci95": [
+            0.23757199661615425,
+            0.4701203110761535
+          ],
+          "clusters": 2000,
+          "residualSS": 14.861538461538464
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 7,
+          "denominator": 65,
+          "rate": 0.1076923076923077,
+          "se": 0.03845931835252927,
+          "ci95": [
+            0.03231204372135034,
+            0.18307257166326507
+          ],
+          "clusters": 2000,
+          "residualSS": 6.246153846153849
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 58,
+          "denominator": 65,
+          "rate": 0.8923076923076924,
+          "se": 0.03845931835252927,
+          "ci95": [
+            0.816927428336735,
+            0.9676879562786497
+          ],
+          "clusters": 2000,
+          "residualSS": 6.246153846153849
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 65,
+          "2": 0,
+          "3": 0
+        },
+        "meanMinimumRemainderPips": 3.0153846153846153,
+        "tiedTraceCount": 0
+      },
+      "global|mix2|rotation2": {
+        "rounds": 2000,
+        "finishes": 1917,
+        "blocks": 83,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 83,
+          "denominator": 2000,
+          "rate": 0.0415,
+          "se": 0.0044608098381578925,
+          "ci95": [
+            0.03275681271721054,
+            0.05024318728278947
+          ],
+          "clusters": 2000,
+          "residualSS": 79.55550000000055
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 3,
+          "denominator": 83,
+          "rate": 0.03614457831325301,
+          "se": 0.020492600944951714,
+          "ci95": [
+            0,
+            0.07631007616535837
+          ],
+          "clusters": 2000,
+          "residualSS": 2.891566265060245
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 32,
+          "denominator": 83,
+          "rate": 0.3855421686746988,
+          "se": 0.0534381653476749,
+          "ci95": [
+            0.280803364593256,
+            0.49028097275614163
+          ],
+          "clusters": 2000,
+          "residualSS": 19.662650602409656
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 12,
+          "denominator": 83,
+          "rate": 0.14457831325301204,
+          "se": 0.03861101865900553,
+          "ci95": [
+            0.0689007166813612,
+            0.22025590982466287
+          ],
+          "clusters": 2000,
+          "residualSS": 10.265060240963841
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 70,
+          "denominator": 83,
+          "rate": 0.8433734939759037,
+          "se": 0.03990360734920164,
+          "ci95": [
+            0.7651624235714685,
+            0.9215845643803389
+          ],
+          "clusters": 2000,
+          "residualSS": 10.96385542168675
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 80,
+          "2": 3,
+          "3": 0
+        },
+        "meanMinimumRemainderPips": 2.6867469879518073,
+        "tiedTraceCount": 3
+      },
+      "currentAll|mix1|rotation0": {
+        "rounds": 2000,
+        "finishes": 109,
+        "blocks": 1891,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1891,
+          "denominator": 2000,
+          "rate": 0.9455,
+          "se": 0.00507718070211623,
+          "ci95": [
+            0.9355487258238522,
+            0.9554512741761478
+          ],
+          "clusters": 2000,
+          "residualSS": 103.05950000000195
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 107,
+          "denominator": 1891,
+          "rate": 0.05658381808566896,
+          "se": 0.005314478095401821,
+          "ci95": [
+            0.04616744101868139,
+            0.06700019515265652
+          ],
+          "clusters": 2000,
+          "residualSS": 100.94553146483109
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 803,
+          "denominator": 1891,
+          "rate": 0.4246430460074035,
+          "se": 0.01136955659495268,
+          "ci95": [
+            0.4023587150812962,
+            0.44692737693351076
+          ],
+          "clusters": 2000,
+          "residualSS": 462.01163405605547
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 899,
+          "denominator": 1891,
+          "rate": 0.47540983606557374,
+          "se": 0.01148700974362515,
+          "ci95": [
+            0.45289529696806846,
+            0.497924375163079
+          ],
+          "clusters": 2000,
+          "residualSS": 471.60655737704025
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 712,
+          "denominator": 1891,
+          "rate": 0.37652035959809627,
+          "se": 0.011144695496592751,
+          "ci95": [
+            0.3546767564247745,
+            0.39836396277141806
+          ],
+          "clusters": 2000,
+          "residualSS": 443.9175039661422
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1784,
+          "2": 102,
+          "3": 5
+        },
+        "meanMinimumRemainderPips": 10.158117398202009,
+        "tiedTraceCount": 107
+      },
+      "currentAll|mix1|rotation1": {
+        "rounds": 2000,
+        "finishes": 132,
+        "blocks": 1868,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1868,
+          "denominator": 2000,
+          "rate": 0.934,
+          "se": 0.005553144938623084,
+          "ci95": [
+            0.9231158359202988,
+            0.9448841640797013
+          ],
+          "clusters": 2000,
+          "residualSS": 123.28800000000197
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 110,
+          "denominator": 1868,
+          "rate": 0.058886509635974305,
+          "se": 0.005448150184314948,
+          "ci95": [
+            0.048208135274717005,
+            0.0695648839972316
+          ],
+          "clusters": 2000,
+          "residualSS": 103.52248394004405
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 877,
+          "denominator": 1868,
+          "rate": 0.46948608137044967,
+          "se": 0.011549945018701262,
+          "ci95": [
+            0.4468481891337952,
+            0.49212397360710414
+          ],
+          "clusters": 2000,
+          "residualSS": 465.2607066381021
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 892,
+          "denominator": 1868,
+          "rate": 0.47751605995717344,
+          "se": 0.011559808216244595,
+          "ci95": [
+            0.45485883585333403,
+            0.5001732840610128
+          ],
+          "clusters": 2000,
+          "residualSS": 466.05567451820474
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 719,
+          "denominator": 1868,
+          "rate": 0.38490364025695933,
+          "se": 0.01126076129624164,
+          "ci95": [
+            0.3628325481163257,
+            0.40697473239759296
+          ],
+          "clusters": 2000,
+          "residualSS": 442.2542826552476
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1758,
+          "2": 108,
+          "3": 2
+        },
+        "meanMinimumRemainderPips": 10.191113490364026,
+        "tiedTraceCount": 110
+      },
+      "currentAll|mix1|rotation2": {
+        "rounds": 2000,
+        "finishes": 126,
+        "blocks": 1874,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1874,
+          "denominator": 2000,
+          "rate": 0.937,
+          "se": 0.0054341756626525815,
+          "ci95": [
+            0.926349015701201,
+            0.9476509842987991
+          ],
+          "clusters": 2000,
+          "residualSS": 118.06199999999735
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 112,
+          "denominator": 1874,
+          "rate": 0.05976520811099253,
+          "se": 0.005477295658627659,
+          "ci95": [
+            0.04902970862008232,
+            0.07050070760190275
+          ],
+          "clusters": 2000,
+          "residualSS": 105.30629669157054
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 843,
+          "denominator": 1874,
+          "rate": 0.44983991462113126,
+          "se": 0.011494692054220816,
+          "ci95": [
+            0.4273103181948585,
+            0.47236951104740404
+          ],
+          "clusters": 2000,
+          "residualSS": 463.7849519743819
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 888,
+          "denominator": 1874,
+          "rate": 0.47385272145144075,
+          "se": 0.011537166528079163,
+          "ci95": [
+            0.4512398750564056,
+            0.4964655678464759
+          ],
+          "clusters": 2000,
+          "residualSS": 467.21878335113684
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 729,
+          "denominator": 1874,
+          "rate": 0.3890074706510139,
+          "se": 0.011264728487705065,
+          "ci95": [
+            0.36692860281511197,
+            0.4110863384869158
+          ],
+          "clusters": 2000,
+          "residualSS": 445.4135538953992
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1762,
+          "2": 110,
+          "3": 2
+        },
+        "meanMinimumRemainderPips": 10.334578441835646,
+        "tiedTraceCount": 112
+      },
+      "currentAll|mix2|rotation0": {
+        "rounds": 2000,
+        "finishes": 148,
+        "blocks": 1852,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1852,
+          "denominator": 2000,
+          "rate": 0.926,
+          "se": 0.005854838987520086,
+          "ci95": [
+            0.9145245155844607,
+            0.9374754844155394
+          ],
+          "clusters": 2000,
+          "residualSS": 137.04800000000134
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 119,
+          "denominator": 1852,
+          "rate": 0.0642548596112311,
+          "se": 0.005699278626672362,
+          "ci95": [
+            0.05308427350295328,
+            0.07542544571950893
+          ],
+          "clusters": 2000,
+          "residualSS": 111.35367170626809
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 842,
+          "denominator": 1852,
+          "rate": 0.45464362850971923,
+          "se": 0.011573477186230457,
+          "ci95": [
+            0.43195961322470755,
+            0.4773276437947309
+          ],
+          "clusters": 2000,
+          "residualSS": 459.1900647948127
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 860,
+          "denominator": 1852,
+          "rate": 0.46436285097192226,
+          "se": 0.011591834953602359,
+          "ci95": [
+            0.4416428544628616,
+            0.4870828474809829
+          ],
+          "clusters": 2000,
+          "residualSS": 460.64794816415423
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 728,
+          "denominator": 1852,
+          "rate": 0.3930885529157667,
+          "se": 0.011352616636513012,
+          "ci95": [
+            0.3708374243082012,
+            0.4153396815233322
+          ],
+          "clusters": 2000,
+          "residualSS": 441.8315334773077
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1733,
+          "2": 116,
+          "3": 3
+        },
+        "meanMinimumRemainderPips": 9.904427645788337,
+        "tiedTraceCount": 119
+      },
+      "currentAll|mix2|rotation1": {
+        "rounds": 2000,
+        "finishes": 127,
+        "blocks": 1873,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1873,
+          "denominator": 2000,
+          "rate": 0.9365,
+          "se": 0.005454241411478459,
+          "ci95": [
+            0.9258096868335022,
+            0.9471903131664978
+          ],
+          "clusters": 2000,
+          "residualSS": 118.93549999999675
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 103,
+          "denominator": 1873,
+          "rate": 0.05499199145755473,
+          "se": 0.00526874500505644,
+          "ci95": [
+            0.0446652512476441,
+            0.06531873166746535
+          ],
+          "clusters": 2000,
+          "residualSS": 97.33582487986911
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 840,
+          "denominator": 1873,
+          "rate": 0.44847837693539777,
+          "se": 0.011494543773655596,
+          "ci95": [
+            0.4259490711390328,
+            0.47100768273176274
+          ],
+          "clusters": 2000,
+          "residualSS": 463.27816337426225
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 884,
+          "denominator": 1873,
+          "rate": 0.4719701014415376,
+          "se": 0.011537885187459948,
+          "ci95": [
+            0.44935584647411614,
+            0.4945843564089591
+          ],
+          "clusters": 2000,
+          "residualSS": 466.7784303256752
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 723,
+          "denominator": 1873,
+          "rate": 0.38601174586225306,
+          "se": 0.01125174817143774,
+          "ci95": [
+            0.3639583194462351,
+            0.40806517227827105
+          ],
+          "clusters": 2000,
+          "residualSS": 443.9135077415886
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1770,
+          "2": 101,
+          "3": 2
+        },
+        "meanMinimumRemainderPips": 9.967431927389216,
+        "tiedTraceCount": 103
+      },
+      "currentAll|mix2|rotation2": {
+        "rounds": 2000,
+        "finishes": 126,
+        "blocks": 1874,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1874,
+          "denominator": 2000,
+          "rate": 0.937,
+          "se": 0.005434175662652577,
+          "ci95": [
+            0.926349015701201,
+            0.9476509842987991
+          ],
+          "clusters": 2000,
+          "residualSS": 118.06199999999718
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 104,
+          "denominator": 1874,
+          "rate": 0.05549626467449306,
+          "se": 0.005290022555496451,
+          "ci95": [
+            0.04512782046572002,
+            0.06586470888326611
+          ],
+          "clusters": 2000,
+          "residualSS": 98.22838847385633
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 840,
+          "denominator": 1874,
+          "rate": 0.44823906083244397,
+          "se": 0.0114909023324629,
+          "ci95": [
+            0.42571689226081666,
+            0.4707612294040713
+          ],
+          "clusters": 2000,
+          "residualSS": 463.4791889007481
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 903,
+          "denominator": 1874,
+          "rate": 0.4818569903948773,
+          "se": 0.011545366159558042,
+          "ci95": [
+            0.4592280727221435,
+            0.5044859080676111
+          ],
+          "clusters": 2000,
+          "residualSS": 467.88313767341145
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 732,
+          "denominator": 1874,
+          "rate": 0.39060832443970117,
+          "se": 0.011273085825414548,
+          "ci95": [
+            0.36851307622188867,
+            0.4127035726575137
+          ],
+          "clusters": 2000,
+          "residualSS": 446.07470651013597
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1770,
+          "2": 103,
+          "3": 1
+        },
+        "meanMinimumRemainderPips": 10.113660618996798,
+        "tiedTraceCount": 104
+      },
+      "localFirst|mix1|rotation0": {
+        "rounds": 2000,
+        "finishes": 18,
+        "blocks": 1982,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1982,
+          "denominator": 2000,
+          "rate": 0.991,
+          "se": 0.0021122809627113427,
+          "ci95": [
+            0.9868599293130857,
+            0.9951400706869142
+          ],
+          "clusters": 2000,
+          "residualSS": 17.83800000000016
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 109,
+          "denominator": 1982,
+          "rate": 0.0549949545913219,
+          "se": 0.0051219491578839834,
+          "ci95": [
+            0.04495593424186929,
+            0.06503397494077451
+          ],
+          "clusters": 2000,
+          "residualSS": 103.00554994955013
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 783,
+          "denominator": 1982,
+          "rate": 0.39505549949545915,
+          "se": 0.010983571920249775,
+          "ci95": [
+            0.3735276985317696,
+            0.4165833004591487
+          ],
+          "clusters": 2000,
+          "residualSS": 473.6715438950489
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 885,
+          "denominator": 1982,
+          "rate": 0.446518668012109,
+          "se": 0.011169354490150366,
+          "ci95": [
+            0.42462673321141425,
+            0.4684106028128037
+          ],
+          "clusters": 2000,
+          "residualSS": 489.8309788092728
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 856,
+          "denominator": 1982,
+          "rate": 0.4318869828456105,
+          "se": 0.011129078432988559,
+          "ci95": [
+            0.4100739891169529,
+            0.4536999765742681
+          ],
+          "clusters": 2000,
+          "residualSS": 486.3047426841428
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1873,
+          "2": 107,
+          "3": 2
+        },
+        "meanMinimumRemainderPips": 14.505045408678104,
+        "tiedTraceCount": 109
+      },
+      "localFirst|mix1|rotation1": {
+        "rounds": 2000,
+        "finishes": 15,
+        "blocks": 1985,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1985,
+          "denominator": 2000,
+          "rate": 0.9925,
+          "se": 0.0019296986470519848,
+          "ci95": [
+            0.9887177906517781,
+            0.996282209348222
+          ],
+          "clusters": 2000,
+          "residualSS": 14.887500000000173
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 102,
+          "denominator": 1985,
+          "rate": 0.05138539042821159,
+          "se": 0.004956705085878472,
+          "ci95": [
+            0.04167024845988978,
+            0.061100532396533395
+          ],
+          "clusters": 2000,
+          "residualSS": 96.75869017632442
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 831,
+          "denominator": 1985,
+          "rate": 0.418639798488665,
+          "se": 0.011075701699359798,
+          "ci95": [
+            0.3969314231579198,
+            0.4403481738194102
+          ],
+          "clusters": 2000,
+          "residualSS": 483.11032745591507
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 875,
+          "denominator": 1985,
+          "rate": 0.44080604534005036,
+          "se": 0.01114636730025347,
+          "ci95": [
+            0.41895916543155354,
+            0.4626529252485472
+          ],
+          "clusters": 2000,
+          "residualSS": 489.2947103274742
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 834,
+          "denominator": 1985,
+          "rate": 0.42015113350125943,
+          "se": 0.011081244088386939,
+          "ci95": [
+            0.398431895088021,
+            0.44187037191449785
+          ],
+          "clusters": 2000,
+          "residualSS": 483.59395465993214
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1883,
+          "2": 102,
+          "3": 0
+        },
+        "meanMinimumRemainderPips": 14.513853904282115,
+        "tiedTraceCount": 102
+      },
+      "localFirst|mix1|rotation2": {
+        "rounds": 2000,
+        "finishes": 26,
+        "blocks": 1974,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1974,
+          "denominator": 2000,
+          "rate": 0.987,
+          "se": 0.0025335171905233266,
+          "ci95": [
+            0.9820343063065743,
+            0.9919656936934257
+          ],
+          "clusters": 2000,
+          "residualSS": 25.661999999999484
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 117,
+          "denominator": 1974,
+          "rate": 0.05927051671732523,
+          "se": 0.00531602189525127,
+          "ci95": [
+            0.04885111380263274,
+            0.06968991963201772
+          ],
+          "clusters": 2000,
+          "residualSS": 110.06534954406943
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 812,
+          "denominator": 1974,
+          "rate": 0.41134751773049644,
+          "se": 0.011078193763543662,
+          "ci95": [
+            0.38963425795395085,
+            0.433060777507042
+          ],
+          "clusters": 2000,
+          "residualSS": 477.9858156028194
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 892,
+          "denominator": 1974,
+          "rate": 0.4518743667679838,
+          "se": 0.011204279544499719,
+          "ci95": [
+            0.4299139788607644,
+            0.47383475467520325
+          ],
+          "clusters": 2000,
+          "residualSS": 488.9280648429756
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 829,
+          "denominator": 1974,
+          "rate": 0.4199594731509625,
+          "se": 0.011111377096770124,
+          "ci95": [
+            0.39818117404129305,
+            0.44173777226063193
+          ],
+          "clusters": 2000,
+          "residualSS": 480.85359675785344
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1857,
+          "2": 116,
+          "3": 1
+        },
+        "meanMinimumRemainderPips": 14.721884498480243,
+        "tiedTraceCount": 117
+      },
+      "localFirst|mix2|rotation0": {
+        "rounds": 2000,
+        "finishes": 34,
+        "blocks": 1966,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1966,
+          "denominator": 2000,
+          "rate": 0.983,
+          "se": 0.002891311093590555,
+          "ci95": [
+            0.9773330302565625,
+            0.9886669697434375
+          ],
+          "clusters": 2000,
+          "residualSS": 33.42199999999941
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 103,
+          "denominator": 1966,
+          "rate": 0.05239064089521872,
+          "se": 0.005026415319240479,
+          "ci95": [
+            0.042538866869507384,
+            0.06224241492093006
+          ],
+          "clusters": 2000,
+          "residualSS": 97.60376398778811
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 809,
+          "denominator": 1966,
+          "rate": 0.41149542217700913,
+          "se": 0.011101311034593844,
+          "ci95": [
+            0.3897368525492052,
+            0.43325399180481305
+          ],
+          "clusters": 2000,
+          "residualSS": 476.1002034587835
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 843,
+          "denominator": 1966,
+          "rate": 0.42878942014242116,
+          "se": 0.011164441334352071,
+          "ci95": [
+            0.4069071151270911,
+            0.4506717251577512
+          ],
+          "clusters": 2000,
+          "residualSS": 481.5305188199377
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 869,
+          "denominator": 1966,
+          "rate": 0.4420142421159715,
+          "se": 0.011203314625392372,
+          "ci95": [
+            0.42005574545020247,
+            0.46397273878174056
+          ],
+          "clusters": 2000,
+          "residualSS": 484.88962360121866
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1863,
+          "2": 100,
+          "3": 3
+        },
+        "meanMinimumRemainderPips": 14.12563580874873,
+        "tiedTraceCount": 103
+      },
+      "localFirst|mix2|rotation1": {
+        "rounds": 2000,
+        "finishes": 43,
+        "blocks": 1957,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1957,
+          "denominator": 2000,
+          "rate": 0.9785,
+          "se": 0.0032440926417928164,
+          "ci95": [
+            0.9721415784220862,
+            0.9848584215779139
+          ],
+          "clusters": 2000,
+          "residualSS": 42.07550000000011
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 103,
+          "denominator": 1957,
+          "rate": 0.05263157894736842,
+          "se": 0.0050488891943966,
+          "ci95": [
+            0.04273575612635108,
+            0.06252740176838575
+          ],
+          "clusters": 2000,
+          "residualSS": 97.57894736841767
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 815,
+          "denominator": 1957,
+          "rate": 0.4164537557485948,
+          "se": 0.011146389592834519,
+          "ci95": [
+            0.3946068321466391,
+            0.43830067935055045
+          ],
+          "clusters": 2000,
+          "residualSS": 475.5901890649037
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 846,
+          "denominator": 1957,
+          "rate": 0.43229432805314255,
+          "se": 0.01120120055572483,
+          "ci95": [
+            0.4103399749639219,
+            0.4542486811423632
+          ],
+          "clusters": 2000,
+          "residualSS": 480.27899846702866
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 851,
+          "denominator": 1957,
+          "rate": 0.4348492590700051,
+          "se": 0.011208944164722043,
+          "ci95": [
+            0.4128797285071499,
+            0.4568187896328603
+          ],
+          "clusters": 2000,
+          "residualSS": 480.94328053143346
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1854,
+          "2": 101,
+          "3": 2
+        },
+        "meanMinimumRemainderPips": 14.213081246806336,
+        "tiedTraceCount": 103
+      },
+      "localFirst|mix2|rotation2": {
+        "rounds": 2000,
+        "finishes": 41,
+        "blocks": 1959,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1959,
+          "denominator": 2000,
+          "rate": 0.9795,
+          "se": 0.003169368619886979,
+          "ci95": [
+            0.9732880375050216,
+            0.9857119624949785
+          ],
+          "clusters": 2000,
+          "residualSS": 40.159499999999724
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 108,
+          "denominator": 1959,
+          "rate": 0.055130168453292494,
+          "se": 0.005157889501225129,
+          "ci95": [
+            0.04502070503089124,
+            0.06523963187569375
+          ],
+          "clusters": 2000,
+          "residualSS": 102.045941807043
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 795,
+          "denominator": 1959,
+          "rate": 0.4058192955589586,
+          "se": 0.011097291683380561,
+          "ci95": [
+            0.38406860385953273,
+            0.4275699872583845
+          ],
+          "clusters": 2000,
+          "residualSS": 472.37366003064324
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 835,
+          "denominator": 1959,
+          "rate": 0.4262378764675855,
+          "se": 0.011175921436167417,
+          "ci95": [
+            0.40433307045269734,
+            0.44814268248247363
+          ],
+          "clusters": 2000,
+          "residualSS": 479.09137314957115
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 869,
+          "denominator": 1959,
+          "rate": 0.4435936702399183,
+          "se": 0.011227422966710686,
+          "ci95": [
+            0.42158792122516536,
+            0.46559941925467124
+          ],
+          "clusters": 2000,
+          "residualSS": 483.517100561525
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1851,
+          "2": 105,
+          "3": 3
+        },
+        "meanMinimumRemainderPips": 14.217968351199591,
+        "tiedTraceCount": 108
+      },
+      "localLast|mix1|rotation0": {
+        "rounds": 2000,
+        "finishes": 7,
+        "blocks": 1993,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1993,
+          "denominator": 2000,
+          "rate": 0.9965,
+          "se": 0.0013208888574315681,
+          "ci95": [
+            0.9939110578394342,
+            0.9990889421605659
+          ],
+          "clusters": 2000,
+          "residualSS": 6.97550000000012
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 112,
+          "denominator": 1993,
+          "rate": 0.05619668840943302,
+          "se": 0.005160016161085408,
+          "ci95": [
+            0.04608305673370562,
+            0.06631032008516041
+          ],
+          "clusters": 2000,
+          "residualSS": 105.70597089814649
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 806,
+          "denominator": 1993,
+          "rate": 0.4044154540893126,
+          "se": 0.01099614690137165,
+          "ci95": [
+            0.3828630061626242,
+            0.42596790201600104
+          ],
+          "clusters": 2000,
+          "residualSS": 480.04114400400204
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 879,
+          "denominator": 1993,
+          "rate": 0.4410436527847466,
+          "se": 0.011124607207855975,
+          "ci95": [
+            0.4192394226573489,
+            0.4628478829121443
+          ],
+          "clusters": 2000,
+          "residualSS": 491.32262920219665
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 865,
+          "denominator": 1993,
+          "rate": 0.4340190667335675,
+          "se": 0.011104787600386681,
+          "ci95": [
+            0.4122536830368096,
+            0.4557844504303254
+          ],
+          "clusters": 2000,
+          "residualSS": 489.5735072754485
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1881,
+          "2": 110,
+          "3": 2
+        },
+        "meanMinimumRemainderPips": 14.745609633718013,
+        "tiedTraceCount": 112
+      },
+      "localLast|mix1|rotation1": {
+        "rounds": 2000,
+        "finishes": 12,
+        "blocks": 1988,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1988,
+          "denominator": 2000,
+          "rate": 0.994,
+          "se": 0.0017272787111155044,
+          "ci95": [
+            0.9906145337262136,
+            0.9973854662737864
+          ],
+          "clusters": 2000,
+          "residualSS": 11.927999999999608
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 91,
+          "denominator": 1988,
+          "rate": 0.045774647887323945,
+          "se": 0.0046885482778577375,
+          "ci95": [
+            0.03658509326272278,
+            0.05496420251192511
+          ],
+          "clusters": 2000,
+          "residualSS": 86.83450704225419
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 827,
+          "denominator": 1988,
+          "rate": 0.41599597585513076,
+          "se": 0.011057396814972515,
+          "ci95": [
+            0.3943234780977846,
+            0.4376684736124769
+          ],
+          "clusters": 2000,
+          "residualSS": 482.9713279678017
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 883,
+          "denominator": 1988,
+          "rate": 0.4441649899396378,
+          "se": 0.0111466796905258,
+          "ci95": [
+            0.42231749774620725,
+            0.4660124821330684
+          ],
+          "clusters": 2000,
+          "residualSS": 490.80231388331725
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 843,
+          "denominator": 1988,
+          "rate": 0.42404426559356134,
+          "se": 0.011086655719438126,
+          "ci95": [
+            0.4023144203834626,
+            0.4457741108036601
+          ],
+          "clusters": 2000,
+          "residualSS": 485.53068410461657
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1897,
+          "2": 90,
+          "3": 1
+        },
+        "meanMinimumRemainderPips": 14.654929577464788,
+        "tiedTraceCount": 91
+      },
+      "localLast|mix1|rotation2": {
+        "rounds": 2000,
+        "finishes": 17,
+        "blocks": 1983,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1983,
+          "denominator": 2000,
+          "rate": 0.9915,
+          "se": 0.0020532859010609895,
+          "ci95": [
+            0.9874755596339205,
+            0.9955244403660796
+          ],
+          "clusters": 2000,
+          "residualSS": 16.855500000000365
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 90,
+          "denominator": 1983,
+          "rate": 0.0453857791225416,
+          "se": 0.004675424961631125,
+          "ci95": [
+            0.036221946197744596,
+            0.05454961204733861
+          ],
+          "clusters": 2000,
+          "residualSS": 85.91527987897128
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 798,
+          "denominator": 1983,
+          "rate": 0.40242057488653554,
+          "se": 0.011015016456185514,
+          "ci95": [
+            0.3808311426324119,
+            0.4240100071406592
+          ],
+          "clusters": 2000,
+          "residualSS": 476.86838124055026
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 886,
+          "denominator": 1983,
+          "rate": 0.4467977811396873,
+          "se": 0.011167210541250056,
+          "ci95": [
+            0.42491004847883723,
+            0.4686855138005374
+          ],
+          "clusters": 2000,
+          "residualSS": 490.13716591022154
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 877,
+          "denominator": 1983,
+          "rate": 0.4422592032274332,
+          "se": 0.011155830052857368,
+          "ci95": [
+            0.42039377632383274,
+            0.4641246301310336
+          ],
+          "clusters": 2000,
+          "residualSS": 489.13867876953975
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1893,
+          "2": 88,
+          "3": 2
+        },
+        "meanMinimumRemainderPips": 14.936964195663137,
+        "tiedTraceCount": 90
+      },
+      "localLast|mix2|rotation0": {
+        "rounds": 2000,
+        "finishes": 22,
+        "blocks": 1978,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1978,
+          "denominator": 2000,
+          "rate": 0.989,
+          "se": 0.002332856855993376,
+          "ci95": [
+            0.984427600562253,
+            0.993572399437747
+          ],
+          "clusters": 2000,
+          "residualSS": 21.75800000000008
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 101,
+          "denominator": 1978,
+          "rate": 0.051061678463094035,
+          "se": 0.004950647370471647,
+          "ci95": [
+            0.041358409616969606,
+            0.06076494730921846
+          ],
+          "clusters": 2000,
+          "residualSS": 95.84277047522326
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 836,
+          "denominator": 1978,
+          "rate": 0.42264914054600605,
+          "se": 0.011109777482568967,
+          "ci95": [
+            0.4008739766801709,
+            0.4444243044118412
+          ],
+          "clusters": 2000,
+          "residualSS": 482.6653185035325
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 845,
+          "denominator": 1978,
+          "rate": 0.42719919110212334,
+          "se": 0.011125319173811836,
+          "ci95": [
+            0.40539356552145217,
+            0.4490048166827945
+          ],
+          "clusters": 2000,
+          "residualSS": 484.0166835187223
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 871,
+          "denominator": 1978,
+          "rate": 0.4403437815975733,
+          "se": 0.011164828537256876,
+          "ci95": [
+            0.41846071766454984,
+            0.4622268455305968
+          ],
+          "clusters": 2000,
+          "residualSS": 487.4605662285176
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1877,
+          "2": 101,
+          "3": 0
+        },
+        "meanMinimumRemainderPips": 14.203235591506573,
+        "tiedTraceCount": 101
+      },
+      "localLast|mix2|rotation1": {
+        "rounds": 2000,
+        "finishes": 13,
+        "blocks": 1987,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1987,
+          "denominator": 2000,
+          "rate": 0.9935,
+          "se": 0.001797356460227777,
+          "ci95": [
+            0.9899771813379536,
+            0.9970228186620465
+          ],
+          "clusters": 2000,
+          "residualSS": 12.915499999999854
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 110,
+          "denominator": 1987,
+          "rate": 0.055359838953195774,
+          "se": 0.0051314520964451495,
+          "ci95": [
+            0.04530219284416328,
+            0.06541748506222826
+          ],
+          "clusters": 2000,
+          "residualSS": 103.91041771515064
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 834,
+          "denominator": 1987,
+          "rate": 0.41972823351786614,
+          "se": 0.011074126472317888,
+          "ci95": [
+            0.3980229456321231,
+            0.4414335214036092
+          ],
+          "clusters": 2000,
+          "residualSS": 483.946653246097
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 838,
+          "denominator": 1987,
+          "rate": 0.4217413185707096,
+          "se": 0.011081379385433557,
+          "ci95": [
+            0.40002181497525985,
+            0.4434608221661594
+          ],
+          "clusters": 2000,
+          "residualSS": 484.5807750377434
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 897,
+          "denominator": 1987,
+          "rate": 0.45143432310015097,
+          "se": 0.011166607998866374,
+          "ci95": [
+            0.4295477714223729,
+            0.47332087477792906
+          ],
+          "clusters": 2000,
+          "residualSS": 492.0634121791665
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1877,
+          "2": 108,
+          "3": 2
+        },
+        "meanMinimumRemainderPips": 14.343231001509814,
+        "tiedTraceCount": 110
+      },
+      "localLast|mix2|rotation2": {
+        "rounds": 2000,
+        "finishes": 25,
+        "blocks": 1975,
+        "unresolved": 0,
+        "blockRate": {
+          "numerator": 1975,
+          "denominator": 2000,
+          "rate": 0.9875,
+          "se": 0.0024849471787626734,
+          "ci95": [
+            0.9826295035296252,
+            0.9923704964703749
+          ],
+          "clusters": 2000,
+          "residualSS": 24.687499999999794
+        },
+        "minPipTieRateAmongBlocks": {
+          "numerator": 106,
+          "denominator": 1975,
+          "rate": 0.053670886075949366,
+          "se": 0.005072423829711022,
+          "ci95": [
+            0.04372893536971576,
+            0.06361283678218296
+          ],
+          "clusters": 2000,
+          "residualSS": 100.31088607594691
+        },
+        "lastPasserInMinPipSetRate": {
+          "numerator": 804,
+          "denominator": 1975,
+          "rate": 0.4070886075949367,
+          "se": 0.01105769031368722,
+          "ci95": [
+            0.38541553458010974,
+            0.42876168060976366
+          ],
+          "clusters": 2000,
+          "residualSS": 476.70075949367424
+        },
+        "minPipVsFewestTileSetAgreementRate": {
+          "numerator": 844,
+          "denominator": 1975,
+          "rate": 0.4273417721518987,
+          "se": 0.01113423739160106,
+          "ci95": [
+            0.40551866686436067,
+            0.4491648774394368
+          ],
+          "clusters": 2000,
+          "residualSS": 483.32354430380514
+        },
+        "fewestTileCandidateTieRate": {
+          "numerator": 870,
+          "denominator": 1975,
+          "rate": 0.44050632911392407,
+          "se": 0.011173743976014698,
+          "ci95": [
+            0.41860579092093525,
+            0.4624068673069129
+          ],
+          "clusters": 2000,
+          "residualSS": 486.7594936708883
+        },
+        "minPipCandidateSetSizeCounts": {
+          "1": 1869,
+          "2": 103,
+          "3": 3
+        },
+        "meanMinimumRemainderPips": 14.398987341772152,
+        "tiedTraceCount": 106
+      }
+    }
+  },
+  "tiedMinimumTraceCount": 1921,
+  "tiedMinimumTraceCountsByModel": {
+    "global": 14,
+    "currentAll": 655,
+    "localFirst": 642,
+    "localLast": 610
+  },
+  "traceReplayVerification": {
+    "attempted": 1921,
+    "passed": 1921,
+    "failed": 0
+  },
+  "sourceBlobs": {
+    "engine": "82e5bd544a57683d5b4f7812beb2d4abf80da894",
+    "initializer": "2fad29e516454580ec9a06115354e9866f3096e6",
+    "turn-kernel": "94657896e1f8e471ceb2e9a65d1842b6102dff18",
+    "turn-dispatcher": "55b0bcf3f1653c64b4e06bc95d7e917a480562a0",
+    "round-driver": "fbaad78865adbddde1ea6651e6a501dc0bde3203",
+    "strategy-runner": "b7078942bc8f5dac6a8b07494ae8aaeadbdb1f5f",
+    "branch-side-full-round": "19d9a20c64db756353e1afeb62e3ca67ba6b34f8",
+    "branch-current-full-round": "729ccfb3a55328a960e5a3a9a10ea3bcbb45e412"
+  },
+  "finding": "Policy-mix and seat-rotation strata describe coded-model block candidate behavior only. No block winner, scoring rule, or strategy superiority is inferred.",
+  "confidence": "High for deterministic replay and internal measurements under coded assumptions; no physical-rule authentication.",
+  "limitations": [
+    "Global-ever-open, current-all, local-first and local-last are alternative provisional branch models, not authenticated table rules.",
+    "Policy and seat-rotation differences are descriptive; same seed allocation is reused but trajectories can diverge.",
+    "Minimum-pip and fewest-tile candidate sets are diagnostics, not an authenticated block winner rule.",
+    "Last passer is recorded without priority; no tie split, point award, match score, or winner is assigned.",
+    "Approximate 95% intervals are deal-clustered; six rounds per model and each mix/rotation stratum remain grouped by seed.",
+    "No historical baseline or previous cohort is pooled into this holdout."
+  ],
+  "exactNextAction": "Compare tied-block trace strata across policy mixes and seat rotations using paired seed-cluster contrasts; test the leading descriptive interaction on a second disjoint holdout without assigning block winners.",
+  "traceFiles": {
+    "global": "qosha-research/runs/2026-11-03-0759-block-tied-minimum-stratified-holdout-traces-global.json",
+    "currentAll": "qosha-research/runs/2026-11-03-0759-block-tied-minimum-stratified-holdout-traces-currentAll.json",
+    "localFirst": "qosha-research/runs/2026-11-03-0759-block-tied-minimum-stratified-holdout-traces-localFirst.json",
+    "localLast": "qosha-research/runs/2026-11-03-0759-block-tied-minimum-stratified-holdout-traces-localLast.json"
+  },
+  "traceFileBytes": {
+    "qosha-research/runs/2026-11-03-0759-block-tied-minimum-stratified-holdout-traces-global.json": 21221,
+    "qosha-research/runs/2026-11-03-0759-block-tied-minimum-stratified-holdout-traces-currentAll.json": 971337,
+    "qosha-research/runs/2026-11-03-0759-block-tied-minimum-stratified-holdout-traces-localFirst.json": 871685,
+    "qosha-research/runs/2026-11-03-0759-block-tied-minimum-stratified-holdout-traces-localLast.json": 826881
+  }
+}
