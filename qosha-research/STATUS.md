@@ -1,14 +1,13 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-03T05:48:35+04:00 Asia/Baku.
+Last checkpoint: 2026-11-03T06:49:40+04:00 Asia/Baku.
 
-- Latest checkpoint: exhaustive synthetic block-candidate seat-permutation contract. It enumerated 216 three-seat and 7,776 five-seat remainder vectors (per-seat pips 0–5), then all 6 / 120 seat permutations.
-- 934,416 permutation cases and 7,472,736 assertions passed for minimum-candidate set mapping, unique-minimum/no-winner-on-tie mapping, illustrative equal-share mapping, and last-passer identity mapping.
-- The raw “first minimum by current array order” tie-break changed selected tied identity in 186,485 / 346,026 comparisons (53.89%). This is expected combinatorics and representation sensitivity, not a tactical or real-seat advantage.
-- Scope: synthetic vectors only; no legal blocked hands, deals, strategy rounds, point allocation, or physical winner/tie rule authenticated. Block scoring remains unresolved.
-- No strategy promoted. No deal cohort added. Existing separate cohorts remain: 2,120 tie-break seed draws / 12,720 paired rounds; 88,886 prior allocations; 1,074 multi-action positions; 5,863 state-world assignments; 5,000 invariant-smoke rounds. No cross-cohort global dedup or historical-baseline pooling.
-- Exact next action: sample reachable blocked states under explicitly labelled branch/block models; record candidate sets/tie frequencies only, without assigning points or promoting a winner rule.
+- Latest checkpoint: reachable blocked-state candidate-set audit on 2,000 unique 3×9 deals (seed range 9,000,000–9,001,999), 48,000 model-rounds across global-ever-open, current-all, local-first and local-last branch models.
+- All rounds resolved; block preconditions, remainder sums, and candidate sets were checked. The block winner, tie split, score award, and physical branch semantics remain unresolved.
+- Block incidence was 3.78% in the global-ever-open model versus 93.20% current-all and 98.37–98.92% one-side-local. This is model sensitivity, not physical-rule evidence. Minimum-pip tie rates among blocked states were 5.20–6.20%; no strategy promoted.
+- New cohort is separate: 2,000 unique allocations / 48,000 model-rounds. Existing cohorts remain separate: 2,120 tie-break seed draws / 12,720 paired rounds; 88,886 prior allocations; 1,074 multi-action positions; 5,863 state-world assignments; 5,000 invariant-smoke rounds. No global dedup or historical-baseline pooling.
+- Exact next action: on a disjoint seed holdout, retain replay traces for every tied-minimum block and stratify candidate-set / last-passer diagnostics by policy mix and seat rotation. Keep all winner/scoring interpretations provisional.
 
-Report: qosha-research/runs/2026-11-03-0548-block-winner-permutation-contract.md
-Data: qosha-research/runs/2026-11-03-0548-block-winner-permutation-contract.json
-Reproducer: qosha-research/simulator/block-winner-permutation-contract.js
+Report: qosha-research/runs/2026-11-03-0649-reachable-block-candidate-audit.md
+Data: qosha-research/runs/2026-11-03-0649-reachable-block-candidate-audit.json
+Reproducer: qosha-research/simulator/block-reachable-candidate-audit.js

@@ -1,0 +1,942 @@
+{
+  "schema": "qosha-reachable-block-candidate-audit/v1",
+  "timestampAsiaBaku": "2026-11-03T06:49:40+04:00",
+  "engineVersion": "qosha-research-0.5.3",
+  "rulesVersion": "recovered qosa-1.0.0; branch and block candidate semantics remain provisional",
+  "mode": "3 players x 9 tiles + one stock; same deals across four branch models",
+  "seedStart": 9000000,
+  "seedEnd": 9001999,
+  "seedDraws": 2000,
+  "uniqueAllocations": 2000,
+  "duplicateAllocationSeeds": [],
+  "roundsPerModel": 12000,
+  "totalModelRounds": 48000,
+  "strategies": [
+    [
+      "random-legal",
+      "min-hand-pips",
+      "closed-branch-control"
+    ],
+    [
+      "fast-doubles",
+      "moderate-double-hold",
+      "closed-branch-control"
+    ]
+  ],
+  "models": {
+    "global": {
+      "rounds": 12000,
+      "finishes": 11547,
+      "blocks": 453,
+      "unresolved": 0,
+      "blockRate": {
+        "numerator": 453,
+        "denominator": 12000,
+        "rate": 0.03775,
+        "se": 0.0017846272805823035,
+        "ci95": [
+          0.03425213053005868,
+          0.041247869469941315
+        ],
+        "clusters": 2000,
+        "residualSS": 458.39549999999355
+      },
+      "minPipUnique": 429,
+      "minPipTied": 24,
+      "minPipTieRate": {
+        "numerator": 24,
+        "denominator": 453,
+        "rate": 0.052980132450331126,
+        "se": 0.010449470135786322,
+        "ci95": [
+          0.03249917098418993,
+          0.07346109391647232
+        ],
+        "clusters": 2000,
+        "residualSS": 22.395859830709107
+      },
+      "minPipCandidateSetSizeCounts": {
+        "1": 429,
+        "2": 24,
+        "3": 0
+      },
+      "lastPasserInMinPipSet": 183,
+      "lastPasserInMinPipSetRate": {
+        "numerator": 183,
+        "denominator": 453,
+        "rate": 0.40397350993377484,
+        "se": 0.02349560732192163,
+        "ci95": [
+          0.35792211958280845,
+          0.45002490028474124
+        ],
+        "clusters": 2000,
+        "residualSS": 113.22766545326961
+      },
+      "pipsVsFewestTilesCandidateSetAgreement": 69,
+      "pipsVsFewestTilesAgreementRate": {
+        "numerator": 69,
+        "denominator": 453,
+        "rate": 0.152317880794702,
+        "se": 0.017096325442570105,
+        "ci95": [
+          0.11880908292726458,
+          0.1858266786621394
+        ],
+        "clusters": 2000,
+        "residualSS": 59.949388184728875
+      },
+      "fewestTilesTied": 373,
+      "fewestTileTieRate": {
+        "numerator": 373,
+        "denominator": 453,
+        "rate": 0.8233995584988962,
+        "se": 0.018263537177207675,
+        "ci95": [
+          0.7876030256315691,
+          0.8591960913662233
+        ],
+        "clusters": 2000,
+        "residualSS": 68.41463093723982
+      },
+      "meanMinimumRemainderPips": 3.1611479028697573,
+      "byMix": [
+        {
+          "mix": 1,
+          "rounds": 6000,
+          "finishes": 5796,
+          "blocks": 204,
+          "blockRate": 0.034,
+          "minPipTied": 13,
+          "minPipTieRate": 0.06372549019607843,
+          "lastPasserInMinPipSet": 81,
+          "pipsVsFewestTilesAgreement": 0.19117647058823528
+        },
+        {
+          "mix": 2,
+          "rounds": 6000,
+          "finishes": 5751,
+          "blocks": 249,
+          "blockRate": 0.0415,
+          "minPipTied": 11,
+          "minPipTieRate": 0.04417670682730924,
+          "lastPasserInMinPipSet": 102,
+          "pipsVsFewestTilesAgreement": 0.12048192771084337
+        }
+      ],
+      "examples": [
+        {
+          "seed": 9000002,
+          "mix": 0,
+          "rotation": 0,
+          "pips": [
+            8,
+            5,
+            5
+          ],
+          "tileCounts": [
+            1,
+            1,
+            2
+          ],
+          "minPipCandidates": [
+            1,
+            2
+          ],
+          "fewestTileCandidates": [
+            0,
+            1
+          ],
+          "lastPasser": 1
+        },
+        {
+          "seed": 9000004,
+          "mix": 1,
+          "rotation": 1,
+          "pips": [
+            2,
+            5,
+            3
+          ],
+          "tileCounts": [
+            1,
+            1,
+            1
+          ],
+          "minPipCandidates": [
+            0
+          ],
+          "fewestTileCandidates": [
+            0,
+            1,
+            2
+          ],
+          "lastPasser": 2
+        },
+        {
+          "seed": 9000013,
+          "mix": 1,
+          "rotation": 0,
+          "pips": [
+            26,
+            3,
+            5
+          ],
+          "tileCounts": [
+            4,
+            1,
+            1
+          ],
+          "minPipCandidates": [
+            1
+          ],
+          "fewestTileCandidates": [
+            1,
+            2
+          ],
+          "lastPasser": 2
+        },
+        {
+          "seed": 9000015,
+          "mix": 0,
+          "rotation": 1,
+          "pips": [
+            4,
+            6,
+            10
+          ],
+          "tileCounts": [
+            1,
+            1,
+            1
+          ],
+          "minPipCandidates": [
+            0
+          ],
+          "fewestTileCandidates": [
+            0,
+            1,
+            2
+          ],
+          "lastPasser": 1
+        },
+        {
+          "seed": 9000023,
+          "mix": 0,
+          "rotation": 1,
+          "pips": [
+            1,
+            13,
+            6
+          ],
+          "tileCounts": [
+            1,
+            2,
+            1
+          ],
+          "minPipCandidates": [
+            0
+          ],
+          "fewestTileCandidates": [
+            0,
+            2
+          ],
+          "lastPasser": 0
+        }
+      ]
+    },
+    "currentAll": {
+      "rounds": 12000,
+      "finishes": 816,
+      "blocks": 11184,
+      "unresolved": 0,
+      "blockRate": {
+        "numerator": 11184,
+        "denominator": 12000,
+        "rate": 0.932,
+        "se": 0.002578693111328804,
+        "ci95": [
+          0.9269457615017956,
+          0.9370542384982045
+        ],
+        "clusters": 2000,
+        "residualSS": 957.0720000000127
+      },
+      "minPipUnique": 10491,
+      "minPipTied": 693,
+      "minPipTieRate": {
+        "numerator": 693,
+        "denominator": 11184,
+        "rate": 0.061963519313304724,
+        "se": 0.0024517780220671536,
+        "ci95": [
+          0.057158034390053104,
+          0.06676900423655635
+        ],
+        "clusters": 2000,
+        "residualSS": 751.5180407460413
+      },
+      "minPipCandidateSetSizeCounts": {
+        "1": 10491,
+        "2": 672,
+        "3": 21
+      },
+      "lastPasserInMinPipSet": 5000,
+      "lastPasserInMinPipSetRate": {
+        "numerator": 5000,
+        "denominator": 11184,
+        "rate": 0.4470672389127325,
+        "se": 0.005073007077293313,
+        "ci95": [
+          0.4371241450412376,
+          0.45701033278422737
+        ],
+        "clusters": 2000,
+        "residualSS": 3217.4221819030267
+      },
+      "pipsVsFewestTilesCandidateSetAgreement": 5304,
+      "pipsVsFewestTilesAgreementRate": {
+        "numerator": 5304,
+        "denominator": 11184,
+        "rate": 0.4742489270386266,
+        "se": 0.005391146924162881,
+        "ci95": [
+          0.46368227906726733,
+          0.48481557500998584
+        ],
+        "clusters": 2000,
+        "residualSS": 3633.619526976028
+      },
+      "fewestTilesTied": 4327,
+      "fewestTileTieRate": {
+        "numerator": 4327,
+        "denominator": 11184,
+        "rate": 0.38689198855507867,
+        "se": 0.004973563881994256,
+        "ci95": [
+          0.37714380334636993,
+          0.3966401737637874
+        ],
+        "clusters": 2000,
+        "residualSS": 3092.5199951781865
+      },
+      "meanMinimumRemainderPips": 10.085479256080115,
+      "byMix": [
+        {
+          "mix": 1,
+          "rounds": 6000,
+          "finishes": 417,
+          "blocks": 5583,
+          "blockRate": 0.9305,
+          "minPipTied": 353,
+          "minPipTieRate": 0.06322765538241089,
+          "lastPasserInMinPipSet": 2537,
+          "pipsVsFewestTilesAgreement": 0.4800286584273688
+        },
+        {
+          "mix": 2,
+          "rounds": 6000,
+          "finishes": 399,
+          "blocks": 5601,
+          "blockRate": 0.9335,
+          "minPipTied": 340,
+          "minPipTieRate": 0.06070344581324764,
+          "lastPasserInMinPipSet": 2463,
+          "pipsVsFewestTilesAgreement": 0.4684877700410641
+        }
+      ],
+      "examples": [
+        {
+          "seed": 9000000,
+          "mix": 0,
+          "rotation": 1,
+          "pips": [
+            12,
+            9,
+            27
+          ],
+          "tileCounts": [
+            2,
+            2,
+            3
+          ],
+          "minPipCandidates": [
+            1
+          ],
+          "fewestTileCandidates": [
+            0,
+            1
+          ],
+          "lastPasser": 2
+        },
+        {
+          "seed": 9000000,
+          "mix": 1,
+          "rotation": 1,
+          "pips": [
+            12,
+            9,
+            39
+          ],
+          "tileCounts": [
+            2,
+            3,
+            5
+          ],
+          "minPipCandidates": [
+            1
+          ],
+          "fewestTileCandidates": [
+            0
+          ],
+          "lastPasser": 0
+        },
+        {
+          "seed": 9000000,
+          "mix": 1,
+          "rotation": 2,
+          "pips": [
+            6,
+            7,
+            11
+          ],
+          "tileCounts": [
+            1,
+            2,
+            2
+          ],
+          "minPipCandidates": [
+            0
+          ],
+          "fewestTileCandidates": [
+            0
+          ],
+          "lastPasser": 2
+        },
+        {
+          "seed": 9000001,
+          "mix": 0,
+          "rotation": 0,
+          "pips": [
+            4,
+            19,
+            14
+          ],
+          "tileCounts": [
+            1,
+            3,
+            3
+          ],
+          "minPipCandidates": [
+            0
+          ],
+          "fewestTileCandidates": [
+            0
+          ],
+          "lastPasser": 1
+        },
+        {
+          "seed": 9000001,
+          "mix": 0,
+          "rotation": 1,
+          "pips": [
+            7,
+            19,
+            18
+          ],
+          "tileCounts": [
+            3,
+            3,
+            3
+          ],
+          "minPipCandidates": [
+            0
+          ],
+          "fewestTileCandidates": [
+            0,
+            1,
+            2
+          ],
+          "lastPasser": 1
+        }
+      ]
+    },
+    "localFirst": {
+      "rounds": 12000,
+      "finishes": 196,
+      "blocks": 11804,
+      "unresolved": 0,
+      "blockRate": {
+        "numerator": 11804,
+        "denominator": 12000,
+        "rate": 0.9836666666666667,
+        "se": 0.0014115974691173607,
+        "ci95": [
+          0.9808999356271967,
+          0.9864333977061367
+        ],
+        "clusters": 2000,
+        "residualSS": 286.79200000000253
+      },
+      "minPipUnique": 11164,
+      "minPipTied": 640,
+      "minPipTieRate": {
+        "numerator": 640,
+        "denominator": 11804,
+        "rate": 0.054218908844459505,
+        "se": 0.0023763701881377216,
+        "ci95": [
+          0.04956122327570957,
+          0.05887659441320944
+        ],
+        "clusters": 2000,
+        "residualSS": 786.4468749199661
+      },
+      "minPipCandidateSetSizeCounts": {
+        "1": 11164,
+        "2": 625,
+        "3": 15
+      },
+      "lastPasserInMinPipSet": 4926,
+      "lastPasserInMinPipSetRate": {
+        "numerator": 4926,
+        "denominator": 11804,
+        "rate": 0.41731616401219923,
+        "se": 0.005191620983313903,
+        "ci95": [
+          0.40714058688490395,
+          0.4274917411394945
+        ],
+        "clusters": 2000,
+        "residualSS": 3753.59280762341
+      },
+      "pipsVsFewestTilesCandidateSetAgreement": 5221,
+      "pipsVsFewestTilesAgreementRate": {
+        "numerator": 5221,
+        "denominator": 11804,
+        "rate": 0.4423076923076923,
+        "se": 0.005684527883147277,
+        "ci95": [
+          0.43116601765672363,
+          0.45344936695866095
+        ],
+        "clusters": 2000,
+        "residualSS": 4500.181213017691
+      },
+      "fewestTilesTied": 5064,
+      "fewestTileTieRate": {
+        "numerator": 5064,
+        "denominator": 11804,
+        "rate": 0.42900711623178583,
+        "se": 0.0054151680901780115,
+        "ci95": [
+          0.41839338677503696,
+          0.4396208456885347
+        ],
+        "clusters": 2000,
+        "residualSS": 4083.805822446707
+      },
+      "meanMinimumRemainderPips": 14.340647238224332,
+      "byMix": [
+        {
+          "mix": 1,
+          "rounds": 6000,
+          "finishes": 89,
+          "blocks": 5911,
+          "blockRate": 0.9851666666666666,
+          "minPipTied": 307,
+          "minPipTieRate": 0.051937066486212144,
+          "lastPasserInMinPipSet": 2504,
+          "pipsVsFewestTilesAgreement": 0.45406868550160717
+        },
+        {
+          "mix": 2,
+          "rounds": 6000,
+          "finishes": 107,
+          "blocks": 5893,
+          "blockRate": 0.9821666666666666,
+          "minPipTied": 333,
+          "minPipTieRate": 0.05650772102494485,
+          "lastPasserInMinPipSet": 2422,
+          "pipsVsFewestTilesAgreement": 0.4305107754963516
+        }
+      ],
+      "examples": [
+        {
+          "seed": 9000000,
+          "mix": 0,
+          "rotation": 0,
+          "pips": [
+            18,
+            5,
+            30
+          ],
+          "tileCounts": [
+            3,
+            2,
+            4
+          ],
+          "minPipCandidates": [
+            1
+          ],
+          "fewestTileCandidates": [
+            1
+          ],
+          "lastPasser": 1
+        },
+        {
+          "seed": 9000000,
+          "mix": 0,
+          "rotation": 1,
+          "pips": [
+            18,
+            12,
+            26
+          ],
+          "tileCounts": [
+            3,
+            3,
+            3
+          ],
+          "minPipCandidates": [
+            1
+          ],
+          "fewestTileCandidates": [
+            0,
+            1,
+            2
+          ],
+          "lastPasser": 2
+        },
+        {
+          "seed": 9000000,
+          "mix": 0,
+          "rotation": 2,
+          "pips": [
+            7,
+            19,
+            38
+          ],
+          "tileCounts": [
+            1,
+            3,
+            5
+          ],
+          "minPipCandidates": [
+            0
+          ],
+          "fewestTileCandidates": [
+            0
+          ],
+          "lastPasser": 1
+        },
+        {
+          "seed": 9000000,
+          "mix": 1,
+          "rotation": 0,
+          "pips": [
+            5,
+            13,
+            38
+          ],
+          "tileCounts": [
+            1,
+            3,
+            5
+          ],
+          "minPipCandidates": [
+            0
+          ],
+          "fewestTileCandidates": [
+            0
+          ],
+          "lastPasser": 1
+        },
+        {
+          "seed": 9000000,
+          "mix": 1,
+          "rotation": 1,
+          "pips": [
+            12,
+            9,
+            39
+          ],
+          "tileCounts": [
+            2,
+            3,
+            5
+          ],
+          "minPipCandidates": [
+            1
+          ],
+          "fewestTileCandidates": [
+            0
+          ],
+          "lastPasser": 0
+        }
+      ]
+    },
+    "localLast": {
+      "rounds": 12000,
+      "finishes": 130,
+      "blocks": 11870,
+      "unresolved": 0,
+      "blockRate": {
+        "numerator": 11870,
+        "denominator": 12000,
+        "rate": 0.9891666666666666,
+        "se": 0.0010853660973783015,
+        "ci95": [
+          0.9870393491158052,
+          0.9912939842175281
+        ],
+        "clusters": 2000,
+        "residualSS": 169.54999999999714
+      },
+      "minPipUnique": 11253,
+      "minPipTied": 617,
+      "minPipTieRate": {
+        "numerator": 617,
+        "denominator": 11870,
+        "rate": 0.051979780960404384,
+        "se": 0.002350213165891898,
+        "ci95": [
+          0.04737336315525626,
+          0.05658619876555251
+        ],
+        "clusters": 2000,
+        "residualSS": 777.8551762458796
+      },
+      "minPipCandidateSetSizeCounts": {
+        "1": 11253,
+        "2": 603,
+        "3": 14
+      },
+      "lastPasserInMinPipSet": 4962,
+      "lastPasserInMinPipSetRate": {
+        "numerator": 4962,
+        "denominator": 11870,
+        "rate": 0.4180286436394271,
+        "se": 0.005252438743464584,
+        "ci95": [
+          0.4077338637022365,
+          0.4283234235766177
+        ],
+        "clusters": 2000,
+        "residualSS": 3885.1360240856866
+      },
+      "pipsVsFewestTilesCandidateSetAgreement": 5193,
+      "pipsVsFewestTilesAgreementRate": {
+        "numerator": 5193,
+        "denominator": 11870,
+        "rate": 0.4374894692502106,
+        "se": 0.00576966441603481,
+        "ci95": [
+          0.4261809269947824,
+          0.4487980115056388
+        ],
+        "clusters": 2000,
+        "residualSS": 4687.975614665759
+      },
+      "fewestTilesTied": 5135,
+      "fewestTileTieRate": {
+        "numerator": 5135,
+        "denominator": 11870,
+        "rate": 0.43260320134793595,
+        "se": 0.005465496232749438,
+        "ci95": [
+          0.42189082873174705,
+          0.44331557396412485
+        ],
+        "clusters": 2000,
+        "residualSS": 4206.718340502883
+      },
+      "meanMinimumRemainderPips": 14.554085930918282,
+      "byMix": [
+        {
+          "mix": 1,
+          "rounds": 6000,
+          "finishes": 53,
+          "blocks": 5947,
+          "blockRate": 0.9911666666666666,
+          "minPipTied": 286,
+          "minPipTieRate": 0.04809147469312258,
+          "lastPasserInMinPipSet": 2467,
+          "pipsVsFewestTilesAgreement": 0.45031108121742053
+        },
+        {
+          "mix": 2,
+          "rounds": 6000,
+          "finishes": 77,
+          "blocks": 5923,
+          "blockRate": 0.9871666666666666,
+          "minPipTied": 331,
+          "minPipTieRate": 0.05588384264730711,
+          "lastPasserInMinPipSet": 2495,
+          "pipsVsFewestTilesAgreement": 0.4246159041026507
+        }
+      ],
+      "examples": [
+        {
+          "seed": 9000000,
+          "mix": 0,
+          "rotation": 0,
+          "pips": [
+            18,
+            5,
+            30
+          ],
+          "tileCounts": [
+            3,
+            2,
+            4
+          ],
+          "minPipCandidates": [
+            1
+          ],
+          "fewestTileCandidates": [
+            1
+          ],
+          "lastPasser": 1
+        },
+        {
+          "seed": 9000000,
+          "mix": 0,
+          "rotation": 1,
+          "pips": [
+            18,
+            12,
+            26
+          ],
+          "tileCounts": [
+            3,
+            3,
+            3
+          ],
+          "minPipCandidates": [
+            1
+          ],
+          "fewestTileCandidates": [
+            0,
+            1,
+            2
+          ],
+          "lastPasser": 2
+        },
+        {
+          "seed": 9000000,
+          "mix": 1,
+          "rotation": 0,
+          "pips": [
+            5,
+            17,
+            38
+          ],
+          "tileCounts": [
+            1,
+            4,
+            5
+          ],
+          "minPipCandidates": [
+            0
+          ],
+          "fewestTileCandidates": [
+            0
+          ],
+          "lastPasser": 0
+        },
+        {
+          "seed": 9000000,
+          "mix": 1,
+          "rotation": 1,
+          "pips": [
+            12,
+            9,
+            39
+          ],
+          "tileCounts": [
+            2,
+            3,
+            5
+          ],
+          "minPipCandidates": [
+            1
+          ],
+          "fewestTileCandidates": [
+            0
+          ],
+          "lastPasser": 0
+        },
+        {
+          "seed": 9000000,
+          "mix": 1,
+          "rotation": 2,
+          "pips": [
+            13,
+            9,
+            30
+          ],
+          "tileCounts": [
+            2,
+            3,
+            4
+          ],
+          "minPipCandidates": [
+            1
+          ],
+          "fewestTileCandidates": [
+            0
+          ],
+          "lastPasser": 2
+        }
+      ]
+    }
+  },
+  "modelDefinitions": {
+    "global": "global-ever-open number unlock; current research dispatcher",
+    "currentAll": "double unlocks all currently matching ends at play time; later-arriving sides remain locked",
+    "localFirst": "double unlocks one currently matching side, first in up/left/right/down order",
+    "localLast": "double unlocks one currently matching side, last in up/left/right/down order"
+  },
+  "blockContract": "empty stock and >=3 consecutive passes; block candidate sets are diagnostics only",
+  "candidateDefinitions": {
+    "minPips": "all seats with the minimum remaining pip sum; not an authenticated winner rule",
+    "fewestTiles": "all seats with the fewest remaining tiles; contrast metric only",
+    "lastPasser": "the player whose pass completes the block; no priority assigned"
+  },
+  "checks": {
+    "resolvedRoundChecks": 48000,
+    "blockPreconditionChecks": 35311,
+    "blockRemainderChecks": 35311,
+    "candidateSetChecks": 35311
+  },
+  "sourceBlobs": {
+    "engine": "82e5bd544a57683d5b4f7812beb2d4abf80da894",
+    "initializer": "2fad29e516454580ec9a06115354e9866f3096e6",
+    "turn-kernel": "94657896e1f8e471ceb2e9a65d1842b6102dff18",
+    "turn-dispatcher": "55b0bcf3f1653c64b4e06bc95d7e917a480562a0",
+    "round-driver": "fbaad78865adbddde1ea6651e6a501dc0bde3203",
+    "strategy-runner": "b7078942bc8f5dac6a8b07494ae8aaeadbdb1f5f",
+    "branch-side-full-round": "19d9a20c64db756353e1afeb62e3ca67ba6b34f8",
+    "branch-current-full-round": "729ccfb3a55328a960e5a3a9a10ea3bcbb45e412"
+  },
+  "finding": "Block incidence is highly sensitive to the provisional branch model; minimum-pip tie rates are descriptive only. No block winner or scoring rule is assigned.",
+  "confidence": "High for reproducibility and internal measurements under these coded model assumptions; no physical-rule authentication.",
+  "limitations": [
+    "Global-ever-open, current-all, local-first and local-last are alternative provisional branch models, not authenticated table rules.",
+    "The models can change legal actions and trajectories; cross-model differences are model sensitivity, not a causal strategy effect.",
+    "Random-legal chooses an index from each model-specific action list; lists may differ.",
+    "All confidence intervals are approximate 95% deal-clustered intervals; six rounds per deal stay in one cluster.",
+    "No block winner, tie split, point award, match score, or strategy superiority is inferred."
+  ],
+  "nextAction": "On a disjoint seed holdout, retain replay traces for every tied-minimum block and test candidate-set/last-passer diagnostics by policy mix and seat rotation; keep all winner interpretations provisional.",
+  "executionNote": "Exact repository source blobs were fetched from GitHub and the runner/test executed in an isolated V8 harness. A clean Node checkout was unavailable because the container could not resolve github.com.",
+  "pilotRegression": {
+    "passed": true,
+    "pilotDeals": 8,
+    "roundsPerModel": 48,
+    "totalModelRounds": 192,
+    "deterministicReplay": true,
+    "assertions": "allocation census, round census, resolved outcomes, candidate-set census"
+  }
+}

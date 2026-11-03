@@ -2972,3 +2972,16 @@ Confidence is high for these coded-model metamorphic and matched-seed measuremen
 - **Regression/data:** runner deterministic replay and cluster recomputation passed; cluster-statistics fixtures passed 17 assertions. Added 2,000 per-deal cluster rows in [run JSON](runs/2026-11-03-0449-branch-label-tiebreak-clustered-1000.json); see [report](runs/2026-11-03-0449-branch-label-tiebreak-clustered-1000.md).
 - **Separate scale:** matched tie-break cohorts now total 2,120 distinct seed draws / 12,720 paired comparisons across their distinct ranges. Other cohorts remain separate: 88,886 allocations, 1,074 multi-action positions, 5,863 state-world assignments, 5,000 smoke rounds. No historical-baseline pooling.
 - **Exact next action:** audit block winner/tie allocation under labelled candidate rules across seat permutations; retain provisional status until physical rules are confirmed.
+
+
+# Reachable block candidate-set audit — 2026-11-03T06:49:40+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0, primary 3×9 + one stock. Branch semantics and block winner/tie interpretation remain provisional.
+- **Seed set:** 9000000–9001999; 2000 draws, 2000 unique seat-labelled allocations, 0 duplicates. Strategies: two policy mixes, each with three seat rotations. Deals: 2000; rounds: 12000 per model / 48000 total across four models; all resolved.
+- **Models:** global-ever-open, current-all, local-first and local-last. Block is empty stock plus at least three consecutive passes. Candidate-only audit; no block winner, score, tie split, or match result assigned.
+- **Key metrics:** global block rate 3.77% (453/12000); current-all 93.20%; local-first 98.37%; local-last 98.92%. Minimum-pip tie rates among blocked rounds: 5.30%, 6.20%, 5.42%, 5.20% respectively. See linked report for deal-clustered intervals and candidate-set agreement.
+- **Finding:** branch-model assumption strongly changes block incidence; this is coded-model sensitivity, not physical-rule evidence. No strategy promoted.
+- **Confidence/limitations:** high for deterministic internal model measurements; branch opening and block winner/tie/scoring rules remain unauthenticated. Random-legal action lists may differ across models. Exact source blobs were run in an isolated V8 harness; clean Node checkout unavailable due container GitHub DNS failure.
+- **Cumulative separate cohorts:** added 2000 deals / 48000 model-rounds. Existing cohorts remain separate: 2,120 tie-break seed draws / 12,720 paired rounds; 88,886 prior allocations; 1,074 multi-action positions; 5,863 state-world assignments; 5,000 smoke rounds. No global dedup or historical-baseline pooling.
+- **Exact next action:** use a disjoint seed holdout; retain replay traces for every tied-minimum block and stratify candidate-set / last-passer diagnostics by policy mix and seat rotation. Keep winner interpretations provisional.
+- **Report/data/reproducer:** [report](runs/2026-11-03-0649-reachable-block-candidate-audit.md), [JSON](runs/2026-11-03-0649-reachable-block-candidate-audit.json), [runner](simulator/block-reachable-candidate-audit.js).

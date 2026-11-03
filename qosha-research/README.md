@@ -6,11 +6,11 @@
 
 ## Структура
 
-- \`RULES.md\` — текущая спецификация правил и отмеченные неясности.
-- \`EXPERIMENTS.md\` — протокол почасовых симуляций.
-- \`RESULTS.md\` — накопленные результаты и выводы.
-- \`simulator/\` — исследовательский движок, runners, тесты и trace-calibration utilities; спорные правила остаются явно provisional. \`pass-history-conditioned-support.js\` реконструирует pass-time hand и считает exact support; opponent-choice softmax runners исследуют likelihood assumptions; \`pass-history-trace-temperature-calibration.js\` готовит leakage-safe calibration по реальным decision traces и считает cluster-robust uncertainty по round-seat группам.
-- \`runs/\` — отчёты и машинно-читаемые данные отдельных воспроизводимых когорт.
+- `RULES.md` — текущая спецификация правил и отмеченные неясности.
+- `EXPERIMENTS.md` — протокол почасовых симуляций.
+- `RESULTS.md` — накопленные результаты и выводы.
+- `simulator/` — исследовательский движок, runners, тесты и trace-calibration utilities; спорные правила остаются явно provisional. `pass-history-conditioned-support.js` реконструирует pass-time hand и считает exact support; opponent-choice softmax runners исследуют likelihood assumptions; `pass-history-trace-temperature-calibration.js` готовит leakage-safe calibration по реальным decision traces и считает cluster-robust uncertainty по round-seat группам.
+- `runs/` — отчёты и машинно-читаемые данные отдельных воспроизводимых когорт.
 
 ## Принцип
 
@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T04:49:39+04:00: deal-clustered branch-label tie-break ablation (1,000 unique deals; 6,000 paired rounds; 2,000 retained deal-cluster rows). Outcome sensitivity, no directional/tactical finding. See qosha-research/RESULTS.md.
+2026-11-03T06:49:40+04:00: reachable block candidate-set audit (2,000 unique deals; 48,000 model-rounds across four provisional branch models). Block incidence is model-sensitive; no winner/scoring rule inferred. See qosha-research/RESULTS.md.
