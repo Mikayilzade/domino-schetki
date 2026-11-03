@@ -52,6 +52,7 @@ function audit(startSeed,accepted=1000){
   if(terminal.outcome.kind==='block'){blocks++;continue;}
   finishes++;
   const mapped=legacy.finishOutcomeToDeltas(terminal.outcome,3);
+  const roundArms=[];
   for(const arm of arms){
    const before=arm.entities.map(x=>({...x}));
    const actual=v16.applyFinishOutcomeToMatch(before,terminal.outcome,{seatOrder:arm.order});
@@ -59,23 +60,26 @@ function audit(startSeed,accepted=1000){
    assert(JSON.stringify(actual.entities)===JSON.stringify(replay.entities),'entities differ');
    assert(JSON.stringify(actual.places)===JSON.stringify(replay.places),'places differ');
    assert(JSON.stringify(actual.pendingSeats)===JSON.stringify(replay.pending),'pending differ');
+   assert(JSON.stringify(actual.skippedZeroSeats)===JSON.stringify(replay.skippedZero),'zero skips differ');
    assert(actual.isDraw===replay.isDraw,'draw differs');
    arm.entities=actual.entities;
    if(actual.finished){
     arm.boundaries.push(index);
-    if(actual.isDraw){
-     if(!ties.has(index))ties.set(index,{roundIndex:index,seed,arms:[]});
-     ties.get(index).arms.push({order:arm.order.join('-'),preScores:before.map(x=>x.score),
-       deltas:mapped.deltas,events:replay.events,pending:replay.pending,
-       survivorScores:replay.entities.filter(x=>!x.exploded).map(x=>({id:x.id,score:x.score})),
-       places:replay.places,isDraw:true});
-    }
+    roundArms.push({order:arm.order.join('-'),preScores:before.map(x=>x.score),
+      deltas:mapped.deltas,events:replay.events,pending:replay.pending,
+      skippedZero:replay.skippedZero,
+      survivorScores:replay.entities.filter(x=>!x.exploded).map(x=>({id:x.id,score:x.score})),
+      places:replay.places,isDraw:replay.isDraw});
     arm.entities=fresh();
    }
   }
+  if(roundArms.some(x=>x.isDraw)){
+   assert(roundArms.length===orders.length,'missing non-draw comparison arms');
+   ties.set(index,{roundIndex:index,seed,arms:roundArms});
+  }
  }
  const expected=reference.auditCohort(startSeed,accepted);
- assert(expected.tieArmEvents===Array.from(ties.values()).reduce((n,x)=>n+x.arms.length,0),'tie arm count drift');
+ assert(expected.tieArmEvents===Array.from(ties.values()).reduce((n,x)=>n+x.arms.filter(a=>a.isDraw).length,0),'tie arm count drift');
  assert(expected.uniqueTieFinishOrdinals===ties.size,'unique tie boundary drift');
  assert(arms.every(a=>JSON.stringify(a.boundaries)===JSON.stringify(arms[0].boundaries)),'match boundary drift');
  return {startSeed,endSeed:cursor-1,accepted,redeals,finishes,blocks,
@@ -86,10 +90,10 @@ function run(){
  const results=cohorts.map(seed=>audit(seed));
  assert(results.reduce((n,x)=>n+x.uniqueTieBoundaries,0)===11,'expected 11 unique boundaries');
  assert(results.reduce((n,x)=>n+x.tieArmEvents,0)===30,'expected 30 tie arms');
- return {schema:'qosa-pwa-v16-tie-boundary-traces/v1',engine:'qosha-research-0.5.3',
+ return {schema:'qosa-pwa-v16-tie-boundary-traces/v2',engine:'qosha-research-0.5.3',
   rules:'qosa-1.0.0 coded 3x9; terminal pip mapping provisional; blocks unscored',
   policy:'seed/turn/player hash legal action; no strategy comparison',results,
-  limitations:'Dependent six-order replays, not independent tie samples. PWA implementation, not physical table rules.'};
+  limitations:'All six orders recorded at every tie-containing boundary; non-draw comparison arms included. Dependent replays, not independent tie samples. PWA implementation, not physical table rules.'};
 }
 if(require.main===module)process.stdout.write(JSON.stringify(run(),null,2)+'\n');
 module.exports={run,audit,trace};
