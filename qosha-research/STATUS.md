@@ -13,6 +13,6 @@ Last checkpoint: 2026-11-03T16:47:36+04:00 Asia/Baku.
 
 Exact next action: test all 6 seat permutations on a disjoint 1,000-round holdout; check match-ending boundary invariance and exploded-seat/survivor-place sensitivity.
 
-Report: qosha-research/runs/2026-11-03-1647-finish-score-event-order-sensitivity.md
-Runner: qosha-research/simulator/finish-score-event-order-sensitivity.js
-Test: qosha-research/simulator/finish-score-event-order-sensitivity-test.js
+Report: [run report](runs/2026-11-03-1647-finish-score-event-order-sensitivity.md)
+Runner: [reproducer](simulator/finish-score-event-order-sensitivity.js)
+Test: [regression test](simulator/finish-score-event-order-sensitivity-test.js)
