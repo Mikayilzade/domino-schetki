@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T14:50:33+04:00: full-round redeal/continuation audit (4,000 resolved rounds; 94,580 driver-matched transitions; 98,580 exact inventory snapshots; separate PWA score-floor/101-bust tests passed). See `qosha-research/RESULTS.md` and the run reproducer.
+2026-11-03T15:51:25+04:00: finish-only round-to-PWA score adapter integration (1,000 independent accepted 3×9 rounds; 1,542 adapter assertions; event order shown to be outcome-sensitive). See qosha-research/RESULTS.md and the linked run reproducer.

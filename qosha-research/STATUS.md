@@ -1,16 +1,17 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-03T14:50:33+04:00 Asia/Baku.
+Last checkpoint: 2026-11-03T15:51:25+04:00 Asia/Baku.
 
-- Latest checkpoint: full-round first-match redeal and later-round continuation audit under the recovered qosa-1.0.0 coded model.
-- First-round accepted cohort: 2,000 deals / 2,080 attempts / 80 redeal signals; seeds 15,000,000–15,002,079; 2,000 unique accepted allocations.
-- Continuation cohort: 2,000 deals, seeds 16,000,000–16,001,999; 2,000 unique allocations; 73 stock-owned 1-1 cases, 1,927 hand-owned.
-- Full outcomes: 4,000/4,000 rounds resolved; 94,580 transitions independently matched to the round driver; 98,580 exact inventory snapshots; 91,305 played-tile provenance checks; 985,748 full-run assertions passed.
-- Separate active-PWA match-scoring adapter tests: 23 unit assertions and 64,066 exhaustive assertions passed. No block winner/tie score was assigned.
-- No strategy comparison or promotion. This is internal coded-model validation, not physical-rule authentication. Branch semantics, block winner/tie scoring, and loneZero=10 remain unresolved; no historical-baseline pooling.
+- Latest checkpoint: finish-only round-to-PWA score adapter integration on a deterministic independent 3×9 round stream.
+- Seeds: 17,000,000–17,001,028; 1,029 attempts, 29 redeals, 1,000 accepted rounds, 1,000 unique allocations, no duplicates.
+- Round outcomes: 955 finishes / 45 blocks / 0 unresolved. Finish-minus 0/−10/−20/−30/−40 = 913/41/1/0/0.
+- Adapter progression: 2,784 score events applied; 81 same-round events pending after PWA match completion; 75 matches completed; 9 score-floor hits; 75 bust events.
+- Validation: 1,542 integration assertions; 505 score-floor cases; 101 100/101 boundary pairs; 40-round deterministic smoke test passed; full 1,000-round replay exact.
+- Most useful finding: active PWA scoring is sequential/manual. First event reaching 101 and leaving at most two survivors ends the match; event order can change the exploded seat. Ascending seat order is only a harness convention.
+- Limits: terminal-pip-plus-finisher-minus mapping remains provisional; blocks intentionally unscored; no strategy comparison or promotion; historical baseline not pooled.
 
-Exact next action: connect finish-only round score deltas to the active-PWA adapter end-to-end and test score-floor / 101-bust progression, leaving block rounds unscored.
+Exact next action: run a matched three-order sensitivity audit over the same round-outcome stream (0-1-2, 1-2-0, 2-0-1), record applied/pending events and exploded seat, and treat differences as manual score-entry order sensitivity.
 
-Results: qosha-research/RESULTS.md
-Reproducer: qosha-research/simulator/redeal-full-round-audit.js
-Test: qosha-research/simulator/redeal-full-round-audit-test.js
+Report: qosha-research/runs/2026-11-03-1551-finish-score-match-integration.md
+Runner: qosha-research/simulator/finish-score-match-roundstream.js
+Tests: qosha-research/simulator/finish-score-match-integration-test.js; qosha-research/simulator/finish-score-match-roundstream-test.js

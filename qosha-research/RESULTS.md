@@ -3095,3 +3095,18 @@ Reproducer: [runner](../simulator/redeal-loop-clockwise-audit.js) · [test](../s
 - **Finding/confidence:** high confidence in internal coded-model termination/conservation for these seed cohorts. No tactical finding or strategy promotion. Block winner/tie allocation intentionally remains unassigned; physical branch semantics and loneZero=10 remain unauthenticated. No historical baseline pooled.
 - **Exact next action:** connect finish-only round score deltas to the PWA match-scoring adapter end-to-end; test score-floor / 101-bust progression while leaving block outcomes unscored.
 - **Report/data/reproducer:** [report](runs/2026-11-03-1450-redeal-full-round-audit.md), [JSON](runs/2026-11-03-1450-redeal-full-round-audit.json), [runner](simulator/redeal-full-round-audit.js), [test](simulator/redeal-full-round-audit-test.js).
+
+# Finish-only round-to-PWA score adapter integration — 2026-11-03T15:51:25+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0 coded model, primary 3×9 + one stock. Physical branch/opening interpretation remains provisional.
+- **Deals/seeds:** 17,000,000–17,001,028; 1,029 attempts, 1,000 accepted first-round deals, 29 redeal signals, 1,000 unique allocations, no duplicates. This is an independent round stream, not a physical match-start sequence.
+- **Policy:** deterministic seed/turn/player hash chooses a legal action index; validation-only, not a strategic arm.
+- **Round outcomes:** 955 finishes, 45 blocks (4.50%), 0 unresolved. Finish-minus 0/−10/−20/−30/−40 = 913/41/1/0/0.
+- **Adapter:** 955 finish rounds mapped to terminal hand pips plus the finisher's finish-minus and passed through the research copy of the active-PWA adapter. 2,784 score events applied; 81 same-round events remained pending after adapter completion. 75 matches completed (mean 13.293 rounds, median 14), with a 3-round unfinished tail. Score-floor hits 9; bust events 75; maximum observed score 137.
+- **Validation:** 1,542 integration assertions; 505 score-floor cases; 101 exact 100/101 boundary pairs. The 40-round smoke test passed 9 assertions (37 finish, 3 block, 3 matches). Full 1,000-round replay matched exactly.
+- **Finding:** active PWA score entries are sequential/manual. A score event that reaches 101 and leaves at most two survivors ends the match immediately, so later same-round seat events are not applied. With the same deltas, changing event order can change which seat explodes. The runner's ascending-seat order is only a harness convention.
+- **Limitations:** terminal-pip-plus-finisher-minus mapping remains an explicit scoring assumption, not authenticated physical rule. Blocks intentionally remain unscored because block winner/tie allocation is unresolved. No strategy comparison/promotion and no historical-baseline pooling.
+- **Exact next action:** matched three-order sensitivity audit over the same round-outcome stream (0-1-2, 1-2-0, 2-0-1), reporting applied/pending events and exploded seat. Interpret as manual score-entry order sensitivity, not strategy superiority.
+
+Reproducer: runs/2026-11-03-1551-finish-score-match-integration.md and simulator/finish-score-match-roundstream.js.
+

@@ -325,3 +325,10 @@ Report paired finish/block, round length, and finish-minus differences as repres
 - An accepted seed is consumed. The next requested deal starts at the next integer seed after it. Store the full attempted range, accepted count, redeal count, retry histogram, and unique allocation count.
 - This is a reproducibility convention for the simulator's caller-owned redeal loop, not proof of shuffle uniformity or physical rule authentication. Keep seed draws and unique allocations distinct.
 
+## Finish-to-match scoring adapter and event order (2026-11-03)
+
+- Map only coded finish outcomes to score events. The current explicit harness assumption is terminal hand pips for each seat plus finish-minus for the empty finisher. Keep this mapping labelled provisional until the physical scoring convention is authenticated.
+- Do not score block outcomes or assign a block winner/tie from the simulator while the rule remains unresolved.
+- The active PWA adapter is sequential: after each score event, evaluate the 101 threshold and stop once at most two entities remain. Record any later same-round seat events as pending rather than silently applying them.
+- Event order is a user-entered sequence in the PWA, not a physical rule. For analysis, compare matched seat-order permutations on the same round outcomes and report exploded-seat changes separately from strategy effects. Never use a fixed seat order as a strategy conclusion.
+
