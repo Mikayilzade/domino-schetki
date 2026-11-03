@@ -1,0 +1,93 @@
+{
+  "schema": "qosha-block-winner-permutation-contract-run/v1",
+  "timestampAsiaBaku": "2026-11-03T05:48:35+04:00",
+  "engineVersion": "qosha-research-0.5.3",
+  "rulesVersion": "recovered qosa-1.0.0; block winner/tie rule unresolved",
+  "mode": "synthetic candidate-selection audit; 3 and 5 seats",
+  "seedSet": null,
+  "dealCount": 0,
+  "strategies": [],
+  "audit": {
+    "schema": "block-winner-permutation-contract/v1",
+    "passed": true,
+    "maxPip": 5,
+    "assertions": 7472736,
+    "counts": {
+      "vectors3": 216,
+      "vectors5": 7776,
+      "permutationCases3": 1296,
+      "permutationCases5": 933120,
+      "candidateSetChecks": 934416,
+      "equalShareChecks": 934416,
+      "uniqueOrNullChecks": 934416,
+      "lastPasserChecks": 4669488,
+      "tiedVectors3": 51,
+      "tiedVectors5": 2881,
+      "rawOrderTieCases": 346026,
+      "rawOrderChanged": 186485,
+      "rawChangeByTieSize": {
+        "2": {
+          "cases": 270270,
+          "changed": 135135,
+          "rate": 0.5
+        },
+        "3": {
+          "cases": 66036,
+          "changed": 44024,
+          "rate": 0.6666666666666666
+        },
+        "4": {
+          "cases": 9000,
+          "changed": 6750,
+          "rate": 0.75
+        },
+        "5": {
+          "cases": 720,
+          "changed": 576,
+          "rate": 0.8
+        }
+      },
+      "rawOrderChangeRate": 0.5389334905469532
+    }
+  },
+  "finding": {
+    "invariantPolicies": [
+      "minimum-pip candidate set",
+      "unique-minimum or null on tie",
+      "last-passer priority when passer identity is remapped",
+      "illustrative equal-share allocation"
+    ],
+    "orderSensitivePolicy": "first minimum in current seat-array order",
+    "rawOrderChangeRate": 0.5389334905469532,
+    "rawOrderChanged": 186485,
+    "rawOrderTieCases": 346026,
+    "tieSizeRates": {
+      "2": {
+        "cases": 270270,
+        "changed": 135135,
+        "rate": 0.5
+      },
+      "3": {
+        "cases": 66036,
+        "changed": 44024,
+        "rate": 0.6666666666666666
+      },
+      "4": {
+        "cases": 9000,
+        "changed": 6750,
+        "rate": 0.75
+      },
+      "5": {
+        "cases": 720,
+        "changed": 576,
+        "rate": 0.8
+      }
+    }
+  },
+  "limitations": [
+    "Vectors are synthetic remainder-pip tuples with each seat in 0..5; they are not asserted to be reachable blocked hands.",
+    "No block winner, score award, tie split, or physical rule is authenticated.",
+    "No deals or strategy outcomes were simulated."
+  ],
+  "nextAction": "Collect reachable blocked states under explicitly labelled branch/block models; report candidate sets and tie frequencies only, without promoting a winner/scoring rule."
+}
