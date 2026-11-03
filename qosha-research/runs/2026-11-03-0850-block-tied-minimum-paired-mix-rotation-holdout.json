@@ -1,0 +1,247 @@
+{
+  "schema": "qosha-block-tied-minimum-paired-mix-rotation-holdout/v1",
+  "timestampAsiaBaku": "2026-11-03T08:50:37+04:00",
+  "engineVersion": "qosha-research-0.5.3",
+  "rulesVersion": "recovered qosa-1.0.0; branch opening and block candidate interpretation remain provisional",
+  "mode": "3 players x 9 stones + one stock; same deal allocations across four provisional branch models",
+  "seedStart": 9004000,
+  "seedEnd": 9005999,
+  "seedDraws": 2000,
+  "uniqueAllocations": 2000,
+  "duplicateAllocationSeeds": [],
+  "roundsPerModel": 12000,
+  "totalModelRounds": 48000,
+  "strategies": [
+    [
+      "random-legal",
+      "min-hand-pips",
+      "closed-branch-control"
+    ],
+    [
+      "fast-doubles",
+      "moderate-double-hold",
+      "closed-branch-control"
+    ]
+  ],
+  "modelDefinitions": {
+    "global": "global-ever-open number unlock; current research dispatcher",
+    "currentAll": "double unlocks all currently matching ends at play time; later-arriving sides remain locked",
+    "localFirst": "double unlocks one currently matching side, first in up/left/right/down order",
+    "localLast": "double unlocks one currently matching side, last in up/left/right/down order"
+  },
+  "blockContract": "empty stock and >=3 consecutive passes; no winner, tie split, score, or match result assigned",
+  "modelMetrics": {
+    "global": {
+      "rounds": 12000,
+      "finishes": 11542,
+      "blocks": 458,
+      "unresolved": 0,
+      "blockRate": {
+        "rate": 0.03816666666666667,
+        "ci95": [
+          0.034590607714111626,
+          0.04174272561922171
+        ]
+      },
+      "minPipTieRateAmongBlocks": 0.05240174672489083,
+      "tiedTraceCount": 24,
+      "lastPasserInMinPipSetRate": 0.34279475982532753,
+      "minPipVsFewestTileSetAgreementRate": 0.13537117903930132
+    },
+    "currentAll": {
+      "rounds": 12000,
+      "finishes": 804,
+      "blocks": 11196,
+      "unresolved": 0,
+      "blockRate": {
+        "rate": 0.933,
+        "ci95": [
+          0.9279254180202787,
+          0.9380745819797214
+        ]
+      },
+      "minPipTieRateAmongBlocks": 0.058681672025723476,
+      "tiedTraceCount": 657,
+      "lastPasserInMinPipSetRate": 0.44587352625937837,
+      "minPipVsFewestTileSetAgreementRate": 0.48606645230439444
+    },
+    "localFirst": {
+      "rounds": 12000,
+      "finishes": 181,
+      "blocks": 11819,
+      "unresolved": 0,
+      "blockRate": {
+        "rate": 0.9849166666666667,
+        "ci95": [
+          0.9821604347861254,
+          0.987672898547208
+        ]
+      },
+      "minPipTieRateAmongBlocks": 0.05541924020644724,
+      "tiedTraceCount": 655,
+      "lastPasserInMinPipSetRate": 0.41162534901429904,
+      "minPipVsFewestTileSetAgreementRate": 0.44369235975970894
+    },
+    "localLast": {
+      "rounds": 12000,
+      "finishes": 137,
+      "blocks": 11863,
+      "unresolved": 0,
+      "blockRate": {
+        "rate": 0.9885833333333334,
+        "ci95": [
+          0.986345551295623,
+          0.9908211153716231
+        ]
+      },
+      "minPipTieRateAmongBlocks": 0.05394925398297227,
+      "tiedTraceCount": 640,
+      "lastPasserInMinPipSetRate": 0.4147348899940993,
+      "minPipVsFewestTileSetAgreementRate": 0.44229958695102417
+    }
+  },
+  "pairedInteractionMethod": "For each deal seed, binary tied-minimum trace presence is paired across mix/rotation cells. Mix-by-rotation interaction is (mix2-mix1 at r1)-(mix2-mix1 at r2); uncertainty uses the deal as cluster.",
+  "discoveryHoldout": {
+    "seedStart": 9002000,
+    "seedEnd": 9003999,
+    "seedDraws": 2000,
+    "tiedTraceCount": 1921,
+    "selectedInteractions": [
+      {
+        "model": "global",
+        "rotationPair": "0 vs 2",
+        "discovery": {
+          "estimate": -0.0015,
+          "se": 0.0016583878090068148,
+          "ci95": [
+            -0.0047504401056533575,
+            0.001750440105653357
+          ],
+          "n": 2000
+        },
+        "holdout": {
+          "estimate": -0.0005,
+          "se": 0.0016586894300358252,
+          "ci95": [
+            -0.0037510312828702174,
+            0.0027510312828702174
+          ],
+          "n": 2000
+        }
+      },
+      {
+        "model": "currentAll",
+        "rotationPair": "0 vs 2",
+        "discovery": {
+          "estimate": 0.01,
+          "se": 0.010074758080231241,
+          "ci95": [
+            -0.009746525837253233,
+            0.029746525837253235
+          ],
+          "n": 2000
+        },
+        "holdout": {
+          "estimate": -0.014,
+          "se": 0.009947435636276798,
+          "ci95": [
+            -0.033496973847102526,
+            0.005496973847102524
+          ],
+          "n": 2000
+        }
+      },
+      {
+        "model": "localFirst",
+        "rotationPair": "1 vs 2",
+        "discovery": {
+          "estimate": 0.005,
+          "se": 0.009382511164814934,
+          "ci95": [
+            -0.013389721883037269,
+            0.02338972188303727
+          ],
+          "n": 2000
+        },
+        "holdout": {
+          "estimate": 0.0015,
+          "se": 0.009343046679784481,
+          "ci95": [
+            -0.016812371492377583,
+            0.019812371492377585
+          ],
+          "n": 2000
+        }
+      },
+      {
+        "model": "localLast",
+        "rotationPair": "0 vs 1",
+        "discovery": {
+          "estimate": -0.015,
+          "se": 0.009269868673968175,
+          "ci95": [
+            -0.03316894260097762,
+            0.003168942600977623
+          ],
+          "n": 2000
+        },
+        "holdout": {
+          "estimate": -0.007,
+          "se": 0.009138777742636715,
+          "ci95": [
+            -0.024912004375567964,
+            0.010912004375567962
+          ],
+          "n": 2000
+        }
+      }
+    ],
+    "selection": "Within each model select the largest absolute interaction among three rotation pairs in discovery; estimate that exact pair in the disjoint holdout. CIs are exploratory and unadjusted."
+  },
+  "traceReplayVerification": {
+    "attempted": 1976,
+    "passed": 1976,
+    "failed": 0
+  },
+  "traceChecksum": "3e86d6da",
+  "sourceBlobs": {
+    "engine": "82e5bd544a57683d5b4f7812beb2d4abf80da894",
+    "initializer": "2fad29e516454580ec9a06115354e9866f3096e6",
+    "turnKernel": "94657896f1e8e471ceb2e9a65d1842b6102dff18",
+    "turnDispatcher": "55b0bcf3f1653c64b4e06bc95d7e917a480562a0",
+    "roundDriver": "fbaad78865adbddde1ea6651e6a501dc0bde3203",
+    "strategyRunner": "b7078942bc8f5dac6a8b07494ae8aaeadbdb1f5f",
+    "branchSideFullRound": "19d9a20c64db756353e1afeb62e3ca67ba6b34f8",
+    "branchCurrentFullRound": "729ccfb3a55328a960e5a3a9a10ea3bcbb45e412"
+  },
+  "finding": "No stable policy-mix-by-seat-rotation interaction in tied-minimum block incidence. Selected discovery effects cross zero and do not reproduce directionally in the disjoint holdout; coded-model sensitivity only.",
+  "confidence": "High for deterministic internal replay/counts under coded assumptions; no physical-rule authentication.",
+  "limitations": [
+    "Four branch models are counterfactual and remain provisional; none is authenticated as the table rule.",
+    "Endpoint is tied-minimum block-trace occurrence, not block winner, score, match result, or strategy win rate.",
+    "Mix/rotation trajectories may diverge even though each deal allocation is paired; deal seed is the uncertainty cluster.",
+    "Discovery selected the largest absolute interaction among three rotation pairs per model; intervals are exploratory and unadjusted.",
+    "Allocation uniqueness was checked within each 2000-deal cohort; no cross-cohort allocation deduplication and no historical-baseline pooling."
+  ],
+  "cumulativeBlockAuditSeries": {
+    "seedRanges": [
+      [
+        9000000,
+        9001999
+      ],
+      [
+        9002000,
+        9003999
+      ],
+      [
+        9004000,
+        9005999
+      ]
+    ],
+    "seedDraws": 6000,
+    "modelRounds": 144000,
+    "uniqueAllocationsVerifiedPerCohort": 2000,
+    "crossCohortAllocationDedup": false
+  },
+  "exactNextAction": "Stop expanding this interaction after the disjoint holdout failed to reproduce a directional effect. Return to engine validation: exhaustive mixed-finish fixtures for 1–4 closing doubles (−10/−20/−30/−40), score-floor boundaries, and legal branch/open-state transitions; keep block winner/scoring provisional."
+}

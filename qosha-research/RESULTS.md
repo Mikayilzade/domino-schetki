@@ -2997,3 +2997,16 @@ Confidence is high for these coded-model metamorphic and matched-seed measuremen
 - **Cumulative block-audit series:** two disjoint holdouts, 4,000 deal draws / 96,000 model-rounds. Other cohorts remain separate.
 - **Exact next action:** paired seed-cluster contrasts across mix/rotation strata, then a second disjoint holdout for the leading descriptive interaction; do not assign block winners.
 - **Report/data/reproducers:** [report](runs/2026-11-03-0759-block-tied-minimum-stratified-holdout.md), [summary JSON](runs/2026-11-03-0759-block-tied-minimum-stratified-holdout.json), [runner](simulator/block-tied-minimum-stratified-audit.js), [test](simulator/block-tied-minimum-stratified-audit-test.js).
+
+
+# Tied-minimum block paired mix/rotation holdout — 2026-11-03T08:50:37+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0; primary 3×9 + one stock. Branch opening and block candidate interpretation remain provisional.
+- **Seeds/deals:** 9,004,000–9,005,999; 2,000 draws, 2,000 unique allocations, 0 duplicate allocations. Strategies: mix 1 random-legal/min-hand-pips/closed-branch-control; mix 2 fast-doubles/moderate-double-hold/closed-branch-control; three seat rotations.
+- **Scale:** 48,000 resolved model-rounds; 1,976/1,976 tied-minimum traces replayed with 0 mismatches. Trace checksum `3e86d6da`.
+- **Model metrics:** global-ever-open 3.82% block rate; current-all 93.30%; local-first 98.49%; local-last 98.86%. Branch model remains the dominant assumption.
+- **Paired interaction:** deal-clustered mix×rotation difference-in-differences were selected in the prior 2,000-deal discovery set and tested on this disjoint 2,000-deal holdout. All displayed 95% CIs include zero; no directional replication. Exploratory, unadjusted; tied-trace incidence only.
+- **Finding/confidence:** no reliable strategic or block-winner finding. High confidence in deterministic internal replay; no physical-rule authentication. No block winner, tie split, score, or match result assigned; no strategy promoted; no historical baseline pooled.
+- **Cumulative block-audit series:** 3 disjoint seed windows, 6,000 seed draws / 144,000 model-rounds. Unique allocations checked within each cohort; no cross-cohort allocation deduplication.
+- **Exact next action:** return to engine validation: exhaustive mixed-finish fixtures for 1–4 closing doubles (−10/−20/−30/−40), score-floor boundaries, and legal branch/open-state transitions.
+- **Report/data/reproducer:** [report](runs/2026-11-03-0850-block-tied-minimum-paired-mix-rotation-holdout.md), [JSON](runs/2026-11-03-0850-block-tied-minimum-paired-mix-rotation-holdout.json), [runner](simulator/block-tied-minimum-paired-contrast.js), [test](simulator/block-tied-minimum-paired-contrast-test.js).

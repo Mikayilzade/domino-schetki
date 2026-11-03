@@ -1,13 +1,17 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-03T06:49:40+04:00 Asia/Baku.
+Last checkpoint: 2026-11-03T08:50:37+04:00 Asia/Baku.
 
-- Latest checkpoint: reachable blocked-state candidate-set audit on 2,000 unique 3×9 deals (seed range 9,000,000–9,001,999), 48,000 model-rounds across global-ever-open, current-all, local-first and local-last branch models.
-- All rounds resolved; block preconditions, remainder sums, and candidate sets were checked. The block winner, tie split, score award, and physical branch semantics remain unresolved.
-- Block incidence was 3.78% in the global-ever-open model versus 93.20% current-all and 98.37–98.92% one-side-local. This is model sensitivity, not physical-rule evidence. Minimum-pip tie rates among blocked states were 5.20–6.20%; no strategy promoted.
-- New cohort is separate: 2,000 unique allocations / 48,000 model-rounds. Existing cohorts remain separate: 2,120 tie-break seed draws / 12,720 paired rounds; 88,886 prior allocations; 1,074 multi-action positions; 5,863 state-world assignments; 5,000 invariant-smoke rounds. No global dedup or historical-baseline pooling.
-- Exact next action: on a disjoint seed holdout, retain replay traces for every tied-minimum block and stratify candidate-set / last-passer diagnostics by policy mix and seat rotation. Keep all winner/scoring interpretations provisional.
+- Latest checkpoint: paired mix/rotation analysis of tied-minimum block traces on 2,000 unique 3×9 deals (seeds 9,004,000–9,005,999), 48,000 model-rounds across four provisional branch models.
+- All rounds resolved; 1,976 tied-minimum traces replayed exactly, 0 mismatches. No stable policy-mix-by-seat-rotation interaction in tied-trace incidence was established; selected discovery effects cross zero and did not reproduce directionally.
+- Block incidence remains highly branch-model-sensitive: global-ever-open 3.82%, current-all 93.30%, local-first 98.49%, local-last 98.86%. These are counterfactual model measurements, not physical-rule evidence.
+- No block winner, tie split, points, or match score assigned. No strategy promoted; no historical baseline pooled.
+- Block-audit series: three disjoint seed windows, 6,000 seed draws / 144,000 model-rounds. Allocation uniqueness checked within each cohort; no cross-cohort allocation deduplication.
+- Other cohorts remain separate: 2,120 tie-break seed draws / 12,720 paired rounds; 88,886 prior allocations; 1,074 multi-action positions; 5,863 state-world assignments; 5,000 invariant-smoke rounds.
 
-Report: qosha-research/runs/2026-11-03-0649-reachable-block-candidate-audit.md
-Data: qosha-research/runs/2026-11-03-0649-reachable-block-candidate-audit.json
-Reproducer: qosha-research/simulator/block-reachable-candidate-audit.js
+Exact next action: stop expanding the mix/rotation interaction. Return to engine validation with exhaustive mixed-finish fixtures for 1–4 closing doubles (−10/−20/−30/−40), score-floor boundaries, and legal branch/open-state transitions. Keep block winner/scoring provisional.
+
+Report: qosha-research/runs/2026-11-03-0850-block-tied-minimum-paired-mix-rotation-holdout.md
+Data: qosha-research/runs/2026-11-03-0850-block-tied-minimum-paired-mix-rotation-holdout.json
+Reproducer: qosha-research/simulator/block-tied-minimum-paired-contrast.js
+Regression test: qosha-research/simulator/block-tied-minimum-paired-contrast-test.js

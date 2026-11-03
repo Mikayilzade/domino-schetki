@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T07:59:49+04:00: tied-minimum block trace holdout (2000 unique deals; 48000 model-rounds; 1921 tied traces replay-verified). Block winner/scoring and branch assumptions remain provisional. See qosha-research/RESULTS.md.
+2026-11-03T08:50:37+04:00: paired tied-minimum block mix/rotation holdout (2,000 unique deals; 48,000 model-rounds; 1,976 tied traces replay-verified). No stable mix×rotation interaction; branch/block assumptions remain provisional. See qosha-research/RESULTS.md and the linked run report.

@@ -309,3 +309,11 @@ Report paired finish/block, round length, and finish-minus differences as repres
 - Replay every retained trace under the same seed, policy assignment and model; require checksum identity. Report trace counts and replay failures.
 - Stratify block incidence, min-pip tie rate, last-passer membership, and minimum-pip/fewest-tile candidate-set agreement by model × mix × seat rotation. Use deal-clustered intervals; the same seed remains one cluster across all cells.
 - Candidate sets and last passer remain diagnostics only. Never infer block winner, tie split, scoring, or physical branch semantics from this synthetic cohort.
+
+
+## Paired block-trace mix/rotation contrasts (2026-11-03)
+
+- Treat tied-minimum block-trace presence as a binary endpoint per deal × branch model × policy-mix × seat-rotation cell. Pair mix arms on the same seed and pair rotations on the same seed; the seed/deal is the uncertainty cluster.
+- For mix×rotation interaction, use the paired difference-in-differences: (mix2 − mix1 at rotation r1) − (mix2 − mix1 at rotation r2). Do not count individual model-rounds as independent observations.
+- Select any exploratory leading interaction in a discovery cohort, then evaluate that exact model/rotation-pair contrast in a disjoint seed holdout. Report deal-clustered intervals and whether direction reproduces. If selected from multiple candidates, mark intervals exploratory and unadjusted.
+- A tied-minimum trace is not a block winner, point award, match result, or strategy win. Keep branch models provisional; no strategy promotion from trace-incidence differences alone.
