@@ -1,16 +1,16 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-03T13:51:32+04:00 Asia/Baku.
+Last checkpoint: 2026-11-03T14:50:33+04:00 Asia/Baku.
 
-- Latest checkpoint: deterministic first-round redeal loop and two clockwise post-opening turns audit.
-- First-round seed stream 13,000,000–13,002,077: 2,000 accepted deals / 2,078 attempts; 78 redeal signals; 2,000 unique accepted allocations, no duplicate pairs. Retry histogram 1,926 / 70 / 4 for 0 / 1 / 2 retries.
-- Separate continuation seed set 14,000,000–14,001,999: 2,000 allocations, 74 with 1-1 in stock; all three previous-winner seats checked (222 initializer states).
-- First two post-opening clockwise turns: 4,444 transitions; 6,666 exact 28-tile inventory snapshots; 4,444 round-driver/manual equivalence checks; 142,541 assertions passed. Full deterministic replay matched exactly.
-- No strategy comparison or promotion. No reliable tactical finding; physical branch/opening semantics, block winner/tie allocation, and loneZero=10 remain unresolved.
-- This cohort is separate from the prior initializer, round-driver, block-audit, and tie-break cohorts. No historical-baseline pooling.
+- Latest checkpoint: full-round first-match redeal and later-round continuation audit under the recovered qosa-1.0.0 coded model.
+- First-round accepted cohort: 2,000 deals / 2,080 attempts / 80 redeal signals; seeds 15,000,000–15,002,079; 2,000 unique accepted allocations.
+- Continuation cohort: 2,000 deals, seeds 16,000,000–16,001,999; 2,000 unique allocations; 73 stock-owned 1-1 cases, 1,927 hand-owned.
+- Full outcomes: 4,000/4,000 rounds resolved; 94,580 transitions independently matched to the round driver; 98,580 exact inventory snapshots; 91,305 played-tile provenance checks; 985,748 full-run assertions passed.
+- Separate active-PWA match-scoring adapter tests: 23 unit assertions and 64,066 exhaustive assertions passed. No block winner/tie score was assigned.
+- No strategy comparison or promotion. This is internal coded-model validation, not physical-rule authentication. Branch semantics, block winner/tie scoring, and loneZero=10 remain unresolved; no historical-baseline pooling.
 
-Exact next action: extend both setup paths through full round termination under a fixed deterministic legal policy, then test score-floor/101-bust integration separately without assigning an unresolved block winner.
+Exact next action: connect finish-only round score deltas to the active-PWA adapter end-to-end and test score-floor / 101-bust progression, leaving block rounds unscored.
 
 Results: qosha-research/RESULTS.md
-Reproducer: qosha-research/simulator/redeal-loop-clockwise-audit.js
-Test: qosha-research/simulator/redeal-loop-clockwise-audit-test.js
+Reproducer: qosha-research/simulator/redeal-full-round-audit.js
+Test: qosha-research/simulator/redeal-full-round-audit-test.js

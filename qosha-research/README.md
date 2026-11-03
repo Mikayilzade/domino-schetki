@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T13:51:32+04:00: deterministic 3×9 first-round redeal retry loop and two clockwise post-opening turns (2,000 accepted first-round deals; 2,000 separate continuation seed draws; 142,541 assertions; exact replay match). See qosha-research/RESULTS.md and the run reproducer.
+2026-11-03T14:50:33+04:00: full-round redeal/continuation audit (4,000 resolved rounds; 94,580 driver-matched transitions; 98,580 exact inventory snapshots; separate PWA score-floor/101-bust tests passed). See `qosha-research/RESULTS.md` and the run reproducer.

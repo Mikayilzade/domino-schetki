@@ -3081,3 +3081,17 @@ Confidence is high for these coded-model metamorphic and matched-seed measuremen
 - **Exact next action:** extend both setup paths through full round termination under a fixed deterministic legal policy, preserving tile provenance at every turn; then test match score-floor/101-bust integration separately without assigning an unresolved block winner.
 
 Reproducer: [runner](../simulator/redeal-loop-clockwise-audit.js) · [test](../simulator/redeal-loop-clockwise-audit-test.js) · [machine data](2026-11-03-1351-redeal-loop-clockwise-audit.json).
+
+
+# Full-round redeal and continuation conservation audit — 2026-11-03T14:50:33+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0 coded model; primary 3×9 + one stock. Physical branch/opening semantics, block winner/tie scoring, and loneZero=10 remain unresolved.
+- **Seed/policy:** first-round accepted stream starts at 15,000,000 and advances through 15,002,079; continuation seeds 16,000,000–16,001,999. Deterministic seed/turn/player hash selects an index from the legal-action list, validation only.
+- **First-round cohort:** 2,000 accepted deals / 2,080 attempts / 80 redeals; retry histogram 1,922 / 76 / 2 for 0 / 1 / 2 retries; 2,000 unique accepted allocations.
+- **Continuation cohort:** 2,000 seed draws / 2,000 unique allocations / 0 duplicate pairs; 73 stock-owned 1-1 and 1,927 hand-owned 1-1. Previous winner `seed % 3` is used only for stock-owned 1-1.
+- **Full-round metrics:** all 4,000 rounds resolved. First-round cohort: 1,910 finishes / 90 blocks, 4.50% block rate, mean/median 24.613/25 turns, mean/median terminal pips per seat 6.803/6; finish-minus −10/−20/−30/−40 = 78/2/0/0. Continuation: 1,894 finishes / 106 blocks, 5.30% block rate, mean/median 24.677/25 turns, mean/median terminal pips per seat 6.765/6; finish-minus = 76/1/0/0. Minus counts exclude blocks.
+- **Validation:** 94,580 transitions independently matched to the round driver; 98,580 exact 28-tile inventory snapshots; 91,305 played-tile provenance/uniqueness checks; 0 unresolved rounds; 0 in-round draws. Full-run 985,748 assertions passed.
+- **Separate PWA adapter:** match-scoring unit test 23 assertions and exhaustive score-floor/101-bust/survivor-order suite 64,066 assertions passed. This is implementation-contract validation, not table-rule authentication.
+- **Finding/confidence:** high confidence in internal coded-model termination/conservation for these seed cohorts. No tactical finding or strategy promotion. Block winner/tie allocation intentionally remains unassigned; physical branch semantics and loneZero=10 remain unauthenticated. No historical baseline pooled.
+- **Exact next action:** connect finish-only round score deltas to the PWA match-scoring adapter end-to-end; test score-floor / 101-bust progression while leaving block outcomes unscored.
+- **Report/data/reproducer:** [report](runs/2026-11-03-1450-redeal-full-round-audit.md), [JSON](runs/2026-11-03-1450-redeal-full-round-audit.json), [runner](simulator/redeal-full-round-audit.js), [test](simulator/redeal-full-round-audit-test.js).

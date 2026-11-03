@@ -1,0 +1,137 @@
+{
+  "schema": "qosa-redeal-full-round-audit/v1",
+  "timestamp": "2026-11-03T14:50:33+04:00",
+  "engine": "qosha-research-0.5.3",
+  "rules": "recovered qosa-1.0.0 coded model; 3 players x 9 tiles + one stock; physical branch/opening and block interpretation provisional",
+  "policy": "deterministic seed/turn/player hash selects an index from current legal action list; validation policy only, not a strategic arm",
+  "firstRound": {
+    "startSeed": 15000000,
+    "attemptEndSeed": 15002079,
+    "attempts": 2080,
+    "acceptedDeals": 2000,
+    "redealSignals": 80,
+    "retryHistogram": {
+      "0": 1922,
+      "1": 76,
+      "2": 2
+    },
+    "maxRetryObserved": 2,
+    "uniqueAcceptedAllocations": 2000,
+    "duplicateAcceptedAllocations": 0,
+    "metrics": {
+      "rounds": 2000,
+      "finishes": 1910,
+      "blocks": 90,
+      "unresolved": 0,
+      "blockRate": 0.045,
+      "meanTurns": 24.613,
+      "medianTurns": 25,
+      "minusFrequencies": {
+        "0": 1830,
+        "-10": 78,
+        "-20": 2,
+        "-30": 0,
+        "-40": 0
+      },
+      "meanTerminalPipsPerSeat": 6.803333333333334,
+      "medianTerminalPipsPerSeat": 6,
+      "meanTerminalHandSize": 1.0811666666666666,
+      "meanTerminalDoubles": 0.0033333333333333335,
+      "transitions": 47226,
+      "inventorySnapshots": 49226,
+      "driverEquivalenceChecks": 47226,
+      "playedTileChecks": 45627,
+      "inRoundDraws": 0,
+      "maxDrawsPerTurn": 0,
+      "passTurns": 3596,
+      "actionTurns": 43630,
+      "openingFollowups": 1886,
+      "openingPasses": 114,
+      "openingDraws": 2000,
+      "finishDoublesTotal": 82
+    }
+  },
+  "continuation": {
+    "startSeed": 16000000,
+    "endSeed": 16001999,
+    "seedDraws": 2000,
+    "uniqueAllocations": 2000,
+    "duplicateSeedPairs": [],
+    "stockOneOneDeals": 73,
+    "handOwnedOneOneDeals": 1927,
+    "previousWinnerIndex": "seed modulo 3; used only when 1-1 is in stock",
+    "metrics": {
+      "rounds": 2000,
+      "finishes": 1894,
+      "blocks": 106,
+      "unresolved": 0,
+      "blockRate": 0.053,
+      "meanTurns": 24.677,
+      "medianTurns": 25,
+      "minusFrequencies": {
+        "0": 1817,
+        "-10": 76,
+        "-20": 1,
+        "-30": 0,
+        "-40": 0
+      },
+      "meanTerminalPipsPerSeat": 6.764666666666667,
+      "medianTerminalPipsPerSeat": 6,
+      "meanTerminalHandSize": 1.0748333333333333,
+      "meanTerminalDoubles": 0.0045,
+      "transitions": 47354,
+      "inventorySnapshots": 49354,
+      "driverEquivalenceChecks": 47354,
+      "playedTileChecks": 45678,
+      "inRoundDraws": 0,
+      "maxDrawsPerTurn": 0,
+      "passTurns": 3625,
+      "actionTurns": 43729,
+      "openingFollowups": 1873,
+      "openingPasses": 127,
+      "openingDraws": 1927,
+      "finishDoublesTotal": 78
+    }
+  },
+  "combined": {
+    "rounds": 4000,
+    "transitions": 94580,
+    "inventorySnapshots": 98580,
+    "driverEquivalenceChecks": 94580,
+    "playedTileChecks": 91305,
+    "inRoundDraws": 0,
+    "unresolved": 0
+  },
+  "assertions": 985748,
+  "validationSuites": {
+    "fullRoundDeterministicSmoke": {
+      "passed": true,
+      "rounds": 24,
+      "transitions": 566,
+      "inventorySnapshots": 590,
+      "assertions": 5907
+    },
+    "pwaMatchScoringUnit": {
+      "passed": true,
+      "assertions": 23,
+      "cases": [
+        "101 threshold",
+        "3-player places",
+        "last survivor bonus",
+        "5-player sequence",
+        "score floor",
+        "exploded-event guard"
+      ]
+    },
+    "pwaMatchScoringExhaustive": {
+      "passed": true,
+      "assertions": 64066,
+      "scoreDeltaCases": 8080,
+      "zeroEventCases": 101,
+      "survivorRankCases": 10201,
+      "fivePlayerExplosionSteps": 360,
+      "fivePlayerOrders": 120
+    }
+  },
+  "limitations": "Internal coded-model validation only; not physical-rule authentication or strategy evidence. In 3x9, the one stock tile is consumed during opening setup, so no in-round draw is expected in this cohort; draw-enabled paths remain covered by separate fixtures. Block winner/tie scoring and loneZero=10 remain unresolved. Seed replay does not prove PRNG uniformity."
+}
