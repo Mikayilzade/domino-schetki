@@ -1,17 +1,16 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-03T08:50:37+04:00 Asia/Baku.
+Last checkpoint: 2026-11-03T09:49:17+04:00 Asia/Baku.
 
-- Latest checkpoint: paired mix/rotation analysis of tied-minimum block traces on 2,000 unique 3×9 deals (seeds 9,004,000–9,005,999), 48,000 model-rounds across four provisional branch models.
-- All rounds resolved; 1,976 tied-minimum traces replayed exactly, 0 mismatches. No stable policy-mix-by-seat-rotation interaction in tied-trace incidence was established; selected discovery effects cross zero and did not reproduce directionally.
-- Block incidence remains highly branch-model-sensitive: global-ever-open 3.82%, current-all 93.30%, local-first 98.49%, local-last 98.86%. These are counterfactual model measurements, not physical-rule evidence.
-- No block winner, tie split, points, or match score assigned. No strategy promoted; no historical baseline pooled.
-- Block-audit series: three disjoint seed windows, 6,000 seed draws / 144,000 model-rounds. Allocation uniqueness checked within each cohort; no cross-cohort allocation deduplication.
-- Other cohorts remain separate: 2,120 tie-break seed draws / 12,720 paired rounds; 88,886 prior allocations; 1,074 multi-action positions; 5,863 state-world assignments; 5,000 invariant-smoke rounds.
+- Latest checkpoint: deterministic mixed-finish contract audit for the recovered qosa-1.0.0, 3×9 coded model.
+- Exhaustively applied 33 mixed-finish sequence orderings across 1–4 closing doubles; new test passed 1,095 assertions. Score-floor integration covered 408 score/magnitude pairs.
+- Existing checks rerun: finish-minus integration passed; score-floor contract passed 41,237 assertions; four-branch lock fixture passed with 24 four-double orderings.
+- No deals, seed draws, strategy comparisons, or strategy promotion in this run. Finding is internal implementation consistency only; physical rules remain unauthenticated.
+- Unresolved: physical branch lock/open semantics, block winner/tie allocation, and loneZero=10.
 
-Exact next action: stop expanding the mix/rotation interaction. Return to engine validation with exhaustive mixed-finish fixtures for 1–4 closing doubles (−10/−20/−30/−40), score-floor boundaries, and legal branch/open-state transitions. Keep block winner/scoring provisional.
+Cumulative independent cohorts remain separate: block audit 6,000 seed draws / 144,000 model-rounds; tie-break ablation 2,120 seed draws / 12,720 paired rounds; prior allocation/state-world/multi-action cohorts and 5,000 smoke rounds unchanged. No historical-baseline pooling.
 
-Report: qosha-research/runs/2026-11-03-0850-block-tied-minimum-paired-mix-rotation-holdout.md
-Data: qosha-research/runs/2026-11-03-0850-block-tied-minimum-paired-mix-rotation-holdout.json
-Reproducer: qosha-research/simulator/block-tied-minimum-paired-contrast.js
-Regression test: qosha-research/simulator/block-tied-minimum-paired-contrast-test.js
+Exact next action: validate draw-one-then-play/pass when a drawn tile enables a double sequence or mixed finish; test stock consumption, pass counter, hand conservation, and finish precedence.
+
+Report: qosha-research/runs/2026-11-03-0949-mixed-finish-exhaustive-contract-audit.md
+Test: qosha-research/simulator/mixed-finish-exhaustive-contract-test.js

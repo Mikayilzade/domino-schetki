@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T08:50:37+04:00: paired tied-minimum block mix/rotation holdout (2,000 unique deals; 48,000 model-rounds; 1,976 tied traces replay-verified). No stable mix×rotation interaction; branch/block assumptions remain provisional. See qosha-research/RESULTS.md and the linked run report.
+2026-11-03T09:49:17+04:00: exhaustive mixed-finish contract audit (33 sequence orderings, 1,095 assertions; score-floor integration 408 pairs). Internal code validation only; physical rule assumptions remain provisional. See qosha-research/RESULTS.md and the linked run report.
