@@ -2960,3 +2960,15 @@ Confidence is high for these coded-model metamorphic and matched-seed measuremen
 - Other prior separate cohorts unchanged: 88,886 deal allocations, 1,074 selected multi-action positions, 5,863 state-world assignments, and the 5,000-round invariant smoke.
 - **Exact next action:** add committed per-deal cluster-summary output plus a deterministic regression test to the ablation runner, then return to labelled block-winner/tie and branch lock/open hypotheses. Keep strategy promotion gated on physical-rule evidence or explicitly isolated model assumptions.
 
+
+
+# Deal-clustered branch-label tie-break ablation — 2026-11-03T04:49:39+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0, 3×9 + one stock. Seeds 3,405,520–3,406,519; 1,000 unique deals, 0 duplicates; three seat rotations; 6,000 paired rounds; all resolved.
+- **Mixes:** random-legal/min-hand-pips/closed-branch-control and fast-doubles/moderate-double-hold/closed-branch-control. Baseline stable-key tie-break vs symmetric action-orbit tie-break; random-legal uses a common seeded action.
+- **Branch audit:** 2,289 sampled positions; 54,936 permutation checks; 47,472 playable comparisons; 237,360 distributional checks; 0 option/action-set/distribution mismatches.
+- **Matched outcomes:** round-kind changes 154/3,000 (5.13%, deal-clustered 95% CI 4.35–5.92%) in mix 1 and 181/3,000 (6.03%, 5.14–6.93%) in mix 2. Finish winner changed in 548/2,812 both-finish pairs (19.49%, 17.99–20.98%) and 565/2,780 (20.32%, 18.80–21.84%). Minus changed in 9.35% and 10.61% of both-finish pairs. Mean turn and final-pip intervals span zero.
+- **Finding:** measurable tie-break/representation sensitivity, not strategy superiority. No strategy promoted; physical branch lock/open, block winner/tie, and loneZero=10 remain unresolved.
+- **Regression/data:** runner deterministic replay and cluster recomputation passed; cluster-statistics fixtures passed 17 assertions. Added 2,000 per-deal cluster rows in [run JSON](runs/2026-11-03-0449-branch-label-tiebreak-clustered-1000.json); see [report](runs/2026-11-03-0449-branch-label-tiebreak-clustered-1000.md).
+- **Separate scale:** matched tie-break cohorts now total 2,120 distinct seed draws / 12,720 paired comparisons across their distinct ranges. Other cohorts remain separate: 88,886 allocations, 1,074 multi-action positions, 5,863 state-world assignments, 5,000 smoke rounds. No historical-baseline pooling.
+- **Exact next action:** audit block winner/tie allocation under labelled candidate rules across seat permutations; retain provisional status until physical rules are confirmed.
