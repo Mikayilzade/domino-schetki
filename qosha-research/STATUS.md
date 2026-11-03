@@ -1,17 +1,18 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-03T15:51:25+04:00 Asia/Baku.
+Last checkpoint: 2026-11-03T16:47:36+04:00 Asia/Baku.
 
-- Latest checkpoint: finish-only round-to-PWA score adapter integration on a deterministic independent 3×9 round stream.
+- Latest checkpoint: matched three-order PWA finish-score event-order sensitivity on one deterministic independent 3×9 round stream.
 - Seeds: 17,000,000–17,001,028; 1,029 attempts, 29 redeals, 1,000 accepted rounds, 1,000 unique allocations, no duplicates.
-- Round outcomes: 955 finishes / 45 blocks / 0 unresolved. Finish-minus 0/−10/−20/−30/−40 = 913/41/1/0/0.
-- Adapter progression: 2,865 mapped seat deltas; 1,902 nonzero score events applied; 913 zero inputs skipped; 50 nonzero events pending after PWA match completion; 75 matches completed; 9 score-floor hits; 75 bust events.
-- Validation: 1,544 integration assertions; 505 score-floor cases; 101 100/101 boundary pairs; 40-round deterministic smoke test passed 10 assertions; full 1,000-round replay exact.
-- Most useful finding: active PWA scoring is sequential/manual. First nonzero event reaching 101 and leaving at most two survivors ends the match; event order can change the exploded seat. Zero inputs are skipped. Ascending seat order is only a harness convention.
-- Limits: terminal-pip-plus-finisher-minus mapping remains provisional; blocks intentionally unscored; no strategy comparison or promotion; historical baseline not pooled.
+- Round outcomes: 955 finishes / 45 blocks / 0 unresolved. Finish-minus 0/−10/−20/−30/−40 = 913/41/1/0/0. Blocks remain unscored.
+- Matched entry orders: 0-1-2, 1-2-0, 2-0-1. All arms completed 75 matches at the same 75 round indices; median match length 14, mean 13.293 rounds, tail 3.
+- Applied / skipped / pending nonzero events: 1,902 / 913 zeros skipped / 50 pending for 0-1-2; 1,899 / 913 / 53 for 1-2-0; 1,914 / 913 / 38 for 2-0-1.
+- At shared match boundaries, exploded-seat identity differed in 7/75, 10/75, and 5/75 pairwise comparisons. This is manual PWA entry-order sensitivity, not a strategy result.
+- Validation: 37 assertions passed; full 1,000-round cohort plus exact 40-round replay. No historical baseline pooled.
+- Limits: finish-pip-plus-finisher-minus mapping is provisional; only 3 of 6 permutations tested; block winner/tie allocation unresolved; no strategy comparison or promotion.
 
-Exact next action: run a matched three-order sensitivity audit over the same round-outcome stream (0-1-2, 1-2-0, 2-0-1), record applied/pending nonzero events, skipped zero inputs, and exploded seat, and treat differences as manual score-entry order sensitivity.
+Exact next action: test all 6 seat permutations on a disjoint 1,000-round holdout; check match-ending boundary invariance and exploded-seat/survivor-place sensitivity.
 
-Report: qosha-research/runs/2026-11-03-1551-finish-score-match-integration.md
-Runner: qosha-research/simulator/finish-score-match-roundstream.js
-Tests: qosha-research/simulator/finish-score-match-integration-test.js; qosha-research/simulator/finish-score-match-roundstream-test.js
+Report: qosha-research/runs/2026-11-03-1647-finish-score-event-order-sensitivity.md
+Runner: qosha-research/simulator/finish-score-event-order-sensitivity.js
+Test: qosha-research/simulator/finish-score-event-order-sensitivity-test.js
