@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T20:57:37+04:00: event-level replay of 20M six-order cohort (1,000 existing accepted 3×9 outcomes, 0 new deals). All 26 dependent 11–20-gap rank changes came from pending survivor score events at only 3 distinct boundaries (560/801/856), not pure sorting. [Report](runs/2026-11-03-2057-finish-score-order-event-traces.md), [runner](simulator/finish-score-event-order-trace-20m.js), [test](simulator/finish-score-event-order-trace-20m-test.js).
+2026-11-03T21:52:18+04:00: read-only active PWA v16 tie override verified; versioned tie-aware research adapter and four-cohort matched replay (4,000 existing accepted 3×9 outcomes, 0 new deals). 30 tied arm results at 11 unique boundaries; legacy 2/1 survivor tie handling was not active-PWA behavior. [Report](runs/2026-11-03-2152-pwa-v16-tie-correction.md), [runner](simulator/pwa-v16-tie-audit.js), [test](simulator/pwa-v16-tie-test.js).

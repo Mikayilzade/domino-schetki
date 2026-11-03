@@ -3176,3 +3176,13 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - **Cumulative scale:** order-sensitivity cohorts remain 4,000 accepted outcomes across four separate cohorts (3,000 in six-order holdouts); current run reuses 1,000 of them, no addition.
 - **Exact next action:** read-only live PWA pending-event verification with positive and negative deltas, then prioritize physical branch/block semantics and matched-seed strategy work.
 - **Files:** [report](runs/2026-11-03-2057-finish-score-order-event-traces.md), [JSON](runs/2026-11-03-2057-finish-score-order-event-traces.json), [runner](simulator/finish-score-event-order-trace-20m.js), [test](simulator/finish-score-event-order-trace-20m-test.js).
+
+
+# Active PWA v16 tie overlay and four-cohort replay — 2026-11-03T21:52:18+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3, recovered qosa-1.0.0 3×9 coded model, active PWA v16 tie-aware adapter; branch and terminal-pip scoring assumptions remain provisional, blocks unscored.
+- **Deals/seeds:** 0 new deals; matched replay of four separate 1,000-accepted-outcome cohorts, attempts 17,000,000–17,001,028 / 18,000,000–18,001,037 / 19,000,000–19,001,040 / 20,000,000–20,001,034; deterministic legal-action hash, six seat-entry orders per cohort.
+- **Finding:** active `scoreboard-v16.js` overrides tied survivors to a draw with 1.5 points each and no win, unlike the legacy research adapter's stable-sort 2/1. Across the four cohorts, 30 tie outcomes in six-order arms belong to 11 unique finishing boundaries (3/3/3/2). Matched 15-pair survivor-place differences change 206→214, 188→188, 137→155, 154→165 by cohort; these are dependent contrasts, not independent games. Completed match boundaries unchanged at 75/72/73/76 per arm. The old 20M 11–20 bin count of 26 becomes 28 under v16.
+- **Validation:** read-only source-extracted v14/v16 PWA fixture oracle (positive and negative pending survivor deltas); four deterministic 1,000-outcome replays; versioned adapter and regression test. Confidence high for PWA implementation semantics, not physical rules or strategy superiority.
+- **Next:** draw-aware event trace of 11 unique tied boundaries, then return to unresolved branch/block validation and matched-seed strategy experiments. Preserve historical adapter and run files.
+- **Files:** [report](runs/2026-11-03-2152-pwa-v16-tie-correction.md), [runner](simulator/pwa-v16-tie-audit.js), [test](simulator/pwa-v16-tie-test.js), [versioned adapter](simulator/match-scoring-v16.js).

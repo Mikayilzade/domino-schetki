@@ -101,7 +101,7 @@ This is repository implementation evidence, not independent authentication of ph
 - The active Qoşa path in `scoreboard.js`/`scoreboard-v14.js` applies a zero score floor, marks an entity exploded when its score reaches **101 or more**, and prepares a result once at most two entities remain. With two survivors, the lower score is assigned 2 daily points and the other 1. A one-survivor branch assigns 3 points, but under the stop-at-two flow it is not reached from an ordinary 3+ player sequence; it is covered only as a separate code-path fixture.
 - `scoreboard-extra.js` help text says that finishing with a gosha removes 10 and that the score cannot fall below zero. The UI accepts manual score entries; the source does not define whether this phrase is exactly the recovered `loneZero=10` parameter or what hand/finish qualifies. Keep `loneZero=10` unresolved.
 - The unreferenced `qosha-101.js` instead declares a target-reaching win at 101. It is a conflicting legacy variant, not evidence for the current active PWA and must not be mixed with `bust=101`.
-- Survivor-score ties use the current JavaScript stable-sort/input-order behavior in the implementation; no physical tie rule is authenticated.
+- **Correction (active scoreboard-v16.js):** equal survivor scores at the 101-triggered result produce a draw, 1.5 rating points each and no recorded win. The earlier stable-sort 2/1 interpretation applies only to the uncorrected research adapter, not the active PWA. No physical tie rule is authenticated.
 
 Compatibility tests live in `simulator/match-scoring.js` and `simulator/match-scoring-test.js`. These tests preserve the source-derived PWA contract separately from round-kernel and physical-rule validation.
 
@@ -122,3 +122,9 @@ Compatibility tests live in `simulator/match-scoring.js` and `simulator/match-sc
 - Block outcomes remain unscored until block winner/tie allocation is confirmed. The PWA help text says penalties add points and finishing with a gosha removes 10, but does not resolve the full terminal-pip mapping or loneZero=10.
 - Evidence is implementation-only: scoreboard.js, scoreboard-v14.js, and scoreboard-extra.js; no live PWA files were changed.
 
+
+## Active PWA v16 tie overlay (read-only, 2026-11-03)
+
+- `scoreboard-v16.js` wraps the v14 Qoşa evaluator: after a 101 bust with exactly two survivors, equal current scores set `isDrawV16` and award 1.5 rating points to each; the confirmation wrapper suppresses win counts. Later v17–v19 scripts do not replace the Qoşa evaluator.
+- The legacy research `match-scoring.js` is retained to reproduce old cohorts; `match-scoring-v16.js` and `finish-score-match-integration-v16.js` are the active-source-compatible, opt-in research variant. A null place means no unique first place.
+- Sequential event order can create or remove a tie when positive or negative survivor deltas are pending after a bust. This is PWA implementation behavior, not authentication of physical table scoring.

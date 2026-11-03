@@ -1,0 +1,22 @@
+# Active PWA v16 tie correction and matched six-order replay — 2026-11-03T21:52:18+04:00 (Asia/Baku)
+
+- **Engine/rules:** `qosha-research-0.5.3`, recovered `qosa-1.0.0` coded 3×9 + one-stock model. New match adapter `pwa-bust-101-v16-tie/v1`; original `match-scoring.js` and old run files are intentionally preserved for exact historical replay.
+- **Read-only active-source evidence:** `index.html` loads `scoreboard-v14.js` then `scoreboard-v16.js` (and later v17–v19, none of which replace the Qoşa `evaluate` tie override). Blob SHAs: index `9530d5163d20770efb171f68d956815893c5d032`, v14 `f07d609bb6c2ff0092d0f340892092a38fd16cc4`, v16 `f3cfe7514d1080329ddb3c208af4b59da30d48ea`. The v16 override changes equal surviving scores into `isDrawV16`, awarding **1.5 rating points to each survivor**, and the v16 confirmation wrapper restores wins/daily-win counts (no winner). The old research adapter incorrectly awarded **2/1** by stable input order on ties.
+- **Fixtures:** extracted active v14/v16 evaluate functions were run in a side-effect-free harness. Both positive pending survivor penalties and negative pending finish-minus entries were checked against the new versioned adapter; a tie appears only if the two surviving scores are equal at the instant the first 101-crossing event ends the match. Zero/floor/block behavior stays isolated. `place:null` in the new adapter means no unique first place, not a PWA UI label.
+- **Deals and seed ranges:** **0 new independent deals**; four disjoint previously accepted 1,000-outcome cohorts, replayed under six manual entry orders each. Attempt ranges: 17M `17,000,000–17,001,028` (29 redeals), 18M `18,000,000–18,001,037` (38 redeals), 19M `19,000,000–19,001,040` (41 redeals), 20M `20,000,000–20,001,034` (35 redeals). Deterministic seed/turn/player hash chooses legal actions; it is a validation policy, not a strategy.
+- **Matched replay:** completed matches per order = **75/72/73/76** by cohort, unchanged by the tie correction. **30 draw outcomes across six order arms** arise at only **11 distinct finishing boundaries** (3/3/3/2 by cohort). These 30 are dependent, not independent games.
+- **Correction to dependent pairwise metrics (15 order pairs per cohort):**
+
+| Cohort | Old survivor-place differences | v16 survivor-place differences | Old first-place differences | v16 unique-first-place differences |
+|---|---:|---:|---:|---:|
+| 17M | 206 | 214 | 116 | 124 |
+| 18M | 188 | 188 | 152 | 152 |
+| 19M | 137 | 155 | 101 | 119 |
+| 20M | 154 | 165 | 133 | 144 |
+
+- **New finding:** v16 ties were omitted from the research adapter, so some previously published rank/first-place sensitivity counts describe **legacy adapter behavior, not the active PWA**. Across these four separate cohorts, the aggregate number of *dependent pairwise contrasts* changes from 685 to 722 for survivor places; do not interpret 37 additional contrasts as independent observations. For 20M in the 11–20 pre-round-gap bin, survivor-place differences become **28**, not the legacy **26**. The prior 26 event traces remain valid for the versioned legacy model only.
+- **Validation/confidence:** in-memory execution of the exact GitHub module sources and four complete 1,000-outcome matched replays; source-extracted PWA v14/v16 fixture oracle. High confidence in this implementation-level correction. New Node regression test covers source parity, pending positive/negative events, legacy isolation, deterministic smoke, and four cohort counts. No new strategy advantage or physical-rule authentication.
+- **Limitations:** terminal hand pips plus finisher-minus remains a provisional round-to-score mapping; block outcomes remain unscored; branch/opening interpretation remains provisional. Manual entry order is not a gameplay strategy. Cohorts and historical baseline remain separate.
+- **Exact next action:** perform draw-aware event traces for the **11 unique tied boundaries** (especially the extra two 20M 11–20 contrasts) and then prioritize unresolved physical branch/block semantics and matched-seed strategy comparisons. Do not extend score-order sample size before the tie-aware trace audit.
+
+Reproducer: [versioned scoring](../simulator/match-scoring-v16.js) · [versioned integration](../simulator/finish-score-match-integration-v16.js) · [six-order audit](../simulator/pwa-v16-tie-audit.js) · [regression test](../simulator/pwa-v16-tie-test.js). No live scoreboard/PWA file modified.
