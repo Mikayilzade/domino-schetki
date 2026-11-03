@@ -29,23 +29,27 @@ function validateSeatOrder(order, players) {
 }
 /**
  * Applies mapped finish deltas as sequential PWA score events in the supplied seat order.
- * If the PWA adapter finishes after an event, later same-round seat events are not applied.
+ * Zero deltas are skipped because the active PWA calculator returns before evaluating zero input.
+ * If the PWA adapter finishes after an event, later nonzero same-round seat events remain pending.
  * The default ascending seat order is a harness convention, not a physical/table rule.
  */
 function applyFinishOutcomeToMatch(entities, outcome, { seatOrder = entities.map((_, i) => i), threshold = scoring.DEFAULT_BUST_THRESHOLD } = {}) {
   const mapping = finishOutcomeToDeltas(outcome, entities.length);
   const current = entities.map(entity => ({ ...entity }));
-  if (mapping.kind === 'block-unscored') return { entities: current, finished: false, unscored: true, mapping, events: [], pendingSeats: [] };
+  if (mapping.kind === 'block-unscored') return { entities: current, finished: false, unscored: true, mapping, events: [], skippedZeroSeats: [], pendingSeats: [] };
   validateSeatOrder(seatOrder, entities.length);
   const events = [], applied = new Set();
+  const skippedZeroSeats = seatOrder.filter(seat => mapping.deltas[seat] === 0);
+  for (const seat of skippedZeroSeats) applied.add(seat);
   let finished = false, places = [];
   for (const seat of seatOrder) {
+    if (mapping.deltas[seat] === 0) continue;
     const result = scoring.evaluateQoshaScoreEvent(current, current[seat].id, mapping.deltas[seat], threshold);
     for (let i = 0; i < current.length; i++) current[i] = result.entities[i];
     events.push({ seat, entityId: current[seat].id, delta: mapping.deltas[seat], ignored: !!result.ignored, noOp: !!result.noOp });
     applied.add(seat);
     if (result.finished) { finished = true; places = result.places; break; }
   }
-  return { entities: current, finished, unscored: false, mapping, events, places, pendingSeats: seatOrder.filter(seat => !applied.has(seat)) };
+  return { entities: current, finished, unscored: false, mapping, events, places, skippedZeroSeats, pendingSeats: seatOrder.filter(seat => !applied.has(seat) && mapping.deltas[seat] !== 0) };
 }
 module.exports = { ALLOWED_FINISH_MINUS, finishOutcomeToDeltas, applyFinishOutcomeToMatch };

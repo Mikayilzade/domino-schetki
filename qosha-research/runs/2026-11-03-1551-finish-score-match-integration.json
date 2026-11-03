@@ -29,8 +29,10 @@
   },
   "scoreAdapter": {
     "scoredRounds": 955,
-    "scoreEvents": 2784,
-    "pendingEventsAfterPwaFinish": 81,
+    "mappedSeatDeltas": 2865,
+    "scoreEvents": 1902,
+    "zeroInputsSkipped": 913,
+    "pendingNonzeroEventsAfterPwaFinish": 50,
     "completedMatches": 75,
     "meanRoundsPerCompletedMatch": 13.293333333333333,
     "medianRoundsPerCompletedMatch": 14,
@@ -41,7 +43,7 @@
     "eventOrder": "ascending seat index (harness convention; not authenticated)"
   },
   "validation": {
-    "integrationAssertions": 1542,
+    "integrationAssertions": 1544,
     "scoreFloorCases": 505,
     "bustBoundaryPairs": 101,
     "roundstreamSmoke": {
@@ -50,14 +52,14 @@
       "finishes": 37,
       "blocks": 3,
       "completedMatches": 3,
-      "assertions": 9
+      "assertions": 10
     },
     "fullRunExactReplay": true
   },
-  "newFinding": "Active PWA score events are sequential and manual. The first event that reaches 101 and leaves at most two survivors ends the match; later same-round seat events remain pending. The same deltas can explode different seats under different event orders.",
+  "newFinding": "Active PWA score events are sequential/manual. Zero inputs are skipped. The first nonzero event that reaches 101 and leaves at most two survivors ends the match; later nonzero same-round seat events remain pending. The same deltas can explode different seats under different event orders.",
   "scoringAssumption": "Each seat receives its terminal hand pip sum; the empty finisher additionally receives finish-minus. This is an explicit research mapping assumption, not authenticated physical scoring.",
   "limitations": "Blocks are unscored because block winner/tie allocation is unresolved. The round stream uses independent accepted first-round deals, not actual match-start continuation. No strategy comparison, strategy promotion, or historical-baseline pooling.",
-  "nextAction": "Matched three-order sensitivity audit over the same outcome stream, preserving block no-op and recording applied/pending events and exploded seat.",
+  "nextAction": "Matched three-order sensitivity audit over the same outcome stream, preserving block no-op and recording applied/pending nonzero events, skipped zero inputs, and exploded seat.",
   "sourceBlobs": {
     "engine": "82e5bd544a57683d5b4f7812beb2d4abf80da894",
     "initializer": "2fad29e516454580ec9a06115354e9866f3096e6",

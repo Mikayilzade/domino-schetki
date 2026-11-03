@@ -10,8 +10,8 @@ function zeroMatch(){return[0,1,2].map(i=>({id:'P'+i,score:0,exploded:false}));}
 function fingerprint(deal){const keys=xs=>xs.map(e.tileKey).sort().join(',');return deal.hands.map(keys).join('|')+'|stock='+keys(deal.stock);}
 function runStream({startSeed=17000000,acceptedRounds=1000,maxAttemptsPerRound=100,maxTurns=200}={}){
   let cursor=startSeed,redeals=0,attempts=0,accepted=0,finishes=0,blocks=0,unresolved=0;
-  let scoredRounds=0,scoreEvents=0,pendingEvents=0,completedMatches=0,activeMatchRounds=0,floorHits=0,bustEvents=0,maxScoreObserved=0;
-  let current=zeroMatch(); const matchRoundLengths=[],minus={'0':0,'-10':0,'-20':0,'-30':0,'-40':0}; const seen=new Map();
+  let scoredRounds=0,scoreEvents=0,zeroInputsSkipped=0,pendingEvents=0,completedMatches=0,activeMatchRounds=0,floorHits=0,bustEvents=0,maxScoreObserved=0;
+  let current=zeroMatch();const matchRoundLengths=[],minus={'0':0,'-10':0,'-20':0,'-30':0,'-40':0};const seen=new Map();
   for(let i=0;i<acceptedRounds;i++){
     let ready=null,chosenSeed=null,tries=0;
     while(tries<maxAttemptsPerRound){
@@ -34,7 +34,8 @@ function runStream({startSeed=17000000,acceptedRounds=1000,maxAttemptsPerRound=1
       if(beforeScores[event.seat]+event.delta>=101&&!current[event.seat].exploded)bustEvents++;
       beforeScores[event.seat]=Math.max(0,beforeScores[event.seat]+event.delta);maxScoreObserved=Math.max(maxScoreObserved,beforeScores[event.seat]);
     }
-    pendingEvents+=result.pendingSeats.length;current=result.entities;if(result.unscored)throw new Error('finish unexpectedly marked unscored');
+    zeroInputsSkipped+=result.skippedZeroSeats.length;pendingEvents+=result.pendingSeats.length;current=result.entities;
+    if(result.unscored)throw new Error('finish unexpectedly marked unscored');
     if(result.finished){completedMatches++;matchRoundLengths.push(activeMatchRounds);activeMatchRounds=0;current=zeroMatch();}
   }
   const sorted=[...matchRoundLengths].sort((a,b)=>a-b);
@@ -46,8 +47,8 @@ function runStream({startSeed=17000000,acceptedRounds=1000,maxAttemptsPerRound=1
     initialization:'independent accepted first-round deals; if 1-1 is in stock, advance to next seed and retry',
     seed:{start:startSeed,attemptEnd:cursor-1,attempts,acceptedRounds:accepted,redealSignals:redeals,uniqueAcceptedAllocations:seen.size,duplicateAcceptedAllocations:0},
     roundOutcomes:{finishes,blocks,unresolved,finishMinus:minus},
-    scoreAdapter:{scoredRounds,scoreEvents,pendingEventsAfterPwaFinish:pendingEvents,completedMatches,meanRoundsPerCompletedMatch:completedMatches?matchRoundLengths.reduce((a,b)=>a+b,0)/completedMatches:null,medianRoundsPerCompletedMatch:median,unfinishedTailRounds:activeMatchRounds,floorHits,bustEvents,maxScoreObserved,eventOrder:'ascending seat index (harness convention; not authenticated)'},
-    limitations:'Independent accepted first-round deals are streamed as score rounds, not a physical match-start sequence. Score mapping assumes each seat receives terminal hand pips and finisher additionally receives finish-minus. PWA adapter stops on the first event leaving at most two survivors; later same-round seat events remain pending. Block winner/tie allocation is unresolved and blocks are unscored. No strategy comparison or physical-rule authentication.'
+    scoreAdapter:{scoredRounds,scoreEvents,zeroInputsSkipped,pendingEventsAfterPwaFinish:pendingEvents,completedMatches,meanRoundsPerCompletedMatch:completedMatches?matchRoundLengths.reduce((a,b)=>a+b,0)/completedMatches:null,medianRoundsPerCompletedMatch:median,unfinishedTailRounds:activeMatchRounds,floorHits,bustEvents,maxScoreObserved,eventOrder:'ascending seat index (harness convention; not authenticated)'},
+    limitations:'Independent accepted first-round deals are streamed as score rounds, not a physical match-start sequence. Score mapping assumes each seat receives terminal hand pips and finisher additionally receives finish-minus. PWA adapter stops on the first nonzero event leaving at most two survivors; later same-round nonzero seat events remain pending, while zero inputs are skipped. Block winner/tie allocation is unresolved and blocks are unscored. No strategy comparison or physical-rule authentication.'
   };
 }
 if(require.main===module)process.stdout.write(JSON.stringify(runStream({startSeed:Number(process.argv[2]||17000000),acceptedRounds:Number(process.argv[3]||1000)}),null,2)+'\n');

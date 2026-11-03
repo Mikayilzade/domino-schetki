@@ -113,3 +113,12 @@ Compatibility tests live in `simulator/match-scoring.js` and `simulator/match-sc
 - Block outcomes remain unscored until block winner/tie allocation is confirmed. The PWA help text says penalties add points and finishing with a gosha removes 10, but does not resolve the full terminal-pip mapping or loneZero=10.
 - Evidence is implementation-only: scoreboard.js, scoreboard-v14.js, and scoreboard-extra.js; no live PWA files were changed.
 
+## Sequential score-event order audit (read-only, 2026-11-03)
+
+- The active PWA calculator applies a score entry to one entity, then evaluates the Qoşa 101 threshold. In the active scoreboard.js / scoreboard-v14.js path, a score of 101 or more marks that entity exploded; when at most two entities remain, a pending match result is created immediately.
+- This is sequential manual score-entry behavior, not an atomic round batch. If multiple players would cross 101 from one round's entries, the first entered event can determine which seat explodes and which two survivors are ranked. The entry order is the user's manual action order; a simulator's fixed seat order is only a declared harness convention.
+- The calculator returns before evaluating a zero input. The research adapter therefore skips zero score deltas and distinguishes them from pending nonzero events.
+- The research adapter currently tests a provisional mapping for finish outcomes: each seat receives its terminal hand pip sum and the empty finisher additionally receives the finish-minus. This is not independently authenticated as the exact table scoring convention.
+- Block outcomes remain unscored until block winner/tie allocation is confirmed. The PWA help text says penalties add points and finishing with a gosha removes 10, but does not resolve the full terminal-pip mapping or loneZero=10.
+- Evidence is implementation-only: scoreboard.js, scoreboard-v14.js, and scoreboard-extra.js; no live PWA files were changed.
+
