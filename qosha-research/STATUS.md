@@ -1,18 +1,16 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-03T17:49:56+04:00 Asia/Baku.
+Last checkpoint: 2026-11-03T20:57:37+04:00 Asia/Baku.
 
-- Latest checkpoint: all-six seat-permutation PWA finish-score event-order holdout on a disjoint 3×9 round stream.
-- Seeds: attempt range 18,000,000–18,001,037; 1,038 attempts, 38 redeals, 1,000 accepted rounds, 1,000 unique allocations, 0 duplicates.
-- Round outcomes: 952 finishes / 48 blocks / 0 unresolved. Finish-minus 0/−10/−20/−30/−40 = 915/36/1/0/0. Blocks remain unscored.
-- All six seat orders replayed the same outcomes. Each completed 72 matches with mean 13.778 / median 14 rounds and an 8-round tail.
-- Match-ending accepted-round indices were invariant across all six orders: 72 common boundaries and 0 unique boundaries in every pairwise contrast.
-- At shared boundaries, exploded-seat identity changed in 1–7/72 pairwise matches; survivor-place assignment in 5–21/72; first-place identity in 4–17/72. This is descriptive PWA input-order sensitivity, not a strategy result.
-- Validation: 193 assertions; exact full 1,000-round replay; exact 40-round smoke replay; 0 unresolved smoke rounds. No historical baseline pooled.
-- Limits: terminal-pip-plus-finish-minus mapping remains provisional; blocks remain unscored; manual PWA entry order is not a physical rule; no strategy comparison or promotion.
+- Event-level six-order replay of the existing 20M cohort; 1,000 accepted 3×9 outcomes / 1,035 attempts / 35 redeals / 942 finishes / 58 unscored blocks. No new independent deals.
+- Six orders completed 76 matches on the same boundaries. The prior 26 dependent rank changes at gap 11–20 came from only 3 unique boundaries (560, 801, 856; 9/9/8 comparisons).
+- In all 26, pending survivor deltas and survivor scores differed. None was sorting-only; no exploded-seat or pre-round-score difference. Pending events can include negative finish-minus.
+- Validation: 28,265 trace/adapter checks; 146 regression assertions; exact full replay and 40-round smoke; full 26 pair traces stored in JSON.
+- Order-sensitivity cumulative: 4,000 accepted outcomes across four separate cohorts (3,000 six-order); current run is a replay, not new data.
+- Limits: provisional terminal-pip scoring, unscored blocks, unresolved physical branch/block rules, no strategy advantage established.
 
-Exact next action: run a second disjoint 1,000-round holdout starting at seed 19,000,000 with all six orders; preregister match-boundary invariance and repeat exploded-seat/survivor-place comparisons, then stratify by score proximity to 101 only if invariance reproduces.
+Exact next action: read-only verify live PWA pending-event behavior with positive and negative survivor deltas, then resume branch/block physical-rule validation and matched-seed strategy experiments.
 
-Report: [run report](runs/2026-11-03-1749-finish-score-event-order-six-permutation-holdout.md)
-Runner: [reproducer](simulator/finish-score-event-order-six-permutation-holdout.js)
-Test: [regression test](simulator/finish-score-event-order-six-permutation-holdout-test.js)
+Report: [event-level trace audit](runs/2026-11-03-2057-finish-score-order-event-traces.md)
+Runner: [reproducer](simulator/finish-score-event-order-trace-20m.js)
+Test: [regression](simulator/finish-score-event-order-trace-20m-test.js)

@@ -3165,3 +3165,14 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - **Exact next action:** inspect event-level traces for the 26 rank changes in the 11–20 stratum where the exploded seat stayed the same; separate pending-event effects from survivor sorting before another holdout.
 - **Files:** [report](runs/2026-11-03-1952-finish-score-event-order-proximity-six-permutation-holdout.md), [JSON](runs/2026-11-03-1952-finish-score-event-order-proximity-six-permutation-holdout.json), [runner](simulator/finish-score-event-order-proximity-six-permutation-20m.js), [test](simulator/finish-score-event-order-proximity-six-permutation-20m-test.js).
 
+
+# PWA score-order event-level trace diagnosis — 2026-11-03T20:57:37+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0 3×9 + one-stock coded model; provisional finish-pip mapping; blocks unscored.
+- **Seeds/deals:** exact replay of 20,000,000–20,001,034; 1,035 attempts, 35 redeals, 1,000 unique accepted outcomes (942 finish, 58 block); **0 new independent deals**. Deterministic legal-action hash policy, not a strategy arm.
+- **Six matched orders:** 76 common match boundaries per order. Previously observed 26 rank changes in gap 11–20 = **3 unique boundaries**, indices 560/801/856 (9/9/8 dependent contrasts). All 26 involved changed pending survivor events and survivor scores; **0 sorting-only**, **0 different pre-round scores**, **0 changed exploded seat**.
+- **Mechanism:** PWA ends immediately on the first 101-crossing event. Nonzero survivor deltas scheduled later in the manual entry order remain pending; this can reverse survivor ranking even if the busting seat is unchanged. A pending delta can be positive or negative (finish-minus).
+- **Validation:** 28,265 trace/adapter checks; 146 regression assertions; exact full replay and 40-round smoke. All 26 traces retained in JSON. Physical rules not authenticated, no strategy promoted, historical baseline not pooled.
+- **Cumulative scale:** order-sensitivity cohorts remain 4,000 accepted outcomes across four separate cohorts (3,000 in six-order holdouts); current run reuses 1,000 of them, no addition.
+- **Exact next action:** read-only live PWA pending-event verification with positive and negative deltas, then prioritize physical branch/block semantics and matched-seed strategy work.
+- **Files:** [report](runs/2026-11-03-2057-finish-score-order-event-traces.md), [JSON](runs/2026-11-03-2057-finish-score-order-event-traces.json), [runner](simulator/finish-score-event-order-trace-20m.js), [test](simulator/finish-score-event-order-trace-20m-test.js).

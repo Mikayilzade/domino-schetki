@@ -26,4 +26,4 @@
 Исторические результаты из чата сохраняются отдельно от новых прогонов.
 
 ## Latest checkpoint
-2026-11-03T19:52:18+04:00: third six-permutation PWA finish-score holdout (1,000 accepted 3×9 outcomes; attempt seeds 20,000,000–20,001,034; all six orders shared 76 match boundaries). The 19M proximity pattern repeated: observed order sensitivity was within 20 points of 101; no differences in the 60 dependent 21–40 pair-boundaries. See the [run report](runs/2026-11-03-1952-finish-score-event-order-proximity-six-permutation-holdout.md), [runner](simulator/finish-score-event-order-proximity-six-permutation-20m.js), and [test](simulator/finish-score-event-order-proximity-six-permutation-20m-test.js).
+2026-11-03T20:57:37+04:00: event-level replay of 20M six-order cohort (1,000 existing accepted 3×9 outcomes, 0 new deals). All 26 dependent 11–20-gap rank changes came from pending survivor score events at only 3 distinct boundaries (560/801/856), not pure sorting. [Report](runs/2026-11-03-2057-finish-score-order-event-traces.md), [runner](simulator/finish-score-event-order-trace-20m.js), [test](simulator/finish-score-event-order-trace-20m-test.js).
