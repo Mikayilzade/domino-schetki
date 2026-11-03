@@ -3186,3 +3186,14 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - **Validation:** read-only source-extracted v14/v16 PWA fixture oracle (positive and negative pending survivor deltas); four deterministic 1,000-outcome replays; versioned adapter and regression test. Confidence high for PWA implementation semantics, not physical rules or strategy superiority.
 - **Next:** draw-aware event trace of 11 unique tied boundaries, then return to unresolved branch/block validation and matched-seed strategy experiments. Preserve historical adapter and run files.
 - **Files:** [report](runs/2026-11-03-2152-pwa-v16-tie-correction.md), [runner](simulator/pwa-v16-tie-audit.js), [test](simulator/pwa-v16-tie-test.js), [versioned adapter](simulator/match-scoring-v16.js).
+
+
+# v16 eleven-boundary trace reproducer — 2026-11-03T23:53:50+04:00 (Asia/Baku)
+
+- **Engine/rules:** `qosha-research-0.5.3`; recovered `qosa-1.0.0` 3×9 coded model; v16 tie-aware PWA adapter. Terminal-pip + finish-minus mapping remains provisional; blocks unscored.
+- **Deals/seeds:** **0 new deals**. Prepared deterministic replay of four disjoint existing 1,000-accepted-outcome cohorts starting at 17M, 18M, 19M, 20M; expected attempt ranges 17,000,000–17,001,028 / 18,000,000–18,001,037 / 19,000,000–19,001,040 / 20,000,000–20,001,034.
+- **Strategies:** no new strategy experiment; same seed/turn/player hash legal-action policy, all six score-entry permutations.
+- **Code checkpoint:** added [`simulator/pwa-v16-eleven-tie-traces.js`](simulator/pwa-v16-eleven-tie-traces.js). It captures the exact accepted-round index, seed, pre-event scores, deltas, applied event order, pending events, survivor scores and v16 draw places for every tied boundary; cross-checks every replayed event against the v16 adapter and asserts expected 30 dependent tie arm-events across 11 unique boundaries, using the previously persisted audit as reference.
+- **Finding:** the source-level trace reconstruction is now specified as an executable reproducer rather than a prose-only next step. **No new empirical finding is claimed**: execution was attempted but the container could not resolve `github.com`, so assertions and exact 11-boundary output remain **unverified** in this run. Existing 30/11 figures are previous checkpoint results, not newly measured counts.
+- **Confidence/limitations:** code persisted to GitHub; execution unverified. Existing match boundaries and old cohorts are not merged into a new sample. No physical branch/block or strategy conclusion.
+- **Exact next action:** execute `node qosha-research/simulator/pwa-v16-eleven-tie-traces.js > qosha-research/runs/pwa-v16-eleven-tie-traces.json` in a Node checkout, inspect failures and fix within `qosha-research/`, then save the verified JSON and report. Next prioritize physical branch/block invariants and matched-seed strategy comparisons.
