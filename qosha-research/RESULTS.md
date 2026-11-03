@@ -3150,3 +3150,18 @@ Reproducers: [report](runs/2026-11-03-1749-finish-score-event-order-six-permutat
 - **Exact next action:** run a further disjoint 1,000-outcome holdout from seed 20,000,000 with the same predeclared bins; check whether the concentration of changes within 20 points of 101 repeats. If it does, inspect event-level crossing/pending mechanics before making any broader claim.
 
 Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permutation-holdout.js), [test](../simulator/finish-score-event-order-proximity-six-permutation-holdout-test.js), [machine data](2026-11-03-1852-finish-score-event-order-proximity-six-permutation-holdout.json).
+
+# Six-permutation PWA score-order proximity holdout — 2026-11-03T19:52:18+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0 coded 3×9 + one-stock round model. Branch/opening semantics provisional; finish-pip-plus-finisher-minus scoring adapter provisional; blocks unscored.
+- **Deals/seeds:** 20,000,000–20,001,034; 1,035 attempts, 35 redeal signals, 1,000 accepted outcomes, 1,000 unique allocations, 0 duplicates.
+- **Round outcomes:** 942 finishes / 58 blocks / 0 unresolved; finish-minus 0/−10/−20/−30/−40 = 908/34/0/0/0. Deterministic seed/turn/player hash chose legal actions for validation only.
+- **Six orders:** all six seat-entry permutations completed 76 matches at identical boundary indices; mean/median 13.158/14 rounds, no tail. Applied/pending nonzero events by order: 0-1-2 1,877/41; 0-2-1 1,873/45; 1-0-2 1,882/36; 1-2-0 1,878/40; 2-0-1 1,869/49; 2-1-0 1,873/45. Each skipped 908 zero inputs, hit the score floor 8 times, had 76 bust events, and max score 124.
+- **Pairwise sensitivity:** across 15 dependent contrasts, exploded-seat changes 0–3/76, survivor-place changes 5–17/76, first-place changes 3–15/76; no unique match-ending boundaries.
+- **Proximity totals across 15 dependent contrasts:** gap 1–10: 885 boundaries, 27 exploded-seat / 128 survivor-place / 107 first-place changes; gap 11–20: 195 boundaries, 0 / 26 / 26; gap 21–40: 60 boundaries, 0 / 0 / 0; 41+ and no-positive-delta: 0 observations.
+- **Finding/limits:** the 19M pattern replicated: observed order sensitivity was confined to pre-round gaps ≤20 in this cohort. In the 11–20 bin, survivor ranks changed 26 times without a change in exploded-seat identity. Pairwise contrasts are dependent; no physical scoring rule or strategic advantage is established. No 41+ cases. Blocks remain unscored; no historical baseline pooled.
+- **Validation:** 288 assertions, exact full replay, and exact resolved 40-round smoke replay.
+- **Cumulative scale:** adds 1,000 accepted outcomes to three earlier disjoint streams (4,000 total across four cohorts; three six-permutation holdouts = 3,000). Cohorts remain separate.
+- **Exact next action:** inspect event-level traces for the 26 rank changes in the 11–20 stratum where the exploded seat stayed the same; separate pending-event effects from survivor sorting before another holdout.
+- **Files:** [report](runs/2026-11-03-1952-finish-score-event-order-proximity-six-permutation-holdout.md), [JSON](runs/2026-11-03-1952-finish-score-event-order-proximity-six-permutation-holdout.json), [runner](simulator/finish-score-event-order-proximity-six-permutation-20m.js), [test](simulator/finish-score-event-order-proximity-six-permutation-20m-test.js).
+
