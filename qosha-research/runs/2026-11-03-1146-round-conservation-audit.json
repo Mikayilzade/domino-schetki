@@ -1,0 +1,111 @@
+{
+  "schema": "qosa-round-conservation-audit/v1",
+  "engine": "qosha-research-0.5.3",
+  "rules": "recovered qosa-1.0.0 coded model; primary 3x9 + one stock; physical branch/opening semantics provisional",
+  "seedStart": 11000000,
+  "seedEnd": 11000099,
+  "seedDraws": 100,
+  "uniqueAllocations": 100,
+  "duplicateSeedPairs": [],
+  "policyDesign": {
+    "mix": [
+      "random-legal",
+      "min-hand-pips",
+      "closed-branch-control"
+    ],
+    "seatRotations": 3,
+    "arms": [
+      "stable-key-baseline",
+      "symmetric-action-orbit"
+    ],
+    "baseline": "existing stable-key policy; seeded random-legal",
+    "actionOrbit": "same primary rank; sample top action-orbits then members; same seeded random-legal",
+    "matchedBy": "same seed/deal and rotation"
+  },
+  "metrics": {
+    "arms": {
+      "stable-key-baseline": {
+        "rounds": 300,
+        "finish": 290,
+        "block": 10,
+        "turnTotal": 7614,
+        "minus": {
+          "0": 256,
+          "-10": 44,
+          "-20": 0,
+          "-30": 0,
+          "-40": 0
+        },
+        "inventorySnapshots": 7614,
+        "driverEquivalenceChecks": 7314,
+        "playedTileChecks": 6796,
+        "inRoundDraws": 0,
+        "maxDrawsPerTurn": 0,
+        "passTurns": 750,
+        "actionTurns": 6564,
+        "openingPasses": 12,
+        "openingDraws": 294,
+        "finalPipsTotal": 4951,
+        "transitions": 7314,
+        "meanTurns": 25.38,
+        "blockRate": 0.03333333333333333,
+        "meanFinalPipsPerSeat": 5.501111111111111,
+        "meanTransitions": 24.38
+      },
+      "symmetric-action-orbit": {
+        "rounds": 300,
+        "finish": 292,
+        "block": 8,
+        "turnTotal": 7595,
+        "minus": {
+          "0": 249,
+          "-10": 50,
+          "-20": 1,
+          "-30": 0,
+          "-40": 0
+        },
+        "inventorySnapshots": 7595,
+        "driverEquivalenceChecks": 7295,
+        "playedTileChecks": 6763,
+        "inRoundDraws": 0,
+        "maxDrawsPerTurn": 0,
+        "passTurns": 763,
+        "actionTurns": 6532,
+        "openingPasses": 12,
+        "openingDraws": 294,
+        "finalPipsTotal": 5103,
+        "transitions": 7295,
+        "meanTurns": 25.316666666666666,
+        "blockRate": 0.02666666666666667,
+        "meanFinalPipsPerSeat": 5.67,
+        "meanTransitions": 24.316666666666666
+      }
+    },
+    "paired": {
+      "rounds": 300,
+      "kindChanged": 12,
+      "bothFinish": 285,
+      "winnerChanged": 60,
+      "minusChanged": 29,
+      "kindChangeRate": 0.04,
+      "winnerChangeRateAmongBothFinish": 0.21052631578947367,
+      "minusChangeRateAmongBothFinish": 0.10175438596491228,
+      "meanTurnDelta": -0.06333333333333334
+    }
+  },
+  "invariantChecks": {
+    "allResolved": true,
+    "unresolvedRounds": 0,
+    "expectedUniqueTiles": 28,
+    "inventorySnapshots": 15209,
+    "driverEquivalenceChecks": 14609,
+    "playedTileChecks": 13559,
+    "inRoundDraws": 0,
+    "maxDrawsPerTurn": 0,
+    "passTurns": 1513,
+    "actionTurns": 13096,
+    "openingPasses": 24,
+    "openingDraws": 588
+  },
+  "limitations": "Internal conservation/driver audit only. The single stock tile is consumed during mandatory 1-1 setup in 3x9, so in-round draws may be absent; separate fixture tests cover draw-enabled paths. No physical rule authentication or strategy superiority."
+}

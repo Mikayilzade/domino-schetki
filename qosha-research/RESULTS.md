@@ -3038,3 +3038,17 @@ Confidence is high for these coded-model metamorphic and matched-seed measuremen
 - **Cumulative scale:** this run adds 0 deals and 0 strategy comparisons. Separate cohorts remain unchanged: block audit 6,000 seed draws / 144,000 model-rounds; tie-break ablation 2,120 seed draws / 12,720 paired rounds; earlier 88,886 allocations, 1,074 multi-action positions, 5,863 state-world assignments, and 5,000 smoke rounds. No cross-cohort pooling or historical-baseline mixing.
 - **Exact next action:** run a disjoint deterministic 100-seed 3×9 round-driver audit (seeds 11,000,000–11,000,099) with a fixed random-legal/action-orbit policy; check 28-tile conservation at every transition, duplicate plays, one-draw limit, pass reset/increment, finish/block termination, and report seed draws separately from unique allocations.
 - **Reproducer:** [draw-enabled action/pass contract test](simulator/draw-enabled-action-contract-test.js).
+
+
+# 3×9 round-driver conservation audit — 2026-11-03T11:46:19+04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0 coded model, primary 3×9 + one stock. Physical branch/opening semantics remain provisional.
+- **Seeds/deals:** 11000000–11000099; 100 seed draws, 100 unique allocations, 0 duplicate pairs. No global deduplication across cohorts.
+- **Matched policies:** random-legal / min-hand-pips / closed-branch-control, three seat rotations; stable-key baseline vs symmetric action-orbit tie-break on identical deals/rotations. 300 paired round comparisons, 600 total rounds.
+- **Validation:** all 600 rounds resolved. 15,209 exact 28-tile inventory snapshots, 14,609 round-driver/manual transition equivalence checks, 13,559 played-tile provenance/uniqueness checks; 0 failures. Pass counter increment/reset and finish/block termination checked each transition.
+- **Draws:** 0 in-round draws; max stock consumption per turn 0. In this mode the sole stock tile is consumed during mandatory 1-1 opening setup; separate fixtures cover draw-enabled turns.
+- **Arm metrics:** stable-key baseline 290 finishes / 10 blocks; action-orbit 292 finishes / 8 blocks. Mean turns 25.380 vs 25.317; block rates 3.33% vs 2.67%.
+- **Paired sensitivity:** round-kind change 4.00%; winner change among both-finish pairs 21.05%; minus change 10.18%. This is tie-break sensitivity, not strategy superiority.
+- **Finding/limits:** internal conservation and driver integration validated for these trajectories; no reliable strategy finding and no strategy promoted. Physical branch/block rules and loneZero=10 remain unresolved. No historical baseline pooled.
+- **Exact next action:** audit first-round 1-1-in-stock redeal and later-round previous-winner initialization with full tile conservation.
+- **Files:** [report](runs/2026-11-03-1146-round-conservation-audit.md), [JSON](runs/2026-11-03-1146-round-conservation-audit.json), [runner](simulator/round-conservation-audit.js), [test](simulator/round-conservation-audit-test.js).

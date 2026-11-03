@@ -1,16 +1,17 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-03T10:45:25+04:00 Asia/Baku.
+Last checkpoint: 2026-11-03T11:46:19+04:00 Asia/Baku.
 
-- Latest checkpoint: draw-enabled action/pass integration audit for recovered qosa-1.0.0, 3×9 coded model.
-- New regression test passed 71 assertions across seven fixture groups: no-draw gate, drawn single, drawn double-sequence, drawn mixed finish, round-driver finish/pass, drawn pass retention, and pass counter / finish-before-block behavior.
-- Existing mixed-finish contract test rerun: 1,095 assertions, 33 sequence orderings, 408 score-floor pairs.
-- No simulated deals, seed draws, strategy comparisons, or strategy promotion. Finding is internal implementation consistency only; physical rules remain unauthenticated.
-- Unresolved: physical branch lock/open semantics, block winner/tie allocation, and loneZero=10.
+- Latest checkpoint: deterministic 3×9 round-driver conservation audit, recovered qosa-1.0.0 coded model.
+- Seed set 11000000–11000099: 100 seed draws, 100 unique allocations, 0 duplicates. Three seat rotations; stable-key baseline vs symmetric action-orbit; 300 matched round pairs / 600 total rounds.
+- All rounds resolved. 15,209 exact 28-tile inventory snapshots, 14,609 round-driver/manual transition equivalence checks, and 13,559 played-tile provenance/uniqueness checks passed. No inventory mismatch or repeated tile.
+- Pass counter increment/reset and finish/block termination were checked per transition. In-round draws: 0; max stock consumption per turn: 0. The sole stock tile is consumed during mandatory 1-1 opening setup in this primary mode; draw-enabled paths are covered by prior fixtures.
+- Tie-break sensitivity: round kind changed 4.00%; finish winner changed 21.05% of both-finish pairs. This is not strategy superiority; no strategy promoted.
+- No new reliable tactical finding and no physical rule authentication. Branch lock/open semantics, block winner/tie allocation, and loneZero=10 remain unresolved.
+- Cumulative independent cohorts unchanged except this run adds 100 seed draws / 100 allocations and 300 matched pairs. No historical-baseline pooling.
 
-Cumulative independent cohorts remain separate: block audit 6,000 seed draws / 144,000 model-rounds; tie-break ablation 2,120 seed draws / 12,720 paired rounds; prior 88,886 allocations, 1,074 multi-action positions, 5,863 state-world assignments, and 5,000 smoke rounds. No historical-baseline pooling.
+Exact next action: deterministic initializer audit for first-round 1-1-in-stock redeal and later-round previous-winner start, checking full 28-tile conservation before/after opening setup.
 
-Exact next action: run a disjoint deterministic 100-seed 3×9 round-driver audit on seeds 11,000,000–11,000,099 with fixed random-legal/action-orbit policy; assert 28-tile conservation at every transition, duplicate-play absence, one-draw limit, pass counter behavior, and finish/block termination. Report seed draws separately from unique allocations.
-
-Results entry: qosha-research/RESULTS.md.
-Test: qosha-research/simulator/draw-enabled-action-contract-test.js
+Results entry: qosha-research/RESULTS.md
+Reproducer: qosha-research/simulator/round-conservation-audit.js
+Test: qosha-research/simulator/round-conservation-audit-test.js
