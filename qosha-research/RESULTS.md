@@ -3207,3 +3207,12 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - Confidence/limitation: high for static inspection of the vacuous-fixture problem; test execution unverified because the container cannot resolve github.com (git ls-remote DNS failure). The GitHub connector persisted the code. Even a passing permutation test proves only symmetry under provisional engine rules, not table-rule correctness.
 - Exact next action: run `node qosha-research/simulator/branch-permutation-regression.js` in a Node checkout, record real action counts and failure traces; then run `round-conservation-regression.js` and compare matched-seed policies after both gates pass. Do not change scoreboard/PWA files.
 - Code checkpoint: https://github.com/Mikayilzade/domino-schetki/commit/a223dd370c964fd533424c6dd1222a4a8ce54c11
+
+
+### 2026-11-04 14:52 (+04) — inactive-branch metamorphic assertions
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0` (3 players × 9 stones); no gameplay rule changed.
+- New deals: **0**; seed set: none; strategies: none. Historical four-cohort 4,000 accepted outcomes remain separate; no new cumulative strategy sample credited.
+- Change: `simulator/branch-permutation-regression.js` now checks that inactive branch labels map exactly under all 24 permutations and that their active/end states are equivariant after every legal transition. This supplements the existing 4-fixture / 96-permutation gate.
+- Key metrics: 96 fixture-permutation checks planned; actual passed count **not measured** (Node execution unavailable in this connector-only run). No new reliable strategy finding.
+- Confidence/limitations: source-level assertions saved; test pass status unknown. Existing fixtures still need executable validation; a passing metamorphic test does not independently authenticate physical branch rules.
+- Exact next action: execute `node qosha-research/simulator/branch-permutation-regression.js` and `node qosha-research/simulator/round-conservation-regression.js` in a Node checkout; persist stdout/failures and repair any broken fixtures before strategic rollouts.
