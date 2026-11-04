@@ -3238,3 +3238,12 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - key metrics: 5 terminal fixtures, 1 nonterminal prefix fixture **authored, not executed**; verified runtime passes = 0; new strategy finding = none
 - confidence/limitations: source-level fixture design only; Node execution unavailable in connector runtime and container DNS cannot reach GitHub. These fixtures use constructed branch states and cannot authenticate physical branch-opening rules. No simulation statistics credited.
 - next action: run `node qosha-research/simulator/validation-gate.js` in executable checkout; fix any failing fixture/engine mismatch before new matched-seed strategy simulations; retain seed `21000000..21000999` for conservation test.
+
+
+### 2026-11-05 00:49 (+04) — exhaustive scoring suite connected to validation gate
+- engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`, 3×9; branch/block semantics remain provisional.
+- deals: **0 new**; seeds: none; strategies: none. Historical and prior strategy cohorts are unchanged.
+- code: `simulator/validation-gate.js` now invokes `pure-scoring-exhaustive-test.js` as its eighth suite and requires 98 double-only finish-minus combinations, 7,609 non-double/mixed checks and 11,211 score-floor cases (counts derived from the test loops, not execution).
+- finding: the exhaustive arithmetic test was present but omitted from the aggregate validation gate. This wiring gap is now closed; no new gameplay finding.
+- confidence/limitation: source-level coverage check only. Full gate execution **not verified**: local git clone fails DNS resolution for github.com. Do not claim test success or count these cases as executed.
+- exact next action: obtain executable checkout, run `node qosha-research/simulator/validation-gate.js`, capture actual per-suite JSON and failures; only then resume matched-seed policy comparisons.
