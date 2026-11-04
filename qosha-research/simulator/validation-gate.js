@@ -10,6 +10,7 @@ const suites=[
   'opening-stock-regression.js',
   'score-minus-regression.js',
   'illegal-action-regression.js',
+  'hand-order-regression.js',
   'terminal-minus-integration-test.js',
   'branch-permutation-regression.js',
   'round-conservation-regression.js'
@@ -21,7 +22,12 @@ for(const name of suites){
   let payload=null;
   if(run.status===0){try{payload=JSON.parse(run.stdout)}catch{}}
   const ok=run.status===0&&payload?.passed===true;
-  results.push({suite:name,passed:ok,exitCode:run.status,signal:run.signal||null,
+  // An executable gate must reject vacuous reports, not only process exit codes.
+  if(ok&&name==='hand-order-regression.js'&&!(payload.fixtures>=3&&payload.comparisons>0&&payload.transitions>0)){
+    payload.passed=false;
+    payload.validationError='hand-order coverage was empty';
+  }
+  results.push({suite:name,passed:ok&&payload?.passed===true,exitCode:run.status,signal:run.signal||null,
     summary:payload,stderr:(run.stderr||'').slice(-4000),
     stdoutParseError:run.status===0&&!payload?(run.stdout||'').slice(-1000):null});
 }
