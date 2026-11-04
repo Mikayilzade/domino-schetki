@@ -19,6 +19,7 @@ const suites=[
 const results=[];
 for(const name of suites){
   const p=path.join(root,name);
+  const suiteSha256=crypto.createHash('sha256').update(require('node:fs').readFileSync(p)).digest('hex');
   const run=spawnSync(process.execPath,[p],{encoding:'utf8',timeout:120000,maxBuffer:8*1024*1024});
   let payload=null;
   if(run.status===0){try{payload=JSON.parse(run.stdout)}catch{}}
@@ -39,11 +40,11 @@ for(const name of suites){
     payload.passed=false;
     payload.validationError='suite coverage contract not satisfied';
   }
-  results.push({suite:name,passed:ok&&payload?.passed===true,exitCode:run.status,signal:run.signal||null,
+  results.push({suite:name,suiteSha256,passed:ok&&payload?.passed===true,exitCode:run.status,signal:run.signal||null,
     summary:payload,stderr:(run.stderr||'').slice(-4000),
     stdoutParseError:run.status===0&&!payload?(run.stdout||'').slice(-1000):null});
 }
-const report={schema:'qosha-validation-gate/v1',engine:'qosha-research-0.5.3',
+const report={schema:'qosha-validation-gate/v1',executedAt:new Date().toISOString(),nodeVersion:process.version,engine:'qosha-research-0.5.3',
  rules:'recovered qosa-1.0.0 / 3x9 / provisional branch semantics',
  seedSet:'21000000..21000999 for conservation; opening stock seed selected by deterministic search',
  strategies:['deterministic seeded legal-action selection for invariant smoke only'],
