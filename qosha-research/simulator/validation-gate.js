@@ -8,6 +8,7 @@ const crypto=require('node:crypto');
 const root=__dirname;
 const suites=[
   'opening-stock-regression.js',
+  'score-minus-regression.js',
   'branch-permutation-regression.js',
   'round-conservation-regression.js'
 ];
