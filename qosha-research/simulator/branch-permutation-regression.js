@@ -19,8 +19,11 @@ function actionKey(a,map=x=>x){
  if(a.type==='mixed-finish')return ['mixed',e.tileKey(a.tile),map(a.side),a.from,a.to,a.numbers.join(',')].join(':');
  return ['doubles',a.numbers.join(',')].join(':');
 }
-function check(state,opening,hand){
+function check(state,opening,hand,required){
  const base=d.actionsForHand(state,opening,hand);
+ const coverage={single:base.filter(a=>a.type==='single').length, doubleSequence:base.filter(a=>a.type==='double-sequence').length, multiDouble:base.filter(a=>a.type==='double-sequence'&&a.numbers.length>=2).length, mixedFinish:base.filter(a=>a.type==='mixed-finish').length};
+ for(const kind of required)assert.ok(coverage[kind]>0,`fixture does not cover ${kind}`);
+ assert.ok(base.length>0,'vacuous action set');
  let checked=0,placements=0;
  for(const perm of permutations(S)){
   const map=Object.fromEntries(S.map((s,i)=>[s,perm[i]]));
@@ -41,20 +44,20 @@ function check(state,opening,hand){
   }
   checked++;
  }
- return {permutations:checked,actionTransitions:placements};
+ return {permutations:checked,actionTransitions:placements,coverage};
 }
 function run(){
  const opening=e.createOpeningState([1,2,3]);
  const a=e.createBranchState([1,1]);
  a.branches.up.end=1;a.branches.left.end=2;a.branches.right.end=3;a.branches.down.end=1;
- const x=check(a,opening,[[1,5],[2,4],[3,6],[1,1],[2,2],[3,3]]);
+ const x=check(a,opening,[[1,5],[2,4],[3,6],[1,1],[2,2],[3,3]],['single']);
  const b=e.createBranchState([1,1]);
  b.branches.up.end=1;b.branches.left.end=2;b.branches.right.end=5;b.branches.down.end=2;
- const y=check(b,e.createOpeningState([1,2]),[[1,5],[5,5],[2,2],[2,6],[0,0]]);
+ const y=check(b,e.createOpeningState([1]),[[1,5],[5,5],[2,2],[2,6],[0,0]],['single','multiDouble']);
  const c=e.createBranchState([1,1]);
  c.branches.up.end=1;c.branches.left.end=5;c.branches.right.end=2;c.branches.down.end=2;
- const z=check(c,e.createOpeningState([1,2]),[[1,5],[5,5],[2,2]]);
- return {passed:true,engine:'qosha-research-0.5.3',fixtures:3,permutations:x.permutations+y.permutations+z.permutations,actionTransitions:x.actionTransitions+y.actionTransitions+z.actionTransitions,results:[x,y,z]};
+ const z=check(c,e.createOpeningState([1]),[[1,5],[5,5],[2,2]],['mixedFinish']);
+ return {passed:true,engine:'qosha-research-0.5.3',fixtures:3,permutations:x.permutations+y.permutations+z.permutations,actionTransitions:x.actionTransitions+y.actionTransitions+z.actionTransitions,results:[x,y,z],coverageVerified:true};
 }
 if(require.main===module)console.log(JSON.stringify(run(),null,2));
 module.exports={run,check};
