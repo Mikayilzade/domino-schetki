@@ -3216,3 +3216,14 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - Key metrics: 96 fixture-permutation checks planned; actual passed count **not measured** (Node execution unavailable in this connector-only run). No new reliable strategy finding.
 - Confidence/limitations: source-level assertions saved; test pass status unknown. Existing fixtures still need executable validation; a passing metamorphic test does not independently authenticate physical branch rules.
 - Exact next action: execute `node qosha-research/simulator/branch-permutation-regression.js` and `node qosha-research/simulator/round-conservation-regression.js` in a Node checkout; persist stdout/failures and repair any broken fixtures before strategic rollouts.
+
+
+### 2026-11-04 15:48 (+04) — stock 1-1 opening invariant gate
+- engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0` (3 players × 9 stones); no rule changes
+- new completed deals: **0**; seed set: deterministic first `0..99999` seed whose stock contains `1-1` (located at test runtime); strategies: none, validation only
+- added `simulator/opening-stock-regression.js`: first-round stock `1-1` must redeal; later-round missing previous winner must remain unresolved; for each of 3 previous-winner seats, verify starter/clockwise turn, empty stock, no opening draw, opening pass/follow-up and exact 28-tile conservation
+- metrics: no strategy/win/median/block/minus estimates; no executed test result claimed
+- finding: a targeted gate now covers the special *later-round* stock `1-1` path, which random first-round 3×9 tests necessarily reject by redeal. This is a coverage improvement, **not** a strategic result
+- confidence/limitations: test source committed but not executed here; local Node runtime is available, while fetching GitHub sources into the local container fails DNS resolution; the runner requires its sibling engine/initializer/dispatcher modules
+- cumulative: last independently cited persisted strategy scale **180,000** matched-seat rounds (older cohorts), separate historical 4,000 tie-replay outcomes; no new rounds added
+- exact next action: execute `node qosha-research/simulator/opening-stock-regression.js`, `branch-permutation-regression.js`, and `round-conservation-regression.js` in a checkout with repository files; fix failures before fresh matched-seed strategy samples
