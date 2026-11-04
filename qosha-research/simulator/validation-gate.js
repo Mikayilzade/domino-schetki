@@ -9,6 +9,7 @@ const root=__dirname;
 const suites=[
   'opening-stock-regression.js',
   'score-minus-regression.js',
+  'pure-scoring-exhaustive-test.js',
   'illegal-action-regression.js',
   'hand-order-regression.js',
   'terminal-minus-integration-test.js',
@@ -26,6 +27,7 @@ for(const name of suites){
   // has its own contract; do not infer validation from a generic "passed" flag.
   const coverage={
     'opening-stock-regression.js': p=>p.firstRoundRedeal===true&&p.missingWinnerUnresolved===true&&p.previousWinnerCases?.length===3,
+    'pure-scoring-exhaustive-test.js': p=>p.schema==='qosha-pure-scoring-exhaustive/v1'&&p.deals===0&&p.minusCases===98&&p.nonDoubleCases===7546&&p.floorCases===11211,
     'score-minus-regression.js': p=>p.minusCases>=8&&p.floorCases>=4&&p.terminalCases>=3&&[-10,-20,-30,-40].every(n=>p.minusValues?.includes(n)),
     'illegal-action-regression.js': p=>p.negativeCases>=8&&p.positiveControls>=1,
     'hand-order-regression.js': p=>p.fixtures>=3&&p.comparisons>0&&p.transitions>0,
