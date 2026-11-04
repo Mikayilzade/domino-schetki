@@ -29,7 +29,7 @@ function trace(before,deltas,order){
   const pre=current[seat].score;
   const result=require('./match-scoring-v16').evaluateQoshaScoreEvent(current,current[seat].id,delta);
   current=result.entities;applied.add(seat);
-  events.push({seat,delta,preScore:pre,postScore:current[seat].score,ignored:!!result.ignored,finished:result.finished});
+  events.push({seat,delta,preScore:pre,postScore:current[seat].score,ignored:!!result.ignored,noOp:!!result.noOp,finished:result.finished});
   if(result.finished){finished=true;draw=!!result.isDraw;places=result.places;break;}
  }
  return {entities:current,events,finished,isDraw:draw,places,
@@ -58,6 +58,7 @@ function audit(startSeed,accepted=1000){
    const actual=v16.applyFinishOutcomeToMatch(before,terminal.outcome,{seatOrder:arm.order});
    const replay=trace(before,mapped.deltas,arm.order);
    assert(JSON.stringify(actual.entities)===JSON.stringify(replay.entities),'entities differ');
+   assert(JSON.stringify(actual.events)===JSON.stringify(replay.events.map(({seat,delta,ignored,noOp})=>({seat,entityId:before[seat].id,delta,ignored,noOp}))),'applied event sequence / ignored / noOp drift');
    assert(JSON.stringify(actual.places)===JSON.stringify(replay.places),'places differ');
    assert(JSON.stringify(actual.pendingSeats)===JSON.stringify(replay.pending),'pending differ');
    assert(JSON.stringify(actual.skippedZeroSeats)===JSON.stringify(replay.skippedZero),'zero skips differ');
