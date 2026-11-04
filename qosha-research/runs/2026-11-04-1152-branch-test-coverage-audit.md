@@ -1,0 +1,9 @@
+# Branch-permutation coverage audit — 2026-11-04 11:52 (+04, Asia/Baku)
+
+- Engine/rules: `qosha-research-0.5.3`; recovered `qosa-1.0.0`; branch unlocking remains provisional.
+- Deals executed: **0**; seed set: none; strategies: none; historical 4,000 baseline not mixed with current samples.
+- Source reviewed: `simulator/branch-permutation-regression.js`, `simulator/round-conservation-regression.js`, `RULES.md`, `EXPERIMENTS.md`, `RESULTS.md`, `README.md`.
+- Finding (static audit, high confidence): the permutation regression checks each legal action and resulting branch state, but it **does not assert that the intended action classes were actually exercised**. A future change to action generation could silently remove mixed-finish or double-sequence actions and still pass the 72 permutation checks. The report's phrase "includes ... opportunities" must not be interpreted as measured action-class coverage. In addition, this test does not check whether a *strategy's chosen action* remains equivariant under side relabeling.
+- Limitation: GitHub connector reads/writes work, but the local Node checkout cannot be cloned because DNS resolution of github.com fails. Thus no tests were executed or passed during this run; no new win, pips, block, minus or regret metrics.
+- Exact next action: extend the regression to count action types per fixture and assert nonzero coverage for `single`, `double-sequence`, and `mixed-finish` before promoting it. Then run `node qosha-research/simulator/branch-permutation-regression.js` and `node qosha-research/simulator/round-conservation-regression.js` in a working Node checkout. After green execution, add seeded continuation-policy equivariance on matched hidden worlds; only then resume new strategy comparisons.
+- Scope: research-only, no scoreboard/PWA changes.
