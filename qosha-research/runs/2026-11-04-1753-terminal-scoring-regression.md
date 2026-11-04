@@ -1,0 +1,9 @@
+# Terminal scoring regression checkpoint — 2026-11-04 17:53 (+04, Asia/Baku)
+
+- **Engine/rules:** `qosha-research-0.5.3`, recovered `qosa-1.0.0` 3×9 model. Block winner/tie and physical branch semantics remain provisional.
+- **New completed deals:** 0; **seed set:** none; **strategies:** none (isolated deterministic regression fixtures). Historical 4,000-outcome v16 tie replay remains separate from strategy cohorts and is not incremented.
+- **Code:** added `simulator/score-minus-regression.js` and wired it into `simulator/validation-gate.js`. Eight direct minus arithmetic cases (including 0, -10, -20, -30, -40 and non-double/no-finish cases), four score-floor cases, and three terminal/block contract checks. The branch-unreachable mixed finish fixture prevents awarding a minus just for holding doubles. Block winner deliberately remains null.
+- **Key metrics:** 0 new simulations; 0 execution-verified assertions this run. Existing validation gate now schedules four suites, including the 1,000-seed conservation suite. No new win, median pip, block frequency, regret, or tactical advantage estimate.
+- **Finding:** minus and score-floor arithmetic previously lacked an explicit consolidated regression in the latest validation gate; the new fixture isolates those contracts from uncertain physical block scoring. This is a code coverage improvement, **not** a confirmed gameplay discovery.
+- **Confidence/limitations:** GitHub source persisted; Node suite **not executed** in this environment, so pass status unknown. The fixtures check coded semantics, not independent physical rule authenticity.
+- **Exact next action:** execute `node qosha-research/simulator/validation-gate.js` in a complete Node checkout; capture stdout, fix any failing fixtures, then run matched-seed 3×9 strategy comparisons only after validation passes. Never modify live scoreboard/PWA files.
