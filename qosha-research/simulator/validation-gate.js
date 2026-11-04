@@ -22,10 +22,20 @@ for(const name of suites){
   let payload=null;
   if(run.status===0){try{payload=JSON.parse(run.stdout)}catch{}}
   const ok=run.status===0&&payload?.passed===true;
-  // An executable gate must reject vacuous reports, not only process exit codes.
-  if(ok&&name==='hand-order-regression.js'&&!(payload.fixtures>=3&&payload.comparisons>0&&payload.transitions>0)){
+  // Reject a successful exit that reports no meaningful coverage. Each suite
+  // has its own contract; do not infer validation from a generic "passed" flag.
+  const coverage={
+    'opening-stock-regression.js': p=>p.firstRoundRedeal===true&&p.missingWinnerUnresolved===true&&p.previousWinnerCases?.length===3,
+    'score-minus-regression.js': p=>p.minusCases>=8&&p.floorCases>=4&&p.terminalCases>=3&&[-10,-20,-30,-40].every(n=>p.minusValues?.includes(n)),
+    'illegal-action-regression.js': p=>p.negativeCases>=8&&p.positiveControls>=1,
+    'hand-order-regression.js': p=>p.fixtures>=3&&p.comparisons>0&&p.transitions>0,
+    'terminal-minus-integration-test.js': p=>p.terminalFixtures>=5&&p.verifiedTerminalActions>=5&&p.nonTerminalPrefixFixtures>=1&&[-10,-20,-30,-40].every(n=>p.minusValues?.includes(n)),
+    'branch-permutation-regression.js': p=>p.fixtures>=4&&p.permutations===96&&p.actionTransitions>0&&p.coverageVerified===true,
+    'round-conservation-regression.js': p=>p.deals===1000&&p.stockFixtures>=3&&Array.isArray(p.seeds)&&p.seeds[0]===21000000&&p.seeds[1]===21000999&&Number.isFinite(p.meanTurns)&&p.meanTurns>0
+  };
+  if(ok&&!coverage[name]?.(payload)){
     payload.passed=false;
-    payload.validationError='hand-order coverage was empty';
+    payload.validationError='suite coverage contract not satisfied';
   }
   results.push({suite:name,passed:ok&&payload?.passed===true,exitCode:run.status,signal:run.signal||null,
     summary:payload,stderr:(run.stderr||'').slice(-4000),
