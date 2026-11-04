@@ -86,11 +86,39 @@ function play(seed){
  }
  return {turns,kind:state.outcome.kind,redeals};
 }
+// Targeted stock fixtures: ordinary 3x9 initialization empties the stock,
+// so full-round tests alone cannot exercise draw/pass stock transitions.
+function stockTransitionFixtures(){
+ const branchState=e.createBranchState([1,1]);
+ const openingState=e.createOpeningState([1]);
+ const dead=[[2,3],[4,6]];
+ const cases=[
+  {stock:[[1,6]],expectDraw:true,expectPass:false,expectPlayed:'1-6'},
+  {stock:[[0,0]],expectDraw:true,expectPass:true,expectPlayed:null},
+  {stock:[],expectDraw:false,expectPass:true,expectPlayed:null}
+ ];
+ for(const f of cases){
+  const options=dispatcher.turnOptions(branchState,openingState,dead,f.stock);
+  assert.equal(options.drawn,f.expectDraw);
+  assert.equal(options.phase==='pass',f.expectPass);
+  const choice=options.phase==='play'?options.actions.find(a=>a.type==='single'&&key(a.tile)===f.expectPlayed):null;
+  if(!f.expectPass)assert.ok(choice,'drawn legal tile can be played');
+  const result=dispatcher.applyTurn(branchState,openingState,dead,f.stock,choice);
+  assert.equal(result.drawn,f.expectDraw);
+  assert.equal(result.passed,f.expectPass);
+  assert.equal(result.stock.length,f.stock.length-(f.expectDraw?1:0));
+  assert.deepEqual(result.playedTiles.map(key),f.expectPlayed?[f.expectPlayed]:[]);
+  assert.deepEqual(result.hand.map(key).sort(),
+    (f.expectDraw&&!f.expectPlayed?[...dead,f.stock[0]]:dead).map(key).sort());
+ }
+ return cases.length;
+}
 function run(){
+ const stockFixtures=stockTransitionFixtures();
  const seeds=Array.from({length:1000},(_,i)=>21000000+i);
  const outcomes=seeds.map(play);
  const blocks=outcomes.filter(x=>x.kind==='block').length;
- return {passed:true,engine:'qosha-research-0.5.3',seeds:[seeds[0],seeds.at(-1)],deals:outcomes.length,blocks,meanTurns:outcomes.reduce((n,x)=>n+x.turns,0)/outcomes.length};
+ return {passed:true,stockFixtures,engine:'qosha-research-0.5.3',seeds:[seeds[0],seeds.at(-1)],deals:outcomes.length,blocks,meanTurns:outcomes.reduce((n,x)=>n+x.turns,0)/outcomes.length};
 }
 if(require.main===module)console.log(JSON.stringify(run(),null,2));
 module.exports={run};
