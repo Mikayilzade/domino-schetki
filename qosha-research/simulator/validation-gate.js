@@ -7,6 +7,7 @@ const path=require('node:path');
 const crypto=require('node:crypto');
 const root=__dirname;
 const suites=[
+  'seed-deal-regression.js',
   'opening-stock-regression.js',
   'score-minus-regression.js',
   'pure-scoring-exhaustive-test.js',
@@ -27,6 +28,7 @@ for(const name of suites){
   // Reject a successful exit that reports no meaningful coverage. Each suite
   // has its own contract; do not infer validation from a generic "passed" flag.
   const coverage={
+    'seed-deal-regression.js': p=>p.schema==='qosha-seed-deal-regression/v1'&&p.deals===1024&&p.seeds?.[0]===22000000&&p.seeds?.[1]===22001023&&p.uniqueDeals>1000&&p.stockOpening>=0,
     'opening-stock-regression.js': p=>p.firstRoundRedeal===true&&p.missingWinnerUnresolved===true&&p.previousWinnerCases?.length===3,
     'pure-scoring-exhaustive-test.js': p=>p.schema==='qosha-pure-scoring-exhaustive/v1'&&p.deals===0&&p.minusCases===98&&p.nonDoubleCases===7609&&p.floorCases===11211,
     'score-minus-regression.js': p=>p.minusCases>=8&&p.floorCases>=4&&p.terminalCases>=3&&[-10,-20,-30,-40].every(n=>p.minusValues?.includes(n)),
