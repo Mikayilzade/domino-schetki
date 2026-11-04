@@ -31,6 +31,7 @@ function play(seed){
  while(!state.outcome && turns<200){
   const p=state.currentPlayer;
   const opts=dispatcher.turnOptions(state.branchState,state.openingState,state.hands[p],state.stock);
+  if(opts.phase==='play')assert.ok(opts.actions.length>0,'play phase has legal choices');
   const action=opts.phase==='play'?opts.actions[e.mixSeed32(seed^Math.imul(turns+1,0x9e3779b9))%opts.actions.length]:null;
   const tr=dispatcher.applyTurn(state.branchState,state.openingState,state.hands[p],state.stock,action);
   // Assert the transition's complete tile movement, not a tautological length check.
@@ -39,6 +40,11 @@ function play(seed){
   const removed=beforeHand.filter(k=>!afterHand.includes(k));
   const gained=afterHand.filter(k=>!beforeHand.includes(k));
   const drawnKey=tr.drawnTile?key(tr.drawnTile):null;
+  // Independently audit stock identity, not merely its length or draw flag.
+  assert.equal(state.stock.length-tr.stock.length,tr.drawn?1:0,'stock delta equals draw');
+  assert.deepEqual(tr.stock,tr.drawn?state.stock.slice(1):state.stock,'draw consumes only stock head');
+  if(tr.drawn)assert.equal(drawnKey,key(state.stock[0]),'drawn tile is stock head');
+  for(const t of tr.playedTiles)assert.ok(beforeHand.includes(key(t))||key(t)===drawnKey,'played tile originated in hand or draw');
   const playedKeys=tr.playedTiles.map(key);
   assert.equal(new Set(playedKeys).size,playedKeys.length,'no tile played twice');
   assert.equal(tr.drawn,Boolean(drawnKey),'draw flag matches drawn tile');
@@ -55,6 +61,12 @@ function play(seed){
   assert.deepEqual(next.hands[p],tr.hand,'step and dispatcher agree');
   assert.deepEqual(next.stock,tr.stock,'stock agrees');
   assert.deepEqual(next.branchState,tr.branchState,'branch transition agrees');
+  assert.equal(next.consecutivePasses,tr.passed?state.consecutivePasses+1:0,'pass counter agrees');
+  if(next.outcome?.kind==='block'){
+   assert.equal(next.stock.length,0,'block requires empty stock');
+   assert.ok(next.consecutivePasses>=3,'block requires full pass cycle');
+   assert.deepEqual(next.outcome.remainders,next.hands.map(e.pipSum),'block pip sums agree');
+  }
   assert.deepEqual([...next.openingState.openedNumbers].sort(),[...tr.openingState.openedNumbers].sort(),'opening transition agrees');
   assert.equal(next.turns,state.turns+1,'exactly one turn increment');
   assert.equal(next.currentPlayer,next.outcome?p:(p+1)%3,'clockwise turn advance');
