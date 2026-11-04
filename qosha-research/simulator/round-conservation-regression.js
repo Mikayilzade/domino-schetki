@@ -33,10 +33,31 @@ function play(seed){
   const opts=dispatcher.turnOptions(state.branchState,state.openingState,state.hands[p],state.stock);
   const action=opts.phase==='play'?opts.actions[e.mixSeed32(seed^Math.imul(turns+1,0x9e3779b9))%opts.actions.length]:null;
   const tr=dispatcher.applyTurn(state.branchState,state.openingState,state.hands[p],state.stock,action);
-  assert.equal(tr.playedTiles.length, tr.action?.type==='mixed-finish'?1+tr.finishDoubles.length:tr.playedTiles.length);
+  // Assert the transition's complete tile movement, not a tautological length check.
+  const beforeHand=state.hands[p].map(key);
+  const afterHand=tr.hand.map(key);
+  const removed=beforeHand.filter(k=>!afterHand.includes(k));
+  const gained=afterHand.filter(k=>!beforeHand.includes(k));
+  const drawnKey=tr.drawnTile?key(tr.drawnTile):null;
+  const playedKeys=tr.playedTiles.map(key);
+  assert.equal(new Set(playedKeys).size,playedKeys.length,'no tile played twice');
+  assert.equal(tr.drawn,Boolean(drawnKey),'draw flag matches drawn tile');
+  assert.deepEqual([...removed,...(drawnKey?[drawnKey]:[])].sort(),
+                   [...playedKeys,...gained].sort(),'hand delta reconciles with draw and plays');
+  if(tr.action?.type==='mixed-finish'){
+   assert.equal(tr.playedTiles.length,1+tr.finishDoubles.length,'mixed finish includes ordinary tile');
+  }else if(tr.action?.type==='double-sequence'){
+   assert.equal(tr.playedTiles.length,tr.finishDoubles.length,'double sequence counts all played doubles');
+  }else if(tr.action?.type==='single'){
+   assert.equal(tr.playedTiles.length,1,'single action plays exactly one tile');
+  }else assert.equal(tr.playedTiles.length,0,'pass plays no tiles');
   const next=driver.stepRound(state,()=>action);
   assert.deepEqual(next.hands[p],tr.hand,'step and dispatcher agree');
   assert.deepEqual(next.stock,tr.stock,'stock agrees');
+  assert.deepEqual(next.branchState,tr.branchState,'branch transition agrees');
+  assert.deepEqual([...next.openingState.openedNumbers].sort(),[...tr.openingState.openedNumbers].sort(),'opening transition agrees');
+  assert.equal(next.turns,state.turns+1,'exactly one turn increment');
+  assert.equal(next.currentPlayer,next.outcome?p:(p+1)%3,'clockwise turn advance');
   played.push(...tr.playedTiles);
   state={...next,played};
   inventory(state);
