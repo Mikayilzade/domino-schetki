@@ -3227,3 +3227,14 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - confidence/limitations: test source committed but not executed here; local Node runtime is available, while fetching GitHub sources into the local container fails DNS resolution; the runner requires its sibling engine/initializer/dispatcher modules
 - cumulative: last independently cited persisted strategy scale **180,000** matched-seat rounds (older cohorts), separate historical 4,000 tie-replay outcomes; no new rounds added
 - exact next action: execute `node qosha-research/simulator/opening-stock-regression.js`, `branch-permutation-regression.js`, and `round-conservation-regression.js` in a checkout with repository files; fix failures before fresh matched-seed strategy samples
+
+
+### 2026-11-04 18:47 (+04) — terminal-minus end-to-end validation gate
+- engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`, 3×9, branch semantics provisional
+- deals: **0 new**; no random seed set used (five constructed deterministic terminal fixtures plus one non-terminal prefix fixture); historical samples remain separate
+- strategies: none; this is correctness validation, not strategy comparison
+- implementation: added `simulator/terminal-minus-integration-test.js` and included it in `simulator/validation-gate.js`
+- coverage intended: legal actions followed by real `applyTurn` and `roundOutcome` for −10, −20, −30, −40, mixed ordinary-plus-two-doubles −20; nonterminal double prefix must not be scored as finish
+- key metrics: 5 terminal fixtures, 1 nonterminal prefix fixture **authored, not executed**; verified runtime passes = 0; new strategy finding = none
+- confidence/limitations: source-level fixture design only; Node execution unavailable in connector runtime and container DNS cannot reach GitHub. These fixtures use constructed branch states and cannot authenticate physical branch-opening rules. No simulation statistics credited.
+- next action: run `node qosha-research/simulator/validation-gate.js` in executable checkout; fix any failing fixture/engine mismatch before new matched-seed strategy simulations; retain seed `21000000..21000999` for conservation test.
