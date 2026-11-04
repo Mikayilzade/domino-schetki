@@ -20,6 +20,8 @@ function actionKey(a,map=x=>x){
  return ['doubles',a.numbers.join(',')].join(':');
 }
 function check(state,opening,hand,required){
+ const inactive=e.SIDES.filter(side=>!state.branches[side].active);
+ assert.ok(inactive.every(side=>!d.actionsForHand(state,opening,hand).some(a=>a.side===side)),'inactive sides cannot receive single/mixed placements');
  const base=d.actionsForHand(state,opening,hand);
  const coverage={single:base.filter(a=>a.type==='single').length, doubleSequence:base.filter(a=>a.type==='double-sequence').length, multiDouble:base.filter(a=>a.type==='double-sequence'&&a.numbers.length>=2).length, mixedFinish:base.filter(a=>a.type==='mixed-finish').length};
  for(const kind of required)assert.ok(coverage[kind]>0,`fixture does not cover ${kind}`);
@@ -57,7 +59,12 @@ function run(){
  const c=e.createBranchState([1,1]);
  c.branches.up.end=1;c.branches.left.end=5;c.branches.right.end=2;c.branches.down.end=2;
  const z=check(c,e.createOpeningState([1]),[[1,5],[5,5],[2,2]],['mixedFinish']);
- return {passed:true,engine:'qosha-research-0.5.3',fixtures:3,permutations:x.permutations+y.permutations+z.permutations,actionTransitions:x.actionTransitions+y.actionTransitions+z.actionTransitions,results:[x,y,z],coverageVerified:true};
+ // An inactive side must remain inactive under all 24 label permutations.
+ const locked=e.createBranchState([1,1],['up','left','right']);
+ locked.branches.up.end=1;locked.branches.left.end=2;locked.branches.right.end=5;
+ locked.branches.down.end=1;
+ const w=check(locked,e.createOpeningState([1]),[[1,6],[2,2],[5,5]],['single','multiDouble']);
+ return {passed:true,engine:'qosha-research-0.5.3',fixtures:4,permutations:x.permutations+y.permutations+z.permutations+w.permutations,actionTransitions:x.actionTransitions+y.actionTransitions+z.actionTransitions+w.actionTransitions,results:[x,y,z,w],coverageVerified:true};
 }
 if(require.main===module)console.log(JSON.stringify(run(),null,2));
 module.exports={run,check};
