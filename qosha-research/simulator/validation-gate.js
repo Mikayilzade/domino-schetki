@@ -9,6 +9,7 @@ const root=__dirname;
 const suites=[
   'opening-stock-regression.js',
   'score-minus-regression.js',
+  'illegal-action-regression.js',
   'terminal-minus-integration-test.js',
   'branch-permutation-regression.js',
   'round-conservation-regression.js'
