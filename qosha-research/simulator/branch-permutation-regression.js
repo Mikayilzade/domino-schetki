@@ -30,6 +30,7 @@ function check(state,opening,hand,required){
  for(const perm of permutations(S)){
   const map=Object.fromEntries(S.map((s,i)=>[s,perm[i]]));
   const translated=relabel(state,perm);
+  assert.deepEqual(S.filter(side=>!translated.branches[side].active).sort(),inactive.map(side=>map[side]).sort(),'inactive branch labels relabel exactly');
   assert.deepEqual(d.actionsForHand(translated,opening,hand).map(a=>actionKey(a)).sort(),
    base.map(a=>actionKey(a,s=>map[s])).sort(),'legal-action multiset equivariant');
   for(const a of base){
@@ -38,6 +39,13 @@ function check(state,opening,hand,required){
    const r=d.applyTurn(state,opening,hand,[],a);
    const t=d.applyTurn(translated,opening,hand,[],b);
    assert.deepEqual(t.branchState,relabel(r.branchState,perm),'post-action branch equivariance');
+   // Inactive sides must not become active merely because a placement uses a different label.
+   for(const side of inactive){
+    const expected=r.branchState.branches[side];
+    const actual=t.branchState.branches[map[side]];
+    assert.equal(actual.active,expected.active,'inactive-side activation equivariant');
+    assert.equal(actual.end,expected.end,'inactive-side end equivariant');
+   }
    assert.deepEqual([...t.openingState.openedNumbers].sort(),[...r.openingState.openedNumbers].sort());
    assert.deepEqual(t.hand,r.hand);
    assert.deepEqual(t.playedTiles,r.playedTiles);
