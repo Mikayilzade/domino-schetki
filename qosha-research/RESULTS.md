@@ -3284,3 +3284,12 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - Change: the gate now records structured `spawnError.code` and `spawnError.message` in each suite result and the top-level failed-suite summary. Source commit: `ee1ead0f573e9bf9a2442f422cd0f663eb413ea2`.
 - Confidence/limitations: high for static inspection of the diagnostic omission; **0 executed test suites in this run**, no green gate claim, no new gameplay finding. Node checkout remains unavailable through container GitHub DNS; the GitHub connector permits source reads and writes but not executing repository code.
 - Exact next action: obtain complete executable checkout, run `node qosha-research/simulator/validation-gate.js`, persist stdout including per-suite `spawnError`, identify first genuine failure and fix it before running new matched-seed strategy deals. No scoreboard/PWA files changed.
+
+
+### 2026-11-05 18:46 (+04, Asia/Baku) — missing-suite reporting safeguard
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0` (3×9); provisional branch/block semantics unchanged.
+- New deals: **0**; seed set: none; strategies: none; new win, pip, minus, block and regret metrics: not measured. The previously persisted 180,000 matched-seat strategy rounds remain separate from historical replays.
+- Code: `simulator/validation-gate.js` now reports an absent suite file as a structured failed suite (`ENOENT`) and continues to emit the complete validation report rather than throwing before JSON output. Commit: `e39d134f8c46adfbed3beaf3c2e874bac698ed39`.
+- Finding: missing test entrypoints previously could abort the whole gate before it emitted machine-readable evidence; this diagnostic failure mode is now handled. **No new reliable gameplay/strategy finding.**
+- Confidence/limitations: source-level fix verified through GitHub write; full Node validation remains unexecuted. Local `git ls-remote` fails with `Could not resolve host: github.com`; therefore 0 suites are claimed as executed in this run. No live PWA files changed.
+- Exact next action: obtain executable checkout, run `node qosha-research/simulator/validation-gate.js`, archive actual JSON with suite statuses/source manifest and fix first real test failure before matched-seed strategy simulation.
