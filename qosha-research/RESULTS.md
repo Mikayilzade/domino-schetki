@@ -3303,3 +3303,14 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - Metrics: 0 suites executed in this run; no new win, remainder, block, minus, or regret estimates. Prior independently persisted 180,000 matched-seat 3×9 rounds remain separate from older replay cohorts.
 - Confidence/limitations: source saved through GitHub connector; Node execution unavailable without full checkout because container GitHub DNS remains inaccessible. The test deliberately does not claim valid five-player opening, draw/pass, or full-round behavior.
 - Exact next action: execute `node qosha-research/simulator/validation-gate.js` in a complete checkout, archive 13-suite JSON and fix any failures; then resume fresh matched-seed 3×9 strategy rounds only after the validation gate passes.
+
+
+### 2026-11-05 23:50 (+04, Asia/Baku) — three missing primary-rule contracts wired into validation gate
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; physical branch interpretation and block scoring still provisional.
+- New deals: **0**; seed set: none; strategies: none; new win, remainder, block, minus, regret statistics: **not measured**. Previously persisted 180,000 matched-seat rounds remain separate from historical replay.
+- Source audit: the 13-suite gate omitted three existing executable primary-rule tests: `four-branch-lock-kernel-test.js`, `draw-enabled-action-contract-test.js`, and `mixed-finish-exhaustive-contract-test.js`. Added all three, with per-suite output coverage contracts; gate now contains **16 suites**.
+- Expected coded-model coverage (not execution): four independent branches, locked/unlocked double transitions, 24 synthetic four-double orderings and −40 finish; draw-enabled ordinary/double/mixed actions, draw-and-pass and round-driver pass/finish precedence; 33 mixed-finish action permutations (1+2+6+24), 408 score-floor pairs and three negative fixtures.
+- New finding: these essential rule checks already existed but were excluded from the aggregate gate. **No new reliable gameplay strategy finding.**
+- Confidence/limitations: high for the source-level omission and wiring; **0 suites executed this run**. Local `git ls-remote` failed `Could not resolve host: github.com`; source writes via GitHub connector work, but no complete executable checkout was obtained. The three contracts reflect coded-model assertions, not authenticated table rules.
+- Source commit: `eeb4fa615e937e7ee4a35edd1e830dfea785d675`. No live scoreboard/PWA files changed.
+- Exact next action: run `node qosha-research/simulator/validation-gate.js` in a complete checkout, archive actual JSON for all 16 suites with source/contract manifests, fix first failure, then resume fresh matched-seed 3×9 policy comparisons only after a green gate.
