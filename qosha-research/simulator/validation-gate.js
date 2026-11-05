@@ -20,6 +20,7 @@ const contractHashes=Object.fromEntries(contractNames.map(n=>[n,crypto.createHas
 const contractManifestSha256=crypto.createHash('sha256').update(JSON.stringify(contractHashes)).digest('hex');
 const suites=[
   'seed-deal-regression.js',
+  'five-player-deal-regression.js',
   'opening-stock-regression.js',
   'score-minus-regression.js',
   'block-boundary-regression.js',
@@ -51,6 +52,7 @@ for(const name of suites){
   // Reject a successful exit that reports no meaningful coverage. Each suite
   // has its own contract; do not infer validation from a generic "passed" flag.
   const coverage={
+    'five-player-deal-regression.js': p=>p.schema==='qosha-five-player-deal-regression/v1'&&p.deals===1024&&p.seeds?.[0]===23000000&&p.seeds?.[1]===23001023&&p.players===5&&p.handSize===5&&p.stockSize===3&&p.uniqueDeals>1000&&p.stockOpening>=0,
     'seed-deal-regression.js': p=>p.schema==='qosha-seed-deal-regression/v1'&&p.deals===1024&&p.seeds?.[0]===22000000&&p.seeds?.[1]===22001023&&p.uniqueDeals>1000&&p.stockOpening>=0,
     'opening-stock-regression.js': p=>p.firstRoundRedeal===true&&p.missingWinnerUnresolved===true&&p.previousWinnerCases?.length===3,
     'pure-scoring-exhaustive-test.js': p=>p.schema==='qosha-pure-scoring-exhaustive/v1'&&p.deals===0&&p.minusCases===98&&p.nonDoubleCases===7609&&p.floorCases===11211,
