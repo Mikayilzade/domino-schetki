@@ -61,6 +61,7 @@ for(const name of suites){
     payload.validationError='suite coverage contract not satisfied';
   }
   results.push({suite:name,suiteSha256,passed:ok&&payload?.passed===true,exitCode:run.status,signal:run.signal||null,
+    spawnError:run.error?{code:run.error.code||null,message:run.error.message}:null,
     summary:payload,stderr:(run.stderr||'').slice(-4000),
     stdoutParseError:run.status===0&&!payload?(run.stdout||'').slice(-1000):null});
 }
@@ -71,7 +72,7 @@ const report={schema:'qosha-validation-gate/v1',executedAt:new Date().toISOStrin
  sourceManifestSha256,sourceHashes,contractManifestSha256,contractHashes,suites:results,passed:results.every(x=>x.passed),
  dealsExecuted:(results.find(x=>x.suite==='round-conservation-regression.js')?.passed===true ? results.find(x=>x.suite==='round-conservation-regression.js').summary.deals : 0),
  verifiedSuites:results.filter(x=>x.passed).length,
- failedSuites:results.filter(x=>!x.passed).map(x=>({suite:x.suite,exitCode:x.exitCode,signal:x.signal,validationError:x.summary?.validationError||null})),
+ failedSuites:results.filter(x=>!x.passed).map(x=>({suite:x.suite,exitCode:x.exitCode,signal:x.signal,spawnError:x.spawnError,validationError:x.summary?.validationError||null})),
  reportSha256:null};
 // Bind the report fingerprint to both executable sources and rule contracts,
 // not just suite outputs. Exclude the fingerprint itself to avoid recursion.
