@@ -70,6 +70,9 @@ const report={schema:'qosha-validation-gate/v1',executedAt:new Date().toISOStrin
  strategies:['deterministic seeded legal-action selection for invariant smoke only'],
  sourceManifestSha256,sourceHashes,contractManifestSha256,contractHashes,suites:results,passed:results.every(x=>x.passed),
  dealsExecuted:results.find(x=>x.suite==='round-conservation-regression.js')?.summary?.deals||0,
- reportSha256:crypto.createHash('sha256').update(JSON.stringify(results)).digest('hex')};
+ reportSha256:null};
+// Bind the report fingerprint to both executable sources and rule contracts,
+// not just suite outputs. Exclude the fingerprint itself to avoid recursion.
+report.reportSha256=crypto.createHash('sha256').update(JSON.stringify(report)).digest('hex');
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
