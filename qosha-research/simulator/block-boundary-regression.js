@@ -30,6 +30,30 @@ function run(){
   assert.equal(t.nextPassCount(players-1,{passed:true}),players);
   checks+=2;
  }
+ // Integration: apply actual legal pass transitions through the dispatcher,
+ // rather than only constructing a state with an arbitrary pass counter.
+ for(const players of [3,5]){
+  const branch=e.createBranchState([1,1]);
+  const opened=e.createOpeningState([1]);
+  const hands=Array.from({length:players},(_,i)=>[[2+(i%3),3+(i%3)]]);
+  let streak=0;
+  for(let seat=0;seat<players;seat++){
+   const transition=d.applyTurn(branch,opened,hands[seat],[],null);
+   assert.equal(transition.passed,true);
+   assert.equal(transition.drawn,false);
+   assert.deepEqual(transition.hand,hands[seat]);
+   streak=t.nextPassCount(streak,transition);
+   const outcome=d.roundOutcome({hands,stock:transition.stock,consecutivePasses:streak,
+     lastPlayerIndex:seat,lastTurnResult:transition,players});
+   if(seat<players-1)assert.equal(outcome,null);
+   else{
+    assert.equal(outcome.kind,'block');
+    assert.equal(outcome.playerIndex,null);
+    assert.deepEqual(outcome.remainders,hands.map(e.pipSum));
+   }
+   checks++;
+  }
+ }
  // Empty-hand finish has priority over a stale pass counter, and its
  // penalty is determined only by doubles in the finishing action.
  const finish=d.roundOutcome({hands:[[],[[1,2]],[[2,3]]],stock:[],
