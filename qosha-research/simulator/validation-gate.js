@@ -15,7 +15,7 @@ const sourceManifestSha256=crypto.createHash('sha256').update(JSON.stringify(sou
 // Rules and experiment contracts affect the interpretation of a green gate.
 // Include them separately so a documentation/rules revision cannot be silently
 // associated with a validation report generated against earlier assumptions.
-const contractNames=['README.md','RULES.md','EXPERIMENTS.md'];
+const contractNames=['README.md','RULES.md','EXPERIMENTS.md','RESULTS.md'];
 const contractHashes=Object.fromEntries(contractNames.map(n=>[n,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'..',n))).digest('hex')]));
 const contractManifestSha256=crypto.createHash('sha256').update(JSON.stringify(contractHashes)).digest('hex');
 const suites=[
