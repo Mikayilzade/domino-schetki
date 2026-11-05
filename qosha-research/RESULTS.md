@@ -3247,3 +3247,12 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - finding: the exhaustive arithmetic test was present but omitted from the aggregate validation gate. This wiring gap is now closed; no new gameplay finding.
 - confidence/limitation: source-level coverage check only. Full gate execution **not verified**: local git clone fails DNS resolution for github.com. Do not claim test success or count these cases as executed.
 - exact next action: obtain executable checkout, run `node qosha-research/simulator/validation-gate.js`, capture actual per-suite JSON and failures; only then resume matched-seed policy comparisons.
+
+
+### 2026-11-05 04:53 (+04, Asia/Baku) — complete simulator-source provenance
+- Engine/rules: `qosha-research-0.5.3`, recovered `qosa-1.0.0` 3×9; branch/block interpretations remain provisional.
+- Deals: **0 new**; seeds: none; strategies: none; no new finish, block, remainder, regret, or win statistics. Prior cohorts remain separate.
+- Change: `simulator/validation-gate.js` now emits sorted SHA-256 hashes for **every `.js` file in `simulator/`**, plus `sourceManifestSha256`. Previously only individual test entrypoint files were hashed, so an engine or dispatcher change could go undetected in the validation provenance. The manifest covers the engine, initializer, dispatcher, round driver, and all other simulator JavaScript modules present at execution time.
+- Finding: identified and closed a reproducibility gap in the validation evidence; **no new strategy finding**. Source change persisted, but the complete validation gate has not been executed in this run. This is a code-level provenance improvement, not evidence that the game rules or suites pass.
+- Confidence/limitations: high for source-level manifest logic; test execution remains unverified. The manifest intentionally covers JavaScript files only, not rule documentation or run JSON. No change to scoreboard/PWA.
+- Exact next action: run `node qosha-research/simulator/validation-gate.js` from a complete checkout, save stdout JSON with `sourceManifestSha256`, investigate any failing suite, then resume matched-seed strategy comparisons only after a green gate.
