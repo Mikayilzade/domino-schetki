@@ -21,7 +21,9 @@ const suites=[
   'hand-order-regression.js',
   'terminal-minus-integration-test.js',
   'branch-permutation-regression.js',
-  'round-conservation-regression.js'
+  'round-conservation-regression.js',
+  'initializer-redeal-conservation-audit-test.js',
+  'redeal-full-round-audit-test.js'
 ];
 const results=[];
 for(const name of suites){
@@ -42,7 +44,9 @@ for(const name of suites){
     'hand-order-regression.js': p=>p.fixtures>=3&&p.comparisons>0&&p.transitions>0,
     'terminal-minus-integration-test.js': p=>p.terminalFixtures>=5&&p.verifiedTerminalActions>=5&&p.nonTerminalPrefixFixtures>=1&&[-10,-20,-30,-40].every(n=>p.minusValues?.includes(n)),
     'branch-permutation-regression.js': p=>p.fixtures>=4&&p.permutations===96&&p.actionTransitions>0&&p.coverageVerified===true,
-    'round-conservation-regression.js': p=>p.deals===1000&&p.stockFixtures>=3&&Array.isArray(p.seeds)&&p.seeds[0]===21000000&&p.seeds[1]===21000999&&Number.isFinite(p.meanTurns)&&p.meanTurns>0
+    'round-conservation-regression.js': p=>p.deals===1000&&p.stockFixtures>=3&&Array.isArray(p.seeds)&&p.seeds[0]===21000000&&p.seeds[1]===21000999&&Number.isFinite(p.meanTurns)&&p.meanTurns>0,
+    'initializer-redeal-conservation-audit-test.js': p=>p.seedDraws===24&&p.uniqueAllocations===24&&p.previousWinnerInitializations===72&&p.assertions>0,
+    'redeal-full-round-audit-test.js': p=>p.rounds===24&&p.transitions>0&&p.inventorySnapshots===p.transitions+p.rounds&&p.assertions>0
   };
   if(ok&&!coverage[name]?.(payload)){
     payload.passed=false;
