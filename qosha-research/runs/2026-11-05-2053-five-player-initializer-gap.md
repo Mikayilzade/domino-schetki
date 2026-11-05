@@ -1,0 +1,10 @@
+# 2026-11-05 20:53 (+04, Asia/Baku) — 5-player initializer and draw integration boundary
+
+- Engine/rules: `qosha-research-0.5.3`; recovered `qosa-1.0.0` (3×9); 5×5 secondary and provisional.
+- New deals: **0**. Seed set: none. Strategies: none. No new win rate, remaining-pip, block, round-length, minus, or regret estimates. Historical 180,000 rounds remain separate.
+- Source reviewed: `README.md`, `RULES.md`, `EXPERIMENTS.md`, `RESULTS.md`, `STATUS.md`, `simulator/validation-gate.js`, `initializer.js`, `round-driver.js`, `turn-dispatcher.js`, `engine.js`, `round-conservation-regression.js`, plus latest validation report.
+- **Specific missing integration:** `initializer.js` exports only `initializeThreePlayerRoundFromDeal` and `initializeThreePlayerRound`. `engine.js` exports `dealThreeByNine` but no 5×5 deal function. The current 1,000-deal conservation runner initializes first-round 3×9 and therefore empties its single stock tile before ordinary turns; its three draw/pass stock cases are isolated dispatcher fixtures, not a complete 5-player stock-consuming round. `round-driver.js` and `turn-dispatcher.js` accept arbitrary hand counts, but this does **not** validate a five-player opening/deal/round.
+- Reproducibility note: the 12-suite gate records 1,000 full-round 3×9 conservation deals only after that suite passes; it must not be interpreted as a five-player round count.
+- Runtime: local `git ls-remote` still fails DNS resolution for github.com. GitHub connector source reads succeeded; no Node suites were executed this pass. Static confidence high, runtime confidence not established.
+- Exact next hypothesis/action: implement a **separately marked provisional** 5×5 + 3 stock deal/initializer with explicit opening assumptions (do not silently reuse 3×9 mandatory opening draw); add a deterministic 5-player full-round stock-conservation smoke and blocked/pass-cycle checks, but do not promote five-player strategy results before physical opening/draw rules are resolved. First priority remains executing the existing 12-suite 3×9 gate on an executable checkout.
+- No live scoreboard/PWA files changed.
