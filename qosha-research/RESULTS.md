@@ -3314,3 +3314,12 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - Confidence/limitations: high for the source-level omission and wiring; **0 suites executed this run**. Local `git ls-remote` failed `Could not resolve host: github.com`; source writes via GitHub connector work, but no complete executable checkout was obtained. The three contracts reflect coded-model assertions, not authenticated table rules.
 - Source commit: `eeb4fa615e937e7ee4a35edd1e830dfea785d675`. No live scoreboard/PWA files changed.
 - Exact next action: run `node qosha-research/simulator/validation-gate.js` in a complete checkout, archive actual JSON for all 16 suites with source/contract manifests, fix first failure, then resume fresh matched-seed 3×9 policy comparisons only after a green gate.
+
+
+### 2026-11-06 00:51 (+04, Asia/Baku) — actual-starter regression added to aggregate gate
+- Engine/rules: `qosha-research-0.5.3`, recovered `qosa-1.0.0`, primary 3×9; branch/block semantics provisional.
+- New simulated deals: **0**; seed range: none; strategies: none; new win, remainder, block, minus, regret metrics: not measured. Previously persisted **180,000** matched-seat strategy rounds remain a separate cohort.
+- Change: converted `simulator/specific-double-starter-test.js` from plain-text success output to a structured JSON evidence contract and registered it in `simulator/validation-gate.js` as suite **17**. The constructed stock-`1-1` fixture requires `previousWinnerIndex=1` to be the actual starter despite no raw hand owning `1-1`, protecting controlled specific-double stratification from its earlier confounding bug.
+- Finding: a previously persisted cross-module regression was not part of the aggregate validation gate and emitted non-JSON output incompatible with its contract; both integration gaps are now addressed in source. **No new reliable strategy finding.**
+- Confidence/limitations: GitHub source writes confirmed; **0 suites executed** in this run because container DNS still cannot resolve `github.com` for an executable checkout. Passing coverage and physical rule validity are not claimed. No live PWA changes.
+- Exact next action: execute `node qosha-research/simulator/validation-gate.js` in a complete checkout, archive actual 17-suite JSON with manifest hashes and fix any failures; only after a green gate resume matched-seed 3×9 comparisons, starting with corrected controlled-double seeds `30000..39999`.
