@@ -3265,3 +3265,13 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - Finding: source-only hashing could not distinguish two runs whose JavaScript was identical but whose documented rule assumptions differed. The provenance gap is closed in code; **no reliable new gameplay finding**.
 - Confidence/limitations: GitHub connector confirmed the code update (commit `4fc6bab7f236b9ad842a37e8db946dc3ad1ae7c3`); executable validation remains **unverified**. The container cannot resolve github.com for a checkout; this change is not a passing test claim.
 - Exact next action: execute `node qosha-research/simulator/validation-gate.js` in a complete checkout, persist the emitted JSON including both manifest hashes and per-suite pass/fail evidence; investigate failures before new matched-seed strategy comparisons. No scoreboard/PWA changes.
+
+
+### 2026-11-05 08:54 (+04, Asia/Baku) — block-boundary invariant gate
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`; physical block winner/tie and branch interpretation remain provisional.
+- New deals: **0**; seeds: none (constructed fixtures); strategies: none. No new win, finish-minus frequency, remainder distribution, regret, or strategy result. Previously persisted 180,000 matched-seat rounds and historical replay cohorts remain separate.
+- Added `simulator/block-boundary-regression.js` and wired it into `simulator/validation-gate.js` as suite **12**. The fixture asserts the coded threshold for 3- and 5-player pass streaks, requires empty stock for a block, verifies pip remainders and null block-winner, checks pass-streak reset, and verifies that an actual empty-hand finish takes precedence over a stale pass count.
+- Intended coverage: **33 constructed checks** (3-player: 12 threshold/stock combinations + 2 pass resets; 5-player: 16 combinations + 2 resets; one finish precedence). **Executed/passed: unverified**; the GitHub connector saved source, but the local container still cannot resolve raw.githubusercontent.com to fetch an executable checkout. This is not an empirical finding or proof of physical rules.
+- New finding: explicit regression now guards against accidentally crediting a block winner or finish-minus on a blocked round. No new reliable strategic finding.
+- Confidence/limitations: high for static scope of assertions, unknown runtime pass status; 5-player is a boundary fixture only, not a validated 5-player simulation. The suite does not settle which player wins a physical block.
+- Exact next action: execute `node qosha-research/simulator/validation-gate.js` from a complete checkout; verify all 12 suite outputs and repair any failure before matched-seed strategy runs. No live scoreboard/PWA changes.
