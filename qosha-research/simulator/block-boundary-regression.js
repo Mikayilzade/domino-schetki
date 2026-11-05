@@ -35,7 +35,8 @@ function run(){
  for(const players of [3,5]){
   const branch=e.createBranchState([1,1]);
   const opened=e.createOpeningState([1]);
-  const hands=Array.from({length:players},(_,i)=>[[2+(i%3),3+(i%3)]]);
+  const deadTiles=[[2,3],[2,4],[2,5],[3,4],[3,5]];
+  const hands=deadTiles.slice(0,players).map(tile=>[[...tile]]);
   let streak=0;
   for(let seat=0;seat<players;seat++){
    const transition=d.applyTurn(branch,opened,hands[seat],[],null);
