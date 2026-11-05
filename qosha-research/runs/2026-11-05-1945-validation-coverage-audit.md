@@ -1,0 +1,10 @@
+# 2026-11-05 19:45 (+04, Asia/Baku) — validation evidence gap audit
+
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`; primary 3×9. Physical branch and block winner/tie rules remain provisional.
+- New deals: **0**; seeds: none; strategies: none; no new win, remainder, round length, block, minus or regret estimates. Historical 180,000 matched-seat rounds are not included.
+- Read source of `README.md`, `RULES.md`, `EXPERIMENTS.md`, `RESULTS.md`, `STATUS.md`, `simulator/validation-gate.js`, `simulator/block-boundary-regression.js`, and `simulator/round-conservation-regression.js`.
+- **Concrete coverage finding:** the 12-suite aggregate gate checks 3×9 round conservation over exactly 1,000 seeds (21,000,000..21,000,999), while the 5-player check is only a constructed pass/block boundary fixture. Therefore even a future green aggregate gate is **not** evidence of a validated complete 5-player simulator or physical block scoring. Its reported `dealsExecuted` also counts only the 1,000 conservation deals, not all constructed assertions.
+- The block fixture's 41 checks are statically accounted for: 12 three-player threshold/stock cases + 2 resets, 16 five-player cases + 2 resets, 3+5 dispatched passes, and 1 finish-priority fixture. This is a source count, **not** a claim of 41 executed passing assertions.
+- Local `git ls-remote` still fails `Could not resolve host: github.com`; the GitHub connector allows source read/write but does not execute Node. Executed suites: **0**; verified passing suites: **0**. No new reliable strategy finding.
+- Confidence: high for static scope and arithmetic; runtime correctness unverified. No live scoreboard/PWA changes.
+- Exact next action: acquire executable checkout, run `node qosha-research/simulator/validation-gate.js`, save full machine-readable stdout and diagnose first failure; then add a separate full-round 5-player invariant smoke before using any 5-player strategic estimates. Only resume matched-seed 3×9 strategy simulations after the gate is green.
