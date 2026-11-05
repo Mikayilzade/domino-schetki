@@ -30,4 +30,4 @@ assert.equal(features[1].doubles['1-1'],false);
 assert.equal(features[0].doubles['1-1'],false);
 assert.equal(features[2].doubles['1-1'],false);
 
-console.log('qosa specific-double actual-starter regression: OK');
+console.log(JSON.stringify({schema:'qosha-specific-double-starter-regression/v1',passed:true,deals:0,fixtures:1,previousWinnerIndex:1,actualStarter:base.starter,stockOpening:true,rawHandOwnsOpening:false}));
