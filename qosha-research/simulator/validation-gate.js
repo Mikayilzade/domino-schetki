@@ -35,7 +35,15 @@ const suites=[
 const results=[];
 for(const name of suites){
   const p=path.join(root,name);
-  const suiteSha256=crypto.createHash('sha256').update(require('node:fs').readFileSync(p)).digest('hex');
+  // A missing suite is a failed validation, not a fatal exception that erases
+  // all earlier suite results and prevents emitting a machine-readable report.
+  if(!fs.existsSync(p)){
+    results.push({suite:name,suiteSha256:null,passed:false,exitCode:null,signal:null,
+      spawnError:{code:'ENOENT',message:'validation suite file is missing'},
+      summary:null,stderr:'',stdoutParseError:null});
+    continue;
+  }
+  const suiteSha256=crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
   const run=spawnSync(process.execPath,[p],{encoding:'utf8',timeout:120000,maxBuffer:8*1024*1024});
   let payload=null;
   if(run.status===0){try{payload=JSON.parse(run.stdout)}catch{}}
