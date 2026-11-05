@@ -3293,3 +3293,13 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - Finding: missing test entrypoints previously could abort the whole gate before it emitted machine-readable evidence; this diagnostic failure mode is now handled. **No new reliable gameplay/strategy finding.**
 - Confidence/limitations: source-level fix verified through GitHub write; full Node validation remains unexecuted. Local `git ls-remote` fails with `Could not resolve host: github.com`; therefore 0 suites are claimed as executed in this run. No live PWA files changed.
 - Exact next action: obtain executable checkout, run `node qosha-research/simulator/validation-gate.js`, archive actual JSON with suite statuses/source manifest and fix first real test failure before matched-seed strategy simulation.
+
+
+### 2026-11-05 22:50 (+04, Asia/Baku) — five-player partition validation gate
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`; primary 3×9 unchanged; 5×5+3 is secondary and full five-player play remains unvalidated.
+- New simulated rounds: **0**; validation seed set `23000000..23001023` (1,024 deterministic shuffle/deal fixtures, **authored but not executed**); strategies: none.
+- Change: added `simulator/five-player-deal-regression.js` and registered it in `simulator/validation-gate.js` (now 13 suites). Checks deterministic repeatability, 5 hands of 5, 3 stock stones, 28 unique double-six tiles, exactly one 1-1 across all positions, and broad unique-deal sanity. Stock 1-1 is counted, not treated as proof of a five-player opening rule.
+- New finding: five-player deal partition now has a branch-independent, rule-ambiguity-safe executable regression. This is a **coverage improvement only**, not a gameplay or strategy result.
+- Metrics: 0 suites executed in this run; no new win, remainder, block, minus, or regret estimates. Prior independently persisted 180,000 matched-seat 3×9 rounds remain separate from older replay cohorts.
+- Confidence/limitations: source saved through GitHub connector; Node execution unavailable without full checkout because container GitHub DNS remains inaccessible. The test deliberately does not claim valid five-player opening, draw/pass, or full-round behavior.
+- Exact next action: execute `node qosha-research/simulator/validation-gate.js` in a complete checkout, archive 13-suite JSON and fix any failures; then resume fresh matched-seed 3×9 strategy rounds only after the validation gate passes.
