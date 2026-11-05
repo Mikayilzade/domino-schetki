@@ -69,7 +69,9 @@ const report={schema:'qosha-validation-gate/v1',executedAt:new Date().toISOStrin
  seedSet:'21000000..21000999 for conservation; opening stock seed selected by deterministic search',
  strategies:['deterministic seeded legal-action selection for invariant smoke only'],
  sourceManifestSha256,sourceHashes,contractManifestSha256,contractHashes,suites:results,passed:results.every(x=>x.passed),
- dealsExecuted:results.find(x=>x.suite==='round-conservation-regression.js')?.summary?.deals||0,
+ dealsExecuted:(results.find(x=>x.suite==='round-conservation-regression.js')?.passed===true ? results.find(x=>x.suite==='round-conservation-regression.js').summary.deals : 0),
+ verifiedSuites:results.filter(x=>x.passed).length,
+ failedSuites:results.filter(x=>!x.passed).map(x=>({suite:x.suite,exitCode:x.exitCode,signal:x.signal,validationError:x.summary?.validationError||null})),
  reportSha256:null};
 // Bind the report fingerprint to both executable sources and rule contracts,
 // not just suite outputs. Exclude the fingerprint itself to avoid recursion.
