@@ -1,0 +1,10 @@
+# Block transition integration checkpoint — 2026-11-05 09:53 +04:00 (Asia/Baku)
+
+- **Engine/rules:** qosha-research-0.5.3; recovered qosa-1.0.0, primary 3×9; provisional physical branch and block semantics.
+- **Deals:** 0 newly simulated rounds; seeds: none (constructed fixtures); strategies: none. No new wins, remainder distributions, minus rates or regret estimates.
+- **Change:** Extended `simulator/block-boundary-regression.js` with real `applyTurn` -> `nextPassCount` -> `roundOutcome` sequences for 3 and 5 players. All hands contain unique physical non-1 tiles, no stock, and centre is 1-1 with number 1 opened. Assert each player must pass without drawing, no premature block, and final block has null winner and correct remaining pip sums. Existing 33 synthetic threshold/stock/finish checks remain.
+- **Expected gate coverage:** 41 checks (33 existing + 3 actual pass transitions in 3-player fixture + 5 in 5-player fixture). Updated `validation-gate.js` to require exactly 41. **Execution status: unverified**; the GitHub connector saved source but the Node container cannot resolve github.com to obtain a full checkout. Do not count 41 as passed.
+- **Finding:** the previous block suite tested only manufactured pass counters, not the transition sequence that creates them. This gap now has a regression fixture, but no new reliable strategy finding.
+- **Confidence/limitations:** high for static fixture intent; unknown runtime status. The 5-player fixture tests only the pass-to-block boundary, not 5-player game validity. Block winner/tie/scoring is deliberately unassigned.
+- **Cumulative:** previously persisted 180,000 matched-seat strategy rounds remain separate from historical 4,000 accepted tie-replay outcomes; no increment in this run.
+- **Exact next action:** execute `node qosha-research/simulator/validation-gate.js` from a complete checkout, fix any failing fixture, save per-suite JSON, then resume fresh matched-seed comparisons only after a green gate. No scoreboard/PWA files touched.
