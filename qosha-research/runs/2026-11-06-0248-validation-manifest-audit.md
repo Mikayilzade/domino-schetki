@@ -1,0 +1,10 @@
+# Qoşa research checkpoint — 2026-11-06 02:48 Asia/Baku
+
+- **Scope:** source-of-truth GitHub read of `README.md`, `RULES.md`, `EXPERIMENTS.md`, `RESULTS.md`, plus `simulator/validation-gate.js`, `simulator/five-player-deal-regression.js`, `simulator/round-conservation-regression.js` and current simulator directory manifest.
+- **Engine/rules:** `qosha-research-0.5.3` / recovered `qosa-1.0.0`, primary 3 players × 9 stones. Branch and block interpretation provisional.
+- **Run:** 0 new complete deals; seed range none; no strategies executed. No new win/first-place, remainder, block, round-length, minus, double or regret metrics. Historical 180,000 matched-seat rounds remain isolated.
+- **New verified source-level finding:** all **17 of 17** entrypoints listed in the current aggregate validation gate exist in GitHub's current `qosha-research/simulator/` directory listing (342 entries). Missing test files are **not** the present source-tree blocker. This is only a static presence check: test imports, contracts and runtime success remain unverified.
+- **Coverage boundary:** the 3×9 initializer consumes the single stock tile in its opening; `round-conservation-regression.js` exercises draw/pass separately on three constructed stock fixtures. The 5×5+3 regression checks only 1,024 deterministic deal partitions, not complete five-player games.
+- **Execution limitation:** container `git ls-remote` fails with `Could not resolve host: github.com`; the GitHub connector supports source reads/writes but not Node execution. **0 of 17 suites executed** this checkpoint; no green-gate claim and no reliable new gameplay finding.
+- **Confidence:** high for exact manifest presence and stated code coverage; no confidence claim for gameplay conclusions.
+- **Exact next action:** acquire an executable full checkout; run `node qosha-research/simulator/validation-gate.js`, save actual JSON with all suite statuses and hashes, fix the first runtime failure, and only after a green gate run matched 3×9 strategy comparisons on seeds `30000..39999`. No live scoreboard/PWA files touched.
