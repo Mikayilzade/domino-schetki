@@ -12,6 +12,12 @@ const fs=require('node:fs');
 const sourceFiles=fs.readdirSync(root).filter(n=>n.endsWith('.js')).sort();
 const sourceHashes=Object.fromEntries(sourceFiles.map(n=>[n,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,n))).digest('hex')]));
 const sourceManifestSha256=crypto.createHash('sha256').update(JSON.stringify(sourceHashes)).digest('hex');
+// Rules and experiment contracts affect the interpretation of a green gate.
+// Include them separately so a documentation/rules revision cannot be silently
+// associated with a validation report generated against earlier assumptions.
+const contractNames=['README.md','RULES.md','EXPERIMENTS.md'];
+const contractHashes=Object.fromEntries(contractNames.map(n=>[n,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'..',n))).digest('hex')]));
+const contractManifestSha256=crypto.createHash('sha256').update(JSON.stringify(contractHashes)).digest('hex');
 const suites=[
   'seed-deal-regression.js',
   'opening-stock-regression.js',
@@ -60,7 +66,7 @@ const report={schema:'qosha-validation-gate/v1',executedAt:new Date().toISOStrin
  rules:'recovered qosa-1.0.0 / 3x9 / provisional branch semantics',
  seedSet:'21000000..21000999 for conservation; opening stock seed selected by deterministic search',
  strategies:['deterministic seeded legal-action selection for invariant smoke only'],
- sourceManifestSha256,sourceHashes,suites:results,passed:results.every(x=>x.passed),
+ sourceManifestSha256,sourceHashes,contractManifestSha256,contractHashes,suites:results,passed:results.every(x=>x.passed),
  dealsExecuted:results.find(x=>x.suite==='round-conservation-regression.js')?.summary?.deals||0,
  reportSha256:crypto.createHash('sha256').update(JSON.stringify(results)).digest('hex')};
 console.log(JSON.stringify(report,null,2));
