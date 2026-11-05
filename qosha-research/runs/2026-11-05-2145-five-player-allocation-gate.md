@@ -1,0 +1,9 @@
+# 2026-11-05 21:45 Asia/Baku — 5-player allocation invariant gate
+
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0` primary 3×9. Secondary mode: 5×5 + 3 stock; opening/draw/block semantics **not assumed**.
+- New deals executed: **0**; planned deterministic allocation seed range `23000000..23001023` (1,024 allocations), not yet executed. Strategies: none; new win, median/mean pips, minus, blocks, regret: not measured.
+- Source change: `simulator/five-player-deal-invariant-test.js` now constructs 5 five-tile hands plus three stock tiles from the existing deterministic `shuffledDeck`, verifies all 28 identities exactly once, checks 1-1 occurs exactly once, and records unique allocations and stock/hand 1-1 location. No opening, draw or pass behavior is invented. Test source committed but **not run**.
+- Finding: the existing 3×9 deal helper cannot be treated as evidence for 5×5+3 allocation. The new fixture isolates an invariant independent of disputed five-player gameplay rules. No reliable new strategic finding.
+- Confidence/limitations: high for static design; runtime assertions unverified. GitHub connector can read/write source but cannot execute Node; local GitHub checkout access has previously failed DNS. Do not count 1,024 proposed seeds as simulated or claim the gate green.
+- Cumulative: previously persisted 180,000 matched-seat strategic rounds remain separate from older historical/replay cohorts. This checkpoint adds 0.
+- Exact next action: run `node qosha-research/simulator/five-player-deal-invariant-test.js` and `node qosha-research/simulator/validation-gate.js` on a complete checkout, persist actual JSON, fix any failures. Only then add five-player full-round initializer after its opening/draw rules are explicitly resolved. Do not modify live scoreboard/PWA.
