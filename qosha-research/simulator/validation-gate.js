@@ -21,6 +21,9 @@ const contractManifestSha256=crypto.createHash('sha256').update(JSON.stringify(c
 const suites=[
   'seed-deal-regression.js',
   'five-player-deal-regression.js',
+  'four-branch-lock-kernel-test.js',
+  'draw-enabled-action-contract-test.js',
+  'mixed-finish-exhaustive-contract-test.js',
   'opening-stock-regression.js',
   'score-minus-regression.js',
   'block-boundary-regression.js',
@@ -52,6 +55,9 @@ for(const name of suites){
   // Reject a successful exit that reports no meaningful coverage. Each suite
   // has its own contract; do not infer validation from a generic "passed" flag.
   const coverage={
+    'four-branch-lock-kernel-test.js': p=>p.fullSequences===24&&p.minus===-40&&typeof p.scope==='string',
+    'draw-enabled-action-contract-test.js': p=>p.assertions>=6&&p.deals===0&&Array.isArray(p.fixtures)&&p.fixtures.length===7,
+    'mixed-finish-exhaustive-contract-test.js': p=>p.mixedFinishPermutations===33&&p.scoreFloorPairs===408&&p.negativeFixtures===3&&p.doubleCounts?.join(',')==='1,2,3,4'&&p.assertions>0,
     'five-player-deal-regression.js': p=>p.schema==='qosha-five-player-deal-regression/v1'&&p.deals===1024&&p.seeds?.[0]===23000000&&p.seeds?.[1]===23001023&&p.players===5&&p.handSize===5&&p.stockSize===3&&p.uniqueDeals>1000&&p.stockOpening>=0,
     'seed-deal-regression.js': p=>p.schema==='qosha-seed-deal-regression/v1'&&p.deals===1024&&p.seeds?.[0]===22000000&&p.seeds?.[1]===22001023&&p.uniqueDeals>1000&&p.stockOpening>=0,
     'opening-stock-regression.js': p=>p.firstRoundRedeal===true&&p.missingWinnerUnresolved===true&&p.previousWinnerCases?.length===3,
