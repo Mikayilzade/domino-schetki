@@ -3275,3 +3275,12 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - New finding: explicit regression now guards against accidentally crediting a block winner or finish-minus on a blocked round. No new reliable strategic finding.
 - Confidence/limitations: high for static scope of assertions, unknown runtime pass status; 5-player is a boundary fixture only, not a validated 5-player simulation. The suite does not settle which player wins a physical block.
 - Exact next action: execute `node qosha-research/simulator/validation-gate.js` from a complete checkout; verify all 12 suite outputs and repair any failure before matched-seed strategy runs. No live scoreboard/PWA changes.
+
+
+### 2026-11-05 17:47 (+04, Asia/Baku) — validation spawn diagnostics checkpoint
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9; provisional branch/block interpretations unchanged.
+- Deals: **0 new**; seed range: none; strategies: none. No new finish, block, remainder, minus or regret measurements; prior 180,000 matched-seat rounds remain a separate historical cohort.
+- Source audit: all four core research documents were read, plus the aggregate validation gate and block-boundary regression. The gate launches 12 suites with a 120-second timeout per suite, but its failure report previously omitted the `spawnSync.error` field; timeouts (ETIMEDOUT) and spawn failures could therefore appear only as null exit codes without the underlying cause.
+- Change: the gate now records structured `spawnError.code` and `spawnError.message` in each suite result and the top-level failed-suite summary. Source commit: `ee1ead0f573e9bf9a2442f422cd0f663eb413ea2`.
+- Confidence/limitations: high for static inspection of the diagnostic omission; **0 executed test suites in this run**, no green gate claim, no new gameplay finding. Node checkout remains unavailable through container GitHub DNS; the GitHub connector permits source reads and writes but not executing repository code.
+- Exact next action: obtain complete executable checkout, run `node qosha-research/simulator/validation-gate.js`, persist stdout including per-suite `spawnError`, identify first genuine failure and fix it before running new matched-seed strategy deals. No scoreboard/PWA files changed.
