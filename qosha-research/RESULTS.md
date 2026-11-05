@@ -3256,3 +3256,12 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - Finding: identified and closed a reproducibility gap in the validation evidence; **no new strategy finding**. Source change persisted, but the complete validation gate has not been executed in this run. This is a code-level provenance improvement, not evidence that the game rules or suites pass.
 - Confidence/limitations: high for source-level manifest logic; test execution remains unverified. The manifest intentionally covers JavaScript files only, not rule documentation or run JSON. No change to scoreboard/PWA.
 - Exact next action: run `node qosha-research/simulator/validation-gate.js` from a complete checkout, save stdout JSON with `sourceManifestSha256`, investigate any failing suite, then resume matched-seed strategy comparisons only after a green gate.
+
+
+### 2026-11-05 06:51 (+04, Asia/Baku) — validation contract provenance checkpoint
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`, 3 players × 9 stones; provisional branch/block interpretation unchanged.
+- New deals: **0**; seed set: none; strategies: none; 0 new finish/block/minus/win/regret measurements. Earlier strategic cohorts and historical replay remain separate.
+- Change: `simulator/validation-gate.js` now emits `contractHashes` and `contractManifestSha256` for `README.md`, `RULES.md`, and `EXPERIMENTS.md`, in addition to its simulator-source manifest. This binds a future green test report to the rule/experiment assumptions it was executed against.
+- Finding: source-only hashing could not distinguish two runs whose JavaScript was identical but whose documented rule assumptions differed. The provenance gap is closed in code; **no reliable new gameplay finding**.
+- Confidence/limitations: GitHub connector confirmed the code update (commit `4fc6bab7f236b9ad842a37e8db946dc3ad1ae7c3`); executable validation remains **unverified**. The container cannot resolve github.com for a checkout; this change is not a passing test claim.
+- Exact next action: execute `node qosha-research/simulator/validation-gate.js` in a complete checkout, persist the emitted JSON including both manifest hashes and per-suite pass/fail evidence; investigate failures before new matched-seed strategy comparisons. No scoreboard/PWA changes.
