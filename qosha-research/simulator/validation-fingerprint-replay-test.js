@@ -33,6 +33,23 @@ function execute() {
   assert.equal(report.suites.length, 17);
   assert.equal(typeof report.validationFingerprintSha256, 'string');
   assert.match(report.validationFingerprintSha256, /^[0-9a-f]{64}$/);
+  // Independently reconstruct the stable evidence fingerprint. Equality across
+  // two runs alone would accept a consistently wrong or hard-coded digest.
+  const stablePayload = {
+    schema:report.schema, engine:report.engine, rules:report.rules,
+    seedSet:report.seedSet, strategies:report.strategies,
+    sourceManifestSha256:report.sourceManifestSha256,
+    contractManifestSha256:report.contractManifestSha256,
+    suites:report.suites.map(({suite,suiteSha256,passed,exitCode,signal,spawnError,summary}) =>
+      ({suite,suiteSha256,passed,exitCode,signal,
+        spawnErrorCode:spawnError?.code||null,summary}))
+  };
+  const independentFingerprint = hash(JSON.stringify(stablePayload));
+  assert.equal(report.validationFingerprintSha256, independentFingerprint,
+    'stable fingerprint must match independently reconstructed evidence');
+  const changedEvidence = {...stablePayload, seedSet:stablePayload.seedSet + '/tampered'};
+  assert.notEqual(hash(JSON.stringify(changedEvidence)), report.validationFingerprintSha256,
+    'changed seed contract must invalidate the stable fingerprint');
   assert.match(report.reportSha256, /^[0-9a-f]{64}$/, 'full report digest must be SHA-256');
   // Verify the producer's digest rather than trusting a self-reported hash.
   // JSON.parse retains the insertion order used by the gate's JSON.stringify.
