@@ -1,0 +1,10 @@
+# 2026-11-06 08:53 Asia/Baku — validation input-manifest attestation
+
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`, 3 players × 9 stones primary; physical branch/block and terminal-score mapping remain provisional.
+- New played deals: **0**; seed range: none; strategies: none. New win/first-place, mean/median remaining pips, round length, block, minus (−10/−20/−30/−40), doubles, branch and regret statistics: **not measured**. Previously recorded **180,000 matched-seat rounds** are historical, not added to this checkpoint.
+- Source of truth: inspected README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md, PATTERN_RESEARCH.md and the 17-suite validation gate and replay regression.
+- Source improvement: the replay regression now independently enumerates all `simulator/*.js` files and recomputes each SHA-256 and the aggregate source manifest, then checks README/RULES/EXPERIMENTS content hashes and aggregate contract manifest against the gate report. Before this change it validated the report digest and compared two gate reports, but both could agree on an incorrectly constructed source manifest. This closes that **test-oracle blind spot**, not a gameplay bug.
+- Source commit: [95d793be85369cbf244a0f2b54c59b365dfaec40](https://github.com/Mikayilzade/domino-schetki/commit/95d793be85369cbf244a0f2b54c59b365dfaec40).
+- Execution: **0/17 suites run in this checkpoint**; no executable full checkout was obtained. No green-gate claim. The manifest assertions are authored but not runtime-verified. No reliable new strategy finding. No scoreboard/PWA changes.
+- Confidence/limitations: high for the static integrity gap and source change; runtime behavior and physical rules remain unverified.
+- Exact next action: execute `node qosha-research/simulator/validation-fingerprint-replay-test.js` in a complete checkout, archive its JSON and the 17-suite gate report; fix the first failure, then run matched-seed 3×9 controlled-double comparison on `30000..39999` after green validation.
