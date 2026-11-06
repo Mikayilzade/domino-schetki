@@ -94,6 +94,15 @@ const report={schema:'qosha-validation-gate/v1',executedAt:new Date().toISOStrin
  reportSha256:null};
 // Bind the report fingerprint to both executable sources and rule contracts,
 // not just suite outputs. Exclude the fingerprint itself to avoid recursion.
+// Stable evidence identity: unlike reportSha256 this deliberately excludes wall-clock
+// time and Node version, allowing byte-identical results to be compared across runs.
+// It does not imply the physical rules are independently authenticated.
+report.validationFingerprintSha256=crypto.createHash('sha256').update(JSON.stringify({
+  schema:report.schema,engine:report.engine,rules:report.rules,seedSet:report.seedSet,
+  strategies:report.strategies,sourceManifestSha256,contractManifestSha256,
+  suites:results.map(({suite,suiteSha256,passed,exitCode,signal,spawnError,summary,stderr,stdoutParseError})=>
+    ({suite,suiteSha256,passed,exitCode,signal,spawnError,summary,stderr,stdoutParseError}))
+})).digest('hex');
 report.reportSha256=crypto.createHash('sha256').update(JSON.stringify(report)).digest('hex');
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
