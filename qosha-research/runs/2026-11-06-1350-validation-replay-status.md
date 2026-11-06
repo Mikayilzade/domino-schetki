@@ -1,0 +1,9 @@
+# Qoşa validation replay false-green guard — 2026-11-06 13:50 Asia/Baku
+
+- Engine/rules: qosha-research-0.5.3 / recovered qosa-1.0.0; 3 players × 9 stones primary; branch/block physical semantics provisional.
+- Source-of-truth read: README.md, RULES.md, EXPERIMENTS.md, RESULTS.md; simulator/validation-gate.js, validation-fingerprint-replay-test.js, round-driver.js.
+- Deals this run: 0; seed range/set: none; strategies: none. Win/first-place, mean/median pips, length, block rate, −10/−20/−30/−40, double ownership, branch effect, regret: not measured. The earlier 180,000 matched-seat rounds are a separate historical persisted cohort, not new simulations.
+- Source-level finding: the replay test previously printed `passed:true` and exited zero even if both runs of the validation gate consistently failed all suites. Replay stability does not imply a green validation gate. Fixed replay JSON to set `passed:a.passed`, added `replayConsistent:true`, and set exit code 1 when the underlying gate fails. Source change: 9c51b8678ead4cb46396731bca2253de7b8260d0.
+- Execution check: `git ls-remote https://github.com/Mikayilzade/domino-schetki.git HEAD` failed with `Could not resolve host: github.com`. No runnable checkout obtained; 0/17 suites actually executed, and the changed replay code is not runtime-verified.
+- Confidence: high for the source-level false-green defect and fix intent; none for new game strategy inference. No live scoreboard/PWA files changed.
+- Exact next action: obtain executable checkout, run `node qosha-research/simulator/validation-fingerprint-replay-test.js` and `node qosha-research/simulator/validation-gate.js`, archive actual JSON including failure path; fix any failures. After 17/17 green, run matched 3×9 seeds 30000..39999 for controlled-double and branch strategy hypotheses.
