@@ -78,7 +78,7 @@ const synthetic = {...a, executedAt:'2000-01-01T00:00:00.000Z'};
 const digest = crypto.createHash('sha256').update(JSON.stringify({...synthetic,reportSha256:null})).digest('hex');
 assert.notEqual(digest, a.reportSha256, 'timestamp must affect full report digest');
 console.log(JSON.stringify({
-  schema:'qosha-validation-fingerprint-replay/v1',passed:true,
+  schema:'qosha-validation-fingerprint-replay/v1',passed:a.passed, replayConsistent:true,
   suites:a.suites.length,gatePassed:a.passed,
   fingerprint:a.validationFingerprintSha256,
   sourceManifest:a.sourceManifestSha256,contractManifest:a.contractManifestSha256,
@@ -86,3 +86,4 @@ console.log(JSON.stringify({
   dealsExecutedPerGate:a.dealsExecuted,
   limitation:'Replay equivalence checks implementation stability, not physical game-rule correctness.'
 },null,2));
+if(!a.passed) process.exitCode=1; // Reproducible failure is not a green validation gate.
