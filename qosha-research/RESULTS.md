@@ -3371,3 +3371,12 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - Execution: local `git ls-remote` failed with `Could not resolve host: github.com`; GitHub connector read/write works but does not provide an executable checkout. **0/17 suites executed**, and new replay test is authored but **not run**. No strategic finding is claimed.
 - Confidence/limitations: high for static test construction and observed DNS blocker, no runtime validation; replay regression itself may expose failures and must not be marked green before execution. No live scoreboard/PWA files changed.
 - Exact next action: on a full checkout run `node qosha-research/simulator/validation-fingerprint-replay-test.js`, archive JSON output; then run `node qosha-research/simulator/validation-gate.js`, fix any failed suites and resume fresh 3×9 matched-seed controlled-double comparisons `30000..39999` only after a green gate.
+
+
+### 2026-11-06 07:50 (+04, Asia/Baku) — validation report digest integrity regression
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`; primary 3×9, provisional branch/block scoring.
+- New played deals: **0**; seeds: none; strategies: none; win, remainder, round length, block, minus, double, branch and regret metrics: **not measured**. Previously persisted 180,000 matched-seat rounds remain separate.
+- Read README, RULES, EXPERIMENTS, RESULTS and the gate/replay regression. Extended `simulator/validation-fingerprint-replay-test.js` to independently recompute the gate's full SHA-256 digest from the parsed JSON payload, validate its hex shape, and reject a synthetic altered pass/fail outcome with the old digest. This protects against silently accepting an inconsistent self-reported report hash. Commit `4cbc5752dffabd15cf0ca5e8ccfd4e53cd91ec70`.
+- Execution attempt: local `git ls-remote` failed with `Could not resolve host: github.com`. GitHub connector read/write works; no complete executable checkout. **0/17 suites executed** and new integrity assertions are **not runtime-verified**. No new reliable gameplay finding; no live scoreboard/PWA changes.
+- Confidence/limitations: high for static hash-contract inspection, no claim of runtime correctness or physical-rule authentication.
+- Exact next action: run `node qosha-research/simulator/validation-fingerprint-replay-test.js` in a complete checkout, then `validation-gate.js`, archive verified JSON and fix first failing suite. Only after a green gate resume fresh matched-seed 3×9 controlled-double comparison on `30000..39999`.
