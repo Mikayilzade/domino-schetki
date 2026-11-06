@@ -3343,3 +3343,12 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - Finding: the distinction between source-level presence of 17 tests and **actual runtime verification** remains essential; no reliable new gameplay strategy result. This is an evidence-integrity checkpoint, not a validation success.
 - Confidence/limitations: high for gate source inspection and observed DNS failure; no inference about suite outcomes, physical rules, or policy superiority. No live scoreboard/PWA changes.
 - Exact next action: obtain a complete executable checkout, run `node qosha-research/simulator/validation-gate.js`, persist its full JSON and manifest hashes, fix the first failing suite, then resume matched-seed 3×9 controlled-double experiments on fresh `30000..39999` seeds after a green gate.
+
+
+### 2026-11-06 04:45 (+04, Asia/Baku) — stable validation evidence identity
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`; primary 3×9; physical branch and block interpretation provisional.
+- New played deals: **0**; seeds: none; strategies: none. Win, remainder, block, minus and regret metrics: not measured. Previously persisted 180,000 matched-seat rounds remain separate from historical replays.
+- Source-level improvement: `simulator/validation-gate.js` now emits `validationFingerprintSha256`, a deterministic digest of source/rule manifest hashes, seed and policy contract, and per-suite outcomes, **excluding timestamp and Node version**. The existing `reportSha256` continues to fingerprint the complete timestamped report. This distinguishes repeatable evidence identity from individual execution provenance.
+- Finding: two identical gate outcomes from unchanged sources can now be compared by a stable fingerprint without incorrectly treating different run timestamps as changed evidence. This is a reproducibility/instrumentation finding, **not a gameplay strategy result**.
+- Confidence/limitations: GitHub source write confirmed at commit `39b25ca3fd63f29397d1ae2ea687b5b52b3057bf`. Local `git ls-remote` again failed DNS resolution of `github.com`; **0/17 suites executed this run**, so fingerprint behavior is source-reviewed but not runtime-verified. No live PWA files changed.
+- Exact next action: obtain executable checkout, run `node qosha-research/simulator/validation-gate.js` twice and verify stable `validationFingerprintSha256` with differing `reportSha256`; archive JSON, fix any failing suite, then resume fresh matched-seed 3×9 controlled-double comparisons on `30000..39999` only after a green gate.
