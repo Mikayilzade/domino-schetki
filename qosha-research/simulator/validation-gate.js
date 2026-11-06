@@ -15,7 +15,9 @@ const sourceManifestSha256=crypto.createHash('sha256').update(JSON.stringify(sou
 // Rules and experiment contracts affect the interpretation of a green gate.
 // Include them separately so a documentation/rules revision cannot be silently
 // associated with a validation report generated against earlier assumptions.
-const contractNames=['README.md','RULES.md','EXPERIMENTS.md','RESULTS.md'];
+// RESULTS.md is an append-only output log, not an input rule contract. Hashing it
+// makes otherwise identical reruns differ after every research checkpoint.
+const contractNames=['README.md','RULES.md','EXPERIMENTS.md'];
 const contractHashes=Object.fromEntries(contractNames.map(n=>[n,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'..',n))).digest('hex')]));
 const contractManifestSha256=crypto.createHash('sha256').update(JSON.stringify(contractHashes)).digest('hex');
 const suites=[
@@ -100,8 +102,10 @@ const report={schema:'qosha-validation-gate/v1',executedAt:new Date().toISOStrin
 report.validationFingerprintSha256=crypto.createHash('sha256').update(JSON.stringify({
   schema:report.schema,engine:report.engine,rules:report.rules,seedSet:report.seedSet,
   strategies:report.strategies,sourceManifestSha256,contractManifestSha256,
-  suites:results.map(({suite,suiteSha256,passed,exitCode,signal,spawnError,summary,stderr,stdoutParseError})=>
-    ({suite,suiteSha256,passed,exitCode,signal,spawnError,summary,stderr,stdoutParseError}))
+  // Host-specific diagnostics (stderr, absolute spawn paths, Node version) stay
+  // in the full report but not in cross-host evidence identity.
+  suites:results.map(({suite,suiteSha256,passed,exitCode,signal,spawnError,summary})=>
+    ({suite,suiteSha256,passed,exitCode,signal,spawnErrorCode:spawnError?.code||null,summary}))
 })).digest('hex');
 report.reportSha256=crypto.createHash('sha256').update(JSON.stringify(report)).digest('hex');
 console.log(JSON.stringify(report,null,2));
