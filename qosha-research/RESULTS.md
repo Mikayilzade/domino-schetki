@@ -3426,3 +3426,12 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - Actual local `git ls-remote https://github.com/Mikayilzade/domino-schetki.git HEAD` failed again with `Could not resolve host: github.com`. No complete executable checkout; **0/17 suites executed** and no reliable new gameplay finding. GitHub connector reads/writes work. No scoreboard/PWA files changed.
 - Confidence: high for source-import inspection and DNS error; runtime correctness unverified.
 - Exact next action: obtain verified complete checkout (or full GitHub-tree reconstruction including child suite dependencies), execute `node qosha-research/simulator/validation-fingerprint-replay-test.js` and `node qosha-research/simulator/validation-gate.js`, archive actual JSON and fix first failure. Only after green gate resume matched 3×9 controlled-double seed set `30000..39999`.
+
+
+### 2026-11-06 16:49 (+04, Asia/Baku) — execution prerequisite confirmed, no new evidence
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`; primary 3×9; physical branch/block semantics remain provisional.
+- New deals: **0**; seed range: none; strategies: none; first-place, pip remainder, length, block, −10/−20/−30/−40, doubles, branch and regret metrics: **not measured**. The persisted 180,000 matched-seat historical strategy rounds remain separate from later/unvalidated cohorts.
+- Read GitHub README, RULES, EXPERIMENTS, RESULTS, and current `simulator/validation-gate.js` plus `validation-fingerprint-replay-test.js`. The gate enumerates 17 suites; replay runs the gate twice, but replay success is explicitly contingent on `gatePassed`, not merely matching failure reports. No source changes to tests this pass.
+- Actual executable-access attempt: `git ls-remote https://github.com/Mikayilzade/domino-schetki.git HEAD` failed with `Could not resolve host: github.com`. GitHub connector reads/writes source, but local Node cannot execute an unmaterialized repository. **0/17 suites actually executed**; no new reliable gameplay finding; no scoreboard/PWA modifications.
+- Confidence: high for observed environment blocker and static gate inspection; none for validation pass or new strategy claims.
+- Exact next action: acquire complete runnable repository source (or reconstruct verified JS dependency closure from GitHub file contents into a local checkout), execute replay and gate, persist raw JSON, fix first failing suite; then run corrected matched 3×9 controlled-double seeds `30000..39999` with confidence intervals.
