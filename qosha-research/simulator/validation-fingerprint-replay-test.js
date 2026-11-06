@@ -6,6 +6,7 @@ const assert = require('node:assert/strict');
 const {spawnSync} = require('node:child_process');
 const path = require('node:path');
 const crypto = require('node:crypto');
+const fs = require('node:fs');
 const gate = path.join(__dirname, 'validation-gate.js');
 function execute() {
   const p = spawnSync(process.execPath, [gate], {
@@ -16,6 +17,19 @@ function execute() {
   try { report = JSON.parse(p.stdout); }
   catch { throw new Error('Gate did not emit JSON; exit=' + p.status + '; stderr=' + p.stderr.slice(-1000)); }
   assert.equal(report.schema, 'qosha-validation-gate/v1');
+  // Independently verify the reported input manifests against the local checkout.
+  // A self-consistent report digest is insufficient if input files were misidentified.
+  const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+  const sourceNames = fs.readdirSync(__dirname).filter(n => n.endsWith('.js')).sort();
+  const actualSources = Object.fromEntries(sourceNames.map(n =>
+    [n, hash(fs.readFileSync(path.join(__dirname,n)))]));
+  assert.deepEqual(report.sourceHashes, actualSources, 'source manifest must cover all simulator JS');
+  assert.equal(report.sourceManifestSha256, hash(JSON.stringify(actualSources)));
+  const contractNames = ['README.md','RULES.md','EXPERIMENTS.md'];
+  const actualContracts = Object.fromEntries(contractNames.map(n =>
+    [n, hash(fs.readFileSync(path.join(__dirname,'..',n)))]));
+  assert.deepEqual(report.contractHashes, actualContracts, 'rules manifest must match checkout');
+  assert.equal(report.contractManifestSha256, hash(JSON.stringify(actualContracts)));
   assert.equal(report.suites.length, 17);
   assert.equal(typeof report.validationFingerprintSha256, 'string');
   assert.match(report.validationFingerprintSha256, /^[0-9a-f]{64}$/);
