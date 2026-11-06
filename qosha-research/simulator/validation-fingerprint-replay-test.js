@@ -19,7 +19,16 @@ function execute() {
   assert.equal(report.suites.length, 17);
   assert.equal(typeof report.validationFingerprintSha256, 'string');
   assert.match(report.validationFingerprintSha256, /^[0-9a-f]{64}$/);
-  assert.equal(typeof report.reportSha256, 'string');
+  assert.match(report.reportSha256, /^[0-9a-f]{64}$/, 'full report digest must be SHA-256');
+  // Verify the producer's digest rather than trusting a self-reported hash.
+  // JSON.parse retains the insertion order used by the gate's JSON.stringify.
+  const actualDigest = crypto.createHash('sha256')
+    .update(JSON.stringify({...report, reportSha256:null})).digest('hex');
+  assert.equal(report.reportSha256, actualDigest, 'full report digest must match its payload');
+  // A modified outcome must not validate under the original digest.
+  const altered = {...report, passed:!report.passed, reportSha256:null};
+  assert.notEqual(crypto.createHash('sha256').update(JSON.stringify(altered)).digest('hex'),
+    report.reportSha256, 'tampered result must change digest');
   // A failing suite is evidence, not a reason to skip replay comparison.
   assert.equal(p.status, report.passed ? 0 : 1);
   return report;
