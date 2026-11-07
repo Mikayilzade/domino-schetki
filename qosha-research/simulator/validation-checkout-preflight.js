@@ -44,7 +44,7 @@ function inspectInputs(dir) {
     if(entry.isSymbolicLink()) {invalid.push('Simulator input symlink: '+relative);continue;}
     if(entry.isDirectory()) {inspectInputs(full);continue;}
     if(!entry.isFile()) {invalid.push('Unexpected simulator entry: '+relative);continue;}
-    if(!/\\.(?:js|json)$/.test(entry.name)) continue;
+    if(!/\.(?:js|json)$/.test(entry.name)) continue;
     inputFiles.push(relative);
     if(entry.name.endsWith('.json')) {
       try {JSON.parse(fs.readFileSync(full,'utf8'));}
