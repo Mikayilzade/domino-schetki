@@ -17,7 +17,7 @@ function sourcePaths(dir, prefix='') {
     const rel=prefix ? prefix+'/'+entry.name : entry.name;
     if(entry.isSymbolicLink()) throw new Error('Symlink in simulator input tree: '+rel);
     if(entry.isDirectory()) out.push(...sourcePaths(path.join(dir,entry.name),rel));
-    else if(entry.isFile() && /\\.(js|json)$/.test(entry.name)) out.push(rel);
+    else if(entry.isFile() && /\.(js|json)$/.test(entry.name)) out.push(rel);
   }
   return out.sort();
 }
