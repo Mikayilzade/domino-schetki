@@ -20,10 +20,24 @@ function execute() {
   // Independently verify the reported input manifests against the local checkout.
   // A self-consistent report digest is insufficient if input files were misidentified.
   const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
-  const sourceNames = fs.readdirSync(__dirname).filter(n => n.endsWith('.js')).sort();
+  // Independent recursive enumeration, not an import from the gate producer.
+  // Include nested JS/JSON and reject symlinks rather than following outside inputs.
+  function enumerate(dir, prefix='') {
+    const found=[];
+    for(const name of fs.readdirSync(dir)) {
+      const rel=prefix ? prefix+'/'+name : name;
+      const full=path.join(dir,name);
+      const stat=fs.lstatSync(full);
+      assert.equal(stat.isSymbolicLink(),false,'unexpected simulator symlink: '+rel);
+      if(stat.isDirectory()) found.push(...enumerate(full,rel));
+      else if(stat.isFile() && /\\.(js|json)$/.test(name)) found.push(rel);
+    }
+    return found.sort();
+  }
+  const sourceNames = enumerate(__dirname);
   const actualSources = Object.fromEntries(sourceNames.map(n =>
     [n, hash(fs.readFileSync(path.join(__dirname,n)))]));
-  assert.deepEqual(report.sourceHashes, actualSources, 'source manifest must cover all simulator JS');
+  assert.deepEqual(report.sourceHashes, actualSources, 'source manifest must cover recursive simulator JS/JSON');
   assert.equal(report.sourceManifestSha256, hash(JSON.stringify(actualSources)));
   const contractNames = ['README.md','RULES.md','EXPERIMENTS.md'];
   const actualContracts = Object.fromEntries(contractNames.map(n =>
