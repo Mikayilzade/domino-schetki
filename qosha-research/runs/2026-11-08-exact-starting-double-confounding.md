@@ -1,0 +1,12 @@
+# Exact 3×9 starting-double confounding audit — 2026-11-08 03:46 Asia/Baku
+
+- **Engine/rules:** combinatorial calculation independent of engine; reference `qosha-research-0.5.3` / recovered `qosa-1.0.0`; standard 28-tile double-six set, seven doubles, uniformly dealt 9 tiles to a labelled seat. No branch, block, minus or loneZero assumptions.
+- **Deals simulated:** 0; **seed set:** none (exact enumeration of hypergeometric probabilities, not Monte Carlo); **strategies:** none.
+- **Formula:** `P(K=k)=C(7,k) C(21,9-k) / C(28,9)` for raw starting-hand double count K, k=0..7. Expected K=9×7/28=2.25.
+- **Exact percentages (rounded):** K=0: 4.2556%; K=1: 20.6233%; K=2: 35.3542%; K=3: 27.4977%; K=4: 10.3116%; K=5: 1.8197%; K=6: 0.1348%; K=7: 0.0030%.
+- **Opening-double confound:** probability a labelled seat's original nine contain 1-1 is 9/28 = 32.1429%. Conditional mean double count **given that seat holds 1-1** is `1+8×6/27 = 2.7778`; conditional mean **given that seat does not hold 1-1** is `9×6/27 = 2.0000`. The 0.7778-double gap is a pure deal-composition effect, before any strategic choice.
+- **Finding:** the previously observed monotone finish-rate-by-starting-doubles association cannot by itself establish causal value of holding doubles: raw double count is associated with possession of the mandatory opening 1-1, which determines the opening seat in ordinary non-stock 1-1 deals. In stock-opening later rounds, previous-winner assignment is a separate mechanism; never equate raw 1-1 ownership with actual starter for those rounds.
+- **Confidence:** exact for uniform nine-tile deal and stated conditioning. This does **not** estimate gameplay win rates, turn length, block rate, minus frequencies, individual-double causal effects, or regret.
+- **Validation status:** no runnable GitHub checkout; 0/17 full validation suites executed this pass. Historical 180,000 matched-seat rounds are separate and not included here.
+- **Exact next hypothesis/action:** once checkout and 17-suite validation pass, on identical seed/seat sets compare double-count finish gradients **within actual starter-status strata**, and separately within raw 1-1 ownership strata, with seat rotation and matched opponent policies. Report stratified denominators and uncertainty; only then test whether the gradient survives starter confounding. Do not mix old and new samples.
+- **Scope:** research-only data; no scoreboard/PWA changes, no GitHub Actions.
