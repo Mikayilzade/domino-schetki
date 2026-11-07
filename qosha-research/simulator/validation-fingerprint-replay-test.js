@@ -30,7 +30,7 @@ function execute() {
       const stat=fs.lstatSync(full);
       assert.equal(stat.isSymbolicLink(),false,'unexpected simulator symlink: '+rel);
       if(stat.isDirectory()) found.push(...enumerate(full,rel));
-      else if(stat.isFile() && /\\.(js|json)$/.test(name)) found.push(rel);
+      else if(stat.isFile() && /\.(js|json)$/.test(name)) found.push(rel);
     }
     return found.sort();
   }
