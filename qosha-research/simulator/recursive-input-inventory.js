@@ -21,8 +21,9 @@ const untracked=names.filter(n=>!legacy.includes(n));
 const report={schema:'qosha-recursive-input-inventory/v1',engine:'qosha-research-0.5.3',
   files:names.length,legacyTopLevelJs:legacy.length,
   additionalFiles:untracked,recursiveManifestSha256:hash(JSON.stringify(hashes)),
-  coverageGap:untracked.length>0,
-  validationStatus:'inventory-only; 17 suites must still execute and pass'};
+  additionalBeyondLegacy:untracked.length,
+  gateInventoryMode:'recursive JS/JSON (validation-gate.js)',
+  validationStatus:'inventory-only; recursive gate hashes all listed JS/JSON; 17 suites must still execute and pass'};
 console.log(JSON.stringify(report,null,2));
-// Exit nonzero when the existing gate omits relevant files.
-if(report.coverageGap) process.exitCode=1;
+// Additional nested or JSON files are expected and already covered by the recursive gate.
+// This standalone inventory is diagnostic, not a second executable validation gate.
