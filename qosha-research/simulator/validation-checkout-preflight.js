@@ -34,9 +34,34 @@ function walk(file){
     walk(resolved);
   }
 }
+// Independently inspect every nested simulator JS/JSON input, not only files
+// reachable through literal require() from the 17 suite entrypoints.
+const inputFiles=[];
+function inspectInputs(dir) {
+  for(const entry of fs.readdirSync(dir,{withFileTypes:true})) {
+    const full=path.join(dir,entry.name);
+    const relative=path.relative(root,full).split(path.sep).join('/');
+    if(entry.isSymbolicLink()) {invalid.push('Simulator input symlink: '+relative);continue;}
+    if(entry.isDirectory()) {inspectInputs(full);continue;}
+    if(!entry.isFile()) {invalid.push('Unexpected simulator entry: '+relative);continue;}
+    if(!/\\.(?:js|json)$/.test(entry.name)) continue;
+    inputFiles.push(relative);
+    if(entry.name.endsWith('.json')) {
+      try {JSON.parse(fs.readFileSync(full,'utf8'));}
+      catch(e) {invalid.push('Invalid simulator JSON: '+relative+' ('+e.message+')');}
+    }
+  }
+}
+inspectInputs(root);
+inputFiles.sort();
+if(inputFiles.length<17) invalid.push('Incomplete simulator input inventory: '+inputFiles.length);
+for(const required of ['validation-gate.js','validation-fingerprint-replay-test.js',
+  'validation-checkout-preflight.js','round-driver.js','initializer.js']) {
+  if(!inputFiles.includes(required)) invalid.push('Missing required simulator input: '+required);
+}
 for(const f of contracts)walk(path.join(root,'..',f));
 for(const f of ['validation-gate.js','validation-fingerprint-replay-test.js',...suites])walk(path.join(root,f));
 const requiredMissing=[...missing].sort();
-const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Static relative require closure only; rejects symlinks and dependencies outside research tree. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
+const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Static relative require closure plus recursive simulator JS/JSON presence, symlink and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
