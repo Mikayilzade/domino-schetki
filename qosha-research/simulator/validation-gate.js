@@ -22,6 +22,13 @@ function sourcePaths(dir, prefix='') {
   return out.sort();
 }
 const sourceFiles=sourcePaths(root);
+// Fail closed if a future matcher regression silently hashes an empty or
+// partial manifest. Replay equality alone cannot detect two empty manifests.
+const mustHash=['validation-gate.js','validation-fingerprint-replay-test.js',
+  'validation-checkout-preflight.js','round.js','initializer.js'];
+const absent=mustHash.filter(n=>!sourceFiles.includes(n));
+if(absent.length) throw new Error('Incomplete simulator source manifest: '+absent.join(', '));
+if(sourceFiles.length<17) throw new Error('Suspiciously small simulator source manifest: '+sourceFiles.length);
 const sourceHashes=Object.fromEntries(sourceFiles.map(n=>[n,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,n))).digest('hex')]));
 const sourceManifestSha256=crypto.createHash('sha256').update(JSON.stringify(sourceHashes)).digest('hex');
 // Rules and experiment contracts affect the interpretation of a green gate.
