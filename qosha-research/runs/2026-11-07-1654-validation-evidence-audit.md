@@ -1,0 +1,10 @@
+# 2026-11-07 16:54 Asia/Baku — validation evidence audit
+
+- Engine: `qosha-research-0.5.3`; recovered rules: `qosa-1.0.0`, 3×9+1; physical branch/block and loneZero semantics provisional.
+- Source of truth inspected: README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md, simulator/engine.js, simulator/validation-gate.js, simulator/validation-fingerprint-replay-test.js.
+- New strategy deals: **0**; seed set: none; strategies: none. Win/first-place, mean/median remaining pips, length, block rate, −10/−20/−30/−40, doubles, branch-opening effects and regret: not measured. Historical 180,000 rounds separate; not a cumulative total.
+- Validation: **0/17 suites executed** in this checkpoint. Local `git ls-remote https://github.com/Mikayilzade/domino-schetki.git HEAD` failed: `Could not resolve host: github.com`. Node executable availability does not establish source checkout or test success.
+- **New audit finding (static, high confidence):** `validation-gate.js` hashes every top-level `simulator/*.js` and three Markdown contracts, but does not hash non-JS simulator inputs or files nested in subdirectories. If a suite ever loads a JSON fixture or nested module, its contents may change without changing `sourceManifestSha256`. This is a reproducibility coverage gap, **not evidence that such a fixture currently exists**. Also, `validation-fingerprint-replay-test.js` runs the 17-suite gate twice (34 suite invocations); a matching fingerprint tests repeatability, not correctness of physical rules.
+- New strategy finding: **none**. Confidence: high for directly inspected hashing code and reproduced DNS failure; no runtime confidence.
+- **Exact next action:** obtain executable checkout; inventory all runtime-loaded non-JS/nested files and extend manifest/replay checks if any exist; run `node qosha-research/simulator/validation-checkout-preflight.js`, `node qosha-research/simulator/validation-gate.js`, `node qosha-research/simulator/validation-fingerprint-replay-test.js`; archive actual JSON and fix failures before matched-seed 3×9 comparisons on seeds 30000..39999.
+- Scope: research only. No live scoreboard/PWA changes; no GitHub Actions.
