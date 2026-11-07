@@ -25,7 +25,7 @@ const sourceFiles=sourcePaths(root);
 // Fail closed if a future matcher regression silently hashes an empty or
 // partial manifest. Replay equality alone cannot detect two empty manifests.
 const mustHash=['validation-gate.js','validation-fingerprint-replay-test.js',
-  'validation-checkout-preflight.js','round.js','initializer.js'];
+  'validation-checkout-preflight.js','round-driver.js','initializer.js'];
 const absent=mustHash.filter(n=>!sourceFiles.includes(n));
 if(absent.length) throw new Error('Incomplete simulator source manifest: '+absent.join(', '));
 if(sourceFiles.length<17) throw new Error('Suspiciously small simulator source manifest: '+sourceFiles.length);
