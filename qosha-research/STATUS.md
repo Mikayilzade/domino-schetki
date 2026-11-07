@@ -1,16 +1,17 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-03T20:57:37+04:00 Asia/Baku.
+Last checkpoint: 2026-11-07 15:53 Asia/Baku.
 
-- Event-level six-order replay of the existing 20M cohort; 1,000 accepted 3×9 outcomes / 1,035 attempts / 35 redeals / 942 finishes / 58 unscored blocks. No new independent deals.
-- Six orders completed 76 matches on the same boundaries. The prior 26 dependent rank changes at gap 11–20 came from only 3 unique boundaries (560, 801, 856; 9/9/8 comparisons).
-- In all 26, pending survivor deltas and survivor scores differed. None was sorting-only; no exploded-seat or pre-round-score difference. Pending events can include negative finish-minus.
-- Validation: 28,265 trace/adapter checks; 146 regression assertions; exact full replay and 40-round smoke; full 26 pair traces stored in JSON.
-- Order-sensitivity cumulative: 4,000 accepted outcomes across four separate cohorts (3,000 six-order); current run is a replay, not new data.
-- Limits: provisional terminal-pip scoring, unscored blocks, unresolved physical branch/block rules, no strategy advantage established.
+## Validation gate (authoritative current state)
 
-Exact next action: read-only verify live PWA pending-event behavior with positive and negative survivor deltas, then resume branch/block physical-rule validation and matched-seed strategy experiments.
+- Engine: `qosha-research-0.5.3`; rules: recovered `qosa-1.0.0`, 3 players × 9 stones; branch semantics remain provisional.
+- **17/17 validation suite entrypoint files are present in the GitHub `main` simulator directory** (348 directory entries, inspected through GitHub contents API on 2026-11-07). This is a *static presence check*, not execution.
+- **0/17 suites executed in this checkpoint**; no green validation evidence. Executable shell still cannot resolve `github.com` (`git ls-remote` DNS failure). Connector access to GitHub source does not supply a local executable checkout.
+- Validation commands once checkout is available: `node qosha-research/simulator/validation-fingerprint-replay-test.js` (two complete gate executions), then `node qosha-research/simulator/validation-gate.js`. Archive the actual JSON outputs and inspect failures before any new strategy claims.
+- New strategy deals this checkpoint: **0**. Seed set: none. Strategies: none. Win rate, remaining pips, blocks, minuses and regret: not measured this checkpoint. Historical 180,000 matched-seat rounds are a separate legacy subtotal, **not** an all-time cumulative count.
+- New finding: all 17 gate suite paths are present, narrowing the immediate blocker to *executable source retrieval / runtime validation*, rather than absent suite entrypoints. Confidence: high for repository listing; none for runtime correctness.
+- Exact next action: obtain executable checkout from GitHub, run both validation commands, save their reports in `qosha-research/runs/`, repair any failures, then resume matched-seed comparisons. Do not change PWA files or create GitHub Actions.
 
-Report: [event-level trace audit](runs/2026-11-03-2057-finish-score-order-event-traces.md)
-Runner: [reproducer](simulator/finish-score-event-order-trace-20m.js)
-Test: [regression](simulator/finish-score-event-order-trace-20m-test.js)
+## Historical status (not a current validation claim)
+
+2026-11-03 event-level six-order replay of an existing 20M cohort: 1,000 accepted outcomes, 1,035 attempts, 35 redeals, 942 finishes and 58 unscored blocks; 76 completed matches across six orders. The earlier 26 dependent rank changes at gap 11–20 came from only three unique boundaries (560, 801, 856). This was a replay, not new independent deals. Provisional terminal-pip scoring and unresolved physical branch/block rules still limit interpretation.
