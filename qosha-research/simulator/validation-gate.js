@@ -9,7 +9,19 @@ const root=__dirname;
 const fs=require('node:fs');
 // Hash the entire research simulator source, not only individual test entrypoints.
 // A test can pass against a changed engine while its own test-file hash stays identical.
-const sourceFiles=fs.readdirSync(root).filter(n=>n.endsWith('.js')).sort();
+// Recursively bind every executable JS and JSON simulator input. Fail closed
+// on symlinks: following them could hash content outside the research tree.
+function sourcePaths(dir, prefix='') {
+  const out=[];
+  for (const entry of fs.readdirSync(dir,{withFileTypes:true})) {
+    const rel=prefix ? prefix+'/'+entry.name : entry.name;
+    if(entry.isSymbolicLink()) throw new Error('Symlink in simulator input tree: '+rel);
+    if(entry.isDirectory()) out.push(...sourcePaths(path.join(dir,entry.name),rel));
+    else if(entry.isFile() && /\\.(js|json)$/.test(entry.name)) out.push(rel);
+  }
+  return out.sort();
+}
+const sourceFiles=sourcePaths(root);
 const sourceHashes=Object.fromEntries(sourceFiles.map(n=>[n,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,n))).digest('hex')]));
 const sourceManifestSha256=crypto.createHash('sha256').update(JSON.stringify(sourceHashes)).digest('hex');
 // Rules and experiment contracts affect the interpretation of a green gate.
