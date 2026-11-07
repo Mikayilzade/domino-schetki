@@ -7,6 +7,7 @@ function near(a,b){assert.ok(Math.abs(a-b)<1e-12,`${a} != ${b}`)}
 // X = starter's other doubles among eight initial tiles; S = stock is one of the remaining doubles.
 // Y = a SPECIFIED opponent's doubles among nine tiles. No gameplay/branch rules are assumed.
 let opponent3=0, joint=0, starter4=0, normalization=0;
+let bothOpponents3=0, atLeastOneOpponent3=0, bothGivenStarter4Joint=0;
 for(let x=0;x<=6;x++){
   const px=hyper(21,6,8,x);
   if(x>=3)starter4+=px;
@@ -15,6 +16,10 @@ for(let x=0;x<=6;x++){
     for(let y=0;y<=6-x-s;y++){
       const p=px*ps*hyper(18,6-x-s,9,y);
       normalization+=p;
+      // The other opponent receives the remaining nine tiles of the 18-tile pool.
+      const otherY=6-x-s-y;
+      if(y>=3||otherY>=3)atLeastOneOpponent3+=p;
+      if(y>=3&&otherY>=3){bothOpponents3+=p;if(x>=3)bothGivenStarter4Joint+=p;}
       if(y>=3){opponent3+=p;if(x>=3)joint+=p}
     }
   }
@@ -24,4 +29,7 @@ near(starter4,0.40970072239422084);
 near(opponent3,0.20714115605756472);
 near(joint,0.023371577733260488);
 near(joint/starter4,0.057045488220477114);
-console.log(JSON.stringify({passed:true,scope:'conditional-uniform-deal-combinatorics-only',opponent3,joint,starter4,opponent3GivenStarter4:joint/starter4}));
+near(bothOpponents3,0.006472129218441365);
+near(atLeastOneOpponent3,0.4078101828966881);
+near(bothGivenStarter4Joint,0);
+console.log(JSON.stringify({passed:true,scope:'conditional-uniform-deal-combinatorics-only',opponent3,joint,starter4,opponent3GivenStarter4:joint/starter4,bothOpponents3,atLeastOneOpponent3,bothGivenStarter4Joint}));
