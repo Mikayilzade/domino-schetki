@@ -1,0 +1,134 @@
+{
+  "schema": "qosha-opening-mobility-by-doubles-exact/v1",
+  "timestampAsiaBaku": "2026-11-08 14:49 +04:00",
+  "engine": "independent exact combinatorics; round engine qosha-research-0.5.3 not executed",
+  "rules": "recovered qosa-1.0.0, 3 players x 9 stones + 1 stock",
+  "deals": 0,
+  "seedSet": null,
+  "strategies": [],
+  "method": "conditional hypergeometric counts C(6,k)*C(15,9-d-k)/C(21,9-d); d=other doubles among nine post-draw tiles",
+  "rows": [
+    {
+      "totalDoubles": 1,
+      "followupCandidateCounts0to6": [
+        5005,
+        38610,
+        96525,
+        100100,
+        45045,
+        8190,
+        455
+      ],
+      "denominator": 293930,
+      "forcedPassProbability": 0.017027863777089782,
+      "atLeastTwoProbability": 0.8516143299425033,
+      "meanCandidates": 2.5714285714285716
+    },
+    {
+      "totalDoubles": 2,
+      "followupCandidateCounts0to6": [
+        6435,
+        38610,
+        75075,
+        60060,
+        20475,
+        2730,
+        105
+      ],
+      "denominator": 203490,
+      "forcedPassProbability": 0.031623175586023886,
+      "atLeastTwoProbability": 0.7786377708978328,
+      "meanCandidates": 2.2857142857142856
+    },
+    {
+      "totalDoubles": 3,
+      "followupCandidateCounts0to6": [
+        6435,
+        30030,
+        45045,
+        27300,
+        6825,
+        630,
+        15
+      ],
+      "denominator": 116280,
+      "forcedPassProbability": 0.055340557275541796,
+      "atLeastTwoProbability": 0.6864035087719298,
+      "meanCandidates": 2
+    },
+    {
+      "totalDoubles": 4,
+      "followupCandidateCounts0to6": [
+        5005,
+        18018,
+        20475,
+        9100,
+        1575,
+        90,
+        1
+      ],
+      "denominator": 54264,
+      "forcedPassProbability": 0.092234262125903,
+      "atLeastTwoProbability": 0.5757223942208463,
+      "meanCandidates": 1.7142857142857142
+    },
+    {
+      "totalDoubles": 5,
+      "followupCandidateCounts0to6": [
+        3003,
+        8190,
+        6825,
+        2100,
+        225,
+        6,
+        0
+      ],
+      "denominator": 20349,
+      "forcedPassProbability": 0.1475748194014448,
+      "atLeastTwoProbability": 0.4499484004127967,
+      "meanCandidates": 1.4285714285714286
+    },
+    {
+      "totalDoubles": 6,
+      "followupCandidateCounts0to6": [
+        1365,
+        2730,
+        1575,
+        300,
+        15,
+        0,
+        0
+      ],
+      "denominator": 5985,
+      "forcedPassProbability": 0.22807017543859648,
+      "atLeastTwoProbability": 0.3157894736842105,
+      "meanCandidates": 1.1428571428571428
+    },
+    {
+      "totalDoubles": 7,
+      "followupCandidateCounts0to6": [
+        455,
+        630,
+        225,
+        20,
+        0,
+        0,
+        0
+      ],
+      "denominator": 1330,
+      "forcedPassProbability": 0.34210526315789475,
+      "atLeastTwoProbability": 0.18421052631578946,
+      "meanCandidates": 0.8571428571428571
+    }
+  ],
+  "verification": "each conditional count row sums exactly to C(21,9-d); mean matches 6*(9-d)/21",
+  "finding": "P(at least two immediate follow-up choices) falls from 85.16% with one total double to 44.99% with five and 18.42% with seven; descriptive association only",
+  "confidence": "exact under uniform conditional deal and confirmed opening",
+  "limitations": [
+    "No full-round engine tests executed this run (0/17).",
+    "No strategy win-rate evidence; double count may be confounded with mobility.",
+    "Physical branch/block/loneZero semantics remain provisional.",
+    "Historical 180000 matched-seat rounds are a separate subtotal, not cumulative total."
+  ],
+  "nextAction": "Acquire executable full checkout; run preflight, fingerprint replay and 17-suite validation gate; then matched 3x9 strategy comparison stratified by double count and immediate follow-up count."
+}
