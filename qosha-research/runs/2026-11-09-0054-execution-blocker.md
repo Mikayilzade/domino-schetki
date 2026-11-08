@@ -1,0 +1,8 @@
+# Execution-blocker checkpoint — 2026-11-09 00:54 Asia/Baku
+
+- Repository source of truth inspected: README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md, validation-gate.js and validation-fingerprint-replay-test.js. Primary mode: 3×9; engine qosha-research-0.5.3, recovered qosa-1.0.0 rules; branch/block semantics provisional.
+- Executable retrieval attempted: `git ls-remote https://github.com/Mikayilzade/domino-schetki.git HEAD` in the execution shell. Result: `Could not resolve host: github.com`. GitHub connector reads/writes files, but does not provide executable checkout.
+- Gate static audit: validation-gate.js declares 17 suites and binds source JS/JSON plus README/RULES/EXPERIMENTS to SHA-256 evidence. Fingerprint replay runner invokes the full gate twice and verifies manifest and digest. These are **source observations only**, not test results.
+- This pass: **0 newly simulated deals**, no seed range, no strategy policies evaluated, **0/17 validation suites executed**. Win/first-place, remainder mean/median, length, block, minus frequencies, doubles, branch effects and regret all **not measured**. Do not mix the separate historical 180,000 matched-seat rounds with new data.
+- New finding: no reliable gameplay-strategy finding. Confidence high in observed DNS failure and inspected source, none in unexecuted gate correctness.
+- Exact next action: obtain an executable checkout, run `node qosha-research/simulator/validation-fingerprint-replay-test.js` and `node qosha-research/simulator/validation-gate.js`; save actual output under `qosha-research/runs/`, resolve failures before matched-seed comparisons. Do not modify live PWA files or create Actions.
