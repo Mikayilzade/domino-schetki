@@ -1,0 +1,12 @@
+# 2026-11-09 03:47 Asia/Baku — fixed opening connector / matching-double ownership
+
+- Rules: recovered `qosa-1.0.0`, 3 × 9, 28 double-six tiles; engine version: **not executed** (exact combinatorial audit independent of branch engine).
+- New simulated deals: **0**; seed set: none (exact symmetry); strategies: none. Win rate / remainder / blocks / minus / regret: not measured.
+- Historical 180,000 matched-seat rounds remain a separate legacy cohort. Validation gate: **0/17 suites executed in this checkpoint**.
+- Conditioning: 1-1 is in the starter's initial hand; fix one specific 1-x (x in 0,2,3,4,5,6) as the opening follow-up, and **condition on its location**, without selecting it based on the starter's other tiles. Do not extrapolate to policy-chosen connectors.
+- If 1-x was in the starter's original hand: after fixing 1-1 and 1-x, 26 unallocated tiles occupy 7 other starter slots, 18 opponent slots and 1 stock slot. Therefore x-x ownership probabilities are exactly **7/26 = 26.9231% starter**, **18/26 = 69.2308% opponents**, **1/26 = 3.8462% stock**.
+- If 1-x was the stock tile drawn by the starter: the remaining 26 tiles occupy 8 starter slots and 18 opponent slots. Therefore x-x ownership probabilities are **8/26 = 30.7692% starter**, **18/26 = 69.2308% opponents**, **0 stock**.
+- New finding: the opponent ownership probability of the matching double is **identically 9/13** for either *fixed-connector provenance* case, despite different starter/stock ownership. This is a distributional baseline, **not** evidence that choosing 1-x is good or bad: selecting the connector using knowledge of x-x invalidates the unconditioned ownership distribution.
+- Confidence: exact under the stated uniform conditional deal and fixed-connector assumption. No branch unlocking, player choice, or physical rule inference is made.
+- Execution obstacle: executable shell `git ls-remote https://github.com/Mikayilzade/domino-schetki.git HEAD` failed on this checkpoint with `Could not resolve host: github.com`; GitHub connector read succeeds. This does not validate any existing engine test.
+- Next hypothesis/action: on a runnable checkout, add a matched-deal **choice-conditioned** comparison of opening 1-x when x-x is known held versus not held; run the 17 validation suites first and preserve full seed/move traces. Check that conditional double-ownership proportions agree with the exact reference in fixed-connector sampling.
