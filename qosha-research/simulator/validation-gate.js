@@ -58,6 +58,18 @@ const suites=[
   'initializer-redeal-conservation-audit-test.js',
   'redeal-full-round-audit-test.js'
 ];
+// A green suite gate must also mean that the checkout passed static completeness,
+// syntax and local dependency checks. This is a separate prerequisite, not an
+// eighteenth gameplay suite; preserve its raw diagnostic report.
+const preflightRun=spawnSync(process.execPath,[path.join(root,'validation-checkout-preflight.js')],
+  {encoding:'utf8',timeout:120000,maxBuffer:8*1024*1024});
+let preflightPayload=null;
+try { preflightPayload=JSON.parse(preflightRun.stdout||''); } catch {}
+const preflight={passed:preflightRun.status===0&&preflightPayload?.passed===true,
+  exitCode:preflightRun.status,signal:preflightRun.signal||null,
+  spawnError:preflightRun.error?{code:preflightRun.error.code||null,message:preflightRun.error.message}:null,
+  summary:preflightPayload,stderr:(preflightRun.stderr||'').slice(-4000),
+  stdoutParseError:!preflightPayload?(preflightRun.stdout||'').slice(-1000):null};
 const results=[];
 for(const name of suites){
   const p=path.join(root,name);
@@ -108,7 +120,7 @@ const report={schema:'qosha-validation-gate/v1',executedAt:new Date().toISOStrin
  rules:'recovered qosa-1.0.0 / 3x9 / provisional branch semantics',
  seedSet:'21000000..21000999 for conservation; opening stock seed selected by deterministic search',
  strategies:['deterministic seeded legal-action selection for invariant smoke only'],
- sourceManifestSha256,sourceHashes,contractManifestSha256,contractHashes,suites:results,passed:results.every(x=>x.passed),
+ sourceManifestSha256,sourceHashes,contractManifestSha256,contractHashes,preflight,suites:results,passed:preflight.passed&&results.every(x=>x.passed),
  dealsExecuted:(results.find(x=>x.suite==='round-conservation-regression.js')?.passed===true ? results.find(x=>x.suite==='round-conservation-regression.js').summary.deals : 0),
  verifiedSuites:results.filter(x=>x.passed).length,
  failedSuites:results.filter(x=>!x.passed).map(x=>({suite:x.suite,exitCode:x.exitCode,signal:x.signal,spawnError:x.spawnError,validationError:x.summary?.validationError||null})),
@@ -120,7 +132,7 @@ const report={schema:'qosha-validation-gate/v1',executedAt:new Date().toISOStrin
 // It does not imply the physical rules are independently authenticated.
 report.validationFingerprintSha256=crypto.createHash('sha256').update(JSON.stringify({
   schema:report.schema,engine:report.engine,rules:report.rules,seedSet:report.seedSet,
-  strategies:report.strategies,sourceManifestSha256,contractManifestSha256,
+  strategies:report.strategies,sourceManifestSha256,contractManifestSha256,preflight:{passed:preflight.passed,exitCode:preflight.exitCode,signal:preflight.signal,spawnErrorCode:preflight.spawnError?.code||null,summary:preflight.summary},
   // Host-specific diagnostics (stderr, absolute spawn paths, Node version) stay
   // in the full report but not in cross-host evidence identity.
   suites:results.map(({suite,suiteSha256,passed,exitCode,signal,spawnError,summary})=>
