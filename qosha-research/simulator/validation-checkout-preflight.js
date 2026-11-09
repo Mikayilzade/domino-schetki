@@ -63,6 +63,10 @@ function inspectInputs(dir) {
   }
 }
 inspectInputs(root);
+// Check literal relative dependency closure for every simulator JS input, including
+// utilities not reached from the 17 suite entrypoints. Syntax alone cannot
+// detect a missing require target in an otherwise valid unreferenced module.
+for(const relative of inputFiles.filter(n=>n.endsWith('.js'))) walk(path.join(root,relative));
 inputFiles.sort();
 if(inputFiles.length<17) invalid.push('Incomplete simulator input inventory: '+inputFiles.length);
 for(const required of ['validation-gate.js','validation-fingerprint-replay-test.js',
@@ -72,6 +76,6 @@ for(const required of ['validation-gate.js','validation-fingerprint-replay-test.
 for(const f of contracts)walk(path.join(root,'..',f));
 for(const f of ['validation-gate.js','validation-fingerprint-replay-test.js',...suites])walk(path.join(root,f));
 const requiredMissing=[...missing].sort();
-const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Static relative require closure plus recursive simulator JS/JSON presence, symlink, JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
+const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure plus JS/JSON presence, symlink, JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
