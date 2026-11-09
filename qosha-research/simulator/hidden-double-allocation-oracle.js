@@ -23,5 +23,21 @@ assert.equal(neither/total,4/17);
 const together = (both+neither)/total;
 assert.equal(together,8/17);
 assert.equal(exactlyOne/total,9/17);
-const report={schema:'qosha-hidden-double-oracle/v1',rules:'qosa-1.0.0 opening only',mode:'3x9+1 stock',opponentAllocations:total,oneUnseenDoubleNextSeatProbability:one/total,twoUnseenDoublesNextSeatCount:{zero:neither,one:exactlyOne,two:both},twoUnseenDoublesTogetherProbability:together,twoUnseenDoublesSplitProbability:exactlyOne/total,atLeastOneNextSeatProbability:(both+exactlyOne)/total};
+
+// Independent exhaustive mask enumeration: choose nine of 18 unseen tiles for
+// the next clockwise opponent. Label the two candidate doubles as indices 0,1.
+// This checks the combinatorial oracle without reusing choose() arithmetic.
+const enumerated={zero:0,one:0,two:0};
+let enumeratedAllocations=0;
+for(let mask=0;mask<(1<<18);mask++){
+  let bits=mask, count=0;
+  while(bits){bits&=bits-1;count++;}
+  if(count!==9)continue;
+  enumeratedAllocations++;
+  const held=(mask&1)+((mask>>1)&1);
+  enumerated[held===0?'zero':held===1?'one':'two']++;
+}
+assert.equal(enumeratedAllocations,total);
+assert.deepEqual(enumerated,{zero:neither,one:exactlyOne,two:both});
+const report={schema:'qosha-hidden-double-oracle/v1',rules:'qosa-1.0.0 opening only',mode:'3x9+1 stock',opponentAllocations:total,exhaustiveAllocations:enumeratedAllocations,exhaustiveNextSeatDoubleCounts:enumerated,oneUnseenDoubleNextSeatProbability:one/total,twoUnseenDoublesNextSeatCount:{zero:neither,one:exactlyOne,two:both},twoUnseenDoublesTogetherProbability:together,twoUnseenDoublesSplitProbability:exactlyOne/total,atLeastOneNextSeatProbability:(both+exactlyOne)/total};
 console.log(JSON.stringify(report,null,2));
