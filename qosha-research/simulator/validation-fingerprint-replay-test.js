@@ -8,9 +8,9 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const fs = require('node:fs');
 const gate = path.join(__dirname, 'validation-gate.js');
-// Gate runs 17 suites sequentially, each with a 120s timeout. Allow the
-// full worst-case suite budget plus 60s for startup, hashing and JSON output.
-const GATE_TIMEOUT_MS = 17 * 120000 + 60000;
+// Gate runs checkout preflight (120s spawn timeout) before 17 suites (120s each).
+// Reserve the full nested timeout budget plus 60s for startup, hashing and JSON output.
+const GATE_TIMEOUT_MS = 120000 + 17 * 120000 + 60000;
 function execute() {
   const p = spawnSync(process.execPath, [gate], {
     encoding: 'utf8', timeout: GATE_TIMEOUT_MS, maxBuffer: 32 * 1024 * 1024
