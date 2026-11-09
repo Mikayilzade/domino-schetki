@@ -1,0 +1,30 @@
+{
+  "schema": "qosha-research-checkpoint/v1",
+  "timestampAsiaBaku": "2026-11-10T01:54:39+04:00",
+  "engineVersion": "qosha-research-0.5.3 (full engine not executed); exact-combinatorial-oracle-1",
+  "rulesVersion": "recovered qosa-1.0.0; 3x9+1; branch/block/loneZero provisional",
+  "newGameplayDeals": 0,
+  "seedRange": null,
+  "strategies": [],
+  "validationSuitesExecuted": 0,
+  "validationSuitesRequired": 17,
+  "historicalMatchedSeatRoundsSeparate": 180000,
+  "sourceFile": "simulator/opening-opponent-double-oracle.js",
+  "oracle": {
+    "method": "exact hypergeometric enumeration over C(18,9)=48620 equally weighted opponent allocations",
+    "denominator": 48620,
+    "oneExternalDoubleNextSeatCount": [24310,24310],
+    "twoExternalDoublesNextSeatCount": [11440,25740,11440],
+    "oneExternalDoubleNextSeatProbability": 0.5,
+    "twoExternalDoublesTogetherProbability": 0.47058823529411764,
+    "twoExternalDoublesSplitProbability": 0.5294117647058824,
+    "localIndependentArithmetic": "Node BigInt combinatorial counts printed 48620; 24310,24310; 11440,25740,11440. Full repository oracle script not executed."
+  },
+  "metricsNotMeasured": ["winRate","firstPlaceRate","meanRemainingPips","medianRemainingPips","roundLength","blockRate","minus10","minus20","minus30","minus40","startingEndingDoubles","specificDoubleValue","branchEffects","decisionRegret"],
+  "finding": "A standalone executable exact-count oracle now exists to catch hidden-world sampler conditioning mistakes; this is no new strategy finding.",
+  "confidence": "Exact combinatorics for uniformly allocated unobserved opponent hands; not validated against an actual sampler or complete round engine.",
+  "limitations": ["github.com DNS resolution fails from executable shell; no runnable checkout","Observed opponent actions/pass history alter hidden-world probabilities","Ownership does not imply a legal play or strategy superiority"],
+  "nextAction": "Restore executable research checkout; execute 17-suite validation gate and fingerprint replay, archive actual reports, then run the standalone opponent-double oracle and check Monte Carlo sampler convergence on K=2/B=1 and K=2/B=0 hidden worlds before paired continuation comparisons.",
+  "pwaFilesModified": false,
+  "githubActionsModified": false
+}
