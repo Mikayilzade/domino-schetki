@@ -1,0 +1,36 @@
+{
+  "schema": "qosha-static-gate-checkpoint/v1",
+  "timestampAsiaBaku": "2026-11-09T05:51:51+04:00",
+  "engine": "qosha-research-0.5.3",
+  "rules": "recovered qosa-1.0.0 / 3x9 / provisional branch semantics",
+  "deals": 0,
+  "seedSet": [],
+  "strategies": [],
+  "validation": {
+    "executedSuites": 0,
+    "totalSuites": 17,
+    "staticSuiteEntrypoints": 17,
+    "staticCoverageContracts": 17,
+    "preflightSuiteNames": 17,
+    "gatePreflightCoverageNamesMatch": true,
+    "method": "GitHub connector source inspection and JS string parsing; no Node execution"
+  },
+  "keyMetrics": {
+    "winRate": null,
+    "meanRemainingPips": null,
+    "medianRemainingPips": null,
+    "roundLength": null,
+    "blockRate": null,
+    "minusCounts": null,
+    "regret": null
+  },
+  "newFinding": "The 17 gate suites, 17 per-suite coverage predicates and 17 preflight suite names agree exactly; a separate research-only static regression script was added.",
+  "confidence": "high for the source-text consistency check, none for execution/game correctness",
+  "limitations": [
+    "GitHub executable checkout unavailable in shell: DNS resolution for github.com failed",
+    "The newly added static audit has not been executed with Node; source-based cross-check was performed",
+    "Historical 180000 matched-seat rounds are not included in this checkpoint"
+  ],
+  "nextAction": "Obtain executable checkout; run node qosha-research/simulator/validation-gate-contract-audit.js, validation-checkout-preflight.js, validation-fingerprint-replay-test.js and validation-gate.js; archive real outputs, fix failures, then matched-seed strategy cohorts.",
+  "pwaModified": false
+}
