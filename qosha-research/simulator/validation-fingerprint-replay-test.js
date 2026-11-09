@@ -48,6 +48,7 @@ function execute() {
   assert.deepEqual(report.contractHashes, actualContracts, 'rules manifest must match checkout');
   assert.equal(report.contractManifestSha256, hash(JSON.stringify(actualContracts)));
   assert.equal(report.suites.length, 17);
+  assert.equal(typeof report.preflight?.passed,'boolean','preflight evidence required');
   assert.equal(typeof report.validationFingerprintSha256, 'string');
   assert.match(report.validationFingerprintSha256, /^[0-9a-f]{64}$/);
   // Independently reconstruct the stable evidence fingerprint. Equality across
@@ -57,6 +58,9 @@ function execute() {
     seedSet:report.seedSet, strategies:report.strategies,
     sourceManifestSha256:report.sourceManifestSha256,
     contractManifestSha256:report.contractManifestSha256,
+    preflight:{passed:report.preflight.passed,exitCode:report.preflight.exitCode,
+      signal:report.preflight.signal,spawnErrorCode:report.preflight.spawnError?.code||null,
+      summary:report.preflight.summary},
     suites:report.suites.map(({suite,suiteSha256,passed,exitCode,signal,spawnError,summary}) =>
       ({suite,suiteSha256,passed,exitCode,signal,
         spawnErrorCode:spawnError?.code||null,summary}))
@@ -86,6 +90,8 @@ assert.equal(a.validationFingerprintSha256, b.validationFingerprintSha256,
   'unchanged source and suite outcomes must have identical evidence identity');
 assert.equal(a.sourceManifestSha256, b.sourceManifestSha256);
 assert.equal(a.contractManifestSha256, b.contractManifestSha256);
+assert.deepEqual(a.preflight.summary,b.preflight.summary);
+assert.equal(a.preflight.passed,b.preflight.passed);
 assert.deepEqual(a.suites.map(x => [x.suite,x.passed,x.summary]),
   b.suites.map(x => [x.suite,x.passed,x.summary]));
 // Wall-clock report digests may coincide if both executions occur in the same ms;
