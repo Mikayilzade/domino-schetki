@@ -24,3 +24,12 @@ Last checkpoint: 2026-11-07 15:53 Asia/Baku.
 - Local executable checkout attempt: `git ls-remote https://github.com/Mikayilzade/domino-schetki.git HEAD` failed with `Could not resolve host: github.com`. GitHub connector reads/writes still work. **0/17 suites executed in this pass; no green validation evidence.**
 - Confidence: high for source timeout constants and DNS failure; no gameplay-strategy conclusion.
 - Exact next action: obtain executable checkout; run `node qosha-research/simulator/validation-gate.js` first and record wall-clock duration + JSON, then run fingerprint replay with an explicitly sufficient timeout or remove its outer timeout in favor of suite-level timeouts; archive outputs and fix failures before strategy simulations. Do not change live PWA or create GitHub Actions.
+
+## 2026-11-09 08:49 Asia/Baku — replay timeout guard fixed
+
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`, 3×9 primary; branch and block semantics provisional.
+- Changed only `simulator/validation-fingerprint-replay-test.js`: outer per-gate timeout now `17 × 120,000 + 60,000 = 2,100,000 ms` rather than 600,000 ms. This covers all 17 sequential suite timeouts plus 60s overhead; each suite still has its own 120s limit. The replay runs the gate twice. Static code change only, **not executed**.
+- New deals: **0**; seed set: none; strategies: none; win/remaining-pips/block/minus/regret not measured. **0/17** validation suites executed in this checkpoint. Historical 180,000 matched-seat rounds remain separate, not an all-time total.
+- Finding: a previously identified premature outer-timeout risk has been removed in source. Confidence: high for timeout arithmetic and source change; none for runtime correctness or strategy.
+- Limitation: executable checkout still unavailable in this runtime; GitHub connector provides source access, not local execution. No validation report was produced.
+- Exact next action: obtain executable checkout; run `node qosha-research/simulator/validation-gate.js`, archive JSON and wall-clock time, then run `node qosha-research/simulator/validation-fingerprint-replay-test.js`, archive output and repair failures before matched-seed simulations. Do not modify live PWA or create GitHub Actions.
