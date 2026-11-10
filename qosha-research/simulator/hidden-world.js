@@ -27,8 +27,16 @@ function keys(xs){return xs.map(e.tileKey);}
 function assertUnique(xs,label){
   const k=keys(xs); if(new Set(k).size!==k.length)throw new Error('duplicate tile in '+label);
 }
+function assertValidTiles(xs,label){
+  for(const tile of xs){
+    if(!Array.isArray(tile)||tile.length!==2||
+       !tile.every(n=>Number.isInteger(n)&&n>=0&&n<=6))
+      throw new Error('invalid double-six tile in '+label);
+  }
+}
 function hiddenPool({focalHand,knownTiles}){
   const known=[...focalHand,...knownTiles];
+  assertValidTiles(known,'visible/known set');
   assertUnique(known,'visible/known set');
   const used=new Set(keys(known));
   return allTiles().filter(t=>!used.has(e.tileKey(t)));
