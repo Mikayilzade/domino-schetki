@@ -20,6 +20,13 @@ const snap=JSON.stringify(visibleState);
 // a mismatched current player or focal hand.
 assert.throws(()=>sampleWorld({...spec,focalPlayer:1},700),/currentPlayer must equal focalPlayer/);
 assert.throws(()=>sampleWorld({...spec,focalHand:[[1,2],[1,4]]},700),/focal hand must equal focalHand/);
+// Invalid slot sizes must fail before shuffle/slice; otherwise fractional or
+// negative counts can silently produce malformed opponent hands.
+for(const bad of [-1,0.5,NaN,Infinity,'8',2**53]){
+  assert.throws(()=>sampleWorld({...spec,hiddenHandSizes:[2,bad,7]},700),/hiddenHandSizes must be nonnegative safe integers/);
+  assert.throws(()=>sampleWorld({...spec,stockSize:bad},700),/stockSize must be a nonnegative safe integer/);
+}
+assert.throws(()=>sampleWorld({...spec,hiddenHandSizes:[2,8,-1]},700),/hiddenHandSizes must be nonnegative safe integers/);
 const mixed=new Set(Array.from({length:25},(_,i)=>mixSeed(700+i)));
 assert.strictEqual(mixed.size,25,'adjacent world seeds must pre-mix to 25 distinct states');
 const allocationFingerprint=world=>JSON.stringify({opponents:world.hands.slice(1).map(h=>h.map(e.tileKey).sort()),stock:world.stock.map(e.tileKey).sort()});
