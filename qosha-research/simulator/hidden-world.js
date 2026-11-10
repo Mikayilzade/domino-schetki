@@ -71,6 +71,10 @@ function candidateKeys(state){
   return o.phase==='play'?o.actions.map(actionKey).sort():[];
 }
 function runHiddenWorlds(spec,{count=25,startSeed=0,continuationStrategy='closed-branch-control',maxTurns=200}={}){
+  // A batch must not silently wrap seeds, truncate fractional counts, or report a partial cohort.
+  if(!Number.isSafeInteger(count)||count<1)throw new Error('count must be a positive safe integer');
+  if(!Number.isSafeInteger(startSeed)||startSeed<0||startSeed>0xffffffff||count-1>0xffffffff-startSeed)
+    throw new Error('world seed range must fit within 0..4294967295');
   const results=[]; let expected=null;
   for(let i=0;i<count;i++){
     const seed=startSeed+i,world=sampleWorld(spec,seed),ks=candidateKeys(world);
