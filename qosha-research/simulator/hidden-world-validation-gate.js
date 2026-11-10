@@ -24,10 +24,10 @@ const results=suites.map(name=>{
   const evidence=name==='hidden-world-test.js'
     ? /^fixed-visible hidden-world regression: ok; worlds=25 candidates=\d+$/.test(stdout)
     : name==='hidden-world-seat-stock-regression-test.js'
-      ? payload?.status==='passed'&&payload?.checks===300
+      ? payload?.schema==='qosha-hidden-world-seat-stock-regression/v1'&&payload?.status==='passed'&&payload?.checks===300&&payload?.seeds==='25000000..25000099'&&payload?.focalSeats?.join(',')==='0,1,2'
       : name==='hidden-world-enumeration-test.js'
-        ? payload?.passed===true&&payload?.exactAllocations===16800&&payload?.hashRankedSubset===128
-        : payload?.passed===true&&payload?.worlds===12000&&payload?.maxAbsoluteDeviation<0.02;
+        ? payload?.passed===true&&payload?.exactAllocations===16800&&payload?.hashRankedSubset===128&&payload?.seedlessReproducible===true
+        : payload?.schema==='qosha-hidden-world-empirical-oracle/v1'&&payload?.passed===true&&payload?.worlds===12000&&payload?.seedStart===24000000&&payload?.seedEnd===24011999&&payload?.expected?.join(',')===[4/17,9/17,4/17].join(',')&&payload?.maxAbsoluteDeviation>=0&&payload?.maxAbsoluteDeviation<0.02&&payload?.nextSeatCounts&&Object.values(payload.nextSeatCounts).reduce((a,b)=>a+b,0)===12000;
   return {name,sha256,passed:run.status===0&&evidence,exitCode:run.status,
     signal:run.signal||null,spawnError:run.error?.message||null,
     evidence:payload||stdout.slice(0,1000),stderr:(run.stderr||'').slice(-2000)};
