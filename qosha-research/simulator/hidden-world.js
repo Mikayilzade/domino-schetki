@@ -42,6 +42,9 @@ function hiddenPool({focalHand,knownTiles}){
   return allTiles().filter(t=>!used.has(e.tileKey(t)));
 }
 function sampleWorld(spec,seed){
+  // Prevent silent Number(seed) >>> 0 wraparound and seed collisions.
+  if(!Number.isSafeInteger(seed)||seed<0||seed>0xffffffff)
+    throw new Error('seed must be an integer in 0..4294967295');
   const focal=spec.focalPlayer??0;
   if(!spec.visibleState)throw new Error('visibleState required');
   if(spec.visibleState.currentPlayer!==focal)throw new Error('visibleState currentPlayer must equal focalPlayer');
