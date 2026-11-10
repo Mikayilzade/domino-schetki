@@ -20,12 +20,16 @@ const visibleState={
 };
 const spec={focalPlayer:0,focalHand,knownTiles,hiddenHandSizes:[9,9,9],stockSize:0,visibleState};
 const before=JSON.stringify(spec);
-const counts=[0,0,0],n=12000,seedStart=24000000;
+const counts=[0,0,0],oppositeCounts=[0,0,0],n=12000,seedStart=24000000;
 for(let seed=seedStart;seed<seedStart+n;seed++){
   const world=sampleWorld(spec,seed);
   const keys=new Set(world.hands[1].map(e.tileKey));
   const held=doubles.filter(t=>keys.has(e.tileKey(t))).length;
   counts[held]++;
+  const oppositeKeys=new Set(world.hands[2].map(e.tileKey));
+  const oppositeHeld=doubles.filter(t=>oppositeKeys.has(e.tileKey(t))).length;
+  oppositeCounts[oppositeHeld]++;
+  assert.equal(held+oppositeHeld,2,'specified unseen doubles must be conserved across opponents');
   // Every sampled world, not only the first, must conserve the full deck.
   const all=[...knownTiles,...world.hands.flat(),...world.stock].map(e.tileKey);
   assert.equal(all.length,28);
@@ -40,6 +44,8 @@ for(let seed=seedStart;seed<seedStart+n;seed++){
 assert.equal(JSON.stringify(spec),before,'sampler mutated visible inputs');
 const expected=[4/17,9/17,4/17];
 const observed=counts.map(x=>x/n);
+const oppositeObserved=oppositeCounts.map(x=>x/n);
+assert.deepEqual(oppositeCounts,[counts[2],counts[1],counts[0]],'two-opponent complement symmetry');
 const maxAbsoluteDeviation=Math.max(...observed.map((x,i)=>Math.abs(x-expected[i])));
 // Broad deterministic regression band, not a statistical proof of RNG quality.
 assert(maxAbsoluteDeviation<0.02,'hidden-world sampler deviates from exact allocation oracle');
@@ -47,5 +53,6 @@ console.log(JSON.stringify({schema:'qosha-hidden-world-empirical-oracle/v1',pass
   rules:'recovered qosa-1.0.0 opening allocation only',engine:'qosha-research-0.5.3',
   seedStart,seedEnd:seedStart+n-1,worlds:n,strategies:[],
   nextSeatCounts:{zero:counts[0],one:counts[1],two:counts[2]},
+  oppositeSeatCounts:{zero:oppositeCounts[0],one:oppositeCounts[1],two:oppositeCounts[2]},oppositeObserved,
   observed,expected,maxAbsoluteDeviation,
   limitation:'Synthetic visible hand; unconditional uniform hidden worlds, no pass history or opponent choice likelihood; no gameplay rounds.'},null,2));
