@@ -13,7 +13,7 @@ const both = choose(16,7); // both specified unseen doubles at next seat
 const neither = choose(16,9);
 const exactlyOne = 2*choose(16,8);
 assert.equal(one*2,total);
-assert.equal(both*2+exactlyOne+neither*2,total);
+assert.equal(both+exactlyOne+neither,total);
 assert.equal(both,11440);
 assert.equal(exactlyOne,25740);
 assert.equal(neither,11440);
