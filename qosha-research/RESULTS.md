@@ -3986,3 +3986,16 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - New gameplay deals **0**; executed sampler worlds **0**; seed range/set none; strategies none. First-place/win rate, mean/median pips, round length, block rate, −10/−20/−30/−40 frequencies, starting/ending doubles, specific-double value, branch effects and regret **not measured**. Historical 180,000 matched-seat rounds are a separate legacy subtotal, not all-time cumulative scale.
 - Confidence: high for source-level suite membership and observed DNS failure; **no new reliable strategic advantage**. No source/test changes or live PWA/Actions changes.
 - Exact next action: restore runnable research-only checkout, execute and archive `hidden-world-test.js` and `hidden-world-empirical-oracle-test.js` **in addition to** `validation-gate.js` and fingerprint replay; fix any failures, then run matched-hidden-world K≥2/B=1 backed-vs-unbacked opening comparisons with explicitly provisional branch assumptions.
+
+
+### 2026-11-10 20:51 (+04) — separate hidden-world validation gate authored (not executed)
+- engine: `qosha-research-0.5.3`; rules: recovered `qosa-1.0.0`, primary 3×9+1; branch/block/loneZero assumptions remain provisional where documented
+- strategy deals: **0** this run; new verified simulation samples: **0**; historical persisted matched-seat subtotal: **180,000** (not merged with later cohorts)
+- seeds: planned only, **not executed**: `700..724`, `25000000..25000099` for each of 3 focal seats, and `24000000..24011999`
+- strategies: none; standalone hidden-world allocation invariants only
+- change: `simulator/hidden-world-validation-gate.js` executes four existing allocation suites, checks their distinct success contracts and emits one machine-readable JSON report; it is deliberately separate from the 17-suite gameplay gate
+- key metrics: gameplay suites **0/17 executed in this runtime**; Monte Carlo suites **0/4 executed**; empirical 12,000-world allocation oracle remains authored but unexecuted here
+- finding: the existing gameplay gate does not cover Monte Carlo allocation; the new gate makes the omission explicit and independently auditable. **No new gameplay strategy finding.**
+- confidence/limitations: high confidence from source inspection that both gates have disjoint coverage; no runtime validation claim. Executable shell still cannot resolve `github.com` (git ls-remote DNS failure); GitHub connector read/write succeeds. New runner itself is untested.
+- exact next action: obtain executable checkout; run `node qosha-research/simulator/hidden-world-validation-gate.js`, `node qosha-research/simulator/validation-fingerprint-replay-test.js`, and `node qosha-research/simulator/validation-gate.js`; persist raw JSON reports and repair any failures before additional matched-seed strategy runs.
+- scope: only `qosha-research/` changed; no scoreboard/PWA files touched.
