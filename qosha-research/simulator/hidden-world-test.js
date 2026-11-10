@@ -20,6 +20,11 @@ const snap=JSON.stringify(visibleState);
 // a mismatched current player or focal hand.
 assert.throws(()=>sampleWorld({...spec,focalPlayer:1},700),/currentPlayer must equal focalPlayer/);
 assert.throws(()=>sampleWorld({...spec,focalHand:[[1,2],[1,4]]},700),/focal hand must equal focalHand/);
+// The complement must contain only real double-six tiles, not merely unique keys.
+for(const invalid of [[-1,2],[7,7],[1,8],[1,1,1],[1],[1,1.5],['1',2],null,{}]){
+  assert.throws(()=>sampleWorld({...spec,knownTiles:[...knownTiles.slice(0,-1),invalid]},700),
+    /invalid double-six tile in visible\/known set/);
+}
 // Invalid slot sizes must fail before shuffle/slice; otherwise fractional or
 // negative counts can silently produce malformed opponent hands.
 for(const bad of [-1,0.5,NaN,Infinity,'8',2**53]){
