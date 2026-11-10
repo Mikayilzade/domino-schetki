@@ -54,6 +54,15 @@ const before=candidateKeys(a);
 const visibleOptions=d.turnOptions(visibleState.branchState,visibleState.openingState,focalHand,[]);
 const visibleKeys=visibleOptions.phase==='play'?visibleOptions.actions.map(actionKey).sort():[];
 assert.deepStrictEqual(before,visibleKeys,'hidden allocation must not change focal legal candidates');
+// Reject malformed batch requests before evaluating any world; in particular,
+// a range crossing uint32 must not silently wrap after its first samples.
+for(const count of [0,-1,0.5,NaN,Infinity,'25']){
+  assert.throws(()=>runHiddenWorlds(spec,{count,startSeed:700}),/count must be a positive safe integer/);
+}
+for(const startSeed of [-1,0.5,NaN,Infinity,'700',2**32]){
+  assert.throws(()=>runHiddenWorlds(spec,{count:1,startSeed}),/world seed range must fit/);
+}
+assert.throws(()=>runHiddenWorlds(spec,{count:2,startSeed:0xffffffff}),/world seed range must fit/);
 const run=runHiddenWorlds(spec,{count:25,startSeed:700,maxTurns:100});
 assert.strictEqual(run.worldCount,25);
 assert.deepStrictEqual(run.candidateKeys,before);
