@@ -5,7 +5,6 @@
 const assert=require('node:assert/strict');
 const e=require('./engine');
 const {sampleWorld,hiddenPool}=require('./hidden-world');
-const {cloneRoundState}=require('./round-driver');
 
 const focalHand=[[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[1,2],[1,3]];
 const knownTiles=[[1,1]];
@@ -27,12 +26,16 @@ for(let seed=seedStart;seed<seedStart+n;seed++){
   const keys=new Set(world.hands[1].map(e.tileKey));
   const held=doubles.filter(t=>keys.has(e.tileKey(t))).length;
   counts[held]++;
-  if(seed===seedStart){
-    const all=[...knownTiles,...world.hands.flat(),...world.stock].map(e.tileKey);
-    assert.equal(all.length,28);
-    assert.equal(new Set(all).size,28);
+  // Every sampled world, not only the first, must conserve the full deck.
+  const all=[...knownTiles,...world.hands.flat(),...world.stock].map(e.tileKey);
+  assert.equal(all.length,28);
+  assert.equal(new Set(all).size,28);
+  assert.equal(world.hands[0].length,9);
+  assert.equal(world.hands[1].length,9);
+  assert.equal(world.hands[2].length,9);
+  assert.equal(world.stock.length,0);
+  if(seed===seedStart || seed===seedStart+n-1)
     assert.deepEqual(sampleWorld(spec,seed),world);
-  }
 }
 assert.equal(JSON.stringify(spec),before,'sampler mutated visible inputs');
 const expected=[4/17,9/17,4/17];
