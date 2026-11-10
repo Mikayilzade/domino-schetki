@@ -5,6 +5,29 @@ const {spawnSync}=require('node:child_process');
 const path=require('node:path');
 const crypto=require('node:crypto');
 const fs=require('node:fs');
+// Bind the Monte Carlo evidence to the actual allocator and rollout code, not
+// only to unchanged test entrypoints. Use the same recursive fail-closed source
+// inventory as the gameplay gate; reject symlinks outside the research tree.
+function sourcePaths(dir,prefix='') {
+  const found=[];
+  for(const entry of fs.readdirSync(dir,{withFileTypes:true})) {
+    const rel=prefix?prefix+'/'+entry.name:entry.name;
+    if(entry.isSymbolicLink())throw new Error('Symlink in simulator source tree: '+rel);
+    if(entry.isDirectory())found.push(...sourcePaths(path.join(dir,entry.name),rel));
+    else if(entry.isFile()&&/\\.(js|json)$/.test(entry.name))found.push(rel);
+  }
+  return found.sort();
+}
+const sourceFiles=sourcePaths(__dirname);
+for(const required of ['hidden-world.js','hidden-world-validation-gate.js','hidden-world-test.js','decision-regret.js']) {
+  if(!sourceFiles.includes(required))throw new Error('Missing required Monte Carlo source: '+required);
+}
+const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
+const sourceHashes=Object.fromEntries(sourceFiles.map(n=>[n,hash(fs.readFileSync(path.join(__dirname,n)))]));
+const sourceManifestSha256=hash(JSON.stringify(sourceHashes));
+const contractHashes=Object.fromEntries(['README.md','RULES.md','EXPERIMENTS.md'].map(n=>
+  [n,hash(fs.readFileSync(path.join(__dirname,'..',n)))]));
+const contractManifestSha256=hash(JSON.stringify(contractHashes));
 const suites=[
   'hidden-world-test.js',
   'hidden-world-seat-stock-regression-test.js',
@@ -35,7 +58,7 @@ const results=suites.map(name=>{
 const report={schema:'qosha-hidden-world-validation-gate/v1',
   executedAt:new Date().toISOString(),nodeVersion:process.version,
   engine:'qosha-research-0.5.3',rules:'recovered qosa-1.0.0; allocation only',
-  strategyDeals:0,seedSets:['700..724','25000000..25000099 (3 seats)','24000000..24011999'],
+  strategyDeals:0,sourceManifestSha256,sourceHashes,contractManifestSha256,contractHashes,seedSets:['700..724','25000000..25000099 (3 seats)','24000000..24011999'],
   suites:results,passed:results.every(r=>r.passed),
   limitations:'Does not validate gameplay, pass-history likelihood, or opponent-choice model; run gameplay validation-gate.js independently.'};
 console.log(JSON.stringify(report,null,2));
