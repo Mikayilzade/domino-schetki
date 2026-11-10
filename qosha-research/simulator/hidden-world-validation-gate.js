@@ -28,6 +28,17 @@ const sourceManifestSha256=hash(JSON.stringify(sourceHashes));
 const contractHashes=Object.fromEntries(['README.md','RULES.md','EXPERIMENTS.md'].map(n=>
   [n,hash(fs.readFileSync(path.join(__dirname,'..',n)))]));
 const contractManifestSha256=hash(JSON.stringify(contractHashes));
+// Require the same checkout integrity preflight as the gameplay gate.
+// Otherwise a Monte Carlo-only green report could conceal missing or invalid
+// transitive dependencies in a partial checkout.
+const preflightRun=spawnSync(process.execPath,[path.join(__dirname,'validation-checkout-preflight.js')],
+  {encoding:'utf8',timeout:120000,maxBuffer:8*1024*1024});
+let preflightPayload=null;
+try {preflightPayload=JSON.parse(preflightRun.stdout||'');} catch {}
+const preflight={passed:preflightRun.status===0&&preflightPayload?.passed===true,
+  exitCode:preflightRun.status,signal:preflightRun.signal||null,
+  spawnError:preflightRun.error?.message||null,summary:preflightPayload,
+  stderr:(preflightRun.stderr||'').slice(-2000)};
 const suites=[
   'hidden-world-test.js',
   'hidden-world-seat-stock-regression-test.js',
@@ -59,7 +70,7 @@ const report={schema:'qosha-hidden-world-validation-gate/v1',
   executedAt:new Date().toISOString(),nodeVersion:process.version,
   engine:'qosha-research-0.5.3',rules:'recovered qosa-1.0.0; allocation only',
   strategyDeals:0,sourceManifestSha256,sourceHashes,contractManifestSha256,contractHashes,seedSets:['700..724','25000000..25000099 (3 seats)','24000000..24011999'],
-  suites:results,passed:results.every(r=>r.passed),
+  preflight,suites:results,passed:preflight.passed&&results.every(r=>r.passed),
   limitations:'Does not validate gameplay, pass-history likelihood, or opponent-choice model; run gameplay validation-gate.js independently.'};
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
