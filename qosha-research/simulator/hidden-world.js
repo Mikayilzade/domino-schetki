@@ -41,6 +41,9 @@ function sampleWorld(spec,seed){
   const visibleFocal=(spec.visibleState.hands&&spec.visibleState.hands[focal])||[];
   if(JSON.stringify(keys(visibleFocal).sort())!==JSON.stringify(keys(spec.focalHand).sort()))throw new Error('visibleState focal hand must equal focalHand');
   if(!Array.isArray(spec.hiddenHandSizes)||spec.hiddenHandSizes.length!==3)throw new Error('hiddenHandSizes[3] required');
+  if(!Number.isInteger(focal)||focal<0||focal>=3)throw new Error('focalPlayer must be a seat index 0..2');
+  if(!spec.hiddenHandSizes.every(n=>Number.isSafeInteger(n)&&n>=0))throw new Error('hiddenHandSizes must be nonnegative safe integers');
+  if(!Number.isSafeInteger(spec.stockSize??0)||(spec.stockSize??0)<0)throw new Error('stockSize must be a nonnegative safe integer');
   if(spec.hiddenHandSizes[focal]!==spec.focalHand.length)throw new Error('focal size mismatch');
   const pool=shuffle(hiddenPool(spec),seed), need=spec.hiddenHandSizes.reduce((n,x,i)=>n+(i===focal?0:x),0)+(spec.stockSize??0);
   if(pool.length!==need)throw new Error('unknown pool size mismatch: pool='+pool.length+' need='+need);
