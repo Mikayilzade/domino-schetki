@@ -32,6 +32,12 @@ for(const bad of [-1,0.5,NaN,Infinity,'8',2**53]){
   assert.throws(()=>sampleWorld({...spec,stockSize:bad},700),/stockSize must be a nonnegative safe integer/);
 }
 assert.throws(()=>sampleWorld({...spec,hiddenHandSizes:[2,8,-1]},700),/hiddenHandSizes must be nonnegative safe integers/);
+// Reject ambiguous seeds rather than silently collapsing them modulo 2^32.
+for(const bad of [-1,0.5,NaN,Infinity,'700',2**32,2**53]){
+  assert.throws(()=>sampleWorld(spec,bad),/seed must be an integer in 0..4294967295/);
+}
+assert.deepStrictEqual(sampleWorld(spec,0),sampleWorld(spec,0));
+assert.deepStrictEqual(sampleWorld(spec,0xffffffff),sampleWorld(spec,0xffffffff));
 const mixed=new Set(Array.from({length:25},(_,i)=>mixSeed(700+i)));
 assert.strictEqual(mixed.size,25,'adjacent world seeds must pre-mix to 25 distinct states');
 const allocationFingerprint=world=>JSON.stringify({opponents:world.hands.slice(1).map(h=>h.map(e.tileKey).sort()),stock:world.stock.map(e.tileKey).sort()});
