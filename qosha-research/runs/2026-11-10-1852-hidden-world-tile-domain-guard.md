@@ -1,0 +1,9 @@
+# 2026-11-10 18:52 Asia/Baku — double-six input-domain guard
+
+- Source of truth: read README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md, simulator inventory and hidden-world sampler/test before edits.
+- Engine reference: qosha-research-0.5.3; recovered rules: qosa-1.0.0; primary 3 players × 9 stones, one stock. Physical branch/block/loneZero assumptions remain provisional.
+- Changed only simulator/hidden-world.js and simulator/hidden-world-test.js: `hiddenPool()` now rejects known or focal tiles outside the standard double-six domain (two integer pips 0..6), including malformed arrays, null and nonnumeric entries. Added eight malformed known-tile fixtures. Existing uniqueness and conservation checks remain.
+- Runtime execution: 0 new gameplay deals; executed seed range none; strategies none; win/first-place, remaining pips, round length, blocks, minus frequencies and regret not measured. New test fixtures authored, NOT executed; full 17-suite gate NOT executed this checkpoint. Historical 180,000 matched-seat strategy rounds remain a separate legacy subtotal, not all-time cumulative scale.
+- Finding: source-level malformed tile guard closes an input-contract gap in hidden-world sampling. Confidence high in guard's domain predicate from inspection; no runtime or strategic claim.
+- Limitation: executable checkout remains unavailable to this connector-based research session; no green validation result. Physical branch/block rules remain provisional.
+- Exact next action: obtain executable research-only checkout; execute `node qosha-research/simulator/hidden-world-test.js` and empirical sampler regression, then `node qosha-research/simulator/validation-gate.js` and fingerprint replay; save real outputs and fix failures before matched-world K>=2/B=1 opening strategy tests. Do not touch live PWA or create GitHub Actions.
