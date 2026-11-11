@@ -1,6 +1,6 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-07 15:53 Asia/Baku.
+Last checkpoint: 2026-11-11 22:50 Asia/Baku. See latest dated checkpoint below; no full validation gate has passed.
 
 ## Validation gate (authoritative current state)
 
@@ -60,3 +60,12 @@ Last checkpoint: 2026-11-07 15:53 Asia/Baku.
 - New reliable strategic finding: **none**. Confidence high for static gate definitions and low/none for executable validation; this checkpoint does not claim a green engine or new sample statistics.
 - Exact next action: reconstruct a complete research-only executable checkout using GitHub connector files or restored shell DNS; run validation-checkout-preflight.js, validation-gate.js, hidden-world-validation-gate.js and both fingerprint replay tests; save raw JSON outputs, fix failures, then compare backed versus unbacked K>=2/B=1 branch openings on matched hidden worlds under documented provisional assumptions.
 - Scope: only qosha-research/STATUS.md updated; no live PWA files or GitHub Actions changed.
+
+
+## 2026-11-11 22:50 Asia/Baku — executable access recheck and status reconciliation
+
+- Source of truth read this run: `README.md`, `RULES.md`, `EXPERIMENTS.md`, `RESULTS.md`, `STATUS.md`, `simulator/validation-gate.js`, `validation-fingerprint-replay-test.js`, and `validation-checkout-preflight.js`. Engine reference `qosha-research-0.5.3`, recovered rules `qosa-1.0.0`; primary 3 players × 9 tiles; branch/block/loneZero semantics provisional.
+- Executable shell `git ls-remote https://github.com/Mikayilzade/domino-schetki.git HEAD` retried and failed with `Could not resolve host: github.com`. GitHub connector read access succeeded. No runnable complete checkout, no full gate execution. This checkpoint corrects the stale STATUS top-line date; it does not claim new code validation.
+- New strategy deals **0**, hidden worlds **0**, seed set **none**, strategies **none**. Gameplay suites **0/17 executed**; hidden-world suites **0/4 executed**. Win/first-place, mean/median remainder, round length, block rate, minus frequencies, double ownership, branch-opening effects, and regret **not measured**. Historical **180,000** matched-seat rounds remain a separate historical subtotal, not an all-time cumulative count.
+- Finding: no new reliable strategy conclusion. Source inspection confirms fail-closed preflight and a two-pass fingerprint replay wrapper, but no test pass can be inferred from authored assertions. Confidence high for DNS observation, none for runtime/strategic validation.
+- Exact next action: restore executable checkout access **or reconstruct the entire research-only simulator source tree from GitHub connector files**, run preflight, both validation gates and both fingerprint replays, archive raw JSON and timings, repair any failures, then resume matched-seed K>=2/B=1 backed-versus-unbacked opening comparisons under explicitly provisional assumptions. No scoreboard/PWA files or GitHub Actions changed.
