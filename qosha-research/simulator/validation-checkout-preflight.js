@@ -4,7 +4,8 @@
 const fs=require('node:fs');
 const path=require('node:path');
 const crypto=require('node:crypto');
-const {spawnSync}=require('node:child_process');
+const vm=require('node:vm');
+const Module=require('node:module');
 const root=__dirname;
 const contracts=['README.md','RULES.md','EXPERIMENTS.md','RESULTS.md'];
 const suites=['seed-deal-regression.js','five-player-deal-regression.js','four-branch-lock-kernel-test.js','draw-enabled-action-contract-test.js','mixed-finish-exhaustive-contract-test.js','opening-stock-regression.js','specific-double-starter-test.js','score-minus-regression.js','block-boundary-regression.js','pure-scoring-exhaustive-test.js','illegal-action-regression.js','hand-order-regression.js','terminal-minus-integration-test.js','branch-permutation-regression.js','round-conservation-regression.js','initializer-redeal-conservation-audit-test.js','redeal-full-round-audit-test.js'];
@@ -48,13 +49,13 @@ function inspectInputs(dir) {
     if(!/\.(?:js|json)$/.test(entry.name)) continue;
     inputFiles.push(relative);
     if(entry.name.endsWith('.js')) {
-      // Syntax-check every JS file, including unreferenced nested modules.
+      // Syntax-check every JS file, including unreferenced nested modules, in-process.
       // This is a parse check only; no game logic or top-level module code runs.
-      const check=spawnSync(process.execPath,['--check',full],{
-        encoding:'utf8',timeout:15000,maxBuffer:1024*1024
-      });
-      if(check.error||check.status!==0) invalid.push('Invalid simulator JS: '+relative+
-        ' (exit='+check.status+'; '+(check.error?.message||check.stderr||'').slice(-500)+')');
+      // Parse in-process as CommonJS, without executing any module code.
+      // Avoid one Node startup per file: hundreds of child processes can
+      // exceed the outer gate's 120s preflight timeout on slower machines.
+      try { new vm.Script(Module.wrap(fs.readFileSync(full,'utf8')),{filename:full}); }
+      catch(e) { invalid.push('Invalid simulator JS: '+relative+' ('+String(e.message).slice(-500)+')'); }
     }
     if(entry.name.endsWith('.json')) {
       try {JSON.parse(fs.readFileSync(full,'utf8'));}
@@ -76,6 +77,6 @@ for(const required of ['validation-gate.js','validation-fingerprint-replay-test.
 for(const f of contracts)walk(path.join(root,'..',f));
 for(const f of ['validation-gate.js','validation-fingerprint-replay-test.js',...suites])walk(path.join(root,f));
 const requiredMissing=[...missing].sort();
-const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure plus JS/JSON presence, symlink, JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
+const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
