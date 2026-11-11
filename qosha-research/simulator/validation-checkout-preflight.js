@@ -71,6 +71,7 @@ for(const relative of inputFiles.filter(n=>n.endsWith('.js'))) walk(path.join(ro
 inputFiles.sort();
 if(inputFiles.length<17) invalid.push('Incomplete simulator input inventory: '+inputFiles.length);
 for(const required of ['validation-gate.js','validation-fingerprint-replay-test.js',
+  'hidden-world-validation-gate.js','hidden-world-fingerprint-replay-test.js',
   'validation-checkout-preflight.js','round-driver.js','initializer.js']) {
   if(!inputFiles.includes(required)) invalid.push('Missing required simulator input: '+required);
 }
