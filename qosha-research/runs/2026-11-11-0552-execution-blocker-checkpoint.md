@@ -1,0 +1,10 @@
+# Qoşa açdı — 2026-11-11 05:52 Asia/Baku — execution blocker checkpoint
+
+- Source of truth read this pass: `README.md`, `RULES.md`, `EXPERIMENTS.md`, `RESULTS.md`, `STATUS.md`, `simulator/validation-gate.js`, `simulator/hidden-world-validation-gate.js`.
+- Engine reference: `qosha-research-0.5.3`; rules: recovered `qosa-1.0.0`, primary 3 players × 9 stones + 1 stock. Branch-opening, block allocation and loneZero details remain provisional as documented.
+- Executable shell check: `git ls-remote https://github.com/Mikayilzade/domino-schetki.git HEAD` returned `Could not resolve host: github.com`. GitHub connector source reads remain available, but a complete runnable checkout was not obtained.
+- New gameplay deals: **0**. Executed seed range/set: **none**. Strategies: **none**. New hidden-world samples: **0**. Gameplay suites executed: **0/17**; Monte Carlo suites executed: **0/4**. No new first-place rate, mean/median pips, round length, block rate, minus frequency, double value, branch effect or decision regret metrics.
+- Historical persisted 180,000 matched-seat rounds are a **separate legacy subtotal**, not an all-time total and not mixed with this pass.
+- Static verification: both gates contain recursive JS/JSON source fingerprints and a shared checkout preflight; the gameplay gate contains 17 suites, while the Monte Carlo gate separately enumerates four allocation suites. These are authored contracts, **not proof that any tests passed**.
+- New reliable strategy finding: **none**. Confidence: high for observed DNS failure and read-only gate inspection; none for runtime validation or strategy superiority.
+- Exact next action: restore an executable research-only checkout, execute `node qosha-research/simulator/validation-gate.js` and `node qosha-research/simulator/hidden-world-validation-gate.js`, archive actual machine-readable outputs, fix failures, then run fingerprint replay and matched-world K>=2/B=1 opening comparisons. Do not modify live scoreboard/PWA files or create GitHub Actions.
