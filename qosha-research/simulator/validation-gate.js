@@ -72,6 +72,14 @@ const preflight={passed:preflightRun.status===0&&preflightPayload?.passed===true
   stdoutParseError:!preflightPayload?(preflightRun.stdout||'').slice(-1000):null};
 const results=[];
 for(const name of suites){
+  // Fail closed like the Monte Carlo gate: do not execute suites when the
+  // checkout preflight has rejected missing, malformed or unsafe dependencies.
+  if(!preflight.passed){
+    results.push({suite:name,suiteSha256:null,passed:false,skipped:true,
+      exitCode:null,signal:null,spawnError:null,summary:null,stderr:'',
+      stdoutParseError:null,validationError:'checkout preflight failed'});
+    continue;
+  }
   const p=path.join(root,name);
   // A missing suite is a failed validation, not a fatal exception that erases
   // all earlier suite results and prevents emitting a machine-readable report.
