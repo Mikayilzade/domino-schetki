@@ -46,6 +46,9 @@ const suites=[
   'hidden-world-empirical-oracle-test.js'
 ];
 const results=suites.map(name=>{
+  // Fail closed: an incomplete or invalid checkout must not execute tests
+  // against potentially missing/mismatched transitive dependencies.
+  if(!preflight.passed)return {name,passed:false,skipped:true,error:'checkout preflight failed'};
   const file=path.join(__dirname,name);
   if(!fs.existsSync(file))return {name,passed:false,error:'missing suite'};
   const sha256=crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
