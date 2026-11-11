@@ -1,0 +1,12 @@
+# Validation execution audit — 2026-11-11 14:53 Asia/Baku
+
+- Repository: `Mikayilzade/domino-schetki`, default branch `main`; research-only checkpoint.
+- Engine: `qosha-research-0.5.3` (as declared by `simulator/validation-gate.js`); rules: recovered `qosa-1.0.0`, 3 players × 9 stones, branch semantics provisional.
+- Source-of-truth documents read: `README.md`, `RULES.md`, `EXPERIMENTS.md`, `RESULTS.md`. Simulator validation gate and fingerprint replay test inspected through GitHub.
+- Execution probe: `node -v` = v22.16.0; `git ls-remote https://github.com/Mikayilzade/domino-schetki.git HEAD` failed with `Could not resolve host: github.com`. GitHub connector reads and writes repository text but does not mount a runnable checkout.
+- New deals: **0**. Seed set: **none**. Strategies compared: **none**. New minus, block, regret or win metrics: **none**. Validation: **0/17 gameplay suites executed in this pass**, **0/4 Monte Carlo suites executed**. No source inspection is counted as an executed test.
+- Historical persisted matched-seat subtotal: **180,000 rounds** as separately documented in RESULTS.md; not an all-time cumulative total and not combined with this run.
+- Concrete code audit: `validation-gate.js` has 17 named suites, runs `validation-checkout-preflight.js` first, hashes recursive JS/JSON and rule contracts, and skips suites on failed preflight. `validation-fingerprint-replay-test.js` independently re-enumerates source and hashes, invokes the gate twice and compares stable fingerprints. These are **authored assertions, not runtime-verified successes**.
+- New finding: the execution gate is an **environment DNS/checkout availability problem**, not evidence of a failed gameplay invariant. It cannot be inferred whether the tests would pass or fail. No reliable new strategy finding.
+- Confidence: high for observed DNS error and source-level gate structure; zero runtime confidence in unexecuted assertions. Physical branch and block rules remain provisional.
+- Exact next action: in an environment with a complete executable checkout, run `node qosha-research/simulator/validation-fingerprint-replay-test.js` and `node qosha-research/simulator/validation-gate.js`, save their raw stdout JSON and exit codes under `qosha-research/runs/`, fix failing suites, then resume matched-seed strategy comparisons. Do not mutate live scoreboard/PWA files or create GitHub Actions.
