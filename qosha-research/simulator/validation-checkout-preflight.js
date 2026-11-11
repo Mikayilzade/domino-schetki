@@ -54,7 +54,13 @@ function inspectInputs(dir) {
       // Parse in-process as CommonJS, without executing any module code.
       // Avoid one Node startup per file: hundreds of child processes can
       // exceed the outer gate's 120s preflight timeout on slower machines.
-      try { new vm.Script(Module.wrap(fs.readFileSync(full,'utf8')),{filename:full}); }
+      try {
+        // Node's CommonJS loader accepts a leading hashbang; Module.wrap alone
+        // places it inside a function where vm.Script rejects it. Strip only
+        // the initial hashbang, matching the loader's parse allowance.
+        const source=fs.readFileSync(full,'utf8').replace(/^#![^\r\n]*/, '');
+        new vm.Script(Module.wrap(source),{filename:full});
+      }
       catch(e) { invalid.push('Invalid simulator JS: '+relative+' ('+String(e.message).slice(-500)+')'); }
     }
     if(entry.name.endsWith('.json')) {
