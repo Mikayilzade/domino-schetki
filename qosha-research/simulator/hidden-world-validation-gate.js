@@ -75,5 +75,21 @@ const report={schema:'qosha-hidden-world-validation-gate/v1',
   strategyDeals:0,sourceManifestSha256,sourceHashes,contractManifestSha256,contractHashes,seedSets:['700..724','25000000..25000099 (3 seats)','24000000..24011999'],
   preflight,suites:results,passed:preflight.passed&&results.every(r=>r.passed),
   limitations:'Does not validate gameplay, pass-history likelihood, or opponent-choice model; run gameplay validation-gate.js independently.'};
+// Distinguish stable validation evidence from wall-clock report identity.
+// Fingerprint includes all suite outcomes, input hashes and preflight diagnostics;
+// it intentionally excludes timestamp, host Node version and free-form stderr.
+const stableEvidence={
+  schema:report.schema,engine:report.engine,rules:report.rules,
+  seedSets:report.seedSets,strategyDeals:report.strategyDeals,
+  sourceManifestSha256,contractManifestSha256,
+  preflight:{passed:preflight.passed,exitCode:preflight.exitCode,
+    signal:preflight.signal,summary:preflight.summary},
+  suites:results.map(({name,sha256,passed,skipped,exitCode,signal,evidence,error})=>
+    ({name,sha256:sha256||null,passed,skipped:!!skipped,exitCode:exitCode??null,
+      signal:signal||null,evidence:evidence??null,error:error||null}))
+};
+report.validationFingerprintSha256=hash(JSON.stringify(stableEvidence));
+report.reportSha256=null;
+report.reportSha256=hash(JSON.stringify(report));
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
