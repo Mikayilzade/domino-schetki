@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-11-12T23:51:05+04:00",
+  "timezone": "Asia/Baku",
+  "engine": "independent-exact-oracle/v1 (full engine reference qosha-research-0.5.3)",
+  "rules": "qosa-1.0.0 opening; no branch/block/loneZero assumptions",
+  "newGameplayDeals": 0,
+  "hiddenWorldSamples": 0,
+  "seedSet": null,
+  "strategies": [],
+  "validation": {
+    "gameplaySuitesExecuted": 0,
+    "gameplaySuitesTotal": 17,
+    "hiddenWorldSuitesExecuted": 0,
+    "hiddenWorldSuitesTotal": 4,
+    "isolatedCombinatorics": "computed in JS runtime; newly authored Node regression not yet executed in full checkout"
+  },
+  "metrics": {
+    "postDrawForcedPassBothOpponentsAtLeastTwoOnes": 0.8687782805429864,
+    "preDrawNoExtraOneBothOpponentsAtLeastTwoOnes": 0.8173374613003096,
+    "postDrawBothAtLeastThreeOnes": 0.38009049773755654
+  },
+  "finding": "The 86.8778% conditional forced-pass probability assumes mandatory stock draw already occurred; 81.7337% is a different pre-draw event, not a contradiction.",
+  "confidence": "Exact hypergeometric combinatorics under uniform dealing; no strategic/gameplay conclusion.",
+  "limitations": "No executable full research checkout or full validation. Post-draw conditioning excludes rescue by a stock pip-1 tile. Historical 180,000 matched-seat rounds remain separate.",
+  "nextAction": "Run opening-pass-draw-timing-regression.js in full checkout, execute 17+4 gates and fingerprint replay, archive outputs, then matched-seed branch strategy comparisons."
+}
