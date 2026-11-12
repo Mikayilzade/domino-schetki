@@ -1,0 +1,21 @@
+{
+  "schema": "qosha-research-checkpoint/v1",
+  "timestampAsiaBaku": "2026-11-12T22:47:04+04:00",
+  "rules": "recovered qosa-1.0.0 / 3x9+1 / provisional branch, block and loneZero",
+  "engine": "qosha-research-0.5.3",
+  "change": "simulator/conditional-hidden-worlds-regression.js",
+  "isolatedTest": {"runtime":"Node.js", "passed":true, "seedSet":"0..99999", "sampledWorlds":100000, "seat1FiveFive":0.34759, "seat2FiveFive":0.34697, "expectedEach":0.34782608695652173, "negativeFixtures":4, "fixedTileConservation":true, "deterministicReplay":true},
+  "newGameplayDeals": 0,
+  "strategies": [],
+  "gameplayValidationSuitesExecuted": 0,
+  "gameplayValidationSuitesTotal": 17,
+  "hiddenWorldGateSuitesExecuted": 0,
+  "hiddenWorldGateSuitesTotal": 4,
+  "strategyMetrics": {"winRate":null,"meanRemainingPips":null,"medianRemainingPips":null,"roundLength":null,"blockRate":null,"minus10":null,"minus20":null,"minus30":null,"minus40":null,"startingEndingDoubles":null,"branchEffects":null,"regret":null},
+  "historicalMatchedSeatRoundsSeparate": 180000,
+  "finding": "For the specified fixed-tile configuration, each opponent has eight of 23 unknown slots; observed 5-5 marginal frequencies match the exact 8/23 expectation. This checks allocation symmetry, not strategic superiority.",
+  "confidence": "High for isolated reproducibility and tile conservation; marginal frequency tolerance 0.015 is a sanity bound, not a formal RNG proof. No full engine validation.",
+  "limitation": "GitHub shell DNS still fails; no executable complete checkout. The sampler is conditional on exact known tiles, not on pass/action history.",
+  "nextAction": "Obtain full executable simulator tree, run checkout preflight, 17 gameplay suites and 4 hidden-world suites with fingerprint replay; archive actual outputs and fix failures before matched-world move comparisons.",
+  "scope": "Only qosha-research/ changed; no live PWA or Actions modifications."
+}
