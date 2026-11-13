@@ -4,7 +4,9 @@
 const assert=require('node:assert/strict');
 const universe=Array.from({length:7},(_,a)=>Array.from({length:7-a},(_,i)=>a+'-'+(a+i))).flat();
 const key=t=>{assert.ok(Array.isArray(t)&&t.length===2&&t.every(x=>Number.isInteger(x)&&x>=0&&x<=6));return [...t].sort((a,b)=>a-b).join('-');};
-function rng(seed){let x=(seed>>>0)^0x9e3779b9;return ()=>{x^=x<<13;x^=x>>>17;x^=x<<5;return (x>>>0)/4294967296;};}
+// Pre-mix sequential seed IDs before xorshift32; direct XOR seeding causes
+// pronounced marginal bias across neighboring seeds (see 2026-11-13 audit).
+function rng(seed){let x=((seed>>>0)+0x9e3779b9)>>>0;x^=x>>>16;x=Math.imul(x,0x85ebca6b)>>>0;x^=x>>>13;x=Math.imul(x,0xc2b2ae35)>>>0;x^=x>>>16;return ()=>{x^=x<<13;x^=x>>>17;x^=x<<5;return (x>>>0)/4294967296;};}
 function sample({knownHands=[[],[],[]],knownStock=[],seed=0}){
  assert.equal(knownHands.length,3);assert.ok(Array.isArray(knownStock));
  const hands=knownHands.map(h=>h.map(key)),stock=knownStock.map(key);
