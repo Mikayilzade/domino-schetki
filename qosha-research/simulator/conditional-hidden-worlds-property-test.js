@@ -40,4 +40,7 @@ const recovered=sample({seed:zeroStateSeed});
 assert.deepEqual(recovered,sample({seed:zeroStateSeed}));
 assert.notEqual(recovered.stock[0],'0-0','zero-state shuffle must not survive');
 assert.notDeepEqual(recovered,sample({seed:zeroStateSeed+1}));
+// Previous zero-state fallback 0x6d2b79f5 was the ordinary pre-mix state
+// of seed 2804951790, causing identical worlds for two valid seed IDs.
+assert.notDeepEqual(recovered,sample({seed:2804951790}), 'distinct uint32 seeds must not share the same RNG stream');
 console.log(JSON.stringify({test:'conditional-hidden-worlds-property',passed:true,allocations:N,seeds:'0..49999',fixed:'seat0 1-1 0-6; seat1 3-3',tile:'2-2',counts,expected,strategies:[],gameplayDeals:0}));
