@@ -1,0 +1,12 @@
+# Qoşa opening-pass conditional distribution — 2026-11-13 15:51 Asia/Baku
+
+- Rules: recovered `qosa-1.0.0`; engine reference `qosha-research-0.5.3`. Exact standalone oracle version `exact-hypergeometric-v1`.
+- Primary mode: 3 players × 9 tiles, 1 stock. Conditional event: starter played 1-1, drew the stock tile, and has no other tile bearing pip 1, hence passes.
+- Mathematical model: among the 18 opponent tiles there are exactly six pip-1 tiles and twelve non-pip-1 tiles. Under uniform deal, the clockwise next player's nine tiles contain K pip-1 tiles with `P(K=k)=C(6,k)C(12,9-k)/C(18,9)`.
+- Exact integer counts for K=0..6: `[220,2970,11880,18480,11880,2970,220]` out of `48620`; sum checked independently in local Node v22.16.0. Probability next player has at least one: `48400/48620=99.5475%`; at least two: `45430/48620=93.4389%`; exactly three: `18480/48620=38.0090%`; both opponents have at least two: `42240/48620=86.878%`.
+- New finding: after the starter's forced pass, the next player has **at least two playable pip-1 tiles with 93.44% probability** under the conditional uniform-allocation model. This is a hand-composition observation, not evidence that a move is strategically superior. Physical branch semantics do not affect the combinatorial count.
+- Code: `simulator/opening-pass-next-seat-oracle.js`; its combinatorial counts were independently computed in local Node. The committed file itself and full engine suites were not executed from a full checkout.
+- Gameplay deals: **0**; hidden-world samples **0**; rollout decisions **0**; seed set **none (exact enumeration)**; strategies **none**. Gameplay gate **0/17**, hidden-world gate **0/4** executed in this pass. Win rate, remainder, length, blocks, minus frequencies, doubles, branch effects and regret: **not measured**. Historical 180,000 matched-seat rounds remain separate.
+- Limitations/confidence: exact for uniform conditional allocation; does not prove PRNG quality, validate engine, or account for opponent choice. Branch unlock, block scoring, loneZero remain provisional. Local `git ls-remote` still failed with `Could not resolve host: github.com`.
+- Exact next action: reconstruct executable research-only checkout (or restore DNS); run the new oracle and sampler property tests, preflight, 17 gameplay and four hidden-world suites and fingerprint replays; archive actual JSON and fix failures before matched-seed strategy trials.
+- Scope: only `qosha-research/` changed; no scoreboard/PWA files or GitHub Actions changed.
