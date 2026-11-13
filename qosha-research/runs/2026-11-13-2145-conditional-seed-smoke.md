@@ -1,0 +1,11 @@
+# Conditional hidden-world seed-stream smoke — 2026-11-13 21:45 Asia/Baku
+
+- Source of truth reread: README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md, simulator/conditional-hidden-worlds.js and conditional-hidden-worlds-property-test.js. Reference engine qosha-research-0.5.3; rules qosa-1.0.0; 3 players x 9 tiles plus 1 stock.
+- Execution: independent V8 source-equivalent implementation of the committed sampler's pre-mixed xorshift32 / exceptional Mulberry32 RNG and Fisher-Yates completion. This was **not** execution of the checked-out Node module, nor a full gameplay validation.
+- Fixed tiles: seat 0 has 1-1, 0-6; seat 1 has 3-3; seat 2 none; stock none. 25 unknown tiles allocated as 7/8/9/1.
+- Seeds: integers 0..29999 inclusive, 30,000 conditional hidden-world completions; 30,000 unique seat-labelled allocation fingerprints, 0 duplicates, 0 conservation/hand-size failures.
+- Marginal stock-tile distribution among 25 eligible tiles: expected 1,200 each; observed min 1,150, max 1,255; chi-square 14.1483333333 with 24 degrees of freedom. The designated tile 2-2 appeared in stock 1,213 times (expected 1,200). These are descriptive smoke diagnostics, not a formal guarantee of uniformity or independence.
+- Gameplay deals: **0**; gameplay rollouts: **0**; strategies: **none**. Full gameplay validation **0/17 executed**, hidden-world validation **0/4 executed**. Win/first-place, mean/median remaining pips, round length, block, minus frequencies, starting/ending doubles, branch effects and regret **not measured**. Historical 180,000 matched-seat rounds remain separate.
+- Finding: conditional sampler seed-stream completion shows no gross marginal stock bias on this fixed-known cohort. Confidence: moderate for isolated reproducible arithmetic, **none for strategic advantage or full-engine correctness**. Rules ambiguity on branch unlocking, block winner and loneZero remains unresolved.
+- Exact next action: execute committed conditional-hidden-worlds-property-test.js from an executable research-only checkout, then preflight, 17 gameplay + 4 hidden-world suites and fingerprint replays. Archive raw outputs and repair failures before matched-seed strategy rollouts.
+- No live scoreboard/PWA files or GitHub Actions changed.
