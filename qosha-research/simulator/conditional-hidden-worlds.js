@@ -8,6 +8,9 @@ const key=t=>{assert.ok(Array.isArray(t)&&t.length===2&&t.every(x=>Number.isInte
 // pronounced marginal bias across neighboring seeds (see 2026-11-13 audit).
 function rng(seed){let x=((seed>>>0)+0x9e3779b9)>>>0;x^=x>>>16;x=Math.imul(x,0x85ebca6b)>>>0;x^=x>>>13;x=Math.imul(x,0xc2b2ae35)>>>0;x^=x>>>16;return ()=>{x^=x<<13;x^=x>>>17;x^=x<<5;return (x>>>0)/4294967296;};}
 function sample({knownHands=[[],[],[]],knownStock=[],seed=0}){
+ // The PRNG consumes uint32 IDs: reject aliases instead of silently wrapping
+ // negative, fractional, string or >2^32-1 seed values.
+ assert.ok(Number.isInteger(seed)&&seed>=0&&seed<=0xffffffff,'seed must be a uint32 integer');
  assert.equal(knownHands.length,3);assert.ok(Array.isArray(knownStock));
  const hands=knownHands.map(h=>h.map(key)),stock=knownStock.map(key);
  const fixed=[...hands.flat(),...stock];assert.equal(new Set(fixed).size,fixed.length,'duplicate known tile');
