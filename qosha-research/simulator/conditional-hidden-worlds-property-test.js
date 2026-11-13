@@ -28,4 +28,9 @@ for(const bad of [
  {knownHands:[[],[]]},
  {knownHands:[[],[],[]],knownStock:[[1,1],[2,2]]}
 ])assert.throws(()=>sample(bad));
+// Seed IDs must not silently alias through >>>0 coercion.
+for(const seed of [-1, 0x100000000, 1.5, '1', NaN, Infinity, null]){
+ assert.throws(()=>sample({seed}), 'invalid seed '+String(seed));
+}
+assert.deepEqual(sample({seed:0xffffffff}),sample({seed:0xffffffff}));
 console.log(JSON.stringify({test:'conditional-hidden-worlds-property',passed:true,allocations:N,seeds:'0..49999',fixed:'seat0 1-1 0-6; seat1 3-3',tile:'2-2',counts,expected,strategies:[],gameplayDeals:0}));
