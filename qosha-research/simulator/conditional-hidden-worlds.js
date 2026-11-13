@@ -6,7 +6,9 @@ const universe=Array.from({length:7},(_,a)=>Array.from({length:7-a},(_,i)=>a+'-'
 const key=t=>{assert.ok(Array.isArray(t)&&t.length===2&&t.every(x=>Number.isInteger(x)&&x>=0&&x<=6));return [...t].sort((a,b)=>a-b).join('-');};
 // Pre-mix sequential seed IDs before xorshift32; direct XOR seeding causes
 // pronounced marginal bias across neighboring seeds (see 2026-11-13 audit).
-function rng(seed){let x=((seed>>>0)+0x9e3779b9)>>>0;x^=x>>>16;x=Math.imul(x,0x85ebca6b)>>>0;x^=x>>>13;x=Math.imul(x,0xc2b2ae35)>>>0;x^=x>>>16;return ()=>{x^=x<<13;x^=x>>>17;x^=x<<5;return (x>>>0)/4294967296;};}
+// xorshift32 must never start at zero: uint32 seed 1640531527 maps to zero
+// after the additive pre-mix and would otherwise yield an all-zero RNG stream.
+function rng(seed){let x=((seed>>>0)+0x9e3779b9)>>>0;x^=x>>>16;x=Math.imul(x,0x85ebca6b)>>>0;x^=x>>>13;x=Math.imul(x,0xc2b2ae35)>>>0;x^=x>>>16;if(x===0)x=0x6d2b79f5;return ()=>{x^=x<<13;x^=x>>>17;x^=x<<5;return (x>>>0)/4294967296;};}
 function sample({knownHands=[[],[],[]],knownStock=[],seed=0}){
  // The PRNG consumes uint32 IDs: reject aliases instead of silently wrapping
  // negative, fractional, string or >2^32-1 seed values.
