@@ -33,4 +33,11 @@ for(const seed of [-1, 0x100000000, 1.5, '1', NaN, Infinity, null]){
  assert.throws(()=>sample({seed}), 'invalid seed '+String(seed));
 }
 assert.deepEqual(sample({seed:0xffffffff}),sample({seed:0xffffffff}));
+// Regression: seed 1640531527 previously initialized xorshift32 at zero,
+// producing a constant-zero stream and a deterministic degenerate shuffle.
+const zeroStateSeed=1640531527;
+const recovered=sample({seed:zeroStateSeed});
+assert.deepEqual(recovered,sample({seed:zeroStateSeed}));
+assert.notEqual(recovered.stock[0],'0-0','zero-state shuffle must not survive');
+assert.notDeepEqual(recovered,sample({seed:zeroStateSeed+1}));
 console.log(JSON.stringify({test:'conditional-hidden-worlds-property',passed:true,allocations:N,seeds:'0..49999',fixed:'seat0 1-1 0-6; seat1 3-3',tile:'2-2',counts,expected,strategies:[],gameplayDeals:0}));
