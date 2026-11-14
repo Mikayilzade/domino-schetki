@@ -1,0 +1,12 @@
+# 2026-11-14 06:46 Asia/Baku — exact starter/double confounding oracle
+
+- Engine reference: `qosha-research-0.5.3`; recovered rules `qosa-1.0.0`; independent exact combinatorial oracle `starter-double-confounding/v1`.
+- Mode: 3 players × 9 stones, 1 stock; uniform double-six deal, before mandatory draw. No branch, block, or loneZero assumption needed.
+- Execution: the identical standalone Node.js oracle was executed locally and all its assertions passed. GitHub-persisted file was not run from a complete checkout; no full-engine validation claimed.
+- Gameplay deals: **0**; sampled hidden worlds: **0**; seed range: **none (exact combinatorics)**; strategy policies: **none**. Gameplay gate **0/17 executed**, hidden-world gate **0/4 executed**. Historical 180,000 matched-seat rounds remain separate.
+- Exact conditional raw-hand distributions: if a player **owns 1-1**, they have 1 guaranteed double plus a hypergeometric count from 6 other doubles among 27 tiles, drawing 8. Expected doubles = **2.77777778**; probability of **at least 3 doubles = 59.4081281%**. If a player **does not own 1-1**, they draw 9 from the 27 non-1-1 tiles, with 6 doubles. Expected doubles = **2.00000000**; probability of **at least 3 doubles = 30.4631600%**. Difference = **28.9449681 percentage points**.
+- Finding: comparisons of starting-double count against finish rate must control for ownership of 1-1 / opening status. A raw starter has a structurally higher double count even before any policy effect. **This is an exact distributional confound, not evidence that any strategy wins more.**
+- Important limitation: ownership of 1-1 is not identical to *actual starter* on later rounds when 1-1 lies in stock and the previous winner starts. The above conditional probabilities are for **ownership**, not the full later-round starter population; don't apply them unconditionally to that population.
+- Unmeasured: win/first-place, mean/median remaining pips, round length, blocks, −10/−20/−30/−40, value of individual doubles, branch effects, decision regret.
+- Confidence: exact under uniform raw-deal sampling; no new gameplay-strength claim. No live scoreboard/PWA or GitHub Actions changes.
+- Exact next action: obtain a complete executable research-only checkout, run `validation-checkout-preflight.js`, `validation-gate.js`, `hidden-world-validation-gate.js`, both fingerprint replays, and compare simulator raw-hand conditional double distributions against this oracle. Only then resume matched-seed strategy simulations.
