@@ -1,6 +1,6 @@
 # Qoşa açdı research — current status
 
-Last checkpoint: 2026-11-11 22:50 Asia/Baku. See latest dated checkpoint below; no full validation gate has passed.
+Last checkpoint: 2026-11-15 21:50 Asia/Baku. See latest dated checkpoint below; no full validation gate has passed.
 
 ## Validation gate (authoritative current state)
 
@@ -133,3 +133,12 @@ Last checkpoint: 2026-11-11 22:50 Asia/Baku. See latest dated checkpoint below; 
 - Executable shell `git ls-remote` still fails with `Could not resolve host: github.com`. No full research checkout. **0 new gameplay deals**, **0 hidden worlds**, **0 rollouts**; seed range none; strategies none. Gameplay suites **0/17 executed**, hidden-world suites **0/4 executed**. No new win, pips, round-length, block, minus, double, branch or regret measurements. Historical **180,000** matched-seat rounds remain a separate legacy subtotal.
 - Finding: pinned metadata parses consistently, but this is **not** evidence that an executable checkout or gameplay engine is valid; no new reliable strategy finding. Confidence high for inventory metadata counts, none for gameplay validation.
 - Exact next action: restore executable checkout or reconstruct all 387 pinned files from connector with blob verification, run preflight and both validation gates plus fingerprint replays, archive actual JSON and timings, fix failures, then resume paired-seed strategy tests. No PWA/scoreboard or GitHub Actions changes.
+
+
+## 2026-11-15 21:50 Asia/Baku — pinned source provenance spot-check
+
+- Read GitHub README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md, current validation-checkout-preflight.js and historical simulator-checkout-inventory-2026-11-14.md; engine reference qosha-research-0.5.3, rules qosa-1.0.0, primary 3×9+1. Branch unlock, block scoring and loneZero=10 remain provisional.
+- Compared current GitHub blob SHA to the 2026-11-14 historical pinned inventory for six important simulator files. **Five match exactly**: validation-gate.js, hidden-world-validation-gate.js, round-driver.js, initializer.js, opening-redeal-exact-oracle.js. **One differs**: validation-checkout-preflight.js current 5f24cf3159ecdd105c4f895fbd2093f05b60b2b2 versus pinned 581774282e41c489c66280875f6e3cab45ad8aeb. This is a source-version drift observation, not proof of corruption: preflight was edited after the historical inventory snapshot. Reconstruction should use one consistent pinned commit or refresh manifests intentionally; never silently equate historical inventory hashes with current main.
+- Executable shell git ls-remote still fails with Could not resolve host: github.com (Node v22.16.0 available). No full executable checkout or test gate execution. This pass: **0 new gameplay deals**, **0 hidden worlds**, **0 rollouts**, seeds none, strategies none; **0/17 gameplay suites and 0/4 hidden-world suites executed**. Win, pips, round length, block, minus, doubles, branch effects and regret not measured. Historical 180,000 matched-seat rounds remain a separate legacy subtotal.
+- Confidence high for GitHub blob comparisons and DNS failure; none for engine runtime correctness. No new reliable strategic finding.
+- Exact next action: reconstruct the **complete** research-only tree at one immutable Git commit using connector reads and verify all blob SHAs; then run checkout preflight, both gates and fingerprint replays, archive raw outputs/timings, fix failures, and only then resume matched-seed strategy comparisons. No live PWA files or GitHub Actions changed.
