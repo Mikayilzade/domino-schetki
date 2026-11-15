@@ -93,7 +93,7 @@ let pinnedEntries=0;
 if(!fs.existsSync(pinnedInventory)) missing.add('simulator-checkout-inventory-2026-11-14.md');
 else {
   const inventoryText=fs.readFileSync(pinnedInventory,'utf8');
-  const matches=[...inventoryText.matchAll(/^\x60(qosha-research\\/simulator\\/[^\x60\\r\\n]+)\x60 ([0-9a-f]{40}) (\\d+)$/gm)];
+  const matches=[...inventoryText.matchAll(/^\x60(qosha-research\/simulator\/[^\x60\r\n]+)\x60 ([0-9a-f]{40}) (\d+)$/gm)];
   pinnedEntries=matches.length;
   if(pinnedEntries!==387) invalid.push('Pinned inventory count mismatch: '+pinnedEntries+' (expected 387)');
   const pinnedNames=new Set();
