@@ -22,16 +22,24 @@ function withinResearch(rel) {
   return full;
 }
 function rejectSymlinkComponents(dest) {
-  // A lexically safe path can still escape via an existing directory symlink.
+  // existsSync() follows links and returns false for dangling symlinks.
+  // lstatSync() detects both dangling and resolvable links; ENOENT is
+  // acceptable only when a component has not been created yet.
+  function rejectLink(component) {
+    try {
+      if (fs.lstatSync(component).isSymbolicLink()) throw new Error('Symlink in reconstruction path: ' + component);
+    } catch (e) {
+      if (e.code !== 'ENOENT') throw e;
+    }
+  }
   for (let cur = RESEARCH; ; cur = path.dirname(cur)) {
-    if (fs.existsSync(cur) && fs.lstatSync(cur).isSymbolicLink()) throw new Error('Symlink in research root: ' + cur);
+    rejectLink(cur);
     if (cur === ROOT) break;
   }
   let cur = RESEARCH;
-  const parts = path.relative(RESEARCH, dest).split(path.sep);
-  for (const part of parts) {
+  for (const part of path.relative(RESEARCH, dest).split(path.sep)) {
     cur = path.join(cur, part);
-    if (fs.existsSync(cur) && fs.lstatSync(cur).isSymbolicLink()) throw new Error('Symlink in reconstruction path: ' + cur);
+    rejectLink(cur);
   }
 }
 async function download(rel, expected, bytes) {
