@@ -1,0 +1,8 @@
+# 2026-11-15 08:49 Asia/Baku — pinned inventory parser regression
+
+- Source of truth read: README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md, validation-checkout-preflight.js and opening-redeal-exact-oracle.js. Engine reference: qosha-research-0.5.3; recovered rules qosa-1.0.0; primary mode 3 players × 9 tiles + 1 stock. Branch unlocking, block scoring, loneZero remain provisional.
+- Created simulator/pinned-inventory-parser-regression.js, a self-contained row-format regression covering two valid entries, duplicate paths, traversal paths, backslash paths, invalid SHA and invalid byte count. Seven assertion groups passed in Node v22.16.0 using an isolated local copy. This does not prove that the entire preflight or any gameplay suite passes.
+- Executable git ls-remote failed again: Could not resolve host: github.com. GitHub connector source read/write worked. No full checkout reconstructed.
+- New gameplay deals: 0; hidden-world samples: 0; rollouts: 0; seed set: none; strategies: none. Gameplay validation 0/17 executed; hidden-world validation 0/4 executed. Win/first place, mean/median remaining pips, round length, block rate, minus frequencies, starting/ending doubles, specific doubles, branch effects and regret: not measured. Historical 180,000 matched-seat rounds remain a separate legacy subtotal.
+- New reliable strategic finding: none. Confidence high for isolated parser fixture only; no confidence claim for gameplay engine.
+- Exact next action: reconstruct complete research-only simulator tree, run pinned inventory audit, checkout preflight, both validation gates and fingerprint replays, archive actual JSON and timings, repair failures, then resume matched-seed strategy comparisons. No live PWA files or GitHub Actions changed.
