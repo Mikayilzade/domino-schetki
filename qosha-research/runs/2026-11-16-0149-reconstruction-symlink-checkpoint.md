@@ -1,0 +1,9 @@
+# 2026-11-16 01:49 Asia/Baku — reconstruction symlink safety fix
+
+- Source of truth read: README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md, validation-checkout-preflight.js, validation-gate.js, and reconstruct-checkout.js from GitHub main.
+- Engine/rules reference: qosha-research-0.5.3 / recovered qosa-1.0.0; primary 3 players x 9 stones. Branch unlock, block scoring, loneZero=10 provisional.
+- Changed only simulator/reconstruct-checkout.js: reject existing symlinks in research root, ancestors, and every destination component; recheck after mkdir before writing. This closes a path-escape risk in connector/API-based reconstruction even when lexical path checks pass. Verified the updated GitHub source contains both guard calls. This is a static source fix; the reconstruction script itself was NOT executed against a complete checkout.
+- Git checkout attempt: git ls-remote https://github.com/Mikayilzade/domino-schetki.git HEAD failed: Could not resolve host github.com. Connector reads/writes succeeded.
+- New gameplay deals: 0; seed range: none; strategies: none; hidden worlds: 0; rollouts: 0. Gameplay validation 0/17 suites executed; hidden-world validation 0/4 executed. Win rate, remainder, round length, blocks, minuses, doubles, branch effects and regret not measured. Historical 180,000 matched-seat rounds remain separate, not a cumulative total.
+- Finding: safer pinned checkout recovery; no new reliable strategic finding. Confidence high for source guard placement, none for gameplay validation or runtime behavior.
+- Exact next action: reconstruct all 387 pinned research-only files at one immutable commit, verify blob hashes, execute preflight, both gates and fingerprint replays, archive raw outputs/timings, then resume paired-seed strategy tests. No PWA/scoreboard or GitHub Actions changes.
