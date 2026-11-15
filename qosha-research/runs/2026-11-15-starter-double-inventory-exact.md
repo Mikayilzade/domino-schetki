@@ -1,0 +1,10 @@
+# 2026-11-15 11:50 Asia/Baku — exact starter double inventory oracle
+
+- Engine reference: `qosha-research-0.5.3` (not executed); recovered rules: `qosa-1.0.0`, primary 3 players × 9 stones, 28-tile double-six set.
+- Method: independent exact hypergeometric enumeration, not a gameplay simulation. Conditional on `1-1` being in the starter's initial nine tiles, the other eight tiles are an equally likely 8-subset of the remaining 27 tiles. Six are other doubles, 21 are non-doubles. `P(K=k)=C(6,k)C(21,8-k)/C(27,8)`.
+- Exact numerator counts for K=0..6: 203490, 697680, 813960, 406980, 89775, 7980, 210; denominator `C(27,8)=2220075`. [Check denominator before using these figures: computed from local Python combinatorics.]
+- Probabilities K=0..6: 9.1659066%, 31.4259653%, 36.6636262%, 18.3318131%, 4.0437823%, 0.3594473%, 0.0094591%. Mean K=16/9=1.7777778. At least two other doubles: 59.4081281% (calculate from exact counts, not rounded).
+- Scope: these are **held** doubles, not playable opening sequences; opening branch legality and future availability cannot be inferred. Initial `1-1` in stock, redeal, and previous-winner pickup are excluded from this conditional population. The mandatory stock pickup can change K.
+- New gameplay deals: 0. Hidden worlds/continuations: 0. Seed set: none (exact enumeration). Strategies: none. Win rate, remainder, turns, blocks, minus frequencies, branch-opening effect, and regret not measured. 0/17 gameplay suites and 0/4 hidden-world suites executed in this run. Historical 180,000 matched-seat rounds are a separate legacy subtotal.
+- Confidence: exact for uniform initial 9-tile hands conditional on owning `1-1`; no strategic or physical-rule claim.
+- Blocker: executable git checkout still fails `Could not resolve host: github.com`; GitHub connector is readable. Next action: reconstruct complete simulator checkout or restore DNS, run pinned-inventory preflight and both validation gates/fingerprint replays, archive JSON; only then matched-seed strategy comparisons. No live scoreboard or GitHub Actions changes.
