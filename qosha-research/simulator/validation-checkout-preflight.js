@@ -105,6 +105,19 @@ else {
     if(!full.startsWith(root+path.sep)||name.split('/').some(x=>!x||x==='.'||x==='..')) {
       invalid.push('Unsafe pinned path: '+name);continue;
     }
+    // Reject symlinked ancestor directories too: lstat(full) alone follows
+    // a parent symlink and can incorrectly accept a file outside this tree.
+    let ancestor=root;
+    let unsafeAncestor=false;
+    for(const part of name.split('/').slice(0,-1)) {
+      ancestor=path.join(ancestor,part);
+      if(fs.existsSync(ancestor)&&fs.lstatSync(ancestor).isSymbolicLink()) {
+        invalid.push('Symlinked pinned ancestor: '+name);
+        unsafeAncestor=true;
+        break;
+      }
+    }
+    if(unsafeAncestor) continue;
     if(!fs.existsSync(full)) missing.add('simulator/'+name);
     else if(!fs.lstatSync(full).isFile()||fs.lstatSync(full).isSymbolicLink()) invalid.push('Nonregular pinned file: '+name);
   }
