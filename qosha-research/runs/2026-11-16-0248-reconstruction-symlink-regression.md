@@ -1,0 +1,10 @@
+# 2026-11-16 02:48 Asia/Baku — reconstruction symlink safety regression
+
+- Source of truth read: README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md and simulator/reconstruct-checkout.js, pinned-inventory-audit.js, validation-checkout-preflight.js.
+- Engine/rules reference: qosha-research-0.5.3 / recovered qosa-1.0.0; 3 players × 9 stones + one stock. Branch unlock, block scoring, loneZero=10 remain provisional.
+- Fixed reconstruction guard in simulator/reconstruct-checkout.js (commit 1f111a90d4b11d4df20d747aafd6b526b3b96ebc): fs.existsSync() followed symlinks and returned false for dangling links, allowing them to evade the guard. Now lstatSync() detects dangling and valid symlinks; only ENOENT is tolerated for absent components. This is a hardening fix, not game logic.
+- Isolated Node filesystem regression executed on four fixture components: missing=allowed, ordinary file=allowed, dangling symlink=rejected, resolvable symlink=rejected (4/4 expected). Full reconstruction script not executed against a GitHub checkout.
+- Direct git ls-remote still failed with Could not resolve host: github.com. GitHub connector source reads/writes work; full executable checkout unavailable.
+- Gameplay deals: 0; hidden worlds: 0; rollouts: 0; seed set: none; strategies: none. Gameplay validation 0/17 suites executed; hidden-world 0/4. Win/first-place, mean/median remaining pips, round length, block rate, −10/−20/−30/−40, starting/ending doubles, double values, branch effects and regret not measured. Historical 180,000 matched-seat strategy rounds remain a separate legacy subtotal.
+- New strategy finding: none. Confidence high for the isolated filesystem regression and source patch; no engine runtime validation.
+- Exact next action: recover a complete consistent research-only checkout, verify pinned Git blob SHAs and inventory, run preflight, both validation gates and fingerprint replays; archive actual JSON and timings, repair failures, then resume matched-seed strategy trials. No live scoreboard/PWA files or GitHub Actions modified.
