@@ -4377,3 +4377,12 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - New gameplay deals **0**; hidden-world samples **0**; seed set none; strategies none; full gameplay suites **0/17 executed**, hidden-world suites **0/4 executed**. Win rate, remainder, block/minus rates, doubles, branch effects, regret not measured. Historical 180,000 matched-seat rounds remain separate.
 - New reliable strategic finding: **none**. High confidence for GitHub directory/inventory comparison only; no runtime or physical-rule validation.
 - Exact next action: inspect `reconstruct-checkout.js` and test connector-assisted full checkout reconstruction; execute preflight, both gates and replay tests in Node, archive JSON/timings and repair failures before paired-seed strategic trials. No live scoreboard/PWA files or Actions changed.
+
+
+## 2026-11-16 03:53 Asia/Baku — pinned preflight ancestor-symlink hardening
+
+- Read current GitHub README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md and validation-checkout-preflight.js. Engine reference qosha-research-0.5.3; recovered rules qosa-1.0.0; primary 3×9+1. Branch unlocking, block scoring and loneZero=10 remain provisional.
+- Changed only simulator/validation-checkout-preflight.js: pinned historical inventory now rejects symlinked parent directories, not only symlinked leaf files. Previously lstat(leaf) followed a symlinked ancestor, potentially treating external file content as a legitimate pinned file. Research-only isolated Node fixture verified symlinked ancestor rejected and regular ancestor accepted (**2/2 checks passed**). This is not a full preflight or gameplay-suite execution.
+- Gameplay deals **0**, hidden worlds **0**, seed set **none**, strategies **none**; gameplay validation **0/17 suites executed**, hidden-world validation **0/4 executed**. Win/first-place, remaining pips, round length, blocks, minus frequencies, doubles, branch effects and regret **not measured**. Historical **180,000** matched-seat rounds are a separate legacy subtotal.
+- New reliable strategic finding **none**. Confidence high for isolated ancestor-symlink fixture; none for complete simulator correctness. Full checkout still not available in this run; no claim of a fresh DNS diagnosis.
+- **Exact next action:** reconstruct full simulator at one immutable GitHub commit and verify all pinned blobs, run preflight, both validation gates and fingerprint replays, archive actual output and repair failures before matched-seed strategy comparisons. No live PWA files or GitHub Actions modified.
