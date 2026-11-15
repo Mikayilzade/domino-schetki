@@ -21,8 +21,22 @@ function withinResearch(rel) {
   if (!full.startsWith(RESEARCH + path.sep)) throw new Error('Escaping research folder: ' + rel);
   return full;
 }
+function rejectSymlinkComponents(dest) {
+  // A lexically safe path can still escape via an existing directory symlink.
+  for (let cur = RESEARCH; ; cur = path.dirname(cur)) {
+    if (fs.existsSync(cur) && fs.lstatSync(cur).isSymbolicLink()) throw new Error('Symlink in research root: ' + cur);
+    if (cur === ROOT) break;
+  }
+  let cur = RESEARCH;
+  const parts = path.relative(RESEARCH, dest).split(path.sep);
+  for (const part of parts) {
+    cur = path.join(cur, part);
+    if (fs.existsSync(cur) && fs.lstatSync(cur).isSymbolicLink()) throw new Error('Symlink in reconstruction path: ' + cur);
+  }
+}
 async function download(rel, expected, bytes) {
   const dest = withinResearch(rel);
+  rejectSymlinkComponents(dest);
   if (fs.existsSync(dest)) {
     if (!fs.statSync(dest).isFile()) throw new Error('Not a regular file: ' + rel);
     const existing = fs.readFileSync(dest);
@@ -37,6 +51,7 @@ async function download(rel, expected, bytes) {
   const data = Buffer.from(await res.arrayBuffer());
   if (data.length !== bytes || sha1GitBlob(data) !== expected) throw new Error('SHA/length mismatch for ' + rel);
   fs.mkdirSync(path.dirname(dest), {recursive:true});
+  rejectSymlinkComponents(dest);
   const tmp = dest + '.partial-' + process.pid;
   fs.writeFileSync(tmp, data, {flag:'wx'});
   fs.renameSync(tmp, dest);
