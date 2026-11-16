@@ -122,7 +122,29 @@ else {
     else if(!fs.lstatSync(full).isFile()||fs.lstatSync(full).isSymbolicLink()) invalid.push('Nonregular pinned file: '+name);
   }
 }
+// Audit historical blob provenance without rejecting intentional post-snapshot edits.
+// Git blob IDs are SHA-1 of "blob <byteLength>\\0" followed by raw bytes.
+const pinnedDrift=[];
+if(fs.existsSync(pinnedInventory)) {
+  const inventoryText=fs.readFileSync(pinnedInventory,'utf8');
+  const rows=[...inventoryText.matchAll(/^\\x60(qosha-research\\/simulator\\/[^\\x60\\r\\n]+)\\x60 ([0-9a-f]{40}) (\\d+)$/gm)];
+  for(const row of rows) {
+    const name=row[1].slice('qosha-research/simulator/'.length);
+    const full=path.resolve(root,name);
+    if(!full.startsWith(root+path.sep)||name.split('/').some(x=>!x||x==='.'||x==='..'))continue;
+    let current=root,unsafe=false;
+    for(const part of name.split('/')) {
+      current=path.join(current,part);
+      if(!fs.existsSync(current)||fs.lstatSync(current).isSymbolicLink()){unsafe=true;break;}
+    }
+    if(unsafe||!fs.lstatSync(full).isFile())continue;
+    const bytes=fs.readFileSync(full);
+    const actual=crypto.createHash('sha1').update(Buffer.from('blob '+bytes.length+'\\0')).update(bytes).digest('hex');
+    if(actual!==row[2]||bytes.length!==Number(row[3]))
+      pinnedDrift.push({path:name,pinnedBlob:row[2],actualBlob:actual,pinnedBytes:Number(row[3]),actualBytes:bytes.length});
+  }
+}
 const requiredMissing=[...missing].sort();
-const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory presence (not hash equality), plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
+const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,pinnedDriftCount:pinnedDrift.length,pinnedDrift,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory presence plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
