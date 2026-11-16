@@ -139,7 +139,7 @@ if(fs.existsSync(pinnedInventory)) {
     }
     if(unsafe||!fs.lstatSync(full).isFile())continue;
     const bytes=fs.readFileSync(full);
-    const actual=crypto.createHash('sha1').update(Buffer.from('blob '+bytes.length+'\\0')).update(bytes).digest('hex');
+    const actual=crypto.createHash('sha1').update(Buffer.from('blob '+bytes.length+'\0')).update(bytes).digest('hex');
     if(actual!==row[2]||bytes.length!==Number(row[3]))
       pinnedDrift.push({path:name,pinnedBlob:row[2],actualBlob:actual,pinnedBytes:Number(row[3]),actualBytes:bytes.length});
   }
