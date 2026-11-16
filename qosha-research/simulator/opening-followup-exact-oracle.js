@@ -8,10 +8,14 @@ const assert=require('node:assert/strict');
 function choose(n,k){let v=1;for(let i=1;i<=k;i++)v=v*(n-k+i)/i;return Math.round(v);}
 const total=choose(27,9),noFollow=choose(21,9);
 const pPassGivenStarter=noFollow/total;
+const pNoOneBeforeDraw=choose(21,8)/choose(27,8);
+const pStockRescuesHand=pNoOneBeforeDraw-pPassGivenStarter;
+// A no-1 eight-tile hand is rescued iff stock is one of six 1-containing tiles.
+assert.ok(Math.abs(pStockRescuesHand-pNoOneBeforeDraw*(6/19))<1e-12);
 const pStockOpening=1/28;
 const pPassUnconditional=pPassGivenStarter*(27/28);
 assert.equal(total,4686825);
 assert.equal(noFollow,293930);
 assert.ok(pPassGivenStarter>0.06&&pPassGivenStarter<0.07);
 assert.ok(Math.abs(pStockOpening+27/28-1)<1e-12);
-console.log(JSON.stringify({schema:'qosha-opening-followup-exact/v1',passed:true,deals:0,seedSet:null,assumption:'uniform double-six shuffle, 3x9+1, starter owns 1-1; starter draws the stock after opening',conditionalNumerator:noFollow,conditionalDenominator:total,pPassGivenStarter,pStockOpening,pPassUnconditional,limitation:'Analytic combinatorics only; no simulator round execution or branch rules validated'},null,2));
+console.log(JSON.stringify({schema:'qosha-opening-followup-exact/v1',passed:true,deals:0,seedSet:null,assumption:'uniform double-six shuffle, 3x9+1, starter owns 1-1; starter draws the stock after opening',conditionalNumerator:noFollow,conditionalDenominator:total,pPassGivenStarter,pNoOneBeforeDraw,pStockRescuesHand,pStockOpening,pPassUnconditional,limitation:'Analytic combinatorics only; no simulator round execution or branch rules validated'},null,2));
