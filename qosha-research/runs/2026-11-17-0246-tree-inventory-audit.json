@@ -1,0 +1,58 @@
+{
+  "schema": "qosha-research/tree-inventory-audit/v1",
+  "timestampAsiaBaku": "2026-11-17T02:46:01+04:00",
+  "engineReference": "qosha-research-0.5.3",
+  "rulesReference": "qosa-1.0.0",
+  "mode": "3 players x 9 tiles + 1 stock",
+  "source": "GitHub default-branch recursive Git tree, truncated=false, compared with historical 2026-11-14 pinned inventory",
+  "pinnedEntries": 387,
+  "currentSimulatorBlobs": 397,
+  "missingPinned": 0,
+  "changedPinned": [
+    {
+      "path": "simulator/opening-followup-exact-oracle.js",
+      "old": "ecd3f10126a3aebc94ff25022dd0e0541f6c4fca",
+      "current": "c659d02ec2f3ca005878904baf232c2293c678fc"
+    },
+    {
+      "path": "simulator/validation-checkout-preflight.js",
+      "old": "581774282e41c489c66280875f6e3cab45ad8aeb",
+      "current": "31d892c725663b4802ddda5859fe93995f05424b"
+    }
+  ],
+  "addedSincePin": [
+    "simulator/branch-legality-oracle-2026-11-16.js",
+    "simulator/git-blob-sha-fixture-test.js",
+    "simulator/linked-pairs-distribution-exact-oracle.js",
+    "simulator/opening-connector-double-joint-oracle.js",
+    "simulator/opening-double-connector-joint-oracle.js",
+    "simulator/opening-double-pass-risk-oracle.js",
+    "simulator/opening-joint-connector-double-oracle.js",
+    "simulator/pinned-inventory-audit.js",
+    "simulator/pinned-inventory-parser-regression.js",
+    "simulator/reconstruct-checkout.js"
+  ],
+  "deals": 0,
+  "seedSet": null,
+  "strategies": [],
+  "hiddenWorlds": 0,
+  "rollouts": 0,
+  "gameplaySuitesExecuted": "0/17",
+  "hiddenWorldSuitesExecuted": "0/4",
+  "historicalMatchedSeatRoundsSeparate": 180000,
+  "keyMetrics": {
+    "newWinRate": null,
+    "newMeanPips": null,
+    "newMedianPips": null,
+    "newRoundLength": null,
+    "newBlockRate": null,
+    "newMinusFrequencies": null,
+    "newDoubles": null,
+    "newBranchEffects": null,
+    "newRegret": null
+  },
+  "finding": "All 387 historical simulator blobs remain present at their paths; two have evolved and ten new blobs exist. This proves tree presence/provenance only, not executable correctness or physical rules.",
+  "confidence": "High for complete Git tree metadata comparison; no new gameplay strategy confidence.",
+  "limitations": "No executable full checkout; no validation suites or simulation rounds run. Branch unlock, block scoring and loneZero=10 remain provisional. Historic inventory is not an immutable current-main hash manifest.",
+  "nextAction": "Reconstruct all 397 current simulator blobs at a single immutable commit, verify content hashes and run preflight, 17 gameplay suites, four hidden-world suites, and fingerprint replays; archive outputs and repair failures before matched-seed strategies."
+}
