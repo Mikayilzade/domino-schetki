@@ -122,12 +122,12 @@ else {
     else if(!fs.lstatSync(full).isFile()||fs.lstatSync(full).isSymbolicLink()) invalid.push('Nonregular pinned file: '+name);
   }
 }
-// Audit historical blob provenance without rejecting intentional post-snapshot edits.
+// Use the same inventory row pattern as the presence check. The earlier double-escaped\n// regex matched literal backslashes and silently reported zero provenance drift.\n// Audit historical blob provenance without rejecting intentional post-snapshot edits.
 // Git blob IDs are SHA-1 of "blob <byteLength>\\0" followed by raw bytes.
 const pinnedDrift=[];
 if(fs.existsSync(pinnedInventory)) {
   const inventoryText=fs.readFileSync(pinnedInventory,'utf8');
-  const rows=[...inventoryText.matchAll(/^\\x60(qosha-research\\/simulator\\/[^\\x60\\r\\n]+)\\x60 ([0-9a-f]{40}) (\\d+)$/gm)];
+  const rows=[...inventoryText.matchAll(/^\x60(qosha-research\/simulator\/[^\x60\r\n]+)\x60 ([0-9a-f]{40}) (\d+)$/gm)];
   for(const row of rows) {
     const name=row[1].slice('qosha-research/simulator/'.length);
     const full=path.resolve(root,name);
