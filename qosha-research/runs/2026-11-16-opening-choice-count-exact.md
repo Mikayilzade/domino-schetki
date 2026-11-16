@@ -1,0 +1,11 @@
+# 2026-11-16 14:21 Asia/Baku — exact opening choice-count oracle
+
+- Rules: recovered `qosa-1.0.0`; reference gameplay engine `qosha-research-0.5.3`; primary 3 players × 9 stones + one stock. Branch unlock, block allocation and `loneZero=10` remain provisional.
+- Method: independent exact hypergeometric combinatorics, conditional on starter initially holding `1-1`, playing it, and collecting the one stock tile. Nine other tiles are then a uniformly sampled subset of the remaining 27; six contain a 1.
+- Number of playable follow-up tiles K = 0..6: `[0.06271409749670619, 0.26050471267862574, 0.3721495895408939, 0.23155974460322287, 0.06512617816965643, 0.007661903314077227, 0.0002837741968176751]`. Formula: `P(K=k)=C(6,k) C(21,9-k)/C(27,9)`.
+- Mean K = **2**; P(K≥2) = **67.67811898%**; P(K≥3) = **30.46316003%**; P(K=0) = **6.27140975%** (matches earlier pass oracle). This quantifies **tile options**, not distinct branch placements or strategic decision regret.
+- Oracle code: `simulator/opening-followup-exact-oracle.js` now asserts normalization, mean and zero-option identity. The distribution was independently calculated in connector JavaScript. The updated Node oracle was **not** executed in a complete simulator checkout.
+- New gameplay deals: **0**; hidden-world samples **0**; seed set none (exact enumeration); strategies none. Full gameplay validation **0/17 executed**, hidden-world validation **0/4 executed**. Win rate, mean/median remainder, round length, block rate, −10/−20/−30/−40, starting/ending doubles, branch effects and regret not measured. Historical **180,000** matched-seat rounds are a separate legacy subtotal, not new samples.
+- Finding: after mandatory pickup the starter has at least two distinct 1-containing tiles in **67.68%** of uniformly random accepted starts. This creates opening-choice opportunities, **not evidence of a winning policy**. Confidence exact for uniform-deal combinatorics; no gameplay validity claim.
+- Exact next action: recover complete research-only checkout at a single GitHub commit, verify pinned Git blob provenance, execute preflight, 17 gameplay suites, 4 hidden-world suites and fingerprint replays; archive actual test outputs and only then resume matched-seed strategy/decision-regret comparisons.
+- Scope: no live scoreboard/PWA files or GitHub Actions modified.
