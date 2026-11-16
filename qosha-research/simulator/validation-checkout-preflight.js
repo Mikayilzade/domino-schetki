@@ -122,7 +122,9 @@ else {
     else if(!fs.lstatSync(full).isFile()||fs.lstatSync(full).isSymbolicLink()) invalid.push('Nonregular pinned file: '+name);
   }
 }
-// Use the same inventory row pattern as the presence check. The earlier double-escaped\n// regex matched literal backslashes and silently reported zero provenance drift.\n// Audit historical blob provenance without rejecting intentional post-snapshot edits.
+// Use the same inventory row pattern as the presence check. The earlier double-escaped
+// regex matched literal backslashes and silently reported zero provenance drift.
+// Audit historical blob provenance without rejecting intentional post-snapshot edits.
 // Git blob IDs are SHA-1 of "blob <byteLength>\\0" followed by raw bytes.
 const pinnedDrift=[];
 if(fs.existsSync(pinnedInventory)) {
