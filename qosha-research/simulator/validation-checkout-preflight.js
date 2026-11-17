@@ -75,6 +75,10 @@ inspectInputs(root);
 // detect a missing require target in an otherwise valid unreferenced module.
 for(const relative of inputFiles.filter(n=>n.endsWith('.js'))) walk(path.join(root,relative));
 inputFiles.sort();
+// Historical pinned inventory is a minimum baseline, not the current complete
+// manifest. Expose additions explicitly so recovery tooling cannot mistake
+// a 387-file snapshot for the full current simulator.
+const currentInputNames=new Set(inputFiles);
 if(inputFiles.length<17) invalid.push('Incomplete simulator input inventory: '+inputFiles.length);
 for(const required of ['validation-gate.js','validation-fingerprint-replay-test.js',
   'hidden-world-validation-gate.js','hidden-world-fingerprint-replay-test.js',
@@ -146,7 +150,13 @@ if(fs.existsSync(pinnedInventory)) {
       pinnedDrift.push({path:name,pinnedBlob:row[2],actualBlob:actual,pinnedBytes:Number(row[3]),actualBytes:bytes.length});
   }
 }
+const pinnedNameRows=fs.existsSync(pinnedInventory)
+  ? [...fs.readFileSync(pinnedInventory,'utf8').matchAll(/^\x60qosha-research\/simulator\/([^\x60\r\n]+)\x60 [0-9a-f]{40} \d+$/gm)]
+      .map(row=>row[1]) : [];
+const pinnedNameSet=new Set(pinnedNameRows);
+const unpinnedInputs=inputFiles.filter(name=>!pinnedNameSet.has(name));
+const pinnedMissingFromCurrent=pinnedNameRows.filter(name=>!currentInputNames.has(name));
 const requiredMissing=[...missing].sort();
-const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,pinnedDriftCount:pinnedDrift.length,pinnedDrift,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory presence plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
+const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,unpinnedInputCount:unpinnedInputs.length,unpinnedInputs,pinnedMissingFromCurrent,pinnedDriftCount:pinnedDrift.length,pinnedDrift,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory presence, explicit unpinned-file diagnostics plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
