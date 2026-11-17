@@ -1,0 +1,29 @@
+{
+  "schema": "qosha-research-checkpoint/v1",
+  "timestampAsiaBaku": "2026-11-17T04:47:58+04:00",
+  "engine": "qosha-research-0.5.3",
+  "rules": "recovered qosa-1.0.0 / 3x9+1; branch unlock, block scoring, loneZero=10 provisional",
+  "sourceCommit": "bd016521a0d145764b798a289db0a7ac3ea56fcc",
+  "change": "Tightened round-conservation-regression.js coverage predicate in validation-gate.js: require integer blocks in [0,deals] and meanTurns <= 200 (suite's own turn cap), in addition to 1000 deals and existing seed/stock checks.",
+  "newDeals": 0,
+  "seedSet": null,
+  "strategies": [],
+  "metrics": {
+    "gameplaySuitesExecuted": 0,
+    "gameplaySuitesTotal": 17,
+    "hiddenWorldSuitesExecuted": 0,
+    "hiddenWorldSuitesTotal": 4,
+    "hiddenWorldSamples": 0,
+    "rollouts": 0,
+    "historicalMatchedSeatRoundsSeparate": 180000
+  },
+  "finding": "Validation gate previously accepted a passed report without checking the block-count type/range or upper mean-turn bound. Contract tightened; not runtime-validated.",
+  "confidence": "High for static contract comparison; no evidence of runtime pass or strategic advantage.",
+  "limitations": [
+    "Executable shell cannot resolve github.com; complete research checkout unavailable.",
+    "No fresh strategy outcome or gameplay validation; source change unexecuted.",
+    "Historic cohorts cannot be mixed with new engine runs."
+  ],
+  "nextAction": "Restore full pinned checkout, run validation-checkout-preflight.js, validation-gate.js, hidden-world-validation-gate.js and both fingerprint replays; archive raw JSON/timings and only then resume paired-seed strategy runs.",
+  "livePwaModified": false
+}
