@@ -4483,3 +4483,14 @@ Reproducers: [runner](../simulator/finish-score-event-order-proximity-six-permut
 - Finding: the probability of possessing an inter-double connector increases strongly with the number of extra doubles, but this is **hand inventory only**, not a legal move sequence, an opening tactic, or evidence that holding doubles improves results. Confidence exact under uniform nine-tile sampling conditional on 1-1; no claim for turn legality or strategy effectiveness.
 - New gameplay deals **0**; hidden-world allocations **0**; seeds **none**; strategies **none**; 0/17 gameplay suites and 0/4 Monte Carlo suites executed. Win/first-place, mean/median pips, round length, block, minus frequencies, branch effects and regret not measured. Historical 180,000 matched-seat rounds remain a separate legacy subtotal. Local `git ls-remote` failed with DNS `Could not resolve host: github.com`; no complete executable checkout.
 - Exact next action: reconstruct a complete single-commit research-only checkout or restore DNS; run pinned preflight, all 17 gameplay suites, four hidden-world suites, fingerprint replays, archive JSON; only then compare connected-double holding vs shedding on matched seeds. No live PWA/scoreboard files or Actions changed.
+
+
+### 2026-11-17 15:50 Asia/Baku — checkout inventory diagnostics
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`; 3×9 primary; branch/block/loneZero assumptions remain provisional.
+- Changed only `simulator/validation-checkout-preflight.js`: report now explicitly includes `unpinnedInputCount`, `unpinnedInputs` and `pinnedMissingFromCurrent`. The 387-entry inventory is a historical minimum baseline, **not** a claim that a checkout with only 387 files is current. This avoids hiding additions from recovery diagnostics.
+- Runtime: Node v22.16.0 available, but direct `git ls-remote` still fails with `Could not resolve host: github.com`; connector read/write succeeds. Source edit was persisted but **not executed**; it is not a green preflight.
+- New deals: **0**; seed set: **none**; strategies: **none**. Gameplay gate **0/17** and hidden-world gate **0/4** executed this pass. No new win, pips, turns, block, minus, doubles, branch or regret metrics; no reliable new strategy finding.
+- Cumulative scale: historical persisted **180,000 matched-seat strategy rounds** remain a separate legacy subtotal, not a verified all-time total.
+- Confidence: high for the diagnostic intent and successful GitHub write; runtime correctness unverified.
+- Exact next action: recover the full current simulator tree, execute preflight and inspect the unpinned-file diagnostics, then run 17+4 gates and fingerprint replays, archive raw JSON, repair failures, and only then resume matched-seed branch-control comparisons.
+- Scope: only `qosha-research/`; live PWA files and GitHub Actions untouched.
