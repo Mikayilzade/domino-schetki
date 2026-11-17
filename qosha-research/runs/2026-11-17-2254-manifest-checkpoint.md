@@ -1,0 +1,10 @@
+# 2026-11-17 22:54 Asia/Baku — immutable manifest verification utility
+
+- GitHub source-of-truth read: README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md, validation-checkout-preflight.js and simulator-tree-manifest-20261117.json.
+- Engine reference: qosha-research-0.5.3; recovered rules: qosa-1.0.0; primary 3 players x 9 stones plus one stock. Branch unlocking, block allocation and loneZero=10 remain provisional.
+- Added simulator/manifest-check.js, a standalone Node verifier for all 398 paths from the immutable sourceCommit manifest. It checks missing entries, duplicate/unsafe paths, symlinks, nonregular files, Git blob SHA-1 and byte sizes; reports exactSnapshot separately from complete. Intentional post-snapshot edits appear as drift, not as missing files.
+- Tested a functionally equivalent standalone verifier locally with Node syntax check and a synthetic one-file positive fixture (passed). The committed file itself and the complete 398-file GitHub checkout were NOT executed. The full-engine gates remain unvalidated.
+- New gameplay deals: 0; hidden worlds: 0; rollouts: 0; seeds: none; strategies: none. Gameplay validation 0/17 executed; hidden-world validation 0/4 executed. No fresh win rate, remainder, length, block, minus, double, branch or regret metrics. Historical 180,000 matched-seat rounds remain a separate legacy subtotal.
+- Finding: recovery can now distinguish missing files from legitimate drift against the immutable 398-file snapshot. This is tooling progress, not a new reliable strategy finding. Confidence high in the manifest checking design; runtime validation of the actual checkout remains absent.
+- Exact next action: restore executable GitHub checkout or reconstruct all 398 files from one commit, run manifest-check.js, reconcile reported drift with newer commits, run preflight, both validation gates and fingerprint replays, archive raw JSON/timings, repair failures, then resume matched-seed comparisons.
+- Scope: only qosha-research/; no live PWA/scoreboard files or GitHub Actions changed.
