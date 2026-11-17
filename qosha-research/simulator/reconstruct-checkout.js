@@ -8,8 +8,8 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const ROOT = path.resolve(__dirname, '..', '..');
 const RESEARCH = path.join(ROOT, 'qosha-research');
-const INVENTORY = path.join(RESEARCH, 'simulator-checkout-inventory-2026-11-14.md');
-const PIN = 'cdb2a10e50e58314e4af5472838b31e5740db2f9';
+const MANIFEST = path.join(RESEARCH, 'simulator-tree-manifest-20261117.json');
+const PIN = '8550e58c6119cf36e2b14ceaa3fa272a2cc2d9c4';
 const OWNER = 'Mikayilzade', REPO = 'domino-schetki';
 const token = process.env.GITHUB_TOKEN;
 function sha1GitBlob(data) {
@@ -66,11 +66,23 @@ async function download(rel, expected, bytes) {
   return 'downloaded';
 }
 async function main() {
-  const inventory = fs.readFileSync(INVENTORY, 'utf8');
-  if (!inventory.includes(PIN)) throw new Error('Inventory commit does not match pin');
-  const entries = [...inventory.matchAll(/^`(qosha-research\/simulator\/[^\x60\r\n]+)` ([a-f0-9]{40}) (\d+)$/gm)]
-    .map(m => ({rel:m[1], sha:m[2], bytes:Number(m[3])}));
-  if (entries.length !== 387) throw new Error('Expected 387 simulator entries; got ' + entries.length);
+  const manifest = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
+  if (manifest.schema !== 'qosha-simulator-tree-manifest/v1' ||
+      manifest.sourceCommit !== PIN || manifest.scope !== 'qosha-research/simulator/' ||
+      !Array.isArray(manifest.files) || manifest.files.length !== 398)
+    throw new Error('Manifest schema, pin, scope or 398-file count mismatch');
+  const seen = new Set();
+  const entries = manifest.files.map(item => {
+    if (typeof item.path !== 'string' || !item.path.startsWith('simulator/') ||
+        !/^[a-f0-9]{40}$/.test(item.sha) ||
+        !Number.isSafeInteger(item.size) || item.size < 0)
+      throw new Error('Invalid manifest entry');
+    const rel = 'qosha-research/' + item.path;
+    withinResearch(rel);
+    if (seen.has(rel)) throw new Error('Duplicate manifest entry: ' + rel);
+    seen.add(rel);
+    return {rel, sha:item.sha, bytes:item.size};
+  });
   const contracts = ['README.md','RULES.md','EXPERIMENTS.md','RESULTS.md'];
   const count = {verified:0, downloaded:0};
   for (const item of entries) {
