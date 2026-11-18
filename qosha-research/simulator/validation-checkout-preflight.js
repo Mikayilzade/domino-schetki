@@ -39,6 +39,7 @@ function walk(file){
 // Independently inspect every nested simulator JS/JSON input, not only files
 // reachable through literal require() from the 17 suite entrypoints.
 const inputFiles=[];
+const allSimulatorFiles=[];
 function inspectInputs(dir) {
   for(const entry of fs.readdirSync(dir,{withFileTypes:true})) {
     const full=path.join(dir,entry.name);
@@ -46,6 +47,7 @@ function inspectInputs(dir) {
     if(entry.isSymbolicLink()) {invalid.push('Simulator input symlink: '+relative);continue;}
     if(entry.isDirectory()) {inspectInputs(full);continue;}
     if(!entry.isFile()) {invalid.push('Unexpected simulator entry: '+relative);continue;}
+    allSimulatorFiles.push(relative);
     if(!/\.(?:js|json)$/.test(entry.name)) continue;
     inputFiles.push(relative);
     if(entry.name.endsWith('.js')) {
@@ -70,6 +72,14 @@ function inspectInputs(dir) {
   }
 }
 inspectInputs(root);
+// The 398-blob immutable snapshot predates the verified 406-file repository
+// inventory. Count all files (not just JS/JSON) so a 398-only recovery cannot
+// accidentally pass merely because its historical manifest is complete.
+// This is a lower bound, NOT a replacement for a fresh exact path/blob manifest.
+const latestObservedFileFloor=406;
+if(allSimulatorFiles.length<latestObservedFileFloor)
+  invalid.push('Incomplete latest observed simulator inventory: '+allSimulatorFiles.length+
+    ' files (minimum '+latestObservedFileFloor+'; obtain fresh single-commit manifest)');
 // Check literal relative dependency closure for every simulator JS input, including
 // utilities not reached from the 17 suite entrypoints. Syntax alone cannot
 // detect a missing require target in an otherwise valid unreferenced module.
@@ -209,6 +219,6 @@ else {
   } catch(e) {invalid.push('Invalid immutable simulator snapshot: '+e.message);}
 }
 const requiredMissing=[...missing].sort();
-const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,unpinnedInputCount:unpinnedInputs.length,unpinnedInputs,pinnedMissingFromCurrent,pinnedNonInputCount,pinnedDriftCount:pinnedDrift.length,pinnedDrift,snapshotEntries,snapshotMissingCount:snapshotMissing.length,snapshotMissing,snapshotDriftCount:snapshotDrift.length,snapshotDrift,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory and 398-blob immutable snapshot presence, explicit nonblocking snapshot SHA drift diagnostics and unpinned-file diagnostics plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
+const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,unpinnedInputCount:unpinnedInputs.length,unpinnedInputs,pinnedMissingFromCurrent,pinnedNonInputCount,pinnedDriftCount:pinnedDrift.length,pinnedDrift,snapshotEntries,snapshotMissingCount:snapshotMissing.length,snapshotMissing,snapshotDriftCount:snapshotDrift.length,snapshotDrift,simulatorAllFiles:allSimulatorFiles.length,latestObservedFileFloor,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory and 398-blob immutable snapshot presence and 406-file observed lower bound (not a complete current manifest), explicit nonblocking snapshot SHA drift diagnostics and unpinned-file diagnostics plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
