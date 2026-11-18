@@ -158,7 +158,57 @@ const unpinnedInputs=inputFiles.filter(name=>!pinnedNameSet.has(name));
 const pinnedInputNames=pinnedNameRows.filter(name=>/\.(?:js|json)$/.test(name));
 const pinnedNonInputCount=pinnedNameRows.length-pinnedInputNames.length;
 const pinnedMissingFromCurrent=pinnedInputNames.filter(name=>!currentInputNames.has(name));
+// Require the complete immutable 398-blob snapshot as a minimum checkout
+// inventory. Its hashes are provenance diagnostics, not a rejection of
+// legitimate edits made after the pinned source commit.
+const snapshotPath=path.resolve(root,'..','simulator-tree-manifest-20261117.json');
+let snapshotEntries=0;
+const snapshotMissing=[];
+const snapshotDrift=[];
+if(!fs.existsSync(snapshotPath)) missing.add('simulator-tree-manifest-20261117.json');
+else {
+  try {
+    const snapshot=JSON.parse(fs.readFileSync(snapshotPath,'utf8'));
+    if(snapshot.schema!=='qosha-simulator-tree-manifest/v1'||
+       snapshot.sourceCommit!=='8550e58c6119cf36e2b14ceaa3fa272a2cc2d9c4'||
+       snapshot.scope!=='qosha-research/simulator/'||
+       !Array.isArray(snapshot.files)||snapshot.files.length!==398)
+      throw new Error('Unexpected immutable simulator snapshot metadata or count');
+    snapshotEntries=snapshot.files.length;
+    const seen=new Set();
+    for(const row of snapshot.files) {
+      const prefix='simulator/';
+      const name=row.path?.startsWith(prefix)?row.path.slice(prefix.length):null;
+      if(!name||name.split('/').some(part=>!part||part==='.'||part==='..')||
+         !/^[0-9a-f]{40}$/.test(row.sha)||!Number.isSafeInteger(row.size)||
+         row.size<0||seen.has(name)) {
+        invalid.push('Invalid snapshot entry: '+String(row.path));continue;
+      }
+      seen.add(name);
+      const full=path.resolve(root,name);
+      let current=root,unsafe=false;
+      for(const part of name.split('/')) {
+        current=path.join(current,part);
+        if(!fs.existsSync(current)) {snapshotMissing.push(name);unsafe=true;break;}
+        if(fs.lstatSync(current).isSymbolicLink()) {
+          invalid.push('Snapshot symlink: '+name);unsafe=true;break;
+        }
+      }
+      if(unsafe)continue;
+      if(!fs.lstatSync(full).isFile()) {
+        invalid.push('Snapshot nonregular file: '+name);continue;
+      }
+      const bytes=fs.readFileSync(full);
+      const sha=crypto.createHash('sha1')
+        .update(Buffer.from('blob '+bytes.length+'\\0')).update(bytes).digest('hex');
+      if(sha!==row.sha||bytes.length!==row.size)
+        snapshotDrift.push({path:name,pinnedBlob:row.sha,actualBlob:sha,
+          pinnedBytes:row.size,actualBytes:bytes.length});
+    }
+    for(const name of snapshotMissing)missing.add('simulator/'+name);
+  } catch(e) {invalid.push('Invalid immutable simulator snapshot: '+e.message);}
+}
 const requiredMissing=[...missing].sort();
-const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,unpinnedInputCount:unpinnedInputs.length,unpinnedInputs,pinnedMissingFromCurrent,pinnedNonInputCount,pinnedDriftCount:pinnedDrift.length,pinnedDrift,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory presence, explicit unpinned-file diagnostics plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
+const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,unpinnedInputCount:unpinnedInputs.length,unpinnedInputs,pinnedMissingFromCurrent,pinnedNonInputCount,pinnedDriftCount:pinnedDrift.length,pinnedDrift,snapshotEntries,snapshotMissingCount:snapshotMissing.length,snapshotMissing,snapshotDriftCount:snapshotDrift.length,snapshotDrift,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory and 398-blob immutable snapshot presence, explicit nonblocking snapshot SHA drift diagnostics and unpinned-file diagnostics plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
