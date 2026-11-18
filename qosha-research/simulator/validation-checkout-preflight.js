@@ -260,7 +260,7 @@ else {
       }
       const bytes=fs.readFileSync(current);
       const actual=crypto.createHash('sha1')
-        .update(Buffer.from('blob '+bytes.length+'\\0')).update(bytes).digest('hex');
+        .update(Buffer.from('blob '+bytes.length+'\0')).update(bytes).digest('hex');
       if(actual!==row.sha||bytes.length!==row.size)
         currentManifestDrift.push({path:name,pinnedBlob:row.sha,actualBlob:actual,
           pinnedBytes:row.size,actualBytes:bytes.length});
