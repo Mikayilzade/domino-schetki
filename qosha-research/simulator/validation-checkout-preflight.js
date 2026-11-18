@@ -200,7 +200,7 @@ else {
       }
       const bytes=fs.readFileSync(full);
       const sha=crypto.createHash('sha1')
-        .update(Buffer.from('blob '+bytes.length+'\\0')).update(bytes).digest('hex');
+        .update(Buffer.from('blob '+bytes.length+'\0')).update(bytes).digest('hex');
       if(sha!==row.sha||bytes.length!==row.size)
         snapshotDrift.push({path:name,pinnedBlob:row.sha,actualBlob:sha,
           pinnedBytes:row.size,actualBytes:bytes.length});
