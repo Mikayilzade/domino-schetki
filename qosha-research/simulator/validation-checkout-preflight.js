@@ -76,7 +76,11 @@ inspectInputs(root);
 // inventory. Count all files (not just JS/JSON) so a 398-only recovery cannot
 // accidentally pass merely because its historical manifest is complete.
 // This is a lower bound, NOT a replacement for a fresh exact path/blob manifest.
-const latestObservedFileFloor=406;
+const latestObservedFileFloor=408;
+// The 2026-11-19 opening oracle postdates the 407-entry manifest. Require it
+// explicitly until a fresh complete single-commit manifest is pinned.
+if(!allSimulatorFiles.includes('opening-high-connector-pair-oracle-20261119.js'))
+  invalid.push('Missing post-manifest opening oracle: opening-high-connector-pair-oracle-20261119.js');
 if(allSimulatorFiles.length<latestObservedFileFloor)
   invalid.push('Incomplete latest observed simulator inventory: '+allSimulatorFiles.length+
     ' files (minimum '+latestObservedFileFloor+'; obtain fresh single-commit manifest)');
