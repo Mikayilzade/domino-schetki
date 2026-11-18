@@ -1,0 +1,9 @@
+# 2026-11-19 00:46 Asia/Baku — validation recovery audit
+
+- Engine/rules: `qosha-research-0.5.3` / recovered `qosa-1.0.0`, primary 3×9+1. Branch unlock, block allocation and loneZero remain provisional.
+- Source of truth: read GitHub `README.md`, `RULES.md`, `EXPERIMENTS.md`, `RESULTS.md`, `STATUS.md`, both validation gates and the complete `validation-checkout-preflight.js` source.
+- New deals: **0**; seed range/set: **none**; strategies: **none**; hidden worlds: **0**. New win/first-place, pip, length, block, minus, double, branch and regret metrics: **not measured**. Gameplay gate: **0/17 executed**; hidden-world gate: **0/4 executed**. Historical 180,000 matched-seat rounds remain a separate legacy subtotal.
+- New static finding: the preflight requires **three separate provenance layers**: 387-path pinned inventory, 398-path immutable snapshot and 406-path current manifest, plus an overall simulator file-count floor of 406. The latest previously reported 407-file inventory does not by itself establish that the preflight will pass: file count, exact required paths, syntax, dependency closure and manifest metadata are separate checks. In particular the preflight deliberately treats blob drift from the historical snapshots as nonblocking, but missing paths as blocking.
+- Confidence: high for the checked source code contracts; **no gameplay strategy finding** and **no claim of executed validation**. No runnable complete GitHub checkout was reconstructed in this pass.
+- Exact next action: acquire a complete research-only source checkout at a single GitHub commit (preferably through restored git connectivity); execute `node qosha-research/simulator/validation-checkout-preflight.js`, fix any missing paths, then execute and archive the two gates and fingerprint replays. Only after a green gate resume matched-seed 3×9 strategy comparisons.
+- Scope: this checkpoint only; no scoreboard/PWA files or GitHub Actions touched.
