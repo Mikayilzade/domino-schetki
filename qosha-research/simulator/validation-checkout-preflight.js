@@ -319,7 +319,53 @@ else {
     for(const name of currentManifestMissing)missing.add('simulator/'+name);
   } catch(e) {invalid.push('Invalid current simulator manifest: '+e.message);}
 }
+// Require all paths from the fresh, complete 2026-11-20 HEAD tree snapshot.
+// Historical manifest checks remain as backward-compatibility floors.
+const headManifestPath=path.resolve(root,'..','simulator-tree-manifest-20261120-current.json');
+let headManifestEntries=0;
+const headManifestMissing=[];
+const headManifestDrift=[];
+if(!fs.existsSync(headManifestPath)) missing.add('simulator-tree-manifest-20261120-current.json');
+else {
+  try {
+    const manifest=JSON.parse(fs.readFileSync(headManifestPath,'utf8'));
+    if(manifest.schema!=='qosha-simulator-tree-manifest/v1'||
+       manifest.sourceCommit!=='d90774a829ca387f6b68fd8a56f3ff397164f140'||
+       manifest.scope!=='qosha-research/simulator/'||
+       manifest.fileCount!==413||!Array.isArray(manifest.files)||manifest.files.length!==413)
+      throw new Error('Unexpected 413-path HEAD manifest metadata');
+    headManifestEntries=manifest.files.length;
+    const seen=new Set();
+    for(const row of manifest.files) {
+      const name=typeof row.path==='string'&&row.path.startsWith('simulator/')
+        ? row.path.slice('simulator/'.length):null;
+      if(!name||name.split('/').some(part=>!part||part==='.'||part==='..')||
+         !/^[0-9a-f]{40}$/.test(row.sha)||!Number.isSafeInteger(row.size)||
+         row.size<0||seen.has(name)) {
+        invalid.push('Invalid HEAD manifest entry: '+String(row.path));continue;
+      }
+      seen.add(name);
+      let cur=root,unsafe=false;
+      for(const part of name.split('/')) {
+        cur=path.join(cur,part);
+        if(!fs.existsSync(cur)){headManifestMissing.push(name);unsafe=true;break;}
+        if(fs.lstatSync(cur).isSymbolicLink()){
+          invalid.push('HEAD manifest symlink: '+name);unsafe=true;break;
+        }
+      }
+      if(unsafe)continue;
+      if(!fs.lstatSync(cur).isFile()){
+        invalid.push('HEAD manifest nonregular: '+name);continue;
+      }
+      const bytes=fs.readFileSync(cur);
+      const actual=crypto.createHash('sha1').update(Buffer.from('blob '+bytes.length+'\\0')).update(bytes).digest('hex');
+      if(actual!==row.sha||bytes.length!==row.size)
+        headManifestDrift.push({path:name,pinnedBlob:row.sha,actualBlob:actual});
+    }
+    for(const name of headManifestMissing)missing.add('simulator/'+name);
+  } catch(e) {invalid.push('Invalid HEAD simulator manifest: '+e.message);}
+}
 const requiredMissing=[...missing].sort();
-const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,unpinnedInputCount:unpinnedInputs.length,unpinnedInputs,pinnedMissingFromCurrent,pinnedNonInputCount,pinnedDriftCount:pinnedDrift.length,pinnedDrift,snapshotEntries,snapshotMissingCount:snapshotMissing.length,snapshotMissing,snapshotDriftCount:snapshotDrift.length,snapshotDrift,currentManifestEntries,currentManifestMissingCount:currentManifestMissing.length,currentManifestMissing,currentManifestDriftCount:currentManifestDrift.length,currentManifestDrift,simulatorAllFiles:allSimulatorFiles.length,latestObservedFileFloor,latestManifestEntries,latestManifestMissingCount:latestManifestMissing.length,latestManifestDriftCount:latestManifestDrift.length,latestManifestDrift,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory and 398-blob immutable snapshot presence and 406-path and 409-path single-commit manifest presence (SHA drift nonblocking), explicit nonblocking snapshot SHA drift diagnostics and unpinned-file diagnostics plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
+const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,unpinnedInputCount:unpinnedInputs.length,unpinnedInputs,pinnedMissingFromCurrent,pinnedNonInputCount,pinnedDriftCount:pinnedDrift.length,pinnedDrift,snapshotEntries,snapshotMissingCount:snapshotMissing.length,snapshotMissing,snapshotDriftCount:snapshotDrift.length,snapshotDrift,currentManifestEntries,currentManifestMissingCount:currentManifestMissing.length,currentManifestMissing,currentManifestDriftCount:currentManifestDrift.length,currentManifestDrift,simulatorAllFiles:allSimulatorFiles.length,latestObservedFileFloor,latestManifestEntries,latestManifestMissingCount:latestManifestMissing.length,latestManifestDriftCount:latestManifestDrift.length,latestManifestDrift,headManifestEntries,headManifestMissingCount:headManifestMissing.length,headManifestDriftCount:headManifestDrift.length,headManifestDrift,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory and 398-blob immutable snapshot presence and 406-path and 409-path single-commit manifest presence (SHA drift nonblocking), explicit nonblocking snapshot SHA drift diagnostics and unpinned-file diagnostics plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
