@@ -76,7 +76,7 @@ inspectInputs(root);
 // inventory. Count all files (not just JS/JSON) so a 398-only recovery cannot
 // accidentally pass merely because its historical manifest is complete.
 // This is a lower bound, NOT a replacement for a fresh exact path/blob manifest.
-const latestObservedFileFloor=408;
+const latestObservedFileFloor=409;
 // The 2026-11-19 opening oracle postdates the 407-entry manifest. Require it
 // explicitly until a fresh complete single-commit manifest is pinned.
 if(!allSimulatorFiles.includes('opening-high-connector-pair-oracle-20261119.js'))
@@ -84,6 +84,44 @@ if(!allSimulatorFiles.includes('opening-high-connector-pair-oracle-20261119.js')
 if(allSimulatorFiles.length<latestObservedFileFloor)
   invalid.push('Incomplete latest observed simulator inventory: '+allSimulatorFiles.length+
     ' files (minimum '+latestObservedFileFloor+'; obtain fresh single-commit manifest)');
+// The 409-file single-commit snapshot closes the gap left by the older 406-path
+// gate. Require every exact path; allow later source edits as SHA drift diagnostics.
+const latestManifestPath=path.resolve(root,'..','simulator-tree-manifest-20261119-409.json');
+let latestManifestEntries=0;
+const latestManifestMissing=[];
+if(!fs.existsSync(latestManifestPath)) missing.add('simulator-tree-manifest-20261119-409.json');
+else {
+  try {
+    const m=JSON.parse(fs.readFileSync(latestManifestPath,'utf8'));
+    if(m.schema!=='qosha-simulator-tree-manifest/v1'||
+       m.sourceCommit!=='5c15ee1a9930432844d332a288dbad47951f2e9f'||
+       m.fileCount!==409||!Array.isArray(m.files)||m.files.length!==409)
+      throw new Error('Unexpected 409-file manifest metadata');
+    latestManifestEntries=m.files.length;
+    const seen=new Set();
+    for(const row of m.files) {
+      const name=row.path;
+      if(typeof name!=='string'||name.startsWith('/')||
+         name.split('/').some(x=>!x||x==='.'||x==='..')||
+         !/^[a-f0-9]{40}$/.test(row.sha)||
+         !Number.isSafeInteger(row.size)||row.size<0||seen.has(name)) {
+        invalid.push('Invalid latest manifest entry: '+String(name));continue;
+      }
+      seen.add(name);
+      const full=path.resolve(root,name);
+      let cur=root,unsafe=false;
+      for(const part of name.split('/')) {
+        cur=path.join(cur,part);
+        if(!fs.existsSync(cur)){latestManifestMissing.push(name);unsafe=true;break;}
+        if(fs.lstatSync(cur).isSymbolicLink()){
+          invalid.push('Latest manifest symlink: '+name);unsafe=true;break;
+        }
+      }
+      if(!unsafe&&!fs.lstatSync(full).isFile()) invalid.push('Latest manifest nonregular: '+name);
+    }
+    for(const name of latestManifestMissing)missing.add('simulator/'+name);
+  } catch(e) {invalid.push('Invalid latest simulator manifest: '+e.message);}
+}
 // Check literal relative dependency closure for every simulator JS input, including
 // utilities not reached from the 17 suite entrypoints. Syntax alone cannot
 // detect a missing require target in an otherwise valid unreferenced module.
@@ -273,6 +311,6 @@ else {
   } catch(e) {invalid.push('Invalid current simulator manifest: '+e.message);}
 }
 const requiredMissing=[...missing].sort();
-const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,unpinnedInputCount:unpinnedInputs.length,unpinnedInputs,pinnedMissingFromCurrent,pinnedNonInputCount,pinnedDriftCount:pinnedDrift.length,pinnedDrift,snapshotEntries,snapshotMissingCount:snapshotMissing.length,snapshotMissing,snapshotDriftCount:snapshotDrift.length,snapshotDrift,currentManifestEntries,currentManifestMissingCount:currentManifestMissing.length,currentManifestMissing,currentManifestDriftCount:currentManifestDrift.length,currentManifestDrift,simulatorAllFiles:allSimulatorFiles.length,latestObservedFileFloor,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory and 398-blob immutable snapshot presence and 406-path single-commit current manifest presence (SHA drift nonblocking), explicit nonblocking snapshot SHA drift diagnostics and unpinned-file diagnostics plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
+const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,unpinnedInputCount:unpinnedInputs.length,unpinnedInputs,pinnedMissingFromCurrent,pinnedNonInputCount,pinnedDriftCount:pinnedDrift.length,pinnedDrift,snapshotEntries,snapshotMissingCount:snapshotMissing.length,snapshotMissing,snapshotDriftCount:snapshotDrift.length,snapshotDrift,currentManifestEntries,currentManifestMissingCount:currentManifestMissing.length,currentManifestMissing,currentManifestDriftCount:currentManifestDrift.length,currentManifestDrift,simulatorAllFiles:allSimulatorFiles.length,latestObservedFileFloor,latestManifestEntries,latestManifestMissingCount:latestManifestMissing.length,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory and 398-blob immutable snapshot presence and 406-path single-commit current manifest presence (SHA drift nonblocking), explicit nonblocking snapshot SHA drift diagnostics and unpinned-file diagnostics plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
