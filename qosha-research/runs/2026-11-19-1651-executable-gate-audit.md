@@ -1,0 +1,9 @@
+# 2026-11-19 16:51 Asia/Baku — executable gate audit
+
+- Source of truth: GitHub main; read README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md, validation-checkout-preflight.js, validation-gate.js and hidden-world-validation-gate.js.
+- Engine/rules: qosha-research-0.5.3 / recovered qosa-1.0.0; 3 players × 9 stones primary. Branch unlocking, block allocation and loneZero=10 remain provisional.
+- Executable access: git ls-remote https://github.com/Mikayilzade/domino-schetki.git HEAD failed in this runtime with "Could not resolve host: github.com"; GitHub connector read access succeeded.
+- New strategy deals: **0**; seed set: none; strategies: none; sampled hidden worlds: **0**. Full gameplay suites executed: **0/17**; hidden-world suites executed: **0/4**. No new win/first-place, mean/median remainder, round length, block, minus, double, branch or regret metrics.
+- Static gate audit: gameplay and hidden-world gates both require the same 120-second checkout preflight; the preflight requires a pinned 409-path simulator manifest and SHA/size diagnostics, not merely the 17 entrypoints. The hidden-world gate explicitly rejects execution if preflight fails. This prevents treating a partial source copy as validated.
+- Finding: **no reliable new strategy finding**. Confidence high in static gate dependencies and observed DNS failure; none in unexecuted gameplay correctness. Historical 180,000 matched-seat rounds are a separate legacy subtotal, not an all-time total.
+- Exact next action: restore DNS or reconstruct a complete 409-file simulator tree from GitHub at a single commit (including contracts and pinned manifest); execute preflight, gameplay gate and hidden-world gate; archive actual JSON and wall-clock durations; fix any failures; only then resume matched-seed strategy comparisons. Do not change live scoreboard/PWA files or create GitHub Actions.
