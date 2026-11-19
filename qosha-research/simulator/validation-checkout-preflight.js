@@ -72,11 +72,11 @@ function inspectInputs(dir) {
   }
 }
 inspectInputs(root);
-// The 398-blob immutable snapshot predates the verified 406-file repository
+// The 398-blob immutable snapshot predates the verified 413-file repository
 // inventory. Count all files (not just JS/JSON) so a 398-only recovery cannot
 // accidentally pass merely because its historical manifest is complete.
 // This is a lower bound, NOT a replacement for a fresh exact path/blob manifest.
-const latestObservedFileFloor=409;
+const latestObservedFileFloor=413;
 // The 2026-11-19 opening oracle postdates the 407-entry manifest. Require it
 // explicitly until a fresh complete single-commit manifest is pinned.
 if(!allSimulatorFiles.includes('opening-high-connector-pair-oracle-20261119.js'))
