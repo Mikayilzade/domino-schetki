@@ -59,7 +59,7 @@ async function getPinnedInventory() {
   if (tree.truncated || !Array.isArray(tree.tree)) throw new Error('Incomplete GitHub tree');
   const prefix='qosha-research/simulator/';
   const requiredContracts=['README.md','RULES.md','EXPERIMENTS.md','RESULTS.md','STATUS.md'];
-  const files=tree.tree.filter(row=>row.type==='blob' && (row.path.startsWith(prefix) || requiredContracts.includes(row.path.slice('qosha-research/'.length)) && row.path.startsWith('qosha-research/')));
+  const files=tree.tree.filter(row=>row.type==='blob' && (row.path.startsWith(prefix) || (row.path.startsWith('qosha-research/') && !row.path.slice('qosha-research/'.length).includes('/'))));
   const simulatorCount=files.filter(row=>row.path.startsWith(prefix)).length;
   if (simulatorCount<415) throw new Error('Unexpectedly small current simulator tree: '+simulatorCount);
   for(const contract of requiredContracts) if(!files.some(row=>row.path==='qosha-research/'+contract)) throw new Error('Missing pinned contract: '+contract);
@@ -104,12 +104,13 @@ async function main() {
     const state = await download(item.rel, item.sha, item.bytes);
     count[state]++;
   }
-  // Contracts are downloaded and verified against the same immutable HEAD as
-  // the simulator. A fresh checkout must not depend on pre-existing local docs.
+  // All top-level research contracts and historical manifests are downloaded
+  // and verified against the same immutable HEAD as the simulator. This includes
+  // preflight-required inventory/manifest files absent from a simulator-only copy.
   for (const file of contracts) {
     if (!fs.statSync(path.join(RESEARCH,file), {throwIfNoEntry:false})?.isFile()) throw new Error('Missing contract: '+file);
   }
-  process.stdout.write(JSON.stringify({pin:PIN, simulatorFiles:entries.length-contracts.length, contracts:contracts.length, ...count, validationExecuted:false},null,2)+'\n');
+  process.stdout.write(JSON.stringify({pin:PIN, simulatorFiles:entries.filter(e=>e.rel.startsWith('qosha-research/simulator/')).length, researchRootFiles:entries.filter(e=>!e.rel.startsWith('qosha-research/simulator/')).length, ...count, validationExecuted:false},null,2)+'\n');
   process.stdout.write('Next: node qosha-research/simulator/validation-checkout-preflight.js\n');
 }
 main().catch(e => {console.error(e.message);process.exitCode=1;});
