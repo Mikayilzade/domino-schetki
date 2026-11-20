@@ -76,7 +76,13 @@ inspectInputs(root);
 // inventory. Count all files (not just JS/JSON) so a 398-only recovery cannot
 // accidentally pass merely because its historical manifest is complete.
 // This is a lower bound, NOT a replacement for a fresh exact path/blob manifest.
-const latestObservedFileFloor=413;
+const latestObservedFileFloor=415;
+// Two standalone opening oracles were added after the 413-path snapshot.
+// Until a new HEAD-pinned manifest is created, require them by exact name.
+for(const name of ['opening-k-pass-posterior-oracle-20261120.js',
+                   'opening-pass-joint-opponent-oracle-20261120.js']) {
+  if(!allSimulatorFiles.includes(name)) invalid.push('Missing post-manifest oracle: '+name);
+}
 // The 2026-11-19 opening oracle postdates the 407-entry manifest. Require it
 // explicitly until a fresh complete single-commit manifest is pinned.
 if(!allSimulatorFiles.includes('opening-high-connector-pair-oracle-20261119.js'))
