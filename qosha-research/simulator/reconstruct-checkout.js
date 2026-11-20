@@ -59,9 +59,9 @@ async function getPinnedInventory() {
   if (tree.truncated || !Array.isArray(tree.tree)) throw new Error('Incomplete GitHub tree');
   const prefix='qosha-research/simulator/';
   const requiredContracts=['README.md','RULES.md','EXPERIMENTS.md','RESULTS.md','STATUS.md'];
-  // Recursive Git trees include directory entries. They are not files to
+  // Include nested fixtures/, runs/, and other research-only files, not just\n  // simulator/ and root contracts. Recursive Git trees include directory\n  // entries. They are not files to
   // download, but must be checked for unexpected types/modes separately.
-  const inScope = row => row.path.startsWith(prefix) || (row.path.startsWith('qosha-research/') && !row.path.slice('qosha-research/'.length).includes('/'));
+  const inScope = row => row.path.startsWith('qosha-research/');
   const scopedAll=tree.tree.filter(inScope);
   for (const row of scopedAll) {
     if (row.type === 'tree' && row.mode === '040000') continue;
