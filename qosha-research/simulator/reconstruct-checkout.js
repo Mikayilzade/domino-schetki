@@ -82,10 +82,11 @@ async function download(rel, expected, bytes) {
     if (existing.length === bytes && sha1GitBlob(existing) === expected) return 'verified';
     throw new Error('Existing file differs from pinned commit; refusing overwrite: ' + rel);
   }
-  const url = 'https://api.github.com/repos/' + OWNER + '/' + REPO + '/contents/' + rel.split('/').map(encodeURIComponent).join('/') + '?ref=' + PIN;
-  const headers = {'Accept':'application/vnd.github.raw+json','User-Agent':'qosha-research-reconstruction','X-GitHub-Api-Version':'2022-11-28'};
-  if (token) headers.Authorization = 'Bearer ' + token;
-  const res = await fetch(url, {headers});
+  // Raw CDN downloads do not consume GitHub REST API's per-hour request quota.
+  // The immutable commit SHA plus the Git blob hash/byte count below preserve
+  // exact source identity even if the CDN response is stale or corrupted.
+  const url = 'https://raw.githubusercontent.com/' + OWNER + '/' + REPO + '/' + PIN + '/' + rel.split('/').map(encodeURIComponent).join('/');
+  const res = await fetch(url, {headers:{'User-Agent':'qosha-research-reconstruction'}});
   if (!res.ok) throw new Error('HTTP ' + res.status + ' for ' + rel);
   const data = Buffer.from(await res.arrayBuffer());
   if (data.length !== bytes || sha1GitBlob(data) !== expected) throw new Error('SHA/length mismatch for ' + rel);
