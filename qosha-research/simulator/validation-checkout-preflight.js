@@ -372,6 +372,48 @@ else {
   } catch(e) {invalid.push('Invalid HEAD simulator manifest: '+e.message);}
 }
 const requiredMissing=[...missing].sort();
-const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,unpinnedInputCount:unpinnedInputs.length,unpinnedInputs,pinnedMissingFromCurrent,pinnedNonInputCount,pinnedDriftCount:pinnedDrift.length,pinnedDrift,snapshotEntries,snapshotMissingCount:snapshotMissing.length,snapshotMissing,snapshotDriftCount:snapshotDrift.length,snapshotDrift,currentManifestEntries,currentManifestMissingCount:currentManifestMissing.length,currentManifestMissing,currentManifestDriftCount:currentManifestDrift.length,currentManifestDrift,simulatorAllFiles:allSimulatorFiles.length,latestObservedFileFloor,latestManifestEntries,latestManifestMissingCount:latestManifestMissing.length,latestManifestDriftCount:latestManifestDrift.length,latestManifestDrift,headManifestEntries,headManifestMissingCount:headManifestMissing.length,headManifestDriftCount:headManifestDrift.length,headManifestDrift,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory and 398-blob immutable snapshot presence and 406-path and 409-path single-commit manifest presence (SHA drift nonblocking), explicit nonblocking snapshot SHA drift diagnostics and unpinned-file diagnostics plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
+// Fresh HEAD-pinned 415-path exact presence gate; older manifests remain historical floors.
+const freshManifestPath=path.resolve(root,'..','simulator-tree-manifest-20261121-current.json');
+let freshManifestEntries=0;
+const freshManifestMissing=[];
+const freshManifestDrift=[];
+if(!fs.existsSync(freshManifestPath)) missing.add('simulator-tree-manifest-20261121-current.json');
+else {
+  try {
+    const m=JSON.parse(fs.readFileSync(freshManifestPath,'utf8'));
+    if(m.schema!=='qosha-simulator-tree-manifest/v1'||
+       m.sourceCommit!=='ca057df2f0b164e5659332ded435d155cd285a17'||
+       m.scope!=='qosha-research/simulator/'||m.fileCount!==415||
+       !Array.isArray(m.files)||m.files.length!==415)
+      throw new Error('Unexpected 415-path manifest metadata');
+    freshManifestEntries=m.files.length;
+    const seen=new Set();
+    for(const row of m.files) {
+      const name=row.path;
+      if(typeof name!=='string'||!name.startsWith('simulator/')||
+         name.split('/').some(x=>!x||x==='.'||x==='..')||
+         !/^[0-9a-f]{40}$/.test(row.sha)||!Number.isSafeInteger(row.size)||row.size<0||
+         seen.has(name)) {invalid.push('Invalid/duplicate 415-path entry: '+String(name));continue;}
+      seen.add(name);
+      const relative=name.slice('simulator/'.length);
+      const full=path.resolve(root,relative);
+      if(!full.startsWith(root+path.sep)){invalid.push('Unsafe 415-path entry: '+name);continue;}
+      let current=root,unsafe=false;
+      for(const part of relative.split('/')) {
+        current=path.join(current,part);
+        if(!fs.existsSync(current)){freshManifestMissing.push(name);unsafe=true;break;}
+        if(fs.lstatSync(current).isSymbolicLink()){invalid.push('Symlinked 415-path: '+name);unsafe=true;break;}
+      }
+      if(unsafe)continue;
+      if(!fs.lstatSync(full).isFile()){invalid.push('Nonregular 415-path: '+name);continue;}
+      const bytes=fs.readFileSync(full);
+      const actual=crypto.createHash('sha1').update(Buffer.from('blob '+bytes.length+'\\0')).update(bytes).digest('hex');
+      if(actual!==row.sha||bytes.length!==row.size)
+        freshManifestDrift.push({path:name,pinnedBlob:row.sha,actualBlob:actual,pinnedBytes:row.size,actualBytes:bytes.length});
+    }
+    for(const name of freshManifestMissing)missing.add(name);
+  }catch(e){invalid.push('Invalid fresh 415-path manifest: '+e.message);}
+}
+const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,unpinnedInputCount:unpinnedInputs.length,unpinnedInputs,pinnedMissingFromCurrent,pinnedNonInputCount,pinnedDriftCount:pinnedDrift.length,pinnedDrift,snapshotEntries,snapshotMissingCount:snapshotMissing.length,snapshotMissing,snapshotDriftCount:snapshotDrift.length,snapshotDrift,currentManifestEntries,currentManifestMissingCount:currentManifestMissing.length,currentManifestMissing,currentManifestDriftCount:currentManifestDrift.length,currentManifestDrift,simulatorAllFiles:allSimulatorFiles.length,latestObservedFileFloor,latestManifestEntries,latestManifestMissingCount:latestManifestMissing.length,latestManifestDriftCount:latestManifestDrift.length,latestManifestDrift,freshManifestEntries,freshManifestMissingCount:freshManifestMissing.length,freshManifestMissing,freshManifestDriftCount:freshManifestDrift.length,freshManifestDrift,headManifestEntries,headManifestMissingCount:headManifestMissing.length,headManifestDriftCount:headManifestDrift.length,headManifestDrift,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory and 398-blob immutable snapshot presence and 406-path and 409-path single-commit manifest presence (SHA drift nonblocking), explicit nonblocking snapshot SHA drift diagnostics and unpinned-file diagnostics plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
