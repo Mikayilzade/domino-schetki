@@ -59,7 +59,14 @@ async function getPinnedInventory() {
   if (tree.truncated || !Array.isArray(tree.tree)) throw new Error('Incomplete GitHub tree');
   const prefix='qosha-research/simulator/';
   const requiredContracts=['README.md','RULES.md','EXPERIMENTS.md','RESULTS.md','STATUS.md'];
-  const files=tree.tree.filter(row=>row.type==='blob' && (row.path.startsWith(prefix) || (row.path.startsWith('qosha-research/') && !row.path.slice('qosha-research/'.length).includes('/'))));
+  const scoped=tree.tree.filter(row=>row.path.startsWith(prefix) || (row.path.startsWith('qosha-research/') && !row.path.slice('qosha-research/'.length).includes('/')));
+  // GitHub represents symlinks as blobs with mode 120000. Never reconstruct
+  // those as ordinary files: the checkout must reject unsafe source trees.
+  for (const row of scoped) {
+    if (row.type !== 'blob' || !['100644','100755'].includes(row.mode))
+      throw new Error('Nonregular or symlink entry in pinned research tree: ' + row.path);
+  }
+  const files=scoped;
   const simulatorCount=files.filter(row=>row.path.startsWith(prefix)).length;
   if (simulatorCount<415) throw new Error('Unexpectedly small current simulator tree: '+simulatorCount);
   for(const contract of requiredContracts) if(!files.some(row=>row.path==='qosha-research/'+contract)) throw new Error('Missing pinned contract: '+contract);
