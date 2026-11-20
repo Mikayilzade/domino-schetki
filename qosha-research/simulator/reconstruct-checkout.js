@@ -8,8 +8,9 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const ROOT = path.resolve(__dirname, '..', '..');
 const RESEARCH = path.join(ROOT, 'qosha-research');
-const MANIFEST = path.join(RESEARCH, 'simulator-tree-manifest-20261117.json');
-const PIN = '8550e58c6119cf36e2b14ceaa3fa272a2cc2d9c4';
+// Resolve one immutable HEAD commit and its complete recursive tree at run time.
+// Do not reuse the obsolete 398-file snapshot for a modern checkout.
+let PIN;
 const OWNER = 'Mikayilzade', REPO = 'domino-schetki';
 const token = process.env.GITHUB_TOKEN;
 function sha1GitBlob(data) {
@@ -42,6 +43,33 @@ function rejectSymlinkComponents(dest) {
     rejectLink(cur);
   }
 }
+async function githubJSON(url) {
+  const headers = {'Accept':'application/vnd.github+json','User-Agent':'qosha-research-reconstruction','X-GitHub-Api-Version':'2022-11-28'};
+  if (token) headers.Authorization = 'Bearer ' + token;
+  const response = await fetch(url, {headers});
+  if (!response.ok) throw new Error('GitHub HTTP ' + response.status + ': ' + url);
+  return response.json();
+}
+async function getPinnedInventory() {
+  const base='https://api.github.com/repos/'+OWNER+'/'+REPO;
+  const branch=await githubJSON(base+'/commits/HEAD');
+  PIN=branch.sha;
+  if (!/^[a-f0-9]{40}$/.test(PIN)) throw new Error('Invalid HEAD SHA');
+  const tree=await githubJSON(base+'/git/trees/'+PIN+'?recursive=1');
+  if (tree.truncated || !Array.isArray(tree.tree)) throw new Error('Incomplete GitHub tree');
+  const prefix='qosha-research/simulator/';
+  const files=tree.tree.filter(row=>row.path.startsWith(prefix) && row.type==='blob');
+  if (files.length<415) throw new Error('Unexpectedly small current simulator tree: '+files.length);
+  const entries=files.map(row=>{
+    const rel=row.path;
+    withinResearch(rel);
+    if (!/^[a-f0-9]{40}$/.test(row.sha) || !Number.isSafeInteger(row.size))
+      throw new Error('Invalid GitHub blob metadata: '+rel);
+    return {rel,sha:row.sha,bytes:row.size};
+  });
+  if (new Set(entries.map(x=>x.rel)).size!==entries.length) throw new Error('Duplicate paths in GitHub tree');
+  return entries;
+}
 async function download(rel, expected, bytes) {
   const dest = withinResearch(rel);
   rejectSymlinkComponents(dest);
@@ -66,23 +94,7 @@ async function download(rel, expected, bytes) {
   return 'downloaded';
 }
 async function main() {
-  const manifest = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
-  if (manifest.schema !== 'qosha-simulator-tree-manifest/v1' ||
-      manifest.sourceCommit !== PIN || manifest.scope !== 'qosha-research/simulator/' ||
-      !Array.isArray(manifest.files) || manifest.files.length !== 398)
-    throw new Error('Manifest schema, pin, scope or 398-file count mismatch');
-  const seen = new Set();
-  const entries = manifest.files.map(item => {
-    if (typeof item.path !== 'string' || !item.path.startsWith('simulator/') ||
-        !/^[a-f0-9]{40}$/.test(item.sha) ||
-        !Number.isSafeInteger(item.size) || item.size < 0)
-      throw new Error('Invalid manifest entry');
-    const rel = 'qosha-research/' + item.path;
-    withinResearch(rel);
-    if (seen.has(rel)) throw new Error('Duplicate manifest entry: ' + rel);
-    seen.add(rel);
-    return {rel, sha:item.sha, bytes:item.size};
-  });
+  const entries = await getPinnedInventory();
   const contracts = ['README.md','RULES.md','EXPERIMENTS.md','RESULTS.md'];
   const count = {verified:0, downloaded:0};
   for (const item of entries) {
