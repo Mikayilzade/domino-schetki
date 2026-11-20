@@ -59,7 +59,16 @@ async function getPinnedInventory() {
   if (tree.truncated || !Array.isArray(tree.tree)) throw new Error('Incomplete GitHub tree');
   const prefix='qosha-research/simulator/';
   const requiredContracts=['README.md','RULES.md','EXPERIMENTS.md','RESULTS.md','STATUS.md'];
-  const scoped=tree.tree.filter(row=>row.path.startsWith(prefix) || (row.path.startsWith('qosha-research/') && !row.path.slice('qosha-research/'.length).includes('/')));
+  // Recursive Git trees include directory entries. They are not files to
+  // download, but must be checked for unexpected types/modes separately.
+  const inScope = row => row.path.startsWith(prefix) || (row.path.startsWith('qosha-research/') && !row.path.slice('qosha-research/'.length).includes('/'));
+  const scopedAll=tree.tree.filter(inScope);
+  for (const row of scopedAll) {
+    if (row.type === 'tree' && row.mode === '040000') continue;
+    if (row.type === 'blob' && ['100644','100755'].includes(row.mode)) continue;
+    throw new Error('Unsafe entry in pinned research tree: ' + row.path);
+  }
+  const scoped=scopedAll.filter(row=>row.type==='blob');
   // GitHub represents symlinks as blobs with mode 120000. Never reconstruct
   // those as ordinary files: the checkout must reject unsafe source trees.
   for (const row of scoped) {
