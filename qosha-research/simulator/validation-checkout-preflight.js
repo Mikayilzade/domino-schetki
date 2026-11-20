@@ -364,7 +364,7 @@ else {
         invalid.push('HEAD manifest nonregular: '+name);continue;
       }
       const bytes=fs.readFileSync(cur);
-      const actual=crypto.createHash('sha1').update(Buffer.from('blob '+bytes.length+'\\0')).update(bytes).digest('hex');
+      const actual=crypto.createHash('sha1').update(Buffer.from('blob '+bytes.length+'\0')).update(bytes).digest('hex');
       if(actual!==row.sha||bytes.length!==row.size)
         headManifestDrift.push({path:name,pinnedBlob:row.sha,actualBlob:actual});
     }
