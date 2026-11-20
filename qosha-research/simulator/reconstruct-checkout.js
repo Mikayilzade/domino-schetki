@@ -58,8 +58,11 @@ async function getPinnedInventory() {
   const tree=await githubJSON(base+'/git/trees/'+PIN+'?recursive=1');
   if (tree.truncated || !Array.isArray(tree.tree)) throw new Error('Incomplete GitHub tree');
   const prefix='qosha-research/simulator/';
-  const files=tree.tree.filter(row=>row.path.startsWith(prefix) && row.type==='blob');
-  if (files.length<415) throw new Error('Unexpectedly small current simulator tree: '+files.length);
+  const requiredContracts=['README.md','RULES.md','EXPERIMENTS.md','RESULTS.md','STATUS.md'];
+  const files=tree.tree.filter(row=>row.type==='blob' && (row.path.startsWith(prefix) || requiredContracts.includes(row.path.slice('qosha-research/'.length)) && row.path.startsWith('qosha-research/')));
+  const simulatorCount=files.filter(row=>row.path.startsWith(prefix)).length;
+  if (simulatorCount<415) throw new Error('Unexpectedly small current simulator tree: '+simulatorCount);
+  for(const contract of requiredContracts) if(!files.some(row=>row.path==='qosha-research/'+contract)) throw new Error('Missing pinned contract: '+contract);
   const entries=files.map(row=>{
     const rel=row.path;
     withinResearch(rel);
@@ -95,18 +98,18 @@ async function download(rel, expected, bytes) {
 }
 async function main() {
   const entries = await getPinnedInventory();
-  const contracts = ['README.md','RULES.md','EXPERIMENTS.md','RESULTS.md'];
+  const contracts = ['README.md','RULES.md','EXPERIMENTS.md','RESULTS.md','STATUS.md'];
   const count = {verified:0, downloaded:0};
   for (const item of entries) {
     const state = await download(item.rel, item.sha, item.bytes);
     count[state]++;
   }
-  // Contract files must be present locally. They are not overwritten because
-  // the inventory pins simulator blobs only, not contract blob hashes.
+  // Contracts are downloaded and verified against the same immutable HEAD as
+  // the simulator. A fresh checkout must not depend on pre-existing local docs.
   for (const file of contracts) {
     if (!fs.statSync(path.join(RESEARCH,file), {throwIfNoEntry:false})?.isFile()) throw new Error('Missing contract: '+file);
   }
-  process.stdout.write(JSON.stringify({pin:PIN, files:entries.length, ...count, contractsPresent:contracts.length, validationExecuted:false},null,2)+'\n');
+  process.stdout.write(JSON.stringify({pin:PIN, simulatorFiles:entries.length-contracts.length, contracts:contracts.length, ...count, validationExecuted:false},null,2)+'\n');
   process.stdout.write('Next: node qosha-research/simulator/validation-checkout-preflight.js\n');
 }
 main().catch(e => {console.error(e.message);process.exitCode=1;});
