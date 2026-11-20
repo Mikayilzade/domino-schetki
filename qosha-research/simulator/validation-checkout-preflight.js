@@ -407,7 +407,7 @@ else {
       if(unsafe)continue;
       if(!fs.lstatSync(full).isFile()){invalid.push('Nonregular 415-path: '+name);continue;}
       const bytes=fs.readFileSync(full);
-      const actual=crypto.createHash('sha1').update(Buffer.from('blob '+bytes.length+'\\0')).update(bytes).digest('hex');
+      const actual=crypto.createHash('sha1').update(Buffer.from('blob '+bytes.length+'\0')).update(bytes).digest('hex');
       if(actual!==row.sha||bytes.length!==row.size)
         freshManifestDrift.push({path:name,pinnedBlob:row.sha,actualBlob:actual,pinnedBytes:row.size,actualBytes:bytes.length});
     }
