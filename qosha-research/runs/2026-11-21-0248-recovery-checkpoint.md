@@ -1,0 +1,9 @@
+# Qoşa recovery checkpoint — 2026-11-21 02:48 Asia/Baku
+
+- Source of truth read: `README.md`, `RULES.md`, `EXPERIMENTS.md`, `RESULTS.md`, `STATUS.md`, `simulator/validation-checkout-preflight.js`, `simulator/reconstruct-checkout.js`.
+- Engine/rules: research `qosha-research-0.5.3`; recovered `qosa-1.0.0`; primary 3 players × 9 stones + 1 stock. Branch unlocking, block allocation, loneZero=10 remain provisional.
+- Fresh execution check: Node v22.16.0 available; `git ls-remote https://github.com/Mikayilzade/domino-schetki.git HEAD` failed `Could not resolve host: github.com`. Connector file reads succeeded, but no executable complete checkout was recovered.
+- Recovery contract audit: reconstruction fetches immutable HEAD recursive tree, requires >=415 simulator blobs, includes nested research paths, validates Git blob SHA and bytes. Preflight requires a historical exact 415-path manifest. **Limitation:** the 415-path preflight is a historical presence floor, not proof that a reconstructed later HEAD has exactly the same path set or bytes; historical blob drift is intentionally diagnostic only. Runtime tests remain necessary.
+- Deals **0**; hidden-world samples **0**; rollouts **0**; seed set **none**; strategies **none**. Gameplay suites **0/17 executed**, hidden-world suites **0/4 executed**. Win/first-place, mean/median remaining pips, turns, block rate, −10/−20/−30/−40, doubles, branch effects and regret **not measured**. Historical persisted 180,000 matched-seat rounds remain separate.
+- New reliable strategy finding: **none**. Confidence high for observed DNS failure and source-level recovery contract, none for gameplay validation.
+- Exact next action: restore executable access to immutable HEAD research tree, run reconstruction and preflight, execute all 17+4 suites and fingerprint replays, archive raw outputs and timings, then paired-seed strategy comparisons. No scoreboard/PWA or GitHub Actions files changed.
