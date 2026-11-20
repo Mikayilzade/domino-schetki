@@ -371,7 +371,6 @@ else {
     for(const name of headManifestMissing)missing.add('simulator/'+name);
   } catch(e) {invalid.push('Invalid HEAD simulator manifest: '+e.message);}
 }
-const requiredMissing=[...missing].sort();
 // Fresh HEAD-pinned 415-path exact presence gate; older manifests remain historical floors.
 const freshManifestPath=path.resolve(root,'..','simulator-tree-manifest-20261121-current.json');
 let freshManifestEntries=0;
@@ -414,6 +413,8 @@ else {
     for(const name of freshManifestMissing)missing.add(name);
   }catch(e){invalid.push('Invalid fresh 415-path manifest: '+e.message);}
 }
+// Compute failure set AFTER checking the fresh manifest; otherwise its missing files are ignored.
+const requiredMissing=[...missing].sort();
 const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,unpinnedInputCount:unpinnedInputs.length,unpinnedInputs,pinnedMissingFromCurrent,pinnedNonInputCount,pinnedDriftCount:pinnedDrift.length,pinnedDrift,snapshotEntries,snapshotMissingCount:snapshotMissing.length,snapshotMissing,snapshotDriftCount:snapshotDrift.length,snapshotDrift,currentManifestEntries,currentManifestMissingCount:currentManifestMissing.length,currentManifestMissing,currentManifestDriftCount:currentManifestDrift.length,currentManifestDrift,simulatorAllFiles:allSimulatorFiles.length,latestObservedFileFloor,latestManifestEntries,latestManifestMissingCount:latestManifestMissing.length,latestManifestDriftCount:latestManifestDrift.length,latestManifestDrift,freshManifestEntries,freshManifestMissingCount:freshManifestMissing.length,freshManifestMissing,freshManifestDriftCount:freshManifestDrift.length,freshManifestDrift,headManifestEntries,headManifestMissingCount:headManifestMissing.length,headManifestDriftCount:headManifestDrift.length,headManifestDrift,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory and 398-blob immutable snapshot presence and 406-path and 409-path single-commit manifest presence (SHA drift nonblocking), explicit nonblocking snapshot SHA drift diagnostics and unpinned-file diagnostics plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
