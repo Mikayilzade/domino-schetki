@@ -1,0 +1,10 @@
+# 2026-11-20 13:49 Asia/Baku — recovery tool updated
+
+- Engine/rules reference: `qosha-research-0.5.3` / recovered `qosa-1.0.0`, 3 players × 9 stones; branch unlock, block scoring and loneZero remain provisional.
+- Source of truth inspected: README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md, validation-checkout-preflight.js, reconstruct-checkout.js, and 2026-11-20 manifest.
+- **Change:** `simulator/reconstruct-checkout.js` no longer hardcodes a 398-file, 2026-11-17 snapshot. It now obtains a single GitHub HEAD commit SHA, recursively enumerates that immutable commit's tree, requires at least 415 simulator blobs, and fetches each from the pinned commit while verifying exact Git blob SHA and byte count. Existing mismatching files remain fail-closed; only research simulator paths are written. This is a source edit, not a successful executable reconstruction.
+- Current GitHub simulator directory listing observed: 415 entries. The latest stored 2026-11-20 manifest has 413 files and is already older than that listing, illustrating why a dynamic immutable tree is necessary.
+- New gameplay deals: **0**; hidden worlds: **0**; seed set: none; strategies: none. Full gameplay suites executed: **0/17**; hidden-world suites: **0/4**. Win/first-place, pips, length, blocks, minus frequencies, doubles, branch effects and regret not measured. Historical 180,000 matched-seat rounds are a separate historical subtotal, not an all-time count.
+- Finding: a concrete stale-reconstruction failure mode has been addressed in source. **No new reliable strategic conclusion.** Confidence: high for static replacement of the obsolete manifest reference; runtime correctness unverified.
+- Limitation: reconstruction still requires executable shell network access to GitHub, and the full checkout has not been recovered or validated.
+- **Exact next action:** execute updated reconstruct-checkout.js in a clean research-only checkout with GitHub API access; archive its pinned commit and file count; run validation-checkout-preflight.js and both gates, repair any failures; then resume matched-seed comparisons. Do not change PWA files or GitHub Actions.
