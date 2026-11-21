@@ -1,0 +1,10 @@
+# 2026-11-21 14:50 Asia/Baku — strict pinned snapshot verifier
+
+- Source of truth read: README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md, simulator/validation-checkout-preflight.js, validation-gate.js, hidden-world-validation-gate.js and the 415-entry manifest header.
+- Engine reference: qosha-research-0.5.3; rules recovered qosa-1.0.0, primary 3 players × 9 stones. Branch unlock, block allocation and loneZero=10 provisional.
+- Built: simulator/verify-pinned-snapshot.js. It independently checks the 415 manifest entries from source commit ca057df2f0b164e5659332ded435d155cd285a17 for safe unique paths, exact byte lengths and Git blob SHA-1 (including the NUL byte in the blob header); missing/drifted files cause nonzero exit. Unlike existing preflight, pinned SHA/size mismatch is a hard failure. Newer research files are outside this pinned snapshot and need their own manifest.
+- Execution: local Node v22.16.0 available, but git ls-remote failed with Could not resolve host: github.com. Full 415-file checkout was not available; verifier and gameplay gates were **not executed**. Source code was written to GitHub; correctness of the new verifier remains unconfirmed until executable checkout and fixture tests.
+- Deals: 0; seeds: none; strategies: none; hidden-world samples: 0; rollouts: 0; gameplay suites 0/17 executed; Monte Carlo suites 0/4 executed. No new first-place, remaining-pip, round-length, block, minus, double, branch or regret metrics. Historical 180,000 matched-seat rounds remain separate legacy data.
+- Finding: an explicit fail-closed pinned-blob identity verifier now exists, addressing the documented limitation that preflight can accept SHA drift. **No new reliable gameplay strategy finding.**
+- Confidence: high for source-level contract, none for runtime verification or strategy.
+- Exact next action: restore complete checkout, run strict pinned verifier, checkout preflight, 17+4 suites and fingerprint replays, archive JSON/timings; repair failures and then compare strategies on matched seeds. Do not modify live scoreboard/PWA or create GitHub Actions.
