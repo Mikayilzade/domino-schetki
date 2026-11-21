@@ -1,14 +1,21 @@
 'use strict';
 // Standalone exact-path/blob verifier. Usage:
 // node verify-current-tree-manifest.js <checkout-root> <manifest.json>
-// Manifest requires schema qosha-current-simulator-manifest/v1,
-// sourceCommit (40 hex), truncated:false, files [{path,sha,size}].
+// Supports both qosha-current-simulator-manifest/v1 (truncated:false) and
+// qosha-simulator-tree-manifest/v1 (scope + exact fileCount).
+// Both require sourceCommit (40 hex), files [{path,sha,size}].
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 function verify(root,manifest){
   const errors=[];
-  if(manifest.schema!=='qosha-current-simulator-manifest/v1'||
+  const supportedSchema=manifest.schema==='qosha-current-simulator-manifest/v1'||
+    manifest.schema==='qosha-simulator-tree-manifest/v1';
+  const complete=manifest.truncated===false||
+    (manifest.schema==='qosha-simulator-tree-manifest/v1'&&
+     manifest.scope==='qosha-research/simulator/'&&
+     Number.isSafeInteger(manifest.fileCount)&&manifest.fileCount===manifest.files?.length);
+  if(!supportedSchema||
      !/^[a-f0-9]{40}$/.test(manifest.sourceCommit||'')||
-     manifest.truncated!==false||!Array.isArray(manifest.files)||!manifest.files.length)
+     !complete||!Array.isArray(manifest.files)||!manifest.files.length)
     return {passed:false,errors:['Invalid or unverified complete manifest metadata']};
   const expected=new Map();
   for(const f of manifest.files){
