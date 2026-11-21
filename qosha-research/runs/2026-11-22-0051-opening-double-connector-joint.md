@@ -1,0 +1,10 @@
+# Qoşa opening joint exact checkpoint — 2026-11-22 00:51 Asia/Baku
+
+- Engine reference: `qosha-research-0.5.3`; rules: recovered `qosa-1.0.0`, primary 3 players × 9 stones + one stock tile.
+- Run type: independent exact combinatorial oracle, NOT complete-round gameplay. The oracle source is `simulator/opening-double-connector-joint-oracle-20261122.js`. The counts were calculated independently in this run; the committed source has not been executed as a full-checkout test.
+- Seeds: none, exhaustive combinations; denominator C(27,9)=4,686,825 equally likely nine-tile starter hands after 1-1 is placed and the stock tile is drawn. Strategies: none. Gameplay deals: 0. Hidden-world Monte Carlo: 0.
+- Partition of remaining 27 tiles: six other doubles, six ordinary 1-x connectors, fifteen other tiles.
+- New finding: 2,921,640/4,686,825 = **62.33729657%** of these hands contain **at least two other doubles and at least one ordinary 1-x connector**. Marginal P(at least two other doubles) = **67.67811898%**; P(no ordinary 1-x connector) = **6.27140975%**. This is a hand-distribution baseline, NOT evidence that holding doubles improves outcomes or that every connector is legal under provisional branch-opening rules.
+- Confidence: high for exact combinatorial enumeration, none for strategic win-rate. Independent sanity checks: full joint table sums to C(27,9); zero-connector event equals C(21,9).
+- Full gameplay validation suites executed this run: 0/17; hidden-world suites: 0/4. Historical 180,000 matched-seat rounds remain separate legacy evidence. Win rate, mean/median remainder, length, blocks, minus frequency, double value, branch effect and regret were not measured.
+- Exact next action: obtain a SHA/byte-verified full GitHub research checkout; run strict manifest verification, 17+4 gates and fingerprint replays. After validation, compare holding vs spending doubles in matched-seed states conditioned on >=2 doubles and >=1 connector; measure finish-minus chance, residue and regret. Do not change live PWA or create Actions.
