@@ -27,3 +27,7 @@ test('duplicate manifest path fails',()=>fixture(({root,manifest})=>{manifest.fi
 test('incomplete metadata fails closed',()=>fixture(({root,manifest})=>{delete manifest.fileCount;assert.equal(verify(root,manifest).passed,false);}));
 test('current schema requires truncated:false',()=>fixture(({root,manifest})=>{manifest.schema='qosha-current-simulator-manifest/v1';delete manifest.scope;delete manifest.fileCount;assert.equal(verify(root,manifest).passed,false);manifest.truncated=false;assert.equal(verify(root,manifest).passed,true);}));
 test('symlink entry fails',()=>fixture(({root,dir,manifest})=>{try{fs.symlinkSync('engine.js',path.join(dir,'alias.js'));}catch(e){if(e.code==='EPERM'||e.code==='EACCES')return;throw e;}assert.match(verify(root,manifest).errors.join(' '),/Symlink/);}));
+
+test('reject traversal path even when SHA is valid',()=>fixture(({root,manifest})=>{manifest.files[0].path='simulator/../engine.js';assert.equal(verify(root,manifest).passed,false);}));
+test('reject unpinned source commit',()=>fixture(({root,manifest})=>{manifest.sourceCommit='HEAD';assert.equal(verify(root,manifest).passed,false);}));
+test('reject manifest with truncated tree flag',()=>fixture(({root,manifest})=>{manifest.truncated=true;assert.equal(verify(root,manifest).passed,false);}));
