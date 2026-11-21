@@ -32,7 +32,7 @@ function audit(base=root, manifestFile=manifestPath) {
     if(unsafe)continue;
     if(!fs.statSync(cur).isFile()){failures.push({path:rel,reason:'nonregular'});continue;}
     const b=fs.readFileSync(cur);
-    const sha=crypto.createHash('sha1').update('blob '+b.length+'\\0').update(b).digest('hex');
+    const sha=crypto.createHash('sha1').update('blob '+b.length+'\0').update(b).digest('hex');
     if(b.length!==row.size||sha!==row.sha)
       failures.push({path:rel,reason:'blob mismatch',expected:row.sha,actual:sha});
   }
@@ -41,8 +41,8 @@ function audit(base=root, manifestFile=manifestPath) {
 if(require.main===module) {
   try {
     const result=audit();
-    process.stdout.write(JSON.stringify(result,null,2)+'\\n');
+    process.stdout.write(JSON.stringify(result,null,2)+'\n');
     if(!result.ok)process.exitCode=1;
-  }catch(e){process.stderr.write(String(e.stack||e)+'\\n');process.exitCode=2;}
+  }catch(e){process.stderr.write(String(e.stack||e)+'\n');process.exitCode=2;}
 }
 module.exports={audit};
