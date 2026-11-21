@@ -33,7 +33,7 @@ try {
       const stat=fs.lstatSync(file);
       if(!stat.isFile()||stat.isSymbolicLink())throw new Error('not a regular file');
       const bytes=fs.readFileSync(file);
-      const blob=crypto.createHash('sha1').update('blob '+bytes.length+'\\0').update(bytes).digest('hex');
+      const blob=crypto.createHash('sha1').update('blob '+bytes.length+String.fromCharCode(0)).update(bytes).digest('hex');
       if(bytes.length!==e.size||blob!==e.sha)
         errors.push('Pinned blob drift: '+rel);
       else checked++;
