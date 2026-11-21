@@ -1,0 +1,9 @@
+# 2026-11-21 09:49 Asia/Baku — fail-closed manifest metadata
+
+- Source of truth: GitHub README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md, simulator/reconstruct-checkout.js, and simulator/verify-current-tree-manifest.js read before change.
+- Engine/rules reference: qosha-research-0.5.3 / qosa-1.0.0; primary 3 players × 9 tiles + one stock. Branch unlocking, block allocation and loneZero=10 remain provisional.
+- Identified source-level integrity gap: verify-current-tree-manifest.js accepted a qosha-simulator-tree-manifest/v1 object with truncated:false even if scope and fileCount were absent. This could certify a partial inventory if its existing files matched. Updated schema-specific completeness guard: current-manifest/v1 requires truncated:false; tree-manifest/v1 requires exact simulator scope, fileCount equal to files.length, and truncated not true. Existing blob/path checks retained. Code commit 66d32d35e737ccfeb23b617b8888f2261191bd3c.
+- Runtime limitation: change was reviewed statically, not executed against a full checkout. No full gameplay validation or strategy simulation performed.
+- Deals: 0; sampled hidden worlds: 0; rollouts: 0; seeds: none; strategies: none. Gameplay validation suites executed 0/17; hidden-world suites 0/4. Win/first-place, mean/median pips, length, block, minus frequencies, doubles, branch effects and regret not measured this pass. Historical 180,000 matched-seat rounds remain separate legacy evidence.
+- Finding: stricter metadata prevents false-positive completeness from a malformed tree manifest; **no new reliable strategic finding**. Confidence high for the code-level guard, no claim of runtime validation.
+- Next exact action: obtain complete pinned research checkout, run strict verifier against the pinned 415-file inventory, preflight, 17+4 suites and fingerprint replays; archive raw outputs and then restart paired-seed strategy comparison. No live scoreboard/PWA files or GitHub Actions changed.
