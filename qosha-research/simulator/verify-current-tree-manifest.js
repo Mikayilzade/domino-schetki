@@ -9,10 +9,14 @@ function verify(root,manifest){
   const errors=[];
   const supportedSchema=manifest.schema==='qosha-current-simulator-manifest/v1'||
     manifest.schema==='qosha-simulator-tree-manifest/v1';
-  const complete=manifest.truncated===false||
-    (manifest.schema==='qosha-simulator-tree-manifest/v1'&&
-     manifest.scope==='qosha-research/simulator/'&&
-     Number.isSafeInteger(manifest.fileCount)&&manifest.fileCount===manifest.files?.length);
+  // Completeness is schema-specific: a tree manifest must declare the exact
+  // simulator scope and count. A bare truncated:false flag cannot certify it.
+  const complete=manifest.schema==='qosha-current-simulator-manifest/v1'
+    ? manifest.truncated===false
+    : (manifest.schema==='qosha-simulator-tree-manifest/v1'&&
+       manifest.scope==='qosha-research/simulator/'&&
+       Number.isSafeInteger(manifest.fileCount)&&manifest.fileCount===manifest.files?.length&&
+       manifest.truncated!==true);
   if(!supportedSchema||
      !/^[a-f0-9]{40}$/.test(manifest.sourceCommit||'')||
      !complete||!Array.isArray(manifest.files)||!manifest.files.length)
