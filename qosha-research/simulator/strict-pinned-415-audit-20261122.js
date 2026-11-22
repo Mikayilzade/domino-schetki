@@ -26,8 +26,10 @@ function audit(base=root, manifestFile=manifestPath) {
     let cur=base,unsafe=false;
     for(const segment of rel.split('/')) {
       cur=path.join(cur,segment);
-      if(!fs.existsSync(cur)){failures.push({path:rel,reason:'missing'});unsafe=true;break;}
-      if(fs.lstatSync(cur).isSymbolicLink()){failures.push({path:rel,reason:'symlink'});unsafe=true;break;}
+      let stat;
+      try { stat=fs.lstatSync(cur); }
+      catch(e) { if(e.code!=='ENOENT')throw e; failures.push({path:rel,reason:'missing'});unsafe=true;break; }
+      if(stat.isSymbolicLink()){failures.push({path:rel,reason:'symlink'});unsafe=true;break;}
     }
     if(unsafe)continue;
     if(!fs.statSync(cur).isFile()){failures.push({path:rel,reason:'nonregular'});continue;}
