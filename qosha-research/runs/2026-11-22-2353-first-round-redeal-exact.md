@@ -1,0 +1,11 @@
+# 2026-11-22 23:53 Asia/Baku — exact first-round redeal baseline
+
+- GitHub source of truth: read README.md, RULES.md, EXPERIMENTS.md, RESULTS.md and STATUS.md; inspected simulator inventory. Reference engine `qosha-research-0.5.3`, recovered rules `qosa-1.0.0`, primary 3 players × 9 tiles + 1 stock.
+- Added `simulator/opening-first-round-redeal-geometric-20261122.js`, standalone exact probability oracle with assertions. It does **not** require or validate the gameplay engine.
+- Assumption: each first-round reshuffle independently draws a uniformly random full 28-tile allocation; 1-1 in the single stock tile forces a redeal. Later-round winner-takes-1-1 opening is **excluded**.
+- Exact result: P(redeal on a fresh deal)=1/28; P(exactly k redeals before a valid first-round opening)=(1/28)^k × 27/28; E[redeals per successful opening]=1/27 ≈ 0.037037; P(at least 2 redeals)=1/784 ≈ 0.127551%. Over 10,000 independently initialized first rounds, expectation is 357.14 first-deal failures, 370.37 total redeals, 12.76 rounds with at least two redeals. This corrects the possible confusion between first-deal failures and total redeals.
+- Standalone mathematical normalization and values independently checked in local Node v22.16.0; the newly committed GitHub JS was **not** executed from a complete SHA-verified checkout.
+- Local `git ls-remote` still failed: `Could not resolve host: github.com`. GitHub connector read/write works, but full research checkout is not available for gameplay validation.
+- New gameplay deals: 0; seed set: none (exact enumeration); strategies: none; hidden-world samples: 0; rollouts: 0; gameplay suites executed: 0/17; Monte Carlo suites executed: 0/4. Win/first-place, pips, round length, blocks, minus, doubles, branches, regret: not measured. Historical 180,000 rounds are separate legacy evidence.
+- New finding: exact first-round initialization/redeal distribution, **not** a strategy advantage. Confidence high in combinatorics conditional on uniform independent reshuffles; physical branch/block/loneZero ambiguities untouched.
+- Exact next action: recover complete single-commit SHA-verified research-only tree; run new standalone oracle and strict integrity regression, preflight, 17+4 gates and fingerprint replays; only then resume matched-seed strategy comparisons. Live scoreboard/PWA and GitHub Actions untouched.
