@@ -13,6 +13,8 @@ const RESEARCH = path.join(ROOT, 'qosha-research');
 let PIN;
 const OWNER = 'Mikayilzade', REPO = 'domino-schetki';
 const token = process.env.GITHUB_TOKEN;
+// Explicit opt-in for refreshing a stale research-only checkout. Default remains fail-closed.
+const replaceStale = process.argv.includes('--replace-stale');
 function sha1GitBlob(data) {
   return crypto.createHash('sha1').update(Buffer.from('blob ' + data.length + '\0')).update(data).digest('hex');
 }
@@ -92,11 +94,13 @@ async function getPinnedInventory() {
 async function download(rel, expected, bytes) {
   const dest = withinResearch(rel);
   rejectSymlinkComponents(dest);
+  let stale = false;
   if (fs.existsSync(dest)) {
-    if (!fs.statSync(dest).isFile()) throw new Error('Not a regular file: ' + rel);
+    if (!fs.lstatSync(dest).isFile()) throw new Error('Not a regular file: ' + rel);
     const existing = fs.readFileSync(dest);
     if (existing.length === bytes && sha1GitBlob(existing) === expected) return 'verified';
-    throw new Error('Existing file differs from pinned commit; refusing overwrite: ' + rel);
+    if (!replaceStale) throw new Error('Existing file differs from pinned commit; use --replace-stale for research-only refresh: ' + rel);
+    stale = true;
   }
   // Raw CDN downloads do not consume GitHub REST API's per-hour request quota.
   // The immutable commit SHA plus the Git blob hash/byte count below preserve
@@ -110,13 +114,15 @@ async function download(rel, expected, bytes) {
   rejectSymlinkComponents(dest);
   const tmp = dest + '.partial-' + process.pid;
   fs.writeFileSync(tmp, data, {flag:'wx'});
+  // The replacement is allowed only after verifying the immutable pinned blob.
+  // Keep the old file intact if network transfer or verification fails.
   fs.renameSync(tmp, dest);
-  return 'downloaded';
+  return stale ? 'replaced' : 'downloaded';
 }
 async function main() {
   const entries = await getPinnedInventory();
   const contracts = ['README.md','RULES.md','EXPERIMENTS.md','RESULTS.md','STATUS.md'];
-  const count = {verified:0, downloaded:0};
+  const count = {verified:0, downloaded:0, replaced:0};
   for (const item of entries) {
     const state = await download(item.rel, item.sha, item.bytes);
     count[state]++;
