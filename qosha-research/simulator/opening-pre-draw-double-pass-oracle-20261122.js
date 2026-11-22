@@ -17,7 +17,6 @@ for(let k=0;k<=6;k++){
     initialNoConnectorCount:noConnector,passProbability:passNumerator/passDenominator});
 }
 if(rows.reduce((a,r)=>a+r.initialHandCount,0)!==C(27,8))throw Error('hand partition');
-const aggregate=rows.reduce((a,r)=>a+r.initialNoConnectorCount*13,a=>a,0);
 // Independent total: after stock draw, nine nonconnectors out of 27.
 const direct=C(21,9)/C(27,9);
 const weighted=rows.reduce((a,r)=>a+r.initialHandCount*r.passProbability,0)/C(27,8);
