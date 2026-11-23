@@ -39,6 +39,10 @@ try {
   assert(run().failures.some(f=>f.reason==='symlink'),'dangling symlink rejected as symlink');
   fs.unlinkSync(target);
   fs.writeFileSync(target,'// pinned fixture 0\n');
+  const extra=path.join(sim,'unlisted-extra.js');
+  fs.writeFileSync(extra,'// unlisted\\n');
+  assert(run().failures.some(f=>f.reason==='unexpected file'),'unlisted file rejected');
+  fs.unlinkSync(extra);
   meta.files[1]={...meta.files[1],path:meta.files[0].path};
   save();
   assert(run().failures.some(f=>f.reason==='invalid manifest row'),'duplicate path rejected');
@@ -48,5 +52,5 @@ try {
   meta.files[2]=rows[2];meta.sourceCommit='not-pinned';save();
   assert.throws(run,/Unexpected pinned manifest metadata/,'wrong source commit rejected');
   console.log(JSON.stringify({schema:'qosha-strict-pinned-415-audit-regression/v1',
-    passed:true,syntheticFiles:415,checks:8,gameplayDeals:0}));
+    passed:true,syntheticFiles:415,checks:9,gameplayDeals:0}));
 }finally{fs.rmSync(temp,{recursive:true,force:true});}
