@@ -38,6 +38,23 @@ function audit(base=root, manifestFile=manifestPath) {
     if(b.length!==row.size||sha!==row.sha)
       failures.push({path:rel,reason:'blob mismatch',expected:row.sha,actual:sha});
   }
+  // An immutable snapshot is an exact file set, not just 415 present blobs.
+  // Reject unlisted files and symlinked directories; do not follow symlinks.
+  function scan(dir) {
+    for(const entry of fs.readdirSync(dir,{withFileTypes:true})) {
+      const full=path.join(dir,entry.name);
+      const rel=path.relative(base,full).split(path.sep).join('/');
+      if(entry.isSymbolicLink()) {
+        failures.push({path:rel,reason:'unexpected symlink'});
+      } else if(entry.isDirectory()) {
+        scan(full);
+      } else if(!seen.has(rel)) {
+        failures.push({path:rel,reason:'unexpected file'});
+      }
+    }
+  }
+  const simulatorDir=path.join(base,'simulator');
+  if(fs.existsSync(simulatorDir)&&fs.lstatSync(simulatorDir).isDirectory())scan(simulatorDir);
   return {ok:failures.length===0,sourceCommit:m.sourceCommit,checked:seen.size,failures};
 }
 if(require.main===module) {
