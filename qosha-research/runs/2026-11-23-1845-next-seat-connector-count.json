@@ -1,0 +1,42 @@
+{
+  "timestamp_asia_baku": "2026-11-23T18:45:35+04:00",
+  "rules_version": "qosa-1.0.0 (recovered)",
+  "engine_reference": "qosha-research-0.5.3 (not executed)",
+  "mode": "3 players x 9 tiles, one stock",
+  "experiment": "Exact next-seat connector count conditional on opening forced pass after 1-1",
+  "deals_simulated": 0,
+  "seed_set": null,
+  "strategies": [],
+  "exact_equally_likely_next_seat_hands": 48620,
+  "conditioning": "Starter owns 1-1, draws one stock tile, and has no other 1-x ordinary connector in the resulting nine-tile hand; six ordinary 1-x connectors are among 18 tiles split 9/9 between the two opponents.",
+  "method": "Hypergeometric: P(K=k)=C(6,k)*C(12,9-k)/C(18,9). Independently computed in local Python 3 using math.comb.",
+  "connector_count_distribution": [
+    220,
+    2970,
+    11880,
+    18480,
+    11880,
+    2970,
+    220
+  ],
+  "connector_count_probabilities": [
+    0.004524886877828055,
+    0.06108597285067873,
+    0.24434389140271492,
+    0.38009049773755654,
+    0.24434389140271492,
+    0.06108597285067873,
+    0.004524886877828055
+  ],
+  "mean_connectors": 3,
+  "probability_at_least_two": 0.9343891402714932,
+  "probability_at_least_three": 0.6900452488687783,
+  "probability_none": 0.004524886877828055,
+  "new_finding": "Conditional on the starter's forced opening pass, the next player has at least two ordinary 1-x connectors in 93.44% of deals; mean is exactly 3. This measures tile ownership, not guaranteed move legality, selected move, or strategic advantage.",
+  "confidence": "Exact combinatorics under uniform deals and the confirmed opening condition; no engine validation or strategy inference.",
+  "limitations": "Branch unlocking, block scoring, loneZero=10 provisional; connector ownership does not imply legal branch or optimal play. No full simulator checkout because executable git DNS fails.",
+  "validation": "Local Python math.comb calculation executed; 0/17 gameplay and 0/4 hidden-world suites executed; 0 Monte Carlo worlds.",
+  "historical_baseline": "180000 persisted matched-seat rounds, separate and not combined with this exact enumeration.",
+  "next_action": "Recover complete single-commit SHA/path/size-verified research-only checkout, run strict audit and preflight, 17 gameplay plus 4 hidden-world suites and fingerprint replays, archive raw outputs, then matched-seed strategy comparisons.",
+  "pwa_files_modified": false
+}
