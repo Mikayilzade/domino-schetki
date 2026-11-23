@@ -30,7 +30,7 @@ function walk(file){
   const re=/\brequire\s*\(\s*['"]((?:\.\.?\/)[^'"]+)['"]\s*\)/g;
   for(const match of source.matchAll(re)){
     const base=path.resolve(path.dirname(file),match[1]);
-    const resolved=[base,base+'.js',base+'.json',path.join(base,'index.js')]
+    const resolved=[base,base+'.js',base+'.cjs',base+'.json',path.join(base,'index.js'),path.join(base,'index.cjs')]
       .find(candidate=>fs.existsSync(candidate)&&fs.lstatSync(candidate).isFile());
     if(!resolved){missing.add(path.relative(path.join(root,'..'),base));continue;}
     walk(resolved);
@@ -48,9 +48,9 @@ function inspectInputs(dir) {
     if(entry.isDirectory()) {inspectInputs(full);continue;}
     if(!entry.isFile()) {invalid.push('Unexpected simulator entry: '+relative);continue;}
     allSimulatorFiles.push(relative);
-    if(!/\.(?:js|json)$/.test(entry.name)) continue;
+    if(!/\.(?:js|cjs|json)$/.test(entry.name)) continue;
     inputFiles.push(relative);
-    if(entry.name.endsWith('.js')) {
+    if(/\.(?:js|cjs)$/.test(entry.name)) {
       // Syntax-check every JS file, including unreferenced nested modules, in-process.
       // This is a parse check only; no game logic or top-level module code runs.
       // Parse in-process as CommonJS, without executing any module code.
@@ -140,7 +140,7 @@ else {
 // Check literal relative dependency closure for every simulator JS input, including
 // utilities not reached from the 17 suite entrypoints. Syntax alone cannot
 // detect a missing require target in an otherwise valid unreferenced module.
-for(const relative of inputFiles.filter(n=>n.endsWith('.js'))) walk(path.join(root,relative));
+for(const relative of inputFiles.filter(n=>/\.(?:js|cjs)$/.test(n))) walk(path.join(root,relative));
 inputFiles.sort();
 // Historical pinned inventory is a minimum baseline, not the current complete
 // manifest. Expose additions explicitly so recovery tooling cannot mistake
@@ -415,6 +415,6 @@ else {
 }
 // Compute failure set AFTER checking the fresh manifest; otherwise its missing files are ignored.
 const requiredMissing=[...missing].sort();
-const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,unpinnedInputCount:unpinnedInputs.length,unpinnedInputs,pinnedMissingFromCurrent,pinnedNonInputCount,pinnedDriftCount:pinnedDrift.length,pinnedDrift,snapshotEntries,snapshotMissingCount:snapshotMissing.length,snapshotMissing,snapshotDriftCount:snapshotDrift.length,snapshotDrift,currentManifestEntries,currentManifestMissingCount:currentManifestMissing.length,currentManifestMissing,currentManifestDriftCount:currentManifestDrift.length,currentManifestDrift,simulatorAllFiles:allSimulatorFiles.length,latestObservedFileFloor,latestManifestEntries,latestManifestMissingCount:latestManifestMissing.length,latestManifestDriftCount:latestManifestDrift.length,latestManifestDrift,freshManifestEntries,freshManifestMissingCount:freshManifestMissing.length,freshManifestMissing,freshManifestDriftCount:freshManifestDrift.length,freshManifestDrift,headManifestEntries,headManifestMissingCount:headManifestMissing.length,headManifestDriftCount:headManifestDrift.length,headManifestDrift,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>x.endsWith('.js')).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory and 398-blob immutable snapshot presence and 406-path and 409-path single-commit manifest presence (SHA drift nonblocking), explicit nonblocking snapshot SHA drift diagnostics and unpinned-file diagnostics plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
+const report={schema:'qosha-checkout-preflight/v1',passed:requiredMissing.length===0&&invalid.length===0,expectedSuites:17,missing:requiredMissing,invalid,visitedFiles:visited.size,pinnedInventoryEntries:pinnedEntries,unpinnedInputCount:unpinnedInputs.length,unpinnedInputs,pinnedMissingFromCurrent,pinnedNonInputCount,pinnedDriftCount:pinnedDrift.length,pinnedDrift,snapshotEntries,snapshotMissingCount:snapshotMissing.length,snapshotMissing,snapshotDriftCount:snapshotDrift.length,snapshotDrift,currentManifestEntries,currentManifestMissingCount:currentManifestMissing.length,currentManifestMissing,currentManifestDriftCount:currentManifestDrift.length,currentManifestDrift,simulatorAllFiles:allSimulatorFiles.length,latestObservedFileFloor,latestManifestEntries,latestManifestMissingCount:latestManifestMissing.length,latestManifestDriftCount:latestManifestDrift.length,latestManifestDrift,freshManifestEntries,freshManifestMissingCount:freshManifestMissing.length,freshManifestMissing,freshManifestDriftCount:freshManifestDrift.length,freshManifestDrift,headManifestEntries,headManifestMissingCount:headManifestMissing.length,headManifestDriftCount:headManifestDrift.length,headManifestDrift,simulatorInputs:inputFiles.length,simulatorJsonFiles:inputFiles.filter(x=>x.endsWith('.json')).length,simulatorJsSyntaxChecked:inputFiles.filter(x=>/\.(?:js|cjs)$/.test(x)).length,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),limitation:'Recursive simulator JS literal-relative-require closure, historical pinned inventory and 398-blob immutable snapshot presence and 406-path and 409-path single-commit manifest presence (SHA drift nonblocking), explicit nonblocking snapshot SHA drift diagnostics and unpinned-file diagnostics plus nonblocking Git blob SHA-1 drift audit, plus JS/JSON presence, symlink, in-process CommonJS JS parse and JSON syntax checks. Does not execute suites, verify dynamic imports, or authenticate physical rules.'};
 console.log(JSON.stringify(report,null,2));
 if(!report.passed)process.exitCode=1;
