@@ -1,0 +1,11 @@
+# Preflight dangling-symlink audit — 2026-11-23 05:49 Asia/Baku
+
+- Rules: recovered `qosa-1.0.0`; research engine reference `qosha-research-0.5.3`; 3 players × 9 stones + 1 stock.
+- GitHub source files inspected: README.md, RULES.md, EXPERIMENTS.md, RESULTS.md, STATUS.md, validation-checkout-preflight.js, validation-gate.js, hidden-world-validation-gate.js.
+- Runtime check: Node v22.16.0; `git ls-remote https://github.com/Mikayilzade/domino-schetki.git HEAD` failed `Could not resolve host: github.com`.
+- **New static audit finding:** In `validation-checkout-preflight.js`, historical snapshot/current/HEAD manifest path walks use `fs.existsSync(current)` before `fs.lstatSync(current).isSymbolicLink()`. A dangling symlink therefore enters the *missing* diagnostic path rather than the *symlink* diagnostic path. This does **not** imply a false-green preflight: missing paths still fail the gate. The separate strict pinned verifier was fixed for this issue earlier; the preflight still has the diagnostic inconsistency.
+- Exact repair: for each path component, use `lstatSync` inside try/catch, distinguish `ENOENT` from other I/O errors, and reject symlinks before following paths. Add a synthetic dangling-symlink fixture that asserts the preflight's `invalid` diagnostics explicitly contain the symlink path and `passed === false`. Preserve historical manifest drift as nonblocking where intentional.
+- Experiment: static source audit only; **0** new deals, **0** hidden worlds, **0** rollouts; seed set none; strategies none; gameplay suites **0/17 executed**, hidden-world suites **0/4 executed**. No win/first-place, pips, round length, block, minus, double, branch or regret metrics measured. Historical **180,000** matched-seat rounds are a separate legacy subtotal.
+- Finding confidence: high for source-level diagnostic gap; no new reliable gameplay strategy finding. Physical branch unlock, block allocation and loneZero=10 remain provisional.
+- Exact next action: restore complete single-commit SHA-verified research checkout, fix the preflight diagnostic, run strict manifest audit and synthetic checks, preflight, 17+4 validation suites and fingerprint replays; archive raw outputs before matched-seed experiments.
+- Scope: research-only; no live scoreboard/PWA files or GitHub Actions changed.
