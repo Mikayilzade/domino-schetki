@@ -1,0 +1,7 @@
+# 2026-11-26 02:53 Asia/Baku — four-branch partial regression
+
+Rules qosa-1.0.0; reference engine qosha-research-0.5.3; 3×9+1. Executed existing exported four-branch-lock-kernel-test.js test() in V8 CommonJS adapter using connector source, not native Node gate. Result: {"passed":true,"fullSequences":24,"minus":-40,"scope":"kernel only, real four-branch semantics provisional"}.
+
+Source blob identifiers: {"four-branch-lock-kernel-test.js":"c06fc39a13babd0dc70baa6ed217d92a094bac64","engine.js":"82e5bd544a57683d5b4f7812beb2d4abf80da894","turn-dispatcher.js":"55b0bcf3f1653c64b4e06bc95d7e917a480562a0","turn-kernel.js":"94657896e1f8e471ceb2e9a65d1842b6102dff18"}. No independent byte hash or full checkout verification this run. Ten synthetic assertions cover initial sides, isolation, locked number, opening double, unlocked continuation, unexposed double, inactive sides, independent ends, 24 four-double permutations and −40 finish. Physical branch semantics, block allocation and loneZero remain provisional.
+
+New strategy deals 0; seeds none; strategies none; hidden worlds/rollouts 0. No new win, remainder, length, block, minus frequency, doubles or regret metrics. Historical 180,000 matched-seat rounds remain separate. No new strategic finding. Next: run native full gameplay/hidden-world gates and fingerprint replays after verified checkout, then matched-seed comparisons. No PWA changes.
