@@ -367,3 +367,8 @@ See [run report](runs/20261125-0954-draw-mixed-partial.md): two exported suites 
 ## 2026-11-25 10:48 Asia/Baku — opening/block/scoring partial execution
 
 See [run report](runs/20261125-1048-opening-block-scoring-partial.md): four exported suites passed in V8 adapter, 30,303 assertions; native gate not run.
+
+
+## 2026-11-25 11:52 Asia/Baku — legality/order/terminal partial execution
+
+See [run report](runs/20261125-1152-legality-order-terminal-partial.md): three exported suites passed in V8 adapter, 658 assertions; native gate not run.
