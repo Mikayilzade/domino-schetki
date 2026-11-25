@@ -362,3 +362,8 @@ Last checkpoint: 2026-11-15 21:50 Asia/Baku. See latest dated checkpoint below; 
 ## 2026-11-25 09:54 Asia/Baku — draw/mixed partial execution
 
 See [run report](runs/20261125-0954-draw-mixed-partial.md): two exported suites passed in V8 adapter, 1166 assertions; native gate not run.
+
+
+## 2026-11-25 10:48 Asia/Baku — opening/block/scoring partial execution
+
+See [run report](runs/20261125-1048-opening-block-scoring-partial.md): four exported suites passed in V8 adapter, 30,303 assertions; native gate not run.
