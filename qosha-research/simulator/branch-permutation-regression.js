@@ -71,7 +71,7 @@ function run(){
  const locked=e.createBranchState([1,1],['up','left','right']);
  locked.branches.up.end=1;locked.branches.left.end=2;locked.branches.right.end=5;
  locked.branches.down.end=1;
- const w=check(locked,e.createOpeningState([1]),[[1,6],[2,2],[5,5]],['single','multiDouble']);
+ const w=check(locked,e.createOpeningState([1]),[[1,6],[2,2],[5,5],[0,4]],['single','multiDouble']);
  return {passed:true,engine:'qosha-research-0.5.3',fixtures:4,permutations:x.permutations+y.permutations+z.permutations+w.permutations,actionTransitions:x.actionTransitions+y.actionTransitions+z.actionTransitions+w.actionTransitions,results:[x,y,z,w],coverageVerified:true};
 }
 if(require.main===module)console.log(JSON.stringify(run(),null,2));
