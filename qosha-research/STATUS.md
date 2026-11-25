@@ -357,3 +357,8 @@ Last checkpoint: 2026-11-15 21:50 Asia/Baku. See latest dated checkpoint below; 
 - Reconstructed two source files in a temporary executable directory from connector text; independently verified exact Git blob SHA via git hash-object: engine.js 82e5bd544a57683d5b4f7812beb2d4abf80da894; test.js 7438e5332e25606324e39c9b8ccde603064806eb. Node v22.16.0, command node test.js, exit 0, stdout: qosa research invariants: OK.
 - Actual executed coverage: 10,000 deterministic initial deals (seeds 0..9999), four replay/conservation fixtures (0,1,1898414179,4294967295), stock coverage/broad frequency bounds, pip sums, minus -10/-20/-30/-40 pure helper, floor, partial and full double opening sequence enumeration. This is one standalone smoke suite, NOT one of the 17 formal gameplay gate suites. No full rounds, strategy deals, hidden worlds or rollouts; no win/remainder/length/block/regret metrics. Historical 180,000 matched-seat rounds separate. Formal gates remain 0/17 and 0/4 executed.
 - Finding: connector text can be transferred to the shell with exact Git blob identity, and the basic kernel actually executes successfully. High confidence in this narrow test, no new strategy conclusion. Next: reconstruct and hash-check the dependency closure for a formal suite (seed-deal-regression.js first), execute it independently with explicit partial-checkout scope, then complete the full pinned inventory and both gates. No live PWA or Actions changes.
+
+
+## 2026-11-25 09:54 Asia/Baku — draw/mixed partial execution
+
+See [run report](runs/20261125-0954-draw-mixed-partial.md): two exported suites passed in V8 adapter, 1166 assertions; native gate not run.
