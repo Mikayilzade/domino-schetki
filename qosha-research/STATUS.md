@@ -372,3 +372,8 @@ See [run report](runs/20261125-1048-opening-block-scoring-partial.md): four expo
 ## 2026-11-25 11:52 Asia/Baku — legality/order/terminal partial execution
 
 See [run report](runs/20261125-1152-legality-order-terminal-partial.md): three exported suites passed in V8 adapter, 658 assertions; native gate not run.
+
+
+## 2026-11-25 12:50 Asia/Baku — permutation/conservation partial execution
+
+See [run report](runs/20261125-1250-permutation-conservation-partial.md) for actual suite results and limitations.
