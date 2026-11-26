@@ -1,0 +1,7 @@
+# 2026-11-26 05:54 Asia/Baku — exact allocation oracle
+
+Engine reference qosha-research-0.5.3; recovered qosa-1.0.0. Independent V8 enumeration of the existing finite-support test fixture (10 distinct tiles, three labelled hidden slots of size 3, stock size 1; generic allocator fixture, not a literal three-player focal state). Source inspected: hidden-world-enumeration.js blob 06c3019e8581363c448244367d69bcb13c8432eb; hidden-world-enumeration-test.js blob 1fe47a888fc3986261da854ddec7309f1890d6f9.
+
+Executed independent stock-first nested enumeration: 16,800 unique partitions, no duplicate or conservation failures; every tile occurs 1,680 times in stock and 5,040 times in each labelled hand. Exact marginals 10% and 30% respectively. No random seeds, no strategies, zero gameplay deals and zero continuations. Historical 180,000 matched-seat rounds remain separate. This verifies an independent reference census, not execution of the repository allocator or hash-ranked subset, and does not green either formal gate. Branch unlock, block allocation and loneZero remain provisional. No strategy finding; gameplay metrics not measured.
+
+Reproduction: loop stock index 0..9, choose 3 of remaining 9 for slot 0, choose 3 of remaining 6 for slot 1, assign remainder to slot 2. Assert unique seat-labelled fingerprints, exact partition and above marginals. Next: run actual repository enumeration suite with native crypto, compare marginal counts and verify deterministic hash-ranked subset; then complete pinned checkout and gates.
