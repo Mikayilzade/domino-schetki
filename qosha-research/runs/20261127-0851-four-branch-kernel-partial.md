@@ -1,0 +1,7 @@
+# 2026-11-27 08:51 Asia/Baku — four-branch kernel partial validation
+
+Engine qosha-research-0.5.3; recovered qosa-1.0.0, primary 3×9+1. Read README, RULES, EXPERIMENTS, STATUS; RESULTS raw fetch rejected (size 1,048,869 bytes), so historical totals not independently refreshed. Fetched validation gates and exact source text of four-branch-lock-kernel-test.js, engine.js, turn-dispatcher.js, turn-kernel.js from main. Executed exported test() using a V8 CommonJS adapter with relative imports; not a native Node checkout or full gate. No byte hash verification in this run.
+
+Actual output: `{"passed":true,"fullSequences":24,"minus":-40,"scope":"kernel only, real four-branch semantics provisional"}`. Checks initial four ends, side isolation, locked number, exposed double unlocking, unexposed double rejection, inactive sides, four distinct ends, all 24 permutations, terminal -40. This is synthetic kernel evidence, not confirmation of physical locking rules. Block allocation and loneZero remain provisional.
+
+New deals/rounds/hidden worlds/rollouts: 0; seeds none; strategies none. No new win, remainder, length, block, minus frequency, double value, branch effect or regret estimates. Native gates remain unexecuted; no strategy promotion. Next: recover native checkout and execute gates, or independently execute missing formal suite dependency closures; prioritize actual gameplay over further shuffle-only tests. No live files changed.
