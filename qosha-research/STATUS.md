@@ -382,3 +382,8 @@ See [run report](runs/20261125-1250-permutation-conservation-partial.md) for act
 ## 2026-11-27 04:51 Asia/Baku — exact opening-double connectivity
 
 See [run report](runs/20261127-0451-opening-double-connectivity.md). Exact conditional counts; no new gameplay or native gate validation.
+
+
+## 2026-11-27 19:53 Asia/Baku — initial-deal double-count oracle
+
+See [run report](runs/20261127-1953-deal-double-count-oracle.md). 20,000 deterministic raw deals; isolated V8 execution, no formal gate or strategy result.
