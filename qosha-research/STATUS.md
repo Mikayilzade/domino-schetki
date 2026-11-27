@@ -377,3 +377,8 @@ See [run report](runs/20261125-1152-legality-order-terminal-partial.md): three e
 ## 2026-11-25 12:50 Asia/Baku — permutation/conservation partial execution
 
 See [run report](runs/20261125-1250-permutation-conservation-partial.md) for actual suite results and limitations.
+
+
+## 2026-11-27 04:51 Asia/Baku — exact opening-double connectivity
+
+See [run report](runs/20261127-0451-opening-double-connectivity.md). Exact conditional counts; no new gameplay or native gate validation.
