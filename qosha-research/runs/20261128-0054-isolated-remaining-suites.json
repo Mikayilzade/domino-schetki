@@ -1,0 +1,147 @@
+{
+  "timestamp": "2026-11-28T00:54:08+04:00",
+  "engine": "qosha-research-0.5.3",
+  "rules": "recovered qosa-1.0.0; branch/block/loneZero provisional",
+  "strategyDeals": 0,
+  "strategies": [],
+  "seedSet": "opening stock search from 0; deterministic fixture seeds in source and outputs",
+  "method": "Fetched GitHub CommonJS modules executed in V8 with custom strict/structural assertion adapter; not native Node, not HEAD-pinned full checkout; no full gate credit.",
+  "sourceBlobs": {
+    "opening-stock-regression.js": "1bcb7f10199699a27036db4d5e72e38fb306b022",
+    "engine.js": "82e5bd544a57683d5b4f7812beb2d4abf80da894",
+    "initializer.js": "2fad29e516454580ec9a06115354e9866f3096e6",
+    "turn-dispatcher.js": "55b0bcf3f1653c64b4e06bc95d7e917a480562a0",
+    "turn-kernel.js": "94657896e1f8e471ceb2e9a65d1842b6102dff18",
+    "specific-double-starter-test.js": "b803f505edda1f04d7d48215e221efd5f382c1d3",
+    "specific-double-control.js": "cf159e766a475a1f77bc68a76bf500b89886a4ee",
+    "round-driver.js": "fbaad78865adbddde1ea6651e6a501dc0bde3203",
+    "strategy-runner.js": "b7078942bc8f5dac6a8b07494ae8aaeadbdb1f5f",
+    "hand-order-regression.js": "d68881b4489a7709b3dfca9a285c4e34a4ab2775",
+    "terminal-minus-integration-test.js": "e0240f0da69fa9f3a0508332e70a72ba9e316a19",
+    "initializer-redeal-conservation-audit-test.js": "4b9e7607900a86b89f5161014c1f0c972d4620f8",
+    "initializer-redeal-conservation-audit.js": "bd2c353a70574829d2b1a3a5e2269e5af833f092",
+    "redeal-full-round-audit-test.js": "454eea90905ac77c68d4ffdfa1d4aff0afed8c61",
+    "redeal-full-round-audit.js": "a439b46473cac35a7d4e96bafe82136d1383f28b"
+  },
+  "results": [
+    {
+      "name": "opening-stock-regression.js",
+      "passed": true,
+      "assertions": 38,
+      "output": [
+        {
+          "passed": true,
+          "engine": "qosha-research-0.5.3",
+          "deals": 0,
+          "seed": 15,
+          "firstRoundRedeal": true,
+          "missingWinnerUnresolved": true,
+          "previousWinnerCases": [
+            {
+              "winner": 0,
+              "openingPassed": true,
+              "followup": null
+            },
+            {
+              "winner": 1,
+              "openingPassed": false,
+              "followup": "1-4"
+            },
+            {
+              "winner": 2,
+              "openingPassed": false,
+              "followup": "1-6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "specific-double-starter-test.js",
+      "passed": true,
+      "assertions": 8,
+      "output": [
+        {
+          "schema": "qosha-specific-double-starter-regression/v1",
+          "passed": true,
+          "deals": 0,
+          "fixtures": 1,
+          "previousWinnerIndex": 1,
+          "actualStarter": 1,
+          "stockOpening": true,
+          "rawHandOwnsOpening": false
+        }
+      ]
+    },
+    {
+      "name": "hand-order-regression.js",
+      "passed": true,
+      "assertions": 492,
+      "output": [
+        {
+          "passed": true,
+          "engine": "qosha-research-0.5.3",
+          "deals": 0,
+          "fixtures": 3,
+          "comparisons": 15,
+          "transitions": 79,
+          "results": [
+            {
+              "comparisons": 6,
+              "transitions": 30,
+              "legalActions": 5
+            },
+            {
+              "comparisons": 4,
+              "transitions": 24,
+              "legalActions": 6
+            },
+            {
+              "comparisons": 5,
+              "transitions": 25,
+              "legalActions": 5
+            }
+          ],
+          "limitation": "constructed states; provisional branch semantics; no strategy inference"
+        }
+      ]
+    },
+    {
+      "name": "terminal-minus-integration-test.js",
+      "passed": true,
+      "assertions": 153,
+      "output": [
+        {
+          "passed": true,
+          "engine": "qosha-research-0.5.3",
+          "deals": 0,
+          "terminalFixtures": 5,
+          "verifiedTerminalActions": 35,
+          "nonTerminalPrefixFixtures": 1,
+          "minusValues": [
+            -10,
+            -20,
+            -30,
+            -40
+          ],
+          "limitation": "constructed states; branch-opening interpretation provisional"
+        }
+      ]
+    },
+    {
+      "name": "initializer-redeal-conservation-audit-test.js",
+      "passed": false,
+      "assertions": 0,
+      "error": "ReferenceError: process is not defined"
+    },
+    {
+      "name": "redeal-full-round-audit-test.js",
+      "passed": false,
+      "assertions": 0,
+      "error": "ReferenceError: process is not defined"
+    }
+  ],
+  "assertions": 691,
+  "limitations": "Fixture replays not independent strategy deals; no strategy metrics measured. Historical 180000 matched-seat rounds separate. RESULTS.md read via blob; shell DNS failed.",
+  "next": "Recover complete single-commit checkout and run native Node preflight and both gates; prioritize any failing suites. Do not repeat isolated passing tests as new strategy evidence."
+}
