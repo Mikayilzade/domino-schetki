@@ -387,3 +387,11 @@ See [run report](runs/20261127-0451-opening-double-connectivity.md). Exact condi
 ## 2026-11-27 19:53 Asia/Baku — initial-deal double-count oracle
 
 See [run report](runs/20261127-1953-deal-double-count-oracle.md). 20,000 deterministic raw deals; isolated V8 execution, no formal gate or strategy result.
+
+
+## 2026-11-27 20:50 Asia/Baku — isolated formal deal suite replay
+
+- Read README, RULES, EXPERIMENTS, RESULTS via blob, STATUS, gameplay/hidden-world gates and preflight. Engine qosha-research-0.5.3 / recovered qosa-1.0.0. Branch unlock, block allocation, loneZero remain provisional.
+- Executed fetched seed-deal-regression.js and five-player-deal-regression.js against engine.js in isolated V8 CommonJS adapter. 15,363 assertion calls passed. Strict equality and structural JSON/Set equality shim; crypto digest replaced by exact serialized string identity for uniqueness (no hash collision, but not native crypto execution). GitHub source blobs: 483cea1e94d7acb266b24bb67809050d68d9e811, 71022e8bb6aa56ff3a905687109df26658cc33ca, 82e5bd544a57683d5b4f7812beb2d4abf80da894 respectively.
+- 3x9+1: seeds 22000000..22001023, 1024/1024 unique ordered deals, 40 stock 1-1. 5x5+3: seeds 23000000..23001023, 1024/1024 unique ordered deals, 119 stock 1-1. Both coverage contracts satisfied in adapter. Replay of existing fixtures, not new independent strategy cohort; 2048 raw deals, zero full rounds, hidden worlds or strategy rollouts. Strategies none. No win/pips/length/block/minus/double/branch/regret metrics measured. Historical 180,000 matched-seat rounds separate.
+- Native full gate remains unexecuted; attempted bulk connector dependency retrieval exceeded tool-call limit. No reliable new strategic finding. Next: reconstruct complete pinned checkout in batches and execute native preflight, 17+4 suites and fingerprint replays; do not repeat raw deal sampling. No live PWA or Actions changes.
