@@ -1,0 +1,9 @@
+# 2026-11-28 01:46 Asia/Baku — fixed-visible rollout regression
+
+Engine qosha-research-0.5.3; recovered qosa-1.0.0; primary 3×9+1. Read README, RULES, EXPERIMENTS, RESULTS (via blob), STATUS, both gates and replay sources. Simulator tree f4638b6c2ec8cd44ad6659d993d933f391793893.
+
+Executed actual hidden-world-test.js with eight fetched dependencies (engine, hidden-world, round-driver, turn-kernel, turn-dispatcher, decision-regret, strategy-runner, initializer) in isolated V8 CommonJS adapter. First attempt stopped at missing assertion shim method; added notDeepStrictEqual and reran from scratch. 66 assertion calls passed; strict equality and structural JSON/Set/Map comparison shim, not native Node assertion implementation. Output: `fixed-visible hidden-world regression: ok; worlds=25 candidates=8`.
+
+25 fixture worlds, seeds 700..724, eight candidate actions, 200 candidate-world continuations under the existing default continuation policy, maxTurns=100. All candidates have 25 observations; visible state unchanged; invalid inputs rejected. This is existing fixture replay, not independent new strategy deals (0). No new strategy comparison or reliable strategic finding. Win/first-place, mean/median remainder, length, block rate, minus frequencies, double and branch effects, regret not reported as strategy metrics. Historical 180,000 matched-seat rounds remain separate. Branch unlock, block allocation and loneZero remain provisional.
+
+Native git clone failed DNS (Could not resolve host: github.com). Full native gates and fingerprints remain unexecuted. Next: obtain byte-verified native dependency closure and execute actual Node suite entrypoints, then full pinned preflight and both gates; do not repeat the same isolated fixture as new evidence. No live PWA or Actions changes.
