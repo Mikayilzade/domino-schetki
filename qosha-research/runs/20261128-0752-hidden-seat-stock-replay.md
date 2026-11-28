@@ -1,0 +1,7 @@
+# 2026-11-28 07:52 Asia/Baku — hidden seat/stock regression replay
+
+Engine qosa-research-0.5.3; recovered rules qosa-1.0.0. Source: main simulator tree 378555c59d24e66bca501932c028c536eb1f25d8. Read README, RULES, EXPERIMENTS, RESULTS (raw retrieval attempted), STATUS and gate/engine sources. 
+
+Executed repository hidden-world-seat-stock-regression-test.js in isolated V8 CommonJS adapter, using fetched engine.js and hidden-world.js. Adapter strict equality and recursively normalized structural equality (including Sets); no native Node gate claim. 3,303 assertion calls passed. Suite emitted status passed, checks=300, seeds 25000000..25000099, focal seats 0,1,2. Each of 300 synthetic allocations replayed deterministically, conserved all 28 distinct stones, retained fixed focal hand and stock size 1, and did not mutate visible input. This is an existing regression replay, not an independent new cohort; 300 primary allocations plus 300 replay calls. Zero gameplay deals/rollouts; strategies none; win/pips/round length/block/minus/double/branch/regret not measured. Historical 180,000 matched-seat rounds remain separate. No new strategy finding. Confidence high for this narrow conservation contract, not for posterior calibration or gameplay. Branch unlocking, block allocation and loneZero remain provisional.
+
+Next: native checkout preflight and full 17+4 gates with fingerprint replay; prioritize actual execution over repeated standalone allocation tests. No live PWA or Actions changes.
