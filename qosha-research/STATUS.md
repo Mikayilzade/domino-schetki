@@ -400,3 +400,12 @@ See [run report](runs/20261127-1953-deal-double-count-oracle.md). 20,000 determi
 ## 2026-11-28 04:53 Asia/Baku — sibling transition isolation
 
 See [run report](runs/20261128-0453-sibling-transition-isolation.md): 200 accepted fixture rounds, 16,988 candidate transitions, 60,450 checks passed in V8 adapter. Native gates remain unexecuted.
+
+
+## 2026-11-28 11:51 Asia/Baku — exact opponent double isolation oracle
+
+- Engine reference qosha-research-0.5.3 / recovered qosa-1.0.0; primary 3x9. Read README, RULES, EXPERIMENTS, STATUS and both gates/preflight. RESULTS.md connector returned empty content with nonempty blob SHA even for line-range request; do not overwrite it. Shell GitHub DNS still fails; Node v22.16.0 available.
+- Executed independent Python exhaustive enumeration: after 1-1 is placed and stock consumed, assume starter's known nine stones include 1-x (x != 1), and x-x is absent from that hand. Under uniform hidden allocation, condition on the holder of x-x; their other eight stones are a uniform subset of 17. Let k be the number of other x-connectors among the hidden stones (0..5). Enumerated all C(17,8)=24,310 subsets and checked each count against C(17-k,8). Counts for zero connectors in the double-holder's hand: 24,310; 12,870; 6,435; 3,003; 1,287; 495 respectively (100%, 52.94%, 26.47%, 12.35%, 5.29%, 2.04%). Reproduction: Python itertools.combinations(range(17),8); for each k count subsets h satisfying all(i>=k for i in h); assert equality to math.comb(17-k,8).
+- This is an exact conditional prior, not a prediction of a chosen move or inability to play a double. No pass/choice evidence, branch assumptions, or opponent policy used. Useful as a hidden-world allocator oracle for opening positions; actual observed opening choices may bias the prior. Confidence high for combinatorics only.
+- New gameplay deals 0, strategy rollouts 0, sampled hidden worlds 0; 24,310 exact conditional subsets, 145,860 subset/predicate evaluations; no seeds or strategies (exhaustive). Win/first-place, remainder, length, block, minus and regret not measured. Native gates 0/17 and 0/4 this run. Historical 180,000 matched-seat rounds separate; no all-time total asserted.
+- Next: compare allocator frequencies against this conditional oracle, then complete SHA-verified checkout and native gates before strategy comparisons. Branch/block/loneZero remain provisional. No live PWA or Actions changes.
